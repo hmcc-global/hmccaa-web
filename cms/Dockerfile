@@ -1,0 +1,19 @@
+FROM node:18-alpine
+# Installing libvips-dev for sharp Compatibility
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev vips
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
+
+WORKDIR /opt/cms/
+COPY package.json ./
+# CMD ["npm", "install", "--ignore-scripts=false", "--foreground-scripts", "--verbose", "sharp"]
+RUN npm config set fetch-timeout 600000 -g && npm install --package=linuxmusl --arch=x64
+ENV PATH /opt/cms/node_modules/.bin:$PATH
+
+COPY . .
+RUN chown -R node:node /opt/cms
+USER node
+RUN ["npm", "run", "build"]
+EXPOSE 1337
+CMD ["npm", "run", "develop"]
+# CMD  ["ls", "/opt/node_modules/@strapi/plugin-upload/node_modules/sharp/build"]
