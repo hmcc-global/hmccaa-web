@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className="bg-Neutral-100 font-gotham-black">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -31,6 +31,7 @@ const Layout = ({ children }) => {
           maxWidth: `var(--size-content)`,
           padding: `var(--size-gutter)`,
         }}
+        className="font-gotham-black"
       >
         <main>{children}</main>
         <footer
@@ -44,7 +45,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 
