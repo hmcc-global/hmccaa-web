@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="bg-Neutral-100 font-gotham-black">
+    <div className="bg-Neutral-100 font-gotham-black h-screen">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -31,7 +31,6 @@ const Layout = ({ children }) => {
           maxWidth: `var(--size-content)`,
           padding: `var(--size-gutter)`,
         }}
-        className="font-gotham-black"
       >
         <main>{children}</main>
         <footer
