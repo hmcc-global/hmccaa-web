@@ -1,5 +1,16 @@
 version: "3"
 services:
+  gatsby:
+    container_name: gatsby
+    build: ./frontend/
+    image: gatsby:latest
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    networks:
+      - strapi
+    depends_on:
+      - strapi
   strapi:
     container_name: strapi
     env_file: ./cms/.env
