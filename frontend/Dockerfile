@@ -12,7 +12,6 @@ COPY . .
 RUN chown -R node:node /opt/frontend
 USER node
 RUN gatsby telemetry --disable
-# RUN rm -rf ./.cache/.parcel-cache
 RUN ["npm", "run", "build"]
 EXPOSE 8000
 CMD ["npm", "run", "develop"]
