@@ -6,7 +6,7 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /opt/cms/
 COPY package.json ./
-RUN npm config set fetch-timeout 600000 -g && npm install --package=linuxmusl --arch=x64
+RUN npm config set fetch-timeout 600000 -g && npm install
 ENV PATH /opt/cms/node_modules/.bin:$PATH
 
 COPY . .

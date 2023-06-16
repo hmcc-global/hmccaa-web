@@ -2,6 +2,9 @@ FROM node:18-alpine
 
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
+# Apple M2 Adjustments for next two lines.
+RUN apk add python3
+RUN apk add --no-cache make gcc g++
 
 WORKDIR /opt/frontend/
 COPY package.json ./
