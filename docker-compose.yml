@@ -7,6 +7,8 @@ services:
     restart: unless-stopped
     ports:
       - "8000:8000"
+    volumes:
+      - ./frontend/src/:/opt/frontend/src/
     networks:
       - strapi
     depends_on:
@@ -22,6 +24,8 @@ services:
       # DATABASE_HOST: mysql.annarbor.hmcc.net
     ports:
       - "1337:1337"
+    volumes:
+      - ./cms/src/:/opt/cms/src/
     networks:
       - strapi
     depends_on:
