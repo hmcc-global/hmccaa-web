@@ -81,7 +81,7 @@ const IndexPage = () => (
         alt=""
         style={{ marginBottom: `var(--space-3)` }}
       />
-      <h1>
+      <h1 className="text-3xl font-bold underline">
         Welcome to <b>Gatsby!</b>
       </h1>
       <p className={styles.intro}>
