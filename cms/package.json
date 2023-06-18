@@ -2,7 +2,7 @@
   "name": "cms",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "HMCC AA Website CMS",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -17,7 +17,7 @@
     "sharp": "^0.32.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "HMCCAA Web Team <website@annarbor.hmcc.net>"
   },
   "strapi": {
     "uuid": "15db8e1a-4bf1-451a-baee-39b50a606738"
@@ -25,6 +25,5 @@
   "engines": {
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+  }
 }
