@@ -73,7 +73,7 @@ const theme = {
     gotham: "Gotham",
     "gotham-black": "Gotham Black",
     montserrat: "Montserrat",
-    raleway: "Raleway"
+    raleway: "Raleway",
   },
   borderRadius: {
     none: "0",
@@ -118,7 +118,7 @@ const theme = {
     },
     rotate: {
       50: "50deg",
-    }
+    },
   },
 }
 
