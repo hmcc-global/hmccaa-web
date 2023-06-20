@@ -9,6 +9,8 @@ services:
       - "8000:8000"
     volumes:
       - ./frontend/src/:/opt/frontend/src/
+      - ./frontend/tailwind.config.js:/opt/frontend/tailwind.config.js
+      - ./frontend/theme.js:/opt/frontend/theme.js
     networks:
       - strapi
     depends_on:
