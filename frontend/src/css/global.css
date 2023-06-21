@@ -14,22 +14,6 @@
   @apply w-20 h-full absolute bottom-0 bg-gradient-to-bl from-transparent from-50% to-Primary-500 to-50%;
 }
 
-.text-emphasize {
-  @apply text-2xl leading-tighter font-medium tracking-normal;
-}
-
-.hmi-mission-statement {
-  @apply font-medium text-center text-Secondary-900 tracking-medium-wide;
-}
-
-.hmi-h3 {
-  @apply uppercase font-medium text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto;
-}
-
-.hmi-global-mission {
-  @apply relative max-w-sm-lg mx-auto pt-8 pb-2;
-}
-
 .arrow-angle {
   @apply w-2 h-0 border-t-1.5 border-Accent-500 -right-px absolute;
 }
@@ -46,30 +30,10 @@
   @apply no-underline uppercase rounded-sm py-3 px-5 border-2 border-Accent-500 shadow-button font-medium tracking-medium-wide text-Primary-700 flex;
 }
 
-.hmi-statement {
-  @apply text-Shades-100;
-}
-
-.hmi-statement p span {
-  @apply text-Accent-700 tracking-medium-wide font-medium;
-}
-
-.hmi-h2 {
-  @apply font-medium text-4xl leading-tighter text-Shades-100;
-}
-
 .arrow-line {
   @apply border-t-1.5 border-Accent-500 w-full block h-0;
 }
 
 .arrow-container {
   @apply relative w-5 py-2.75;
-}
-
-.hmi-subheading {
-  @apply font-medium text-xl uppercase text-Primary-300;
-}
-
-.hmi-statement-container {
-  @apply basis-34/59 pr-5;
 }

@@ -1,6 +1,7 @@
 import * as React from "react"
 import image from "../images/image214.png"
 import { Link } from "gatsby"
+import "../css/hmi.css";
 
 const HarvestMissionInternational = () => (
   <div className="flex">
@@ -15,9 +16,9 @@ const HarvestMissionInternational = () => (
           <div className="hmi-global-mission">
             <h3 className="hmi-h3">Our Global Mission</h3>
             <p className="hmi-mission-statement">
-              <span className="text-emphasize">Multiplying churches</span> in
+              <span>Multiplying churches</span> in
               campuses and cities{" "}
-              <span className="text-emphasize">
+              <span>
                 to transform the next generation
               </span>{" "}
               among the nations.
