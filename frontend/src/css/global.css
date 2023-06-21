@@ -15,11 +15,11 @@
 }
 
 .text-emphasize {
-  @apply text-2xl leading-tighter;
+  @apply text-2xl leading-tighter font-medium tracking-normal;
 }
 
 .hmi-mission-statement {
-  @apply font-medium text-center text-Secondary-900;
+  @apply font-medium text-center text-Secondary-900 tracking-medium-wide;
 }
 
 .hmi-h3 {
@@ -51,7 +51,7 @@
 }
 
 .hmi-statement p span {
-  @apply text-Accent-700;
+  @apply text-Accent-700 tracking-medium-wide font-medium;
 }
 
 .hmi-h2 {

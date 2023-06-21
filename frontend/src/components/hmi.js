@@ -55,7 +55,7 @@ const HarvestMissionInternational = () => (
           <span>Austin, Jakarta, Indonesia, Hong Kong, and Detroit</span>.
         </p>
         <div className="flex">
-          <Link className="button">
+          <Link className="button" to="javascript:void(0);">
             <span className="pr-2">More Info</span>{" "}
             <span className="arrow-container">
               <div className="arrow-angle top-arrow-angle"></div>
