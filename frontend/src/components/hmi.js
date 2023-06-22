@@ -1,36 +1,41 @@
 import * as React from "react"
 import image from "../images/image214.png"
 import { Link } from "gatsby"
-import "../css/hmi.css";
+import {
+  container,
+  globalMissionContainer,
+  globalMissionContext,
+  globalMission,
+  statementContainer,
+  subheading,
+  statement,
+  buttonContainer,
+} from "../css/hmi.module.css"
 
 const HarvestMissionInternational = () => (
-  <div className="flex">
-    <div className="pl-5 order-2">
+  <div className={container}>
+    <div className={globalMissionContainer}>
       <div>
         <img src={image} alt="HMI Project" />
       </div>
       <div>
-        <div className="bg-Primary-900 relative">
+        <div className={globalMissionContext}>
           <div className="triangle triangle-left">&nbsp;</div>
           <div className="triangle triangle-right">&nbsp;</div>
-          <div className="hmi-global-mission">
-            <h3 className="hmi-h3">Our Global Mission</h3>
-            <p className="hmi-mission-statement">
-              <span>Multiplying churches</span> in
-              campuses and cities{" "}
-              <span>
-                to transform the next generation
-              </span>{" "}
-              among the nations.
+          <div className={globalMission}>
+            <h3>Our Global Mission</h3>
+            <p>
+              <span>Multiplying churches</span> in campuses and cities{" "}
+              <span>to transform the next generation</span> among the nations.
             </p>
           </div>
         </div>
       </div>
     </div>
-    <div className="hmi-statement-container order-1">
-      <div className="hmi-subheading">Our Partners</div>
-      <h2 className="hmi-h2">Harvest Mission International (HMI)</h2>
-      <div className="hmi-statement">
+    <div className={statementContainer}>
+      <div className={subheading}>Our Partners</div>
+      <h2>Harvest Mission International (HMI)</h2>
+      <div className={statement}>
         <p>
           As Christ has called us to{" "}
           <span>‘make disciples of all nations’</span> (Matthew 28:19), we value
@@ -55,8 +60,8 @@ const HarvestMissionInternational = () => (
           church plants in{" "}
           <span>Austin, Jakarta, Indonesia, Hong Kong, and Detroit</span>.
         </p>
-        <div className="flex">
-          <Link className="button" to="javascript:void(0);">
+        <div className={buttonContainer}>
+          <Link className="button" to="#">
             <span className="pr-2">More Info</span>{" "}
             <span className="arrow-container">
               <div className="arrow-angle top-arrow-angle"></div>
