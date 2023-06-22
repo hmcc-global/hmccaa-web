@@ -14,32 +14,32 @@
   @apply relative max-w-sm-lg mx-auto pt-8 pb-2;
 }
 .global-mission h3 {
-  @apply uppercase font-medium text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto;
+  @apply uppercase font-semibold text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto;
 }
 
 .global-mission p {
-  @apply font-medium text-center text-Secondary-900 tracking-medium-wide;
+  @apply font-bold text-center text-Secondary-900 tracking-medium-wide;
 }
 
 .global-mission p span {
-  @apply text-2xl leading-tighter font-medium tracking-normal;
+  @apply text-2xl leading-tighter font-semibold tracking-normal;
 }
 
 .statement-container {
   @apply basis-34/59 pr-5 order-1;
 }
 .statement-container h2 {
-  @apply font-medium text-4xl leading-tighter text-Shades-100;
+  @apply font-semibold text-4xl leading-tighter text-Shades-100;
 }
 
 .subheading {
-  @apply font-medium text-xl uppercase text-Primary-300;
+  @apply font-bold text-xl uppercase text-Primary-300;
 }
 .statement {
   @apply text-Shades-100;
 }
 .statement p span {
-  @apply text-Accent-700 tracking-medium-wide font-medium;
+  @apply text-Accent-700 tracking-medium-wide font-bold;
 }
 
 .button-container {
