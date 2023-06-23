@@ -1,5 +1,5 @@
 import * as React from "react"
-import image from "../images/image214.png"
+import image from "../images/image264.png"
 import { Link } from "gatsby"
 import {
   container,
@@ -11,6 +11,7 @@ import {
   statement,
   buttonContainer,
 } from "../css/hmi.module.css"
+import ButtonWithArrow from "./ButtonWithArrow"
 
 const HarvestMissionInternational = () => (
   <div className={container}>
@@ -18,17 +19,15 @@ const HarvestMissionInternational = () => (
       <div>
         <img src={image} alt="HMI Project" />
       </div>
-      <div>
-        <div className={globalMissionContext}>
-          <div className="triangle triangle-left">&nbsp;</div>
-          <div className="triangle triangle-right">&nbsp;</div>
-          <div className={globalMission}>
-            <h3>Our Global Mission</h3>
-            <p>
-              <span>Multiplying churches</span> in campuses and cities{" "}
-              <span>to transform the next generation</span> among the nations.
-            </p>
-          </div>
+      <div className={globalMissionContext}>
+        <div className="triangle triangle-left">&nbsp;</div>
+        <div className="triangle triangle-right">&nbsp;</div>
+        <div className={globalMission}>
+          <h3>Our Global Mission</h3>
+          <p>
+            <span>Multiplying churches</span> in campuses and cities{" "}
+            <span>to transform the next generation</span> among the nations.
+          </p>
         </div>
       </div>
     </div>
@@ -60,16 +59,9 @@ const HarvestMissionInternational = () => (
           church plants in{" "}
           <span>Austin, Jakarta, Indonesia, Hong Kong, and Detroit</span>.
         </p>
-        <div className={buttonContainer}>
-          <Link className="button" to="#">
-            <span className="pr-2">More Info</span>{" "}
-            <span className="arrow-container">
-              <div className="arrow-angle top-arrow-angle"></div>
-              <span className="arrow-line">&nbsp;</span>
-              <div className="arrow-angle bottom-arrow-angle"></div>
-            </span>
-          </Link>
-        </div>
+      </div>
+      <div className={buttonContainer}>
+        <ButtonWithArrow to="#">More Info</ButtonWithArrow>
       </div>
     </div>
   </div>

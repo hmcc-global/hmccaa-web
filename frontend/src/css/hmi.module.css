@@ -3,7 +3,11 @@
 }
 
 .global-mission-container {
-  @apply pl-5 order-2;
+  @apply pl-2.5 order-2;
+}
+
+.global-mission-container img {
+  @apply mb-5;
 }
 
 .global-mission-context {
@@ -11,10 +15,10 @@
 }
 
 .global-mission {
-  @apply relative max-w-sm-lg mx-auto pt-8 pb-2;
+  @apply relative max-w-sm-lg mx-auto pt-8 pb-1.75;
 }
 .global-mission h3 {
-  @apply uppercase font-semibold text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto;
+  @apply uppercase font-semibold text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
 }
 
 .global-mission p {
@@ -26,17 +30,20 @@
 }
 
 .statement-container {
-  @apply basis-34/59 pr-5 order-1;
+  @apply basis-689/1180 pr-2.25 pt-3.5 order-1;
 }
 .statement-container h2 {
-  @apply font-semibold text-4xl leading-tighter text-Shades-100;
+  @apply font-semibold text-4xl leading-tighter text-Shades-100 pb-5;
 }
 
 .subheading {
-  @apply font-bold text-xl uppercase text-Primary-300;
+  @apply font-bold text-xl uppercase text-Primary-300 pb-3;
 }
 .statement {
-  @apply text-Shades-100;
+  @apply text-Shades-100 max-w-xl-md pb-5;
+}
+.statement p:last-child {
+  @apply mb-0;
 }
 .statement p span {
   @apply text-Accent-700 tracking-medium-wide font-bold;

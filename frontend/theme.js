@@ -92,14 +92,15 @@ const theme = {
   extend: {
     maxWidth: {
       container: "1180px",
-      "sm-md": "23.375rem",
+      "sm-md": "21.875rem",
       "sm-lg": "23.75rem",
+      "xl-md": "40.625rem",
     },
     lineHeight: {
       tighter: "1.2",
     },
     flexBasis: {
-      "34/59": "57.627118644%",
+      "689/1180": "58.389831%",
     },
     boxShadow: {
       button: "0 2px 8px 0 rgba(0, 0, 0, 0.12)",
@@ -108,6 +109,8 @@ const theme = {
       "medium-wide": "0.06em",
     },
     padding: {
+      1.75: "0.4375rem",
+      2.25: "0.5625rem",
       2.75: "0.6875rem",
     },
     borderWidth: {
