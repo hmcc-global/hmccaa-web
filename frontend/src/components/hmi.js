@@ -1,6 +1,5 @@
 import * as React from "react"
 import image from "../images/image264.png"
-import { Link } from "gatsby"
 import {
   container,
   globalMissionContainer,
@@ -11,7 +10,7 @@ import {
   statement,
   buttonContainer,
 } from "../css/hmi.module.css"
-import ButtonWithArrow from "./ButtonWithArrow"
+import Button from "./Button"
 
 const HarvestMissionInternational = () => (
   <div className={container}>
@@ -61,7 +60,7 @@ const HarvestMissionInternational = () => (
         </p>
       </div>
       <div className={buttonContainer}>
-        <ButtonWithArrow to="#">More Info</ButtonWithArrow>
+        <Button to="#" hasArrow={true}>More Info</Button>
       </div>
     </div>
   </div>
