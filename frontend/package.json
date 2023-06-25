@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "hmccaa-web",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "HMCC AA Website frontend",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "HMCCAA Web Team <website@annarbor.hmcc.net>",
   "dependencies": {
     "gatsby": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/hmcc-global/hmccaa-web"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/hmcc-global/hmccaa-web/issues"
   },
   "overrides": {
     "react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825": {
