@@ -14,30 +14,6 @@
   @apply w-20 h-full absolute bottom-0 bg-gradient-to-bl from-transparent from-50% to-Primary-500 to-50%;
 }
 
-.arrow-angle {
-  @apply w-2 h-0 border-t-1.5 border-Accent-500 -right-px absolute;
-}
-
-.bottom-arrow-angle {
-  @apply bottom-2.25 -rotate-50;
-}
-
-.top-arrow-angle {
-  @apply top-2.25 rotate-50;
-}
-
-.button {
-  @apply no-underline uppercase rounded-sm py-3 px-5 border-2 border-Accent-500 shadow-button font-bold tracking-medium-wide text-Primary-700 flex;
-}
-
-.arrow-line {
-  @apply border-t-1.5 border-Accent-500 w-full block h-0;
-}
-
-.arrow-container {
-  @apply relative w-5 py-2.75;
-}
-
 .subheading {
   @apply font-bold text-xl uppercase text-Primary-300 pb-3;
 }

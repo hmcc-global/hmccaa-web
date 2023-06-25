@@ -10,7 +10,7 @@ import {
   statement,
   buttonContainer,
 } from "../css/hmi.module.css"
-import { Button } from "./Button"
+import { ButtonLink } from "./Button"
 
 const HarvestMissionInternational = () => (
   <div className={container}>
@@ -60,9 +60,7 @@ const HarvestMissionInternational = () => (
         </p>
       </div>
       <div className={buttonContainer}>
-        <Button type="button" hasArrow={true}>
-          More Info
-        </Button>
+        <ButtonLink hasArrow={true}>More Info</ButtonLink>
       </div>
     </div>
   </div>
