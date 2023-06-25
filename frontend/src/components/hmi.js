@@ -60,7 +60,9 @@ const HarvestMissionInternational = () => (
         </p>
       </div>
       <div className={buttonContainer}>
-        <Button to="#" hasArrow={true}>More Info</Button>
+        <Button to="#" hasArrow={true}>
+          More Info
+        </Button>
       </div>
     </div>
   </div>

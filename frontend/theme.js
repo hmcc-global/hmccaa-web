@@ -97,7 +97,7 @@ const theme = {
       "xl-md": "40.625rem",
       "3.25xl": "50.8125rem",
       "3.4xl": "53.125rem",
-      "3.5xl": "53.625rem"
+      "3.5xl": "53.625rem",
     },
     lineHeight: {
       tighter: "1.2",
@@ -132,7 +132,7 @@ const theme = {
       50: "50deg",
     },
     backgroundImage: {
-      "go-pattern": "url('../images/Frame382.png')"
+      "go-pattern": "url('../images/Frame382.png')",
     },
     backgroundPosition: {
       "go-position": "671px 169px",

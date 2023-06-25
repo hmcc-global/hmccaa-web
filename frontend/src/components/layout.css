@@ -125,7 +125,7 @@ p {
 ul,
 ol {
   margin-left: var(--space-4);
-  list-style: initial;;
+  list-style: initial;
 }
 
 pre {
