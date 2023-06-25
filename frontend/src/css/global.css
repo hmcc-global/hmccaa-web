@@ -37,3 +37,11 @@
 .arrow-container {
   @apply relative w-5 py-2.75;
 }
+
+.subheading {
+  @apply font-bold text-xl uppercase text-Primary-300 pb-3;
+}
+
+h2 {
+  @apply font-semibold text-4xl leading-tighter text-Shades-100;
+}

@@ -95,6 +95,9 @@ const theme = {
       "sm-md": "21.875rem",
       "sm-lg": "23.75rem",
       "xl-md": "40.625rem",
+      "3.25xl": "50.8125rem",
+      "3.4xl": "53.125rem",
+      "3.5xl": "53.625rem"
     },
     lineHeight: {
       tighter: "1.2",
@@ -112,6 +115,12 @@ const theme = {
       1.75: "0.4375rem",
       2.25: "0.5625rem",
       2.75: "0.6875rem",
+      11.25: "3.3125rem",
+      17: "4.1875rem",
+      18: "4.5625rem",
+      20.25: "5.0625rem",
+      24.5: "6.125rem",
+      31: "7.625rem",
     },
     borderWidth: {
       1.5: "1.5px",
@@ -121,6 +130,12 @@ const theme = {
     },
     rotate: {
       50: "50deg",
+    },
+    backgroundImage: {
+      "go-pattern": "url('../images/Frame382.png')"
+    },
+    backgroundPosition: {
+      "go-position": "671px 169px",
     },
   },
 }

@@ -4,7 +4,7 @@
   --color-primary: #6494fa;
   --color-code-bg: #fff4db;
   --color-code: #8a6534;
-  --font-sans: Raleway;
+  --font-sans: Raleway, Montserrat;
   --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   --font-lg: 18px;
@@ -75,9 +75,7 @@ h1 {
   line-height: var(--line-height-dense);
   letter-spacing: -0.01em;
 }
-h1 > b {
-  color: var(--color-primary);
-}
+
 img {
   border-style: none;
   max-width: 100%;
@@ -127,9 +125,9 @@ p {
 ul,
 ol {
   margin-left: var(--space-4);
-  list-style-position: outside;
-  list-style-image: none;
+  list-style: initial;;
 }
+
 pre {
   margin-left: 0;
   margin-right: 0;
@@ -148,9 +146,6 @@ strong,
 dt,
 th {
   font-weight: bold;
-}
-li {
-  margin-bottom: calc(var(--space-4) / 2);
 }
 ol li,
 ul li {
@@ -173,9 +168,6 @@ p *:last-child {
 }
 li > p {
   margin-bottom: calc(var(--space-4) / 2);
-}
-p {
-  max-width: 680px;
 }
 code {
   font-size: 0.875rem;
