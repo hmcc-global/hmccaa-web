@@ -6,7 +6,6 @@ import {
   globalMissionContext,
   globalMission,
   statementContainer,
-  subheading,
   statement,
   buttonContainer,
 } from "../css/hmi.module.css"
@@ -31,7 +30,7 @@ const HarvestMissionInternational = () => (
       </div>
     </div>
     <div className={statementContainer}>
-      <div className={`subheading ${subheading}`}>Our Partners</div>
+      <div className="subheading">Our Partners</div>
       <h2>Harvest Mission International (HMI)</h2>
       <div className={statement}>
         <p>

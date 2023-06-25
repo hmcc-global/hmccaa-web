@@ -1,5 +1,5 @@
 .container {
-  @apply flex;
+  @apply flex pb-20.5;
 }
 
 .global-mission-container {
@@ -36,9 +36,6 @@
   @apply pb-5;
 }
 
-.subheading {
-  @apply pb-5;
-}
 .statement {
   @apply text-Shades-100 max-w-xl-md pb-5;
 }

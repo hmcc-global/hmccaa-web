@@ -19,5 +19,5 @@
 }
 
 h2 {
-  @apply font-semibold text-4xl leading-tighter text-Shades-100;
+  @apply font-semibold text-4xl leading-tighter text-Shades-100 uppercase;
 }
