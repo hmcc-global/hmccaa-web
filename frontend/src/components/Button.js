@@ -14,10 +14,10 @@ export const ButtonLink = ({ to = "#", hasArrow = false, children }) => (
   </Link>
 )
 
-export const Button = ({ hasArrow = false, type,  children}) => (
+export const Button = ({ hasArrow = false, type, children }) => (
   <button type={type} className="button">
-     <span className="pr-2">{children}</span>{" "}
-     {hasArrow && (
+    <span className="pr-2">{children}</span>{" "}
+    {hasArrow && (
       <span className="arrow-container">
         <div className="arrow-angle top-arrow-angle"></div>
         <span className="arrow-line">&nbsp;</span>
