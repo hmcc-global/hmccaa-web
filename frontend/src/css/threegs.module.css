@@ -1,16 +1,22 @@
+@config "../config/tailwind.config.js";
+
 .title-container {
   @apply text-center pb-20;
 }
 
+.step {
+  @apply flex;
+}
+
 .step-3 {
-  @apply flex px-31 pb-11.25 max-w-3.4xl;
+  @apply px-31 pb-11.25 max-w-3.4xl;
 }
 .step-2 {
-  @apply flex px-18 pb-17 max-w-3.25xl;
+  @apply px-18 pb-17 max-w-3.25xl;
 }
 
 .step-1 {
-  @apply px-2 pb-24.5 flex max-w-3.5xl;
+  @apply px-2 pb-24.5 max-w-3.5xl;
 }
 
 .count {

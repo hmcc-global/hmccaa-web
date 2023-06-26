@@ -1,3 +1,5 @@
+@config "../config/tailwind.config.js";
+
 .button {
   @apply no-underline uppercase rounded-sm py-3 px-5 border-2 border-Accent-500 shadow-button font-bold tracking-medium-wide text-Primary-700 flex;
 }

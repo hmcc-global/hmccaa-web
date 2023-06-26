@@ -1,7 +1,8 @@
 import * as React from "react"
-import image from "../images/image257.png"
+import ThreeGsImage from "../images/image257.png"
 import {
   titleContainer,
+  step,
   step1,
   step2,
   step3,
@@ -15,7 +16,7 @@ const ThreeGs = () => (
       <div className="subheading">Our Strategy</div>
       <h2>The 3G's: Gather, Grow, Go</h2>
     </div>
-    <div className={step3}>
+    <div className={`${step} ${step3}`}>
       <div className={count}>3</div>
       <div>
         <h3>Go: Personal Mission & Team-Based Mission</h3>
@@ -37,7 +38,7 @@ const ThreeGs = () => (
         </div>
       </div>
     </div>
-    <div className={step2}>
+    <div className={`${step} ${step2}`}>
       <div className={count}>2</div>
       <div>
         <h3>Grow: Life-on-Life & Equipping</h3>
@@ -60,7 +61,7 @@ const ThreeGs = () => (
         </div>
       </div>
     </div>
-    <div className={step1}>
+    <div className={`${step} ${step1}`}>
       <div className={count}>1</div>
       <div>
         <h3>Gather: Corporate Gatherings & Community Gatherings</h3>
@@ -82,7 +83,7 @@ const ThreeGs = () => (
       </div>
     </div>
     <div>
-      <img src={image} alt="3G's: Gather, Grow, Go" />
+      <img src={ThreeGsImage} alt="3G's: Gather, Grow, Go" />
     </div>
   </div>
 )

@@ -9,10 +9,6 @@ services:
       - "8000:8000"
     volumes:
       - ./frontend/src/:/opt/frontend/src/
-      # Adding these volumes to have the updated tailwindcss tags/css selectors to be available
-      # within src directory immediately after saving these files. 
-      - ./frontend/tailwind.config.js:/opt/frontend/tailwind.config.js
-      - ./frontend/theme.js:/opt/frontend/theme.js
     networks:
       - strapi
     depends_on:

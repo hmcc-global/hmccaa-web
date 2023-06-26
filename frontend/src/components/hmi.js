@@ -1,5 +1,5 @@
 import * as React from "react"
-import image from "../images/image264.png"
+import hmiImage from "../images/image264.png"
 import {
   container,
   globalMissionContainer,
@@ -15,7 +15,7 @@ const HarvestMissionInternational = () => (
   <div className={container}>
     <div className={globalMissionContainer}>
       <div>
-        <img src={image} alt="HMI Project" />
+        <img src={hmiImage} alt="HMI Project" />
       </div>
       <div className={globalMissionContext}>
         <div className="triangle triangle-left">&nbsp;</div>
