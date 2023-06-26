@@ -1,5 +1,5 @@
 import * as React from "react"
-import ThreeGsImage from "../images/image257.png"
+import StrategyImage from "../images/image257.png"
 import {
   titleContainer,
   step,
@@ -8,9 +8,9 @@ import {
   step3,
   count,
   container,
-} from "../css/threegs.module.css"
+} from "../css/strategy.module.css"
 
-const ThreeGs = () => (
+const Strategy = () => (
   <div className={container}>
     <div className={titleContainer}>
       <div className="subheading">Our Strategy</div>
@@ -83,9 +83,9 @@ const ThreeGs = () => (
       </div>
     </div>
     <div>
-      <img src={ThreeGsImage} alt="3G's: Gather, Grow, Go" />
+      <img src={StrategyImage} alt="3G's: Gather, Grow, Go" />
     </div>
   </div>
 )
 
-export default ThreeGs
+export default Strategy

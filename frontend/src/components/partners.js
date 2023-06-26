@@ -8,10 +8,10 @@ import {
   statementContainer,
   statement,
   buttonContainer,
-} from "../css/hmi.module.css"
+} from "../css/partners.module.css"
 import { ButtonLink } from "./Button"
 
-const HarvestMissionInternational = () => (
+const Partners = () => (
   <div className={container}>
     <div className={globalMissionContainer}>
       <div>
@@ -65,4 +65,4 @@ const HarvestMissionInternational = () => (
   </div>
 )
 
-export default HarvestMissionInternational
+export default Partners

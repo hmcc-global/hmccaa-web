@@ -12,7 +12,7 @@ module.exports = {
     title: `HMCC Ann Arbor`,
     description: `Becoming a transcultural spiritual family reaching our neighbors, the nations, and the next generation. Transforming lives. Transforming the world.`,
     author: `HMCC Ann Arbor Web Team`,
-    siteUrl: `annarbor.hmcc.net`,
+    siteUrl: `https://annarbor.hmcc.net`,
   },
   plugins: [
     "gatsby-plugin-postcss",
