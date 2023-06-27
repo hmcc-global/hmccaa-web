@@ -12,7 +12,7 @@ export const Head = () => <Seo title="Home" />
 
 export default () => (
   <Layout>
-    <OurStory></OurStory>
+    <OurStory />
     <div>Our Mission section</div>
     <div>Our Leadership section</div>
     <div>Our Beliefs section</div>
