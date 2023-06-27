@@ -6,12 +6,13 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Partners from "../components/partners"
 import Strategy from "../components/strategy"
+import OurStory from "../components/our-story"
 
 export const Head = () => <Seo title="Home" />
 
 export default () => (
   <Layout>
-    <div>Our Story section</div>
+    <OurStory></OurStory>
     <div>Our Mission section</div>
     <div>Our Leadership section</div>
     <div>Our Beliefs section</div>
