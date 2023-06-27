@@ -1,0 +1,53 @@
+@config "../config/tailwind.config.js";
+
+.container {
+  @apply flex pb-20.5;
+}
+
+.global-mission-container {
+  @apply pl-2.5 order-2;
+}
+
+.global-mission-container img {
+  @apply mb-5;
+}
+
+.global-mission-context {
+  @apply bg-Primary-900 relative;
+}
+
+.global-mission {
+  @apply relative max-w-sm-lg mx-auto pt-8 pb-1.75;
+}
+.global-mission h3 {
+  @apply uppercase font-semibold text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
+}
+
+.global-mission p {
+  @apply font-bold text-center text-Secondary-900 tracking-medium-wide;
+}
+
+.global-mission p span {
+  @apply text-2xl leading-tighter font-semibold tracking-normal;
+}
+
+.statement-container {
+  @apply basis-689/1180 pr-2.25 pt-3.5 order-1;
+}
+.statement-container h2 {
+  @apply pb-5;
+}
+
+.statement {
+  @apply text-Shades-100 max-w-xl-md pb-5;
+}
+.statement p:last-child {
+  @apply mb-0;
+}
+.statement p span {
+  @apply text-Accent-700 tracking-medium-wide font-bold;
+}
+
+.button-container {
+  @apply flex;
+}

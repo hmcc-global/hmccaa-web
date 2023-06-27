@@ -4,6 +4,8 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Partners from "../components/partners"
+import Strategy from "../components/strategy"
 
 export const Head = () => <Seo title="Home" />
 
@@ -13,8 +15,8 @@ export default () => (
     <div>Our Mission section</div>
     <div>Our Leadership section</div>
     <div>Our Beliefs section</div>
-    <div>Our Strategy section</div>
-    <div>Our Partners section</div>
+    <Strategy/>
+    <Partners/>
     <div>Feedback Form section</div>
   </Layout>
 )

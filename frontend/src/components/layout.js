@@ -23,22 +23,11 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="bg-Neutral-100 font-gotham-black h-screen">
+    <div className="bg-Neutral-100 font-raleway">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
+      <div>
+        <main className="max-w-container mx-auto">{children}</main>
+        <footer>
           © {new Date().getFullYear()} &middot; Harvest Mission Community Church
         </footer>
       </div>
