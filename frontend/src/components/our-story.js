@@ -4,7 +4,7 @@ const OurStory = () => {
   return (
     <div>
       <div>
-        <h2>OUR STORY</h2>
+        <h2 className="text-Primary-300 font-raleway font-bold text-xl" >OUR STORY</h2>
         <h1>TRANSFORM LIVES, TRANSFORM THE WORLD</h1>
       </div>
       <div>
