@@ -1,5 +1,5 @@
 import * as React from "react"
-import hmiImage from "../images/image264.png"
+import hmiImage from "../../../images/image264.png"
 import {
   container,
   globalMissionContainer,
@@ -8,8 +8,8 @@ import {
   statementContainer,
   statement,
   buttonContainer,
-} from "../css/partners.module.css"
-import { ButtonLink } from "./Button"
+} from "../../../css/partners.module.css"
+import { ButtonLink } from "../../Button"
 
 const Partners = () => (
   <div className={container}>

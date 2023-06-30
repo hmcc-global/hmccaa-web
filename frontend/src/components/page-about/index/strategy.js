@@ -1,5 +1,5 @@
 import * as React from "react"
-import StrategyImage from "../images/image257.png"
+import StrategyImage from "../../../images/image257.png"
 import {
   titleContainer,
   step,
@@ -8,7 +8,7 @@ import {
   step3,
   count,
   container,
-} from "../css/strategy.module.css"
+} from "../../../css/strategy.module.css"
 
 const Strategy = () => (
   <div className={container}>
