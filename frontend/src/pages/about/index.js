@@ -2,14 +2,14 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Partners from "../components/partners"
-import Strategy from "../components/strategy"
-import Belief from "../components/belief"
-export const Head = () => <Seo title="Home" />
+import Layout from "../../components/layout"
+import Seo from "../../components/seo"
+import Partners from "../../components/partners"
+import Strategy from "../../components/strategy"
 
-export default () => (
+export const Head = () => <Seo title="About" />;
+
+const AboutPage = () => (
   <Layout>
     <div>Our Story section</div>
     <div>Our Mission section</div>
@@ -20,4 +20,6 @@ export default () => (
     <Partners/>
     <div>Feedback Form section</div>
   </Layout>
-)
+);
+
+export default AboutPage
