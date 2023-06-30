@@ -15,7 +15,6 @@ const AboutPage = () => (
     <div>Our Values section</div>
     <LeadershipSection/>
     <div>Our Beliefs section</div>
-    <Belief/>
     <Strategy/>
     <Partners/>
     <div>Feedback Form section</div>
