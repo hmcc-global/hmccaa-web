@@ -1,0 +1,15 @@
+name: Publish Docs
+run-name: ${{ github.actor }} is deploying new changes to documentation
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Triggered by ${{ github.event_name }} event."
+      - name: Check out ${{ github.repository }} repository code
+        uses: actions/checkout@v3
+      - name: Build Docs Server
+        run: |
+          cd ${{ github.workspace }}/docs
+          sudo sh serve.sh
+      - run: echo "This job's status is ${{ job.status }}."
