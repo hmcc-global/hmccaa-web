@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Triggered by ${{ github.event_name }} event."
-      - name: Check out repository code
+      - name: Check out ${{ github.repository }} repository code
         uses: actions/checkout@v3
-      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
-      - name: List files in the repository
+      - name: Build Docs Server
         run: |
-          sh ${{ github.workspace }}/docs/serve.sh
+          cd ${{ github.workspace }}/docs
+          sudo sh serve.sh
       - run: echo "This job's status is ${{ job.status }}."
