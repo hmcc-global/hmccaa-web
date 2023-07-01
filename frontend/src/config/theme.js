@@ -94,6 +94,7 @@ const theme = {
       container: "1180px",
       "sm-md": "21.875rem",
       "sm-lg": "23.75rem",
+      "md-lg": "31.25rem",
       "xl-md": "40.625rem",
       "3.25xl": "50.8125rem",
       "3.4xl": "53.125rem",
@@ -128,17 +129,18 @@ const theme = {
     },
     spacing: {
       2.25: "0.5625rem",
+      25: "6.25rem",
+      26: "6.5rem",
+      43: "10.75rem",
+      50: "12.5rem",
     },
     rotate: {
       50: "50deg",
     },
-    backgroundImage: {
-      "go-pattern": "url('../images/Frame382.png')",
-    },
-    backgroundPosition: {
-      "go-position": "671px 169px",
+    strokeWidth: {
+      4: "4",
     },
   },
-}
+};
 
-export default theme
+export default theme;

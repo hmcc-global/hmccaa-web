@@ -1,5 +1,5 @@
-import * as React from "react"
-import hmiImage from "../../../images/image264.png"
+import * as React from "react";
+import hmiImage from "../../../images/image264.png";
 import {
   container,
   globalMissionContainer,
@@ -8,8 +8,9 @@ import {
   statementContainer,
   statement,
   buttonContainer,
-} from "../../../css/partners.module.css"
-import { ButtonLink } from "../../Button"
+} from "../../../css/partners.module.css";
+import { ButtonLink } from "../../Button";
+import { RightAngleTriangle } from "../../svgs";
 
 const Partners = () => (
   <div className={container}>
@@ -18,8 +19,12 @@ const Partners = () => (
         <img src={hmiImage} alt="HMI Project" />
       </div>
       <div className={globalMissionContext}>
-        <div className="triangle triangle-left">&nbsp;</div>
-        <div className="triangle triangle-right">&nbsp;</div>
+        <div className="absolute">
+          <RightAngleTriangle side="left" />
+        </div>
+        <div className="absolute right-0">
+          <RightAngleTriangle side="right" />
+        </div>
         <div className={globalMission}>
           <h3>Our Global Mission</h3>
           <p>
@@ -63,6 +68,6 @@ const Partners = () => (
       </div>
     </div>
   </div>
-)
+);
 
-export default Partners
+export default Partners;

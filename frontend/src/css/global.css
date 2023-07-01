@@ -23,3 +23,11 @@
 h2 {
   @apply font-semibold text-4xl leading-tighter text-Shades-100 uppercase;
 }
+
+.linecap-round {
+  stroke-linecap: round;
+}
+
+.linejoin-round {
+  stroke-linejoin: round;
+}
