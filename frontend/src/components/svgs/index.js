@@ -31,7 +31,7 @@ const RightAngleTriangle = ({ children, side }) => (
             d="M-5.96046e-07 0V200H80L-5.96046e-07 0Z"
           />
         ),
-        right: "",
+        right: <path className="fill-Primary-500" d="M80 0V200H0L80 0Z" />,
       }[side]
     }
   </svg>
