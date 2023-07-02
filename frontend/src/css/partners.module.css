@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply flex pb-20.5;
+  @apply flex pb-20.5 justify-between;
 }
 
 .global-mission-container {
