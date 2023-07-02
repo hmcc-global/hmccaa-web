@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Partners from "../components/partners"
 import Strategy from "../components/strategy"
-
+import Belief from "../components/belief"
 export const Head = () => <Seo title="Home" />
 
 export default () => (
@@ -15,6 +15,7 @@ export default () => (
     <div>Our Mission section</div>
     <div>Our Leadership section</div>
     <div>Our Beliefs section</div>
+    <Belief/>
     <Strategy/>
     <Partners/>
     <div>Feedback Form section</div>
