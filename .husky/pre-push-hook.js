@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import { stderr } from "process";
 import sh from "shelljs";
 
 import { Spinner } from "cli-spinner";
@@ -23,7 +22,7 @@ async function prettifyCode() {
     const msg = "Making sure your code looks formatted...";
     const spinner = new Spinner(" %s " + chalk.blue(msg));
     spinner.start();
-    (await exec(`cd frontend`, { silent: true }))
+
     const result = (await exec(`npm run format`, { silent: true })) || [0, "", ""];
     const stderr = result[2];
     const stdout = result[1];
@@ -71,7 +70,7 @@ async function validateLinting() {
     const msg = "Scanning your code for potential bugs ...";
     const spinner = new Spinner(" %s " + chalk.blue(msg));
     spinner.start();
-    (await exec('cd frontend'));
+    sh.cd(`frontend`);
     const result = (await exec('npm run lint', { silent: true })) || [0, "", ""];
     const stderr = result[2];
     const code = parseErrorCode(stderr);
