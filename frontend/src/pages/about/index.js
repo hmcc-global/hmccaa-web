@@ -11,7 +11,7 @@ export const Head = () => <Seo title="About" />;
 
 const AboutPage = () => (
   <Layout>
-    <div>
+    <div className="px-6">
       <div>Our Story section</div>
       <div>Our Mission section</div>
       <div>Our Values section</div>

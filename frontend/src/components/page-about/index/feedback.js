@@ -2,7 +2,7 @@ import * as React from "react"
 import {ButtonLink} from "../../Button";
 
 const Feedback = () => {
-    return <div className="bg-Neutral-200 w-full flex justify-center items-center py-[90px]">
+    return <div className="bg-Neutral-200 w-full flex justify-center items-center py-[90px] px-6">
         <div className="flex bg-Shades-0 items-center h-full border-solid border-2 max-w-screen-xl rounded-xl py-16 px-10 border-Neutral-700 justify-between space-x-28">
             <div className="flex flex-col justify-evenly">
                 <h1 className="text-[35px] font-bold">Feedback Form for Pastors and Elders</h1>
