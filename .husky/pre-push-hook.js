@@ -25,9 +25,13 @@ async function prettifyCode() {
     spinner.start();
     
     const result = (await exec(`npm run format`, { silent: true })) || [0, "", ""];
+    const stderr = result[2];
+    const stdout = result[1];
+    const code = (parseErrorCode(stderr) || result[0] || "").toString().trim();
     const { stdout: modified } = sh.exec(`git diff --name-only`, { silent: true}) || "";
 
     spinner.stop(true);
+
     if (code || modified.length) {
         console.log(chalk.red(` X ${msg}\n`));
 
@@ -46,7 +50,7 @@ async function prettifyCode() {
                     const files = modified.split("\n").filter(file => !file);
 
                     console.log(
-                        console.red("error"),
+                        chalk.red("error"),
                         `The following files weren't formatted correctly:\n ` + files.join("\n ==> "),
                         chalk.green("\n\ninfo"),
                         "All files are now formatted!",
@@ -57,7 +61,7 @@ async function prettifyCode() {
                 break;
             }
         }
-        console.log(chalk.orange("\n -> Verify & commit the changes, then try again?\n"));
+        console.log(chalk.cyan("\n -> Verify & commit the changes, then try again?\n"));
         process.exit(1);
     }
 
@@ -95,4 +99,4 @@ async function validateLinting() {
 
     console.log("All's good, git push can proceed...");
     console.log("");
-})
+})();
