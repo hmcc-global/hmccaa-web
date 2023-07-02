@@ -1,5 +1,4 @@
 const chalk = require("chalk");
-const { parse } = require("path");
 const { stderr } = require("process");
 const sh = require("shelljs");
 
