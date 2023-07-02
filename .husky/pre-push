@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd frontend
-npm run lint
-npm run format
+node "./$(dirname -- "$0")/pre-push-hook.js"
