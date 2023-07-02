@@ -1,8 +1,8 @@
-const chalk = require("chalk");
-const { stderr } = require("process");
-const sh = require("shelljs");
+import chalk from "chalk";
+import { stderr } from "process";
+import sh from "shelljs";
 
-const Spinner = require("cli-spinner").Spinner;
+import { Spinner } from "cli-spinner";
 Spinner.setDefaultSpinnerString("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏");
 Spinner.setDefaultSpinnerDelay(80);
 
