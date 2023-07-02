@@ -5,12 +5,17 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
+<<<<<<< HEAD
 import Header from "./header"
 import "./layout.css"
 import Footer from "./footer"
+=======
+import Header from "./header";
+import "./layout.css";
+>>>>>>> 915aa57 (adding format files)
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,7 +26,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <div className="bg-Neutral-100 font-raleway min-w-fit">
@@ -31,7 +36,7 @@ const Layout = ({ children }) => {
         <Footer/>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

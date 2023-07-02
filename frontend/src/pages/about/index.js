@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
@@ -25,4 +25,4 @@ const AboutPage = () => (
   </Layout>
 )
 
-export default AboutPage
+export default AboutPage;
