@@ -23,7 +23,7 @@ async function prettifyCode() {
     const msg = "Making sure your code looks formatted...";
     const spinner = new Spinner(" %s " + chalk.blue(msg));
     spinner.start();
-    
+    (await exec(`cd frontend`, { silent: true }))
     const result = (await exec(`npm run format`, { silent: true })) || [0, "", ""];
     const stderr = result[2];
     const stdout = result[1];
@@ -48,7 +48,6 @@ async function prettifyCode() {
             default: {
                 if (modified.length) {
                     const files = modified.split("\n").filter(file => !file);
-
                     console.log(
                         chalk.red("error"),
                         `The following files weren't formatted correctly:\n ` + files.join("\n ==> "),
