@@ -1,4 +1,4 @@
-FROM hmccaa/hmcc-web:gatsby-0.1.0-arm
+FROM hmccaa/hmcc-web:gatsby-0.1.1
 
 USER node
 EXPOSE 8000
