@@ -1,0 +1,28 @@
+@config "../config/tailwind.config.js";
+
+.container {
+    @apply pb-56 pt-31;
+}
+
+.title-container {
+    @apply text-center pb-14;
+  }
+
+.middle-container {
+    @apply flex-auto columns-2 gap-x-32;
+}
+
+.container h3 {
+    @apply font-semibold text-2xl;
+} 
+
+.arrow {
+    @apply pr-5;
+}
+
+.sub-head {
+    @apply flex;
+}
+.box {
+    @apply flex-col flex-nowrap;
+}
