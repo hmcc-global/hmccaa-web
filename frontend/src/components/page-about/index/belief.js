@@ -1,5 +1,5 @@
 import * as React from "react"
-import arrowImage from "../images/chevron-right.png"
+import arrowImage from "../../../images/chevron-right.png"
 import {
     container,
     titleContainer,
@@ -7,7 +7,7 @@ import {
     arrow,
     subHead,
     box,
-} from "../css/belief.module.css"
+} from "../../../css/belief.module.css"
 
 const Belief = () => (
     <div className = {container}>
