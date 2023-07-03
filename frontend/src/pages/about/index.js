@@ -4,7 +4,7 @@ import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import Partners from "../../components/page-about/index/partners"
 import Strategy from "../../components/page-about/index/strategy"
-import Belief from "../components/belief"
+import Belief from "../../components/page-about/index/belief"
 import LeadershipSection from "../../components/page-about/index/leadership";
 
 export const Head = () => <Seo title="About" />;
