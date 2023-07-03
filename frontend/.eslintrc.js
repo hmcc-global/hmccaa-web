@@ -40,6 +40,7 @@ module.exports = {
     `${__dirname}/eslint-custom-gatsby-rule/gatsby-eslint`,
   ],
   rules: {
+    "react/display-name": "off",
     "react/prop-types": "off",
     "react/jsx-uses-react": "error",
     "react/react-in-jsx-scope": "error",
