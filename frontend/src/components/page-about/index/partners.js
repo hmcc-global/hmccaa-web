@@ -6,11 +6,11 @@ import {
   globalMissionContext,
   globalMission,
   statementContainer,
-  statement,
   buttonContainer,
 } from "../../../css/partners.module.css";
 import { ButtonLink } from "../../Button";
 import { RightAngleTriangle } from "../../svgs";
+import {HighlightedParagraph} from "../../shared/highlightedParagraph";
 
 const Partners = () => (
   <div className={container}>
@@ -37,7 +37,7 @@ const Partners = () => (
     <div className={statementContainer}>
       <div className="subheading">Our Partners</div>
       <h2>Harvest Mission International (HMI)</h2>
-      <div className={statement}>
+      <HighlightedParagraph>
         <p>
           As Christ has called us to{" "}
           <span>‘make disciples of all nations’</span> (Matthew 28:19), we value
@@ -62,7 +62,7 @@ const Partners = () => (
           church plants in{" "}
           <span>Austin, Jakarta, Indonesia, Hong Kong, and Detroit</span>.
         </p>
-      </div>
+      </HighlightedParagraph>
       <div className={buttonContainer}>
         <ButtonLink hasArrow={true}>More Info</ButtonLink>
       </div>

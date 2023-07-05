@@ -38,16 +38,6 @@
   @apply pb-5;
 }
 
-.statement {
-  @apply text-Shades-100 max-w-xl-md pb-5;
-}
-.statement p:last-child {
-  @apply mb-0;
-}
-.statement p span {
-  @apply text-Accent-700 tracking-medium-wide font-bold;
-}
-
 .button-container {
   @apply flex;
 }
