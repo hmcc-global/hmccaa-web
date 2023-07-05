@@ -1,29 +1,9 @@
 @config "../config/tailwind.config.js";
 
 .button {
-  @apply no-underline uppercase rounded-sm py-3 px-5 border-2 border-Accent-500 shadow-button font-bold tracking-medium-wide text-Primary-700 flex;
+  @apply no-underline uppercase rounded-sm py-3 px-5 border-2 border-Accent-500 shadow-button font-bold tracking-medium-wide text-Primary-700 flex items-center;
 }
 
 .text-container {
   @apply pr-2;
-}
-
-.arrow-container {
-  @apply relative w-5 py-2.75;
-}
-
-.arrow-container div {
-  @apply w-2 h-0 border-t-1.5 border-Accent-500 -right-px absolute;
-}
-
-.top {
-  @apply top-2.25 rotate-50;
-}
-
-.bottom {
-  @apply bottom-2.25 -rotate-50;
-}
-
-.line {
-  @apply border-t-1.5 border-Accent-500 w-full block h-0;
 }
