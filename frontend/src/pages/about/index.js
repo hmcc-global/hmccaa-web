@@ -4,6 +4,7 @@ import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import Partners from "../../components/page-about/index/partners"
 import Strategy from "../../components/page-about/index/strategy"
+import Belief from "../../components/page-about/index/belief"
 import LeadershipSection from "../../components/page-about/index/leadership";
 import Feedback from "../../components/page-about/index/feedback"
 
@@ -17,6 +18,7 @@ const AboutPage = () => (
       <div>Our Values section</div>
       <LeadershipSection/>
       <div>Our Beliefs section</div>
+      <Belief/>
       <Strategy/>
       <Partners/>
     </div>
