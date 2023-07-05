@@ -83,7 +83,7 @@ const Strategy = () => (
       </div>
     </div>
     <div>
-      <img className="w-full" src={StrategyImage} alt="3G's: Gather, Grow, Go" />
+      <img src={StrategyImage} alt="3G's: Gather, Grow, Go" />
     </div>
   </div>
 )

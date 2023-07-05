@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
     <div className="bg-Neutral-100 font-raleway">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div>
-        <main className="max-w-full flex flex-col items-center mx-auto bg-Shades-0 py-6">{children}</main>
+        <main className="flex flex-col items-center bg-Shades-0 py-6">{children}</main>
         <footer>
           © {new Date().getFullYear()} &middot; Harvest Mission Community Church
         </footer>
