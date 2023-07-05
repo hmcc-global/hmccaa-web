@@ -91,7 +91,7 @@ const theme = {
   },
   extend: {
     maxWidth: {
-      container: "1440px",
+      container: "1180px",
       "sm-md": "21.875rem",
       "sm-lg": "23.75rem",
       "xl-md": "40.625rem",
