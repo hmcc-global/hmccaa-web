@@ -28,5 +28,9 @@
 }
 
 .container {
-  @apply pb-20.25 bg-go-pattern bg-no-repeat bg-go-position;
+  @apply pb-20.25;
+}
+
+.svg-container {
+  @apply absolute right-2.25 w-full max-w-md-lg top-0 inline-flex flex-col items-center;
 }

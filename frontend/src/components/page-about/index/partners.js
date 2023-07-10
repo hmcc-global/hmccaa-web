@@ -1,15 +1,16 @@
-import * as React from "react"
-import hmiImage from "../images/image264.png"
+import * as React from "react";
+import hmiImage from "../../../images/image264.png";
 import {
   container,
   globalMissionContainer,
   globalMissionContext,
   globalMission,
   statementContainer,
-  statement,
   buttonContainer,
-} from "../css/partners.module.css"
-import { ButtonLink } from "./Button"
+} from "../../../css/partners.module.css";
+import { ButtonLink } from "../../Button";
+import { RightAngleTriangle } from "../../svgs";
+import {HighlightedParagraph} from "../../shared/highlightedParagraph";
 
 const Partners = () => (
   <div className={container}>
@@ -18,8 +19,12 @@ const Partners = () => (
         <img src={hmiImage} alt="HMI Project" />
       </div>
       <div className={globalMissionContext}>
-        <div className="triangle triangle-left">&nbsp;</div>
-        <div className="triangle triangle-right">&nbsp;</div>
+        <div className="absolute">
+          <RightAngleTriangle side="left" />
+        </div>
+        <div className="absolute right-0">
+          <RightAngleTriangle side="right" />
+        </div>
         <div className={globalMission}>
           <h3>Our Global Mission</h3>
           <p>
@@ -32,7 +37,7 @@ const Partners = () => (
     <div className={statementContainer}>
       <div className="subheading">Our Partners</div>
       <h2>Harvest Mission International (HMI)</h2>
-      <div className={statement}>
+      <HighlightedParagraph>
         <p>
           As Christ has called us to{" "}
           <span>‘make disciples of all nations’</span> (Matthew 28:19), we value
@@ -57,12 +62,12 @@ const Partners = () => (
           church plants in{" "}
           <span>Austin, Jakarta, Indonesia, Hong Kong, and Detroit</span>.
         </p>
-      </div>
+      </HighlightedParagraph>
       <div className={buttonContainer}>
         <ButtonLink hasArrow={true}>More Info</ButtonLink>
       </div>
     </div>
   </div>
-)
+);
 
-export default Partners
+export default Partners;
