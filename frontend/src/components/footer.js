@@ -42,7 +42,7 @@ const Footer = () => {
                             <div className="items-start flex flex-col">
                                 <h1 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">Ways to Connect</h1>
                                 {connectList.map(item => (
-                                    <a target="_blank" href={item.route} className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75">{item.title}</a>
+                                    <a target="_blank" rel="noreferrer" href={item.route} className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75">{item.title}</a>
                                 ))}
                             </div>            
                         </div>
@@ -62,7 +62,7 @@ const Footer = () => {
                             className="w-[24px] h-[24px] mb-0"
                             src={mapPinLogo}
                             />
-                            <a target="_blank" href="https://www.google.com/maps/place/Harvest+Mission+Community+Church/@42.2816338,-83.7372209,17z/data=!4m5!3m4!1s0x883cae6a77eef201:0xaf4019d9fc7aec8e!8m2!3d42.2816359!4d-83.7371982?hl=en&shorturl=1" className="text-Shades-0 font-bold text-center text-sm leading-normal mb-0 ml-[12px] no-underline hover:opacity-75">1001 E Huron St, Ann Arbor, MI 48104</a>
+                            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/place/Harvest+Mission+Community+Church/@42.2816338,-83.7372209,17z/data=!4m5!3m4!1s0x883cae6a77eef201:0xaf4019d9fc7aec8e!8m2!3d42.2816359!4d-83.7371982?hl=en&shorturl=1" className="text-Shades-0 font-bold text-center text-sm leading-normal mb-0 ml-[12px] no-underline hover:opacity-75">1001 E Huron St, Ann Arbor, MI 48104</a>
                         </div>
                         <div className="flex flex-row justify-center items-center mt-[15px]">
                             <img
@@ -81,21 +81,21 @@ const Footer = () => {
                             <h1 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-0 ml-[12px]">(PHONE)</h1>
                         </div>
                         <div className="flex flex-row justify-center items-center mt-[20px] gap-[20px]">
-                            <a href="https://www.facebook.com/hmcc.aa/" target="_blank" className="hover:opacity-75">
+                            <a href="https://www.facebook.com/hmcc.aa/" target="_blank" rel="noreferrer" className="hover:opacity-75">
                                 <img
                                 alt="facebook logo"
                                 className="w-[32px] h-[32px] mb-0"
                                 src={facebookLogo}
                                 />
                             </a>
-                            <a href="https://www.instagram.com/hmcc_aa/" target="_blank" className="hover:opacity-75">
+                            <a href="https://www.instagram.com/hmcc_aa/" target="_blank" rel="noreferrer" className="hover:opacity-75">
                                 <img
                                 alt="instagram logo"
                                 className="w-[32px] h-[32px] mb-0"
                                 src={instagramLogo}
                                 />
                             </a>
-                            <a href="https://twitter.com/HMCC_AA" target="_blank" className="hover:opacity-75">
+                            <a href="https://twitter.com/HMCC_AA" target="_blank" rel="noreferrer" className="hover:opacity-75">
                                 <img
                                 alt="twitter logo"
                                 className="w-[32px] h-[32px] mb-0"
