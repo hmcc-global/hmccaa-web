@@ -15,10 +15,12 @@ jobs:
   upload:
     runs-on: ubuntu-latest
       steps:
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: docs/_book/
+        - name: Upload Artifacts
+          uses: actions/upload-pages-artifact@v1
+          with:
+            path: docs/_book/
   deploy:
     runs-on: ubuntu-latest
       steps:
-        uses: actions/deploy-pages@v2
+        - name: Deploy Artifacts
+          uses: actions/deploy-pages@v2
