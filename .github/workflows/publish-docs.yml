@@ -16,10 +16,8 @@ jobs:
           # Check if a file under docs/ has changed
           $diff = git diff --name-only HEAD^ HEAD
           $SourceDiff = $diff | Where-Object { $_ -match '^docs/' }
-          $HasDiff = $Source.Length -gt 0
+          $HasDiff = $SourceDiff.Length -gt 0
 
-          # Write-Host "::set-output name=docs_changed::$HasDiff"
-          Write-Host "$HasDiff"
           $env:GITHUB_OUTPUT = "docs_changed::$HasDiff"
   build:
     runs-on: ubuntu-latest

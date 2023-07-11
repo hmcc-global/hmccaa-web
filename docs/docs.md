@@ -1,10 +1,10 @@
 # Documentation Server
 
-This page describes the process for this current github.io server.
+This page contains all documentation regarding the [hmcc-global.github.io/hmccaa-web] site which hosts this documentation you are reading.
 
 ## Deploying
 
-To deploy changes to the
+To deploy changes, simply push changes to a PR.
 
 ## Viewing locally
 
