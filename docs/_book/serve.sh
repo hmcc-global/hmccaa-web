@@ -7,5 +7,5 @@ docker run -it --init -dp 4000:4000  -v `pwd`:`pwd` -w `pwd` --name docs --rm $(
 # sed -e "s/<li>\n        <a href=\"https:\/\/github.com\/honkit\/honkit\" target=\"blank\" class=\"gitbook-link\">\n            Published with HonKit\n        <\/a>\n    <\/li>//g" -i.backup ./_book/index.html
 
 sleep 5
-sed -e "s/github.com\/honkit\/honkit/annarbor.hmcc.net/g" -i.backup $SCRIPT_DIR/_book/*.html
-sed -e "s/Published with HonKit/HMCCAA Website Docs/g" -i.backup $SCRIPT_DIR/_book/*.html
+sudo sed -e "s/github.com\/honkit\/honkit/annarbor.hmcc.net/g" -i.backup $SCRIPT_DIR/_book/*.html
+sudo sed -e "s/Published with HonKit/annarbor.hmcc.net/g" -i.backup $SCRIPT_DIR/_book/*.html

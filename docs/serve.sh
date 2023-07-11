@@ -8,4 +8,4 @@ docker run -it --init -dp 4000:4000  -v `pwd`:`pwd` -w `pwd` --name docs --rm $(
 
 sleep 5
 sudo sed -e "s/github.com\/honkit\/honkit/annarbor.hmcc.net/g" -i.backup $SCRIPT_DIR/_book/*.html
-sudo sed -e "s/Published with HonKit/HMCCAA Website Docs/g" -i.backup $SCRIPT_DIR/_book/*.html
+sudo sed -e "s/Published with HonKit/annarbor.hmcc.net/g" -i.backup $SCRIPT_DIR/_book/*.html

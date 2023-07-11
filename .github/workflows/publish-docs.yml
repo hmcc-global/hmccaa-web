@@ -2,7 +2,7 @@ name: Publish Docs
 run-name: ${{ github.actor }} is deploying new changes to documentation
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Triggered by ${{ github.event_name }} event."
@@ -12,4 +12,9 @@ jobs:
         run: |
           cd ${{ github.workspace }}/docs
           sudo sh serve.sh
-      - run: echo "This job's status is ${{ job.status }}."
+  upload:
+    uses: actions/upload-pages-artifact@v1
+    with:
+      path: docs/_book/
+  deploy:
+    uses: actions/deploy-pages@v2
