@@ -12,14 +12,12 @@ jobs:
         run: |
           cd ${{ github.workspace }}/docs
           sudo sh serve.sh
-  upload:
-    runs-on: ubuntu-latest
-    steps:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
         with:
-          path: docs/_book/
+          path: ./docs/_book/
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Artifacts
