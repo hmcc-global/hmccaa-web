@@ -24,7 +24,7 @@ sh serve.sh
 
 This command starts up a container with the documentation server, and removes the "Published by HonKit" line at the bottom left of the page.
 
-Or alternatively, to just start up the container, run:
+Alternatively, to just start up the container and build the server (without replacing HonKit advertisements), run:
 
 ```sh
 docker run -it --init -dp 4000:4000  -v `pwd`:`pwd` -w `pwd` --name docs --rm $(docker build -t docs -q .) honkit serve
