@@ -18,7 +18,7 @@ npm install
 Then, to run the documentation server locally:
 
 ```sh
-# Inside docs/ folder
+# Run inside docs/ folder
 sh serve.sh
 ```
 
