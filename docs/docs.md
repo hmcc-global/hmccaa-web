@@ -8,7 +8,7 @@ To deploy changes, simply create a PR. This site will be automatically redeploye
 
 ## Viewing locally
 
-To install honkit, run:
+Prequisite: Install honkit.
 
 ```sh
 cd docs
@@ -18,6 +18,7 @@ npm install
 Then, to run the documentation server locally:
 
 ```sh
+# Inside docs/ folder
 sh serve.sh
 ```
 
