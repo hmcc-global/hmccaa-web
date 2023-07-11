@@ -32,7 +32,7 @@ const Footer = () => {
                         </div>
                         <div className="flex flex-col items-start w-fit mt-[30px]">
                             <div className="items-start flex flex-col">
-                                <h1 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">Browse</h1>
+                                <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">Browse</h2>
                                 {browseList.map(item => (
                                     <a href={item.route} className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75">{item.title}</a>
                                 ))}
@@ -40,7 +40,7 @@ const Footer = () => {
                         </div>
                         <div className="flex flex-col items-start w-fit mt-[30px]">
                             <div className="items-start flex flex-col">
-                                <h1 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">Ways to Connect</h1>
+                                <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">Ways to Connect</h2>
                                 {connectList.map(item => (
                                     <a target="_blank" rel="noreferrer" href={item.route} className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75">{item.title}</a>
                                 ))}
@@ -54,7 +54,7 @@ const Footer = () => {
                             className="w-[24px] h-[24px] mb-0"
                             src={clockLogo}
                             />
-                            <h1 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-0 ml-[12px]">SUNDAYS AT 10 AM</h1>
+                            <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-0 ml-[12px]">SUNDAYS AT 10 AM</h2>
                         </div>
                         <div className="flex flex-row justify-center items-center mt-[15px]">
                             <img
@@ -78,7 +78,7 @@ const Footer = () => {
                             className="w-[24px] h-[24px] mb-0"
                             src={smartPhoneLogo}
                             />
-                            <h1 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-0 ml-[12px]">(PHONE)</h1>
+                            <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-0 ml-[12px]">(PHONE)</h2>
                         </div>
                         <div className="flex flex-row justify-center items-center mt-[20px] gap-[20px]">
                             <a href="https://www.facebook.com/hmcc.aa/" target="_blank" rel="noreferrer" className="hover:opacity-75">
@@ -113,11 +113,11 @@ const Footer = () => {
                             className="w-[24px] h-[24px] mb-0"
                             src={copyrightLogo}
                         />
-                        <h1 className="text-Shades-0 text-[16px] font-bold mb-0 ml-[4px]">2023</h1>
+                        <h2 className="text-Shades-0 text-[16px] font-bold mb-0 ml-[4px]">2023</h2>
                         <a href="https://annarbor.hmcc.net" className="text-Shades-0 text-[16px] font-bold mb-0 ml-[4px] no-underline hover:opacity-75">HARVEST MISSION COMMUNITY CHURCH</a>
                     </div>
                     <div className="flex flex-row justify-center items-center">
-                        <h1 className="text-Shades-0 text-[16px] font-bold mb-0 ml-[4px]">TERMS & CONDITIONS | OUR POLICY</h1>
+                        <h2 className="text-Shades-0 text-[16px] font-bold mb-0 ml-[4px]">TERMS & CONDITIONS | OUR POLICY</h2>
                     </div>
                 </div>
             </div>
