@@ -21,8 +21,8 @@ jobs:
           Write-Host "::set-output name=docs_changed::$HasDiff"
   build:
     runs-on: ubuntu-latest
-    needs: [check-jobs-changed]
-    if: needs.check-jobs-changed.outputs.docs_changed == 'True'
+    needs: [check-docs-changed]
+    if: needs.check-docs-changed.outputs.docs_changed == 'True'
     steps:
       - name: git checkout
         uses: actions/checkout@v3
