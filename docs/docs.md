@@ -4,7 +4,7 @@ This page contains all documentation regarding the [hmcc-global.github.io/hmccaa
 
 ## Deploying
 
-To deploy changes, simply push changes to a PR.
+To deploy changes, simply create a PR. This site will be automatically redeployed on every push to the main branch which edits the `docs/` folder.
 
 ## Viewing locally
 
