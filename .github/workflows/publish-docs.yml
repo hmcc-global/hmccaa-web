@@ -18,7 +18,7 @@ jobs:
           $SourceDiff = $diff | Where-Object { $_ -match '^docs/' }
           $HasDiff = $Source.Length -gt 0
 
-          Write-Host "::set-output name=docs_changed::$HasDiff"
+          $env:GITHUB_OUTPUT = "docs_changed::$HasDiff"
   build:
     runs-on: ubuntu-latest
     needs: [check-docs-changed]
