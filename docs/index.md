@@ -4,4 +4,4 @@ This is the main documentation hub for everything regarding the HMCC Ann Arbor W
 
 ## Contributing
 
-To contribute, check out
+To contribute, follow the following steps:
