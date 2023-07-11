@@ -13,8 +13,12 @@ jobs:
           cd ${{ github.workspace }}/docs
           sudo sh serve.sh
   upload:
-    uses: actions/upload-pages-artifact@v1
-    with:
-      path: docs/_book/
+    runs-on: ubuntu-latest
+      steps:
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/_book/
   deploy:
-    uses: actions/deploy-pages@v2
+    runs-on: ubuntu-latest
+      steps:
+        uses: actions/deploy-pages@v2
