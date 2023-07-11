@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Triggered by ${{ github.event_name }} event."
-      - name: Check out ${{ github.repository }} repository code
+      - name: git checkout
         uses: actions/checkout@v3
       - name: Build Docs Server
         run: |
@@ -20,5 +20,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: git checkout
+        uses: actions/checkout@v3
       - name: Deploy Artifacts
         uses: actions/deploy-pages@v2
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
