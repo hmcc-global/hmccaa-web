@@ -14,13 +14,13 @@ jobs:
           sudo sh serve.sh
   upload:
     runs-on: ubuntu-latest
-      steps:
-        - name: Upload Artifacts
-          uses: actions/upload-pages-artifact@v1
-          with:
-            path: docs/_book/
+    steps:
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/_book/
   deploy:
     runs-on: ubuntu-latest
-      steps:
-        - name: Deploy Artifacts
-          uses: actions/deploy-pages@v2
+    steps:
+      - name: Deploy Artifacts
+        uses: actions/deploy-pages@v2
