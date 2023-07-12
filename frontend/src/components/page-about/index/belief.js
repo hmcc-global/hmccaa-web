@@ -4,7 +4,6 @@ import {
     container,
     titleContainer,
     middleContainer,
-    oneSide,
 } from "../../../css/belief.module.css"
 
 const BibleProp = "We believe the Bible, both the Old and New Testaments, is the only inspired, infallible, and authoritative Word of God. It is the supreme source of truth for Christian faith and living.";
@@ -27,7 +26,7 @@ const Belief = () => (
         <div className = {middleContainer}>
             
             {/* left side */}
-            <div className={oneSide}>
+            <div>
                 <div>
                     <Collapsible prop={BibleProp} prop2="The Bible"/>
                 </div>
@@ -46,7 +45,7 @@ const Belief = () => (
             </div>
             
             {/* right side */}
-            <div className={oneSide}>
+            <div>
                 <div>
                     <Collapsible prop={SalvationProp} prop2="Salvation"/>
                 </div>

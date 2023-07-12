@@ -111,7 +111,7 @@ const theme = {
     },
 
     gap: {
-      "sm":"7.5",
+      "sm":"7.5rem",
     },
 
     lineHeight: {

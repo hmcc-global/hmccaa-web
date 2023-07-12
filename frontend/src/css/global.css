@@ -31,3 +31,7 @@ h2 {
 .linejoin-round {
   stroke-linejoin: round;
 }
+
+.invisible {
+ @apply h-0 overflow-hidden;
+}

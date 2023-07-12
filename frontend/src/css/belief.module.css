@@ -9,7 +9,7 @@
   }
 
 .middle-container {
-    @apply flex-auto columns-2 flex-nowrap;
+    @apply flex gap-x-sm;
 }
 
 .container h3 {
@@ -23,10 +23,9 @@
 .sub-head {
     @apply flex;
 }
+
 .box {
     @apply flex-col flex-nowrap break-inside-avoid-column;
 }
 
-.one-side {
-    @apply w-md-sm h-md-lg;
-}
+

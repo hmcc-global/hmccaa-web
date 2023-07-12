@@ -25,12 +25,11 @@ export const Collapsible = (props) => {
                 <button onClick={toggle}>{arrImage}</button>
                 <h3>{props.prop2}</h3>
             </div>
-            {reveal && (
-                <div className="toggle">
+         
+                <div className={`"toggle" ${reveal ? "":"invisible"}`}> 
                     <p>{props.prop}</p>
                 </div>
-            )
-            }
+            
         </div>
     );
 };
