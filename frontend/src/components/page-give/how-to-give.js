@@ -5,7 +5,7 @@ import {PrimaryButtonLink, SecondaryButtonLink} from "../Button";
 const HowToGiveSection = () => (
   <div className="flex pb-20.5 flex-col items-center m-auto max-w-[640px] text-center gap-[60px]">
     <div className="flex flex-col items-center">
-      <div className="subheading">Why We Give</div>
+      <div className="subheading">Ways To Give</div>
       <h2 className="mb-5">Two Simple Ways to Give</h2>
       <p className="mb-0">When giving, please always use your legal name and provide the same email address consistently</p>
     </div>
