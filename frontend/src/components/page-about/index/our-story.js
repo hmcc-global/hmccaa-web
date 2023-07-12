@@ -4,8 +4,8 @@ import { HighlightedParagraph } from "../../shared/highlightedParagraph"
 
 const OurStory = () => {
   return (
-    <div className="flex items-start gap-14">
-      <div className="basis-689/1180">
+    <div className="flex items-start gap-[60px] px-0.5">
+      <div className="basis-[49.32%]">
         <div className="flex flex-col items-start gap-3">
           <div className="subheading">Our Story</div>
           <h2 className="pb-5">
@@ -38,8 +38,8 @@ const OurStory = () => {
         </HighlightedParagraph>
       </div>
 
-      <div>
-        <img src={hmiImage} alt="Greeter" />
+      <div className="relative">
+        <img src={hmiImage} alt="Greeter" className="mb-0"/>
       </div>
     </div>
   )
