@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-    @apply pb-56 pt-31;
+    @apply pb-56 pt-31 h-full w-full;
 }
 
 .title-container {
@@ -9,7 +9,7 @@
   }
 
 .middle-container {
-    @apply flex-auto columns-2 gap-x-32;
+    @apply flex-auto columns-2 flex-nowrap;
 }
 
 .container h3 {
@@ -24,5 +24,9 @@
     @apply flex;
 }
 .box {
-    @apply flex-col flex-nowrap;
+    @apply flex-col flex-nowrap break-inside-avoid-column;
+}
+
+.one-side {
+    @apply w-md-sm h-md-lg;
 }

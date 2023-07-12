@@ -100,6 +100,20 @@ const theme = {
       "3.4xl": "53.125rem",
       "3.5xl": "53.625rem",
     },
+
+    width: {
+      "md-sm": "30rem",
+
+    },
+
+    height: {
+      "md-lg":"54.75rem",
+    },
+
+    gap: {
+      "sm":"7.5",
+    },
+
     lineHeight: {
       tighter: "1.2",
     },
