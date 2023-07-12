@@ -1,14 +1,19 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-export const Head = () => <Seo title="Home" />
-
-export default () => (
+const IndexPage = () => (
   <Layout>
-    <div>index.js coming soon</div>
+      <div>Transform lives, transform the world section</div>
+      <div>Join us this sunday section</div>
+      <div>Welcome section</div>
+      <div>Get connected section</div>
+      <div>Get involved section</div>
+      <div>Upcoming events section</div>
   </Layout>
-)
+);
+
+export const Head = () => <Seo title="Harvest Mission Community Church" />;
+
+export default IndexPage
