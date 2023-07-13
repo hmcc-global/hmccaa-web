@@ -33,5 +33,5 @@ h2 {
 }
 
 .invisible {
- @apply h-0 overflow-hidden;
+  @apply h-0 overflow-hidden;
 }

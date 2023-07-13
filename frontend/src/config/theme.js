@@ -101,14 +101,6 @@ const theme = {
       "3.5xl": "53.625rem",
     },
 
-    width: {
-      "md-sm": "30rem",
-
-    },
-
-    height: {
-      "md-lg":"54.75rem",
-    },
 
     gap: {
       "sm":"7.5rem",
