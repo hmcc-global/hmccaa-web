@@ -8,7 +8,7 @@ import {
   statementContainer,
   buttonContainer,
 } from "../../../css/partners.module.css";
-import { ButtonLink } from "../../Button";
+import {SecondaryButtonLink} from "../../Button";
 import { RightAngleTriangle } from "../../svgs";
 import {HighlightedParagraph} from "../../shared/highlightedParagraph";
 
@@ -64,7 +64,7 @@ const Partners = () => (
         </p>
       </HighlightedParagraph>
       <div className={buttonContainer}>
-        <ButtonLink hasArrow={true}>More Info</ButtonLink>
+        <SecondaryButtonLink hasArrow={true}>More Info</SecondaryButtonLink>
       </div>
     </div>
   </div>
