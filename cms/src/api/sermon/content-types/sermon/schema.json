@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sermons",
+  "info": {
+    "singularName": "sermon",
+    "pluralName": "sermons",
+    "displayName": "Sermon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "DatePreached": {
+      "type": "date"
+    },
+    "ServiceType": {
+      "type": "enumeration",
+      "enum": [
+        "Sunday Celebration",
+        "Encounter",
+        "Good Friday",
+        "Baptism",
+        "Easter Sunday",
+        "Special Events",
+        "Seminar",
+        "Other"
+      ],
+      "default": "Sunday Celebration",
+      "required": true,
+      "enumName": "type"
+    },
+    "VideoLink": {
+      "type": "string"
+    },
+    "Audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "SermonNotes": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "BiblePassage": {
+      "type": "string",
+      "required": false
+    },
+    "Series": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sermon-series.sermon-series",
+      "inversedBy": "Sermons"
+    },
+    "Preacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::preacher.preacher",
+      "inversedBy": "Sermons"
+    }
+  }
+}
