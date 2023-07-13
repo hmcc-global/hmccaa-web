@@ -100,12 +100,9 @@ const theme = {
       "3.4xl": "53.125rem",
       "3.5xl": "53.625rem",
     },
-
-
     gap: {
       "sm":"7.5rem",
     },
-
     lineHeight: {
       tighter: "1.2",
     },
