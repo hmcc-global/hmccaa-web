@@ -10,8 +10,8 @@ export const ButtonLink = ({ to = "#", hasArrow = false, className = "", childre
   </Link>
 );
 
-export const Button = ({ hasArrow = false, type, children, primary = true }) => (
-  <button type={type} className={primary ? button : buttonSecondary}>
+export const Button = ({ hasArrow = false, type, children}) => (
+  <button type={type} className={button}>
     <span className={textContainer}>{children}</span>{" "}
     {hasArrow && <ButtonArrow />}
   </button>
@@ -30,3 +30,5 @@ export const PrimaryButtonLink = (props) => (
     className={`${props.className} ${primaryButton}`}
   />
 );
+
+
