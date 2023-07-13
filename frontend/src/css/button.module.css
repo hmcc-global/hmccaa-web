@@ -12,10 +12,6 @@
   @apply bg-Primary-500 text-Neutral-50
 }
 
-.buttonSecondary {
-  @apply no-underline uppercase rounded-sm py-3 px-5 shadow-button font-bold tracking-medium-wide bg-Primary-500 text-Shades-0 flex items-center;
-}
-
 .text-container {
   @apply pr-2;
 }

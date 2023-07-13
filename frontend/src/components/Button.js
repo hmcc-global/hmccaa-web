@@ -10,7 +10,7 @@ export const ButtonLink = ({ to = "#", hasArrow = false, className = "", childre
   </Link>
 );
 
-export const Button = ({ hasArrow = false, type, children}) => (
+export const Button = ({ hasArrow = false, type, children }) => (
   <button type={type} className={button}>
     <span className={textContainer}>{children}</span>{" "}
     {hasArrow && <ButtonArrow />}
