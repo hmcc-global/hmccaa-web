@@ -9,10 +9,7 @@ import {
 } from "../css/button.module.css"
 
 export const ButtonLink = ({
-  to = "#",
-  hasArrow = false,
-  className = "",
-  children,
+  to = "#", hasArrow = false, className = "", children,
 }) => (
   <Link className={`${button} ${className}`} to={to}>
     <span className={textContainer}>{children}</span>{" "}

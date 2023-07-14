@@ -44,6 +44,7 @@ async function prettifyCode() {
   const spinner = new Spinner(" %s " + chalk.cyan(msg));
   spinner.start();
 
+  sh.cd('frontend');
   const result = (await exec(`npm run format`, { silent: true })) || [
     0,
     "",
