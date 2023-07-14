@@ -20,6 +20,10 @@ const gatsbyRequiredRules = path.join(
   "eslint-rules"
 );
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `HMCC Ann Arbor`,
@@ -30,6 +34,15 @@ module.exports = {
   plugins: [
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: ["sermon"],
+        singleTypes: [],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
