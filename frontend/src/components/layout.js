@@ -8,14 +8,9 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-<<<<<<< HEAD
 import Header from "./header"
 import "./layout.css"
 import Footer from "./footer"
-=======
-import Header from "./header";
-import "./layout.css";
->>>>>>> 915aa57 (adding format files)
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

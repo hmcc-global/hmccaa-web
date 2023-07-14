@@ -1,6 +1,6 @@
-import * as React from "react"
-import whyGiveImage from "../../images/give-why-we-give.png"
-import {HighlightedParagraph} from "../shared/highlightedParagraph";
+import * as React from "react";
+import whyGiveImage from "../../images/give-why-we-give.png";
+import { HighlightedParagraph } from "../shared/highlightedParagraph";
 
 const WhyWeGiveSection = () => (
   <div className="flex pb-20.5">
@@ -20,21 +20,26 @@ const WhyWeGiveSection = () => (
         <p>
           {" "}
           God invites us to partner with Him in His ministry of making disciples
-          and transforming the world. Our financial giving - whether it is regular
-          tithes or additional gifts - is not only an expression of{" "}
+          and transforming the world. Our financial giving - whether it is
+          regular tithes or additional gifts - is not only an expression of{" "}
           <span>thankfulness and worship unto God</span>, but also{" "}
-          <span>an act of faith that God will provide and equip His church for
-            His mission</span>.
+          <span>
+            an act of faith that God will provide and equip His church for His
+            mission
+          </span>
+          .
         </p>
         <p>
-          Your gift propels us toward our vision and enables our church to respond
-          swiftly with obedience to God's calling.{" "}
-          <span>We invite you to contribute to this vision and to play a vital role
-          in what God is doing!</span>
+          Your gift propels us toward our vision and enables our church to
+          respond swiftly with obedience to God's calling.{" "}
+          <span>
+            We invite you to contribute to this vision and to play a vital role
+            in what God is doing!
+          </span>
         </p>
       </HighlightedParagraph>
     </div>
   </div>
 );
 
-export default WhyWeGiveSection
+export default WhyWeGiveSection;
