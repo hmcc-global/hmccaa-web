@@ -3,13 +3,9 @@ import imgPeteDahlem from "../../../images/about-elders-pete-dahlem.png";
 import imgJoshYang from "../../../images/about-elders-josh-yang.png";
 import imgDaveYon from "../../../images/about-elders-dave-yon.png";
 import imgSeongPark from "../../../images/about-elders-seong-park.png";
-<<<<<<< HEAD
 import {SecondaryButtonLink} from "../../Button";
 
 
-=======
-import { ButtonLink } from "../../Button";
->>>>>>> 915aa57 (adding format files)
 
 const LeadershipSection = () => {
   const elderInfo = [
