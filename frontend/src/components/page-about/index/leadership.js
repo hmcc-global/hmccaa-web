@@ -3,9 +3,7 @@ import imgPeteDahlem from "../../../images/about-elders-pete-dahlem.png";
 import imgJoshYang from "../../../images/about-elders-josh-yang.png";
 import imgDaveYon from "../../../images/about-elders-dave-yon.png";
 import imgSeongPark from "../../../images/about-elders-seong-park.png";
-import {SecondaryButtonLink} from "../../Button";
-
-
+import { SecondaryButtonLink } from "../../Button";
 
 const LeadershipSection = () => {
   const elderInfo = [
@@ -45,13 +43,13 @@ const LeadershipSection = () => {
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>
       </div>
-    <div className="flex justify-center gap-4 pb-11.25">
-      {elderCards}
+      <div className="flex justify-center gap-4 pb-11.25">{elderCards}</div>
+      <div className="flex">
+        <SecondaryButtonLink to={"/about/our-team"} hasArrow={true}>
+          More About Our Elders and Deacons
+        </SecondaryButtonLink>
+      </div>
     </div>
-    <div className="flex">
-      <SecondaryButtonLink to={"/about/our-team"} hasArrow={true}>More About Our Elders and Deacons</SecondaryButtonLink>
-    </div>
-  </div>
   );
 };
 
