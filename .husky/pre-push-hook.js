@@ -19,10 +19,10 @@
  * You can bypass this script using the git "--no-verify" argument. Please don't do that!
  */
 
-const chalk = require("chalk");
-const sh = require("shelljs");
+import chalk from "chalk";
+import sh  from "shelljs";
 
-const Spinner = require("cli-spinner").Spinner;
+import { Spinner } from "cli-spinner";
 Spinner.setDefaultSpinnerString("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏");
 Spinner.setDefaultSpinnerDelay(80);
 
@@ -39,7 +39,7 @@ function parseErrorCode(str) {
   return result && result.length > 1 ? result[1] : undefined;
 }
 
-async function prettierCode() {
+async function prettifyCode() {
   const msg = "Making sure your code looks pretty...";
   const spinner = new Spinner(" %s " + chalk.cyan(msg));
   spinner.start();
