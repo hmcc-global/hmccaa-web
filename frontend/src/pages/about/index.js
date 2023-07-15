@@ -14,7 +14,6 @@ const AboutPage = () => (
   <Layout>
     <div className="max-w-container">
       <div>Our Story section</div>
-      <div>Our Beliefs section</div>
       <div>Our Mission section</div>
       <div>Our Values section</div>
       <LeadershipSection />
