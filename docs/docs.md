@@ -42,11 +42,11 @@ If the pre-push process prettify the code, need to commit the code. Then you can
 
 If the two checks pass, then the code will be push into remote respository. 
 
-If you want to avoid this pre-push proces, then add ```--no-verify``` to the ```git push command```
+If you want to avoid this pre-push proces, then add ```--no-verify``` to the ```git push``` command
 
 Here are examples to how to do it:
 ```sh
-    git push ---no-verify
+    git push --no-verify
 ```
 
 or 
