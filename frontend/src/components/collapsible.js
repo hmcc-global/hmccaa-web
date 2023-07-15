@@ -18,9 +18,11 @@ export const Collapsible = ({ sectionHead, sectionBody }) => {
   )
   return (
     <div className={box}>
-      <div className={subHead}>
-        <button onClick={toggle}>{arrImage}</button>
-        <h3>{sectionHead}</h3>
+      <div onClick={toggle} className={subHead}>
+        <button>{arrImage}</button>
+        <h3>
+          <button>{sectionHead}</button>
+        </h3>
       </div>
       <div className={`"toggle" ${reveal ? "" : "invisible"}`}>
         <p>{sectionBody}</p>
