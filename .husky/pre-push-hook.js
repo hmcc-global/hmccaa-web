@@ -5,18 +5,13 @@
  * Husky runs this script whenever you attempt to push changes to the remote repo.
  *
  * This script will:
- *  - Run "yarn prettify" to ensure the code is properly formatted.
- *  - Run "yarn" to ensure package.json changes are reflected in yarn.lock.
- *  - Validate there is a commit with updates to CHANGELOG.md.
+ *  - Run "npm run prettify" to ensure the code is properly formatted.
  *
- * If "yarn prettify" or "yarn" commands fail, the commands implicitly take corrective actions & the git push
+ * If "npm run prettify" or "npm" commands fail, the commands implicitly take corrective actions & the git push
  * command will fail. The developer should inspect the new changes & re-attempt the push.
  *
- * If the CHANGELOG.md file was not updated and files in were touched,
- * the git push command will fail, the developer will need to update and commit their changes
- * to the CHANGELOG.md file before proceeding.
  *
- * You can bypass this script using the git "--no-verify" argument. Please don't do that!
+ * You can bypass this script using the git "--no-verify" argument.
  */
 
 import chalk from "chalk";
