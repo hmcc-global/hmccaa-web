@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const ButtonArrow = () => (
+const ButtonArrow = () => (
   <svg
     className="w-8"
     viewBox="0 0 21 13"
@@ -16,7 +16,7 @@ export const ButtonArrow = () => (
   </svg>
 );
 
-export const RightAngleTriangle = ({ side }) => (
+const RightAngleTriangle = ({ side }) => (
   <svg
     className="w-20"
     viewBox="0 0 80 200"
@@ -37,7 +37,7 @@ export const RightAngleTriangle = ({ side }) => (
   </svg>
 );
 
-export const Arrows = ({ width, viewBox, direction, size }) => (
+const Arrows = ({ width, viewBox, direction, size }) => (
   <svg
     className={width}
     viewBox={viewBox}
@@ -99,7 +99,7 @@ export const Arrows = ({ width, viewBox, direction, size }) => (
   </svg>
 );
 
-export const Chevron = ({ direction }) => (
+const Chevron = ({ direction }) => (
   <svg
     className="w-8"
     viewBox="0 0 32 32"

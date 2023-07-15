@@ -52,8 +52,8 @@ const Footer = () => {
                   <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">
                     Browse
                   </h2>
-                  {browseList.map(item => (
-                    <a
+                  {browseList.map((item,index) => (
+                    <a key={`browseLink-${index}`}
                       href={item.route}
                       className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75"
                     >
@@ -67,8 +67,8 @@ const Footer = () => {
                   <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">
                     Ways to Connect
                   </h2>
-                  {connectList.map(item => (
-                    <a
+                  {connectList.map((item, index) => (
+                    <a key={`connectLink-${index}`}
                       target="_blank"
                       rel="noreferrer"
                       href={item.route}
