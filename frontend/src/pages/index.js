@@ -12,8 +12,8 @@ const IndexPage = () => (
     <div>Get involved section</div>
     <div>Upcoming events section</div>
   </Layout>
-)
+);
 
-export const Head = () => <Seo title="Harvest Mission Community Church" />
+export const Head = () => <Seo title="Harvest Mission Community Church" />;
 
 export default IndexPage;
