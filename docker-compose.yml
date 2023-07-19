@@ -9,6 +9,8 @@ services:
       - "8000:8000"
     volumes:
       - ./frontend/src/:/opt/frontend/src/
+      - ./frontend/.eslintrc.js:/opt/frontend/.eslintrc.js
+      - ./frontend/eslint-custom-gatsby-rule:/opt/frontend/eslint-custom-gatsby-rule
     networks:
       - strapi
     depends_on:
