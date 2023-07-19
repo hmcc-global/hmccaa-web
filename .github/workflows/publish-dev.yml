@@ -30,16 +30,16 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: "placeholder"
-      - name: Add Known Hosts
-        run: ${{ secrets.DREAMHOST_DEV_KNOWN_HOSTS }}
+          known_hosts: ${{ secrets.DREAMHOST_DEV_KNOWN_HOSTS }}
+      # - name: Add Known Hosts
+      #   run: cat ${{ secrets.DREAMHOST_DEV_KNOWN_HOSTS }} >>
       - name: git checkout
         uses: actions/checkout@v3
-      - name: Build Gatsby
-        run: |
-          cd ${{ github.workspace }}/frontend
-          npm install
-          npm run build
+      # - name: Build Gatsby
+      #   run: |
+      #     cd ${{ github.workspace }}/frontend
+      #     npm install
+      #     npm run build
       - name: Sync files to server
         run: |
-          rsync -avz ./public/ hmccaa@hmcc.net:/home/hmccaa/annarbor-dev
+          rsync -avz ./Dockerfile hmccaa@hmcc.net:/home/hmccaa/annarbor-dev
