@@ -1,9 +1,9 @@
 name: Publish Development Server
-run-name: Dev deployment by ${{ github.actor }}
+run-name: Deploy new version of Development server (kicked off by ${{ github.actor }})
 on:
   push:
     branches:
-      - "maplexu/9-deployment"
+      - "main"
 jobs:
   deploy-gatsby:
     runs-on: ubuntu-latest
@@ -24,6 +24,6 @@ jobs:
           npm install
           npm run build
           # Add anti-webscraping
-          echo 'User-agent: *\nDisallow: /' > ./robots.txt
+          echo 'User-agent: *\nDisallow: /' > ./public/robots.txt
       - name: Sync files to server
         run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
