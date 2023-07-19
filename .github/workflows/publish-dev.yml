@@ -33,7 +33,9 @@ jobs:
           known_hosts: "placeholder"
           name: id_rsa
       - name: Check in SSH Key
-        run: ssh-add
+        run: |
+          eval `ssh-agent -s`
+          ssh-add
       - name: git checkout
         uses: actions/checkout@v3
       # - name: Build Gatsby
