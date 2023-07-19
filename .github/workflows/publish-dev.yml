@@ -23,5 +23,7 @@ jobs:
           cd ${{ github.workspace }}/frontend
           npm install
           npm run build
+          # Add anti-webscraping
+          echo 'User-agent: *\nDisallow: /' > ./robots.txt
       - name: Sync files to server
         run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
