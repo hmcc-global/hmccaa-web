@@ -7,7 +7,7 @@ import LifeGroup from "../../components/page-next-steps/lifeGroup";
 const NextStepsPage = () => (
   <Layout>
     <LifeGroup />
-    <div>Membxership section</div>
+    <div>Membership section</div>
     <div>Transformation classes section</div>
     <div>Baptism section</div>
     <div>Ministry teams section</div>
