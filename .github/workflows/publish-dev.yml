@@ -36,6 +36,7 @@ jobs:
         run: |
           eval `ssh-agent -s`
           ssh-add
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
       # - name: Build Gatsby
