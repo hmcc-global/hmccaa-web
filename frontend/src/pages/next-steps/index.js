@@ -2,11 +2,12 @@ import * as React from "react";
 
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
+import LifeGroup from "../../components/page-next-steps/lifeGroup";
 
 const NextStepsPage = () => (
   <Layout>
-    <div>Life Groups section</div>
-    <div>Membership section</div>
+    <LifeGroup />
+    <div>Membxership section</div>
     <div>Transformation classes section</div>
     <div>Baptism section</div>
     <div>Ministry teams section</div>

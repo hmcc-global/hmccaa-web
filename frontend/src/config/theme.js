@@ -103,6 +103,12 @@ const theme = {
     gap: {
       sm: "7.5rem",
     },
+    width: {
+      sm: "30rem",
+    },
+    height: {
+      sm: "21.63rem",
+    },
     lineHeight: {
       tighter: "1.2",
     },
