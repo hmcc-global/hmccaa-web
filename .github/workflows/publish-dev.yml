@@ -31,8 +31,8 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.DREAMHOST_DEV_KNOWN_HOSTS }}
-      # - name: Add Known Hosts
-      #   run: ssh-keyscan -H ${{ secrets.DREAMHOST_DEV_IP }} >> ~/.ssh/known_hosts
+      - name: Add Known Hosts
+        run: ssh-keyscan -H ${{ secrets.DREAMHOST_DEV_IP }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
       # - name: Build Gatsby
