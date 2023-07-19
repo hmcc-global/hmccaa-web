@@ -11,7 +11,7 @@ const OurStory = () => {
       </div>
 
       <div className="text-center lg:basis-[49.32%] lg:order-1 lg:items-center lg:text-left">
-        <div className="flex flex-col text-center gap-3 lg:text-left">
+        <div className="flex flex-col gap-3 ">
           <div className="subheading">Our Story</div>
           <h2 className="pb-5">
             Transform lives, <br /> Transform the world.
