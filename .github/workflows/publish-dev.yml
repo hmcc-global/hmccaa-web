@@ -27,12 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: ${{ secrets.DREAMHOST_DEV_KNOWN_HOSTS }}
-      - name: Add Known Hosts
-        run: ssh-keyscan -H ${{ secrets.DREAMHOST_DEV_IP }} >> ~/.ssh/known_hosts
+        run: |
+          cat ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa
+          ssh-add
       - name: git checkout
         uses: actions/checkout@v3
       # - name: Build Gatsby
@@ -42,4 +39,4 @@ jobs:
       #     npm run build
       - name: Sync files to server
         run: |
-          rsync -avz ./Dockerfile hmccaa@hmcc.net:/home/hmccaa/annarbor-dev
+          rsync -avz ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
