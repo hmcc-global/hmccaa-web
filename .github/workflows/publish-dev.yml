@@ -46,4 +46,4 @@ jobs:
       - name: Sync files to server
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-          rsync -avz ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
+          # rsync -avz ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
