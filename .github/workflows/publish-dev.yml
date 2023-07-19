@@ -45,4 +45,4 @@ jobs:
       #     npm install
       #     npm run build
       - name: Sync files to server
-        run: rsync -avz ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
+        run: rsync -avz ./frontend/Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
