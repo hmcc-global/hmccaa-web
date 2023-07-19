@@ -32,15 +32,16 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: "placeholder"
       - name: Add Known Hosts
-        run: ssh-keyscan -H ${{ secrets.DREAMHOST_DEV_IP }} >> ~/.ssh/known_hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.DREAMHOST_DEV_IP }} >> ~/.ssh/known_hosts
+          cat ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
-      # - name: Build Gatsby
-      #   run: |
-      #     cd ${{ github.workspace }}/frontend
-      #     npm install
-      #     npm run build
-      - name: Sync files to server
+      - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend
-          rsync -avz . hmccaa@hmcc.net:/home/hmccaa/annarbor-dev
+          npm install
+          npm run build
+      - name: Sync files to server
+        run: |
+          rsync -avz ./public/ hmccaa@hmcc.net:/home/hmccaa/annarbor-dev
