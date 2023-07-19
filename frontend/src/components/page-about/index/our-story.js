@@ -4,15 +4,14 @@ import { HighlightedParagraph } from "../../shared/highlightedParagraph"
 
 const OurStory = () => {
   return (
-    <div className="px-0.5 flex flex-col items-center justify-center lg:flex-row lg:items-start lg:gap-[60px]">
+    <div className="px-0.5 flex flex-col items-center justify-center lg:flex-row lg:gap-[60px]">
 
       <div className="flex-shrink-0 lg:order-2">
         <img src={hmiImage} alt="Greeter" className="mb-0"/>
-        <div className="top-0 bottom-0 left-0 right-0">text</div>
       </div>
 
-      <div className="md:basis-[49.32%] lg:order-1">
-        <div className="flex flex-col text-center gap-3 lg:text-left ">
+      <div className="text-center lg:basis-[49.32%] lg:order-1 lg:items-center lg:text-left">
+        <div className="flex flex-col text-center gap-3 lg:text-left">
           <div className="subheading">Our Story</div>
           <h2 className="pb-5">
             Transform lives, <br /> Transform the world.
