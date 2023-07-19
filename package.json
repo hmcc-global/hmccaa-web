@@ -5,5 +5,10 @@
   },
   "scripts": {
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-spinner": "^0.2.10",
+    "shelljs": "^0.8.5"
   }
 }
