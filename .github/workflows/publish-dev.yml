@@ -27,9 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH Key
-        run: |
-          echo ${{ secrets.SSH_PRIVATE_KEY }} &gt; ~/.ssh/id_rsa
-          ssh-add
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          name: id_rsa
+      - name: Check in SSH Key
+        run: ssh-add
       - name: git checkout
         uses: actions/checkout@v3
       # - name: Build Gatsby
