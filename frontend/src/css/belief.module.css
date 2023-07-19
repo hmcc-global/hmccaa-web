@@ -1,28 +1,29 @@
 @config "../config/tailwind.config.js";
 
 .container {
-    @apply pb-56 pt-31;
+  @apply pb-56 pt-31 h-full w-full;
 }
 
 .title-container {
-    @apply text-center pb-14;
-  }
+  @apply text-center pb-14;
+}
 
 .middle-container {
-    @apply flex-auto columns-2 gap-x-32;
+  @apply grid gap-x-sm grid-cols-2 pl-12 pr-12;
 }
 
 .container h3 {
-    @apply font-semibold text-2xl;
-} 
+  @apply font-semibold text-2xl;
+}
 
 .arrow {
-    @apply pr-5;
+  @apply pr-5;
 }
 
 .sub-head {
-    @apply flex;
+  @apply flex;
 }
+
 .box {
-    @apply flex-col flex-nowrap;
+  @apply flex-col flex-nowrap break-inside-avoid-column;
 }

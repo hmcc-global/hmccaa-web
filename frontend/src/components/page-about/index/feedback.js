@@ -1,5 +1,5 @@
 import * as React from "react"
-import {ButtonLink} from "../../Button";
+import {SecondaryButtonLink} from "../../Button";
 
 const Feedback = () => {
     return <div className="bg-Neutral-200 w-full flex justify-center items-center py-[90px] px-6">
@@ -7,7 +7,7 @@ const Feedback = () => {
             <div className="flex flex-col justify-evenly">
                 <h1 className="text-[35px] font-bold">Feedback Form for Pastors and Elders</h1>
                 <div className="flex">
-                    <ButtonLink to={"/about/feedback"} hasArrow={true}>Feedback Form</ButtonLink>
+                    <SecondaryButtonLink to={"/about/feedback"} hasArrow={true}>Feedback Form</SecondaryButtonLink>
                 </div>
             </div>
             <div className="flex flex-col">

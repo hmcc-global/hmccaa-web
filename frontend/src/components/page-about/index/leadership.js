@@ -3,7 +3,7 @@ import imgPeteDahlem from "../../../images/about-elders-pete-dahlem.png";
 import imgJoshYang from "../../../images/about-elders-josh-yang.png";
 import imgDaveYon from "../../../images/about-elders-dave-yon.png";
 import imgSeongPark from "../../../images/about-elders-seong-park.png";
-import {ButtonLink} from "../../Button";
+import {SecondaryButtonLink} from "../../Button";
 
 
 
@@ -48,7 +48,7 @@ const LeadershipSection = () => {
       {elderCards}
     </div>
     <div className="flex">
-      <ButtonLink to={"/about/our-team"} hasArrow={true}>More About Our Elders and Deacons</ButtonLink>
+      <SecondaryButtonLink to={"/about/our-team"} hasArrow={true}>More About Our Elders and Deacons</SecondaryButtonLink>
     </div>
   </div>
 };
