@@ -1,0 +1,46 @@
+name: Publish Development Server
+run-name: Dev deployment by ${{ github.actor }}
+on:
+  push:
+    branches:
+      - "maplexu/9-deployment"
+jobs:
+  # deploy-strapi:
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Install SSH Key
+    #     uses: shimataro/ssh-key-action@v2
+    #     with:
+    #       key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
+    #       known_hosts: 
+    #   - name: git checkout
+    #     uses: actions/checkout@v3
+    #   - name: Build Strapi
+    #     run: |
+    #       cd ${{ github.workspace }}/cms
+    #       npm install
+    #       npm run build
+    #   - name: Upload Artifacts
+    #     uses:
+  deploy-gatsby:
+    # needs: deploy-strapi
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'placeholder'
+      - name: Add Known Hosts
+        run: ssh-keyscan -H ${{ secrets.DREAMHOST_DEV_IP }}{% endraw%} >> ~/.ssh/known_hosts
+      - name: git checkout
+        uses: actions/checkout@v3
+      # - name: Build Gatsby
+      #   run: |
+      #     cd ${{ github.workspace }}/frontend
+      #     npm install
+      #     npm run build
+      - name: Sync files to server
+        run: |
+          cd ${{ github.workspace }}/frontend
+          rsync -avz . hmccaa@hmcc.net:/home/hmccaa/annarbor-dev
