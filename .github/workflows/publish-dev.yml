@@ -1,5 +1,5 @@
 name: Publish Development Server
-run-name: *Development server* deployment (kicked off by ${{ github.actor }})
+run-name: Development server deployment (kicked off by ${{ github.actor }})
 on:
   push:
     branches:
@@ -24,9 +24,9 @@ jobs:
           cd ${{ github.workspace }}/frontend
           npm install
           npm run build
-          
+
           # Add anti-webscraping
-          echo 'User-agent: *' > ./public/robots.txt
-          echo 'Disallow: /' >> ./public/robots.txt
+          echo 'User-agent: *
+          Disallow: /' >> ./public/robots.txt
       - name: Sync files to server
         run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
