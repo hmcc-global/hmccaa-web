@@ -39,12 +39,10 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
-      # - name: Build Gatsby
-      #   run: |
-      #     cd ${{ github.workspace }}/frontend
+      - name: Build Gatsby
+        run: |
+          cd ${{ github.workspace }}/frontend
       #     npm install
       #     npm run build
       - name: Sync files to server
-        run: |
-          # ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
-          rsync -avz ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
+        run: rsync -avz ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
