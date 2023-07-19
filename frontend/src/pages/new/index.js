@@ -2,11 +2,13 @@ import * as React from "react";
 
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
+import WelcomeSection from "../../components/page-new/welcome";
+import SundayCelebrationSection from "../../components/page-new/sunday-celebration";
 
 const NewcomersPage = () => (
   <Layout>
-    <div>Welcome section</div>
-    <div>Sunday celebration bar</div>
+    <WelcomeSection/>
+    <SundayCelebrationSection/>
     <div>Life stages section</div>
     <div>Got any questions section</div>
   </Layout>
