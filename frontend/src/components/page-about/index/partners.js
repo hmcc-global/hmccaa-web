@@ -8,9 +8,9 @@ import {
   statementContainer,
   buttonContainer,
 } from "../../../css/partners.module.css";
-import {SecondaryButtonLink} from "../../Button";
+import { SecondaryButtonLink } from "../../Button";
 import { RightAngleTriangle } from "../../svgs";
-import {HighlightedParagraph} from "../../shared/highlightedParagraph";
+import { HighlightedParagraph } from "../../shared/highlightedParagraph";
 
 const Partners = () => (
   <div className={container}>

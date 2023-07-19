@@ -1,10 +1,10 @@
-import * as React from "react"
-import { Collapsible } from "../../collapsible"
+import * as React from "react";
+import { Collapsible } from "../../collapsible";
 import {
   container,
   titleContainer,
   middleContainer,
-} from "../../../css/belief.module.css"
+} from "../../../css/belief.module.css";
 
 const beliefs = [
   {
@@ -52,7 +52,7 @@ const beliefs = [
     sectionBody:
       "We believe that water baptism and the Lord’s Supper are ordinances to be observed by the Church during the present age. They are, however, not to be regarded as means of salvation.",
   },
-]
+];
 
 const Belief = () => (
   <div className={container}>
@@ -70,5 +70,5 @@ const Belief = () => (
       ))}
     </div>
   </div>
-)
-export default Belief
+);
+export default Belief;

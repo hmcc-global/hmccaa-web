@@ -16,7 +16,7 @@ const Strategy = () => (
   <div className={container}>
     <div className={titleContainer}>
       <div className="subheading">Our Strategy</div>
-      <h2>The 3G's: Gather, Grow, Go</h2>
+      <h2>The 3G&apos;s: Gather, Grow, Go</h2>
     </div>
     <div className="relative">
       <div className={svgContainer}>
