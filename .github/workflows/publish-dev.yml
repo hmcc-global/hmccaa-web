@@ -39,7 +39,7 @@ jobs:
       - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend
-          # npm install
-          # npm run build
+          npm install
+          npm run build
       - name: Sync files to server
-        run: rsync -avz ./frontend/Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
+        run: rsync -avzr ./frontend/public ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
