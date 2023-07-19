@@ -6,22 +6,22 @@ on:
       - "maplexu/9-deployment"
 jobs:
   # deploy-strapi:
-    # runs-on: ubuntu-latest
-    # steps:
-    #   - name: Install SSH Key
-    #     uses: shimataro/ssh-key-action@v2
-    #     with:
-    #       key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
-    #       known_hosts: 
-    #   - name: git checkout
-    #     uses: actions/checkout@v3
-    #   - name: Build Strapi
-    #     run: |
-    #       cd ${{ github.workspace }}/cms
-    #       npm install
-    #       npm run build
-    #   - name: Upload Artifacts
-    #     uses:
+  # runs-on: ubuntu-latest
+  # steps:
+  #   - name: Install SSH Key
+  #     uses: shimataro/ssh-key-action@v2
+  #     with:
+  #       key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
+  #       known_hosts:
+  #   - name: git checkout
+  #     uses: actions/checkout@v3
+  #   - name: Build Strapi
+  #     run: |
+  #       cd ${{ github.workspace }}/cms
+  #       npm install
+  #       npm run build
+  #   - name: Upload Artifacts
+  #     uses:
   deploy-gatsby:
     # needs: deploy-strapi
     runs-on: ubuntu-latest
@@ -29,8 +29,8 @@ jobs:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'placeholder'
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: "placeholder"
       - name: Add Known Hosts
         run: ssh-keyscan -H ${{ secrets.DREAMHOST_DEV_IP }}{% endraw%} >> ~/.ssh/known_hosts
       - name: git checkout
