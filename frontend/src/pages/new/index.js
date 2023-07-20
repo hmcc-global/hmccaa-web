@@ -8,7 +8,7 @@ const NewcomersPage = () => (
   <Layout>
     <div>Welcome section</div>
     <div>Sunday celebration bar</div>
-    <LifeStages/>
+    <LifeStages />
     <div>Got any questions section</div>
   </Layout>
 );
