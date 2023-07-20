@@ -130,7 +130,7 @@ const LaptopIcon = () => (
   </svg>
 );
 
-const MailIcon = ({ className = "scale-50" }) => (
+const MailIcon = ({ className = "scale-100" }) => (
   <svg
     className={className}
     viewBox="0 0 83 64"
