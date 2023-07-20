@@ -5,7 +5,7 @@ import MissionsImg from "../../images/missionsNextStepImg.png";
 
 const MissionsNextStep = () => (
   <div className="flex gap-x-5 pt-14 pb-14">
-    <div className="w-sm h-sm">
+    <div className="w-smx2 h-smx2">
       <div className="subheading">Missions</div>
       <h2>go to all nations</h2>
       <HighlightedParagraph>

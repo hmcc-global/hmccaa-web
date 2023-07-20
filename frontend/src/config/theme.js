@@ -105,9 +105,11 @@ const theme = {
     },
     width: {
       sm: "30rem",
+      smx2: "36.25rem",
     },
     height: {
       sm: "21.63rem",
+      smx2: "26.125rem",
     },
     lineHeight: {
       tighter: "1.2",
