@@ -143,6 +143,9 @@ const theme = {
     strokeWidth: {
       4: "4",
     },
+    scale: {
+      10: ".10",
+    },
   },
 };
 
