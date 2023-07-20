@@ -1,9 +1,7 @@
-import * as React from "react"
-import homeImage from "../images/image245.png"
-import {PrimaryButtonLink} from "../components/Button";
+import * as React from "react";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const IndexPage = () => (
   <Layout>
@@ -14,8 +12,8 @@ const IndexPage = () => (
     <div>Get involved section</div>
     <div>Upcoming events section</div>
   </Layout>
-)
+);
 
-export const Head = () => <Seo title="Harvest Mission Community Church" />
+export const Head = () => <Seo title="Harvest Mission Community Church" />;
 
-export default IndexPage
+export default IndexPage;

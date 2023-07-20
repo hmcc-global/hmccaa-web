@@ -1,8 +1,8 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
+import { Link } from "gatsby";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const UsingDSG = () => (
   <Layout>
@@ -19,8 +19,8 @@ const UsingDSG = () => (
     </p>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
-)
+);
 
-export const Head = () => <Seo title="Using DSG" />
+export const Head = () => <Seo title="Using DSG" />;
 
-export default UsingDSG
+export default UsingDSG;
