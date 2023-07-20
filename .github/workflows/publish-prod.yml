@@ -19,7 +19,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
-      - name: Build Gatsby
+      - name: Build Strapi
         run: |
           cd ${{ github.workspace }}/cms
           npm install
@@ -29,4 +29,4 @@ jobs:
           echo 'User-agent: *' > ./build/robots.txt
           echo 'Disallow: /' >> ./build/robots.txt
       - name: Sync files to server
-        run: rsync -avzr --delete-after ./cms/build/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-admin
+        run: rsync -avzr --delete-after ./cms/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-admin
