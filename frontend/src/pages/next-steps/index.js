@@ -11,7 +11,7 @@ const NextStepsPage = () => (
     <div>Transformation classes section</div>
     <div>Baptism section</div>
     <div>Ministry teams section</div>
-    <div>Missions section</div>
+    <MissionsNextStep />
   </Layout>
 );
 
