@@ -1,0 +1,31 @@
+name: Publish Development Server
+run-name: Development server deployment (kicked off by ${{ github.actor }})
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  deploy-gatsby:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: "placeholder"
+          name: id_rsa
+      - name: Define known_hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: Build Gatsby
+        run: |
+          cd ${{ github.workspace }}/frontend
+          npm install
+          npm run build
+
+          # Add anti-webscraping
+          echo 'User-agent: *' > ./public/robots.txt
+          echo 'Disallow: /' >> ./public/robots.txt
+      - name: Sync files to server
+        run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
