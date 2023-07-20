@@ -33,3 +33,7 @@ const IndexPage = () => (
     </div>
   </Layout>
 );
+
+export const Head = () => <Seo title="Harvest Mission Community Church" />;
+
+export default IndexPage;
