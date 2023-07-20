@@ -26,8 +26,10 @@ const MissionsNextStep = () => (
           We have new opportunities each year. See how you can get involved!
         </p>
       </HighlightedParagraph>
-      <div className="flex">
-        <SecondaryButtonLink hasArrow={true}>Learn More</SecondaryButtonLink>
+      <div>
+        <p className="text-Accent-200 font-bold">
+          Please email abc@hmccaa.com to get connected!
+        </p>
       </div>
     </div>
     <div>
