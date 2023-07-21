@@ -2,11 +2,13 @@ import * as React from "react";
 
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
+import Card from "../../components/shared/card";
 
 const EventsPage = () => (
   <Layout>
     <div>Sunday Celebration bar</div>
     <div>Event list section</div>
+    <Card />
     <div>Prayer Gatherings bar</div>
     <div>Instagram bar</div>
   </Layout>
