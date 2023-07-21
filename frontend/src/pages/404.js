@@ -2,10 +2,8 @@ import * as React from "react";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import { PrimaryButtonLink, SecondaryButtonLink } from "../components/Button";
-import {
-  container
-} from "../css/404.module.css";
+import { PrimaryButtonLink} from "../components/Button";
+import { container } from "../css/404.module.css";
 
 const NotFoundPage = () => (
   <Layout>
