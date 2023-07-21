@@ -1,0 +1,9 @@
+@config "../config/tailwind.config.js";
+
+.container {
+  @apply pb-50 pt-40 h-full w-full flex flex-col items-center;
+}
+
+.container h1 {
+  @apply font-semibold text-6xl leading-tighter text-Shades-100 uppercase;
+}
