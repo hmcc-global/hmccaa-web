@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import { SecondaryButtonLink } from "../components/Button";
+import { PrimaryButtonLink, SecondaryButtonLink } from "../components/Button";
 import {
   container
 } from "../css/404.module.css";
@@ -15,9 +15,9 @@ const NotFoundPage = () => (
         <div className="subheading">You just hit a route that doesn&#39;t exist... the sadness.</div>
       </div>
       <div className="flex">
-        <SecondaryButtonLink to={"/"} hasArrow={true}>
+        <PrimaryButtonLink to={"/"} hasArrow={true}>
           Home
-        </SecondaryButtonLink>
+        </PrimaryButtonLink>
       </div>
     </div>s
   </Layout>
