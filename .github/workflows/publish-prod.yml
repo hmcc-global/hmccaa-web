@@ -7,7 +7,7 @@ on:
       - "maplexu/9.1-strapi-deployment"
 jobs:
   deploy-cms:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # Require the version that our CMS server is on
     steps:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
@@ -29,4 +29,4 @@ jobs:
       #     echo 'User-agent: *' > ./build/robots.txt
       #     echo 'Disallow: /' >> ./build/robots.txt
       - name: Sync files to server
-        run: rsync -avzr --delete-after --exclude=node_modules/ ./cms/ ${{ secrets.CMS_USER }}@${{ secrets.CMS_HOST }}:/root/hmccaa-cms
+        run: rsync -avzr --delete-after --exclude=node_modules/ ./cms/ ${{ secrets.CMS_USER }}@${{ secrets.CMS_HOST }}:/home/${{ secrets.CMS_USER }}/cms
