@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "preachers",
+  "info": {
+    "singularName": "preacher",
+    "pluralName": "preachers",
+    "displayName": "Preacher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": false
+    },
+    "Picture": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Prefix": {
+      "type": "string"
+    },
+    "Sermons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sermon.sermon",
+      "mappedBy": "Preacher"
+    }
+  }
+}
