@@ -31,8 +31,8 @@ const EventsPage = () => (
     <div>Prayer Gatherings bar</div>
     <Instagram />
   </Layout>
-);
+)
 
-export const Head = () => <Seo title="Events" />;
+export const Head = () => <Seo title="Events" />
 
 export default EventsPage;

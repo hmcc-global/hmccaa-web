@@ -14,8 +14,8 @@ const GivePage = () => (
       <HowToGiveSection />
     </div>
   </Layout>
-);
+)
 
-export const Head = () => <Seo title="Give" />;
+export const Head = () => <Seo title="Give" />
 
 export default GivePage;

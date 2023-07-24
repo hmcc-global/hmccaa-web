@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import {
   container,
+  globalMissionImgContainer,
   globalMissionContainer,
   globalMissionContext,
   globalMission,
@@ -18,21 +19,6 @@ const Partners = () => (
     <div className={globalMissionContainer}>
       <div className="pb-[20px]">
         <StaticImage src="../../../images/image264.png" alt="HMI Project" />
-      </div>
-      <div className={globalMissionContext}>
-        <div className="absolute">
-          <RightAngleTriangle side="left" />
-        </div>
-        <div className="absolute right-0">
-          <RightAngleTriangle side="right" />
-        </div>
-        <div className={globalMission}>
-          <h3>Our Global Mission</h3>
-          <p>
-            <span>Multiplying churches</span> in campuses and cities{" "}
-            <span>to transform the next generation</span> among the nations.
-          </p>
-        </div>
       </div>
     </div>
     <div className={statementContainer}>
@@ -68,7 +54,24 @@ const Partners = () => (
         <SecondaryButtonLink hasArrow={true}>More Info</SecondaryButtonLink>
       </div>
     </div>
+    <div className={globalMissionContainer}>
+      <div className={globalMissionContext}>
+        <div className="absolute top-0 bottom-0 left-0 w-8 lg:w-20 h-full">
+          <RightAngleTriangle side="left" />
+        </div>
+        <div className="absolute right-0 top-0 bottom-0 w-8 lg:w-20 h-full">
+          <RightAngleTriangle side="right" />
+        </div>
+        <div className={globalMission}>
+          <h3>Our Global Mission</h3>
+          <p>
+            <span>Multiplying churches</span> in campuses and cities{" "}
+            <span>to transform the next generation</span> among the nations.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-);
+)
 
-export default Partners;
+export default Partners

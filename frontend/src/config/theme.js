@@ -95,9 +95,10 @@ const theme = {
   },
   extend: {
     maxWidth: {
-      container: "1180px",
+      container: "75.75rem",
+      btn: "10.3125rem",
       "sm-md": "21.875rem",
-      "sm-lg": "23.75rem",
+      "sm-lg": "25.75rem",
       "md-lg": "31.25rem",
       "xl-md": "40.625rem",
       "3.25xl": "50.8125rem",
@@ -138,6 +139,7 @@ const theme = {
       2.25: "0.5625rem",
       2.75: "0.6875rem",
       11.25: "3.3125rem",
+      14.5: "3.75rem",
       17: "4.1875rem",
       18: "4.5625rem",
       20.25: "5.0625rem",
@@ -150,6 +152,7 @@ const theme = {
     },
     spacing: {
       2.25: "0.5625rem",
+      4.5: "1.125rem",
       25: "6.25rem",
       26: "6.5rem",
       43: "10.75rem",
@@ -174,6 +177,6 @@ const theme = {
       new: "url('../images/background/new.jpeg')",
     },
   },
-};
+}
 
-export default theme;
+export default theme

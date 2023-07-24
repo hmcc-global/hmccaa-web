@@ -27,3 +27,7 @@
 .box {
   @apply flex-col flex-nowrap break-inside-avoid-column;
 }
+
+.box-pad {
+  @apply pb-4
+}

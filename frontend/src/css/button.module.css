@@ -13,5 +13,5 @@
 }
 
 .text-container {
-  @apply pr-2;
+  @apply pr-2 text-clip whitespace-nowrap overflow-hidden;
 }

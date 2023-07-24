@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .title-container {
-  @apply text-center pb-20;
+  @apply text-center px-4 lg:px-0 pb-5 lg:pb-20;
 }
 
 .step {
@@ -9,28 +9,28 @@
 }
 
 .step-3 {
-  @apply px-31 pb-11.25 max-w-3.4xl;
+  @apply order-3 pb-[23px] lg:pl-24 lg:pr-8 xl:px-31 lg:pb-11.25 lg:w-[72.04%];
 }
 .step-2 {
-  @apply px-18 pb-17 max-w-3.25xl;
+  @apply order-2 pb-4 lg:pl-12 lg:pr-2 xl:px-18 lg:pb-17 lg:w-[68.90%];
 }
 
 .step-1 {
-  @apply px-2 pb-24.5 max-w-3.5xl;
+  @apply order-1 pb-4 lg:pl-0 lg:pr-2 xl:px-2 lg:pb-24.5 lg:w-[72.72%];
 }
 
 .count {
-  @apply font-bold text-6xl leading-tighter text-Accent-700 pr-8;
+  @apply font-bold text-6xl leading-tighter text-Accent-700 pr-5 lg:pr-8 lg:absolute lg:top-0 lg:left-0;
 }
 
 .container h3 {
-  @apply font-bold text-2xl leading-tighter;
+  @apply font-bold text-lg lg:text-2xl leading-tighter;
 }
 
 .container {
-  @apply pb-20.25;
+  @apply lg:pb-20.25;
 }
 
 .svg-container {
-  @apply absolute right-2.25 w-full max-w-md-lg top-0 inline-flex flex-col items-center;
+  @apply pb-5 lg:pb-0 max-w-[300px] mx-auto  lg:max-w-none lg:mx-0 lg:absolute lg:right-2.25 lg:w-[25%] xl:w-[42.38%] lg:top-0 px-3.5 lg:px-0 flex flex-col items-center;
 }

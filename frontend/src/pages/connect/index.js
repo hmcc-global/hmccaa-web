@@ -15,8 +15,8 @@ const ConnectPage = () => (
     <Questions />
     <Instagram />
   </Layout>
-);
+)
 
-export const Head = () => <Seo title="Connect" />;
+export const Head = () => <Seo title="Connect" />
 
 export default ConnectPage;

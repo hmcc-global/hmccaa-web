@@ -12,8 +12,8 @@ const WatchPage = () => (
     <div>Previous Sermons section</div>
     <RightNowMedia />
   </Layout>
-);
+)
 
-export const Head = () => <Seo title="Watch" />;
+export const Head = () => <Seo title="Watch" />
 
 export default WatchPage;

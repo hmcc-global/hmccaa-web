@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from "react"
 
 const ButtonArrow = () => (
   <svg
@@ -14,11 +14,11 @@ const ButtonArrow = () => (
       />
     </g>
   </svg>
-);
+)
 
 const RightAngleTriangle = ({ side }) => (
   <svg
-    className="w-20"
+    className="relative bottom-[-74px] lg:bottom-0 scale-y-[3] lg:scale-100"
     viewBox="0 0 80 200"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ const RightAngleTriangle = ({ side }) => (
       }[side]
     }
   </svg>
-);
+)
 
 const Arrows = ({ width, viewBox, direction, size }) => (
   <svg
@@ -97,7 +97,7 @@ const Arrows = ({ width, viewBox, direction, size }) => (
       }
     </g>
   </svg>
-);
+)
 
 const Chevron = ({ direction }) => (
   <svg
@@ -113,7 +113,7 @@ const Chevron = ({ direction }) => (
       />
     </g>
   </svg>
-);
+)
 
 const LaptopIcon = () => (
   <svg

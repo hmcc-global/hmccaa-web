@@ -43,6 +43,6 @@ const WhyWeGiveSection = () => (
       </HighlightedParagraph>
     </div>
   </div>
-);
+)
 
 export default WhyWeGiveSection;
