@@ -124,6 +124,12 @@ const theme = {
     letterSpacing: {
       "medium-wide": "0.06em",
     },
+    width: {
+      "med":"66.3rem",
+    },
+    height: {
+      "med":"66.6rem",
+    },
     padding: {
       1.75: "0.4375rem",
       2.25: "0.5625rem",
