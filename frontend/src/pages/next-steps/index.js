@@ -18,8 +18,8 @@ const NextStepsPage = () => (
       <MissionsNextStep />
     </div>
   </Layout>
-)
+);
 
-export const Head = () => <Seo title="Next Steps" />
+export const Head = () => <Seo title="Next Steps" />;
 
 export default NextStepsPage;

@@ -10,8 +10,8 @@ import {
   count,
   container,
   svgContainer,
-} from "../../../css/strategy.module.css"
-import { Arrows } from "../../svgs"
+} from "../../../css/strategy.module.css";
+import { Arrows } from "../../svgs";
 
 const Strategy = () => (
   <div className={container}>
@@ -67,7 +67,7 @@ const Strategy = () => (
           </div>
         </div>
         <div className={`${step} ${step2}`}>
-        <div className="lg:relative lg:pl-[66px]">
+          <div className="lg:relative lg:pl-[66px]">
             <div className="flex items-center pb-3 lg:pb-0 lg:block">
               <div className={count}>2</div>
               <h3>Grow: Life-on-Life & Equipping</h3>
@@ -92,7 +92,7 @@ const Strategy = () => (
           </div>
         </div>
         <div className={`${step} ${step1}`}>
-        <div className="lg:relative lg:pl-[66px]">
+          <div className="lg:relative lg:pl-[66px]">
             <div className="flex items-center lg:block">
               <div className={count}>1</div>
               <h3>Gather: Corporate Gatherings & Community Gatherings</h3>
@@ -123,6 +123,6 @@ const Strategy = () => (
       />
     </div>
   </div>
-)
+);
 
-export default Strategy
+export default Strategy;

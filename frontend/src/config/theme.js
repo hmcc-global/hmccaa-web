@@ -177,6 +177,6 @@ const theme = {
       new: "url('../images/background/new.jpeg')",
     },
   },
-}
+};
 
-export default theme
+export default theme;

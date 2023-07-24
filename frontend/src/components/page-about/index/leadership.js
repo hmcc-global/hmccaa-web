@@ -27,17 +27,19 @@ const LeadershipSection = () => {
       name: "Seong Park",
       role: "Elder",
     },
-  ]
+  ];
 
   const elderCards = elderInfo.map(info => (
     <div className="flex flex-col items-center flex-[0_0_calc(50%-0.5rem)] lg:flex-auto">
       <div>
         <img className="mb-3" src={info.img} alt={info.name} />
-      <h3 className="font-bold text-lg lg:text-2xl leading-tighter mb-2 w-full">{info.name}</h3>
-      <div className="w-full">{info.role}</div>
+        <h3 className="font-bold text-lg lg:text-2xl leading-tighter mb-2 w-full">
+          {info.name}
+        </h3>
+        <div className="w-full">{info.role}</div>
       </div>
     </div>
-  ))
+  ));
 
   return (
     <div className="pb-20.25 flex flex-col items-center px-4 sm:px-0">
@@ -45,14 +47,20 @@ const LeadershipSection = () => {
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>
       </div>
-      <div className="flex justify-center gap-x-4 gap-y-5 lg:gap-5 pb-10 flex-wrap lg:flex-nowrap">{elderCards}</div>
+      <div className="flex justify-center gap-x-4 gap-y-5 lg:gap-5 pb-10 flex-wrap lg:flex-nowrap">
+        {elderCards}
+      </div>
       <div className="flex">
-        <SecondaryButtonLink to={"/about/our-team"} hasArrow={true} customClassName={{textContainer: "-indent-40 sm:indent-0"}}>
+        <SecondaryButtonLink
+          to={"/about/our-team"}
+          hasArrow={true}
+          customClassName={{ textContainer: "-indent-40 sm:indent-0" }}
+        >
           More About Our Elders and Deacons
         </SecondaryButtonLink>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default LeadershipSection;

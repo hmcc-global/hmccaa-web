@@ -12,7 +12,7 @@ import Feedback from "../../components/page-about/index/feedback";
 import OurStory from "../../components/page-about/index/our-story";
 import Banner from "../../components/shared/banner";
 
-export const Head = () => <Seo title="About" />
+export const Head = () => <Seo title="About" />;
 
 const AboutPage = () => (
   <Layout>
@@ -28,6 +28,6 @@ const AboutPage = () => (
     </div>
     <Feedback />
   </Layout>
-)
+);
 
 export default AboutPage;

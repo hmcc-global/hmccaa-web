@@ -1,5 +1,5 @@
-import * as React from "react"
-import { SecondaryButtonLink } from "../../Button"
+import * as React from "react";
+import { SecondaryButtonLink } from "../../Button";
 
 const Feedback = () => {
   return (
@@ -31,7 +31,7 @@ const Feedback = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Feedback
+export default Feedback;

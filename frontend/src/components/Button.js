@@ -19,9 +19,14 @@ export const ButtonLink = ({
     <span className={`${(hasArrow && textContainer) || ""} ${customClassName?.textContainer || ""}`}>{children}</span>{" "}
     {hasArrow && <ButtonArrow />}
   </Link>
-)
+);
 
-export const Button = ({ hasArrow = false, type, children, customClassName }) => (
+export const Button = ({
+  hasArrow = false,
+  type,
+  children,
+  customClassName,
+}) => (
   <button type={type} className={`${button} ${customClassName?.button || ""}`}>
     <span className={`${(hasArrow && textContainer) || ""} ${customClassName?.textContainer || ""}`}>{children}</span>{" "}
     {hasArrow && <ButtonArrow />}
