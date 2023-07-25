@@ -1,9 +1,24 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply pb-50 pt-40 h-full w-full flex flex-col items-center;
+  @apply max-w-container;
 }
 
+.container h4 {
+  @apply font-bold text-3.5xl leading-tighter text-Shades-100 uppercase;
+}
+
+.title-container {
+  @apply pb-10 pt-5 flex flex-row columns-2 text-start;
+}
 .container h1 {
-  @apply font-semibold text-6xl leading-tighter text-Shades-100 uppercase;
+  @apply leading-tighter text-Primary-300 uppercase font-medium;
+}
+
+.container oops{
+  @apply text-8xl font-extrabold tracking-widest leading-tighter;
+}
+
+.container link1{
+  @apply text-Primary-300 font-extrabold text-start leading-normal mb-0 underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base;
 }
