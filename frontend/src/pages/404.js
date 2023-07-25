@@ -9,12 +9,6 @@ import ErrorImage from "../images/404placeholder.png";
 
 const NotFoundPage = () => (
   <Layout>
-    
-    {/* <div className="max-w-conatainer">
-      <div className={titleContainer}>
-        <h1>404: Error</h1>
-      </div>
-    </div> */}
     <div className={container}>
       <div className="flex pb-20 mb-80">
         <div className="basis-1/3 pr-8 pt-10 pb-20 order-1">
@@ -54,18 +48,6 @@ const NotFoundPage = () => (
         </div>
       </div> 
     </div>
-
-    {/* <div className={container}>
-      <div className="text-center pb-11.25">
-        <h4>404: Not Found</h4>
-        <div className="subheading">You just hit a route that doesn&#39;t exist... the sadness.</div>
-      </div>
-      <div className="flex">
-        <PrimaryButtonLink to={"/"} hasArrow={true}>
-          Home
-        </PrimaryButtonLink>
-      </div>
-    </div> */}
   </Layout>
 );
 
