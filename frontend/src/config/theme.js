@@ -75,6 +75,7 @@ const theme = {
     "gotham-black": "Gotham Black",
     montserrat: "Montserrat",
     raleway: "Raleway",
+    inter: "Inter",
   },
   borderRadius: {
     none: "0",
