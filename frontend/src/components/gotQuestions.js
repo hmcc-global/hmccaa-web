@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MailIcon } from "../svgs";
+import { MailIcon } from "./svgs";
 
 const Questions = () => (
   <div className="pt-14 pb-14">
