@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sermon_serieses",
+  "info": {
+    "singularName": "sermon-series",
+    "pluralName": "sermon-serieses",
+    "displayName": "Sermon Series"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Background": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Sermons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sermon.sermon",
+      "mappedBy": "Series"
+    }
+  }
+}

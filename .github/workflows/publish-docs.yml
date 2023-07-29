@@ -1,5 +1,5 @@
 name: Publish Docs
-run-name: ${{ github.actor }} is deploying new changes to documentation
+run-name: Docs server deployment (kicked off by ${{ github.actor }})
 on:
   push:
     branches:

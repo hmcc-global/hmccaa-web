@@ -28,6 +28,7 @@ const theme = {
     },
     Accent: {
       50: "#f9f871",
+      200: "#ff8069",
       300: "#ffbd57",
       500: "#ff8069",
       700: "#f0508b",
@@ -106,6 +107,14 @@ const theme = {
     gap: {
       sm: "7.5rem",
     },
+    width: {
+      sm: "30rem",
+      smx2: "36.25rem",
+    },
+    height: {
+      sm: "21.63rem",
+      smx2: "26.125rem",
+    },
     lineHeight: {
       tighter: "1.2",
     },
@@ -145,6 +154,9 @@ const theme = {
     },
     strokeWidth: {
       4: "4",
+    },
+    scale: {
+      10: ".10",
     },
   },
 };

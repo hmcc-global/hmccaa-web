@@ -130,10 +130,9 @@ const LaptopIcon = () => (
   </svg>
 );
 
-const MailIcon = () => (
+const MailIcon = ({ className = "scale-100" }) => (
   <svg
-    width="83"
-    height="64"
+    className={className}
     viewBox="0 0 83 64"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
