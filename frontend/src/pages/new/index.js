@@ -10,7 +10,7 @@ const NewcomersPage = () => (
     <div>Welcome section</div>
     <div>Sunday celebration bar</div>
     <LifeStages />
-    <Questions/>
+    <Questions />
   </Layout>
 );
 
