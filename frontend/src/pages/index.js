@@ -4,6 +4,7 @@ import { PrimaryButtonLink } from "../components/Button";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+import WelcomeMain from "../components/page-main/welcomeMain";
 
 const IndexPage = () => (
   <Layout>
@@ -31,6 +32,7 @@ const IndexPage = () => (
         </div>
       </div>
     </div>
+    <WelcomeMain />
   </Layout>
 );
 

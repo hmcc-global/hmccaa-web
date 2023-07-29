@@ -1,9 +1,9 @@
 import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
-import welcomeImg from "../../images/welcomeImg.png";
+import welcomeMainImg from "../../images/welcomeMainImg.png";
 
-const Welcome = () => (
+const WelcomeMain = () => (
   <div className="flex gap-x-32 pt-14 pb-14 mx-32">
     <div className="w-sm h-sm">
       <div className="subheading">welcome</div>
@@ -29,9 +29,9 @@ const Welcome = () => (
       </div>
     </div>
     <div>
-      <img src={welcomeImg} alt="welcome page image" />
+      <img src={welcomeMainImg} alt="welcome page image" />
     </div>
   </div>
 );
 
-export default Welcome;
+export default WelcomeMain;
