@@ -1,0 +1,13 @@
+@config "../config/tailwind.config.js";
+
+.title-container {
+  @apply flex flex-col text-center pb-14 items-center;
+}
+
+.title {
+  @apply flex;
+}
+
+.title h3 {
+  @apply max-h-min self-end;
+}
