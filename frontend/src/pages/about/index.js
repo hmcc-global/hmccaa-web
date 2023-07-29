@@ -14,7 +14,7 @@ export const Head = () => <Seo title="About" />;
 const AboutPage = () => (
   <Layout>
     <div className="max-w-container">
-      <OurStory/>
+      <OurStory />
       <div>Our Mission section</div>
       <div>Our Values section</div>
       <LeadershipSection />

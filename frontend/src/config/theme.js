@@ -75,6 +75,7 @@ const theme = {
     "gotham-black": "Gotham Black",
     montserrat: "Montserrat",
     raleway: "Raleway",
+    inter: "Inter",
   },
   borderRadius: {
     none: "0",
@@ -123,6 +124,12 @@ const theme = {
     },
     letterSpacing: {
       "medium-wide": "0.06em",
+    },
+    width: {
+      med: "66.3rem",
+    },
+    height: {
+      med: "66.6rem",
     },
     padding: {
       1.75: "0.4375rem",
