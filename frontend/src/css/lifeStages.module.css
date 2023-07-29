@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .mainContainer {
-    @apply flex pb-14 pt-14 gap-x-6 gap-y-20;
+    @apply flex pb-14 pt-14 gap-x-14 gap-y-20;
 }
 
 .column {
@@ -21,9 +21,9 @@
 }
 
 .textBody {
-    @apply font-medium;
+    @apply font-medium text-base;
 }
 
 .subContainer {
-    @apply flex gap-x-10 mb-16
+    @apply flex gap-x-10 mb-16;
 }
