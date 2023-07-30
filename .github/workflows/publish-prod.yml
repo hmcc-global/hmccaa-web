@@ -7,16 +7,16 @@ on:
       - "maplexu/9.1-strapi-deployment"
 jobs:
   deploy-cms:
-    runs-on: ubuntu-22.04 # Require the version that our CMS server is on
+    runs-on: ubuntu-latest
     steps:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.CMS_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: "placeholder"
           name: id_rsa
       - name: Define known_hosts
-        run: ssh-keyscan -H ${{ secrets.CMS_HOST }} >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
       # - name: Build Strapi
@@ -29,4 +29,4 @@ jobs:
       #     echo 'User-agent: *' > ./build/robots.txt
       #     echo 'Disallow: /' >> ./build/robots.txt
       - name: Sync files to server
-        run: rsync -avzr --delete-after --exclude=node_modules/ ./cms/ ${{ secrets.CMS_USER }}@${{ secrets.CMS_HOST }}:/home/${{ secrets.CMS_USER }}/cms
+        run: rsync -avzr --delete-after --exclude=node_modules/ ./cms/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/annarbor-content
