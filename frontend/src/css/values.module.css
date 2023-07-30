@@ -1,0 +1,5 @@
+@config "../config/tailwind.config.js";
+
+.title span {
+  @apply text-2xl lowercase;
+}
