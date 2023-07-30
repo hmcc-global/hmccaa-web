@@ -2,10 +2,10 @@ import * as React from "react";
 import { Collapsible } from "../../collapsible";
 import {
   container,
+  titleContainer,
   middleContainer,
 } from "../../../css/belief.module.css";
 import {
-  titleContainer,
   title,
 } from "../../../css/values.module.css";
 
@@ -55,13 +55,9 @@ const Values = () => (
     <div className={titleContainer}>
       <div className="subheading">Our Values</div>
       <div className={title}>
-        <h2>S</h2>
-        <h3>a</h3>
-        <h2>LT C</h2>
-        <h3>o</h3>
-        <h2>MM</h2>
-        <h3>an</h3>
-        <h2>D</h2>
+        <h2>
+          S<span>a</span>LT C<span>o</span>MM<span>an</span>D
+        </h2>
       </div>
     </div>
     <div className={middleContainer}>
