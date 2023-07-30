@@ -31,23 +31,23 @@ const Footer = () => {
       <div className="bg-Primary-700 justify-center items-center flex">
         <div className="flex flex-col justify-center items-center max-w-container w-full px-4 xl:px-0">
           <div className="flex flex-col items-center md:items-start md:flex-row md:py-12 xl:p-12 w-full lg:justify-between xl:justify-normal xl:gap-[10.753%]">
-          <div className="flex flex-col max-w-[180px] items-start">
-                <div className="flex flex-col items-center">
-                  <img
-                    alt="hmcc logo"
-                    className="w-[120px] h-[46px]"
-                    src={hmccLogo}
-                  />
-                  <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal -m-2 w-[143px]">
-                    HARVEST MISSION COMMUNITY CHURCH
-                  </h2>
-                </div>
-                <p className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px]">
-                  To transform lost people into Christ’s disciples who will then
-                  transform the world.
-                </p>
+            <div className="flex flex-col max-w-[180px] items-start">
+              <div className="flex flex-col items-center">
+                <img
+                  alt="hmcc logo"
+                  className="w-[120px] h-[46px]"
+                  src={hmccLogo}
+                />
+                <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal -m-2 w-[143px]">
+                  HARVEST MISSION COMMUNITY CHURCH
+                </h2>
               </div>
-              <hr className="bg-Shades-0 w-full md:w-0 md:h-0 m-0 order-3 md:order-none "/>
+              <p className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px]">
+                To transform lost people into Christ’s disciples who will then
+                transform the world.
+              </p>
+            </div>
+            <hr className="bg-Shades-0 w-full md:w-0 md:h-0 m-0 order-3 md:order-none " />
             <div className="flex flex-row justify-between md:gap-0 md:justify-evenly w-full sm:max-w-[313px] lg:justify-between py-10 md:py-0 order-3 md:order-none px-[12.805%] sm:px-0">
               <div className="flex flex-col items-start w-fit md:mt-[30px]">
                 <div className="items-start flex flex-col">
