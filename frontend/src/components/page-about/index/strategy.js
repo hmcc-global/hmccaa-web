@@ -41,7 +41,7 @@ const Strategy = () => (
           <Arrows direction="all" width="w-full" viewBox="0 0 106 162" />
         </div>
       </div>
-      <div class="flex flex-col items-center lg:block">
+      <div className="flex flex-col items-center lg:block">
         <div className={`${step} ${step3}`}>
           <div className="lg:relative lg:pl-[66px]">
             <div className="flex items-center pb-3 lg:pb-0 lg:block">

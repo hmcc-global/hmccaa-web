@@ -29,8 +29,8 @@ const LeadershipSection = () => {
     },
   ];
 
-  const elderCards = elderInfo.map(info => (
-    <div className="flex flex-col items-center flex-[0_0_calc(50%-0.5rem)] lg:flex-auto">
+  const elderCards = elderInfo.map((info, index) => (
+    <div key={`e-card-${index + 1}`} className="flex flex-col items-center flex-[0_0_calc(50%-0.5rem)] lg:flex-auto">
       <div>
         <img className="mb-3" src={info.img} alt={info.name} />
         <h3 className="font-bold text-lg lg:text-2xl leading-tighter mb-2 w-full">
