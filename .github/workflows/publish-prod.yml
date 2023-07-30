@@ -28,4 +28,4 @@ jobs:
       #     echo 'User-agent: *' > ./build/robots.txt
       #     echo 'Disallow: /' >> ./build/robots.txt
       - name: Sync files to server
-        run: rsync -avzr --delete-after --exclude=node_modules/ ./cms/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/annarbor-content
+        run: rsync -avzr --delete-after --exclude={'node_modules/','.env'} ./cms/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/annarbor-content
