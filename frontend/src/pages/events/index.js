@@ -3,10 +3,11 @@ import * as React from "react";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import Instagram from "../../components/instaBar";
+import SundayCelebBar from "../../components/page-events/sundayCelebBar";
 
 const EventsPage = () => (
   <Layout>
-    <div>Sunday Celebration bar</div>
+    <SundayCelebBar />
     <div>Event list section</div>
     <div>Prayer Gatherings bar</div>
     <Instagram />
