@@ -29,7 +29,10 @@ const WelcomeMain = () => (
       </div>
     </div>
     <div>
-      <StaticImage src="../../images/welcomeMainImg.png" alt="welcome page image" />
+      <StaticImage
+        src="../../images/welcomeMainImg.png"
+        alt="welcome page image"
+      />
     </div>
   </div>
 );

@@ -3,11 +3,13 @@ import { SecondaryButtonLink } from "../Button";
 import upcomingEventsImg from "../../images/upcomingEventsImg.png";
 import { StaticImage } from "gatsby-plugin-image";
 
-
 const UpcomingEvents = () => (
   <div className="flex gap-x-sm py-31 px-32">
     <div>
-      <StaticImage src="../../images/upcomingEventsImg.png" alt="UpcomingEventsImg" />
+      <StaticImage
+        src="../../images/upcomingEventsImg.png"
+        alt="UpcomingEventsImg"
+      />
     </div>
     <div className="w-2/4">
       <div className="subheading">upcoming events</div>

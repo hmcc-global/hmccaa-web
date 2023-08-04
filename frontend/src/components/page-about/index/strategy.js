@@ -109,7 +109,10 @@ const Strategy = () => (
       </div>
     </div>
     <div>
-      <StaticImage src="../../../images/image257.png" alt="3G's: Gather, Grow, Go" />
+      <StaticImage
+        src="../../../images/image257.png"
+        alt="3G's: Gather, Grow, Go"
+      />
     </div>
   </div>
 );

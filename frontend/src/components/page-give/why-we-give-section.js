@@ -6,7 +6,10 @@ const WhyWeGiveSection = () => (
   <div className="flex pb-14 pt-14">
     <div className="pl-2.5 order-2">
       <div>
-        <StaticImage src="../../images/give-why-we-give.png" alt="Why we give" />
+        <StaticImage
+          src="../../images/give-why-we-give.png"
+          alt="Why we give"
+        />
       </div>
     </div>
     <div className="basis-689/1180 pr-8 pt-3.5 order-1">

@@ -33,7 +33,10 @@ const MissionsNextStep = () => (
       </div>
     </div>
     <div>
-      <StaticImage src="../../images/missionsNextStepImg.png" alt="Missions Next Step" />
+      <StaticImage
+        src="../../images/missionsNextStepImg.png"
+        alt="Missions Next Step"
+      />
     </div>
   </div>
 );

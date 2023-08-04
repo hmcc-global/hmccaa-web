@@ -25,7 +25,10 @@ const LifeGroup = () => (
       </div>
     </div>
     <div>
-      <StaticImage src="../../images/LifeGroupImg.png" alt="Life Group Next Step" />
+      <StaticImage
+        src="../../images/LifeGroupImg.png"
+        alt="Life Group Next Step"
+      />
     </div>
   </div>
 );

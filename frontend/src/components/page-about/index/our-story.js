@@ -6,7 +6,11 @@ const OurStory = () => {
   return (
     <div className="px-0.5 flex flex-col items-center justify-center lg:flex-row lg:gap-[60px]">
       <div className="flex-shrink-0 lg:order-2">
-        <StaticImage src="../../../images/about-our-story-greeters.png" alt="Greeter" className="mb-0" />
+        <StaticImage
+          src="../../../images/about-our-story-greeters.png"
+          alt="Greeter"
+          className="mb-0"
+        />
       </div>
 
       <div className="text-center lg:basis-[49.32%] lg:order-1 lg:items-center lg:text-left">

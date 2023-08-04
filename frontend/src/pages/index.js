@@ -10,7 +10,10 @@ const IndexPage = () => (
   <Layout>
     <div className="w-full">
       <div className="relative text-center text-Shades-0">
-        <StaticImage className="w-full h-full mb-0" src="../images/image245.png" />
+        <StaticImage
+          className="w-full h-full mb-0"
+          src="../images/image245.png"
+        />
         <h1 className="absolute mb-0 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 line-clamp-2 xl:text-[60px] lg:text-[50px] md:text-[40px] sm:text-[35px] w-full text-[25px] font-bold leading-tight">
           Transform lives, <br /> Transform the world.
         </h1>
