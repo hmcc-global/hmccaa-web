@@ -1,5 +1,6 @@
 import * as React from "react";
-import StrategyImage from "../../../images/image257.png";
+import { StaticImage } from "gatsby-plugin-image";
+
 import {
   titleContainer,
   step,
@@ -108,7 +109,7 @@ const Strategy = () => (
       </div>
     </div>
     <div>
-      <img src={StrategyImage} alt="3G's: Gather, Grow, Go" />
+      <StaticImage src="../../../images/image257.png" alt="3G's: Gather, Grow, Go" />
     </div>
   </div>
 );

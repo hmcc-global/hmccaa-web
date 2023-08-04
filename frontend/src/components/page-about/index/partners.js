@@ -1,5 +1,6 @@
 import * as React from "react";
-import hmiImage from "../../../images/image264.png";
+import { StaticImage } from "gatsby-plugin-image";
+
 import {
   container,
   globalMissionContainer,
@@ -16,7 +17,7 @@ const Partners = () => (
   <div className={container}>
     <div className={globalMissionContainer}>
       <div>
-        <img src={hmiImage} alt="HMI Project" />
+        <StaticImage src="../../../images/image264.png" alt="HMI Project" />
       </div>
       <div className={globalMissionContext}>
         <div className="absolute">

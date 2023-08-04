@@ -1,12 +1,12 @@
 import * as React from "react";
-import hmiImage from "../../../images/about-our-story-greeters.png";
 import { HighlightedParagraph } from "../../shared/highlightedParagraph";
+import { StaticImage } from "gatsby-plugin-image";
 
 const OurStory = () => {
   return (
     <div className="px-0.5 flex flex-col items-center justify-center lg:flex-row lg:gap-[60px]">
       <div className="flex-shrink-0 lg:order-2">
-        <img src={hmiImage} alt="Greeter" className="mb-0" />
+        <StaticImage src="../../../images/about-our-story-greeters.png" alt="Greeter" className="mb-0" />
       </div>
 
       <div className="text-center lg:basis-[49.32%] lg:order-1 lg:items-center lg:text-left">

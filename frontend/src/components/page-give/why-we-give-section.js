@@ -1,12 +1,12 @@
 import * as React from "react";
-import whyGiveImage from "../../images/give-why-we-give.png";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
+import { StaticImage } from "gatsby-plugin-image";
 
 const WhyWeGiveSection = () => (
-  <div className="flex pb-20.5">
+  <div className="flex pb-14 pt-14">
     <div className="pl-2.5 order-2">
       <div>
-        <img src={whyGiveImage} alt="Why we give" />
+        <StaticImage src="../../images/give-why-we-give.png" alt="Why we give" />
       </div>
     </div>
     <div className="basis-689/1180 pr-8 pt-3.5 order-1">
