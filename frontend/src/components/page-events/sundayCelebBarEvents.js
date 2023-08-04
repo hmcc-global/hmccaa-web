@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const SundayCelebBar = () => {
+const SundayCelebBarEvents = () => {
   return (
     <div className="bg-Neutral-200 w-full flex justify-center items-center py-[30px] px-[130px]">
       <div className="bg-Shades-0 items-center h-full border-solid border-2 max-w-container rounded-xl py-9 px-24 border-Neutral-700 justify-between space-x-28">
@@ -16,4 +16,4 @@ const SundayCelebBar = () => {
   );
 };
 
-export default SundayCelebBar;
+export default SundayCelebBarEvents;
