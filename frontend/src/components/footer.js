@@ -7,7 +7,6 @@ import smartPhoneLogo from "../images/icons/smartphone.svg";
 import facebookLogo from "../images/icons/facebook.svg";
 import instagramLogo from "../images/icons/instagram.svg";
 import twitterLogo from "../images/icons/twitter.svg";
-import copyrightLogo from "../images/icons/Copyright.svg";
 import { CopyrightLogo } from "./svgs";
 
 const Footer = () => {
