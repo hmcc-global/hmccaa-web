@@ -3,7 +3,7 @@ import prayerGatheringImg from "../../images/prayer-gathering.png";
 
 const Card = ({ type, date, name, location, description }) => {
   return (
-    <div className="flex flex-col items-center gap-2 max-w-[9.75rem] max-h-48 pb-[2.19rem] lg:max-w-[23.75rem] mx-auto rounded-xl border border-solid border-b-Neutral-900 shadow-md overflow-hidden">
+    <div className="flex flex-col items-center gap-2 max-w-[9.75rem] max-h-[12.5rem] pb-[2.19rem] lg:max-w-[23.75rem] mx-auto rounded-xl border border-solid border-b-Neutral-900 shadow-md overflow-hidden">
       <img
         className="h-[6.15788rem] w-[10.94738rem] flex-shrink-0 mb-0 md:h-full md:w-48"
         src={prayerGatheringImg}
