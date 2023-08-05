@@ -5,9 +5,7 @@ import {
   titleContainer,
   middleContainer,
 } from "../../../css/belief.module.css";
-import {
-  title,
-} from "../../../css/values.module.css";
+import { title } from "../../../css/values.module.css";
 
 const saltValues = [
   {
