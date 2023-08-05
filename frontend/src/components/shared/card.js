@@ -1,5 +1,6 @@
 import * as React from "react";
 import prayerGatheringImg from "../../images/prayer-gathering.png";
+import mapPinLogo from "../../images/icons/map-pin.svg";
 
 const Card = ({ type, date, name, location, description }) => {
   return (
@@ -9,14 +10,19 @@ const Card = ({ type, date, name, location, description }) => {
         src={prayerGatheringImg}
         alt="Prayer Gathering"
       />
-      <div className="flex flex-col gap-1 items-start max-w-[8.75rem]">
+      <div className="flex flex-col gap-1 items-start max-w-[8.75rem] max-h-[3.63rem]">
         <div className="text-[0.625rem] leading-[0.9375rem] text-black font-medium tracking-[0.0375rem]">
           Th, May 25, 2023
         </div>
         <div className="text-lg leading-[1.25rem] font-semibold text-black">
           Prayer Gathering
         </div>
-        <div className="text-black text-[0.625rem] leading-[0.9375rem] font-medium tracking-[0.0375rem]">T-Center</div>
+        <div className="flex items-center gap-1">
+          <img className="w-4 h-4 mb-0" src={mapPinLogo} alt="Map" />
+          <div className="text-black text-[0.625rem] leading-[0.9375rem] font-medium tracking-[0.0375rem]">
+            T-Center
+          </div>
+        </div>
       </div>
     </div>
   );
