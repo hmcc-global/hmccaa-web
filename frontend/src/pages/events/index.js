@@ -9,6 +9,7 @@ const EventsPage = () => (
     <div>Sunday Celebration bar</div>
     <div>Event list section</div>
     <Card />
+    <Card />
     <div>Prayer Gatherings bar</div>
     <div>Instagram bar</div>
   </Layout>
