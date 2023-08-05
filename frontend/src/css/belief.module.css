@@ -9,7 +9,7 @@
 }
 
 .middle-container {
-  @apply grid gap-x-sm grid-cols-2 pl-12 pr-12;
+  @apply flex flex-col lg:flex-row lg:gap-x-sm lg:pl-12 lg:pr-12;
 }
 
 .container h3 {

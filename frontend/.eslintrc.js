@@ -33,11 +33,30 @@ module.exports = {
   },
   env: {
     node: true,
+    browser: true,
+    commonjs: true,
+    es6: true,
+    jest: true
+  },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
   extends: [
     `eslint:recommended`,
     `plugin:react/recommended`,
     `${__dirname}/eslint-custom-gatsby-rule/gatsby-eslint`,
+  ],
+  overrides: [
+    {
+      files: ["*.{ts,tsx}"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+      extends: ["plugin:@typescript-eslint/recommended"]
+    }
   ],
   rules: {
     "react/display-name": "off",
