@@ -3,6 +3,7 @@ import * as React from "react";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import Card from "../../components/shared/card";
+import Instagram from "../../components/instaBar";
 
 const EventsPage = () => (
   <Layout>
@@ -11,7 +12,7 @@ const EventsPage = () => (
     <Card />
     <Card />
     <div>Prayer Gatherings bar</div>
-    <div>Instagram bar</div>
+    <Instagram />
   </Layout>
 );
 
