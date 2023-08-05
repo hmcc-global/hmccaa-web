@@ -4,6 +4,7 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import Partners from "../../components/page-about/index/partners";
 import Strategy from "../../components/page-about/index/strategy";
+import Mission from "../../components/page-about/index/mission";
 import Values from "../../components/page-about/index/values";
 import Belief from "../../components/page-about/index/belief";
 import LeadershipSection from "../../components/page-about/index/leadership";
@@ -16,7 +17,7 @@ const AboutPage = () => (
   <Layout>
     <div className="max-w-container">
       <OurStory />
-      <div>Our Mission section</div>
+      <Mission />
       <Values />
       <LeadershipSection />
       <Belief />

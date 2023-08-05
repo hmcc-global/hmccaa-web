@@ -1,0 +1,47 @@
+@config "../config/tailwind.config.js";
+
+.container {
+  @apply pt-20 h-full w-full;
+}
+
+.text {
+  @apply text-center;
+}
+
+.top-box, .bottom-box {
+  @apply grid grid-cols-[1fr_2fr_1fr];
+}
+
+.top-box {
+  @apply bg-Primary-500;
+}
+
+.top-left-triangle {
+  @apply w-full bg-Primary-900;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+}
+
+.top-box .text {
+  @apply bg-Primary-900 p-10;
+}
+
+.text h2 {
+  @apply text-6xl text-Shades-0;
+}
+
+.top-right-triangle {
+  @apply w-full bg-Primary-900;
+  clip-path: polygon(0 0, 100% 0, 0 100%, 0 100%);
+}
+
+.bottom-box {
+
+}
+
+.bottom-left-triangle {
+
+}
+
+.bottom-right-triangle {
+
+}
