@@ -4,7 +4,7 @@ import upcomingEventsImg from "../../images/upcomingEventsImg.png";
 import { StaticImage } from "gatsby-plugin-image";
 
 const UpcomingEvents = () => (
-  <div className="flex gap-x-sm py-31 px-32">
+  <div className="flex gap-x-30 py-31 px-32">
     <div>
       <StaticImage
         src="../../images/upcomingEventsImg.png"

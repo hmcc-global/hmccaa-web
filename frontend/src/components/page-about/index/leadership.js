@@ -45,7 +45,7 @@ const LeadershipSection = () => {
   ));
 
   return (
-    <div className="pb-[2.5625rem] lg:pb-20.25 flex flex-col items-center px-4 sm:px-0">
+    <div className="pt-4 lg:pt-16 pb-[2.5625rem] lg:pb-20.25 flex flex-col items-center px-4">
       <div className="text-center pb-14.5">
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>

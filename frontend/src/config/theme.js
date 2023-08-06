@@ -106,7 +106,8 @@ const theme = {
       "3.5xl": "53.625rem",
     },
     gap: {
-      sm: "7.5rem",
+      15: "3.75rem",
+      30: "7.5rem",
     },
     width: {
       sm: "30rem",
