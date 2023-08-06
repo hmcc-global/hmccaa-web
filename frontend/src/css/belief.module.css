@@ -13,7 +13,7 @@
 }
 
 .middle-container > div {
-  @apply max-w-[30.3125rem]
+  @apply max-w-[30.3125rem];
 }
 
 .container h3 {

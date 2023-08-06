@@ -12,12 +12,14 @@ export const Collapsible = ({ sectionHead, sectionBody }) => {
   return (
     <div className={box}>
       <div onClick={toggle} className={subHead}>
-        <button className={arrow} aria-label="Toggle"><Chevron direction="right" className={reveal && 'rotate-90'}/></button>
+        <button className={arrow} aria-label="Toggle">
+          <Chevron direction="right" className={reveal && "rotate-90"} />
+        </button>
         <h3>
           <button>{sectionHead}</button>
         </h3>
       </div>
-      <div className={`toggle ${toggleContainer}${reveal ? ""  : " invisible"}`}>
+      <div className={`toggle ${toggleContainer}${reveal ? "" : " invisible"}`}>
         <p>{sectionBody}</p>
       </div>
     </div>

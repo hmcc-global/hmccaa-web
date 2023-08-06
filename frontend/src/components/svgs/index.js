@@ -100,10 +100,7 @@ const Arrows = ({ width, viewBox, direction, size }) => (
 );
 
 const Chevron = ({ direction, className }) => (
-  <svg
-    className={`w-8 fill-none ${className}`}
-    viewBox="0 0 32 32"
-  >
+  <svg className={`w-8 fill-none ${className}`} viewBox="0 0 32 32">
     <g>
       <path
         d={{ right: "M12 24L20 16L12 8" }[direction]}
