@@ -19,7 +19,7 @@ const Strategy = () => (
       <div className="subheading">Our Strategy</div>
       <h2>The 3G&apos;s: Gather, Grow, Go</h2>
     </div>
-    <div className="px-4 lg:px-0 lg:relative">
+    <div className="px-4 lg:relative">
       <div className={svgContainer}>
         <Arrows
           direction="north"

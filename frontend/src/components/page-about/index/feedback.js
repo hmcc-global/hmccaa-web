@@ -3,7 +3,7 @@ import { SecondaryButtonLink } from "../../Button";
 
 const Feedback = () => {
   return (
-    <div className="bg-Neutral-200 lg:flex lg:justify-center lg:items-center py-[27px] lg:pt-[89px] lg:pb-[90px] px-4">
+    <div className="bg-Neutral-200 lg:flex lg:justify-center lg:items-center py-[27px] lg:pt-[89px] lg:pb-[90px] px-4 w-full">
       <div className="flex flex-col  lg:grid bg-Shades-0 items-center border-solid border-2 max-w-[1178px] rounded-xl pt-[26px] pb-9 px-3.5 lg:pt-16 lg:pb-[60px] lg:pr-10 lg:pl-[45px] border-Neutral-700 gap-x-10">
         <div className="lg:max-w-[429px] w-full">
           <h2 className="font-bold normal-case pb-5 lg:pb-[27px]">

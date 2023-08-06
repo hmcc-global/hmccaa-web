@@ -99,12 +99,10 @@ const Arrows = ({ width, viewBox, direction, size }) => (
   </svg>
 );
 
-const Chevron = ({ direction }) => (
+const Chevron = ({ direction, className }) => (
   <svg
-    className="w-8"
+    className={`w-8 fill-none ${className}`}
     viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
   >
     <g>
       <path

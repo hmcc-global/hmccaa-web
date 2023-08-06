@@ -45,7 +45,7 @@ const LeadershipSection = () => {
   ));
 
   return (
-    <div className="pb-20.25 flex flex-col items-center px-4 sm:px-0">
+    <div className="pb-[2.5625rem] lg:pb-20.25 flex flex-col items-center px-4 sm:px-0">
       <div className="text-center pb-14.5">
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>
@@ -57,7 +57,7 @@ const LeadershipSection = () => {
         <SecondaryButtonLink
           to={"/about/our-team"}
           hasArrow={true}
-          customClassName={{ textContainer: "-indent-40 sm:indent-0" }}
+          customClassName={{ textContainer: "-indent-[8.8rem] sm:indent-0" }}
         >
           More About Our Elders and Deacons
         </SecondaryButtonLink>
