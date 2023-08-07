@@ -4,47 +4,42 @@
   @apply pt-20 h-full w-screen relative left-1/2 right-1/2 -mx-[50vw];
 }
 
-/* change fr grid cols to adjust triangle width */
-.top-box,
-.bottom-box {
-  @apply grid grid-cols-[1fr_2fr_1fr];
-}
-
-.text {
-  /* negative margin solves resize gap bug */
-  @apply text-center py-16 px-12 -mx-0.5;
-}
-
-.text p {
-  @apply font-bold text-xl pt-5;
-}
-
-.text span {
-  @apply text-2xl;
-}
-
 .top-box {
   @apply bg-Primary-500;
-}
-
-.top-box .text {
-  @apply bg-Primary-900;
-}
-
-.top-box p {
-  @apply text-Secondary-900;
-}
-
-.text h2 {
-  @apply text-6xl text-Shades-0;
 }
 
 .bottom-box {
   @apply bg-Primary-300;
 }
 
-.bottom-box .text {
-  @apply bg-Primary-700;
+.top-trapezoid {
+  @apply bg-Primary-900 flex justify-center;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+}
+
+.bottom-trapezoid {
+  @apply bg-Primary-700 flex justify-center;
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.text {
+  @apply text-center py-16 px-[20%];
+}
+
+.text h2 {
+  @apply text-6xl text-Shades-0 whitespace-nowrap;
+}
+
+.text p {
+  @apply font-bold text-xl pt-5 max-w-xl;
+}
+
+.text span {
+  @apply text-2xl;
+}
+
+.top-box p {
+  @apply text-Secondary-900;
 }
 
 .bottom-box .subheading {
@@ -53,25 +48,4 @@
 
 .bottom-box p {
   @apply text-Secondary-700;
-}
-
-/* 1% and 99% solve necessary negative margin changes */
-.top-left-triangle {
-  @apply w-full bg-Primary-900;
-  clip-path: polygon(1% 0, 100% 0, 100% 100%, 99% 100%);
-}
-
-.top-right-triangle {
-  @apply w-full bg-Primary-900;
-  clip-path: polygon(0 0, 99% 0, 1% 100%, 0 100%);
-}
-
-.bottom-left-triangle {
-  @apply w-full bg-Primary-700;
-  clip-path: polygon(99% 0, 100% 0, 100% 100%, 1% 100%);
-}
-
-.bottom-right-triangle {
-  @apply w-full bg-Primary-700;
-  clip-path: polygon(0 0, 1% 0, 99% 100%, 0 100%);
 }
