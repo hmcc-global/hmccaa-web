@@ -1,7 +1,7 @@
 import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
-import MissionsImg from "../../images/missionsNextStepImg.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 const MissionsNextStep = () => (
   <div className="flex gap-x-5 pt-14 pb-14">
@@ -33,7 +33,10 @@ const MissionsNextStep = () => (
       </div>
     </div>
     <div>
-      <img src={MissionsImg} alt="Missions Next Step" />
+      <StaticImage
+        src="../../images/missionsNextStepImg.png"
+        alt="Missions Next Step"
+      />
     </div>
   </div>
 );
