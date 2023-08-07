@@ -11,7 +11,6 @@ import {
   buttonContainer,
 } from "../../../css/partners.module.css";
 import { SecondaryButtonLink } from "../../Button";
-import { RightAngleTriangle } from "../../svgs";
 import { HighlightedParagraph } from "../../shared/highlightedParagraph";
 
 const Partners = () => (
@@ -56,12 +55,6 @@ const Partners = () => (
     </div>
     <div className={globalMissionContainer}>
       <div className={globalMissionContext}>
-        <div className="absolute top-0 bottom-0 left-0 w-8 lg:w-20 h-full">
-          <RightAngleTriangle side="left" />
-        </div>
-        <div className="absolute right-0 top-0 bottom-0 w-8 lg:w-20 h-full">
-          <RightAngleTriangle side="right" />
-        </div>
         <div className={globalMission}>
           <h3>Our Global Mission</h3>
           <p>

@@ -20,8 +20,16 @@
   @apply bg-Primary-900 relative overflow-hidden;
 }
 
+.global-mission-context::before {
+  @apply absolute top-0 bottom-0 left-0  h-full border-solid border-l-Primary-500 border-l-[1.875rem] lg:border-l-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
+}
+
+.global-mission-context::after {
+  @apply absolute top-0 bottom-0 right-0 h-full border-solid border-r-Primary-500 border-r-[1.875rem] lg:border-r-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
+}
+
 .global-mission {
-  @apply relative max-w-sm-lg mx-auto py-3.5 lg:pt-8 lg:pb-1.75 px-4;
+  @apply relative max-w-sm-lg mx-auto py-3.5 lg:pt-8 lg:pb-1.75 px-[1.875rem] lg:px-[5rem] xl:px-[3.75rem];
 }
 .global-mission h3 {
   @apply uppercase font-semibold text-2xl tracking-medium-wide lg:tracking-normal lg:text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;

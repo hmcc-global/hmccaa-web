@@ -16,27 +16,6 @@ const ButtonArrow = () => (
   </svg>
 );
 
-const RightAngleTriangle = ({ side }) => (
-  <svg
-    className="relative bottom-[-74px] lg:bottom-0 scale-y-[3] lg:scale-100"
-    viewBox="0 0 80 200"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {
-      {
-        left: (
-          <path
-            className="fill-Primary-500"
-            d="M-5.96046e-07 0V200H80L-5.96046e-07 0Z"
-          />
-        ),
-        right: <path className="fill-Primary-500" d="M80 0V200H0L80 0Z" />,
-      }[side]
-    }
-  </svg>
-);
-
 const Arrows = ({ width, viewBox, direction, size }) => (
   <svg
     className={width}
@@ -215,7 +194,6 @@ const CopyrightLogo = ({ className }) => (
 
 export {
   ButtonArrow,
-  RightAngleTriangle,
   Arrows,
   Chevron,
   LaptopIcon,

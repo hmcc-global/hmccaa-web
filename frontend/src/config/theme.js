@@ -98,7 +98,7 @@ const theme = {
       container: "75.75rem",
       btn: "10.3125rem",
       "sm-md": "21.875rem",
-      "sm-lg": "25.75rem",
+      "sm-lg": "30rem",
       "md-lg": "31.25rem",
       "xl-md": "40.625rem",
       "3.25xl": "50.8125rem",
