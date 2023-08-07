@@ -16,7 +16,7 @@ import { HighlightedParagraph } from "../../shared/highlightedParagraph";
 const Partners = () => (
   <div className={container}>
     <div className={globalMissionContainer}>
-      <div>
+      <div className="pb-[20px]">
         <StaticImage src="../../../images/image264.png" alt="HMI Project" />
       </div>
       <div className={globalMissionContext}>
