@@ -15,14 +15,14 @@ export const ButtonLink = ({
   children,
 }) => (
   <Link className={`${button} ${className}`} to={to}>
-    <span className={textContainer}>{children}</span>{" "}
+    <span className={hasArrow && textContainer || ''}>{children}</span>{" "}
     {hasArrow && <ButtonArrow />}
   </Link>
 );
 
 export const Button = ({ hasArrow = false, type, children }) => (
   <button type={type} className={button}>
-    <span className={textContainer}>{children}</span>{" "}
+    <span className={hasArrow && textContainer || ''}>{children}</span>{" "}
     {hasArrow && <ButtonArrow />}
   </button>
 );
