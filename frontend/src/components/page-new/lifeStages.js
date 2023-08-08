@@ -21,10 +21,10 @@ const LifeStages = () => (
     <div className={mainContainer}>
       {/* <div className="my-20"> */}
       {/* className="object-scale-down" */}
-      <div className="my-20">
+      <div className="flex flex-col justify-center gap-y-16 w-11/12">
         <div className={subContainer}>
-          <StaticImage className="" src="../../images/LifeStageImg1.png" />
-          <div className="textbox text-right">
+          <StaticImage className="min-w-fit" src="../../images/LifeStageImg1.png" />
+          <div className="textbox text-right m-y-auto">
             <h3 className={textTitle}>A PLACE FOR SINGLE ADULTS</h3>
             <h4 className={textBody}>
               New to the area? Just graduated? Our single adult group is for
@@ -34,7 +34,7 @@ const LifeStages = () => (
         </div>
 
         <div className={subContainer}>
-          <StaticImage className="" src="../../images/LifeStageImg2.png" />
+          <StaticImage className="min-w-fit" src="../../images/LifeStageImg2.png" />
           <div className="textbox text-right">
             <h3 className={textTitle}>A PLACE FOR UNDERGRADS</h3>
             <h4 className={textBody}>
@@ -45,7 +45,7 @@ const LifeStages = () => (
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-y-16">
         <div className={subContainer}>
           <div className="textBox text-left">
             <h3 className={textTitle}>A PLACE FOR FAMILIES</h3>
@@ -54,7 +54,7 @@ const LifeStages = () => (
               different life stages you can connect with!
             </h4>
           </div>
-          <StaticImage className="" src="../../images/LifeStageImg3.png" />
+          <StaticImage className="min-w-fit" src="../../images/LifeStageImg3.png" />
         </div>
         <div className={subContainer}>
           <div className="textBox text-left">
@@ -64,7 +64,7 @@ const LifeStages = () => (
               connect with those pursuing higher education.
             </h4>
           </div>
-          <StaticImage className="" src= "../../images/LifeStageImg4.png"/>
+          <StaticImage className="min-w-fit" src= "../../images/LifeStageImg4.png"/>
         </div>
         <div className={subContainer}>
           <div className="textBox text-left">
@@ -74,7 +74,7 @@ const LifeStages = () => (
               China, HK, Indonesia, Malaysia, Japan, and many more!
             </h4>
           </div>
-          <StaticImage className="" src="../../images/LifeStageImg5.png" />
+          <StaticImage className="min-w-fit" src="../../images/LifeStageImg5.png" />
         </div>
       </div>
     </div>
