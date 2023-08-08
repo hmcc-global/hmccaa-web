@@ -12,21 +12,19 @@ const Card = ({ type, date, name, location, description }) => {
       />
       <div className="flex flex-col gap-1 items-start w-[8.75rem] md:gap-3 md:w-[20rem]">
         <p className="mb-0 text-[0.625rem] leading-[0.9375rem] text-black font-medium tracking-[0.0375rem] md:text-base md:leading-[1.3125rem] md:tracking-[0.0525rem]">
-          Th, May 25, 2023
+          {date}
         </p>
         <h3 className="text-lg leading-[1.25rem] font-semibold text-black md:leading-[1.8rem] md:text-2xl">
-          Prayer Gathering
+          {name}
         </h3>
         <div className="flex items-center gap-1">
           <img className="w-4 h-4 mb-0" src={mapPinLogo} alt="Map" />
           <p className="mb-0 text-black text-[0.625rem] leading-[0.9375rem] font-medium tracking-[0.0375rem] md:text-base md:leading[1.3125rem] md:tracking-[0.0525rem]">
-            T-Center
+            {location}
           </p>
         </div>
         <p className="hidden mb-0 text-[0.625rem] leading-[0.9375rem] text-black font-medium tracking-[0.0375rem] md:block md:text-base md:leading-[1.3125rem] md:tracking-[0.0525rem]">
-          I&apos;m baby migas fam yuccie, big mood freegan affogato everyday
-          carry hashtag four dollar toast truffaut 3 wolf moon beard. Hella
-          live-edge brunch neutral milk hotel pabst.
+          {description}
         </p>
       </div>
     </div>

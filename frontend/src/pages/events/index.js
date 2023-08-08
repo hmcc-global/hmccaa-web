@@ -9,8 +9,15 @@ const EventsPage = () => (
   <Layout>
     <div>Sunday Celebration bar</div>
     <div>Event list section</div>
-    <Card />
-    <Card />
+    <Card
+      type={"event"}
+      name={"Prayer Gathering"}
+      date={"Th, May 25, 2023"}
+      location={"T Center"}
+      description={`I&apos;m baby migas fam yuccie, big mood freegan affogato everyday
+          carry hashtag four dollar toast truffaut 3 wolf moon beard. Hella
+          live-edge brunch neutral milk hotel pabst.`}
+    />
     <div>Prayer Gatherings bar</div>
     <Instagram />
   </Layout>
