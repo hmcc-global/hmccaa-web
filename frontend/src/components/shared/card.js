@@ -23,7 +23,7 @@ const Card = ({ type, date, name, location, description }) => {
             T-Center
           </p>
         </div>
-        <p className="mb-0 text-[0.625rem] leading-[0.9375rem] text-black font-medium tracking-[0.0375rem] md:text-base md:leading-[1.3125rem] md:tracking-[0.0525rem]">
+        <p className="hidden mb-0 text-[0.625rem] leading-[0.9375rem] text-black font-medium tracking-[0.0375rem] md:block md:text-base md:leading-[1.3125rem] md:tracking-[0.0525rem]">
           I&apos;m baby migas fam yuccie, big mood freegan affogato everyday
           carry hashtag four dollar toast truffaut 3 wolf moon beard. Hella
           live-edge brunch neutral milk hotel pabst.
