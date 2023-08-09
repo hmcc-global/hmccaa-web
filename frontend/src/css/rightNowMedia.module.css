@@ -1,0 +1,25 @@
+@config "../config/tailwind.config.js";
+
+.wrapper {
+    @apply bg-Neutral-200 inline-flex justify-center items-center pt-[1.75rem] pb-[2.9375rem] lg:py-[4.4375rem] w-full px-[0.875rem]
+}
+
+.container {
+    @apply max-w-container w-full flex flex-col text-center gap-y-5 lg:text-left lg:flex-row items-center lg:gap-x-5 lg:gap-y-0;
+}
+
+.media-wrapper {
+    @apply bg-[#5E5E5E] relative max-w-[30rem]  w-full;
+}
+
+.media-wrapper div {
+    @apply pb-[62.5%];
+}
+
+.media-wrapper iframe {
+    @apply absolute left-0 top-0 h-full w-full;
+}
+
+.description-wrapper {
+    @apply max-w-[42.5rem] w-full gap-y-5 flex flex-col;
+}

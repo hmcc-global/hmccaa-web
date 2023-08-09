@@ -2,12 +2,13 @@ import * as React from "react";
 
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
+import RightNowMedia from "../../components/page-watch/rightNowMedia";
 
 const WatchPage = () => (
   <Layout>
     <div>Live Stream section</div>
     <div>Previous Sermons section</div>
-    <div>RightNow Media section</div>
+    <RightNowMedia/>
   </Layout>
 );
 
