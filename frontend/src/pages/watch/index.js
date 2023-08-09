@@ -8,7 +8,7 @@ const WatchPage = () => (
   <Layout>
     <div>Live Stream section</div>
     <div>Previous Sermons section</div>
-    <RightNowMedia/>
+    <RightNowMedia />
   </Layout>
 );
 
