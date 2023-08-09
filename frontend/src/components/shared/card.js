@@ -19,7 +19,7 @@ const Card = ({ type, date, name, location, description }) => {
         </h3>
         <div className="flex items-center gap-1">
           <img className="w-4 h-4 mb-0" src={mapPinLogo} alt="Map" />
-          <p className="mb-0 text-black text-[0.625rem] leading-[0.9375rem] font-medium tracking-[0.0375rem] md:text-base md:leading[1.3125rem] md:tracking-[0.0525rem]">
+          <p className="mb-0 text-black text-[0.625rem] leading-[0.9375rem] font-medium tracking-[0.0375rem] md:text-base md:leading-[1.3125rem] md:tracking-[0.0525rem]">
             {location}
           </p>
         </div>
