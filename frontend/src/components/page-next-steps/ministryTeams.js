@@ -62,13 +62,15 @@ const MinistryTeams = () => (
         <div className={textContainer}>
           <div>
             <div className="subheading">Ministry Teams</div>
-            <h2>SERVING IS A WAY TO USE GOD&apos;S BLESSING TO BLESS OTHERS.</h2>
+            <h2>
+              SERVING IS A WAY TO USE GOD&apos;S BLESSING TO BLESS OTHERS.
+            </h2>
           </div>
           <p>
-            We believe God has given us unique talents and all are needed to be a
-            healthy church body. Whether you know your gifts or are in the process
-            of figuring out, come learn more about how we can use our gifts to
-            help those around us!
+            We believe God has given us unique talents and all are needed to be
+            a healthy church body. Whether you know your gifts or are in the
+            process of figuring out, come learn more about how we can use our
+            gifts to help those around us!
           </p>
         </div>
         <div className="flex flex-col gap-y-3 lg:block py-5 lg:py-0">
@@ -127,7 +129,10 @@ const MinistryTeams = () => (
       </div>
     </div>
     <div className="pt-10 lg:pt-0">
-      <StaticImage src="../../images/ministry-teams.png" alt="Ministry Teams Hero"  />
+      <StaticImage
+        src="../../images/ministry-teams.png"
+        alt="Ministry Teams Hero"
+      />
     </div>
   </div>
 );
