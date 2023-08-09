@@ -1,15 +1,11 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply lg:grid lg:pb-20.5 lg:gap-x-5 text-center lg:text-left lg:px-4;
+  @apply pt-5 lg:pt-0 lg:grid lg:pb-20.5 lg:gap-x-5 text-center lg:text-left lg:px-4;
 }
 
 .global-mission-img-container {
-  @apply mx-auto lg:mx-0 px-4 lg:px-0 lg:row-start-1 lg:col-start-2;
-}
-
-.global-mission-img-container img {
-  @apply mb-5 mx-auto lg:mx-0;
+  @apply mx-auto lg:mx-0 px-4 lg:px-0 lg:row-start-1 lg:col-start-2 pb-5;
 }
 
 .global-mission-container {

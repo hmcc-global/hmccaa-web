@@ -112,10 +112,12 @@ const theme = {
     width: {
       sm: "30rem",
       smx2: "36.25rem",
+      med: "66.3rem",
     },
     height: {
       sm: "21.63rem",
       smx2: "26.125rem",
+      med: "66.6rem",
     },
     lineHeight: {
       tighter: "1.2",
@@ -128,12 +130,6 @@ const theme = {
     },
     letterSpacing: {
       "medium-wide": "0.06em",
-    },
-    width: {
-      med: "66.3rem",
-    },
-    height: {
-      med: "66.6rem",
     },
     padding: {
       1.75: "0.4375rem",

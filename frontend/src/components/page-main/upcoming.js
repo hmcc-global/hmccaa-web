@@ -1,6 +1,5 @@
 import * as React from "react";
 import { SecondaryButtonLink } from "../Button";
-import upcomingEventsImg from "../../images/upcomingEventsImg.png";
 import { StaticImage } from "gatsby-plugin-image";
 
 const UpcomingEvents = () => (
