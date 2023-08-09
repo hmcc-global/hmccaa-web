@@ -16,7 +16,13 @@ export const ButtonLink = ({
   customClassName,
 }) => (
   <Link className={`${button} ${className} ${customClassName?.button}`} to={to}>
-    <span className={`${(hasArrow && textContainer) || ""} ${customClassName?.textContainer || ""}`}>{children}</span>{" "}
+    <span
+      className={`${(hasArrow && textContainer) || ""} ${
+        customClassName?.textContainer || ""
+      }`}
+    >
+      {children}
+    </span>{" "}
     {hasArrow && <ButtonArrow />}
   </Link>
 );
@@ -28,7 +34,13 @@ export const Button = ({
   customClassName,
 }) => (
   <button type={type} className={`${button} ${customClassName?.button || ""}`}>
-    <span className={`${(hasArrow && textContainer) || ""} ${customClassName?.textContainer || ""}`}>{children}</span>{" "}
+    <span
+      className={`${(hasArrow && textContainer) || ""} ${
+        customClassName?.textContainer || ""
+      }`}
+    >
+      {children}
+    </span>{" "}
     {hasArrow && <ButtonArrow />}
   </button>
 );
