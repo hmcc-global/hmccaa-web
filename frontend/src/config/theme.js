@@ -163,6 +163,15 @@ const theme = {
     scale: {
       10: ".10",
     },
+    backgroundImage: {
+      about: "url('../images/background/about.png')",
+      connect: "url('../images/background/connect.jpeg')",
+      "next-steps": "url('../images/background/next-steps.jpg')",
+      events: "url('../images/background/events.jpeg')",
+      watch: "url('../images/background/watch.jpeg')",
+      give: "url('../images/background/give.jpeg')",
+      new: "url('../images/background/new.jpeg')",
+    },
   },
 };
 

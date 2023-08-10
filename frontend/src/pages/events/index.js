@@ -6,9 +6,11 @@ import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
 import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
+import Banner from "../../components/shared/banner";
 
 const EventsPage = () => (
   <Layout>
+    <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
     <SundayCelebBarEvents />
     <div>Event list section</div>
     <EventCard
