@@ -8,7 +8,7 @@ import MissionsNextStep from "../../components/page-next-steps/missionsNextSteps
 const NextStepsPage = () => (
   <Layout>
     <div className="max-w-container mx-auto">
-      <div>Life Groups section</div>
+      <LifeGroup />
       <div>Membership section</div>
       <div>Transformation classes section</div>
       <div>Baptism section</div>
