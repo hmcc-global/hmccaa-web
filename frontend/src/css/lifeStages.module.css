@@ -13,12 +13,15 @@
 .textBox {
 }
 
-.textTitle {
-  @apply font-semibold text-2xl;
+.textTitleLeft {
+  @apply font-semibold text-2xl text-Primary-500 leading-7 w-4/5 place-content-end;
 }
 
+.textTitleRight {
+  @apply font-semibold text-2xl text-Primary-500 leading-7 w-4/5;
+}
 .textBody {
-  @apply font-medium text-base;
+  @apply font-medium text-base leading-5 tracking-medium-wide pt-1;
 }
 
 .subContainer {
