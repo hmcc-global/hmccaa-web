@@ -23,8 +23,8 @@ const EventCard = ({ title, date, location, img, description }) => {
       title={title}
       date={date}
       img={prayerGatheringImg} // TODO: make dynamic
-      attributes={attributes}
-    ></Card>
+     
+    >{attributes}</Card>
   );
 };
 
