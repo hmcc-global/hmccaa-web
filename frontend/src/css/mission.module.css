@@ -31,11 +31,11 @@
 }
 
 .text p {
-  @apply font-bold text-xl pt-5 max-w-xl;
+  @apply font-bold text-xl pt-5 mb-0;
 }
 
 .text span {
-  @apply text-2xl;
+  @apply text-2xl leading-tighter;
 }
 
 .top-box p {
