@@ -23,3 +23,19 @@ h2 {
 .invisible {
   @apply h-0 overflow-hidden;
 }
+
+nav.breadcrumb {
+  @apply max-w-container w-full text-xl font-medium text-[#4352B1] pt-10 pb-[3.75rem];
+}
+
+nav .breadcrumb__list {
+  @apply flex flex-wrap list-none m-0;
+}
+
+nav .breadcrumb__separator {
+  @apply mx-[0.3125rem];
+}
+
+nav .breadcrumb__link {
+  @apply no-underline text-[#4352B1];
+}
