@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Card = ({ img, date, title, attributes }) => {
+const Card = ({ img, date, title, children }) => {
   return (
     <div className="flex flex-col items-center gap-2 w-[9.75rem] h-[12.5rem] pb-[2.19rem] mx-auto rounded-xl border border-solid border-b-Neutral-900 shadow-md overflow-hidden md:w-[23.75rem] md:h-[30rem] md:pb-[3.13rem] md:gap-5">
       <img
