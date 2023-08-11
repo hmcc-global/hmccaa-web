@@ -15,7 +15,7 @@ const Card = ({ img, date, title, children }) => {
         <h3 className="text-lg leading-[1.25rem] font-semibold text-black md:leading-[1.8rem] md:text-2xl">
           {title}
         </h3>
-        {attributes}
+        {children}
       </div>
     </div>
   );
