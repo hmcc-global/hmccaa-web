@@ -9,9 +9,25 @@
 }
 
 .bottom-box {
-  @apply bg-Primary-300;
+  @apply bg-Primary-700 relative min-h-[20rem] flex justify-center items-center;
 }
 
+.bottom-box p {
+  @apply max-w-[33.75rem];
+}
+
+.bottom-box::before,
+.bottom-box::after {
+  @apply content-[""] absolute top-0 border-solid border-t-Primary-300 border-t-[20rem];
+}
+
+.bottom-box::before {
+  @apply border-r-transparent border-r-[1.875rem] lg:border-r-[25rem] xl:border-r-[31.25rem] left-0;
+}
+
+.bottom-box::after {
+  @apply border-l-transparent border-l-[1.875rem] lg:border-l-[25rem] xl:border-l-[31.25rem] right-0;
+}
 .top-trapezoid {
   @apply flex justify-center;
 }
