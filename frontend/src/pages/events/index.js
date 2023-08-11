@@ -4,7 +4,7 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
-import PrayerGathering from "../../images/prayer-gathering.png";
+import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 
 const EventsPage = () => (
@@ -12,13 +12,16 @@ const EventsPage = () => (
     <SundayCelebBarEvents />
     <div>Event list section</div>
     <EventCard
-      title={"Prayer Gathering"}
-      date={"Th, May 25, 2023"}
-      img={../../images/prayer-gathering.png}
-      location={"T Center"}
-      description={`I&apos;m baby migas fam yuccie, big mood freegan affogato everyday
+      title="Prayer Gathering"
+      date="Th, May 25, 2023"
+     img={<StaticImage
+        className="h-[6.15788rem] w-[10.94738rem] flex-shrink-0 mb-0 md:h-60 md:w-[26.66669rem]"
+        src="../../images/prayer-gathering.png"
+        alt="Background" />}
+      location="T Center"
+      description="I&apos;m baby migas fam yuccie, big mood freegan affogato everyday
           carry hashtag four dollar toast truffaut 3 wolf moon beard. Hella
-          live-edge brunch neutral milk hotel pabst.`}
+          live-edge brunch neutral milk hotel pabst."
     />
     <div>Prayer Gatherings bar</div>
     <Instagram />
