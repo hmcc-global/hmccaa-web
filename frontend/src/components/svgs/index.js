@@ -2,7 +2,7 @@ import * as React from "react";
 
 const ButtonArrow = () => (
   <svg
-    className="w-8"
+    className="w-5 lg:w-8"
     viewBox="0 0 21 13"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
