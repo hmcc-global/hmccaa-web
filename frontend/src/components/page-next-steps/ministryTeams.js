@@ -130,7 +130,7 @@ const MinistryTeams = () => (
     </div>
     <div className="pt-10 lg:pt-0">
       <StaticImage
-        src="../../images/ministry-teams.png"
+        src="../../images/ug-retreat.png"
         alt="Ministry Teams Hero"
       />
     </div>
