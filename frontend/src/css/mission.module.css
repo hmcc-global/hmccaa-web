@@ -5,7 +5,24 @@
 }
 
 .top-box {
-  @apply bg-Primary-500;
+  @apply bg-Primary-900 relative min-h-[25rem] flex justify-center items-center;
+}
+
+.top-box p {
+  @apply max-w-[32.5rem];
+}
+
+.top-box::before,
+.top-box::after {
+  @apply content-[""] absolute top-0  border-solid border-t-transparent border-t-[25rem];
+}
+
+.top-box:before {
+  @apply border-l-Primary-500 border-l-[1.875rem] lg:border-l-[25rem] xl:border-l-[31.25rem] left-0;
+}
+
+.top-box::after {
+  @apply border-r-Primary-500 border-r-[1.875rem] lg:border-r-[25rem] xl:border-r-[31.25rem] right-0;
 }
 
 .bottom-box {
