@@ -14,7 +14,7 @@ const EventsPage = () => (
     <EventCard
       title={"Prayer Gathering"}
       date={"Th, May 25, 2023"}
-      img={PrayerGathering}
+      img={../../images/prayer-gathering.png}
       location={"T Center"}
       description={`I&apos;m baby migas fam yuccie, big mood freegan affogato everyday
           carry hashtag four dollar toast truffaut 3 wolf moon beard. Hella
