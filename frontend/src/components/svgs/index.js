@@ -220,4 +220,5 @@ export {
   MailIcon,
   InstaIcon,
   CopyrightLogo,
+  CloseIcon,
 };

@@ -4,6 +4,8 @@ import imgJoshYang from "../../../images/about-elders-josh-yang.png";
 import imgDaveYon from "../../../images/about-elders-dave-yon.png";
 import imgSeongPark from "../../../images/about-elders-seong-park.png";
 import { SecondaryButtonLink } from "../../Button";
+import TeamCard from "../shared/teamCard";
+import Team from "../shared/team";
 
 const LeadershipSection = () => {
   const elderInfo = [
@@ -30,18 +32,11 @@ const LeadershipSection = () => {
   ];
 
   const elderCards = elderInfo.map((info, index) => (
-    <div
-      key={`e-card-${index + 1}`}
-      className="flex flex-col items-center flex-[0_0_calc(50%-0.5rem)] lg:flex-auto"
-    >
-      <div>
-        <img className="mb-3" src={info.img} alt={info.name} />
-        <h3 className="font-bold text-lg lg:text-2xl leading-tighter mb-2 w-full">
-          {info.name}
-        </h3>
-        <div className="w-full">{info.role}</div>
-      </div>
-    </div>
+    <TeamCard
+      key={`elder-${index + 1}`}
+      info={info}
+      customClassName={{ container: "gap-y-2", h3: "text-2xl leading-tighter" }}
+    />
   ));
 
   return (
@@ -50,9 +45,7 @@ const LeadershipSection = () => {
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>
       </div>
-      <div className="flex justify-center gap-x-4 gap-y-5 lg:gap-5 pb-10 flex-wrap lg:flex-nowrap">
-        {elderCards}
-      </div>
+      <Team className="pb-11.25">{elderCards}</Team>
       <div className="flex">
         <SecondaryButtonLink
           to={"/about/our-team"}
