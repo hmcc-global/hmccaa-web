@@ -1,9 +1,6 @@
 import * as React from "react";
-import LifeStageImg1 from "../../images/LifeStageImg1.png";
-import LifeStageImg2 from "../../images/LifeStageImg2.png";
-import LifeStageImg3 from "../../images/LifeStageImg3.png";
-import LifeStageImg4 from "../../images/LifeStageImg4.png";
-import LifeStageImg5 from "../../images/LifeStageImg5.png";
+import { StaticImage } from "gatsby-plugin-image";
+
 import {
   mainContainer,
   column,
@@ -26,7 +23,7 @@ const LifeStages = () => (
       {/* className="object-scale-down" */}
       <div className="my-20">
         <div className={subContainer}>
-          <img className="object-scale-down w-44" src={LifeStageImg1} />
+          <StaticImage className="" src="../../images/LifeStageImg1.png" />
           <div className="textbox text-right">
             <h3 className={textTitle}>A PLACE FOR SINGLE ADULTS</h3>
             <h4 className={textBody}>
@@ -37,7 +34,7 @@ const LifeStages = () => (
         </div>
 
         <div className={subContainer}>
-          {/* <img className="object-scale-down w-44" src={LifeStageImg2} /> */}
+          <StaticImage className="" src="../../images/LifeStageImg2.png" />
           <div className="textbox text-right">
             <h3 className={textTitle}>A PLACE FOR UNDERGRADS</h3>
             <h4 className={textBody}>
@@ -57,7 +54,7 @@ const LifeStages = () => (
               different life stages you can connect with!
             </h4>
           </div>
-          <img className="object-scale-down w-44" src={LifeStageImg3} />
+          <StaticImage className="" src="../../images/LifeStageImg3.png" />
         </div>
         <div className={subContainer}>
           <div className="textBox text-left">
@@ -67,7 +64,7 @@ const LifeStages = () => (
               connect with those pursuing higher education.
             </h4>
           </div>
-          <img className="object-scale-down w-44" src={LifeStageImg4} />
+          <StaticImage className="" src= "../../images/LifeStageImg4.png"/>
         </div>
         <div className={subContainer}>
           <div className="textBox text-left">
@@ -77,7 +74,7 @@ const LifeStages = () => (
               China, HK, Indonesia, Malaysia, Japan, and many more!
             </h4>
           </div>
-          <img className="object-scale-down w-44" src={LifeStageImg5} />
+          <StaticImage className="" src="../../images/LifeStageImg5.png" />
         </div>
       </div>
     </div>
