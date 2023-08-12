@@ -1,0 +1,5 @@
+@config "../config/tailwind.config.js";
+
+.textContainer {
+  @apply no-underline text-Primary-1000;
+}

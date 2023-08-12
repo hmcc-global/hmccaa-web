@@ -21,7 +21,10 @@ const LifeStages = () => (
     <div className={mainContainer}>
       <div className="flex flex-col justify-center gap-y-16 w-11/12">
         <div className={subContainer}>
-          <StaticImage className="min-w-fit" src="../../images/LifeStageImg1.png" />
+          <StaticImage
+            className="min-w-fit"
+            src="../../images/LifeStageImg1.png"
+          />
           <div className="textbox text-right m-y-auto">
             <h3 className={textTitleLeft}>A PLACE FOR SINGLE ADULTS</h3>
             <h4 className={textBody}>
@@ -32,7 +35,10 @@ const LifeStages = () => (
         </div>
 
         <div className={subContainer}>
-          <StaticImage className="min-w-fit" src="../../images/LifeStageImg2.png" />
+          <StaticImage
+            className="min-w-fit"
+            src="../../images/LifeStageImg2.png"
+          />
           <div className="textbox text-right">
             <h3 className={textTitleLeft}>A PLACE FOR UNDERGRADS</h3>
             <h4 className={textBody}>
@@ -52,7 +58,10 @@ const LifeStages = () => (
               different life stages you can connect with!
             </h4>
           </div>
-          <StaticImage className="min-w-fit" src="../../images/LifeStageImg3.png" />
+          <StaticImage
+            className="min-w-fit"
+            src="../../images/LifeStageImg3.png"
+          />
         </div>
         <div className={subContainer}>
           <div className="textBox text-left">
@@ -62,17 +71,25 @@ const LifeStages = () => (
               connect with those pursuing higher education.
             </h4>
           </div>
-          <StaticImage className="min-w-fit" src= "../../images/LifeStageImg4.png"/>
+          <StaticImage
+            className="min-w-fit"
+            src="../../images/LifeStageImg4.png"
+          />
         </div>
         <div className={subContainer}>
           <div className="textBox text-left">
-            <h3 className={textTitleRight}>A PLACE FOR INTERNATIONAL STUDENTS</h3>
+            <h3 className={textTitleRight}>
+              A PLACE FOR INTERNATIONAL STUDENTS
+            </h3>
             <h4 className={textBody}>
               Flew in from overseas to school in the US? We have students from
               China, HK, Indonesia, Malaysia, Japan, and many more!
             </h4>
           </div>
-          <StaticImage className="min-w-fit" src="../../images/LifeStageImg5.png" />
+          <StaticImage
+            className="min-w-fit"
+            src="../../images/LifeStageImg5.png"
+          />
         </div>
       </div>
     </div>

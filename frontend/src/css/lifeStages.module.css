@@ -25,5 +25,5 @@
 }
 
 .subContainer {
-  @apply flex gap-x-10 ;
+  @apply flex gap-x-10;
 }
