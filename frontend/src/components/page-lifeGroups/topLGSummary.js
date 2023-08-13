@@ -4,16 +4,16 @@ import { SecondaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
 import { PageLink } from "../pageLink";
 
+const pageLinkList = [
+  { title: "Home", route: "../../" },
+  { title: "Next Steps", route: "../../next-steps" },
+  { title: "LIFE Groups", route:  "."},
+];
+
 const TopLGSummary = () => (
   <div className="pt-[40px]">
-    <div>
-      <PageLink to={"../../"}>Home</PageLink>
-      <span className="px-[3px] text-Primary-1000">&gt;</span>
-      <PageLink to={"../../next-steps"}>Next Steps</PageLink>
-      <span className="px-[3px]  text-Primary-1000">&gt;</span>
-      <PageLink to={"."}>LIFE Groups</PageLink>
-    </div>
-
+    <PageLink>{pageLinkList}</PageLink>
+    
     <h1 className="text-center text-[40px] pt-[80px] font-bold">LIFE GROUPS</h1>
 
     <div className="flex gap-x-28 pb-[100px]">
