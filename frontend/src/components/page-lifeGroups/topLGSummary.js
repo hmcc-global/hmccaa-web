@@ -7,13 +7,13 @@ import { PageLink } from "../pageLink";
 const pageLinkList = [
   { title: "Home", route: "../../" },
   { title: "Next Steps", route: "../../next-steps" },
-  { title: "LIFE Groups", route:  "."},
+  { title: "LIFE Groups", route: "." },
 ];
 
 const TopLGSummary = () => (
   <div className="pt-[40px]">
     <PageLink>{pageLinkList}</PageLink>
-    
+
     <h1 className="text-center text-[40px] pt-[80px] font-bold">LIFE GROUPS</h1>
 
     <div className="flex gap-x-28 pb-[100px]">
