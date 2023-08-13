@@ -1,11 +1,11 @@
 import * as React from "react";
 
 const Heading = () => (
-  <div className="max-w-[61.25rem] w-full flex flex-col items-center gap-y-[3.75rem]">
-    <h1 className="font-bold leading-tighter text-4xl uppercase mb-0">
+  <div className="max-w-[61.25rem] w-full flex flex-col items-center gap-y-[2.25rem] lg:gap-y-[3.75rem]">
+    <h1 className="font-semibold lg:font-bold leading-tighter text-2xl lg:text-4xl uppercase mb-0 tracking-normal">
       Our Team
     </h1>
-    <div>
+    <div className="pt-[1.125rem] pb-6 lg:py-0 text-base lg:text-lg  text-center lg:text-left">
       <p>
         Something about Elders and Deacons. Lorem Ipsum... esus talks about
         living an abundant life. The vision of LIFE Group is: to experience the
@@ -23,9 +23,9 @@ const Heading = () => (
 );
 
 const TeamHeading = ({ title, children }) => (
-  <div className="w-full flex flex-col items-start gap-y-3">
-    <h2 className="text-3xl font-bold">{title}</h2>
-    <div>{children}</div>
+  <div className="w-full flex flex-col items-center lg:items-start gap-y-5 lg:gap-y-3 text-center lg:text-left">
+    <h2 className="text-xl font-semibold lg:text-3xl lg:font-bold">{title}</h2>
+    <div className="text-base lg:text-lg">{children}</div>
   </div>
 );
 

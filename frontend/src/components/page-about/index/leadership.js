@@ -45,7 +45,9 @@ const LeadershipSection = () => {
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>
       </div>
-      <Team className="pb-11.25">{elderCards}</Team>
+      <Team className="max-w-[36rem] lg:max-w-none gap-x-4 lg:gap-x-5 pb-11.25">
+        {elderCards}
+      </Team>
       <div className="flex">
         <SecondaryButtonLink
           to={"/about/our-team"}

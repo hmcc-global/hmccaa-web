@@ -39,9 +39,9 @@ const EldersSection = () => {
     },
   ];
   return (
-    <div className="w-full flex flex-col items-start gap-y-[3.75rem]">
+    <div className="w-full flex flex-col items-center lg:items-start gap-y-[3.75rem] pt-[1.6875rem] pb-[1.125rem] lg:py-0">
       <TeamHeading title="Meet Our Elders">
-        <p>
+        <p className="mb-0">
           Something about Elders... Lorem Ipsum... esus talks about living an
           abundant life. The vision of LIFE Group is: to experience the fullness
           of life in a Biblical community where the Gospel is radically lived
@@ -49,7 +49,7 @@ const EldersSection = () => {
           another within various life stages.
         </p>
       </TeamHeading>
-      <Team className="pb-[3.75rem]">
+      <Team className="gap-x-4 lg:gap-x-5 lg:pb-[3.75rem]">
         {elderInfo.map((item, index) => (
           <TeamCard
             info={item}

@@ -25,7 +25,7 @@ h2 {
 }
 
 nav.breadcrumb {
-  @apply max-w-container w-full text-xl font-medium text-[#4352B1] pt-10 pb-[3.75rem];
+  @apply max-w-container w-full text-base lg:text-xl font-medium text-[#4352B1] pl-[0.125rem] lg:pl-0;
 }
 
 nav .breadcrumb__list {
@@ -38,4 +38,8 @@ nav .breadcrumb__separator {
 
 nav .breadcrumb__link {
   @apply no-underline text-[#4352B1];
+}
+
+p {
+  @apply pb-[1.3125rem] lg:pb-6;
 }

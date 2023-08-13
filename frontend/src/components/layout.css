@@ -1,3 +1,4 @@
+@config "../config/tailwind.config.js";
 :root {
   --border-radius: 4px;
   --color-text: #000;
@@ -119,9 +120,7 @@ ol,
 dl,
 dd,
 p {
-  margin: 0;
-  padding: 0;
-  margin-bottom: var(--space-4);
+  @apply p-0 m-0 mb-[1.3125rem] lg:mb-6;
 }
 ul,
 ol {

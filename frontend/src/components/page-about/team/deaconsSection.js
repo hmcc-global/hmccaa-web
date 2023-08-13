@@ -89,7 +89,7 @@ const DeaconsSection = () => {
     },
   ];
   return (
-    <div className="w-full flex flex-col items-start gap-y-[3.75rem]">
+    <div className="w-full flex flex-col items-center lg:items-start gap-y-5 lg:gap-y-[3.75rem] pt-[1.625rem] pb-[0.125rem] lg:py-0">
       <TeamHeading title="Meet Our Deacons">
         <p>
           Something about Deacons... Lorem Ipsum... esus talks about living an
@@ -99,16 +99,15 @@ const DeaconsSection = () => {
           another within various life stages.
         </p>
       </TeamHeading>
-      <Team className="flex-wrap">
+      <Team className="max-w-[36.25rem] lg:max-w-none gap-x-5">
         {deaconInfo.map((item, index) => (
           <TeamCard
             info={item}
-            key={`team-elder-${index + 1}`}
+            key={`team-deacon-${index + 1}`}
             customClassName={{
               container: "",
-              h3: "text-xl",
+              h3: "text-lg lg:text-xl",
               role: "text-sm font-medium",
-              boxContainer: "basis-[23.728813%]",
             }}
           />
         ))}

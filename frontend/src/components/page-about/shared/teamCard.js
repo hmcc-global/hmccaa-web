@@ -10,7 +10,7 @@ const TeamCard = ({ info, customClassName }) => (
     {info?.img ? (
       <img src={info.img} alt={info.name} className="w-full mb-0" />
     ) : (
-      <div className="max-w-[19.375rem] w-full max-h-[19.375rem] h-full bg-[#5E5E5E;]">
+      <div className="w-full max-w-[17.5rem] max-h-[19.25rem] h-full bg-[#5E5E5E]">
         &nbsp;
       </div>
     )}
@@ -26,7 +26,7 @@ const TeamCard = ({ info, customClassName }) => (
           )}
           <a
             href={`mailto:${info.email}`}
-            className="no-underline text-Shades-100"
+            className="no-underline text-Shades-100 break-all"
           >
             {info.email}
           </a>
