@@ -13,7 +13,7 @@ export const PageLink = ({ children }) => (
           {item.title}
         </a>
 
-        {/* if not in list, add greater than symbol*/}
+        {/* if not last in list, add greater than symbol*/}
         {i + 1 !== children.length && (
           <span className="px-[3px]  text-Primary-1000">&gt;</span>
         )}
