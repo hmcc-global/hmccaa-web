@@ -21,7 +21,9 @@ const LifeGroup = () => (
         </p>
       </HighlightedParagraph>
       <div className="flex">
-        <PrimaryButtonLink hasArrow={true}>Learn More</PrimaryButtonLink>
+        <PrimaryButtonLink hasArrow={true} to={"../../next-steps/lifegroups"}>
+          Learn More
+        </PrimaryButtonLink>
       </div>
     </div>
     <div>

@@ -13,11 +13,11 @@ const Footer = () => {
   const browseList = [
     { title: "Home", route: "/" },
     { title: "About", route: "/about" },
-    { title: "Connect", route: "/" },
-    { title: "Next Steps", route: "/" },
-    { title: "Events", route: "/" },
-    { title: "Watch", route: "/" },
-    { title: "Give", route: "/" },
+    { title: "Connect", route: "/connect" },
+    { title: "Next Steps", route: "/next-steps" },
+    { title: "Events", route: "/events" },
+    { title: "Watch", route: "/watch" },
+    { title: "Give", route: "/give" },
   ];
   const connectList = [
     { title: "Interest Form", route: "/" },
