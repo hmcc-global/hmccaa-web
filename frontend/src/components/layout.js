@@ -22,12 +22,12 @@ const Layout = ({ children }) => {
       }
     }
   `);
-  
+
   React.useEffect(() => {
     let windowScrollTimeout = setTimeout(() => {
-      window.scrollTo(0, 0)
-      clearTimeout(windowScrollTimeout)
-    }, 1)
+      window.scrollTo(0, 0);
+      clearTimeout(windowScrollTimeout);
+    }, 1);
   }, []);
 
   return (
