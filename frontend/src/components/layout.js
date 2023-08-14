@@ -22,6 +22,13 @@ const Layout = ({ children }) => {
       }
     }
   `);
+  
+  React.useEffect(() => {
+    let windowScrollTimeout = setTimeout(() => {
+      window.scrollTo(0, 0)
+      clearTimeout(windowScrollTimeout)
+    }, 1)
+  }, []);
 
   return (
     <div className="bg-Neutral-100 font-raleway min-w-fit">
