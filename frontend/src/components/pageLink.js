@@ -6,7 +6,6 @@ export const PageLink = ({ children }) => (
     {children.map((item, i, index) => (
       <span key={`children-${index}`}>
         <a
-          key={`children-${index}`}
           href={item.route}
           className="px-[3px] text-Primary-1000 no-underline"
         >
