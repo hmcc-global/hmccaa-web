@@ -4,13 +4,14 @@ import { MailIcon } from "../../svgs";
 const TeamCard = ({ info, customClassName, type, index, handleClick }) => {
   return (
     <div className="flex flex-col items-start gap-y-3">
-      <button className="text-left w-full" onClick={() => handleClick(type, index)}>
+      <button
+        className="text-left w-full"
+        onClick={() => handleClick(type, index)}
+      >
         {info?.img ? (
           <img src={info.img} alt={info.name} className="w-full mb-0" />
         ) : (
-          <div className="w-full pb-[101.5%] bg-[#5E5E5E]">
-            &nbsp;
-          </div>
+          <div className="w-full pb-[101.5%] bg-[#5E5E5E]">&nbsp;</div>
         )}
       </button>
       <div className={`flex-col flex w-full ${customClassName.container}`}>
