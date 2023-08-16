@@ -192,8 +192,8 @@ const CopyrightLogo = ({ className }) => (
   </svg>
 );
 
-const CloseIcon = () => (
-  <svg className="w-[3.75rem] h-[3.7rem] fill-none" viewBox="0 0 60 60">
+const CloseIcon = ({ className }) => (
+  <svg className={`${className} fill-none`} viewBox="0 0 60 60">
     <path
       d="M48.2026 45.5475C48.3768 45.7217 48.515 45.9286 48.6093 46.1562C48.7036 46.3838 48.7521 
               46.6277 48.7521 46.8741C48.7521 47.1205 48.7036 47.3644 48.6093 47.592C48.515 47.8196 48.3768 

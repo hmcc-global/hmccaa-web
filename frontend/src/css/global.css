@@ -43,3 +43,25 @@ nav .breadcrumb__link {
 p {
   @apply pb-[1.3125rem] lg:pb-6;
 }
+
+/* react-modal transitions */
+.ReactModal__Overlay {
+  @apply bg-[rgba(0,0,0,0.58)] opacity-0 -translate-y-[10%] transition duration-[300ms] ease-[cubic-bezier(0.445,0.05,0.55,0.95)] left-0 right-0 top-0 bottom-0 overflow-auto;
+}
+
+.ReactModal__Overlay--after-open {
+  @apply opacity-100 translate-y-0;
+}
+
+.ReactModal__Overlay--before-close {
+  @apply opacity-0 -translate-y-[10%];
+}
+
+.ReactModal__Content {
+  @apply sm:max-w-[19.625rem] lg:max-w-container mx-auto sm:my-8 border-none;
+}
+
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  @apply overflow-y-hidden;
+}
