@@ -8,8 +8,8 @@ import FiveEs from "../../components/page-lifeGroups/fiveEs";
 const LifeGroupsPage = () => (
   <Layout>
     <TopLGSummary />
-    <Life/>
-    <FiveEs/>
+    <Life />
+    <FiveEs />
   </Layout>
 );
 
