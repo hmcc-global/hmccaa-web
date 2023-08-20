@@ -5,6 +5,8 @@
   --color-primary: #6494fa;
   --color-code-bg: #fff4db;
   --color-code: #8a6534;
+  --volume-value: 100%;
+  --duration-value: 0;
   --font-sans: Raleway, Montserrat;
   --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
