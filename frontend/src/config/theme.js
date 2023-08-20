@@ -182,12 +182,12 @@ const theme = {
         "100%": {
           opacity: 1,
           transform: "translateY(0)",
-        }
-      }
+        },
+      },
     },
     animation: {
-      "plyr-popup": "plyr-popup 0.2s ease"
-    }
+      "plyr-popup": "plyr-popup 0.2s ease",
+    },
   },
 };
 

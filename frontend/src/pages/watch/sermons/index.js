@@ -18,30 +18,41 @@ const SermonPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext;
-  const handleClick = (evt) => {
+  const handleClick = evt => {
     if (!evt.target.id) {
-        return;
+      return;
     }
     const svgs = document.getElementById(evt.target.id).querySelectorAll("svg");
-    const spans = document.getElementById(evt.target.id).querySelectorAll("span");
+    const spans = document
+      .getElementById(evt.target.id)
+      .querySelectorAll("span");
     svgs.forEach(item => item.classList.toggle("hidden"));
     spans.forEach(item => item.classList.toggle("hidden"));
-    const playButton = /play-button/.test(evt?.target?.id) && document.getElementById(evt.target.id) || null;
-    playButton && (playButton.ariaLabel = document.querySelector("#play-button span:not(.hidden)").textContent);
+    const playButton =
+      (/play-button/.test(evt?.target?.id) &&
+        document.getElementById(evt.target.id)) ||
+      null;
+    playButton &&
+      (playButton.ariaLabel = document.querySelector(
+        "#play-button span:not(.hidden)"
+      ).textContent);
   };
-  const rotateIcon = (evt) => {
-        if (!evt.target.id) {
-            return;
-        }
+  const rotateIcon = evt => {
+    if (!evt.target.id) {
+      return;
+    }
 
-        document.getElementById(evt.target.id).classList.toggle("plyr-focus");
-        document.getElementById(evt.target.id).querySelector("svg").classList.toggle("rotate-90");
-        document.getElementById("plyr-settings").classList.toggle("hidden");
+    document.getElementById(evt.target.id).classList.toggle("plyr-focus");
+    document
+      .getElementById(evt.target.id)
+      .querySelector("svg")
+      .classList.toggle("rotate-90");
+    document.getElementById("plyr-settings").classList.toggle("hidden");
   };
 
-  const openSpeed = (evt) => {
+  const openSpeed = evt => {
     if (!evt.target) {
-        return;
+      return;
     }
 
     document.getElementById("plyr-settings-home").classList.toggle("hidden");
@@ -138,68 +149,185 @@ const SermonPage = ({ pageContext }) => {
                           </div>
                           <div className="ml-[2.5px] items-center flex max-w-[110px] min-w-[80px] relative w-[20%]">
                             <button
-                                id="volumn-button"
-                                onClick={handleClick}
-                                className="touch-manipulation rounded-[3px] cursor-pointer shrink-0 overflow-visible relative transition duration-300 ease-[ease] p-[7px] hover:bg-[#00B3FF] hover:text-Shades-0 focus:outline-0"
-                                >
-                                    <MuteIcon />
-                                    <VolumeIcon />
-                                    <span className="hidden overflow-hidden h-[1px] w-[1px] absolute">Unmute</span>
-                                    <span className="overflow-hidden h-[1px] w-[1px] absolute">Mute</span>
+                              id="volumn-button"
+                              onClick={handleClick}
+                              className="touch-manipulation rounded-[3px] cursor-pointer shrink-0 overflow-visible relative transition duration-300 ease-[ease] p-[7px] hover:bg-[#00B3FF] hover:text-Shades-0 focus:outline-0"
+                            >
+                              <MuteIcon />
+                              <VolumeIcon />
+                              <span className="hidden overflow-hidden h-[1px] w-[1px] absolute">
+                                Unmute
+                              </span>
+                              <span className="overflow-hidden h-[1px] w-[1px] absolute">
+                                Mute
+                              </span>
                             </button>
-                            <input 
-                                type="range" 
-                                min="0" 
-                                max="1" 
-                                step="0.05" 
-                                value="1" 
-                                autoComplete="off" 
-                                aria-label="Volume" 
-                                aria-valuemin="0" 
-                                aria-valuemax="100" 
-                                aria-valuenow="100" 
-                                id="plyr-volume" 
-                                aria-valuetext="100.0%" 
-                                className="plyr-volume mx-[5px] relative z-[2] appearance-none rounded-[26px] text-[#00B3FF] block h-[19px] transition duration-300 ease-[ease] w-full touch-manipulation"
-                                />
+                            <input
+                              type="range"
+                              min="0"
+                              max="1"
+                              step="0.05"
+                              value="1"
+                              autoComplete="off"
+                              aria-label="Volume"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              aria-valuenow="100"
+                              id="plyr-volume"
+                              aria-valuetext="100.0%"
+                              className="plyr-volume mx-[5px] relative z-[2] appearance-none rounded-[26px] text-[#00B3FF] block h-[19px] transition duration-300 ease-[ease] w-full touch-manipulation"
+                            />
                           </div>
                           <div className="ml-[2.5px] flex relative">
-                            <button id="plyr-settings-icon" onClick={rotateIcon} className="touch-manipulation rounded-[3px] cursor-pointer shrink-0 overflow-visible p-[7px] relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0 focus:outline-0" aria-haspopup="true" aria-controls="plyr-settings" aria-expanded="false" type="button">
-                                <SettingsIcon className="transition-tranform duration-300 ease-[ease]"/>
-                                <span className="overflow-hidden h-[1px] w-[1px] absolute">Settings</span>
+                            <button
+                              id="plyr-settings-icon"
+                              onClick={rotateIcon}
+                              className="touch-manipulation rounded-[3px] cursor-pointer shrink-0 overflow-visible p-[7px] relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0 focus:outline-0"
+                              aria-haspopup="true"
+                              aria-controls="plyr-settings"
+                              aria-expanded="false"
+                              type="button"
+                            >
+                              <SettingsIcon className="transition-tranform duration-300 ease-[ease]" />
+                              <span className="overflow-hidden h-[1px] w-[1px] absolute">
+                                Settings
+                              </span>
                             </button>
-                            <div id="plyr-settings" className="plyr__menu__container animate-plyr-popup hidden bg-Shades-0 rounded-2 bottom-full shadow-[0_1px_2px_rgba(0,0,0,0.15)] text-[#4a5764] text-lg mb-[10px] absolute -right-[3px] text-left whitespace-nowrap z-[3]">
-                                <div className="overflow-hidden transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)">
-                                    <div id="plyr-settings-home">
-                                        <div role="menu" className="p-[7px]">
-                                            <button onClick={openSpeed} type="button" role="menuitem" aria-haspopup="true" className="plyr__control--forward pr-[28px] items-center text-[#4A5764] flex text-base py-2 px-[11px] w-full select-none mt-1 touch-manipulation rounded-[3px] cursor-pointer overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0">
-                                                <span className="items-center flex w-full">Speed<span className="items-center flex ml-auto -mr-[5px] overflow-hidden pl-[25px] pointer-events-none">Normal</span></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div id="plyr-settings-speed" className="hidden">
-                                        <button type="button" className="plyr__control--back font-medium m-[7px] mb-[3px] pl-[28px] relative w-[calc(100%-14px)] items-center text-[#4a5764] flex text-base py-2 px-[11px] select-none touch-manipulation rounded-[3px] cursor-pointer overflow-visible transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0 ">
-                                            <span aria-hidden="true" className="items-[inherit] flex w-full">Speed</span>
-                                            <span className="items-[inherit] flex w-[1px] overflow-hidden h-[1px] absolute">Go back to previous menu</span>
-                                        </button>
-                                        <div role="menu" className="p-[7px]">
-                                            <button type="button" role="menuitemradio" aria-checked="false" value="0.5" className="plyr_control_menuitem pl-[7px] items-center text-[#4A5764] flex text-base py-2 px-[11px] select-none w-full touch-manipulation rounded-[3px] cursor-pointer overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0">
-                                                <span className="items-[inherit] flex max-w-full">0.5×</span>
-                                            </button>
-                                            <button type="button" role="menuitemradio" aria-checked="false" value="0.75" className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0">
-                                                <span className="items-[inherit] flex max-w-full">0.75×</span>
-                                            </button>
-                                            <button type="button" role="menuitemradio" aria-checked="true" value="1" className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"><span className="items-[inherit] flex max-w-full">Normal</span></button>
-                                            <button type="button" role="menuitemradio" aria-checked="false" value="1.25" className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"><span className="items-[inherit] flex max-w-full">1.25×</span></button>
-                                            <button type="button" role="menuitemradio" aria-checked="false" value="1.5" className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"><span className="items-[inherit] flex max-w-full">1.5×</span></button>
-                                            <button type="button" role="menuitemradio" aria-checked="false" value="1.75" className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease hover:bg-[#00B3FF] hover:text-Shades-0"><span className="items-[inherit] flex max-w-full">1.75×</span></button>
-                                            <button type="button" role="menuitemradio" aria-checked="false" value="2" className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"><span className="items-[inherit] flex max-w-full">2×</span></button>
-                                            <button type="button" role="menuitemradio" aria-checked="false" value="4" className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"><span className="items-[inherit] flex max-w-full">4×</span></button>
-                                        </div>
-                                    </div>
+                            <div
+                              id="plyr-settings"
+                              className="plyr__menu__container animate-plyr-popup hidden bg-Shades-0 rounded-2 bottom-full shadow-[0_1px_2px_rgba(0,0,0,0.15)] text-[#4a5764] text-lg mb-[10px] absolute -right-[3px] text-left whitespace-nowrap z-[3]"
+                            >
+                              <div className="overflow-hidden transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)">
+                                <div id="plyr-settings-home">
+                                  <div role="menu" className="p-[7px]">
+                                    <button
+                                      onClick={openSpeed}
+                                      type="button"
+                                      role="menuitem"
+                                      aria-haspopup="true"
+                                      className="plyr__control--forward pr-[28px] items-center text-[#4A5764] flex text-base py-2 px-[11px] w-full select-none mt-1 touch-manipulation rounded-[3px] cursor-pointer overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-center flex w-full">
+                                        Speed
+                                        <span className="items-center flex ml-auto -mr-[5px] overflow-hidden pl-[25px] pointer-events-none">
+                                          Normal
+                                        </span>
+                                      </span>
+                                    </button>
+                                  </div>
                                 </div>
+                                <div
+                                  id="plyr-settings-speed"
+                                  className="hidden"
+                                >
+                                  <button
+                                    type="button"
+                                    className="plyr__control--back font-medium m-[7px] mb-[3px] pl-[28px] relative w-[calc(100%-14px)] items-center text-[#4a5764] flex text-base py-2 px-[11px] select-none touch-manipulation rounded-[3px] cursor-pointer overflow-visible transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0 "
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      className="items-[inherit] flex w-full"
+                                    >
+                                      Speed
+                                    </span>
+                                    <span className="items-[inherit] flex w-[1px] overflow-hidden h-[1px] absolute">
+                                      Go back to previous menu
+                                    </span>
+                                  </button>
+                                  <div role="menu" className="p-[7px]">
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="false"
+                                      value="0.5"
+                                      className="plyr_control_menuitem pl-[7px] items-center text-[#4A5764] flex text-base py-2 px-[11px] select-none w-full touch-manipulation rounded-[3px] cursor-pointer overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        0.5×
+                                      </span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="false"
+                                      value="0.75"
+                                      className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        0.75×
+                                      </span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="true"
+                                      value="1"
+                                      className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        Normal
+                                      </span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="false"
+                                      value="1.25"
+                                      className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        1.25×
+                                      </span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="false"
+                                      value="1.5"
+                                      className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        1.5×
+                                      </span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="false"
+                                      value="1.75"
+                                      className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        1.75×
+                                      </span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="false"
+                                      value="2"
+                                      className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        2×
+                                      </span>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      role="menuitemradio"
+                                      aria-checked="false"
+                                      value="4"
+                                      className="plyr_control_menuitem pl-[7px] items-center flex text-base py-2 px-[11px] select-none w-full mt-1 touch-manipulation rounded-[3px] overflow-visible relative transition-all duration-300 ease-[ease] hover:bg-[#00B3FF] hover:text-Shades-0"
+                                    >
+                                      <span className="items-[inherit] flex max-w-full">
+                                        4×
+                                      </span>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                        </div>
+                          </div>
                         </div>
                       </div>
                     </div>
