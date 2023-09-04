@@ -9,11 +9,13 @@ import Belief from "../../components/page-about/index/belief";
 import LeadershipSection from "../../components/page-about/index/leadership";
 import Feedback from "../../components/page-about/index/feedback";
 import OurStory from "../../components/page-about/index/our-story";
+import Banner from "../../components/shared/banner";
 
 export const Head = () => <Seo title="About" />;
 
 const AboutPage = () => (
   <Layout>
+    <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
     <div className="max-w-container">
       <OurStory />
       <div>Our Mission section</div>
