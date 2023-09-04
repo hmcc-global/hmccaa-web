@@ -1,0 +1,82 @@
+@config "../config/tailwind.config.js";
+
+.container {
+  @apply pt-20 h-full w-screen relative left-1/2 right-1/2 -mx-[50vw];
+}
+
+.top-box {
+  @apply bg-Primary-900 relative min-h-[25rem] flex justify-center items-center;
+}
+
+.top-box p {
+  @apply max-w-[32.5rem];
+}
+
+.top-box::before,
+.top-box::after {
+  @apply content-[""] absolute top-0  border-solid border-t-transparent border-t-[25rem];
+}
+
+.top-box:before {
+  @apply border-l-Primary-500 border-l-[1.875rem] lg:border-l-[25rem] xl:border-l-[31.25rem] left-0;
+}
+
+.top-box::after {
+  @apply border-r-Primary-500 border-r-[1.875rem] lg:border-r-[25rem] xl:border-r-[31.25rem] right-0;
+}
+
+.bottom-box {
+  @apply bg-Primary-700 relative min-h-[20rem] flex justify-center items-center;
+}
+
+.bottom-box p {
+  @apply max-w-[33.75rem];
+}
+
+.bottom-box::before,
+.bottom-box::after {
+  @apply content-[""] absolute top-0 border-solid border-t-Primary-300 border-t-[20rem];
+}
+
+.bottom-box::before {
+  @apply border-r-transparent border-r-[1.875rem] lg:border-r-[25rem] xl:border-r-[31.25rem] left-0;
+}
+
+.bottom-box::after {
+  @apply border-l-transparent border-l-[1.875rem] lg:border-l-[25rem] xl:border-l-[31.25rem] right-0;
+}
+.top-trapezoid {
+  @apply flex justify-center;
+}
+
+.bottom-trapezoid {
+  @apply flex justify-center;
+}
+
+.text {
+  @apply text-center px-[1.875rem] lg:px-[25rem] xl:px-[31.25rem];
+}
+
+.text h2 {
+  @apply text-6xl text-Shades-0 whitespace-nowrap;
+}
+
+.text p {
+  @apply font-bold text-xl pt-5 mb-0;
+}
+
+.text span {
+  @apply text-2xl leading-tighter;
+}
+
+.top-box p {
+  @apply text-Secondary-900;
+}
+
+.bottom-box .subheading {
+  @apply text-Neutral-400;
+}
+
+.bottom-box p {
+  @apply text-Secondary-700;
+}
