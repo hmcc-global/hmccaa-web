@@ -1,7 +1,7 @@
 import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { PrimaryButtonLink } from "../Button";
-import LGImage from "../../images/LifeGroupImg.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 const LifeGroup = () => (
   <div className="flex gap-x-32 pt-14 pb-14">
@@ -21,11 +21,16 @@ const LifeGroup = () => (
         </p>
       </HighlightedParagraph>
       <div className="flex">
-        <PrimaryButtonLink hasArrow={true}>Learn More</PrimaryButtonLink>
+        <PrimaryButtonLink hasArrow={true} to={"../../next-steps/lifegroups"}>
+          Learn More
+        </PrimaryButtonLink>
       </div>
     </div>
     <div>
-      <img src={LGImage} alt="Life Group Next Step" />
+      <StaticImage
+        src="../../images/LifeGroupImg.png"
+        alt="Life Group Next Step"
+      />
     </div>
   </div>
 );

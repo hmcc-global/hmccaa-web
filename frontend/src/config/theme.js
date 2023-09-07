@@ -11,6 +11,7 @@ const theme = {
       700: "#164c66",
       800: "#062d40",
       900: "#01151f",
+      1000: "rgba(255,255,255,.8)",
     },
     Primary: {
       50: "#6494fa",
@@ -18,6 +19,7 @@ const theme = {
       500: "#0047ab",
       700: "#0c2966",
       900: "#061433",
+      1000: "#4352B1",
     },
     Secondary: {
       50: "#faffd7",
@@ -78,6 +80,7 @@ const theme = {
     "gotham-black": "Gotham Black",
     montserrat: "Montserrat",
     raleway: "Raleway",
+    inter: "Inter",
   },
   borderRadius: {
     none: "0",
@@ -127,6 +130,12 @@ const theme = {
     letterSpacing: {
       "medium-wide": "0.06em",
     },
+    width: {
+      med: "66.3rem",
+    },
+    height: {
+      med: "66.6rem",
+    },
     padding: {
       1.75: "0.4375rem",
       2.25: "0.5625rem",
@@ -157,6 +166,15 @@ const theme = {
     },
     scale: {
       10: ".10",
+    },
+    backgroundImage: {
+      about: "url('../images/background/about.png')",
+      connect: "url('../images/background/connect.jpeg')",
+      "next-steps": "url('../images/background/next-steps.jpg')",
+      events: "url('../images/background/events.jpeg')",
+      watch: "url('../images/background/watch.jpeg')",
+      give: "url('../images/background/give.jpeg')",
+      new: "url('../images/background/new.jpeg')",
     },
   },
 };

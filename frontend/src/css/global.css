@@ -17,11 +17,11 @@
 }
 
 .subheading {
-  @apply font-bold text-xl uppercase text-Primary-300 pb-3;
+  @apply font-bold text-lg lg:text-xl uppercase text-Primary-300 pb-3;
 }
 
 h2 {
-  @apply font-semibold text-4xl leading-tighter text-Shades-100 uppercase;
+  @apply font-semibold text-2xl lg:text-4xl leading-tighter text-Shades-100 uppercase;
 }
 
 .linecap-round {

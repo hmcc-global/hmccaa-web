@@ -3,7 +3,7 @@ import { LaptopIcon, MailIcon } from "../svgs";
 import { PrimaryButtonLink, SecondaryButtonLink } from "../Button";
 
 const HowToGiveSection = () => (
-  <div className="flex pb-20.5 flex-col items-center m-auto max-w-[640px] text-center gap-[60px]">
+  <div className="flex pb-20 pt-20 flex-col items-center m-auto max-w-[640px] text-center gap-[60px]">
     <div className="flex flex-col items-center">
       <div className="subheading">Ways To Give</div>
       <h2 className="mb-5">Two Simple Ways to Give</h2>

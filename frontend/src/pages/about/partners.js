@@ -7,7 +7,7 @@ const PartnersPage = () => (
   <Layout>
     <div>HMCC Partners section</div>
     <div>Past projects section</div>
-    <div>Supproted workers section</div>
+    <div>Supported workers section</div>
   </Layout>
 );
 
