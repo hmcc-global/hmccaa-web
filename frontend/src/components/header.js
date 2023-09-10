@@ -2,6 +2,7 @@ import * as React from "react";
 import hmccLogo from "../images/hmcc-ripple-white.svg";
 import mapPinLogo from "../images/icons/map-pin.svg";
 import dropDown from "../images/icons/dropdown.svg";
+import x from "../images/icons/X.svg";
 
 const Header = () => {
   const browseList = [
@@ -23,26 +24,41 @@ const Header = () => {
 
   const [isOpen, setIsOpen] = React.useState(false);
   const path = window.location.pathname;
-  const containerStyle = "flex flex-row h-[60px] [@media(min-width:900px)]:h-[100px] flext-start items-center justify-center bg-Primary-700 pl-[20px] xl:pl-[80.286px] [@media(min-width:900px)]:pt-[40px] [@media(min-width:900px)]:pb-[17px] pr-[20px] xl:pr-[65px] lg:gap-[20px] xl:gap-[140px] [@media(min-width:1440px)]:gap-[220px]"
+  const containerStyle = "flex flex-row h-[60px] [@media(min-width:900px)]:h-[100px] flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] [@media(min-width:900px)]:pt-[40px] [@media(min-width:900px)]:pb-[17px] pr-[16px] xl:pr-[65px] lg:gap-[20px] xl:gap-[140px] [@media(min-width:1440px)]:gap-[220px] position-fixed"
   const logoStyle = "w-[80px] h-[32px] mb-0";
   const dropDownStyle = "w-[40px] h-[40px] mb-0"
   const textStyle = "text-Shades-0 text-base leading-normal no-underline";
   const mapPinStyle = "mb-0 shrink-0 h-[20px] w-[15.7px] peer hover:bg-[#1A56D6]";
   const borderStyle = "flex items-center py-2 px-4 md:px-6 rounded-lg border-2 border-[#FF8069] shadow-md";
 
+  // var menu = document.getElementById("menu");
+
+  // this function is used to open the menu
+  // function openMenu() {
+  //     menu.classList.remove("w-0", "h-0", "opacity-0");
+  //     menu.classList.add("w-screen", "h-screen", "opacity-95");
+  // }
+
+  // this function is used to close the menu
+  // function closeMenu() {
+  //     menu.classList.remove("w-screen", "h-screen", "opacity-95");
+  //     menu.classList.add("w-0", "h-0", "opacity-0");
+  // }
+
+
   return (
     <header>
-      <div className={containerStyle}>
-        <div className="flex flex-row w-full justify-between [@media(min-width:900px)]:hidden">
-          <a href="/" className="content-start">
+      <div className={`${containerStyle}`}>
+        <div className="flex flex-row w-full justify-between [@media(min-width:900px)]:hidden relative">
+          <a href="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </a>
           <a href="/" className={`${textStyle} text-center w-[183px] font-semibold`}>
             HARVEST MISSION COMMUNITY CHURCH
           </a>
-          <a href="/">
+          <button>
             <img alt="drop down" className={dropDownStyle} src={dropDown} />
-          </a>
+          </button>
         </div>
 
         <div className="hidden [@media(min-width:900px)]:flex items-center gap-4 md:gap-6 lg:gap-8">
