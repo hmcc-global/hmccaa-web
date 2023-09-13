@@ -1,0 +1,10 @@
+@config "../config/tailwind.config.js";
+
+.container {
+    @apply px-5 py-24 mx-auto flex flex-wrap;
+}
+
+.statement {
+    @apply pb-5;
+}
+
