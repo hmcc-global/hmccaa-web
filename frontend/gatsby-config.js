@@ -113,6 +113,10 @@ module.exports = {
             pathname: "/about/our-team",
             crumbLabel: "Our Team",
           },
+          {
+            pathname: "/about/hmi",
+            crumbLabel: "HMI",
+          },
         ],
       },
     },

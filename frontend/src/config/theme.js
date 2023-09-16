@@ -95,6 +95,7 @@ const theme = {
   extend: {
     maxWidth: {
       container: "1180px",
+      btn: "10.3125rem",
       "sm-md": "21.875rem",
       "sm-lg": "23.75rem",
       "md-lg": "31.25rem",
@@ -105,6 +106,8 @@ const theme = {
     },
     gap: {
       sm: "7.5rem",
+      15: "3.75rem",
+      30: "7.5rem",
     },
     width: {
       sm: "30rem",
@@ -137,6 +140,7 @@ const theme = {
       2.25: "0.5625rem",
       2.75: "0.6875rem",
       11.25: "3.3125rem",
+      14.5: "3.75rem",
       15: "3.75rem",
       17: "4.1875rem",
       18: "4.5625rem",
