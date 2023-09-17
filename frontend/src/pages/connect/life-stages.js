@@ -4,7 +4,10 @@ import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import { StaticImage } from "gatsby-plugin-image";
-import { SecondaryButtonLink, PrimaryButtonLink } from "../../components/Button";
+import {
+  SecondaryButtonLink,
+  PrimaryButtonLink,
+} from "../../components/Button";
 import { lifeStage } from "../../css/lifeStages.module.css";
 
 const lifeStages = [
@@ -256,32 +259,30 @@ const LifeStagesPage = ({ pageContext }) => {
             </p>
           </div>
           <div className="flex flex-col gap-y-10 items-center pt-[1.875rem] pb-[3.8125rem] lg:py-0">
-            {
-              lifeStages.map(({image, heading, description }, index) =>  (
-                <div key={`life-stage-${index + 1}`} className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row lg:gap-x-20 items-center">
-                  {index % 2 === 1 ? (
-                    <div className="lg:order-2">
-                      {image}
-                    </div>
-                  ) : (
-                    <div>
-                      {image}
-                    </div>
-                  )}
-                  <div className="flex flex-col gap-y-5 lg:gap-y-4 lg:max-w-[66.10169%]">
-                    <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-center lg:text-left">{heading}</h2>
-                    <div className={lifeStage}>
-                      {description}
-                    </div>
-                  </div>
+            {lifeStages.map(({ image, heading, description }, index) => (
+              <div
+                key={`life-stage-${index + 1}`}
+                className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row lg:gap-x-20 items-center"
+              >
+                {index % 2 === 1 ? (
+                  <div className="lg:order-2">{image}</div>
+                ) : (
+                  <div>{image}</div>
+                )}
+                <div className="flex flex-col gap-y-5 lg:gap-y-4 lg:max-w-[66.10169%]">
+                  <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-center lg:text-left">
+                    {heading}
+                  </h2>
+                  <div className={lifeStage}>{description}</div>
                 </div>
-              )
-              )
-            }
+              </div>
+            ))}
           </div>
           <div className="max-w-[62.5rem] flex flex-col items-center gap-y-9">
             <p className="mb-0 text-center font-medium">
-            LIFE Stages are the overall larger groups of fellowship. For smaller groups of community where we grow and challenge one another more consistently, we meet in LIFE Groups.
+              LIFE Stages are the overall larger groups of fellowship. For
+              smaller groups of community where we grow and challenge one
+              another more consistently, we meet in LIFE Groups.
             </p>
             <div className="flex flex-col justify-center">
               <PrimaryButtonLink to={""} hasArrow={true}>
