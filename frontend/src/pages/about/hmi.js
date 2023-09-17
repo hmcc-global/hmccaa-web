@@ -49,7 +49,9 @@ const HmiPage = ({ pageContext }) => {
             </div>
           </div>
           <div className="flex flex-col gap-y-[1.25rem] lg:gap-y-3  text-center lg:text-left">
-            <h2 className="uppercase text-xl lg:text-3xl leading-tighter">Projects</h2>
+            <h2 className="uppercase text-xl lg:text-3xl leading-tighter">
+              Projects
+            </h2>
             <p className="mb-0 text-base lg:text-lg">
               As an extension of HMCC&apos;s ministries, Harvest Mission
               International (HMI) is committed to participating in short-term
@@ -69,8 +71,9 @@ const HmiPage = ({ pageContext }) => {
             <p className="mb-0 text-base lg:text-lg">
               Partnership is critical as we strive to reach the nations with the
               Gospel message. We know that missions cannot be done by a sole
-              missionary, but that it is our privilege to participate in God&apos;s
-              work around the world through our prayers and financial support.
+              missionary, but that it is our privilege to participate in
+              God&apos;s work around the world through our prayers and financial
+              support.
             </p>
           </div>
         </div>

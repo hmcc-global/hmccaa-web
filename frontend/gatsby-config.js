@@ -110,12 +110,20 @@ module.exports = {
             crumbLabel: "About",
           },
           {
+            pathname: "/connect",
+            crumbLabel: "Connect",
+          },
+          {
             pathname: "/about/our-team",
             crumbLabel: "Our Team",
           },
           {
             pathname: "/about/hmi",
             crumbLabel: "HMI",
+          },
+          {
+            pathname: "/connect/life-stages",
+            crumbLabel: "Life Stages",
           },
         ],
       },
