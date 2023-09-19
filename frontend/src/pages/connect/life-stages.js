@@ -10,15 +10,20 @@ import {
 } from "../../components/Button";
 import { lifeStage } from "../../css/lifeStages.module.css";
 
+const imageClassName = "bg-Shades-100 border-solid border-4  w-[260px] lg:w-[297px] relative z-10"
 const lifeStages = [
   {
     image: (
       <StaticImage
         src="../../images/covenant-life-stage.png"
         alt="Covenant - Married Couples Life Stage"
+        className={`border-Accent-900 ${imageClassName}`}
       />
     ),
+    background: "bg-Accent-900",
     heading: "COVENANT (Married Couples)",
+    name: "Covenant",
+    group: "Married Couples",
     description: (
       <div>
         <p>
@@ -47,9 +52,13 @@ const lifeStages = [
       <StaticImage
         src="../../images/focus-life-stage.png"
         alt="Focus - Single Adults Life Stage"
+        className={`border-Accent-700 ${imageClassName}`}
       />
     ),
+    background: "bg-Accent-700",
     heading: "FOCUS (Single Adults)",
+    name: "Covenant",
+    group: "Single Adults",
     description: (
       <div>
         <p>
@@ -75,9 +84,13 @@ const lifeStages = [
       <StaticImage
         src="../../images/impact-life-stage.png"
         alt="Impact - Grad Students Life Stage"
+        className={`border-Accent-300 ${imageClassName}`}
       />
     ),
+    background: "bg-Accent-300",
     heading: "IMPACT (Grad Students)",
+    name: "Impact",
+    group: "Graduate Students",
     description: (
       <div>
         <p>
@@ -99,9 +112,13 @@ const lifeStages = [
       <StaticImage
         src="../../images/access-life-stage.png"
         alt="Access - Undergraduate Students Life Stage"
+        className={`border-Error-300 ${imageClassName}`}
       />
     ),
+    background: "bg-Error-300",
     heading: "ACCESS (Undergraduate Students)",
+    name: "Access",
+    group: "Undergraduates",
     description: (
       <>
         <div>
@@ -138,9 +155,13 @@ const lifeStages = [
       <StaticImage
         src="../../images/global-access-life-stage.png"
         alt="Global Access Life Stage"
+        className={`border-Success-500 ${imageClassName}`}
       />
     ),
+    background: "bg-Success-500 px-1 lg:px-0",
     heading: "GLOBAL ACCESS (International Students)",
+    name: "Global Access",
+    group: "International Students",
     description: (
       <div>
         <p>
@@ -177,9 +198,13 @@ const lifeStages = [
       <StaticImage
         src="../../images/latitude-velocity-life-stage.png"
         alt="Latitude & Velocity - Youth Life Stage"
+        className={`border-Accent-500 ${imageClassName}`}
       />
     ),
+    background: "bg-Accent-500",
     heading: "LATITUDE & VELOCITY (Youth - HS/JHS)",
+    name: "Latitude/Velocity",
+    group: "Youth",
     description: (
       <div>
         <p>
@@ -206,9 +231,13 @@ const lifeStages = [
       <StaticImage
         src="../../images/building-blocks-life-stage.png"
         alt="Building Blocks - Children Life Stage"
+        className={`border-Accent-1000 ${imageClassName}`}
       />
     ),
+    background: "bg-Accent-1000",
     heading: "BUILDING BLOCKS (Children)",
+    name: "Building Blocks",
+    group: "Kids",
     description: (
       <div>
         <p>
@@ -238,13 +267,14 @@ const lifeStages = [
   },
 ];
 
+
 const LifeStagesPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext;
   return (
     <Layout>
-      <div className="px-4 flex flex-col w-full items-center pt-[1.375rem] lg:pt-10 gap-y-[2.1875rem] lg:gap-y-[3.75rem] pb-[4.8125rem] lg:pb-[8.1875rem]">
+      <div className="px-2 min-[375px]:px-4 flex flex-col w-full items-center pt-[1.375rem] lg:pt-10 gap-y-[2.1875rem] lg:gap-y-[3.75rem] pb-[4.8125rem] lg:pb-[8.1875rem]">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
         <div className="max-w-container w-full flex flex-col items-center lg:gap-y-20">
           <div className="flex flex-col gap-y-9 lg:gap-y-15 text-center max-w-[61.25rem]">
@@ -259,24 +289,41 @@ const LifeStagesPage = ({ pageContext }) => {
             </p>
           </div>
           <div className="flex flex-col gap-y-10 items-center pt-[1.875rem] pb-[3.8125rem] lg:py-0">
-            {lifeStages.map(({ image, heading, description }, index) => (
-              <div
-                key={`life-stage-${index + 1}`}
-                className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row lg:gap-x-20 items-center"
-              >
-                {index % 2 === 1 ? (
-                  <div className="lg:order-2">{image}</div>
-                ) : (
-                  <div>{image}</div>
-                )}
-                <div className="flex flex-col gap-y-5 lg:gap-y-4 lg:max-w-[66.10169%]">
-                  <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-center lg:text-left">
-                    {heading}
-                  </h2>
-                  <div className={lifeStage}>{description}</div>
+            {lifeStages.map(
+              (
+                { image, heading, description, name, group, background },
+                index
+              ) => (
+                <div
+                  key={`life-stage-${index + 1}`}
+                  className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row lg:gap-x-20 items-center"
+                >
+                  <div className={`relative max-w-[290px] lg:max-w-none${index % 2 === 1 ? ' lg:order-2': ''}`}>
+                  <div className="flex flex-col">
+                      {image}
+                      <div className="text-Shades-0 font-bold min-w-[280px] lg:min-w-[320px] pl-[1.3125rem] lg:pl-6 uppercase">
+                        <div
+                          className={`${background} text-2xl leading-tighter pl-[1.0625rem] lg:pb-[5px] lg:pr-[1.875rem]`}
+                        >
+                          {name}
+                        </div>
+                        <div className="flex lg:block lg:max-w-[299px] text-xl -rotate-90 absolute -right-32 lg:-right-[8.4375rem] bottom-32 lg:bottom-[8.4375rem]  w-full leading-[1.25] lg:leading-normal">
+                          <div className={`${background} text-center min-w-[261px] lg:min-w-0`}>
+                            {group}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-y-5 lg:gap-y-4 lg:max-w-[66.10169%]">
+                    <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-center lg:text-left">
+                      {heading}
+                    </h2>
+                    <div className={lifeStage}>{description}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
           <div className="max-w-[62.5rem] flex flex-col items-center gap-y-9">
             <p className="mb-0 text-center font-medium">
