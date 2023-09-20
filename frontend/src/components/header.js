@@ -46,12 +46,12 @@ const Header = () => {
           <Link to="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
-          <a
-            href="/"
+          <Link
+            to="/"
             className={`${textStyle} text-center w-[183px] font-semibold`}
           >
             HARVEST MISSION COMMUNITY CHURCH
-          </a>
+          </Link>
           <button onClick={toggleModal}>
             <img alt="drop down" className={dropDownStyle} src={dropDown} />
           </button>
@@ -61,9 +61,9 @@ const Header = () => {
           <Link href="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
-          <a href="/" className={`${textStyle} w-[183px] font-semibold`}>
+          <Link to="/" className={`${textStyle} w-[183px] font-semibold`}>
             HARVEST MISSION COMMUNITY CHURCH
-          </a>
+          </Link>
         </div>
 
         {isOpen && (
@@ -83,9 +83,9 @@ const Header = () => {
               </div>
               <div className="bg-[#262626] h-full w-full flex flex-col items-start">
                 {browseList.map((item, index) => (
-                  <a
+                  <Link
                     key={`browseLink-${index}`}
-                    href={item.route}
+                    to={item.route}
                     className={`${textStyle} ${
                       item.route + "/" == path
                         ? "font-extrabold py-2 px-4"
@@ -93,17 +93,17 @@ const Header = () => {
                     } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 ))}
                 <div className={`${borderStyle} mt-6 w-[90vw] self-center`}>
-                  <a
-                    href="/new"
+                  <Link
+                    to="/new"
                     className={`${textStyle} ${
                       "/new/" == path ? "font-extrabold" : ""
                     } font-bold hover:font-extrabold tracking-[0.96px]`}
                   >
                     I'm New
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -121,30 +121,30 @@ const Header = () => {
             </div>
             <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6]">
               {locationsList.map((item, index) => (
-                <a
+                <Link
                   key={`browseLink-${index}`}
-                  href={item.route}
+                  to={item.route}
                   target="_blank"
                   className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                 >
                   {item.title}
-                </a>
+                </Link>
               ))}
-              <a
-                href="https://tangerang.hmcc.net/"
+              <Link
+                to="https://tangerang.hmcc.net/"
                 target="_blank"
                 className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 tracking-[0.96px]`}
               >
                 Tangerang
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="flex flex-row items-center gap-4 md:gap:6 [@media(min-width:1040px)]:gap-8 [@media(min-width:1440px)]:gap-11">
             {browseList.map((item, index) => (
-              <a
+              <Link
                 key={`browseLink-${index}`}
-                href={item.route}
+                to={item.route}
                 className={`${textStyle} ${
                   item.route + "/" == path
                     ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
@@ -152,19 +152,19 @@ const Header = () => {
                 } tracking-[0.96px]`}
               >
                 {item.title}
-              </a>
+              </Link>
             ))}
           </div>
 
           <div className={borderStyle}>
-            <a
-              href="/new"
+            <Link
+              to="/new"
               className={`${textStyle} ${
                 "/new/" == path ? "font-extrabold" : ""
               } font-bold hover:font-extrabold tracking-[0.96px]`}
             >
               I'm New
-            </a>
+            </Link>
           </div>
         </div>
       </div>
