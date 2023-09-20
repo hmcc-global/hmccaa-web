@@ -5,7 +5,7 @@ import {
   topBox,
   topTrapezoid,
   bottomBox,
-  bottomTrapezoid
+  bottomTrapezoid,
 } from "../../../css/mission.module.css";
 
 const Mission = () => (
@@ -13,11 +13,11 @@ const Mission = () => (
     <div className={topBox}>
       <div className={topTrapezoid}>
         <div className={text}>
-          <div className="subheading">What we are called to do</div>
+          <div className="subheading max-lg:pb-1">What we are called to do</div>
           <h2>Our mission</h2>
           <p>
-            To <span>transform lost people</span> into Christ’s 
-            disciples who will then <span>transform the world</span>.
+            To <span>transform lost people</span> into Christ’s disciples who
+            will then <span>transform the world</span>.
           </p>
         </div>
       </div>
@@ -25,12 +25,11 @@ const Mission = () => (
     <div className={bottomBox}>
       <div className={bottomTrapezoid}>
         <div className={text}>
-          <div className="subheading">How we aspire to live</div>
+          <div className="subheading  max-lg:pb-1">How we aspire to live</div>
           <h2>Our vision</h2>
           <p>
-            Becoming a <span>transcultural spiritual 
-            family</span> reaching our neighbors, the 
-            nations, and the next generation.
+            Becoming a <span>transcultural spiritual family</span> reaching our
+            neighbors, the nations, and the next generation.
           </p>
         </div>
       </div>

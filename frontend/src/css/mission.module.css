@@ -5,7 +5,7 @@
 }
 
 .top-box {
-  @apply bg-Primary-900 relative min-h-[25rem] flex justify-center items-center;
+  @apply bg-Primary-900 relative min-h-[10rem] lg:min-h-[25rem] flex justify-center items-center;
 }
 
 .top-box p {
@@ -14,7 +14,7 @@
 
 .top-box::before,
 .top-box::after {
-  @apply content-[""] absolute top-0  border-solid border-t-transparent border-t-[25rem];
+  @apply content-[""] absolute top-0  border-solid border-t-transparent border-t-[10rem] lg:border-t-[25rem];
 }
 
 .top-box:before {
@@ -26,7 +26,7 @@
 }
 
 .bottom-box {
-  @apply bg-Primary-700 relative min-h-[20rem] flex justify-center items-center;
+  @apply bg-Primary-700 relative min-h-[10rem] lg:min-h-[20rem] flex justify-center items-center;
 }
 
 .bottom-box p {
@@ -35,7 +35,7 @@
 
 .bottom-box::before,
 .bottom-box::after {
-  @apply content-[""] absolute top-0 border-solid border-t-Primary-300 border-t-[20rem];
+  @apply content-[""] absolute top-0 border-solid border-t-Primary-300 border-t-[10rem] lg:border-t-[20rem];
 }
 
 .bottom-box::before {
@@ -58,15 +58,15 @@
 }
 
 .text h2 {
-  @apply text-6xl text-Shades-0 whitespace-nowrap;
+  @apply text-3xl tracking-medium-wide lg:text-6xl text-Shades-0 whitespace-nowrap;
 }
 
 .text p {
-  @apply font-bold text-xl pt-5 mb-0;
+  @apply font-medium leading-tighter lg:leading-normal lg:font-bold text-base lg:text-xl pt-3 lg:pt-5 mb-0;
 }
 
 .text span {
-  @apply text-2xl leading-tighter;
+  @apply font-bold text-base lg:text-2xl leading-tighter;
 }
 
 .top-box p {

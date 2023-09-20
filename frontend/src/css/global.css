@@ -4,24 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.triangle-left {
-  @apply left-0;
-}
-
-.triangle-right {
-  @apply right-0 -scale-x-100;
-}
-
-.triangle {
-  @apply w-20 h-full absolute bottom-0 bg-gradient-to-bl from-transparent from-50% to-Primary-500 to-50%;
-}
-
 .subheading {
-  @apply font-bold text-lg lg:text-xl uppercase text-Primary-300 pb-3;
+  @apply font-bold uppercase text-Primary-300 pb-3 text-lg lg:text-xl;
 }
 
 h2 {
-  @apply font-semibold text-2xl lg:text-4xl leading-tighter text-Shades-100 uppercase;
+  @apply font-semibold leading-tighter text-Shades-100 text-2xl uppercase lg:text-4xl;
 }
 
 .linecap-round {

@@ -1,23 +1,27 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply pb-56 pt-31 h-full w-full;
+  @apply pb-[2.875rem] lg:pb-[8.875rem] pt-8 lg:pt-31 h-full w-full px-4;
 }
 
 .title-container {
-  @apply text-center pb-14;
+  @apply text-center pb-10 lg:pb-14.5;
 }
 
 .middle-container {
-  @apply grid gap-x-sm grid-cols-2 pl-12 pr-12;
+  @apply flex flex-col items-center lg:items-start lg:flex-row lg:gap-x-15 xl:gap-x-30 max-w-[67.5rem] mx-auto;
+}
+
+.middle-container > div {
+  @apply max-w-[30.3125rem];
 }
 
 .container h3 {
-  @apply font-semibold text-2xl;
+  @apply flex leading-tighter lg:leading-normal font-semibold text-lg lg:text-2xl;
 }
 
 .arrow {
-  @apply pr-5;
+  @apply pr-3 lg:pr-5;
 }
 
 .sub-head {
@@ -26,4 +30,16 @@
 
 .box {
   @apply flex-col flex-nowrap break-inside-avoid-column;
+}
+
+.box-pad {
+  @apply pb-4;
+}
+
+.toggle-container {
+  @apply pb-10;
+}
+
+.toggle-container p {
+  @apply mb-0 mt-2 lg:mt-4 text-base lg:text-lg;
 }

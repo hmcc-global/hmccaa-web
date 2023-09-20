@@ -95,9 +95,10 @@ const theme = {
   },
   extend: {
     maxWidth: {
-      container: "1180px",
+      container: "75.75rem",
+      btn: "10.3125rem",
       "sm-md": "21.875rem",
-      "sm-lg": "23.75rem",
+      "sm-lg": "30rem",
       "md-lg": "31.25rem",
       "xl-md": "40.625rem",
       "3.25xl": "50.8125rem",
@@ -105,15 +106,18 @@ const theme = {
       "3.5xl": "53.625rem",
     },
     gap: {
-      sm: "7.5rem",
+      15: "3.75rem",
+      30: "7.5rem",
     },
     width: {
       sm: "30rem",
       smx2: "36.25rem",
+      med: "66.3rem",
     },
     height: {
       sm: "21.63rem",
       smx2: "26.125rem",
+      med: "66.6rem",
     },
     lineHeight: {
       tighter: "1.2",
@@ -127,17 +131,12 @@ const theme = {
     letterSpacing: {
       "medium-wide": "0.06em",
     },
-    width: {
-      med: "66.3rem",
-    },
-    height: {
-      med: "66.6rem",
-    },
     padding: {
       1.75: "0.4375rem",
       2.25: "0.5625rem",
       2.75: "0.6875rem",
       11.25: "3.3125rem",
+      14.5: "3.75rem",
       17: "4.1875rem",
       18: "4.5625rem",
       20.25: "5.0625rem",
@@ -150,6 +149,7 @@ const theme = {
     },
     spacing: {
       2.25: "0.5625rem",
+      4.5: "1.125rem",
       25: "6.25rem",
       26: "6.5rem",
       43: "10.75rem",
@@ -172,6 +172,11 @@ const theme = {
       watch: "url('../images/background/watch.jpeg')",
       give: "url('../images/background/give.jpeg')",
       new: "url('../images/background/new.jpeg')",
+    },
+    screens: {
+      "max-lg": {
+        max: "1023px",
+      },
     },
   },
 };

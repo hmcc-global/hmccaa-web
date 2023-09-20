@@ -61,13 +61,28 @@ const Belief = () => (
       <h2>What We Believe</h2>
     </div>
     <div className={middleContainer}>
-      {beliefs.map((beliefs, index) => (
-        <Collapsible
-          key={index}
-          sectionHead={beliefs.sectionHead}
-          sectionBody={beliefs.sectionBody}
-        />
-      ))}
+      <div>
+        {beliefs
+          .filter((_, index) => index < beliefs.length / 2)
+          .map((beliefs, index) => (
+            <Collapsible
+              key={index}
+              sectionHead={beliefs.sectionHead}
+              sectionBody={beliefs.sectionBody}
+            />
+          ))}
+      </div>
+      <div>
+        {beliefs
+          .filter((_, index) => index >= beliefs.length / 2)
+          .map((beliefs, index) => (
+            <Collapsible
+              key={index}
+              sectionHead={beliefs.sectionHead}
+              sectionBody={beliefs.sectionBody}
+            />
+          ))}
+      </div>
     </div>
   </div>
 );
