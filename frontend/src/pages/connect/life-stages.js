@@ -10,7 +10,8 @@ import {
 } from "../../components/Button";
 import { lifeStage } from "../../css/lifeStages.module.css";
 
-const imageClassName = "bg-Shades-100 border-solid border-4  w-[260px] lg:w-[297px] relative z-10"
+const imageClassName =
+  "bg-Shades-100 border-solid border-4  w-[260px] lg:w-[297px] relative z-10";
 const lifeStages = [
   {
     image: (
@@ -267,7 +268,6 @@ const lifeStages = [
   },
 ];
 
-
 const LifeStagesPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
@@ -298,8 +298,12 @@ const LifeStagesPage = ({ pageContext }) => {
                   key={`life-stage-${index + 1}`}
                   className="flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row lg:gap-x-20 items-center"
                 >
-                  <div className={`relative max-w-[290px] lg:max-w-none${index % 2 === 1 ? ' lg:order-2': ''}`}>
-                  <div className="flex flex-col">
+                  <div
+                    className={`relative max-w-[290px] lg:max-w-none${
+                      index % 2 === 1 ? " lg:order-2" : ""
+                    }`}
+                  >
+                    <div className="flex flex-col">
                       {image}
                       <div className="text-Shades-0 font-bold min-w-[280px] lg:min-w-[320px] pl-[1.3125rem] lg:pl-6 uppercase">
                         <div
@@ -308,7 +312,9 @@ const LifeStagesPage = ({ pageContext }) => {
                           {name}
                         </div>
                         <div className="flex lg:block lg:max-w-[299px] text-xl -rotate-90 absolute -right-32 lg:-right-[8.4375rem] bottom-32 lg:bottom-[8.4375rem]  w-full leading-[1.25] lg:leading-normal">
-                          <div className={`${background} text-center min-w-[261px] lg:min-w-0`}>
+                          <div
+                            className={`${background} text-center min-w-[261px] lg:min-w-0`}
+                          >
                             {group}
                           </div>
                         </div>
