@@ -8,11 +8,19 @@ import {
   UserIcon,
 } from "../../../components/svgs";
 import { StaticImage } from "gatsby-plugin-image";
-
+const sermon = {
+  title: "Psalm 113",
+  date: "August 13, 2023",
+  speaker: "Pastor Pete Dahlem",
+  passage: "Psalm 133",
+  series: "Selah",
+  description: "Sermon on Psalm 133",
+};
 const SermonPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext;
+  const { title, date, speaker, passage, series, description } = sermon;
   return (
     <Layout>
       <div className="px-4 w-full flex items-center flex-col">
@@ -22,26 +30,26 @@ const SermonPage = ({ pageContext }) => {
           </div>
           <div className="flex flex-col gap-y-[0.75rem] lg:gap-y-[3.75rem] items-center max-w-[61.25rem] w-full pb-[3.98625rem] lg:pb-0">
             <h1 className="text-2xl lg:text-4xl leading-tighter font-semibold lg:font-bold mb-0">
-              Psalm 133
+              {title}
             </h1>
             <div className="flex flex-col lg:flex-row lg:gap-x-10 items-center pt-[0.9375rem] lg:pt-0 gap-y-5 lg:gap-y-0">
               <div className="flex flex-col gap-y-1 lg:gap-y-10 text-base lg:text-xl font-medium w-full lg:w-auto">
                 <div className="flex gap-x-2">
                   <CalendarIcon />
-                  <div>August 13, 2023</div>
+                  <div>{date}</div>
                 </div>
                 <div className="flex flex-col gap-y-1 lg:gap-y-3">
                   <div className="flex gap-x-2">
                     <UserIcon />
-                    <div>Pastor Pete Dahlem</div>
+                    <div>{speaker}</div>
                   </div>
                   <div className="flex gap-x-2">
                     <BookIcon />
-                    <div>Psalm 133</div>
+                    <div>{passage}</div>
                   </div>
                   <div className="flex gap-x-2">
                     <SeriesIcon />
-                    <div>Selah</div>
+                    <div>{series}</div>
                   </div>
                 </div>
               </div>
@@ -75,7 +83,7 @@ const SermonPage = ({ pageContext }) => {
               <h3 className="text-xl lg:text-2xl font-semibold leading-tighter mb-[1.563rem] lg:mb-[1.576rem]">
                 Details
               </h3>
-              <p className="mb-0 text-base lg:text-lg">Sermon on Psalm 133</p>
+              <p className="mb-0 text-base lg:text-lg">{description}</p>
             </div>
           </div>
         </div>
