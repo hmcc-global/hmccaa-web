@@ -29,11 +29,7 @@ const TeamCardInfo = ({ info, customClassName }) => (
   </>
 );
 
-const TeamCard = ({
-  info,
-  customClassName,
-  showModal = false,
-}) => {
+const TeamCard = ({ info, customClassName, showModal = false }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [member, setMember] = useState();
   const modalCloseTimeout = 300;
@@ -42,7 +38,7 @@ const TeamCard = ({
     setMember(null);
   };
   const handleClick = useCallback(
-    (memberInfo) => {
+    memberInfo => {
       setMember(memberInfo);
       setModalOpen(true);
     },
@@ -65,10 +61,7 @@ const TeamCard = ({
         )}
         <div className={`flex-col flex w-full ${customClassName.container}`}>
           {showModal ? (
-            <button
-              className="text-left"
-              onClick={() => handleClick(info)}
-            >
+            <button className="text-left" onClick={() => handleClick(info)}>
               <TeamCardInfo info={info} customClassName={customClassName} />
             </button>
           ) : (
