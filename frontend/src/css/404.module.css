@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply max-w-container;
+  @apply flex max-w-container items-center bg-Primary-700;
 }
 
 .container h4 {
@@ -9,7 +9,7 @@
 }
 
 .title-container {
-  @apply pb-10 pt-5 flex flex-row columns-2 text-start;
+  @apply pb-10 pt-5 flex flex-row columns-2 text-start w-full;
 }
 .container h1 {
   @apply leading-tighter text-Primary-300 uppercase font-medium;
