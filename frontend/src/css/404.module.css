@@ -1,11 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply flex max-w-container items-center bg-Primary-700;
-}
-
-.container h4 {
-  @apply font-bold text-3.5xl leading-tighter text-Shades-100 uppercase;
+  @apply flex max-w-container items-center;
 }
 
 .title-container {
@@ -13,10 +9,6 @@
 }
 .container h1 {
   @apply leading-tighter text-Primary-300 uppercase font-medium;
-}
-
-.container oops{
-  @apply text-8xl font-extrabold tracking-widest leading-tighter;
 }
 
 .container link1{
