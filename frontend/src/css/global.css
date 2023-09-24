@@ -23,3 +23,45 @@ h2 {
 .invisible {
   @apply h-0 overflow-hidden;
 }
+
+nav.breadcrumb {
+  @apply max-w-container w-full text-base lg:text-xl font-medium text-[#4352B1] pl-[0.125rem] lg:pl-0;
+}
+
+nav .breadcrumb__list {
+  @apply flex flex-wrap list-none m-0;
+}
+
+nav .breadcrumb__separator {
+  @apply mx-[0.3125rem];
+}
+
+nav .breadcrumb__link {
+  @apply no-underline text-[#4352B1];
+}
+
+p {
+  @apply pb-[1.3125rem] lg:pb-6;
+}
+
+/* react-modal transitions */
+.ReactModal__Overlay {
+  @apply bg-[rgba(0,0,0,0.58)] opacity-0 -translate-y-[10%] transition duration-[300ms] ease-[cubic-bezier(0.445,0.05,0.55,0.95)] left-0 right-0 top-0 bottom-0 overflow-auto;
+}
+
+.ReactModal__Overlay--after-open {
+  @apply opacity-100 translate-y-0;
+}
+
+.ReactModal__Overlay--before-close {
+  @apply opacity-0 -translate-y-[10%];
+}
+
+.ReactModal__Content {
+  @apply sm:max-w-[19.625rem] lg:max-w-container mx-auto sm:my-8 border-none;
+}
+
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  @apply overflow-y-hidden;
+}

@@ -5,7 +5,7 @@
 }
 
 .title-container {
-  @apply text-center pb-10 lg:pb-14.5;
+  @apply text-center pb-10 lg:pb-15;
 }
 
 .middle-container {
