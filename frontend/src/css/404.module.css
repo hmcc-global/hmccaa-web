@@ -4,13 +4,6 @@
   @apply flex max-w-container items-center;
 }
 
-.title-container {
-  @apply pb-10 pt-5 flex flex-row columns-2 text-start w-full;
-}
 .container h1 {
   @apply leading-tighter text-Primary-300 uppercase font-medium;
-}
-
-.container link1{
-  @apply text-Primary-300 font-extrabold text-start leading-normal mb-0 underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base;
 }
