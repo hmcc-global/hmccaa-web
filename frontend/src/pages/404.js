@@ -20,17 +20,17 @@ const NotFoundPage = () => (
           <div className="font-medium pb-6">Try going back or clicking one of the links below:</div>
           <div className="pb-3">
             <a key={`browseLink-sundayCelebrationInfo`} href={"/"}>
-              <link1>Sunday Celebration Info</link1>
+              <span>Sunday Celebration Info</span>
             </a>
           </div>
           <div className="pb-3">
             <a key={`browseLink-lifegroupSignup`} href={"/"}>
-              <link1>Life Group Sign Up</link1>
+              <span>Life Group Sign Up</span>
             </a>
           </div>
           <div className="pb-3">
             <a key={`browseLink-upcomingEvents`} href={"/"}>
-              <link1>Upcoming Events</link1>
+              <span>Upcoming Events</span>
             </a>
           </div>
         </div>
