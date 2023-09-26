@@ -16,7 +16,7 @@ const NotFoundPage = () => (
         </div>
         <div className="pl-2.5 px-8 pt-4 lg:pt-12 order-2 mt-0 sm:mt-20 mx-14 text-center sm:text-left">
           <div className="xl:font-extrabold font-bold text-4xl sm:text-8xl sm:tracking-widest leading-tighter">OOPS!</div>
-          <div className="font-bold text-xl sm:text-3.5xl leading-tighter text-Shades-100 uppercase pb-20">WE COULDN'T FIND THAT PAGE</div>
+          <div className="font-bold text-xl sm:text-3.5xl leading-tighter text-Shades-100 uppercase pb-20">WE COULDN&apos;T FIND THAT PAGE</div>
           <div className="font-medium pb-6">Try going back or clicking one of the links below:</div>
           <div className="pb-3">
             <Link to="/" className="text-Primary-300 font-extrabold text-start leading-normal underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base">
