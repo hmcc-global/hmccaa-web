@@ -24,7 +24,8 @@ const Header = () => {
   ];
 
   const [isOpen, setIsOpen] = React.useState(false);
-  const path = window.location.pathname;
+  const path =
+    (typeof window !== "undefined" && window.location.pathname) || "";
   const containerStyle =
     "flex flex-row h-[60px][@media(min-width:900px)]:h-[100px] relative flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] [@media(min-width:900px)]:pt-[40px] [@media(min-width:900px)]:pb-[17px] pr-[16px] xl:pr-[65px] lg:gap-[20px] xl:gap-[140px] [@media(min-width:1440px)]:gap-[220px] position-fixed";
   const logoStyle = "w-[80px] h-[32px] mb-0";
@@ -102,7 +103,7 @@ const Header = () => {
                       "/new/" == path ? "font-extrabold" : ""
                     } font-bold hover:font-extrabold tracking-[0.96px]`}
                   >
-                    I'm New
+                    I&apos;m New
                   </Link>
                 </div>
               </div>
@@ -163,7 +164,7 @@ const Header = () => {
                 "/new/" == path ? "font-extrabold" : ""
               } font-bold hover:font-extrabold tracking-[0.96px]`}
             >
-              I'm New
+              I&apos;m New
             </Link>
           </div>
         </div>
