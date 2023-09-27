@@ -38,7 +38,6 @@ body {
   -webkit-font-smoothing: antialiased;
   color: var(--color-text);
   font-family: var(--font-sans);
-  @apply text-base md:text-lg;
   font-weight: normal;
   margin: 0;
   word-wrap: break-word;
@@ -75,7 +74,6 @@ h1 {
   margin-bottom: 3rem;
   padding: 0;
   line-height: var(--line-height-dense);
-  letter-spacing: -0.01em;
 }
 
 img {

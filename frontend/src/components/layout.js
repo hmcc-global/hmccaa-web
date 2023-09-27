@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
     <div className="bg-Neutral-100 font-raleway min-w-fit">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div>
-        <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden py-6">
+        <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
           {children}
         </main>
         <Footer />
