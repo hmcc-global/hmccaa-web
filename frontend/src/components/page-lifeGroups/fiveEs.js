@@ -1,55 +1,33 @@
 import * as React from "react";
 import { Circle } from "../svgs/index";
 import { PrimaryButtonLink } from "../Button";
+import {p, span} from "../../css/fiveE.module.css"
 
 const fiveEInfo = [
   {
     word: "Evangelism",
-    text1Bold: "We value ",
-    text1:
-      "God's desire for all people to have a personal and life-transforming relationship with Jesus Christ.",
-    text2:
-      ", we believe that every Christian is called to invest in the process of sharing the Gospel to those in their sphere of influence, their community, and to the nations.",
-    text2Bold: "Therefore",
-    color: "#C07560",
+    text: "<p><b>We value</b> God's desire for all people to have a personal and life-transforming relationship with Jesus Christ.</p><p><b>Therefore</b>, we believe that every Christian is called to invest in the process of sharing the Gospel to those in their sphere of influence, their community, and to the nations.</p>",
+    color: "fill-[#C07560]",
   },
   {
     word: "Exaltation",
-    text1Bold: "We value ",
-    text1: "passionately worshiping God in and above all things.",
-    text2:
-      ", we believe in wholeheartedly giving our best in every aspect of our lives, both public and private, in order to exemplify the worthiness of God.",
-    text2Bold: "Therefore",
-    color: "#B29762",
+    text: "<p><b>We value</b> passionately worshiping God in and above all things.</p><p><b>Therefore,</b> we believe in wholeheartedly giving our best in every aspect of our lives, both public and private, in order to exemplify the worthiness of God.</p>",
+    color: "fill-[#B29762]",
   },
   {
     word: "Edification",
-    text1Bold: "We value ",
-    text1:
-      "biblical community that encourages a deeper relationship with God and with one another.",
-    text2:
-      ", we believe in creating an environment that fosters authenticity, accountability, and opportunities to minister to one another.",
-    text2Bold: "Therefore",
-    color: "#B1A970",
+    text: "<p><b>We value</b> biblical community that encourages a deeper relationship with God and with one another.</p><p><b>Therefore,</b> we believe in creating an environment that fosters authenticity, accountability, and opportunities to minister to one another.</p>",
+    color: "fill-[#B1A970]",
   },
   {
     word: "Education",
-    text1Bold: "We value ",
-    text1:
-      "cultivating disciples who know God intimately and reflect Christ’s character.",
-    text2:
-      ", we believe that God’s Word and its practical life application are foundational for our spiritual growth and journey with God.",
-    text2Bold: "Therefore",
-    color: "#65759F",
+    text: "<p><b>We value</b> cultivating disciples who know God intimately and reflect Christ’s character.</p><p><b>Therefore,</b> we believe that God’s Word and its practical life application are foundational for our spiritual growth and journey with God.</p>",
+    color: "fill-[#65759F]",
   },
   {
     word: "Extension",
-    text1Bold: "We value ",
-    text1: "building up a healthy, dynamic, and vibrant church.",
-    text2:
-      ", we believe in equipping and training people for ministry so that they can impact the campus and city and influence the nations in such a way that the world cannot ignore.",
-    text2Bold: "Therefore",
-    color: "#6D8165",
+    text: "<p><b>We value</b> building up a healthy, dynamic, and vibrant church.</p><p><b>Therefore,</b> we believe in equipping and training people for ministry so that they can impact the campus and city and influence the nations in such a way that the world cannot ignore.</p>",
+    color: "fill-[#6D8165]",
   },
 ];
 
@@ -69,14 +47,8 @@ const FiveEs = () => (
           <div className="pt-[20px] pb-[12px] text-[24px] font-semibold">
             {item.word}
           </div>
-          <div className="flex flex-col gap-y-7">
-            <div className="text-[14px]">
-              <span className="font-bold">{item.text1Bold}</span>
-              {item.text1}
-            </div>
-            <div className="text-[14px]">
-              <span className="font-bold">{item.text2Bold}</span>
-              {item.text2}
+          <div className={'flex flex-col ${textContainer}'}>
+            <div className="text-[14px] font-Gotham letter-spacing: tracking-wide" dangerouslySetInnerHTML={{ __html: item.text}}>
             </div>
             <div className="text-[11px]">
               {i == 0 && (
