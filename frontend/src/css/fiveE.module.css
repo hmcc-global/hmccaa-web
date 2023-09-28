@@ -1,8 +1,0 @@
-@config "../config/tailwind.config.js";
-
-.text-container p {
-  @apply mb-0 text-base;
-}
-.text-container p span {
-  @apply font-bold whitespace-nowrap;
-}
