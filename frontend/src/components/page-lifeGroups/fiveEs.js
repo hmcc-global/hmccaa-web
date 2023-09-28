@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Circle } from "../svgs/index";
 import { PrimaryButtonLink } from "../Button";
-import {p, span} from "../../css/fiveE.module.css"
+import { p, span } from "../../css/fiveE.module.css";
 
 const fiveEInfo = [
   {
@@ -47,9 +47,11 @@ const FiveEs = () => (
           <div className="pt-[20px] pb-[12px] text-[24px] font-semibold">
             {item.word}
           </div>
-          <div className={'flex flex-col ${textContainer}'}>
-            <div className="text-[14px] font-Gotham letter-spacing: tracking-wide" dangerouslySetInnerHTML={{ __html: item.text}}>
-            </div>
+          <div className={"flex flex-col ${textContainer}"}>
+            <div
+              className="text-[14px] font-Gotham letter-spacing: tracking-wide"
+              dangerouslySetInnerHTML={{ __html: item.text }}
+            ></div>
             <div className="text-[11px]">
               {i == 0 && (
                 <p>
