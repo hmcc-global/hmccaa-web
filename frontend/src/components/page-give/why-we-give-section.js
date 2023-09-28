@@ -14,7 +14,9 @@ const WhyWeGiveSection = () => (
     </div>
     <div className="basis-689/1180 pr-8 pt-3.5 order-1">
       <div className="subheading">Why We Give</div>
-      <h2>As God has given to us abundantly, we can give with joy!</h2>
+      <h2 className="pb-[20px]">
+        As God has given to us abundantly, we can give with joy!
+      </h2>
       <HighlightedParagraph>
         <p>
           At HMCC, we believe that when God gives someone a vision, He will
