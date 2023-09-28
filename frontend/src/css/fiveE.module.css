@@ -4,5 +4,5 @@
   @apply mb-0 text-base;
 }
 .text-container p span {
-  @apply font-bold;
+  @apply font-bold whitespace-nowrap;
 }

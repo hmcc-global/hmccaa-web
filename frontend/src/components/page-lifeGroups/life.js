@@ -27,7 +27,7 @@ const Life = () => (
         <div className="first-letter:text-[40px] first-letter:font-bold text-[24px] font-semibold text-center">
           {item.word}
         </div>
-        <img src={item.image}></img>
+        <img src={item.image} />
       </span>
     ))}
   </div>

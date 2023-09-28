@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Circle } from "../svgs/index";
 import { PrimaryButtonLink } from "../Button";
-import { p, span } from "../../css/fiveE.module.css";
+
+const parse = require("html-react-parser");
 
 const fiveEInfo = [
   {
@@ -48,10 +49,9 @@ const FiveEs = () => (
             {item.word}
           </div>
           <div className={"flex flex-col ${textContainer}"}>
-            <div
-              className="text-[14px] font-Gotham letter-spacing: tracking-wide"
-              dangerouslySetInnerHTML={{ __html: item.text }}
-            ></div>
+            <div className="text-[14px] font-Gotham letter-spacing: tracking-wide">
+              {parse(item.text)}
+            </div>
             <div className="text-[11px]">
               {i == 0 && (
                 <p>
