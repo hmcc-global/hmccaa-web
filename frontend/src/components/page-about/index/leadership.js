@@ -4,6 +4,8 @@ import imgJoshYang from "../../../images/about-elders-josh-yang.png";
 import imgDaveYon from "../../../images/about-elders-dave-yon.png";
 import imgSeongPark from "../../../images/about-elders-seong-park.png";
 import { SecondaryButtonLink } from "../../Button";
+import TeamCard from "../shared/teamCard";
+import Team from "../shared/team";
 
 const LeadershipSection = () => {
   const elderInfo = [
@@ -30,22 +32,28 @@ const LeadershipSection = () => {
   ];
 
   const elderCards = elderInfo.map((info, index) => (
-    <div key={index} className="flex flex-col items-start">
-      <img className="mb-3" src={info.img} alt={info.name} />
-      <h3 className="font-bold text-2xl leading-tighter mb-3">{info.name}</h3>
-      <div>{info.role}</div>
-    </div>
+    <TeamCard
+      key={`elder-${index + 1}`}
+      info={info}
+      customClassName={{ container: "gap-y-2", h3: "text-2xl leading-tighter" }}
+    />
   ));
 
   return (
-    <div className="pb-20.25 flex flex-col items-center">
-      <div className="text-center pb-11.25">
+    <div className="pt-4 lg:pt-16 pb-[2.5625rem] lg:pb-20.25 flex flex-col items-center px-4">
+      <div className="text-center pb-14.5">
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>
       </div>
-      <div className="flex justify-center gap-4 pb-11.25">{elderCards}</div>
+      <Team className="max-w-[36rem] lg:max-w-none gap-x-4 lg:gap-x-5 pb-11.25">
+        {elderCards}
+      </Team>
       <div className="flex">
-        <SecondaryButtonLink to={"/about/our-team"} hasArrow={true}>
+        <SecondaryButtonLink
+          to={"/about/our-team"}
+          hasArrow={true}
+          customClassName={{ textContainer: "-indent-[8.8rem] sm:indent-0" }}
+        >
           More About Our Elders and Deacons
         </SecondaryButtonLink>
       </div>

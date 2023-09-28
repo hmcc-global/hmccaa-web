@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import {
   container,
+  globalMissionImgContainer,
   globalMissionContainer,
   globalMissionContext,
   globalMission,
@@ -10,29 +11,13 @@ import {
   buttonContainer,
 } from "../../../css/partners.module.css";
 import { SecondaryButtonLink } from "../../Button";
-import { RightAngleTriangle } from "../../svgs";
 import { HighlightedParagraph } from "../../shared/highlightedParagraph";
 
 const Partners = () => (
   <div className={container}>
-    <div className={globalMissionContainer}>
-      <div className="pb-[20px]">
+    <div className={globalMissionImgContainer}>
+      <div>
         <StaticImage src="../../../images/image264.png" alt="HMI Project" />
-      </div>
-      <div className={globalMissionContext}>
-        <div className="absolute">
-          <RightAngleTriangle side="left" />
-        </div>
-        <div className="absolute right-0">
-          <RightAngleTriangle side="right" />
-        </div>
-        <div className={globalMission}>
-          <h3>Our Global Mission</h3>
-          <p>
-            <span>Multiplying churches</span> in campuses and cities{" "}
-            <span>to transform the next generation</span> among the nations.
-          </p>
-        </div>
       </div>
     </div>
     <div className={statementContainer}>
@@ -66,6 +51,17 @@ const Partners = () => (
       </HighlightedParagraph>
       <div className={buttonContainer}>
         <SecondaryButtonLink hasArrow={true}>More Info</SecondaryButtonLink>
+      </div>
+    </div>
+    <div className={globalMissionContainer}>
+      <div className={globalMissionContext}>
+        <div className={globalMission}>
+          <h3>Our Global Mission</h3>
+          <p>
+            <span>Multiplying churches</span> in campuses and cities{" "}
+            <span>to transform the next generation</span> among the nations.
+          </p>
+        </div>
       </div>
     </div>
   </div>

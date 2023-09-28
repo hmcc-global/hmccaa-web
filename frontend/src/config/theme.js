@@ -19,7 +19,6 @@ const theme = {
       500: "#0047ab",
       700: "#0c2966",
       900: "#061433",
-      1000: "#4352B1",
     },
     Secondary: {
       50: "#faffd7",
@@ -35,6 +34,7 @@ const theme = {
       500: "#ff8069",
       700: "#f0508b",
       900: "#a842a8",
+      1000: "#F0DF5C",
     },
     Success: {
       50: "#ecfdf5",
@@ -68,9 +68,12 @@ const theme = {
     xl: "1.25rem",
     "2xl": "1.5rem",
     "3xl": "2rem",
+    "3.5xl": "2.25rem",
     "4xl": "2.5rem",
     "5xl": "3rem",
     "6xl": "3.75rem",
+    "7xl": "4.5rem",
+    "8xl": "6rem",
   },
   fontFamily: {
     gotham: "Gotham",
@@ -96,6 +99,7 @@ const theme = {
   extend: {
     maxWidth: {
       container: "1180px",
+      btn: "10.3125rem",
       "sm-md": "21.875rem",
       "sm-lg": "23.75rem",
       "md-lg": "31.25rem",
@@ -106,6 +110,8 @@ const theme = {
     },
     gap: {
       sm: "7.5rem",
+      15: "3.75rem",
+      30: "7.5rem",
     },
     width: {
       sm: "30rem",
@@ -139,6 +145,8 @@ const theme = {
       2.25: "0.5625rem",
       2.75: "0.6875rem",
       11.25: "3.3125rem",
+      14.5: "3.75rem",
+      15: "3.75rem",
       17: "4.1875rem",
       18: "4.5625rem",
       20.25: "5.0625rem",

@@ -1,0 +1,16 @@
+@config "../config/tailwind.config.js";
+
+.life-stage {
+  @apply flex flex-col gap-y-5;
+}
+
+.life-stage p a {
+  @apply text-Accent-500 underline font-bold decoration-solid decoration-[1.5px];
+}
+
+.life-stage p {
+  @apply mb-6 lg:mb-[1.3125re,];
+}
+.life-stage p:last-child {
+  @apply mb-0;
+}

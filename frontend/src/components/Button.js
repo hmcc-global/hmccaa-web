@@ -13,16 +13,34 @@ export const ButtonLink = ({
   hasArrow = false,
   className = "",
   children,
+  customClassName,
 }) => (
-  <Link className={`${button} ${className}`} to={to}>
-    <span className={(hasArrow && textContainer) || ""}>{children}</span>{" "}
+  <Link className={`${button} ${className} ${customClassName?.button}`} to={to}>
+    <span
+      className={`${(hasArrow && textContainer) || ""} ${
+        customClassName?.textContainer || ""
+      }`}
+    >
+      {children}
+    </span>{" "}
     {hasArrow && <ButtonArrow />}
   </Link>
 );
 
-export const Button = ({ hasArrow = false, type, children }) => (
-  <button type={type} className={button}>
-    <span className={(hasArrow && textContainer) || ""}>{children}</span>{" "}
+export const Button = ({
+  hasArrow = false,
+  type,
+  children,
+  customClassName,
+}) => (
+  <button type={type} className={`${button} ${customClassName?.button || ""}`}>
+    <span
+      className={`${(hasArrow && textContainer) || ""} ${
+        customClassName?.textContainer || ""
+      }`}
+    >
+      {children}
+    </span>{" "}
     {hasArrow && <ButtonArrow />}
   </button>
 );

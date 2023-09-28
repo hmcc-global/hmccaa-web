@@ -5,5 +5,5 @@
   @apply mb-0;
 }
 .highlighted-paragraph p span {
-  @apply text-Accent-700 tracking-medium-wide font-bold;
+  @apply text-Accent-700 md:tracking-medium-wide md:font-bold;
 }

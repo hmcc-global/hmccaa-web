@@ -1,0 +1,9 @@
+@config "../config/tailwind.config.js";
+
+.container {
+  @apply flex max-w-container items-center;
+}
+
+.container h1 {
+  @apply leading-tighter text-Primary-300 uppercase font-medium;
+}

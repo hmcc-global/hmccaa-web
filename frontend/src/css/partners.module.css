@@ -1,43 +1,52 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply flex pb-20.5;
+  @apply pt-5 lg:pt-0 lg:grid lg:pb-20.5 lg:gap-x-5 text-center lg:text-left lg:px-4;
+}
+
+.global-mission-img-container {
+  @apply mx-auto lg:mx-0 px-4 lg:px-0 lg:row-start-1 lg:col-start-2 pb-5;
 }
 
 .global-mission-container {
-  @apply pl-2.5 order-2;
-}
-
-.global-mission-container img {
-  @apply mb-5;
+  @apply w-full lg:w-auto;
 }
 
 .global-mission-context {
-  @apply bg-Primary-900 relative;
+  @apply bg-Primary-900 relative overflow-hidden;
+}
+
+.global-mission-context::before {
+  @apply absolute top-0 bottom-0 left-0  h-full border-solid border-l-Primary-500 border-l-[1.875rem] lg:border-l-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
+}
+
+.global-mission-context::after {
+  @apply absolute top-0 bottom-0 right-0 h-full border-solid border-r-Primary-500 border-r-[1.875rem] lg:border-r-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
 }
 
 .global-mission {
-  @apply relative max-w-sm-lg mx-auto pt-8 pb-1.75;
+  @apply relative max-w-sm-lg mx-auto py-3.5 lg:pt-8 lg:pb-1.75 px-[1.875rem] lg:px-[5rem] xl:px-[3.75rem];
 }
 .global-mission h3 {
-  @apply uppercase font-semibold text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
+  @apply uppercase font-semibold text-2xl tracking-medium-wide lg:tracking-normal lg:text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
 }
 
 .global-mission p {
-  @apply font-bold text-center text-Secondary-900 tracking-medium-wide;
+  @apply font-bold text-center text-Secondary-900 tracking-medium-wide text-base lg:text-lg mb-0 lg:mb-6;
 }
 
 .global-mission p span {
-  @apply text-2xl leading-tighter font-semibold tracking-normal;
+  @apply text-xl lg:text-2xl leading-normal lg:leading-tighter font-bold lg:font-semibold tracking-normal;
 }
 
 .statement-container {
-  @apply basis-689/1180 pr-2.25 pt-3.5 order-1;
+  @apply flex flex-col items-center lg:block px-4 lg:px-0 pb-5 lg:pb-0 lg:row-start-1 lg:row-end-5 lg:col-start-1;
 }
+
 .statement-container h2 {
   @apply pb-5;
 }
 
 .button-container {
-  @apply flex;
+  @apply mx-auto max-w-btn lg:mx-0;
 }
