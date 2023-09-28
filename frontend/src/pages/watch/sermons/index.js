@@ -58,7 +58,7 @@ const SermonPage = ({ pageContext }) => {
                   <StaticImage
                     alt="Psalm 133"
                     src="../../../images/Sermon-Ad-Selah-April.png"
-                    className="max-h-[25rem]"
+                    className="max-w-[45rem]"
                   />
                   <div className="flex justify-center absolute left-0 bottom-0 w-full">
                     <div className="flex-1">
