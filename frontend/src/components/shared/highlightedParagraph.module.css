@@ -2,7 +2,7 @@
   @apply text-Shades-100 lg:max-w-xl-md pb-5 text-base lg:text-lg font-medium lg:font-normal tracking-medium-wide lg:tracking-normal;
 }
 .highlighted-paragraph p {
-  @apply mb-[0.6875rem] lg:mb-[1.3125rem]
+  @apply mb-[0.6875rem] lg:mb-[1.3125rem];
 }
 
 .highlighted-paragraph p:last-child {
