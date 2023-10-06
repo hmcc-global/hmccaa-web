@@ -57,6 +57,8 @@ typings/
 # gatsby files
 .cache/
 public
+# (allow gatsby)
+!public/.htaccess
 
 # Mac files
 .DS_Store
