@@ -53,7 +53,8 @@ const HowToGiveSection = () => (
       <p>
         Personal information is kept confidential, used only for tax receipt
         purposes, and is only accessible by the Stewardship Team. If you have
-        any questions, please email <b className="text-lg">stewardship@hmcc.net</b>
+        any questions, please email{" "}
+        <b className="text-lg">stewardship@hmcc.net</b>
       </p>
       <p className="mb-0">
         HMCC is a registered 501(c)(3) nonprofit organization in the United
