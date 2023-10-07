@@ -27,9 +27,7 @@ const Life = () => (
         <div className="first-letter:text-[40px] first-letter:font-bold text-[24px] font-semibold text-center">
           {item.word}
         </div>
-        <div className="w-full pb-[64.29%] bg-[#5E5E5E]">
-
-        </div>
+        <div className="w-full pb-[64.29%] bg-[#5E5E5E]"></div>
       </span>
     ))}
   </div>
