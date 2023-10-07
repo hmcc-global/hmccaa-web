@@ -11,7 +11,9 @@ const NewcomersPage = () => (
     <div>Welcome section</div>
     <SundayCelebBarNew />
     <div>Life Stages</div>
-    <Questions />
+    <div className="pl-[21px] pr-[11px] lg:px-4 w-full flex justify-center">
+      <Questions />
+    </div>
   </Layout>
 );
 

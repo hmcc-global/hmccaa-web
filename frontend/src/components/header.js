@@ -27,7 +27,7 @@ const Header = () => {
   const path =
     (typeof window !== "undefined" && window.location.pathname) || "";
   const containerStyle =
-    "flex flex-row h-[60px][@media(min-width:900px)]:h-[100px] relative flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] [@media(min-width:900px)]:pt-[40px] [@media(min-width:900px)]:pb-[17px] pr-[16px] xl:pr-[65px] lg:gap-[20px] xl:gap-[140px] [@media(min-width:1440px)]:gap-[220px] position-fixed";
+    "flex flex-row h-[60px]lg:h-[100px] relative flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] lg:pt-[40px] lg:pb-[17px] pr-[16px] 2xl:pr-[65px] [@media(min-width:1440px)]:gap-[140px] [@media(min-width:1600px)]:gap-[220px] position-fixed";
   const logoStyle = "w-[80px] h-[32px] mb-0";
   const dropDownStyle = "w-[40px] h-[40px] mb-0";
   const textStyle = "text-Shades-0 text-base leading-normal no-underline";
@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <header>
       <div className={`${containerStyle}`}>
-        <div className="flex flex-row w-full justify-between [@media(min-width:900px)]:hidden relative">
+        <div className="flex flex-row w-full justify-between lg:hidden relative">
           <Link to="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
@@ -58,7 +58,7 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden [@media(min-width:900px)]:flex items-center gap-4 md:gap-6 lg:gap-8">
+        <div className="hidden lg:flex items-center gap-4 md:gap-6 lg:gap-8">
           <Link href="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
@@ -111,7 +111,7 @@ const Header = () => {
           </div>
         )}
 
-        <div className="flex-row items-center gap-4 hidden [@media(min-width:900px)]:flex [@media(min-width:1040px)]:gap-8 [@media(min-width:1440px)]:gap-11">
+        <div className="flex-row items-center gap-4 hidden lg:flex lg:gap-3 [@media(min-width:1040px)]:gap-8 [@media(min-width:1440px)]:gap-11">
           <div className="relative hover:bg-[#1A56D6] hover:border-[#1A56D6] hover:rounded-t-lg">
             <div className="hover:bg-[#1A56D6] hover:border-[#1A56D6] py-2 px-2 rounded-t-lg peer">
               <img
