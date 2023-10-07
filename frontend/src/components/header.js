@@ -88,7 +88,7 @@ const Header = () => {
                     key={`browseLink-${index}`}
                     to={item.route}
                     className={`${textStyle} ${
-                      item.route + "/" == path
+                      item.route + "/" === path
                         ? "font-extrabold py-2 px-4"
                         : "font-medium py-2 px-4"
                     } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
@@ -100,7 +100,7 @@ const Header = () => {
                   <Link
                     to="/new"
                     className={`${textStyle} ${
-                      "/new/" == path ? "font-extrabold" : ""
+                      "/new/" === path ? "font-extrabold" : ""
                     } font-bold hover:font-extrabold tracking-[0.96px]`}
                   >
                     I&apos;m New
@@ -147,7 +147,7 @@ const Header = () => {
                 key={`browseLink-${index}`}
                 to={item.route}
                 className={`${textStyle} ${
-                  item.route + "/" == path
+                  item.route + "/" === path
                     ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
                     : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
                 } tracking-[0.96px]`}
@@ -161,7 +161,7 @@ const Header = () => {
             <Link
               to="/new"
               className={`${textStyle} ${
-                "/new/" == path ? "font-extrabold" : ""
+                "/new/" === path ? "font-extrabold" : ""
               } font-bold hover:font-extrabold tracking-[0.96px]`}
             >
               I&apos;m New

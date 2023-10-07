@@ -77,8 +77,6 @@ const theme = {
     "8xl": "6rem",
   },
   fontFamily: {
-    gotham: "Gotham",
-    "gotham-black": "Gotham Black",
     montserrat: "Montserrat",
     raleway: "Raleway",
     inter: "Inter",

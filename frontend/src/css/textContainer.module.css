@@ -1,0 +1,6 @@
+@config "../config/tailwind.config.js";
+
+.text-container p b {
+    @apply font-montserrat;
+}
+

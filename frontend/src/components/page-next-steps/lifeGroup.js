@@ -4,8 +4,14 @@ import { PrimaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
 
 const LifeGroup = () => (
-  <div className="flex gap-x-32 pt-14 pb-14">
-    <div className="w-sm h-sm">
+  <div className="flex flex-col lg:flex-row gap-y-5 gap-x-32 pt-[15px] pb-8 lg:py-14">
+    <div className="lg:order-1 text-center">
+      <StaticImage
+        src="../../images/LifeGroupImg.png"
+        alt="Life Group Next Step"
+      />
+    </div>
+    <div className="w-sm h-sm text-center lg:text-left">
       <div className="subheading">life groups</div>
       <h2>build lasting relationships.</h2>
       <HighlightedParagraph>
@@ -20,17 +26,11 @@ const LifeGroup = () => (
           another within various life stages.
         </p>
       </HighlightedParagraph>
-      <div className="flex">
+      <div className="flex justify-center lg:justify-start">
         <PrimaryButtonLink hasArrow={true} to={"../../next-steps/lifegroups"}>
           Learn More
         </PrimaryButtonLink>
       </div>
-    </div>
-    <div>
-      <StaticImage
-        src="../../images/LifeGroupImg.png"
-        alt="Life Group Next Step"
-      />
     </div>
   </div>
 );
