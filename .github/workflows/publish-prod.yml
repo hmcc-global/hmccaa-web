@@ -15,7 +15,7 @@ jobs:
           known_hosts: "placeholder"
           name: id_rsa
       - name: Define known_hosts
-        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H ${{ secrets.CMS_SSH_HOST }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
       # - name: Build Strapi
@@ -28,4 +28,4 @@ jobs:
       #     echo 'User-agent: *' > ./build/robots.txt
       #     echo 'Disallow: /' >> ./build/robots.txt
       - name: Sync files to server
-        run: rsync -avzr --delete-after --exclude={'node_modules/','.env'} ./cms/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/annarbor-content
+        run: rsync -avzr --delete-after --exclude={'node_modules/','.env'} ./cms/ ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content
