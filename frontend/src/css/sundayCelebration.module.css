@@ -8,3 +8,6 @@
     @apply pb-5;
 }
 
+.global-mission-container {
+    @apply w-full lg:w-auto;
+  }
