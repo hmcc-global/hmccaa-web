@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - "main"
-      - "maplexu/publish_to_new_servers"
 jobs:
   deploy-cms:
     runs-on: ubuntu-latest
