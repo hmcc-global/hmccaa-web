@@ -5,7 +5,7 @@ services:
     build:
       context: ./frontend/
       dockerfile: Dockerfile-FullBuildFrontend
-    image: hmccaa/hmcc-web:gatsby-0.1.2
+    image: hmccaa/hmcc-web:gatsby-0.1.3
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -23,7 +23,11 @@ services:
     build:
       context: ./cms/
       dockerfile: Dockerfile-FullBuildCms
+<<<<<<< HEAD
     image: hmccaa/hmcc-web:strapi-0.1.2
+=======
+    image: hmccaa/hmcc-web:strapi-0.1.3
+>>>>>>> 218c1b3 (trying more stuff)
     restart: unless-stopped
     environment:
       DATABASE_HOST: strapiDB
