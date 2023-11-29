@@ -1,7 +1,7 @@
 FROM node:18-alpine
 
 # Needed for arm64 architectures
-RUN apk add --no-cache make gcc g++ python3
+RUN apk add --no-cache make gcc g++ python3 curl
 
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
@@ -16,4 +16,4 @@ RUN chown -R node:node /opt/frontend
 USER node
 RUN gatsby telemetry --disable
 EXPOSE 8000
-CMD ["npm", "run", "develop"]
+CMD ["sh", "./scripts/wait-for-strapi.sh", "npm", "run", "develop"]
