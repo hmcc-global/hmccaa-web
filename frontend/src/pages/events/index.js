@@ -9,15 +9,27 @@ import EventCard from "../../components/page-events/eventCard";
 import Banner from "../../components/shared/banner";
 
 const EventsPage = () => {
-  const events = [{
-    id: 1,
-    title: "HMCC Event",
-    date: "Th, May 25, 2023",
-    imgUrl: "../../images/prayer-gathering.png",
-    imgAlt: "example",
-    location: "TCenter",
-    description: "event at Hmcc"
-  }] // Todo: fetch actual events from backend
+  // multiple events hardcoded to test layout with multiple events
+  const events = [
+    {
+      id: 1,
+      title: "Prayer Gathering",
+      date: "Th, May 25, 2023",
+      imgUrl: "../../images/prayer-gathering.png",
+      imgAlt: "example",
+      location: "TCenter",
+      description: "event at Hmcc where you go to pray and worship God"
+    },
+    {
+      id: 1,
+      title: "Prayer Gathering",
+      date: "Th, May 25, 2023",
+      imgUrl: "../../images/prayer-gathering.png",
+      imgAlt: "example",
+      location: "TCenter",
+      description: "event at Hmcc where you go to pray and worship God"
+    }
+  ] // Todo: fetch actual events from backend
 
   return (
     <Layout>
