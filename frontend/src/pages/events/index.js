@@ -6,7 +6,7 @@ import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
 import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
-// import Banner from "../../components/shared/banner";
+import Banner from "../../components/shared/banner";
 
 const EventsPage = () => {
   // multiple events hardcoded to test layout with multiple events
