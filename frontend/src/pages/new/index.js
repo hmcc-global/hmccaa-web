@@ -7,14 +7,15 @@ import SundayCelebrationSection from "../../components/page-new/sunday-celebrati
 import Questions from "../../components/gotQuestions";
 import SundayCelebBarNew from "../../components/page-new/sundayCelebBarNew";
 import Banner from "../../components/shared/banner";
+import LifeStages from "../../components/page-new/lifeStages";
 
 const NewcomersPage = () => (
   <Layout>
     <Banner bgImage="bg-center bg-new">I&apos;m New</Banner>
-    <WelcomeSection/>
-    <SundayCelebrationSection/>
+    <WelcomeSection />
+    <SundayCelebrationSection />
     <SundayCelebBarNew />
-    <div>Life Stages</div>
+    <LifeStages />
     <div className="pl-[21px] pr-[11px] lg:px-4 w-full flex justify-center">
       <Questions />
     </div>
