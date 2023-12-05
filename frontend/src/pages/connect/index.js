@@ -5,13 +5,15 @@ import Seo from "../../components/seo";
 import Questions from "../../components/gotQuestions";
 import Instagram from "../../components/instaBar";
 import Banner from "../../components/shared/banner";
-import SundayCelebration from "../../components/page-connect/sunday-celebration"
+import SundayCelebration from "../../components/page-connect/sunday-celebration";
+import MapDetails from "../../components/page-connect/map-details";
 
 const ConnectPage = () => (
   <Layout>
     <Banner bgImage="bg-connect bg-[center_top]">Connect</Banner>
     <div className="max-w-container">
       <SundayCelebration />
+      <MapDetails />
       <div>Common Questions section</div>
       <div>Life Stages section</div>
       <Questions />
