@@ -138,6 +138,14 @@ module.exports = {
             pathname: "/connect/life-stages",
             crumbLabel: "Life Stages",
           },
+          {
+            pathname: "/watch",
+            crumbLabel: "Watch",
+          },
+          {
+            pathname: "/watch/sermons",
+            crumbLabel: "Sermons",
+          },
         ],
       },
     },
