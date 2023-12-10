@@ -213,7 +213,10 @@ const CloseIcon = ({ className }) => (
 );
 
 const Circle = ({ color }) => (
-  <svg className="w-20 h-20 fill-none" viewBox="0 0 80 80">
+  <svg
+    className="w-[7.5rem] h-[7.5rem] lg:w-20 lg:h-20 fill-none"
+    viewBox="0 0 80 80"
+  >
     <rect width="80" height="80" rx="40" className={color} />
     <path
       d="M51.1683 49.16V54H31.4483V25.6H50.8083V30.44H36.9683V37.28H48.9283V41.76H36.9683V49.16H51.1683Z"

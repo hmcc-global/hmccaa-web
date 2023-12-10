@@ -9,13 +9,15 @@ import Banner from "../../components/shared/banner";
 const NextStepsPage = () => (
   <Layout>
     <Banner bgImage="bg-next-steps bg-center">Next Steps</Banner>
-    <div className="max-w-container mx-auto">
-      <LifeGroup />
-      <div>Membership section</div>
-      <div>Transformation classes section</div>
-      <div>Baptism section</div>
-      <div>Ministry teams section</div>
-      <MissionsNextStep />
+    <div className="w-full px-4">
+      <div className="max-w-container mx-auto">
+        <LifeGroup />
+        <div>Membership section</div>
+        <div>Transformation classes section</div>
+        <div>Baptism section</div>
+        <div>Ministry teams section</div>
+        <MissionsNextStep />
+      </div>
     </div>
   </Layout>
 );

@@ -3,8 +3,14 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { StaticImage } from "gatsby-plugin-image";
 
 const MissionsNextStep = () => (
-  <div className="flex gap-x-5 pt-14 pb-14">
-    <div className="w-smx2 h-smx2">
+  <div className="flex flex-col lg:flex-row gap-5 pt-[15px] pb-[29px] lg:py-14">
+    <div className="lg:order-1 text-center">
+      <StaticImage
+        src="../../images/missionsNextStepImg.png"
+        alt="Missions Next Step"
+      />
+    </div>
+    <div className="w-smx2 h-smx2 text-center lg:text-left">
       <div className="subheading">Missions</div>
       <h2>go to all nations</h2>
       <HighlightedParagraph>
@@ -30,12 +36,6 @@ const MissionsNextStep = () => (
           Please email abc@hmccaa.com to get connected!
         </p>
       </div>
-    </div>
-    <div>
-      <StaticImage
-        src="../../images/missionsNextStepImg.png"
-        alt="Missions Next Step"
-      />
     </div>
   </div>
 );

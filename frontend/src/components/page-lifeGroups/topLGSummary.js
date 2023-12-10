@@ -2,22 +2,22 @@ import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
-import { PageLink } from "../pageLink";
-
-const pageLinkList = [
-  { title: "Home", route: "../../" },
-  { title: "Next Steps", route: "../../next-steps" },
-  { title: "LIFE Groups", route: "." },
-];
 
 const TopLGSummary = () => (
-  <div className="pt-[40px]">
-    <PageLink>{pageLinkList}</PageLink>
+  <div>
+    <h1 className="text-center text-[40px] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-8">
+      LIFE GROUPS
+    </h1>
 
-    <h1 className="text-center text-[40px] pt-[80px] font-bold">LIFE GROUPS</h1>
-
-    <div className="flex gap-x-28 pb-[100px]">
-      <div className="w-[480px]">
+    <div className="flex flex-col lg:flex-row gap-y-5 lg:gap-x-14 xl:gap-x-28 lg:pb-[100px]">
+      <div className="lg:order-1 lg:w-[49.1526% text-center">
+        <StaticImage
+          className="max-w-[580px]"
+          src="../../images/lifeGroupHuddle.png"
+          alt="LG people"
+        />
+      </div>
+      <div className="lg:w-[40.678%] text-center lg:text-left">
         <HighlightedParagraph className="text-[16px]">
           <p>
             In the Bible, Jesus talks about living an abundant life. The vision
@@ -45,18 +45,11 @@ const TopLGSummary = () => (
             life-changing power of Biblical community!
           </p>
         </HighlightedParagraph>
-        <div className="flex">
+        <div className="flex justify-center lg:justify-start">
           <SecondaryButtonLink hasArrow={true}>
             CHECK OUT A LIFE GROUP
           </SecondaryButtonLink>
         </div>
-      </div>
-      <div>
-        <StaticImage
-          className="w-[605px]"
-          src="../../images/lifeGroupHuddle.png"
-          alt="LG people"
-        />
       </div>
     </div>
   </div>

@@ -83,6 +83,10 @@ module.exports = {
             name: `Raleway`,
             file: `https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap`,
           },
+          {
+            name: "Inter",
+            file: "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap",
+          },
         ],
       },
     },
@@ -145,6 +149,14 @@ module.exports = {
           {
             pathname: "/watch/sermons",
             crumbLabel: "Sermons",
+          },
+          {
+            pathname: "/next-steps",
+            crumbLabel: "Next Steps",
+          },
+          {
+            pathname: "/next-steps/lifegroups",
+            crumbLabel: "LIFE Groups",
           },
         ],
       },
