@@ -2,14 +2,14 @@ import * as React from "react";
 import {
   wrapper,
   container,
-  mediaWrapper,
   descriptionWrapper,
 } from "../../css/rightNowMedia.module.css";
+import { mediaWrapper } from "../../css/media.module.css";
 import { SecondaryButtonLink } from "../Button";
 const RightNowMedia = () => (
   <div className={wrapper}>
     <div className={container}>
-      <div className={mediaWrapper}>
+      <div className={`${mediaWrapper} max-w-[30rem]`}>
         <div>
           <iframe
             width="560"

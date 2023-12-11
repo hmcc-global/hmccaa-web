@@ -97,7 +97,7 @@ const theme = {
   },
   extend: {
     maxWidth: {
-      container: "75.75rem",
+      container: "73.75rem",
       btn: "10.3125rem",
       "sm-md": "21.875rem",
       "sm-lg": "30rem",
@@ -134,12 +134,6 @@ const theme = {
     letterSpacing: {
       "medium-wide": "0.06em",
       wide: ".84px",
-    },
-    width: {
-      med: "66.3rem",
-    },
-    height: {
-      med: "66.6rem",
     },
     padding: {
       1.75: "0.4375rem",
