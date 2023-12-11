@@ -11,6 +11,7 @@ const theme = {
       700: "#164c66",
       800: "#062d40",
       900: "#01151f",
+      1000: "rgba(255,255,255,.8)",
     },
     Primary: {
       50: "#6494fa",
@@ -18,6 +19,7 @@ const theme = {
       500: "#0047ab",
       700: "#0c2966",
       900: "#061433",
+      1000: "#4352B1",
     },
     Secondary: {
       50: "#faffd7",
@@ -28,10 +30,12 @@ const theme = {
     },
     Accent: {
       50: "#f9f871",
+      200: "#ff8069",
       300: "#ffbd57",
       500: "#ff8069",
       700: "#f0508b",
       900: "#a842a8",
+      1000: "#F0DF5C",
     },
     Success: {
       50: "#ecfdf5",
@@ -65,15 +69,17 @@ const theme = {
     xl: "1.25rem",
     "2xl": "1.5rem",
     "3xl": "2rem",
+    "3.5xl": "2.25rem",
     "4xl": "2.5rem",
     "5xl": "3rem",
     "6xl": "3.75rem",
+    "7xl": "4.5rem",
+    "8xl": "6rem",
   },
   fontFamily: {
-    gotham: "Gotham",
-    "gotham-black": "Gotham Black",
     montserrat: "Montserrat",
     raleway: "Raleway",
+    inter: "Inter",
   },
   borderRadius: {
     none: "0",
@@ -91,9 +97,10 @@ const theme = {
   },
   extend: {
     maxWidth: {
-      container: "1180px",
+      container: "75.75rem",
+      btn: "10.3125rem",
       "sm-md": "21.875rem",
-      "sm-lg": "23.75rem",
+      "sm-lg": "30rem",
       "md-lg": "31.25rem",
       "xl-md": "40.625rem",
       "3.25xl": "50.8125rem",
@@ -102,6 +109,18 @@ const theme = {
     },
     gap: {
       sm: "7.5rem",
+      15: "3.75rem",
+      30: "7.5rem",
+    },
+    width: {
+      sm: "30rem",
+      smx2: "36.25rem",
+      med: "66.3rem",
+    },
+    height: {
+      sm: "21.63rem",
+      smx2: "26.125rem",
+      med: "66.6rem",
     },
     lineHeight: {
       tighter: "1.2",
@@ -114,12 +133,20 @@ const theme = {
     },
     letterSpacing: {
       "medium-wide": "0.06em",
+      wide: ".84px",
+    },
+    width: {
+      med: "66.3rem",
+    },
+    height: {
+      med: "66.6rem",
     },
     padding: {
       1.75: "0.4375rem",
       2.25: "0.5625rem",
       2.75: "0.6875rem",
       11.25: "3.3125rem",
+      15: "3.75rem",
       17: "4.1875rem",
       18: "4.5625rem",
       20.25: "5.0625rem",
@@ -132,6 +159,7 @@ const theme = {
     },
     spacing: {
       2.25: "0.5625rem",
+      4.5: "1.125rem",
       25: "6.25rem",
       26: "6.5rem",
       43: "10.75rem",
@@ -142,6 +170,23 @@ const theme = {
     },
     strokeWidth: {
       4: "4",
+    },
+    scale: {
+      10: ".10",
+    },
+    backgroundImage: {
+      about: "url('../images/background/about.png')",
+      connect: "url('../images/background/connect.jpeg')",
+      "next-steps": "url('../images/background/next-steps.jpg')",
+      events: "url('../images/background/events.jpeg')",
+      watch: "url('../images/background/watch.jpeg')",
+      give: "url('../images/background/give.jpeg')",
+      new: "url('../images/background/new.jpeg')",
+    },
+    screens: {
+      "max-lg": {
+        max: "1023px",
+      },
     },
   },
 };

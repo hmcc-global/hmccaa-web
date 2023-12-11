@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .button {
-  @apply no-underline uppercase rounded-sm py-3 px-5 shadow-button font-bold tracking-medium-wide  flex items-center;
+  @apply no-underline uppercase rounded-sm py-[0.625rem] px-[1.125rem] shadow-button font-bold tracking-medium-wide  flex items-center;
 }
 
 .secondary-button {
@@ -13,5 +13,5 @@
 }
 
 .text-container {
-  @apply pr-2;
+  @apply pr-2 text-clip whitespace-nowrap overflow-hidden;
 }

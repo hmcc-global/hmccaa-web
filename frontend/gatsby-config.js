@@ -20,6 +20,10 @@ const gatsbyRequiredRules = path.join(
   "eslint-rules"
 );
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `HMCC Ann Arbor`,
@@ -30,6 +34,15 @@ module.exports = {
   plugins: [
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: ["sermon"],
+        singleTypes: [],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -70,6 +83,10 @@ module.exports = {
             name: `Raleway`,
             file: `https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap`,
           },
+          {
+            name: "Inter",
+            file: "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap",
+          },
         ],
       },
     },
@@ -84,6 +101,64 @@ module.exports = {
         exclude: ["node_modules", "bower_components", ".cache", "public"],
         // Any additional eslint-webpack-plugin options below
         // ...
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        // useAutoGen: required 'true' to use autogen
+        useAutoGen: true,
+        // exclude: optional, include this array to exclude paths you don't want to
+        // generate breadcrumbs for (see below for details).
+        exclude: [
+          `**/dev-404-page/**`,
+          `**/404/**`,
+          `**/404.html`,
+          `**/offline-plugin-app-shell-fallback/**`,
+        ],
+        // isMatchOptions: optional, include this object to configure the wildcard-match library.
+        excludeOptions: {
+          separator: ".",
+        },
+        // crumbLabelUpdates: optional, update specific crumbLabels in the path
+        crumbLabelUpdates: [
+          {
+            pathname: "/about",
+            crumbLabel: "About",
+          },
+          {
+            pathname: "/connect",
+            crumbLabel: "Connect",
+          },
+          {
+            pathname: "/about/our-team",
+            crumbLabel: "Our Team",
+          },
+          {
+            pathname: "/about/hmi",
+            crumbLabel: "HMI",
+          },
+          {
+            pathname: "/connect/life-stages",
+            crumbLabel: "Life Stages",
+          },
+          {
+            pathname: "/watch",
+            crumbLabel: "Watch",
+          },
+          {
+            pathname: "/watch/sermons",
+            crumbLabel: "Sermons",
+          },
+          {
+            pathname: "/next-steps",
+            crumbLabel: "Next Steps",
+          },
+          {
+            pathname: "/next-steps/lifegroups",
+            crumbLabel: "LIFE Groups",
+          },
+        ],
       },
     },
   ],

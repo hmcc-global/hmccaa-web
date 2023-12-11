@@ -1,17 +1,22 @@
 import * as React from "react";
-import whyGiveImage from "../../images/give-why-we-give.png";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
+import { StaticImage } from "gatsby-plugin-image";
 
 const WhyWeGiveSection = () => (
-  <div className="flex pb-20.5">
-    <div className="pl-2.5 order-2">
+  <div className="flex flex-col lg:flex-row pt-[15px] pb-[68px] lg:py-14 items-center lg:items-start gap-y-5">
+    <div className="lg:pl-2.5 lg:order-2">
       <div>
-        <img src={whyGiveImage} alt="Why we give" />
+        <StaticImage
+          src="../../images/give-why-we-give.png"
+          alt="Why we give"
+        />
       </div>
     </div>
-    <div className="basis-689/1180 pr-8 pt-3.5 order-1">
+    <div className="lg:basis-689/1180 lg:pr-8 lg:pt-3.5 lg:order-1 text-center lg:text-left">
       <div className="subheading">Why We Give</div>
-      <h2>As God has given to us abundantly, we can give with joy!</h2>
+      <h2 className="pb-[20px]">
+        As God has given to us abundantly, we can give with joy!
+      </h2>
       <HighlightedParagraph>
         <p>
           At HMCC, we believe that when God gives someone a vision, He will

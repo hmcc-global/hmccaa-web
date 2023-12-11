@@ -33,11 +33,30 @@ module.exports = {
   },
   env: {
     node: true,
+    browser: true,
+    commonjs: true,
+    es6: true,
+    jest: true,
+  },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
   },
   extends: [
     `eslint:recommended`,
     `plugin:react/recommended`,
     `${__dirname}/eslint-custom-gatsby-rule/gatsby-eslint`,
+  ],
+  overrides: [
+    {
+      files: ["*.{ts,tsx}"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+      extends: ["plugin:@typescript-eslint/recommended"],
+    },
   ],
   rules: {
     "react/display-name": "off",
@@ -55,7 +74,7 @@ module.exports = {
     "jsx-a11y/aria-role": "warn",
     "jsx-a11y/aria-unsupported-elements": "warn",
     "jsx-a11y/autocomplete-valid": ["warn", { inputComponents: [] }],
-    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/control-has-associated-label": [
       "warn",
       {
@@ -122,7 +141,7 @@ module.exports = {
     "jsx-a11y/no-noninteractive-element-to-interactive-role": "warn",
     "jsx-a11y/no-noninteractive-tabindex": "warn",
     "jsx-a11y/no-redundant-roles": "warn",
-    "jsx-a11y/no-static-element-interactions": "warn",
+    "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/role-has-required-aria-props": "warn",
     "jsx-a11y/role-supports-aria-props": "warn",
     "jsx-a11y/scope": "warn",

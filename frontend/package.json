@@ -6,16 +6,20 @@
   "author": "HMCCAA Web Team <website@annarbor.hmcc.net>",
   "dependencies": {
     "babel-preset-gatsby": "^3.11.0",
+    "html-react-parser": "^4.2.2",
     "gatsby": "^5.10.0",
     "gatsby-omni-font-loader": "^2.0.2",
-    "gatsby-plugin-image": "^3.10.0",
+    "gatsby-plugin-breadcrumb": "^12.3.2",
+    "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.10.0",
-    "gatsby-plugin-sharp": "^5.10.0",
-    "gatsby-source-filesystem": "^5.10.0",
-    "gatsby-transformer-sharp": "^5.10.0",
+    "gatsby-plugin-sharp": "^5.11.0",
+    "gatsby-source-filesystem": "^5.11.0",
+    "gatsby-source-strapi": "^3.3.0",
+    "gatsby-transformer-sharp": "^5.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-modal": "^3.16.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

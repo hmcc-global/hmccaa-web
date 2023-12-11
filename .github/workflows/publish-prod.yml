@@ -1,0 +1,31 @@
+name: Publish Production Server
+run-name: Production server deployment (kicked off by ${{ github.actor }})
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  deploy-cms:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.CMS_SSH_PRIVATE_KEY }}
+          known_hosts: "placeholder"
+          name: id_rsa
+      - name: Define known_hosts
+        run: ssh-keyscan -H ${{ secrets.CMS_SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: git checkout
+        uses: actions/checkout@v3
+      # - name: Build Strapi
+      #   run: |
+      #     cd ${{ github.workspace }}/cms
+      #     npm install
+      #     npm run build
+
+      #     # Add anti-webscraping
+      #     echo 'User-agent: *' > ./build/robots.txt
+      #     echo 'Disallow: /' >> ./build/robots.txt
+      - name: Sync files to server
+        run: rsync -avzr --delete-after --exclude={'node_modules/','.env'} ./cms/ ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content

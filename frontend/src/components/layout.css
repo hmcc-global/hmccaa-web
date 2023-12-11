@@ -1,9 +1,12 @@
+@config "../config/tailwind.config.js";
 :root {
   --border-radius: 4px;
   --color-text: #000;
   --color-primary: #6494fa;
   --color-code-bg: #fff4db;
   --color-code: #8a6534;
+  --volume-value: 100%;
+  --duration-value: 0;
   --font-sans: Raleway, Montserrat;
   --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
@@ -73,7 +76,6 @@ h1 {
   margin-bottom: 3rem;
   padding: 0;
   line-height: var(--line-height-dense);
-  letter-spacing: -0.01em;
 }
 
 img {
@@ -118,9 +120,7 @@ ol,
 dl,
 dd,
 p {
-  margin: 0;
-  padding: 0;
-  margin-bottom: var(--space-4);
+  @apply p-0 m-0 mb-[1.3125rem] lg:mb-6;
 }
 ul,
 ol {

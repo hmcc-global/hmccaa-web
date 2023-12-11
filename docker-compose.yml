@@ -2,6 +2,7 @@ version: "3"
 services:
   gatsby:
     container_name: gatsby
+    env_file: ./frontend/.env.development
     build: ./frontend/
     image: hmccaa/hmcc-web:gatsby
     restart: unless-stopped
@@ -9,6 +10,10 @@ services:
       - "8000:8000"
     volumes:
       - ./frontend/src/:/opt/frontend/src/
+      - ./frontend/.eslintrc.js:/opt/frontend/.eslintrc.js
+      - ./frontend/eslint-custom-gatsby-rule:/opt/frontend/eslint-custom-gatsby-rule
+      - ./frontend/.env.development:/opt/frontend/.env.development
+      - ./frontend/scripts/:/opt/frontend/scripts/
     networks:
       - strapi
     depends_on:
