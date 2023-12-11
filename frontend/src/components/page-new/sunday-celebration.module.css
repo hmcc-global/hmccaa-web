@@ -1,19 +1,19 @@
 .container-lg {
-  @apply lg:grid lg:grid-cols-5 lg:grid-rows-2
+  @apply lg:grid lg:grid-cols-5 lg:grid-rows-2;
 }
 
 .title-lg {
-  @apply lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-2
+  @apply lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-2;
 }
 
 .time-lg {
-  @apply lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-1
+  @apply lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-1;
 }
 
 .button-lg {
-  @apply lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-2
+  @apply lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-2;
 }
 
 .location-lg {
-  @apply lg:col-start-4 lg:col-span-2 lg:row-start-1 lg:row-span-2
+  @apply lg:col-start-4 lg:col-span-2 lg:row-start-1 lg:row-span-2;
 }

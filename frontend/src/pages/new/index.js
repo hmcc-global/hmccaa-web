@@ -11,8 +11,8 @@ import Banner from "../../components/shared/banner";
 const NewcomersPage = () => (
   <Layout>
     <Banner bgImage="bg-center bg-new">I&apos;m New</Banner>
-    <WelcomeSection/>
-    <SundayCelebrationSection/>
+    <WelcomeSection />
+    <SundayCelebrationSection />
     <SundayCelebBarNew />
     <div>Life Stages</div>
     <div className="pl-[21px] pr-[11px] lg:px-4 w-full flex justify-center">
