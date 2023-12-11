@@ -6,7 +6,7 @@ import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
 import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
-// import Banner from "../../components/shared/banner";
+import Banner from "../../components/shared/banner";
 
 const EventsPage = () => {
   // multiple events hardcoded to test layout with multiple events
@@ -60,6 +60,7 @@ const EventsPage = () => {
 
   return (
     <Layout>
+      <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
       <SundayCelebBarEvents />
       <div className="grid grid-cols-3 gap-5 py-36">
         {events.map(event => (
