@@ -29,7 +29,7 @@ const MapDetails = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center md:rounded-r-[1.25rem]">
+      <div className="flex justify-center md:p-2]">
         <StaticImage src="../../images/connect-map-parking.png" alt="" />
       </div>
     </div>
