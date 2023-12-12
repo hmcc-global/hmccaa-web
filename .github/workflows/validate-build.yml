@@ -1,0 +1,17 @@
+name: Validate Frontend Build
+run-name: Validate Frontend Build (kicked off by ${{ github.actor }})
+on:
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  deploy-gatsby:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: Build Gatsby
+        run: |
+          cd ${{ github.workspace }}/frontend
+          npm install
+          npm run build
