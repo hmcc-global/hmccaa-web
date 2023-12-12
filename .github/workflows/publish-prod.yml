@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "maplexu/76.1-fix-server-strapi"
 jobs:
   deploy-cms:
     runs-on: ubuntu-latest
