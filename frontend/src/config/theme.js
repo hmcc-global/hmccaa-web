@@ -177,11 +177,6 @@ const theme = {
       give: "url('../images/background/give.jpeg')",
       new: "url('../images/background/new.jpeg')",
     },
-    screens: {
-      "max-lg": {
-        max: "1023px",
-      },
-    },
   },
 };
 
