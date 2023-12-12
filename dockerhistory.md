@@ -7,3 +7,5 @@ Docker image versions
 `0.1.2` : [b333c02](https://github.com/hmcc-global/hmccaa-web/commit/b333c02f1d58619bca6c7fe9478be18c2b770abb)
 
 `0.1.3` : [ee2f827](https://github.com/hmcc-global/hmccaa-web/commit/ee2f827026b0dc1aee8caa6cb4ca2f3bc862ad93)
+
+`0.1.3-arm` : [d8c38e7](https://github.com/hmcc-global/hmccaa-web/commit/d8c38e74f9881342360a74131ea8aebb887df802)
