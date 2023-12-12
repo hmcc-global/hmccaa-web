@@ -72,6 +72,7 @@ const SermonPage = ({ pageContext }) => {
                             src="https://annarbor.hmcc.net/wp-content/uploads/sermons/S20230813.mp3"
                             type="audio/mp3"
                           />
+                          <track></track>
                         </audio>
                       </div>
                     </div>
