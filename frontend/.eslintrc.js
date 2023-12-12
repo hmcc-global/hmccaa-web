@@ -86,6 +86,7 @@ module.exports = {
           "textarea",
           "tr",
           "video",
+          "button",
         ],
         ignoreRoles: [
           "grid",
@@ -124,7 +125,7 @@ module.exports = {
     ],
     "jsx-a11y/label-has-associated-control": "warn",
     "jsx-a11y/lang": "warn",
-    "jsx-a11y/media-has-caption": "warn",
+    "jsx-a11y/media-has-caption": "off",
     "jsx-a11y/mouse-events-have-key-events": "warn",
     "jsx-a11y/no-access-key": "warn",
     "jsx-a11y/no-autofocus": "warn",
