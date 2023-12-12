@@ -5,7 +5,7 @@ import { SecondaryButtonLink } from "../Button";
 const MapDetails = () => {
   return (
     <div className="flex flex-col justify-center pt-5 md:pt-0 bg-Neutral-200 md:flex-row md:flex-shrink-0 md:rounded-2xl max-w-[58.625rem] mx-auto">
-      <div className="px-[3.66rem] gap-5 md:rounded-l-[1.25rem] md:bg-Neutral-200 ">
+      <div className="px-[3.925rem] gap-5">
         <div className="flex flex-col justify-center items-center text-center md:gap-8 md:py-[4.75rem]">
           <p className="text-lg font-medium leading-tighter mb-0 text-Shades-100">
             Sunday Mornings <br />{" "}
