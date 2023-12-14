@@ -13,7 +13,9 @@ const Mission = () => (
     <div className={topBox}>
       <div className={topTrapezoid}>
         <div className={text}>
-          <div className="subheading max-lg:pb-1">What we are called to do</div>
+          <div className="subheading pb-1 lg:pb-0">
+            What we are called to do
+          </div>
           <h2>Our mission</h2>
           <p>
             To <span>transform lost people</span> into Christ’s disciples who
@@ -25,7 +27,7 @@ const Mission = () => (
     <div className={bottomBox}>
       <div className={bottomTrapezoid}>
         <div className={text}>
-          <div className="subheading  max-lg:pb-1">How we aspire to live</div>
+          <div className="subheading   pb-1 lg:pb-0">How we aspire to live</div>
           <h2>Our vision</h2>
           <p>
             Becoming a <span>transcultural spiritual family</span> reaching our

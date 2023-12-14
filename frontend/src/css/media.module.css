@@ -1,0 +1,12 @@
+.media-wrapper {
+  @apply bg-[#5E5E5E] relative w-full;
+}
+
+.media-wrapper div {
+  @apply pb-[62.5%];
+}
+
+.media-wrapper iframe,
+.media-content {
+  @apply absolute left-0 top-0 h-full w-full;
+}
