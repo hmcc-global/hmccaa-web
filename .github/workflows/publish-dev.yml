@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "maplexu/fix-dev-pipeline"
 jobs:
   deploy-gatsby:
     runs-on: ubuntu-latest
@@ -24,7 +25,7 @@ jobs:
 
           # Add env file
           echo 'STRAPI_TOKEN=${{ secrets.STRAPI_TOKEN }}' > ./.env.production
-          echo 'STRAPI_API_URL={{ secrets.STRAPI_URL }}' >> ./.env.production
+          echo 'STRAPI_API_URL=${{ secrets.STRAPI_SERVER }}' >> ./.env.production
 
           npm install
           NODE_ENV=production npm run build
