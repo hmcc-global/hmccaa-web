@@ -5,7 +5,7 @@ const PrayerGatheringEvents = () => {
     <div className="bg-Neutral-200 w-full justify-center flex flex-col items-center py-[40px]">
       <div className="flex-col justify-start items-center gap-y-2 flex mt-2">
         <div className="subheading">PRAYER GATHERINGS</div>
-        <div className="text-black text-4xl font-semibold font-['Raleway'] leading-10">BY PRAYING, WE LEARN TO PRAY.</div>
+        <div className="text-black text-4xl font-semibold leading-10">BY PRAYING, WE LEARN TO PRAY.</div>
       </div>      
       <div className="text-xl sm:text-base sm:w-2/5 px-4 pt-4 text-center text-black font-normal font-['Raleway'] leading-normal">“The harvest is plentiful, but the laborers are few; therefore PRAY earnestly to the Lord of the harvest to send out laborers into his harvest.” -Matthew 9:37b-38<br/><br/>Join us for a church-wide Prayer Gathering at our Transformation Center!</div>
       
