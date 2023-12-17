@@ -21,8 +21,13 @@ jobs:
       - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend
+
+          # Add env file
+          echo 'STRAPI_TOKEN=${{ secrets.STRAPI_TOKEN }}' > ./.env.production
+          echo 'STRAPI_API_URL=${{ secrets.STRAPI_SERVER }}' >> ./.env.production
+
           npm install
-          npm run build
+          NODE_ENV=production npm run build
 
           # Add anti-webscraping
           echo 'User-agent: *' > ./public/robots.txt
