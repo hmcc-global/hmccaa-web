@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - "main"
-      - "maplexu/fix-dev-pipeline"
 jobs:
   deploy-gatsby:
     runs-on: ubuntu-latest
