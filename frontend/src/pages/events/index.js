@@ -8,30 +8,84 @@ import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 import Banner from "../../components/shared/banner";
 
-const EventsPage = () => (
-  <Layout>
-    <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
-    <SundayCelebBarEvents />
-    <div>Event list section</div>
-    <EventCard
-      title="Prayer Gathering"
-      date="Th, May 25, 2023"
-      img={
-        <StaticImage
-          className="h-[6.15788rem] w-[10.94738rem] flex-shrink-0 mb-0 md:h-60 md:w-[26.66669rem]"
-          src="../../images/prayer-gathering.png"
-          alt="Background"
-        />
-      }
-      location="T Center"
-      description="I'm baby migas fam yuccie, big mood freegan affogato everyday
-          carry hashtag four dollar toast truffaut 3 wolf moon beard. Hella
-          live-edge brunch neutral milk hotel pabst."
-    />
-    <div>Prayer Gatherings bar</div>
-    <Instagram />
-  </Layout>
-);
+const EventsPage = () => {
+  // multiple events hardcoded to test layout with multiple events
+  const events = [
+    {
+      id: 1,
+      title: "Prayer Gathering",
+      date: "Th, May 25, 2023",
+      imgUrl: "../../images/prayer-gathering.png",
+      imgAlt: "example",
+      location: "T-Center",
+      description: "Event at HMCC where you go to pray and worship God"
+    },
+    {
+      id: 2,
+      title: "Another Event",
+      date: "Th, May 25, 2023",
+      imgUrl: "../../images/prayer-gathering.png",
+      imgAlt: "example",
+      location: "T-Center",
+      description: "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer."
+    },
+    {
+      id: 3,
+      title: "One more Event",
+      date: "Th, May 25, 2023",
+      imgUrl: "../../images/prayer-gathering.png",
+      imgAlt: "example",
+      location: "T-Center",
+      description: "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer."
+    },
+    {
+      id: 4,
+      title: "One more Event",
+      date: "Th, May 25, 2023",
+      imgUrl: "../../images/prayer-gathering.png",
+      imgAlt: "example",
+      location: "T-Center",
+      description: "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer. Now this description is really long and spans many lines."
+    },
+    {
+      id: 5,
+      title: "Last Event",
+      date: "Th, May 25, 2023",
+      imgUrl: "../../images/prayer-gathering.png",
+      imgAlt: "example",
+      location: "T-Center",
+      description: "Event at HMCC where you go to engage in this event at HMCC."
+    },
+  ] // TODO: fetch actual events from backend
+
+  return (
+    <Layout>
+      <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
+      <SundayCelebBarEvents />
+      <div className="grid grid-cols-3 gap-5 py-36">
+        {events.map(event => (
+          <EventCard
+            key={event.id}
+            title={event.title}
+            date={event.date}
+            // TODO: use GatsbyImage since static cannot handle dynamic src
+            img={
+              <StaticImage
+                className="h-[6.15788rem] w-[10.94738rem] flex-shrink-0 mb-0 md:h-60 md:w-[26.66669rem]"
+                src={"../../images/prayer-gathering.png"}
+                alt={event.imgAlt}
+              />
+            }
+            location={event.location}
+            description={event.description}
+          />
+        ))}
+      </div>
+      <div>Prayer Gatherings bar</div>
+      <Instagram />
+    </Layout>
+  )
+}
 
 export const Head = () => <Seo title="Events" />;
 
