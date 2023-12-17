@@ -8,7 +8,6 @@ const modalStyles = {
     backgroundColor: null,
   },
   content: {
-    margin: "2rem",
     position: null,
     padding: null,
     border: null,
