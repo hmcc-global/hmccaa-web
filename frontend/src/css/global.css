@@ -70,7 +70,7 @@ p {
 }
 
 .ReactModal__Content {
-  @apply sm:max-w-[19.625rem] lg:max-w-container mx-auto sm:my-8 border-none;
+  @apply sm:max-w-[19.625rem] lg:max-w-container m-8 sm:mx-auto sm:my-8 border-none;
 }
 
 .ReactModal__Body--open,
