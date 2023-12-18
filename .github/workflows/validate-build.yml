@@ -5,13 +5,25 @@ on:
     branches:
       - "main"
 jobs:
-  deploy-gatsby:
+  validate-files:
     runs-on: ubuntu-latest
     steps:
       - name: git checkout
         uses: actions/checkout@v3
-      - name: Build Gatsby
+      - name: Build Frontend
         run: |
+          echo "Validating frontend"
           cd ${{ github.workspace }}/frontend
           npm install
           npm run build
+      - name: Build CMS
+        run: |
+          common=$(git merge-base main HEAD)             # find common ancestor
+          if [[ $(git diff $(common) HEAD -- cms ]]      # if this commit has changes to cms (compared to ancestor)
+          then
+            echo "Validating cms"
+            cd ${{ github.workspace }}/cms               # validate cms build
+            npm install
+            npm run build
+          fi
+                
