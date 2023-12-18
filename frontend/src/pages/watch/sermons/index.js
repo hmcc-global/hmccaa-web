@@ -20,6 +20,7 @@ const SermonPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext;
+  console.log(pageContext);
   const { title, date, speaker, passage, series, description } = sermon;
   return (
     <Layout>
