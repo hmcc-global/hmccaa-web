@@ -18,7 +18,7 @@ const EventsPage = () => {
       imgUrl: "../../images/prayer-gathering.png",
       imgAlt: "example",
       location: "T-Center",
-      description: "Event at HMCC where you go to pray and worship God"
+      description: "Event at HMCC where you go to pray and worship God",
     },
     {
       id: 2,
@@ -27,7 +27,8 @@ const EventsPage = () => {
       imgUrl: "../../images/prayer-gathering.png",
       imgAlt: "example",
       location: "T-Center",
-      description: "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer."
+      description:
+        "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer.",
     },
     {
       id: 3,
@@ -36,7 +37,8 @@ const EventsPage = () => {
       imgUrl: "../../images/prayer-gathering.png",
       imgAlt: "example",
       location: "T-Center",
-      description: "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer."
+      description:
+        "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer.",
     },
     {
       id: 4,
@@ -45,7 +47,8 @@ const EventsPage = () => {
       imgUrl: "../../images/prayer-gathering.png",
       imgAlt: "example",
       location: "T-Center",
-      description: "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer. Now this description is really long and spans many lines."
+      description:
+        "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer. Now this description is really long and spans many lines.",
     },
     {
       id: 5,
@@ -54,9 +57,10 @@ const EventsPage = () => {
       imgUrl: "../../images/prayer-gathering.png",
       imgAlt: "example",
       location: "T-Center",
-      description: "Event at HMCC where you go to engage in this event at HMCC."
+      description:
+        "Event at HMCC where you go to engage in this event at HMCC.",
     },
-  ] // TODO: fetch actual events from backend
+  ]; // TODO: fetch actual events from backend
 
   return (
     <Layout>
@@ -84,8 +88,8 @@ const EventsPage = () => {
       <div>Prayer Gatherings bar</div>
       <Instagram />
     </Layout>
-  )
-}
+  );
+};
 
 export const Head = () => <Seo title="Events" />;
 
