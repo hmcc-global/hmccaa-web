@@ -1,0 +1,44 @@
+@config "../config/tailwind.config.js";
+
+.wrapper {
+  @apply max-w-[90rem] mx-auto w-full px-4 lg:px-0 pt-[0.9375rem] pb-[2.3125rem] lg:pt-36 lg:pb-[7.5rem];
+}
+
+.container {
+  @apply max-w-[31.25rem] lg:max-w-[56.25rem] lg:relative mx-auto lg:left-[1px] lg:py-[16.6875rem] lg:border-solid lg:border-[10px] lg:border-Primary-500 lg:rounded-full;
+}
+.text-container {
+  @apply flex flex-col items-center text-center max-w-[31.25rem] mx-auto gap-y-5 lg:pb-5;
+}
+
+.text-container p {
+  @apply mb-0 text-base lg:text-lg;
+}
+
+.highlight-text {
+  @apply text-Accent-500 font-bold text-center px-6;
+}
+
+.highlight-text a {
+  @apply text-Accent-500 outline-none;
+}
+
+.ministry-team {
+  @apply lg:px-[1.5625rem] lg:py-[1.34375rem] w-full lg:w-auto inline-flex justify-center items-center lg:absolute bg-Shades-0;
+}
+
+.team-alpha {
+  @apply top-[1.8125rem] left-[0.4375rem];
+}
+
+.team-wrapper {
+  @apply w-full lg:w-auto flex items-center gap-x-3 lg:gap-x-5 leading-tighter lg:max-w-[20.625rem];
+}
+
+.team-wrapper h3 {
+  @apply text-lg lg:text-2xl font-bold uppercase;
+}
+
+.team-wrapper div {
+  @apply text-sm lg:text-lg font-semibold;
+}
