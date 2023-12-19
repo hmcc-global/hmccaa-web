@@ -11,6 +11,7 @@ jobs:
       - name: git checkout
         uses: actions/checkout@v3
       - name: Build Frontend
+        if: success() || failure()
         run: |
           echo "Validating frontend"
           cd ${{ github.workspace }}/frontend
@@ -24,8 +25,8 @@ jobs:
           npm install
           npm run build
       - name: Build CMS
+        if: success() || failure()
         run: |
-          echo "Validating cms"
           cd ${{ github.workspace }}/cms               # validate cms build
           npm install
           npm run build
