@@ -1,5 +1,5 @@
-name: Validate Frontend Build
-run-name: Validate Frontend Build (kicked off by ${{ github.actor }})
+name: Validate Builds
+run-name: Validate Builds (kicked off by ${{ github.actor }})
 on:
   pull_request:
     branches:
@@ -25,12 +25,16 @@ jobs:
           npm run build
       - name: Build CMS
         run: |
-          common=$(git merge-base main HEAD)             # find common ancestor
-          if [[ $(git diff $(common) HEAD -- cms ]]      # if this commit has changes to cms (compared to ancestor)
-          then
-            echo "Validating cms"
-            cd ${{ github.workspace }}/cms               # validate cms build
-            npm install
-            npm run build
-          fi
+          echo "Validating cms"
+          cd ${{ github.workspace }}/cms               # validate cms build
+          npm install
+          npm run build
+        # common=$(git merge-base main HEAD)             # find common ancestor
+        # if [[ $(git diff $(common) HEAD -- cms ]]      # if this commit has changes to cms (compared to ancestor)
+        # then
+        #   echo "Validating cms"
+        #   cd ${{ github.workspace }}/cms               # validate cms build
+        #   npm install
+        #   npm run build
+        # fi
                 
