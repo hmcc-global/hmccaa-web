@@ -59,6 +59,6 @@ jobs:
         run: rsync -avzr --delete-after --exclude={'node_modules/','.env','build/','cron/'} ./cms/ ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content
       - name: Confirm build is done
         run: |
-          date '+%Y-%m-%d %X' > ./latest-build
+          date '+%Y-%m-%d %T.%6N' > ./latest-build
 
           rsync -avz ./latest-build ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content/cron/
