@@ -66,7 +66,7 @@ const EventsPage = () => {
     <Layout>
       <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
       <SundayCelebBarEvents />
-      <div className="grid grid-cols-3 gap-5 py-36">
+      <div className="grid grid-cols-3 gap-x-5 gap-y-[2.0625rem] md:gap-y-15 py-36 max-w-container px-4">
         {events.map(event => (
           <EventCard
             key={event.id}
@@ -75,7 +75,7 @@ const EventsPage = () => {
             // TODO: use GatsbyImage since static cannot handle dynamic src
             img={
               <StaticImage
-                className="h-[6.15788rem] w-[10.94738rem] flex-shrink-0 mb-0 md:h-60 md:w-[26.66669rem]"
+                className="flex-shrink-0 mb-0"
                 src={"../../images/prayer-gathering.png"}
                 alt={event.imgAlt}
               />
