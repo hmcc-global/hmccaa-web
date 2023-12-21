@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_event_times_single_times",
+  "info": {
+    "displayName": "SingleTime",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "DateTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "StopShowingWhenPast": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

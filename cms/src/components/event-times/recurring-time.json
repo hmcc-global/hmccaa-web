@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_event_times_recurring_times",
+  "info": {
+    "displayName": "RecurringTime",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "StartTime": {
+      "type": "component",
+      "repeatable": false,
+      "component": "event-times.event-times",
+      "required": true
+    },
+    "RecurTimeFrame": {
+      "type": "enumeration",
+      "enum": [
+        "Day",
+        "Week",
+        "Month",
+        "Year"
+      ],
+      "default": "Week",
+      "required": true
+    },
+    "RecurEveryXTimeFrames": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "EndDate": {
+      "type": "datetime"
+    },
+    "ShowMostRecent": {
+      "type": "integer"
+    }
+  }
+}

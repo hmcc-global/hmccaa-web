@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "Location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LocationName": {
+      "type": "string",
+      "required": true
+    },
+    "GoogleMapsLink": {
+      "type": "string"
+    }
+  }
+}

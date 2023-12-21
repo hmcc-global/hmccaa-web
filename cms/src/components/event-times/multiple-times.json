@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_event_times_multiple_times",
+  "info": {
+    "displayName": "MultipleTimes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Times": {
+      "type": "component",
+      "repeatable": true,
+      "component": "event-times.event-times"
+    }
+  }
+}
