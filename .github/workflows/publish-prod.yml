@@ -61,4 +61,4 @@ jobs:
         run: |
           date '+%Y-%m-%d %T.%6N' > ./latest-build
 
-          rsync -avz ./latest-build ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content/cron/
+          rsync -avz ./latest-build ./cms/scripts/build-if-new-server.sh ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content/cron/
