@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact.contact"
+    },
+    "Location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "CoverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "StopShowingWhenPast": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "Times": {
+      "type": "dynamiczone",
+      "components": [
+        "event-times.multiple-times",
+        "event-times.recurring-time",
+        "event-times.single-time"
+      ]
+    },
+    "Metadata": {
+      "type": "string",
+      "private": true
+    },
+    "AdditionalInfo": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "IsStreamed"
+      ],
+      "default": "None",
+      "required": true
+    }
+  }
+}
