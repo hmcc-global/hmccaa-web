@@ -49,6 +49,9 @@
         "IsStreamed"
       ],
       "required": false
+    },
+    "EndDateTime": {
+      "type": "datetime"
     }
   }
 }
