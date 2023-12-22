@@ -12,56 +12,61 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "EventTemplate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event-template.event-template",
+      "inversedBy": "Events"
+    },
+    "Time": {
+      "type": "dynamiczone",
+      "components": [
+        "event-times.recurring-time",
+        "event-times.single-time"
+      ],
+      "required": true
+    },
+    "InternalNotes": {
       "type": "string",
-      "required": true
+      "private": true
     },
-    "Description": {
-      "type": "text",
-      "required": true
+    "NameOverride": {
+      "type": "string",
+      "required": false
     },
-    "contact": {
+    "ContactOverride": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::contact.contact"
     },
-    "Location": {
+    "LocationOverride": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location.location"
     },
-    "CoverImage": {
+    "DescriptionOverride": {
+      "type": "text",
+      "required": false
+    },
+    "DescriptionAddendum": {
+      "type": "text",
+      "required": false
+    },
+    "CoverImageOverride": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
     },
-    "StopShowingWhenPast": {
+    "StopShowingWhenPastOverride": {
       "type": "boolean",
-      "default": true,
-      "required": true
+      "required": false
     },
-    "Times": {
-      "type": "dynamiczone",
-      "components": [
-        "event-times.multiple-times",
-        "event-times.recurring-time",
-        "event-times.single-time"
-      ]
-    },
-    "Metadata": {
-      "type": "string",
-      "private": true
-    },
-    "AdditionalInfo": {
-      "type": "enumeration",
-      "enum": [
-        "None",
-        "IsStreamed"
-      ],
-      "default": "None",
+    "DisplayIsStreamedOverride": {
+      "type": "boolean",
+      "default": false,
       "required": true
     }
   }

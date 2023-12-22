@@ -39,7 +39,14 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: ["sermon"],
+        collectionTypes: [
+          "sermon",
+          "preacher",
+          "location",
+          "contact",
+          "event",
+          "event-template"
+        ],
         singleTypes: [],
       },
     },
