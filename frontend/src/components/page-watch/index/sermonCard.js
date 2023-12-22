@@ -20,7 +20,7 @@ const SermonCard = ({ img, date, title, speaker, passage, series }) => {
   });
 
   return (
-    <Card img={img} date={formattedDate} title={title}>
+    <Card img={img} date={formattedDate} title={title} containerCss="md:pb-[3.5625rem]">
       {attributes}
     </Card>
   );
