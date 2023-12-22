@@ -30,7 +30,7 @@ const NotFoundPage = () => (
           </div>
           <div className="pb-3">
             <Link
-              to="/"
+              to="/connect"
               className="text-Primary-300 font-extrabold text-start leading-normal underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base"
             >
               Sunday Celebration Info
@@ -38,7 +38,7 @@ const NotFoundPage = () => (
           </div>
           <div className="pb-3">
             <Link
-              to="/"
+              to="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
               className="text-Primary-300 font-extrabold text-start leading-normal underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base"
             >
               Life Group Sign Up
@@ -46,7 +46,7 @@ const NotFoundPage = () => (
           </div>
           <div className="pb-3">
             <Link
-              to="/"
+              to="/events"
               className="text-Primary-300 font-extrabold text-start leading-normal underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base"
             >
               Upcoming Events
