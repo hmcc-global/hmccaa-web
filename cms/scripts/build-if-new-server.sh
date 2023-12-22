@@ -28,7 +28,6 @@ print_info() {
 latest_build="$script_path/latest-build"
 latest_build_old="$script_path/latest-build_old"
 
-
 if ! cmp -s $latest_build $latest_build_old; then
     print_info "Found newer build. Restarting server..."
     cp $latest_build $latest_build_old
