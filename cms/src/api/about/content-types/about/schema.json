@@ -22,7 +22,8 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "richtext",
+      "required": false
     }
   }
 }

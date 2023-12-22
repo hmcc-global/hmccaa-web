@@ -1,16 +1,22 @@
 {
-  "collectionName": "components_event_times_recurring_times",
+  "collectionName": "components_et_rt",
   "info": {
     "displayName": "RecurringTime",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "StartTime": {
-      "type": "component",
-      "repeatable": false,
-      "component": "event-times.event-times",
+    "DateTime": {
+      "type": "datetime",
       "required": true
+    },
+    "StopShowingWhenPast": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "EndDateTime": {
+      "type": "datetime"
     },
     "RecurTimeFrame": {
       "type": "enumeration",
@@ -28,11 +34,8 @@
       "required": true,
       "default": 1
     },
-    "EndDate": {
+    "EndRecurDate": {
       "type": "datetime"
-    },
-    "ShowMostRecent": {
-      "type": "integer"
     }
   }
 }

@@ -12,6 +12,7 @@ services:
       - ./frontend/src/:/opt/frontend/src/
       - ./frontend/.eslintrc.js:/opt/frontend/.eslintrc.js
       - ./frontend/eslint-custom-gatsby-rule:/opt/frontend/eslint-custom-gatsby-rule
+      - ./frontend/gatsby-config.js:/opt/frontend/gatsby-config.js
       - ./frontend/.env.development:/opt/frontend/.env.development
       - ./frontend/scripts/:/opt/frontend/scripts/
     networks:
