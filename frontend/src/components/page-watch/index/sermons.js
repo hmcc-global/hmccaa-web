@@ -24,7 +24,7 @@ const Sermons = () => {
     }
   `);
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 py-36">
+   <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 py-36 max-w-container px-4">
       {data.allStrapiSermon.nodes.map((sermon, i) => (
         <div key={i}>
           <SermonCard
