@@ -10,7 +10,7 @@
 # To see crontab logs, run:
 #     sudo cat /var/log/syslog | grep -w 'cron'
 script_path="$HOME/annarbor-content/cron"
-log_path="script_path/logs/"
+log_path="$script_path/logs"
 main_log_file="$script_path/build.log"
 
 RED='\033[0;31m'
@@ -32,7 +32,7 @@ latest_build_old="$script_path/latest-build_old"
 if ! cmp -s $latest_build $latest_build_old; then
     print_info "Found newer build. Restarting server..."
     cp $latest_build $latest_build_old
-    build_log_file="$log_path/build-`date '+%Y-%m-%d%H-$M-$S-%3N'`.log"
+    build_log_file="$log_path/build-`date '+%Y-%m-%d%H-%M-%S-%3N'`.log"
     sh $HOME/annarbor-content/scripts/restart-server.sh > $build_log_file && print_info "Build succeeded." || print_info "Build failed."
 else
     print_info "Build has not changed."
