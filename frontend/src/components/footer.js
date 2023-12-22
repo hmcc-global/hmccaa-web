@@ -29,8 +29,8 @@ const Footer = () => {
     <footer>
       <div className="bg-Primary-700 justify-center items-center flex">
         <div className="flex flex-col justify-center items-center max-w-container w-full px-4 xl:px-0">
-          <div className="flex flex-col items-center md:items-start md:flex-row md:py-12 xl:p-12 w-full lg:justify-between xl:justify-normal xl:gap-[10.753%]">
-            <div className="flex flex-col max-w-[180px] items-start">
+          <div className="flex flex-col items-center md:items-start md:flex-row gap-y-10 px-4 py-5 md:p-12 w-full lg:justify-between xl:justify-normal xl:gap-[10.753%]">
+            <div className="flex flex-col max-w-[180px] items-center">
               <div className="flex flex-col items-center">
                 <img
                   alt="hmcc logo"
@@ -41,14 +41,14 @@ const Footer = () => {
                   HARVEST MISSION COMMUNITY CHURCH
                 </h2>
               </div>
-              <p className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px]">
+              <p className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-center md:text-left">
                 To transform lost people into Christ’s disciples who will then
                 transform the world.
               </p>
             </div>
             <hr className="bg-Shades-0 w-full md:w-0 md:h-0 m-0 order-3 md:order-none " />
-            <div className="flex flex-row justify-between md:gap-0 md:justify-evenly w-full sm:max-w-[313px] lg:justify-between py-10 md:py-0 order-3 md:order-none px-[12.805%] sm:px-0">
-              <div className="flex flex-col items-start w-fit md:mt-[30px]">
+            <div className="flex flex-row justify-between md:gap-0 md:justify-evenly w-full sm:max-w-[313px] lg:justify-between md:py-0 order-3 md:order-none px-[12.805%] sm:px-0">
+              <div className="flex flex-col items-start w-fit">
                 <div className="items-start flex flex-col">
                   <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">
                     Browse
@@ -57,14 +57,14 @@ const Footer = () => {
                     <a
                       key={`browseLink-${index}`}
                       href={item.route}
-                      className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75"
+                      className="text-Shades-0 font-medium text-start text-sm leading-normal mb-4 md:mb-0 no-underline hover:opacity-75"
                     >
                       {item.title}
                     </a>
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col items-start w-fit md:mt-[30px]">
+              <div className="flex flex-col items-start w-fit">
                 <div className="items-start flex flex-col">
                   <h2 className="text-Shades-0 font-bold text-center text-sm leading-normal mb-[12px]">
                     Ways to Connect
@@ -75,7 +75,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noreferrer"
                       href={item.route}
-                      className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75"
+                      className="text-Shades-0 font-medium text-start text-sm leading-normal mb-4 md:mb-0 no-underline hover:opacity-75"
                     >
                       {item.title}
                     </a>
@@ -83,7 +83,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col items-start md:mt-[30px] xl:ml-[12.815%] min-w-[15rem] py-10 md:py-0 order-2 md:order-none">
+            <div className="flex flex-col items-start xl:ml-[12.815%] min-w-[15rem] md:py-0 order-2 md:order-none">
               <div className="flex flex-row justify-center items-center">
                 <img
                   alt="clock logo"
@@ -172,8 +172,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <hr className="bg-Shades-0 w-full md:w-[90%] mb-[20px]" />
-          <div className="flex flex-row justify-center md:justify-normal w-full mb-[62px]">
+          <hr className="bg-Shades-0 w-full md:w-0 md:h-0 mb-[20px]" />
+          <div className="flex flex-row justify-center md:justify-normal w-full md:px-12 mb-[62px]">
             <div className="flex flex-row justify-center items-center mb-5 md:mb-0">
               <CopyrightLogo className="w-5 h-5 md:w-6 md:h-6" />
               <h2 className="text-Shades-0 text-sm md:text-lg font-normal mb-0 ml-1 tracking-medium-wide md:tracking-normal">
