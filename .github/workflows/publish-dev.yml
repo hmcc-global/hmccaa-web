@@ -19,10 +19,10 @@ jobs:
       - shell: pwsh
         id: check_files_changed
         run: |
-          # Check if a file under cms/ has changed
-          $HasCmsDiff = (git diff --name-only HEAD^ -- cms/) -gt 0
-          $HasFrontendDiff = (git diff --name-only HEAD^ -- frontend/) -gt 0
-          $HasDocsDiff = (git diff --name-only HEAD^ -- docs/) -gt 0
+          # Check if a file under cms/, docs/, or frontend/ has changed
+          $HasCmsDiff = (git diff --name-only HEAD^ -- cms/).Length -gt 0
+          $HasFrontendDiff = (git diff --name-only HEAD^ -- frontend/).Length -gt 0
+          $HasDocsDiff = (git diff --name-only HEAD^ -- docs/).Length -gt 0
 
           Write-Host "Found cms/ changed: $HasCmsDiff"
           Write-Host "Found frontend/ changed: $HasFrontendDiff"
