@@ -45,7 +45,7 @@ module.exports = {
           "location",
           "contact",
           "event",
-          "event-template"
+          "event-template",
         ],
         singleTypes: [],
       },
