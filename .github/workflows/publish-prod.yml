@@ -3,7 +3,7 @@ run-name: Production server deployment (kicked off by ${{ github.actor }})
 on:
   push:
     branches:
-      - "main"
+      - "release"
 jobs:
   check-files-changed:
     runs-on: ubuntu-latest
