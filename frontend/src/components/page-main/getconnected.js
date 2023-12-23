@@ -9,6 +9,7 @@ import {
 } from "../../css/ministryTeams.module.css";
 import { SecondaryButtonLink } from "../Button";
 import gc94 from "../../images/gc94.svg";
+import imgImpact from "../../images/home-get-connected/impact-raw.png";
 import ga from "../../images/home-get-connected/ga.svg";
 import lv from "../../images/home-get-connected/lv.svg";
 import covMobile from "../../images/home-get-connected/covenant-mobile.svg";
@@ -38,8 +39,29 @@ const GetConnectedText = () => (
 );
 
 const GetConnectedCircleDesktop = () => (
-  <div className="h-full flex-col relative">
-    <div className="padding-4 absolute w-1180px h-1065px">
+  <div className="flex-col relative">
+    <div className="flex flex-row relative h-[500px] w-[500px] ">
+      <div className="relative w-[270px] h-[278px]">
+        <div className="w-[15.5rem] h-[250px] left-[1.25rem] top-[1.75rem] absolute bg-[#FFBD57]">
+          <div className="left-[11px] top-[221px] absolute text-Shades-0 text-xl font-bold font-['Raleway'] leading-normal">
+            IMPACT
+          </div>
+          {/* <div className="w-[200px] left-[11px] top-[221px] absolute text-Shades-0 text-xl font-bold font-['Raleway'] leading-normal">IMPACT</div> */}
+          <div className="left-[230px] top-[196px] absolute origin-top-left -rotate-90 text-Shades-0 text-sm font-bold font-['Raleway'] leading-[21px]">
+            GRADUATE&nbsp;&nbsp;&nbsp;STUDENTS
+          </div>
+        </div>
+        <div className="w-[250px] h-[250px] left-0 top-0 absolute border-4 border-[#FFBD57] items-center inline-flex">
+          <img
+            src={imgImpact}
+            alt={"asdf"}
+            className="mb-0 w-[242px] h-[242px]"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div className="px-10">
       <img
         className="padding-4"
         alt="Images of LIFE Groups arranged in a circle"
