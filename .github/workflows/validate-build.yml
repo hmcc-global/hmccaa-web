@@ -7,6 +7,9 @@ on:
 jobs:
   check-files-changed:
     runs-on: ubuntu-latest
+    concurrency:
+      group: pr-${{ github.ref}}
+      cancel-in-progress: true
     outputs:
       cms_changed: ${{ steps.check_files_changed.outputs.cms_changed }}
       frontend_changed: ${{ steps.check_files_changed.outputs.frontend_changed }}
