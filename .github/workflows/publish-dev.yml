@@ -18,9 +18,7 @@ jobs:
         id: check_cms_files_changed
         run: |
           # Check if a file under cms/ has changed
-          $diff = git diff --name-only HEAD^ HEAD
-          $SourceDiff = $diff | Where-Object { $_ -match '^cms/' }
-          $HasDiff = $SourceDiff.Length -gt 0
+          $HasDiff = (git diff --name-only HEAD^ -- cms/) -gt 0
 
           Write-Host $HasDiff
           # Supposed to use env variables method but couldn't get it to work
@@ -31,9 +29,7 @@ jobs:
         id: check_frontend_files_changed
         run: |
           # Check if a file under frontend/ has changed
-          $diff = git diff --name-only HEAD^ HEAD
-          $SourceDiff = $diff | Where-Object { $_ -match '^frontend/' }
-          $HasDiff = $SourceDiff.Length -gt 0
+          $HasDiff = (git diff --name-only HEAD^ -- frontend/) -gt 0
 
           Write-Host $HasDiff
           # Supposed to use env variables method but couldn't get it to work
