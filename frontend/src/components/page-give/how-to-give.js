@@ -25,7 +25,12 @@ const HowToGiveSection = () => (
           credit and debit card transactions. $0.25 for bank account ACH
           deductions).
         </p>
-        <PrimaryButtonLink hasArrow={true}>Give Now</PrimaryButtonLink>
+        <PrimaryButtonLink
+          to="https://hmcc-aa.churchcenter.com/giving"
+          hasArrow={true}
+        >
+          Give Now
+        </PrimaryButtonLink>
       </div>
       <div className="flex flex-col items-center max-w-[280px] lg:p-2.5 gap-y-2 lg:gap-y-0">
         <div className="lg:m-2.5 w-[5rem] h-[5rem] lg:w-25 lg:h-25 flex items-center">
@@ -61,7 +66,9 @@ const HowToGiveSection = () => (
         States. Year-end giving reports will be issued every January.
       </p>
     </div>
-    <SecondaryButtonLink>View Donor Profile</SecondaryButtonLink>
+    <SecondaryButtonLink to="https://hmcc-aa.churchcenter.com/giving/profile">
+      View Donor Profile
+    </SecondaryButtonLink>
   </div>
 );
 

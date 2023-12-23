@@ -21,7 +21,9 @@ const UpcomingEvents = () => (
         to have fun and get to know others!
       </p>
       <div className="flex justify-center lg:justify-start">
-        <SecondaryButtonLink hasArrow={true}>More Events</SecondaryButtonLink>
+        <SecondaryButtonLink to="/events" hasArrow={true}>
+          More Events
+        </SecondaryButtonLink>
       </div>
     </div>
   </div>

@@ -13,7 +13,9 @@ const GetConnectedText = () => (
       couples!
     </p>
     <div className="flex justify-center">
-      <SecondaryButtonLink hasArrow={true}>Learn More</SecondaryButtonLink>
+      <SecondaryButtonLink to="/connect" hasArrow={true}>
+        Learn More
+      </SecondaryButtonLink>
     </div>
   </div>
 );

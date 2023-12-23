@@ -22,7 +22,7 @@ const MapDetails = () => {
             <SecondaryButtonLink
               hasArrow={true}
               className={"bg-Shades-0"}
-              to=""
+              to="https://maps.app.goo.gl/K7Z126sj78wQjuGY7"
             >
               MAPS & DIRECTIONS
             </SecondaryButtonLink>
