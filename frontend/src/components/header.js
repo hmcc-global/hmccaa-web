@@ -40,6 +40,15 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
   return (
     <header>
       <div className={`${containerStyle}`}>
@@ -68,9 +77,9 @@ const Header = () => {
         </div>
 
         {isOpen && (
-          <div className="text-Shades-0 w-full h-full justify-center items-start absolute left-0 right-0 top-0 bottom-0 z-50">
-            <div className="flex flex-col justify-start items-center h-screen">
-              <div className="flex flex-row pt-5 w-full justify-between bg-[#262626] opacity-90">
+          <div className="text-Shades-0 w-screen h-screen justify-center bg-[#262626] items-start fixed left-0 right-0 top-0 bottom-0 z-50">
+            <div className="flex flex-col justify-start items-center">
+              <div className="flex flex-row pt-5 w-full justify-between opacity-90">
                 <div></div>
                 <Link className="ml-12" to="/">
                   <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
