@@ -37,8 +37,6 @@ jobs:
           Write-Host "::set-output name=frontend_changed::$HasFrontendDiff"
           Write-Host "::set-output name=docs_changed::$HasDocsDiff"
 
-
-
   deploy-cms:
     runs-on: ubuntu-latest
     needs: [check-files-changed]
