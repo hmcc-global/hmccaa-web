@@ -14,7 +14,7 @@ import Seo from "../../components/seo";
 
 const EventPage = () => (
     <Layout>
-        <div className="flex flex-col justify-start items-center gap-y-8 lg:gap-y-14 pt-8 gap-x-32 lg:pt-14 py-32">
+        <div className="flex flex-col justify-start items-center gap-y-8 lg:gap-y-14 pt-8 gap-x-32 lg:pt-14 py-28">
             <h2 className="text-center lg:text-left text-xl lg:text-3xl font-semibold">Campus Missions Week</h2>
 
             <div className="flex flex-col lg:flex-row justify-center items-center gap-14 lg:gap-48">
