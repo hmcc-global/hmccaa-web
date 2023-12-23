@@ -60,7 +60,8 @@
     "BiblePassage": {
       "type": "component",
       "repeatable": true,
-      "component": "sermon.bible-passage"
+      "component": "sermon.bible-passage",
+      "required": true
     },
     "Series": {
       "type": "relation",
