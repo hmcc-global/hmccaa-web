@@ -62,7 +62,6 @@ jobs:
           cd ${{ github.workspace }}/cms
           npm install
           npm run build
-          npm run strapi routes:list
           npm run strapi policies:list
           npm run strapi middlewares:list
           npm run strapi content-types:list
