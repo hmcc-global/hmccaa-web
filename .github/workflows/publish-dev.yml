@@ -55,6 +55,17 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.CMS_SSH_HOST }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
+      - name: Validate Strapi
+        run: | 
+          cd ${{ github.workspace }}/cms
+          npm install
+          npm run build
+          npm run strapi policies:list
+          npm run strapi middlewares:list
+          npm run strapi content-types:list
+          npm run strapi hooks:list
+          npm run strapi controllers:list
+          npm run strapi services:list
       - name: Sync files to server
         run: rsync -avzr --delete-after --exclude={'node_modules/','.env','build/','cron/'} ./cms/ ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content
       - name: Confirm build is done
