@@ -31,7 +31,7 @@ latest_build_old="$script_path/latest-build_old"
 if ! cmp -s $latest_build $latest_build_old; then
     print_info "Found newer build. Restarting server..."
     cp $latest_build $latest_build_old
-    build_log_file="$log_path/build-`date '+%Y-%m-%d%H-%M-%S-%3N'`.log"
+    build_log_file="$log_path/build-`date '+%Y-%m-%d_%H-%M-%S-%3N'`.log"
     sh $HOME/annarbor-content/scripts/restart-server.sh > $build_log_file && print_info "Build succeeded." || print_info "Build failed."
 else
     print_info "Build has not changed."
