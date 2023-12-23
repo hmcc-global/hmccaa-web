@@ -54,11 +54,18 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.CMS_SSH_HOST }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
-      - name: Build Strapi
+      - name: Verify Strapi
         run: | 
           cd ${{ github.workspace }}/cms
           npm install
           npm run build
+          npm run strapi routes:list
+          npm run strapi policies:list
+          npm run strapi middlewares:list
+          npm run strapi content-types:list
+          npm run strapi hooks:list
+          npm run strapi controllers:list
+          npm run strapi services:list
 
   validate-frontend:
     runs-on: ubuntu-latest
