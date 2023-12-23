@@ -8,5 +8,6 @@
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Restart server
+npm install
 NODE_ENV=production npm run build
 pm2 restart strapi
