@@ -117,6 +117,9 @@ jobs:
   deploy-docs:
     needs: [build-docs]
     runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-docs
+      cancel-in-progress: true
     steps:
       - name: git checkout
         uses: actions/checkout@v3
