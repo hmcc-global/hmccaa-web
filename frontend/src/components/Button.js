@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { Link as GatsbyLink } from "gatsby";
 import { ButtonArrow } from "./svgs";
 import {
   button,
@@ -15,7 +15,7 @@ export const ButtonLink = ({
   children,
   customClassName,
 }) => (
-  <Link className={`${button} ${className} ${customClassName?.button}`} to={to}>
+  <GatsbyLink className={`${button} ${className} ${customClassName?.button}`} to={to}>
     <span
       className={`${(hasArrow && textContainer) || ""} ${
         customClassName?.textContainer || ""
@@ -24,7 +24,7 @@ export const ButtonLink = ({
       {children}
     </span>{" "}
     {hasArrow && <ButtonArrow />}
-  </Link>
+  </GatsbyLink>
 );
 
 export const Button = ({
