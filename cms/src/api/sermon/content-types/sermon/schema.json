@@ -58,8 +58,9 @@
       "type": "richtext"
     },
     "BiblePassage": {
-      "type": "string",
-      "required": false
+      "type": "component",
+      "repeatable": true,
+      "component": "sermon.bible-passage"
     },
     "Series": {
       "type": "relation",
@@ -71,6 +72,12 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::preacher.preacher",
+      "inversedBy": "Sermons"
+    },
+    "SermonTopics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sermon-topic.sermon-topic",
       "inversedBy": "Sermons"
     }
   }
