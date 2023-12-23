@@ -13,9 +13,9 @@ const NextStepsPage = () => (
     <div className="w-full px-4">
       <div className="max-w-container mx-auto">
         <LifeGroup />
-        <div>Membership section</div>
+        {/* <div>Membership section</div>
         <div>Transformation classes section</div>
-        <div>Baptism section</div>
+        <div>Baptism section</div> */}
       </div>
       <MinistryTeams />
       <div className="max-w-container mx-auto">

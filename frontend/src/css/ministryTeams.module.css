@@ -36,9 +36,9 @@
 }
 
 .team-wrapper h3 {
-  @apply text-lg lg:text-2xl font-bold uppercase;
+  @apply text-2xl font-bold uppercase;
 }
 
 .team-wrapper div {
-  @apply text-sm lg:text-lg font-semibold;
+  @apply text-lg font-semibold;
 }

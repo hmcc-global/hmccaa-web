@@ -20,7 +20,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const teams = [
   {
-    team: "Art & Design Servant",
+    team: "Art & Design Servants",
     abbreviation: "ADS",
     Component: AdsLogo,
   },
