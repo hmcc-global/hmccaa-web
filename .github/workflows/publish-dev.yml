@@ -1,41 +1,43 @@
-name: Publish Development Server
-run-name: Development server deployment (kicked off by ${{ github.actor }})
+name: Publish PR Build to Servers
+run-name: Deploy after PR merge to main (merged by ${{ github.actor }})
 on:
   push:
     branches:
       - "main"
+
 jobs:
   check-files-changed:
     runs-on: ubuntu-latest
     outputs:
-      cms_changed: ${{ steps.check_cms_files_changed.outputs.cms_changed }}
-      frontend_changed: ${{ steps.check_frontend_files_changed.outputs.frontend_changed }}
+      cms_changed: ${{ steps.check_files_changed.outputs.cms_changed }}
+      frontend_changed: ${{ steps.check_files_changed.outputs.frontend_changed }}
+      docs_changed: ${{ steps.check_files_changed.outputs.docs_changed }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2
       - shell: pwsh
-        id: check_cms_files_changed
+        id: check_files_changed
         run: |
           # Check if a file under cms/ has changed
-          $HasDiff = (git diff --name-only HEAD^ -- cms/) -gt 0
+          $HasCmsDiff = (git diff --name-only HEAD^ -- cms/) -gt 0
+          $HasFrontendDiff = (git diff --name-only HEAD^ -- frontend/) -gt 0
+          $HasDocsDiff = (git diff --name-only HEAD^ -- docs/) -gt 0
 
-          Write-Host $HasDiff
+          Write-Host "Found cms/ changed: $HasCmsDiff"
+          Write-Host "Found frontend/ changed: $HasFrontendDiff"
+          Write-Host "Found docs/ changed: $HasDocsDiff"
           # Supposed to use env variables method but couldn't get it to work
-          # so still using the deprecated set-output method for now 
-          Write-Host "::set-output name=cms_changed::$HasDiff"
-          # $env:GITHUB_OUTPUT = "cms_changed::$HasDiff"
-      - shell: pwsh
-        id: check_frontend_files_changed
-        run: |
-          # Check if a file under frontend/ has changed
-          $HasDiff = (git diff --name-only HEAD^ -- frontend/) -gt 0
+          # $env:GITHUB_OUTPUT = "cms_changed::$HasCmsDiff"
+          # $env:GITHUB_OUTPUT = "frontend_changed::$HasFrontendDiff"
+          # $env:GITHUB_OUTPUT = "docs_changed::$HasFrontendDiff"
 
-          Write-Host $HasDiff
-          # Supposed to use env variables method but couldn't get it to work
-          # so still using the deprecated set-output method for now 
-          Write-Host "::set-output name=frontend_changed::$HasDiff"
-          # $env:GITHUB_OUTPUT = "frontend_changed::$HasDiff"
+          # So still using the deprecated set-output method for now 
+          Write-Host "::set-output name=cms_changed::$HasCmsDiff"
+          Write-Host "::set-output name=frontend_changed::$HasFrontendDiff"
+          Write-Host "::set-output name=docs_changed::$HasDocsDiff"
+
+
 
   deploy-cms:
     runs-on: ubuntu-latest
@@ -97,3 +99,32 @@ jobs:
           echo 'Disallow: /' >> ./public/robots.txt
       - name: Sync files to server
         run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
+
+  build-docs:
+    runs-on: ubuntu-latest
+    needs: [check-files-changed]
+    if: needs.check-files-changed.outputs.docs_changed == 'True'
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: Build Docs Server
+        run: |
+          cd ${{ github.workspace }}/docs
+          sudo sh serve.sh
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./docs/_book/
+
+  deploy-docs:
+    needs: [build-docs]
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: Deploy Artifacts
+        uses: actions/deploy-pages@v2
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
