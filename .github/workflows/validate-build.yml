@@ -14,14 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - shell: pwsh
         id: check_files_changed
         run: |
           # Check if a file under cms/ has changed
-          $HasCmsDiff = (git diff --name-only HEAD^ -- cms/) -gt 0
-          $HasFrontendDiff = (git diff --name-only HEAD^ -- frontend/) -gt 0
-          $HasDocsDiff = (git diff --name-only HEAD^ -- docs/) -gt 0
+          $HasCmsDiff = (git diff --name-only origin/main -- cms/) -gt 0
+          $HasFrontendDiff = (git diff --name-only origin/main -- frontend/) -gt 0
+          $HasDocsDiff = (git diff --name-only origin/main -- docs/) -gt 0
 
           Write-Host "Found cms/ changed: $HasCmsDiff"
           Write-Host "Found frontend/ changed: $HasFrontendDiff"
