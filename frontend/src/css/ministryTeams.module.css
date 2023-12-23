@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .wrapper {
-  @apply max-w-[90rem] mx-auto w-full px-4 lg:px-0 pt-[0.9375rem] pb-[2.3125rem] lg:pt-36 lg:pb-[7.5rem];
+  @apply max-w-[90rem] mx-auto w-full px-4 lg:px-0 pt-[0.9375rem] pb-[2.3125rem] lg:pt-14 lg:pb-[7.5rem];
 }
 
 .container {
@@ -36,7 +36,7 @@
 }
 
 .team-wrapper h3 {
-  @apply text-lg lg:text-2xl font-bold uppercase;
+  @apply text-xl lg:text-2xl font-bold uppercase;
 }
 
 .team-wrapper div {
