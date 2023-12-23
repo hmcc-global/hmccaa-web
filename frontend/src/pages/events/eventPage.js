@@ -5,6 +5,7 @@ import Layout from "../../components/layout";
 import { PrimaryButtonLink } from "../../components/Button";
 import locationPinIcon from "../../images/icons/locationPin.svg"
 import calendarIcon from "../../images/icons/calendar.svg"
+import clockIcon from "../../images/icons/clock-black.svg"
 import { StaticImage } from "gatsby-plugin-image";
 
 import Seo from "../../components/seo";
@@ -24,7 +25,7 @@ const EventPage = () => (
                             <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">August 27, 2023</div>
                         </div>
                         <div className="flex items-center gap-1 lg:gap-2">
-                            <div className="w-5 h-5 lg:w-6 lg:h-6 relative" > <img src={locationPinIcon}></img></div>
+                            <div className="w-5 h-5 lg:w-6 lg:h-6 relative" > <img src={clockIcon}></img></div>
                             <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">TBD</div>
                         </div>
                         <div className="flex items-center gap-1 lg:gap-2">
