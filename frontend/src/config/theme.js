@@ -80,6 +80,7 @@ const theme = {
     montserrat: "Montserrat",
     raleway: "Raleway",
     inter: "Inter",
+    roboto: "Roboto",
   },
   borderRadius: {
     none: "0",
