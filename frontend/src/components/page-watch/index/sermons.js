@@ -24,24 +24,22 @@ const Sermons = () => {
     }
   `);
   return (
-   <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 py-36 max-w-container px-4">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 py-36 max-w-container px-4">
       {data.allStrapiSermon.nodes.map((sermon, i) => (
-        <div key={i}>
-          <SermonCard 
-             key={i}
-            title={sermon.Title}
-            date={sermon.DatePreached}
-            img={
-              <StaticImage
-                src="../../../images/Sermon-Ad-Selah-April.png"
-                alt="Selah"
-              />
-            }
-            speaker={sermon.Preacher.Prefix + " " + sermon.Preacher.Name}
-            passage={sermon.Title}
-            series={sermon.Series.Name}
-          />
-        </div>
+        <SermonCard
+          key={i}
+          title={sermon.Title}
+          date={sermon.DatePreached}
+          img={
+            <StaticImage
+              src="../../../images/Sermon-Ad-Selah-April.png"
+              alt="Selah"
+            />
+          }
+          speaker={sermon.Preacher.Prefix + " " + sermon.Preacher.Name}
+          passage={sermon.Title}
+          series={sermon.Series.Name}
+        />
       ))}
     </div>
   );
