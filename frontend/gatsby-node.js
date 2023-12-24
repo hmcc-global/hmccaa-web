@@ -24,9 +24,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allStrapiSermon {
         nodes {
           Title
-          VideoLink
-          ServiceType
-          BiblePassage
+          DatePreached
+          BiblePassage {
+            Book
+            ChapterVerse
+          }
           Series {
             Name
             id
@@ -85,40 +87,53 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         .replace(/\s+/g, "-"),
     })
   );
-  let books = posts
-    .map(({ BiblePassage }) => BiblePassage.split(/[,;]/g))
-    .map(book =>
-      book
-        .map(item => item.replace(/^\s+|\s+$/g, ""))
-        .map(item => {
-          const search = item.substring(1);
-          const found = search.search(/[0-9:]/);
-          return found > -1 && found !== 2
-            ? item.substring(0, found + 1).replace(/\s+$/, "")
-            : item;
-        })
-        .filter(item => /[a-zA-Z]/.test(item))
-    );
-  books = []
-    .concat(...books)
-    .filter((x, i, a) => a.indexOf(x) == i)
-    .map(book => ({
-      label: book,
-      value: book.replace(/1/, "one").replace(/2/, "two"),
-    }));
+  let books = posts.map(({ BiblePassage }) =>
+    BiblePassage.map(({ Book }) => Book)
+  );
+  books = [].concat(...books).map(book => {
+    const bookLabel = /\(\d[a-z]+\)/.test(book)
+      ? `${book.substring(
+          book.search(/\d/),
+          book.search(/\d/) + 1
+        )} ${book.substring(0, book.search(/\(/))}`
+      : book;
+    return {
+      label: bookLabel,
+      value: book.replace(/\(|\)/g, "").replace(/\s+/, "-").toLowerCase(),
+      book,
+    };
+  });
 
   const postsPerPage = ITEMS_PER_PAGE;
   const numberOfPages = Math.ceil(posts.length / postsPerPage);
-  speakers = speakers.map(speaker => ({
-    ...speaker,
+  speakers = speakers
+    .map(speaker => ({
+      ...speaker,
+      numOfPages: Math.ceil(
+        posts.filter(
+          ({ Preacher: { Prefix, Name } }) =>
+            speaker.prefix === Prefix && speaker.name === Name
+        ).length / postsPerPage
+      ),
+    }))
+    .filter(({ numOfPages }) => numOfPages > 0);
+
+  series = series.map(item => ({
+    ...item,
     numOfPages: Math.ceil(
-      posts.filter(
-        ({ Preacher: { Prefix, Name } }) =>
-          speaker.prefix === Prefix && speaker.name === Name
-      ).length / postsPerPage
+      posts.filter(({ Series: { Name } }) => item.label === Name).length /
+        postsPerPage
     ),
   }));
 
+  books = books.map(item => ({
+    ...item,
+    numOfPages: Math.ceil(
+      posts.filter(({ BiblePassage }) =>
+        BiblePassage.some(({ Book }) => Book === item.book)
+      ).length / postsPerPage
+    ),
+  }));
   Array.from({ length: numberOfPages }).forEach((_, index) => {
     createPage({
       path: index === 0 ? `/watch` : `/watch/${index + 1}`,
@@ -148,9 +163,187 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           filterValue: value,
           speakers,
           series,
-          books,
           prefix,
           name,
+          books,
+        },
+      });
+    });
+
+    series.forEach(({ value: seriesValue, label }) => {
+      const numPages = Math.ceil(
+        posts.filter(
+          ({ Preacher: { Prefix, Name }, Series: { Name: seriesName } }) =>
+            prefix === Prefix && name === Name && seriesName === label
+        ).length / postsPerPage
+      );
+      const filterValue = `${value}/${seriesValue}`;
+      Array.from({ length: numPages }).forEach((_, seriesIndex) => {
+        createPage({
+          path:
+            seriesIndex === 0
+              ? `/watch/${filterValue}`
+              : `/watch/${filterValue}/${seriesIndex + 1}`,
+          component: path.resolve("./src/templates/sermons.js"),
+          context: {
+            limit: postsPerPage,
+            skip: seriesIndex * postsPerPage,
+            currentPage: seriesIndex + 1,
+            filterValue,
+            numPages,
+            speakers,
+            series,
+            prefix,
+            name,
+            seriesName: label,
+            books,
+          },
+        });
+      });
+
+      books.forEach(({ value: bookValue, book }) => {
+        const numberOfPages = Math.ceil(
+          posts.filter(
+            ({
+              Preacher: { Prefix, Name },
+              Series: { Name: seriesName },
+              BiblePassage,
+            }) =>
+              prefix === Prefix &&
+              name === Name &&
+              seriesName === label &&
+              BiblePassage.some(({ Book }) => Book === book)
+          ).length / postsPerPage
+        );
+        const filterValues = `${filterValue}/${bookValue}`;
+        Array.from({ length: numberOfPages }).forEach((_, bookIndex) => {
+          createPage({
+            path:
+              bookIndex === 0
+                ? `/watch/${filterValues}`
+                : `/watch/${filterValues}/${bookIndex + 1}`,
+            component: path.resolve("./src/templates/sermons.js"),
+            context: {
+              limit: postsPerPage,
+              skip: bookIndex * postsPerPage,
+              currentPage: bookIndex + 1,
+              filterValue: filterValues,
+              numPages: numberOfPages,
+              speakers,
+              series,
+              prefix,
+              name,
+              seriesName: label,
+              book,
+              books,
+            },
+          });
+        });
+      });
+    });
+
+    books.forEach(({ value: bookValue, book }) => {
+      const numberOfPages = Math.ceil(
+        posts.filter(
+          ({ Preacher: { Prefix, Name }, BiblePassage }) =>
+            prefix === Prefix &&
+            name === Name &&
+            BiblePassage.some(({ Book }) => Book === book)
+        ).length / postsPerPage
+      );
+      const filterValues = `${value}/${bookValue}`;
+      Array.from({ length: numberOfPages }).forEach((_, bookIndex) => {
+        createPage({
+          path:
+            bookIndex === 0
+              ? `/watch/${filterValues}`
+              : `/watch/${filterValues}/${bookIndex + 1}`,
+          component: path.resolve("./src/templates/sermons.js"),
+          context: {
+            limit: postsPerPage,
+            skip: bookIndex * postsPerPage,
+            currentPage: bookIndex + 1,
+            filterValue: filterValues,
+            numPages: numberOfPages,
+            speakers,
+            series,
+            prefix,
+            name,
+            book,
+            books,
+          },
+        });
+      });
+    });
+  });
+
+  series.forEach(({ value, label, numOfPages }) => {
+    Array.from({ length: numOfPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? `/watch/${value}` : `/watch/${value}/${index + 1}`,
+        component: path.resolve("./src/templates/sermons.js"),
+        context: {
+          limit: postsPerPage,
+          skip: index * postsPerPage,
+          numPages: numOfPages,
+          currentPage: index + 1,
+          filterValue: value,
+          seriesName: label,
+          speakers,
+          series,
+          books,
+        },
+      });
+    });
+
+    books.forEach(({ value: bookValue, book }) => {
+      const numberOfPages = Math.ceil(
+        posts.filter(
+          ({ Series: { Name: seriesName }, BiblePassage }) =>
+            seriesName === label &&
+            BiblePassage.some(({ Book }) => Book === book)
+        ).length / postsPerPage
+      );
+      const filterValues = `${value}/${bookValue}`;
+      Array.from({ length: numberOfPages }).forEach((_, bookIndex) => {
+        createPage({
+          path:
+            bookIndex === 0
+              ? `/watch/${filterValues}`
+              : `/watch/${filterValues}/${bookIndex + 1}`,
+          component: path.resolve("./src/templates/sermons.js"),
+          context: {
+            limit: postsPerPage,
+            skip: bookIndex * postsPerPage,
+            currentPage: bookIndex + 1,
+            filterValue: filterValues,
+            numPages: numberOfPages,
+            speakers,
+            series,
+            seriesName: label,
+            book,
+            books,
+          },
+        });
+      });
+    });
+  });
+
+  books.forEach(({ value, numOfPages, book }) => {
+    Array.from({ length: numOfPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? `/watch/${value}` : `/watch/${value}/${index + 1}`,
+        component: path.resolve("./src/templates/sermons.js"),
+        context: {
+          limit: postsPerPage,
+          skip: index * postsPerPage,
+          numPages: numOfPages,
+          currentPage: index + 1,
+          filterValue: value,
+          book,
+          speakers,
+          series,
+          books,
         },
       });
     });
