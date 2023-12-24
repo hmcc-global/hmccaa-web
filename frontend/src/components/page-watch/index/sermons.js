@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, graphql } from "gatsby";
+import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -78,11 +78,103 @@ const Sermons = ({
       }
     }
   }
+  const handleChange = () => {
+    const selections = document
+      .getElementById("sermons-filter")
+      .querySelectorAll("select");
+    const values = Array.from(selections)
+      .map(element => element.value)
+      .reduce(
+        (accumulator, current) =>
+          current ? `${accumulator}/${current}` : accumulator,
+        ""
+      );
 
+    values && navigate(`/watch${values}`);
+  };
+
+  const selectValues = filterValue?.split("/");
   return (
     <div>
+      <div className="flex flex-col items-center">
+        <div id="sermons-filter" className="flex w-full justify-center gap-4">
+          <span>Filters</span>
+          <select
+            className="border-Shades-100 border-[1px]"
+            onChange={handleChange}
+          >
+            <option key="speaker-0" value="">
+              Speaker
+            </option>
+            {speakers.map(
+              ({ label, value }, index) =>
+                (selectValues && selectValues.includes(value) && (
+                  <option
+                    key={`speaker-${index + 1}`}
+                    value={value}
+                    selected={true}
+                  >
+                    {label}
+                  </option>
+                )) || (
+                  <option key={`speaker-${index + 1}`} value={value}>
+                    {label}
+                  </option>
+                )
+            )}
+          </select>
+          <select
+            className="border-Shades-100 border-[1px]"
+            onChange={handleChange}
+          >
+            <option key="series-0" value="">
+              Series
+            </option>
+            {series.map(
+              ({ label, value }, index) =>
+                (selectValues && selectValues.includes(value) && (
+                  <option
+                    key={`series-${index + 1}`}
+                    value={value}
+                    selected={true}
+                  >
+                    {label}
+                  </option>
+                )) || (
+                  <option key={`series-${index + 1}`} value={value}>
+                    {label}
+                  </option>
+                )
+            )}
+          </select>
+          <select
+            className="border-Shades-100 border-[1px]"
+            onChange={handleChange}
+          >
+            <option key="book-0" value="">
+              Book
+            </option>
+            {books.map(
+              ({ label, value }, index) =>
+                (selectValues && selectValues.includes(value) && (
+                  <option
+                    key={`book-${index + 1}`}
+                    value={value}
+                    selected={true}
+                  >
+                    {label}
+                  </option>
+                )) || (
+                  <option key={`book-${index + 1}`} value={value}>
+                    {label}
+                  </option>
+                )
+            )}
+          </select>
+        </div>
+      </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 py-36 max-w-container px-4">
-        {data.allStrapiSermon.nodes.map((sermon, i) => (
+        {nodes.map((sermon, i) => (
           <SermonCard
             key={i}
             title={sermon.Title}
@@ -100,52 +192,6 @@ const Sermons = ({
         ))}
       </div>
       <div className="flex flex-col items-center">
-        <div className="flex w-full justify-center gap-4">
-          <span>Filters</span>
-          <select className="border-Shades-100 border-[1px]">
-            <option key="speaker-0">Speaker</option>
-            {speakers.map(({ label, value }, index) => (
-              <option key={`speaker-${index + 1}`} value={value}>
-                {label}
-              </option>
-            ))}
-          </select>
-          <select className="border-Shades-100 border-[1px]">
-            <option key="series-0">Series</option>
-            {series.map(({ label, value }, index) => (
-              <option key={`series-${index + 1}`} value={value}>
-                {label}
-              </option>
-            ))}
-          </select>
-          <select className="border-Shades-100 border-[1px]">
-            <option key="book-0">Books</option>
-            {books.map(({ value, label }, index) => (
-              <option key={`book-${index + 1}`} value={value}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          {nodes.map(
-            (
-              {
-                Title,
-                VideoLink,
-                Series: { Name: seriesName },
-                Preacher: { Prefix, Name: preacherName },
-                ServiceType,
-              },
-              index
-            ) => (
-              <div key={index}>
-                {Title} {VideoLink} {seriesName} {Prefix} {preacherName}{" "}
-                {ServiceType}
-              </div>
-            )
-          )}
-        </div>
         <div className="flex text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] w-full">
           {!isFirst ? (
             <Link

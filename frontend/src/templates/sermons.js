@@ -26,18 +26,26 @@ export const pageQuery = graphql`
     $limit: Int!
     $prefix: String
     $name: String
+    $seriesName: String
+    $book: String
   ) {
     allStrapiSermon(
       sort: { DatePreached: DESC }
       limit: $limit
       skip: $skip
-      filter: { Preacher: { Name: { eq: $name }, Prefix: { eq: $prefix } } }
+      filter: {
+        Preacher: { Name: { eq: $name }, Prefix: { eq: $prefix } }
+        Series: { Name: { eq: $seriesName } }
+        BiblePassage: { elemMatch: { Book: { eq: $book } } }
+      }
     ) {
       nodes {
         Title
-        VideoLink
-        ServiceType
-        BiblePassage
+        DatePreached
+        BiblePassage {
+          Book
+          ChapterVerse
+        }
         Series {
           Name
           id
