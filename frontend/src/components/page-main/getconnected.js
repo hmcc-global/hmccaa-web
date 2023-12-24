@@ -37,30 +37,116 @@ const GetConnectedText = () => (
     </div>
   </div>
 );
+const lgs = [
+  {
+    title: "COVENANT",
+    desc: "MARRIED COUPLES",
+    color: "Accent-900", // #a842a8
+  },
+  {
+    title: "FOCUS",
+    desc: "SINGLE ADULTS",
+    color: "Accent-700", // #f0508b
+  },
+  {
+    title: "IMPACT",
+    desc: "GRADUATE STUDENTS",
+    color: "Accent-300", // #ffbd57
+  },
+  {
+    title: "ACCESS",
+    desc: "UNDERGRADUATES",
+    color: "Error-300", // #f39ea2
+  },
+  {
+    title: "GLOBAL ACCESS",
+    desc: "INTERNATIONAL STUDENTS",
+    color: "Success-500", // #10b981
+  },
+  {
+    title: "LATITUDE/VELOCITY",
+    desc: "YOUTH",
+    color: "Accent-500", // #ff8069
+  },
+  {
+    title: "BUILDING BLOCKS",
+    desc: "KIDS",
+    color: "[#f0df5c]", // #f0df5c
+  },
+];
+// title on bottom, white text
+// desc on right, white text, left aligned
+const DoubleGridDesktop = ({ title, desc, color }) => (
+  <div className="relative w-[17rem] h-[17.5rem]">
+    <div
+      className={`w-[15.5rem] h-[15.5rem] left-[1.25rem] top-[1.75rem] absolute bg-${color}`}
+    >
+      <div className="left-[0.75rem] bottom-[0rem] absolute text-Shades-0 text-xl font-bold font-['Raleway']">
+        {title}
+      </div>
+      <div className="text-center absolute w-full -left-[1rem] origin-top-right -rotate-90 text-Shades-0 text-[14px] font-['Raleway'] leading-[1rem]">
+        {desc}
+      </div>
+    </div>
+    <div
+      className={`w-[15.5rem] h-[15.5rem] left-0 top-0 absolute border-4 border-${color}`}
+    >
+      <img src={imgImpact} alt={"asdf"} className="mb-0 w-full h-full" />
+    </div>
+  </div>
+);
+
+// title on top, black text
+// desc on bottom, white text, centered
+const DoubleGridMobile = ({ title, desc, color }) => (
+  <div className="flex-col justify-start items-center gap-1 inline-flex">
+    <div className="text-center w-full text-Shades-100 text-lg font-bold font-['Raleway']">
+      {title}
+    </div>
+    <div className="relative w-[17rem] h-[17.5rem]">
+      <div
+        className={`w-[15.5rem] h-[15.5rem] left-[1.25rem] top-[1.75rem] absolute bg-${color}`}
+      >
+        <div className="text-center bottom-[0rem] absolute w-full text-Shades-0 text-md font-bold font-['Raleway']">
+          {desc}
+        </div>
+      </div>
+      <div
+        className={`w-[15.5rem] h-[15.5rem] left-0 top-0 absolute border-4 border-${color}`}
+      >
+        <img src={imgImpact} alt={"asdf"} className="mb-0 w-full h-full" />
+      </div>
+    </div>
+  </div>
+);
 
 const GetConnectedCircleDesktop = () => (
   <div className="flex-col relative">
-    <div className="flex flex-row relative h-[500px] w-[500px] ">
-      <div className="relative w-[270px] h-[278px]">
-        <div className="w-[15.5rem] h-[250px] left-[1.25rem] top-[1.75rem] absolute bg-[#FFBD57]">
-          <div className="left-[11px] top-[221px] absolute text-Shades-0 text-xl font-bold font-['Raleway'] leading-normal">
-            IMPACT
-          </div>
-          {/* <div className="w-[200px] left-[11px] top-[221px] absolute text-Shades-0 text-xl font-bold font-['Raleway'] leading-normal">IMPACT</div> */}
-          <div className="left-[230px] top-[196px] absolute origin-top-left -rotate-90 text-Shades-0 text-sm font-bold font-['Raleway'] leading-[21px]">
-            GRADUATE&nbsp;&nbsp;&nbsp;STUDENTS
-          </div>
-        </div>
-        <div className="w-[250px] h-[250px] left-0 top-0 absolute border-4 border-[#FFBD57] items-center inline-flex">
-          <img
-            src={imgImpact}
-            alt={"asdf"}
-            className="mb-0 w-[242px] h-[242px]"
-          />
-        </div>
+    <div className="justify-start items-center gap-4 inline-flex ">
+      <div className="justify-start items-center gap-4 inline-flex w-[17rem]">
+        <DoubleGridMobile title="IMPACT" desc="STUDENTS" color="[#FFBD57]" />
+        <DoubleGridMobile title="IMPACT" desc="STUDENTS" color="[#FFBD57]" />
       </div>
     </div>
 
+    <div className="flex-row relative">
+      <DoubleGridDesktop
+        title="IMPACT"
+        desc="GRADUATE&nbsp;&nbsp;STUDENTS"
+        color="[#FFBD57]"
+      />
+      <DoubleGridMobile title="IMPACT" desc="STUDENTS" color="[#FFBD57]" />
+      <DoubleGridDesktop
+        title={lgs[0].title}
+        desc={lgs[0].desc}
+        color={lgs[0].color}
+      />
+      <DoubleGridMobile
+        title={lgs[0].title}
+        desc={lgs[0].desc}
+        color={lgs[0].color}
+      />
+    </div>
     <div className="px-10">
       <img
         className="padding-4"
