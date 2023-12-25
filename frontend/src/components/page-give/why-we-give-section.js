@@ -36,7 +36,7 @@ const WhyWeGiveSection = () => (
         </p>
         <p>
           Your gift propels us toward our vision and enables our church to
-          respond swiftly with obedience to God&pos;s calling.{" "}
+          respond swiftly with obedience to God&#8217;s calling.{" "}
           <span>
             We invite you to contribute to this vision and to play a vital role
             in what God is doing!
