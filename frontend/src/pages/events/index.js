@@ -6,6 +6,7 @@ import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
 import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
+import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
 import Banner from "../../components/shared/banner";
 
 const EventsPage = () => {
