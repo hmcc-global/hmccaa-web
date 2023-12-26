@@ -15,8 +15,8 @@ const ConnectPage = () => (
       <SundayCelebration />
       <MapDetails />
       <Questions />
-      <Instagram />
     </div>
+    <Instagram />
   </Layout>
 );
 
