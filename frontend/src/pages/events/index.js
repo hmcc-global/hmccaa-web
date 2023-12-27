@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
@@ -8,60 +9,57 @@ import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
 import Banner from "../../components/shared/banner";
+import {processEvents} from "../../components/page-events/event-processing-util";
 
 const EventsPage = () => {
-  // multiple events hardcoded to test layout with multiple events
-  const events = [
-    {
-      id: 1,
-      title: "Prayer Gathering",
-      date: "Th, May 25, 2023",
-      imgUrl: "../../images/prayer-gathering.png",
-      imgAlt: "example",
-      location: "T-Center",
-      description: "Event at HMCC where you go to pray and worship God",
-    },
-    {
-      id: 2,
-      title: "Another Event",
-      date: "Th, May 25, 2023",
-      imgUrl: "../../images/prayer-gathering.png",
-      imgAlt: "example",
-      location: "T-Center",
-      description:
-        "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer.",
-    },
-    {
-      id: 3,
-      title: "One more Event",
-      date: "Th, May 25, 2023",
-      imgUrl: "../../images/prayer-gathering.png",
-      imgAlt: "example",
-      location: "T-Center",
-      description:
-        "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer.",
-    },
-    {
-      id: 4,
-      title: "One more Event",
-      date: "Th, May 25, 2023",
-      imgUrl: "../../images/prayer-gathering.png",
-      imgAlt: "example",
-      location: "T-Center",
-      description:
-        "Event at HMCC where you go to engage in this event at HMCC. This description is a bit longer. Now this description is really long and spans many lines.",
-    },
-    {
-      id: 5,
-      title: "Last Event",
-      date: "Th, May 25, 2023",
-      imgUrl: "../../images/prayer-gathering.png",
-      imgAlt: "example",
-      location: "T-Center",
-      description:
-        "Event at HMCC where you go to engage in this event at HMCC.",
-    },
-  ]; // TODO: fetch actual events from backend
+  const data = useStaticQuery(graphql`
+    query EventQuery {
+      allStrapiEvent {
+        nodes {
+          DescriptionOverride
+          EventTemplate {
+            CoverImage {
+              url
+            }
+            Description
+            Location {
+              LocationName
+            }
+            Name
+            ShowXUpcomingEvents
+          }
+          LocationOverride {
+            LocationName
+          }
+          NameOverride
+          Time {
+            ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+              id
+              DateTime
+              EndDateTime
+              EndRecurDate
+              RecurEveryXTimeFrames
+              RecurTimeFrame
+              StopShowingWhenPast
+              strapi_component
+            }
+            ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+              id
+              StopShowingWhenPast
+              EndDateTime
+              DateTime
+              strapi_component
+            }
+          }
+          CoverImageOverride {
+            url
+          }
+        }
+      }
+    }
+  `);
+
+  const events = processEvents(data.allStrapiEvent.nodes);
 
   return (
     <Layout>
@@ -72,7 +70,7 @@ const EventsPage = () => {
           <EventCard
             key={event.id}
             title={event.title}
-            date={event.date}
+            date={event.date.toString()}
             // TODO: use GatsbyImage since static cannot handle dynamic src
             img={
               <StaticImage
