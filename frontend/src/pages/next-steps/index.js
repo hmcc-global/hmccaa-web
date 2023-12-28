@@ -10,17 +10,14 @@ import MinistryTeams from "../../components/page-next-steps/ministryTeams";
 const NextStepsPage = () => (
   <Layout>
     <Banner bgImage="bg-next-steps bg-center">Next Steps</Banner>
-    <div className="w-full px-4">
-      <div className="max-w-container mx-auto">
-        <LifeGroup />
-        <div>Membership section</div>
-        <div>Transformation classes section</div>
-        <div>Baptism section</div>
-      </div>
+    <div className="px-[1rem]">
+      <LifeGroup />
+    </div>
+    <div className="px-[1rem]">
       <MinistryTeams />
-      <div className="max-w-container mx-auto">
-        <MissionsNextStep />
-      </div>
+    </div>
+    <div className="px-[1rem]">
+      <MissionsNextStep />
     </div>
   </Layout>
 );

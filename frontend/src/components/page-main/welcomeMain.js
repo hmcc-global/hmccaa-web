@@ -31,7 +31,9 @@ const WelcomeMain = () => (
         </p>
       </HighlightedParagraph>
       <div className="flex lg:justify-start justify-center">
-        <SecondaryButtonLink hasArrow={true}>About Us</SecondaryButtonLink>
+        <SecondaryButtonLink to="/about" hasArrow={true}>
+          About Us
+        </SecondaryButtonLink>
       </div>
     </div>
   </div>

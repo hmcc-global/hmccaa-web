@@ -20,7 +20,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const teams = [
   {
-    team: "Art & Design Servant",
+    team: "Art & Design Servants",
     abbreviation: "ADS",
     Component: AdsLogo,
   },
@@ -30,8 +30,8 @@ const teams = [
     Component: KidsLogo,
   },
   {
-    team: "Documentation",
-    abbreviation: "DOCS - PHOTO/VIDOES",
+    team: "Documentations",
+    abbreviation: "DOCS - PHOTO/VIDEO",
     Component: DocsLogo,
   },
   {
@@ -46,7 +46,7 @@ const teams = [
   },
   {
     team: "Video Ministry",
-    abbreviation: "Video Recording",
+    abbreviation: "VIDEO RECORDING",
     Component: VMLogo,
   },
   {

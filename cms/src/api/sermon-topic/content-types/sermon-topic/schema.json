@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sermon_topics",
+  "info": {
+    "singularName": "sermon-topic",
+    "pluralName": "sermon-topics",
+    "displayName": "SermonTopic"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Topic": {
+      "type": "string"
+    },
+    "Sermons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sermon.sermon",
+      "mappedBy": "SermonTopics"
+    }
+  }
+}

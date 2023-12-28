@@ -19,11 +19,14 @@ const Footer = () => {
     { title: "Watch", route: "/watch" },
     { title: "Give", route: "/give" },
   ];
+  // TODO: what is interest form? 
+  // fix remainder of routes when their sections get added
+  // all link to next steps for now
   const connectList = [
     { title: "Interest Form", route: "/" },
-    { title: "Join a LIFE Group", route: "/" },
-    { title: "Become a Member", route: "/" },
-    { title: "Join a Ministry Team", route: "/" },
+    { title: "Join a LIFE Group", route: "/next-steps/lifegroups" },
+    { title: "Become a Member", route: "/next-steps" },
+    { title: "Join a Ministry Team", route: "/next-steps" },
   ];
   return (
     <footer>
@@ -72,7 +75,6 @@ const Footer = () => {
                   {connectList.map((item, index) => (
                     <a
                       key={`connectLink-${index}`}
-                      target="_blank"
                       rel="noreferrer"
                       href={item.route}
                       className="text-Shades-0 font-medium text-start text-sm leading-normal mb-0 no-underline hover:opacity-75"

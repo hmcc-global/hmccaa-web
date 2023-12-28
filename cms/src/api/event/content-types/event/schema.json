@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "EventTemplate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event-template.event-template",
+      "inversedBy": "Events"
+    },
+    "Time": {
+      "type": "dynamiczone",
+      "components": [
+        "event-times.recurring-time",
+        "event-times.single-time"
+      ],
+      "required": true
+    },
+    "InternalNotes": {
+      "type": "string",
+      "private": true
+    },
+    "NameOverride": {
+      "type": "string",
+      "required": false
+    },
+    "ContactOverride": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact.contact"
+    },
+    "LocationOverride": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "DescriptionOverride": {
+      "type": "text",
+      "required": false
+    },
+    "DescriptionAddendum": {
+      "type": "text",
+      "required": false
+    },
+    "CoverImageOverride": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "StopShowingWhenPastOverride": {
+      "type": "boolean",
+      "required": false
+    },
+    "DisplayIsStreamedOverride": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

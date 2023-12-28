@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_templates",
+  "info": {
+    "singularName": "event-template",
+    "pluralName": "event-templates",
+    "displayName": "Event Template",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Contact": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "required": true,
+      "target": "api::contact.contact"
+    },
+    "Location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "required": true,
+      "target": "api::location.location"
+    },
+    "CoverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ShowXUpcomingEvents": {
+      "type": "integer",
+      "default": 1,
+      "required": true
+    },
+    "StopShowingWhenPast": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "DisplayIsStreamed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "EventTemplate"
+    }
+  }
+}

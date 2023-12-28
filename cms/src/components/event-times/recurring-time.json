@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_et_rt",
+  "info": {
+    "displayName": "RecurringTime",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "DateTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "StopShowingWhenPast": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "EndDateTime": {
+      "type": "datetime"
+    },
+    "RecurTimeFrame": {
+      "type": "enumeration",
+      "enum": [
+        "Day",
+        "Week",
+        "Month",
+        "Year"
+      ],
+      "default": "Week",
+      "required": true
+    },
+    "RecurEveryXTimeFrames": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "EndRecurDate": {
+      "type": "datetime"
+    }
+  }
+}
