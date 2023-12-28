@@ -138,8 +138,8 @@ const lifeStages = [
               access@annarbor.hmcc.net
             </a>
           </p>
-          <p>
-            Access, a MSA registered student organization, is the student branch
+          <p className="italic">
+            Access, an MSA registered student organization, is the student branch
             of Harvest Mission Community Church.
           </p>
         </div>

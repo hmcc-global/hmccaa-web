@@ -14,11 +14,9 @@ const ConnectPage = () => (
     <div className="max-w-container">
       <SundayCelebration />
       <MapDetails />
-      <div>Common Questions section</div>
-      <div>Life Stages section</div>
       <Questions />
-      <Instagram />
     </div>
+    <Instagram />
   </Layout>
 );
 

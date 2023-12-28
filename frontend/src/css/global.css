@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-Primary-700;
+}
+
 .triangle-left {
   @apply left-0;
 }

@@ -5,7 +5,6 @@ import Seo from "../../components/seo";
 import WelcomeSection from "../../components/page-new/welcome";
 import SundayCelebrationSection from "../../components/page-new/sunday-celebration";
 import Questions from "../../components/gotQuestions";
-import SundayCelebBarNew from "../../components/page-new/sundayCelebBarNew";
 import Banner from "../../components/shared/banner";
 import LifeStages from "../../components/page-new/lifeStages";
 
@@ -14,7 +13,6 @@ const NewcomersPage = () => (
     <Banner bgImage="bg-center bg-new">I&apos;m New</Banner>
     <WelcomeSection />
     <SundayCelebrationSection />
-    <SundayCelebBarNew />
     <LifeStages />
     <div className="pl-[21px] pr-[11px] lg:px-4 w-full flex justify-center">
       <Questions />

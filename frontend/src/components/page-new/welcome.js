@@ -37,7 +37,7 @@ const WelcomeSection = () => (
         </p>
       </HighlightedParagraph>
       <div className="flex justify-center lg:justify-start">
-        <SecondaryButtonLink hasArrow={true}>
+        <SecondaryButtonLink to="/connect" hasArrow={true}>
           Let us know you&apos;re coming
         </SecondaryButtonLink>
       </div>

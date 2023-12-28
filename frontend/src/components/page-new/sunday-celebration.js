@@ -34,7 +34,7 @@ const SundayCelebrationSection = () => {
           </div>
         </div>
         <div className={`flex justify-center ${buttonLg}`}>
-          <SecondaryButtonLink>More Info</SecondaryButtonLink>
+          <SecondaryButtonLink to="/connect">More Info</SecondaryButtonLink>
         </div>
       </div>
     </div>

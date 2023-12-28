@@ -22,7 +22,7 @@ const MapDetails = () => {
             <SecondaryButtonLink
               hasArrow={true}
               className={"bg-Shades-0"}
-              to=""
+              to="https://www.google.com/maps/place/Harvest+Mission+Community+Church/@42.2816338,-83.7372209,17z/data=!4m5!3m4!1s0x883cae6a77eef201:0xaf4019d9fc7aec8e!8m2!3d42.2816359!4d-83.7371982?hl=en&shorturl=1"
             >
               MAPS & DIRECTIONS
             </SecondaryButtonLink>

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_et_st",
+  "info": {
+    "displayName": "SingleTime",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "DateTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "StopShowingWhenPast": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "EndDateTime": {
+      "type": "datetime"
+    }
+  }
+}
