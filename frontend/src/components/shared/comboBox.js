@@ -1,7 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, createRef } from "react";
 
 import { ArrowDropDown } from "../svgs";
 
+const useRefFlip = ref => {
+  const [position, setPosition] = useState(0);
+  useEffect(() => {
+    if (ref.current) {
+      const { current } = ref;
+      const boundingRect = current.getBoundingClientRect();
+      setPosition(boundingRect?.height);
+    }
+  }, [ref]);
+  return position;
+};
 const ComboBox = ({
   label,
   options,
@@ -9,39 +20,48 @@ const ComboBox = ({
   filterValue,
 }) => {
   const id = `${label.toLowerCase().replace(/\s+/g, "-")}-combo-box-container`;
-  console.warn(filterValue);
   const foundItem = filterValue
     ? options.find(({ value }) => value.length && filterValue.includes(value))
     : null;
-  console.warn(foundItem);
+  const comboBoxRef = createRef();
+  let currentComboBox = document.getElementById(id);
+  currentComboBox = currentComboBox?.querySelector(".combo-box-wrapper");
+  const currentComboBoxBottom =
+    currentComboBox?.getBoundingClientRect()?.bottom || 0;
+  const height = document.querySelector("html").clientHeight - 5;
+  const boxHeight = useRefFlip(comboBoxRef);
   const [found, setFound] = useState(foundItem);
   const [anchorElement, setAnchorElement] = useState(false);
   const [list, setList] = useState(options);
+  let position = boxHeight > 0 ? currentComboBoxBottom + boxHeight : 0;
+  const handleCloseDropDown = useCallback(
+    ({ target }) => {
+      const currentContainer = document.getElementById(id);
+      const legend = currentContainer.querySelector("legend");
+      const fieldset = currentContainer.querySelector("fieldset");
+      const label = currentContainer.querySelector("label");
+      const value = currentContainer.querySelector("input")?.dataset?.url;
+      if (
+        target !== currentContainer &&
+        !target.closest(`#${id}`) &&
+        !value.length
+      ) {
+        legend.classList.remove("max-w-full");
+        fieldset.classList.remove("border-highlight");
+        label.classList.add("scale-100", "translate-y-3");
+        label.classList.remove("label-highlight", "scale-75", "-translate-y-2");
+        setAnchorElement(false);
+      }
+    },
+    [id, setAnchorElement]
+  );
   useEffect(() => {
     document.body.addEventListener("click", handleCloseDropDown);
 
     return function cleanup() {
       window?.removeEventListener("click", handleCloseDropDown);
     };
-  }, [id]);
-  const handleCloseDropDown = ({ target }) => {
-    const currentContainer = document.getElementById(id);
-    const legend = currentContainer.querySelector("legend");
-    const fieldset = currentContainer.querySelector("fieldset");
-    const label = currentContainer.querySelector("label");
-    const value = currentContainer.querySelector("input")?.dataset?.url;
-    if (
-      target !== currentContainer &&
-      !target.closest(`#${id}`) &&
-      !value.length
-    ) {
-      legend.classList.remove("max-w-full");
-      fieldset.classList.remove("border-highlight");
-      label.classList.add("scale-100", "translate-y-3");
-      label.classList.remove("label-highlight", "scale-75", "-translate-y-2");
-      setAnchorElement(false);
-    }
-  };
+  }, [id, handleCloseDropDown]);
   const handleClick = () => {
     const legend = document.getElementById(id).querySelector("legend");
     legend.classList.add("max-w-full");
@@ -69,9 +89,11 @@ const ComboBox = ({
   const handleSelection = ({ target }, { label, value }) => {
     target.parentElement.querySelectorAll("li").forEach(element => {
       element.classList.remove("selected-item");
+      element.ariaSelected = "false";
     });
     if (target.dataset.value !== "") {
       target.classList.add("selected-item");
+      target.ariaSelected = "true";
       document.getElementById(id).querySelector("input").value = label;
     }
     document.getElementById(id).querySelector("input").dataset.url = value;
@@ -83,7 +105,7 @@ const ComboBox = ({
       id={id}
       className="max-w-[8rem] [@media(min-width:375px)]:max-w-[11.25rem] w-full relative combo-box-container"
     >
-      <div>
+      <div className="combo-box-wrapper">
         <div className="inline-flex flex-col relative w-full align-top">
           <label
             id={`combo-box-${label}`}
@@ -131,7 +153,7 @@ const ComboBox = ({
               }`}
             >
               <legend
-                className={`overflow-hidden block invisible whitespace-nowrap ${
+                className={`overflow-hidden block invisibility whitespace-nowrap ${
                   !found ? "max-w-[0.01px]" : "max-w-full"
                 } transition-[max-width] duration-[50ms] ease-out min-h-[11px] text-sm pointer-events-none`}
               >
@@ -146,19 +168,30 @@ const ComboBox = ({
       {anchorElement && (
         <div
           role="presentation"
-          className="absolute top-0 left-0 w-full z-[1300] translate-y-12"
+          className={`presentation absolute left-0 w-full z-[1300] translate-y-12 ${
+            position > height ? "bottom-24" : "top-0"
+          } ${position > 0 ? "" : "invisible"}`}
+          ref={comboBoxRef}
         >
           <div className="bg-Shades-0 transition-[box-shadow] duration-300 rounded-sm shadow-[0_2px_1px_-1px_rgba(0,0,0,0.2),_0_1px_1px_0_rgba(0,0,0,0.14),_0_1px_3px_0_rgba(0,0,0,0.12)] tracking-medium-wide overflow-auto">
-            <ul
-              className="list-none m-0 py-2 max-h-[40vh] overflow-auto relative"
+            <div
+              role="listbox"
+              aria-labelledby={`combo-box-${label
+                .toLowerCase()
+                .replace(/\s+/g, "-")}-list`}
+              className="list-none py-2 max-h-[40vh] overflow-auto relative"
               id={`combo-box-${label.toLowerCase().replace(/\s+/g, "-")}-list`}
             >
               {list.length > 1 ? (
                 list.map(({ label, value }, index) => (
-                  <li
+                  <div
                     key={`${label.toLowerCase().replace(/\s+/g, "-")}-${
                       index + 1
                     }`}
+                    role="option"
+                    aria-disabled="false"
+                    aria-selected="false"
+                    tabIndex="-1"
                     className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)] ${
                       label.toLowerCase().includes("select")
                         ? "font-medium"
@@ -168,14 +201,20 @@ const ComboBox = ({
                     onClick={evt => handleSelection(evt, { label, value })}
                   >
                     {label}
-                  </li>
+                  </div>
                 ))
               ) : (
-                <li className="flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 text-[gray]">
+                <div
+                  role="option"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  tabIndex="-1"
+                  className="flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 text-[gray]"
+                >
                   No Options
-                </li>
+                </div>
               )}
-            </ul>
+            </div>
           </div>
         </div>
       )}
