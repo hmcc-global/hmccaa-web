@@ -15,7 +15,7 @@ const Link = ({ href, to, children, ...props }) => {
 
   // note: to may not be defined, make link redirect to home
   if (!to) {
-    to = "#";
+    to = "/";
   }
 
   // fall back on internal link
