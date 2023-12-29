@@ -119,9 +119,6 @@ const Sermons = ({
     (values || filterValue) && navigate(`/watch${values}`);
   };
 
-  speakers.unshift({ label: "Select a Speaker", value: "" });
-  series.unshift({ label: "Select a Series", value: "" });
-  books.unshift({ label: "Select a Books", value: "" });
   return (
     <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10">
       <div className="flex flex-col items-center">

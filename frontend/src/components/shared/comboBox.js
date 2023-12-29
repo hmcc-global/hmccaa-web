@@ -182,6 +182,25 @@ const ComboBox = ({
               className="list-none py-2 max-h-[40vh] overflow-auto relative"
               id={`combo-box-${label.toLowerCase().replace(/\s+/g, "-")}-list`}
             >
+              {list.length > 1 && (
+                <div
+                  key={`${label.toLowerCase().replace(/\s+/g, "-")}-0`}
+                  role="option"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  tabIndex="-1"
+                  className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)] font-medium`}
+                  data-option-value=""
+                  onClick={evt =>
+                    handleSelection(evt, {
+                      label: `Select a ${label}`,
+                      value: "",
+                    })
+                  }
+                >
+                  Select a {label}
+                </div>
+              )}
               {list.length > 1 ? (
                 list.map(({ label, value }, index) => (
                   <div
@@ -192,11 +211,7 @@ const ComboBox = ({
                     aria-disabled="false"
                     aria-selected="false"
                     tabIndex="-1"
-                    className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)] ${
-                      label.toLowerCase().includes("select")
-                        ? "font-medium"
-                        : "font-normal"
-                    }`}
+                    className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)]`}
                     data-option-value={value}
                     onClick={evt => handleSelection(evt, { label, value })}
                   >
