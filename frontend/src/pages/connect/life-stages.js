@@ -140,8 +140,8 @@ const lifeStages = [
             </Link>
           </p>
           <p className="italic">
-            Access, an MSA registered student organization, is the student branch
-            of Harvest Mission Community Church.
+            Access, an MSA registered student organization, is the student
+            branch of Harvest Mission Community Church.
           </p>
         </div>
         <div className="flex">
