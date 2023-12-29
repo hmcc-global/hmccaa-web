@@ -174,7 +174,7 @@ const Footer = () => {
                 2023
               </h2>
               <Link
-                href="https://annarbor.hmcc.net"
+                to="/"
                 className="text-Shades-0 text-sm md:text-lg leading-tighter font-medium md:font-semibold mb-0 ml-1 md:ml-3 no-underline hover:opacity-75 tracking-medium-wide"
               >
                 HARVEST MISSION COMMUNITY CHURCH
