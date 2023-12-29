@@ -26,7 +26,7 @@ const HowToGiveSection = () => (
           deductions).
         </p>
         <PrimaryButtonLink
-          to="https://hmcc-aa.churchcenter.com/giving"
+          href="https://hmcc-aa.churchcenter.com/giving"
           hasArrow={true}
         >
           Give Now
@@ -66,7 +66,7 @@ const HowToGiveSection = () => (
         States. Year-end giving reports will be issued every January.
       </p>
     </div>
-    <SecondaryButtonLink to="https://hmcc-aa.churchcenter.com/giving/profile">
+    <SecondaryButtonLink href="https://hmcc-aa.churchcenter.com/giving/profile">
       View Donor Profile
     </SecondaryButtonLink>
   </div>

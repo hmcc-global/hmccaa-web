@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby";
-
+import Link from "../components/Link";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { container } from "../css/404.module.css";
@@ -38,7 +37,7 @@ const NotFoundPage = () => (
           </div>
           <div className="pb-3">
             <Link
-              to="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
               className="text-Primary-300 font-extrabold text-start leading-normal underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base"
             >
               Life Group Sign Up

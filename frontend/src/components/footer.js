@@ -8,6 +8,7 @@ import facebookLogo from "../images/icons/facebook.svg";
 import instagramLogo from "../images/icons/instagram.svg";
 import twitterLogo from "../images/icons/twitter.svg";
 import { CopyrightLogo } from "./svgs";
+import Link from "./Link";
 
 const Footer = () => {
   const browseList = [
@@ -57,13 +58,13 @@ const Footer = () => {
                     Browse
                   </h2>
                   {browseList.map((item, index) => (
-                    <a
+                    <Link
                       key={`browseLink-${index}`}
-                      href={item.route}
+                      to={item.route}
                       className="text-Shades-0 font-medium text-start text-sm leading-normal mb-4 md:mb-0 no-underline hover:opacity-75"
                     >
                       {item.title}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -73,14 +74,13 @@ const Footer = () => {
                     Ways to Connect
                   </h2>
                   {connectList.map((item, index) => (
-                    <a
+                    <Link
                       key={`connectLink-${index}`}
-                      rel="noreferrer"
-                      href={item.route}
+                      to={item.route}
                       className="text-Shades-0 font-medium text-start text-sm leading-normal mb-4 md:mb-0 no-underline hover:opacity-75"
                     >
                       {item.title}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -102,14 +102,12 @@ const Footer = () => {
                   className="w-[24px] h-[24px] mb-0"
                   src={mapPinLogo}
                 />
-                <a
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
                   href="https://www.google.com/maps/place/Harvest+Mission+Community+Church/@42.2816338,-83.7372209,17z/data=!4m5!3m4!1s0x883cae6a77eef201:0xaf4019d9fc7aec8e!8m2!3d42.2816359!4d-83.7371982?hl=en&shorturl=1"
                   className="text-Shades-0 font-medium text-center text-sm leading-normal mb-0 ml-[12px] no-underline hover:opacity-75"
                 >
                   1001 E Huron St, Ann Arbor, MI 48104
-                </a>
+                </Link>
               </div>
               <div className="flex flex-row justify-center items-center mt-[15px]">
                 <img
@@ -117,12 +115,12 @@ const Footer = () => {
                   className="w-[24px] h-[24px] mb-0"
                   src={mailLogo}
                 />
-                <a
+                <Link
                   href="mailto:annarbor@hmcc.net"
                   className="text-Shades-0 font-medium text-center text-sm leading-normal mb-0 ml-[12px] no-underline hover:opacity-75"
                 >
                   annarbor@hmcc.net
-                </a>
+                </Link>
               </div>
               <div className="flex flex-row justify-center items-center mt-[15px]">
                 <img
@@ -135,10 +133,8 @@ const Footer = () => {
                 </h2>
               </div>
               <div className="flex flex-row justify-center items-center mt-[20px] gap-[20px]">
-                <a
+                <Link
                   href="https://www.facebook.com/hmcc.aa/"
-                  target="_blank"
-                  rel="noreferrer"
                   className="hover:opacity-75"
                 >
                   <img
@@ -146,11 +142,9 @@ const Footer = () => {
                     className="w-[32px] h-[32px] mb-0"
                     src={facebookLogo}
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://www.instagram.com/hmcc_aa/"
-                  target="_blank"
-                  rel="noreferrer"
                   className="hover:opacity-75"
                 >
                   <img
@@ -158,11 +152,9 @@ const Footer = () => {
                     className="w-[32px] h-[32px] mb-0"
                     src={instagramLogo}
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://twitter.com/HMCC_AA"
-                  target="_blank"
-                  rel="noreferrer"
                   className="hover:opacity-75"
                 >
                   <img
@@ -170,7 +162,7 @@ const Footer = () => {
                     className="w-[32px] h-[32px] mb-0"
                     src={twitterLogo}
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -181,12 +173,12 @@ const Footer = () => {
               <h2 className="text-Shades-0 text-sm md:text-lg font-normal mb-0 ml-1 tracking-medium-wide md:tracking-normal">
                 2023
               </h2>
-              <a
+              <Link
                 href="https://annarbor.hmcc.net"
                 className="text-Shades-0 text-sm md:text-lg leading-tighter font-medium md:font-semibold mb-0 ml-1 md:ml-3 no-underline hover:opacity-75 tracking-medium-wide"
               >
                 HARVEST MISSION COMMUNITY CHURCH
-              </a>
+              </Link>
             </div>
           </div>
         </div>

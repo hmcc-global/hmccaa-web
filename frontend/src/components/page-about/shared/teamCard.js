@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Modal from "react-modal";
 import { MailIcon, CloseIcon } from "../../svgs";
+import Link from "../../Link";
 
 Modal.setAppElement("#___gatsby");
 const modalStyles = {
@@ -76,12 +77,12 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
                   <MailIcon className="w-5 h-5" />
                 </span>
               )}
-              <a
+              <Link
                 href={`mailto:${info.email}`}
                 className="no-underline text-Shades-100 break-all"
               >
                 {info.email}
-              </a>
+              </Link>
             </div>
           )}
         </div>
@@ -124,12 +125,12 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
                           <MailIcon className="w-8 h-8" />
                         </span>
                       )}
-                      <a
+                      <Link
                         href={`mailto:${member?.email}`}
                         className="no-underline text-Shades-100 break-all font-normal"
                       >
                         {member?.email}
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </div>
