@@ -119,7 +119,6 @@ const Sermons = ({
     (values || filterValue) && navigate(`/watch${values}`);
   };
 
-  const selectValues = filterValue?.split("/");
   speakers.unshift({ label: "Select a Speaker", value: "" });
   series.unshift({ label: "Select a Series", value: "" });
   books.unshift({ label: "Select a Books", value: "" });
