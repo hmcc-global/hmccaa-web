@@ -2,7 +2,9 @@ import * as React from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
 import { StaticImage } from "gatsby-plugin-image";
+import ComboBox from "../../shared/comboBox";
 
+const MAX_PAGINATION = 7;
 const NumberPaging = ({ page, currentPage }) => {
   if (/.../.test(page) || parseInt(page, 10) === currentPage) {
     return /.../.test(page) ? (
@@ -43,33 +45,56 @@ const Sermons = ({
     currentPage + 1
   }`;
   const pages = [currentPage.toString()];
-  if (numPages > 6) {
-    if (isFirst) {
-      for (let index = currentPage + 1; index < 4; index++) {
-        pages.push(index.toString());
+  if (numPages > MAX_PAGINATION) {
+    const maxLeft = 4;
+    const maxRight = numPages - 2;
+    if (currentPage < maxLeft) {
+      if (isFirst) {
+        for (let index = currentPage + 1; index < maxLeft; index++) {
+          pages.push(index.toString());
+        }
+      } else if (currentPage === 2) {
+        const previous = currentPage - 1;
+        const next = currentPage + 1;
+        pages.unshift(previous);
+        pages.push(next);
+      } else {
+        for (let index = currentPage - 1; index > 0; index--) {
+          pages.unshift(index.toString());
+        }
       }
+
       pages.push("...");
       pages.push(numPages.toString());
+    } else if (currentPage < maxRight) {
+      const next = currentPage + 1;
+      const previous = currentPage - 1;
+      pages.unshift(previous.toString());
+      pages.unshift("...");
+      pages.unshift("1");
+      pages.push(next);
+      pages.push("..");
+      pages.push(numPages.toString());
     } else {
-      pages.unshift((currentPage - 1).toString());
-      if (isLast) {
-        pages.unshift((currentPage - 2).toString());
-        pages.unshift("...");
-      } else {
-        pages.push((currentPage + 1).toString());
-        if (!pages.includes("1")) {
-          pages.unshift("...");
+      const rightEnd = numPages - 1;
+      if (maxRight === currentPage) {
+        for (let index = maxRight + 1; index <= numPages; index++) {
+          pages.push(index.toString());
         }
-        if (!pages.includes(numPages.toString())) {
-          if (currentPage + 2 < numPages) {
-            pages.push("...");
-          }
-          pages.push(numPages.toString());
+      } else if (rightEnd === currentPage) {
+        const previous = currentPage - 1;
+        pages.unshift(previous.toString());
+        pages.push(numPages);
+      } else {
+        for (let index = currentPage - 1; index >= maxRight; index--) {
+          pages.unshift(index.toString());
         }
       }
+      pages.unshift("...");
+      pages.unshift("1");
     }
   } else {
-    for (let index = 0; index < 6 && index < numPages; index++) {
+    for (let index = 0; index < MAX_PAGINATION && index < numPages; index++) {
       const page = (index + 1).toString();
       if (page < currentPage) {
         pages.unshift(page);
@@ -81,99 +106,53 @@ const Sermons = ({
   const handleChange = () => {
     const selections = document
       .getElementById("sermons-filter")
-      .querySelectorAll("select");
+      .querySelectorAll(".combo-box-container input");
+
     const values = Array.from(selections)
-      .map(element => element.value)
+      .map(element => element.dataset.url)
       .reduce(
         (accumulator, current) =>
           current ? `${accumulator}/${current}` : accumulator,
         ""
       );
-
-    values && navigate(`/watch${values}`);
+    console.warn(`navigate: ${values}`);
+    (values || filterValue) && navigate(`/watch${values}`);
   };
 
   const selectValues = filterValue?.split("/");
+  speakers.unshift({ label: "Select a Speaker", value: "" });
+  series.unshift({ label: "Select a Series", value: "" });
+  books.unshift({ label: "Select a Books", value: "" });
   return (
-    <div>
+    <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10">
       <div className="flex flex-col items-center">
-        <div id="sermons-filter" className="flex w-full justify-center gap-4">
-          <span>Filters</span>
-          <select
-            className="border-Shades-100 border-[1px]"
-            onChange={handleChange}
-          >
-            <option key="speaker-0" value="">
-              Speaker
-            </option>
-            {speakers.map(
-              ({ label, value }, index) =>
-                (selectValues && selectValues.includes(value) && (
-                  <option
-                    key={`speaker-${index + 1}`}
-                    value={value}
-                    selected={true}
-                  >
-                    {label}
-                  </option>
-                )) || (
-                  <option key={`speaker-${index + 1}`} value={value}>
-                    {label}
-                  </option>
-                )
-            )}
-          </select>
-          <select
-            className="border-Shades-100 border-[1px]"
-            onChange={handleChange}
-          >
-            <option key="series-0" value="">
-              Series
-            </option>
-            {series.map(
-              ({ label, value }, index) =>
-                (selectValues && selectValues.includes(value) && (
-                  <option
-                    key={`series-${index + 1}`}
-                    value={value}
-                    selected={true}
-                  >
-                    {label}
-                  </option>
-                )) || (
-                  <option key={`series-${index + 1}`} value={value}>
-                    {label}
-                  </option>
-                )
-            )}
-          </select>
-          <select
-            className="border-Shades-100 border-[1px]"
-            onChange={handleChange}
-          >
-            <option key="book-0" value="">
-              Book
-            </option>
-            {books.map(
-              ({ label, value }, index) =>
-                (selectValues && selectValues.includes(value) && (
-                  <option
-                    key={`book-${index + 1}`}
-                    value={value}
-                    selected={true}
-                  >
-                    {label}
-                  </option>
-                )) || (
-                  <option key={`book-${index + 1}`} value={value}>
-                    {label}
-                  </option>
-                )
-            )}
-          </select>
-        </div>
+        <div className="subheading">Previous Sermons</div>
+        <h2>Watch Again</h2>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 py-36 max-w-container px-4">
+      <div
+        id="sermons-filter"
+        className="grid grid-cols-2 gap-y-3  max-w-[17rem] lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  "
+      >
+        <ComboBox
+          label="Speaker"
+          options={speakers}
+          handleChange={handleChange}
+          filterValue={filterValue}
+        />
+        <ComboBox
+          label="Series"
+          options={series}
+          handleChange={handleChange}
+          filterValue={filterValue}
+        />
+        <ComboBox
+          label="Books"
+          options={books}
+          handleChange={handleChange}
+          filterValue={filterValue}
+        />
+      </div>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5">
         {nodes.map((sermon, i) => (
           <SermonCard
             key={i}
@@ -191,8 +170,8 @@ const Sermons = ({
           />
         ))}
       </div>
-      <div className="flex flex-col items-center">
-        <div className="flex text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] w-full">
+      <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
+        <div className="flex text-xl lg:text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
           {!isFirst ? (
             <Link
               to={previous}
@@ -202,7 +181,7 @@ const Sermons = ({
               &lt;
             </Link>
           ) : (
-            <span className="font-roboto">&nbsp;</span>
+            <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
           )}
           {pages.map((page, index) => (
             <NumberPaging
@@ -211,7 +190,7 @@ const Sermons = ({
               currentPage={currentPage}
             />
           ))}
-          {!isLast && (
+          {!isLast ? (
             <Link
               to={next}
               rel="next"
@@ -219,6 +198,8 @@ const Sermons = ({
             >
               &gt;
             </Link>
+          ) : (
+            <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
           )}
         </div>
       </div>

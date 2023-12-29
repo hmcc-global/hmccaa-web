@@ -44,6 +44,10 @@ const RightNowMedia = () => (
             href="#"
             hasArrow={true}
             className="bg-Shades-0"
+            ustomClassName={{
+              textContainer: "ellipsis",
+              button: "max-w-[16.875rem]",
+            }}
           >
             Sign Up For A Free Account
           </SecondaryButtonLink>

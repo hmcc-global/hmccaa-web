@@ -16,7 +16,10 @@ export const ButtonLink = ({
   customClassName,
   ...props
 }) => (
-  <Link className={`${button} ${className} ${customClassName?.button}`} {...props}>
+  <Link
+    className={`${button} ${className} ${customClassName?.button || ""}`}
+    {...props}
+  >
     <span
       className={`${(hasArrow && textContainer) || ""} ${
         customClassName?.textContainer || ""
@@ -24,7 +27,7 @@ export const ButtonLink = ({
     >
       {children}
     </span>{" "}
-    {hasArrow && <ButtonArrow />}
+    {hasArrow && <ButtonArrow className="whitespace-nowrap" />}
   </Link>
 );
 
@@ -42,7 +45,7 @@ export const Button = ({
     >
       {children}
     </span>{" "}
-    {hasArrow && <ButtonArrow />}
+    {hasArrow && <ButtonArrow className={customClassName?.buttonArrow} />}
   </button>
 );
 

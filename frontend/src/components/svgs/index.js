@@ -1,8 +1,8 @@
 import * as React from "react";
 
-const ButtonArrow = () => (
+const ButtonArrow = ({ className = "" }) => (
   <svg
-    className="w-5 lg:w-8"
+    className={`w-5 lg:w-8 ${className}`}
     viewBox="0 0 21 13"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -585,6 +585,18 @@ const WorshipLogo = () => (
   </svg>
 );
 
+const ArrowDropDown = () => (
+  <svg
+    viewBox="0 0 24 24"
+    className="fill-none w-[1.5rem] h-[1.5rem] select-none inline-block shrink-0"
+  >
+    <path
+      d="M6 9L12 15L18 9"
+      className="stroke-Shades-100 stroke-2 linecap-round linejoin-round"
+    />
+  </svg>
+);
+
 export {
   ButtonArrow,
   Arrows,
@@ -606,4 +618,5 @@ export {
   FacilitiesLogo,
   VMLogo,
   WorshipLogo,
+  ArrowDropDown,
 };

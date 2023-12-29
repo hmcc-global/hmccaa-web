@@ -81,6 +81,7 @@ const theme = {
     raleway: "Raleway",
     inter: "Inter",
     roboto: "Roboto",
+    ubuntu: "Ubuntu",
   },
   borderRadius: {
     none: "0",
@@ -177,6 +178,9 @@ const theme = {
       watch: "url('../images/background/watch.jpeg')",
       give: "url('../images/background/give.jpeg')",
       new: "url('../images/background/new.jpeg')",
+    },
+    screens: {
+      xs: "375px",
     },
   },
 };
