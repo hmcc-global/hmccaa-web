@@ -47,6 +47,24 @@ docker compose -f docker-compose-fullbuild.yml up --build
 
 Then, once changes have been checked in, we can push those changes into a new version of the base Docker image for others to reuse.
 
+### Developing with Custom Links
+
+Links all look like
+
+`<Link href="some external site" prop1=x prop2=y>Click here</Link>`
+
+or
+
+`<Link to="some internal page" prop1=x prop2=y>Click here</Link>`
+
+*href* must be defined for an external link
+
+*to* must be defined for internal page, otherwise it redirects to home page
+
+any props can be passed down all the way to the original `<a>` or `<GatsbyLink>` element defined in components/Link.js
+
+children can also be rendered in Link, in case you want to wrap this around some arbitrary element
+
 ## FAQ
 
 **Q**: Why do neither project have a `package-lock.json` file?
