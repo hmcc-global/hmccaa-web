@@ -130,23 +130,25 @@ const Header = () => {
               />
             </div>
             <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6]">
-              {locationsList.map((item, index) => (
-                index == 0 
-                  ? <Link
+              {locationsList.map((item, index) =>
+                index == 0 ? (
+                  <Link
                     key={`browseLink-${index}`}
                     to={"/"}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
                     {item.title}
                   </Link>
-                  : <Link
+                ) : (
+                  <Link
                     key={`browseLink-${index}`}
                     href={item.route}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
                     {item.title}
                   </Link>
-              ))}
+                )
+              )}
               <Link
                 href="https://tangerang.hmcc.net/"
                 className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 tracking-[0.96px]`}
