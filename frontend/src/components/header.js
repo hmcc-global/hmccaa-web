@@ -78,7 +78,7 @@ const Header = () => {
         </div>
 
         {isOpen && (
-          <div className="text-Shades-0 h-screen justify-center bg-Shades-50 items-start absolute inset-0 z-50">
+          <div className="text-Shades-0 h-screen justify-center bg-Shades-50 items-start fixed overflow-auto inset-0 z-50">
             <div className="flex flex-col justify-start items-center">
               <div className="flex flex-row pt-5 w-full justify-between opacity-90">
                 <div></div>
