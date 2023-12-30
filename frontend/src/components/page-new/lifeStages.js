@@ -76,7 +76,9 @@ const LifeStages = () => {
             className={`${
               index % 2 === 0 ? "text-right" : "text-left"
             } lg:flex lg:row-span-2 gap-x-10 ${
-              desktopViewRightSideItems.includes(index) ? "lg:col-start-2 lg:text-left" : "lg:text-right"
+              desktopViewRightSideItems.includes(index)
+                ? "lg:col-start-2 lg:text-left"
+                : "lg:text-right"
             } ${
               !desktopViewRightSideItems.includes(index)
                 ? index === 1
