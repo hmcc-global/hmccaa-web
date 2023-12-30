@@ -78,6 +78,8 @@ p {
 }
 
 .ReactModal__Body--open,
-.ReactModal__Html--open {
+.ReactModal__Html--open,
+.menu__Html--open,
+.menu__Body--open {
   @apply overflow-y-hidden;
 }
