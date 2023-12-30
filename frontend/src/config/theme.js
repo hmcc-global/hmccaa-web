@@ -58,7 +58,7 @@ const theme = {
       700: "#b91c1c",
       900: "#7f1d1d",
     },
-    Shades: { 0: "#ffffff", 100: "#000000" },
+    Shades: { 0: "#ffffff", 50: "#262626", 100: "#000000" },
     transparent: "transparent",
   },
   fontSize: {
