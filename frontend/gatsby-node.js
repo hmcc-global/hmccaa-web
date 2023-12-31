@@ -16,3 +16,25 @@ exports.createPages = async ({ actions }) => {
     defer: true,
   });
 };
+
+
+//TODO: Modify the following code to pull events from GraphQL before merging
+const path = require('path');
+
+const events = require('./src/data/eventData');
+
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions;
+
+  events.forEach(event => {
+    createPage({
+      path: `/events/${event.id}`,
+      component: path.resolve(`./src/components/page-events/eventPage.js`),
+      context: {
+        // Passing the entire event object as context
+        event,
+      },
+    });
+  });
+};
+
