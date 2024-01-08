@@ -2,17 +2,6 @@ import React, { useState, useEffect, useCallback, createRef } from "react";
 
 import { ArrowDropDown } from "../svgs";
 
-const useRefFlip = ref => {
-  const [position, setPosition] = useState(0);
-  useEffect(() => {
-    if (ref.current) {
-      const { current } = ref;
-      const boundingRect = current.getBoundingClientRect();
-      setPosition(boundingRect?.height);
-    }
-  }, [ref]);
-  return position;
-};
 const ComboBox = ({
   label,
   options,
@@ -23,17 +12,11 @@ const ComboBox = ({
   const foundItem = filterValue
     ? options.find(({ value }) => value.length && filterValue.includes(value))
     : null;
-  const comboBoxRef = createRef();
-  let currentComboBox = document.getElementById(id);
-  currentComboBox = currentComboBox?.querySelector(".combo-box-wrapper");
-  const currentComboBoxBottom =
-    currentComboBox?.getBoundingClientRect()?.bottom || 0;
-  const height = document.querySelector("html").clientHeight - 5;
-  const boxHeight = useRefFlip(comboBoxRef);
-  const [found, setFound] = useState(foundItem);
-  const [anchorElement, setAnchorElement] = useState(false);
+  const [comboBoxState, setComboBoxState] = useState({
+    show: false,
+    found: foundItem,
+  });
   const [list, setList] = useState(options);
-  let position = boxHeight > 0 ? currentComboBoxBottom + boxHeight : 0;
   const handleCloseDropDown = useCallback(
     ({ target }) => {
       const currentContainer = document.getElementById(id);
@@ -50,10 +33,10 @@ const ComboBox = ({
         fieldset.classList.remove("border-highlight");
         label.classList.add("scale-100", "translate-y-3");
         label.classList.remove("label-highlight", "scale-75", "-translate-y-2");
-        setAnchorElement(false);
+        setComboBoxState({ ...comboBoxState, show: false });
       }
     },
-    [id, setAnchorElement]
+    [id, setComboBoxState]
   );
   useEffect(() => {
     document.body.addEventListener("click", handleCloseDropDown);
@@ -63,27 +46,41 @@ const ComboBox = ({
     };
   }, [id, handleCloseDropDown]);
   const handleClick = () => {
-    const legend = document.getElementById(id).querySelector("legend");
+    const container = document.getElementById(id);
+    const legend = container.querySelector("legend");
     legend.classList.add("max-w-full");
-    const fieldset = document.getElementById(id).querySelector("fieldset");
+    const fieldset = container.querySelector("fieldset");
     fieldset.classList.add("border-highlight");
-    const label = document.getElementById(id).querySelector("label");
+
+    const label = container.querySelector("label");
     label.classList.remove("scale-100", "translate-y-3");
     label.classList.add("label-highlight", "scale-75", "-translate-y-2");
+    const height = document.querySelector("html").clientHeight - 5;
+    const comboBoxListHeight = container
+      .querySelector(".presentation")
+      .getBoundingClientRect().height;
+    const comboBoxBottom = container
+      .querySelector(".combo-box-wrapper")
+      .getBoundingClientRect().bottom;
 
-    setAnchorElement(!found ? !anchorElement : true);
-    setFound(null);
+    setComboBoxState({
+      show: !comboBoxState.found ? !comboBoxState.show : true,
+      found: null,
+      position:
+        comboBoxBottom + comboBoxListHeight > height ? "bottom-24" : "top-0",
+    });
   };
-  const handleChange = ({ target: { value: targetValue } }) => {
-    if (targetValue === "") {
+  const handleChange = ({ target: { value } }) => {
+    if (value === "") {
       setList(options);
     } else {
-      const filteredList = list.filter(({ value }) => {
-        const search = targetValue.toLowerCase();
-        return value.toLowerCase().includes(search);
+      const filteredList = list.filter(({ label }) => {
+        const search = value.toLowerCase().trim();
+        return label.toLowerCase().includes(search);
       });
       setList(filteredList);
     }
+    setComboBoxState({ ...comboBoxState, found: { label: value, value: "" } });
   };
 
   const handleSelection = ({ target }, { label, value }) => {
@@ -97,7 +94,7 @@ const ComboBox = ({
       document.getElementById(id).querySelector("input").value = label;
     }
     document.getElementById(id).querySelector("input").dataset.url = value;
-    setAnchorElement(false);
+    setComboBoxState({ ...comboBoxState, show: false });
     navigateChange();
   };
   return (
@@ -110,7 +107,7 @@ const ComboBox = ({
           <label
             id={`combo-box-${label}`}
             className={`font-ubuntu font-medium tracking-medium-wide block origin-top-left whitespace-nowrap overflow-hidden text-ellipsis max-w-full pr-[26px] absolute left-0 top-0 z-[3] pointer-events-none transition-[color,_transfrom,_max-width] duration-200 ease-out translate-x-3 ${
-              found
+              comboBoxState.found
                 ? "label-highlight -translate-y-2 scale-75"
                 : "translate-y-3  scale-100"
             }`}
@@ -135,8 +132,8 @@ const ComboBox = ({
                 .replace(/\s+/g, "-")}-list`}
               onChange={handleChange}
               className="w-0 min-w-[30px] grow text-ellipsis opacity-100 block relative z-[2] outline-0 py-2"
-              value={found ? found?.label : ""}
-              data-url={found ? found.value : ""}
+              value={comboBoxState.found ? comboBoxState.found?.label : ""}
+              data-url={comboBoxState.found ? comboBoxState.found.value : ""}
             />
             <div className="right-[9px] absolute top-1/2 -translate-y-[14px]">
               <button
@@ -149,12 +146,12 @@ const ComboBox = ({
             </div>
             <fieldset
               className={`m-0 text-left absolute inset-0 -top-[4px] px-3 py-1 border-solid border-[1px] overflow-hidden rounded-sm z-[1] ${
-                found && "border-highlight"
+                comboBoxState.found && "border-highlight"
               }`}
             >
               <legend
                 className={`overflow-hidden block invisibility whitespace-nowrap ${
-                  !found ? "max-w-[0.01px]" : "max-w-full"
+                  !comboBoxState.found ? "max-w-[0.01px]" : "max-w-full"
                 } transition-[max-width] duration-[50ms] ease-out min-h-[11px] text-sm pointer-events-none`}
               >
                 <span className="px-[5px] inline-block opacity-0 visible">
@@ -165,74 +162,67 @@ const ComboBox = ({
           </div>
         </div>
       </div>
-      {anchorElement && (
-        <div
-          role="presentation"
-          className={`presentation absolute left-0 w-full z-[1300] translate-y-12 ${
-            position > height ? "bottom-24" : "top-0"
-          } ${position > 0 ? "" : "invisible"}`}
-          ref={comboBoxRef}
-        >
-          <div className="bg-Shades-0 transition-[box-shadow] duration-300 rounded-sm shadow-[0_2px_1px_-1px_rgba(0,0,0,0.2),_0_1px_1px_0_rgba(0,0,0,0.14),_0_1px_3px_0_rgba(0,0,0,0.12)] tracking-medium-wide overflow-auto">
-            <div
+
+      <div
+        role="presentation"
+        className={`presentation absolute left-0 w-full translate-y-12 ${
+          !comboBoxState.position ? "top-0" : comboBoxState.position
+        } ${!comboBoxState.show ? "invisible z-0" : "z-[1300]"}`}
+      >
+        <div className="bg-Shades-0 transition-[box-shadow] duration-300 rounded-sm shadow-[0_2px_1px_-1px_rgba(0,0,0,0.2),_0_1px_1px_0_rgba(0,0,0,0.14),_0_1px_3px_0_rgba(0,0,0,0.12)] tracking-medium-wide overflow-auto">
+          {list.length ? (
+            <ul
               role="listbox"
               aria-labelledby={`combo-box-${label
                 .toLowerCase()
                 .replace(/\s+/g, "-")}-list`}
-              className="list-none py-2 max-h-[40vh] overflow-auto relative"
+              className="list-none py-2 max-h-[40vh] overflow-auto relative m-0"
               id={`combo-box-${label.toLowerCase().replace(/\s+/g, "-")}-list`}
             >
-              {list.length > 1 && (
-                <div
-                  key={`${label.toLowerCase().replace(/\s+/g, "-")}-0`}
+              <li
+                key={`${label.toLowerCase().replace(/\s+/g, "-")}-0`}
+                role="option"
+                aria-disabled="false"
+                aria-selected="false"
+                tabIndex="-1"
+                className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)] font-medium`}
+                data-option-value=""
+                onClick={evt =>
+                  handleSelection(evt, {
+                    label: `Select a ${label}`,
+                    value: "",
+                  })
+                }
+              >
+                Select a {label}
+              </li>
+              {list.map(({ label, value }, index) => (
+                <li
+                  key={`${label.toLowerCase().replace(/\s+/g, "-")}-${
+                    index + 1
+                  }`}
                   role="option"
                   aria-disabled="false"
                   aria-selected="false"
                   tabIndex="-1"
-                  className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)] font-medium`}
-                  data-option-value=""
-                  onClick={evt =>
-                    handleSelection(evt, {
-                      label: `Select a ${label}`,
-                      value: "",
-                    })
-                  }
+                  className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)]`}
+                  data-option-value={value}
+                  onClick={evt => handleSelection(evt, { label, value })}
                 >
-                  Select a {label}
-                </div>
-              )}
-              {list.length > 1 ? (
-                list.map(({ label, value }, index) => (
-                  <div
-                    key={`${label.toLowerCase().replace(/\s+/g, "-")}-${
-                      index + 1
-                    }`}
-                    role="option"
-                    aria-disabled="false"
-                    aria-selected="false"
-                    tabIndex="-1"
-                    className={`font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)]`}
-                    data-option-value={value}
-                    onClick={evt => handleSelection(evt, { label, value })}
-                  >
-                    {label}
-                  </div>
-                ))
-              ) : (
-                <div
-                  role="option"
-                  aria-disabled="false"
-                  aria-selected="false"
-                  tabIndex="-1"
-                  className="flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 text-[gray]"
-                >
-                  No Options
-                </div>
-              )}
+                  {label}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div
+              role="presentation"
+              className="flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 text-[gray]"
+            >
+              No Options
             </div>
-          </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
