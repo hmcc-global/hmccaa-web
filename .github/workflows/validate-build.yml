@@ -108,4 +108,4 @@ jobs:
       - name: Build Docs Server
         run: |
           cd ${{ github.workspace }}/docs
-          sudo sh serve.sh
+          sudo bash serve.sh
