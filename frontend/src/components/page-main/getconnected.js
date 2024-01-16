@@ -122,31 +122,6 @@ const DoubleGridMobile = ({ title, desc, color }) => (
 
 const GetConnectedCircleDesktop = () => (
   <div className="flex-col relative">
-    <div className="justify-start items-center gap-4 inline-flex ">
-      <div className="justify-start items-center gap-4 inline-flex w-[17rem]">
-        <DoubleGridMobile title="IMPACT" desc="STUDENTS" color="[#FFBD57]" />
-        <DoubleGridMobile title="IMPACT" desc="STUDENTS" color="[#FFBD57]" />
-      </div>
-    </div>
-
-    <div className="flex-row relative">
-      <DoubleGridDesktop
-        title="IMPACT"
-        desc="GRADUATE&nbsp;&nbsp;STUDENTS"
-        color="[#FFBD57]"
-      />
-      <DoubleGridMobile title="IMPACT" desc="STUDENTS" color="[#FFBD57]" />
-      <DoubleGridDesktop
-        title={lgs[0].title}
-        desc={lgs[0].desc}
-        color={lgs[0].color}
-      />
-      <DoubleGridMobile
-        title={lgs[0].title}
-        desc={lgs[0].desc}
-        color={lgs[0].color}
-      />
-    </div>
     <div className="px-10">
       <img
         className="padding-4"
