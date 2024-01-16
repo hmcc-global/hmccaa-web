@@ -19,10 +19,10 @@ Then, to run the documentation server locally:
 
 ```sh
 # Run inside docs/ folder
-sh serve.sh
+bash serve.sh
 ```
 
-This command starts up a container with the documentation server, and removes the "Published by HonKit" line at the bottom left of the page.
+This command starts up a container with the documentation server, and removes the "Published by HonKit" line at the bottom left of the page. Your local copy of the docs server will sit at `localhost:4000` until the container is stopped.
 
 Alternatively, to just start up the container and build the server (without replacing HonKit advertisements), run:
 
