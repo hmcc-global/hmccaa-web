@@ -81,10 +81,10 @@ const DoubleGridDesktop = ({ title, desc, color }) => (
     <div
       className={`w-[15.5rem] h-[15.5rem] left-[1.25rem] top-[1.75rem] absolute bg-${color}`}
     >
-      <div className="left-[0.75rem] bottom-[0rem] absolute text-Shades-0 text-xl font-bold font-['Raleway']">
+      <div className="left-[0.75rem] bottom-[0rem] absolute text-Shades-0 text-xl font-bold">
         {title}
       </div>
-      <div className="text-center absolute w-full -left-[1rem] origin-top-right -rotate-90 text-Shades-0 text-[14px] font-['Raleway'] leading-[1rem]">
+      <div className="text-center absolute w-full -left-[1rem] origin-top-right -rotate-90 text-Shades-0 text-[14px] leading-[1rem]">
         {desc}
       </div>
     </div>
@@ -100,14 +100,14 @@ const DoubleGridDesktop = ({ title, desc, color }) => (
 // desc on bottom, white text, centered
 const DoubleGridMobile = ({ title, desc, color }) => (
   <div className="flex-col justify-start items-center gap-1 inline-flex">
-    <div className="text-center w-full text-Shades-100 text-lg font-bold font-['Raleway']">
+    <div className="text-center w-full text-Shades-100 text-lg font-bold">
       {title}
     </div>
     <div className="relative w-[17rem] h-[17.5rem]">
       <div
         className={`w-[15.5rem] h-[15.5rem] left-[1.25rem] top-[1.75rem] absolute bg-${color}`}
       >
-        <div className="text-center bottom-[0rem] absolute w-full text-Shades-0 text-md font-bold font-['Raleway']">
+        <div className="text-center bottom-[0rem] absolute w-full text-Shades-0 text-md font-bold">
           {desc}
         </div>
       </div>
@@ -139,7 +139,7 @@ const GetConnectedCircleMobile = () => (
   <div className="flex-col justify-start items-center gap-5 inline-flex">
     <div className="justify-start items-center gap-4 inline-flex">
       <div className="w-[150px] h-[150px] px-[15px] py-[51px] bg-white justify-center items-center flex">
-        <div className="w-[120px] text-center text-black text-xl font-bold font-['Raleway'] leading-normal">
+        <div className="w-[120px] text-center text-black text-xl font-bold leading-normal">
           LIFE STAGES
         </div>
       </div>
