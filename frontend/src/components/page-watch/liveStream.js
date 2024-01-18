@@ -24,7 +24,7 @@ const LiveStream = () => {
           <div className="flex justify-center lg:justify-start">
             <PrimaryButtonLink
               hasArrow={true}
-              to="https://www.youtube.com/@hmcc_aa/streams"
+              href="https://www.youtube.com/@hmcc_aa/streams"
             >
               Watch Now
             </PrimaryButtonLink>

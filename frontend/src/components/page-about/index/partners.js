@@ -50,7 +50,9 @@ const Partners = () => (
         </p>
       </HighlightedParagraph>
       <div className={buttonContainer}>
-        <SecondaryButtonLink hasArrow={true}>More Info</SecondaryButtonLink>
+        <SecondaryButtonLink hasArrow={true} to={"/about/hmi"}>
+          More Info
+        </SecondaryButtonLink>
       </div>
     </div>
     <div className={globalMissionContainer}>

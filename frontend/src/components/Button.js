@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import Link from "./Link";
 import { ButtonArrow } from "./svgs";
 import {
   button,
@@ -8,14 +8,15 @@ import {
   primaryButton,
 } from "../css/button.module.css";
 
+// ...props captures 'to' or the 'href' parameter
 export const ButtonLink = ({
-  to = "#",
   hasArrow = false,
   className = "",
   children,
   customClassName,
+  ...props
 }) => (
-  <Link className={`${button} ${className} ${customClassName?.button}`} to={to}>
+  <Link className={`${button} ${className} ${customClassName?.button}`} {...props}>
     <span
       className={`${(hasArrow && textContainer) || ""} ${
         customClassName?.textContainer || ""

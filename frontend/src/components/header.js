@@ -3,7 +3,7 @@ import hmccLogo from "../images/hmcc-ripple-white.svg";
 import mapPinLogo from "../images/icons/map-pin.svg";
 import dropDown from "../images/icons/dropdown.svg";
 import x from "../images/icons/X.svg";
-import { Link } from "gatsby";
+import Link from "./Link";
 
 const Header = () => {
   const browseList = [
@@ -68,7 +68,7 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-4 md:gap-6 lg:gap-8">
-          <Link href="/">
+          <Link to="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
           <Link to="/" className={`${textStyle} w-[183px] font-semibold`}>
@@ -131,18 +131,24 @@ const Header = () => {
             </div>
             <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6]">
               {locationsList.map((item, index) => (
-                <Link
-                  key={`browseLink-${index}`}
-                  to={item.route}
-                  target="_blank"
-                  className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
-                >
-                  {item.title}
-                </Link>
+                index == 0 
+                  ? <Link
+                    key={`browseLink-${index}`}
+                    to={"/"}
+                    className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
+                  >
+                    {item.title}
+                  </Link>
+                  : <Link
+                    key={`browseLink-${index}`}
+                    href={item.route}
+                    className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
+                  >
+                    {item.title}
+                  </Link>
               ))}
               <Link
-                to="https://tangerang.hmcc.net/"
-                target="_blank"
+                href="https://tangerang.hmcc.net/"
                 className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 tracking-[0.96px]`}
               >
                 Tangerang

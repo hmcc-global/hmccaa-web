@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { bgLeft, bgRight } from "../../css/lifeStagesNew.module.css";
+import Link from "../Link";
 
 const lifeStages = [
   {
@@ -112,9 +113,9 @@ const LifeStages = () => {
       </div>
       <div className="text-Accent-500 text-center text-lg font-bold">
         Please email{" "}
-        <a href="mailto:abc@hmccaa.com" className="text-Accent-500">
+        <Link href="mailto:abc@hmccaa.com" className="text-Accent-500">
           abc@hmccaa.com
-        </a>{" "}
+        </Link>{" "}
         to get connected!
       </div>
     </div>
