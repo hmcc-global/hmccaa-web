@@ -134,7 +134,7 @@ const Header = () => {
                 src={mapPinLogo}
               />
             </div>
-            <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6]">
+            <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6] z-10">
               {locationsList.map((item, index) =>
                 index == 0 ? (
                   <Link
