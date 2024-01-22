@@ -76,9 +76,7 @@ const lifeStages = [
         </p>
         <p>
           If you would like to learn more about our community, email{" "}
-          <Link href="mailto:focus@annarbor.hmcc.net">
-            focus@annarbor.hmcc.net
-          </Link>
+          <Link href="mailto:focus@annarbor.hmcc.net">focus@annarbor.hmcc.net</Link>
         </p>
       </div>
     ),
@@ -106,9 +104,7 @@ const lifeStages = [
         </p>
         <p>
           For more information contact{" "}
-          <Link href="mailto:impact@annarbor.hmcc.net">
-            impact@annarbor.hmcc.net
-          </Link>
+          <Link href="mailto:impact@annarbor.hmcc.net">impact@annarbor.hmcc.net</Link>
         </p>
       </div>
     ),
@@ -144,8 +140,8 @@ const lifeStages = [
             </Link>
           </p>
           <p className="italic">
-            Access, an MSA registered student organization, is the student
-            branch of Harvest Mission Community Church.
+            Access, an MSA registered student organization, is the student branch
+            of Harvest Mission Community Church.
           </p>
         </div>
         <div className="flex">
@@ -227,9 +223,7 @@ const lifeStages = [
         </p>
         <p>
           For more information about our youth ministry, contact{" "}
-          <Link href="mailto:youth@annarbor.hmcc.net">
-            youth@annarbor.hmcc.net
-          </Link>
+          <Link href="mailto:youth@annarbor.hmcc.net">youth@annarbor.hmcc.net</Link>
         </p>
       </div>
     ),
@@ -345,10 +339,7 @@ const LifeStagesPage = ({ pageContext }) => {
               another more consistently, we meet in LIFE Groups.
             </p>
             <div className="flex flex-col justify-center">
-              <PrimaryButtonLink
-                to={"../next-steps/lifegroups"}
-                hasArrow={true}
-              >
+              <PrimaryButtonLink to={"../next-steps/lifegroups"} hasArrow={true}>
                 Check Out A Life Group
               </PrimaryButtonLink>
             </div>

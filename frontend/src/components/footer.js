@@ -20,7 +20,7 @@ const Footer = () => {
     { title: "Watch", route: "/watch" },
     { title: "Give", route: "/give" },
   ];
-  // TODO: what is interest form?
+  // TODO: what is interest form? 
   // fix remainder of routes when their sections get added
   // all link to next steps for now
   const connectList = [

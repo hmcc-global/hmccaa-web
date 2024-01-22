@@ -16,10 +16,7 @@ export const ButtonLink = ({
   customClassName,
   ...props
 }) => (
-  <Link
-    className={`${button} ${className} ${customClassName?.button}`}
-    {...props}
-  >
+  <Link className={`${button} ${className} ${customClassName?.button}`} {...props}>
     <span
       className={`${(hasArrow && textContainer) || ""} ${
         customClassName?.textContainer || ""

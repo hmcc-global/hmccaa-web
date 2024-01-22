@@ -40,7 +40,11 @@ const RightNowMedia = () => (
           </p>
         </div>
         <div className="flex justify-center lg:justify-start">
-          <SecondaryButtonLink href="#" hasArrow={true} className="bg-Shades-0">
+          <SecondaryButtonLink
+            href="#"
+            hasArrow={true}
+            className="bg-Shades-0"
+          >
             Sign Up For A Free Account
           </SecondaryButtonLink>
         </div>

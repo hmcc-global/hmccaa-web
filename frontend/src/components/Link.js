@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link as GatsbyLink } from "gatsby";
+import { Link as GatsbyLink} from "gatsby";
 
 // specifying to as a prop will render gatsby's link component
 // if an href is specified native anchor is used for external links

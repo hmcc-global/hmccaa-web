@@ -9,7 +9,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
 import Banner from "../../components/shared/banner";
-import { processEvents } from "../../components/page-events/event-processing-util";
+import {processEvents} from "../../components/page-events/event-processing-util";
 
 const EventsPage = () => {
   const data = useStaticQuery(graphql`
