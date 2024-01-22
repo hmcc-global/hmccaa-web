@@ -40,14 +40,16 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  const htmlElement = document?.querySelector("html");
-  const bodyElement = document?.querySelector("body");
-  if (isOpen) {
-    htmlElement.classList.add("menu__Html--open");
-    bodyElement.classList.add("menu__Body--open");
-  } else {
-    htmlElement.classList.remove("menu__Html--open");
-    bodyElement.classList.remove("menu__Body--open");
+  if (document) {
+    const htmlElement = document.querySelector("html");
+    const bodyElement = document.querySelector("body");
+    if (isOpen) {
+      htmlElement.classList.add("menu__Html--open");
+      bodyElement.classList.add("menu__Body--open");
+    } else {
+      htmlElement.classList.remove("menu__Html--open");
+      bodyElement.classList.remove("menu__Body--open");
+    }
   }
 
   return (
