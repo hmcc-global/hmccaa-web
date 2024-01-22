@@ -84,7 +84,7 @@ const EventsPage = () => {
           />
         ))}
       </div>
-      <PrayerGatheringEvents/>
+      <PrayerGatheringEvents />
       <Instagram />
     </Layout>
   );
