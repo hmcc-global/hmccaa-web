@@ -63,7 +63,7 @@ const Header = () => {
             to="/"
             className={`${textStyle} text-center min-w-max font-semibold`}
           >
-            HARVEST MISSION <br/> COMMUNITY CHURCH
+            HARVEST MISSION <br /> COMMUNITY CHURCH
           </Link>
           <button onClick={toggleModal}>
             <img alt="drop down" className={dropDownStyle} src={dropDown} />
@@ -75,7 +75,7 @@ const Header = () => {
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
           <Link to="/" className={`${textStyle} min-w-max font-semibold`}>
-            HARVEST MISSION <br/> COMMUNITY CHURCH
+            HARVEST MISSION <br /> COMMUNITY CHURCH
           </Link>
         </div>
 
