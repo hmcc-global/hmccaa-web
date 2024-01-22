@@ -40,7 +40,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  if (document) {
+  if (typeof document !== "undefined") {
     const htmlElement = document.querySelector("html");
     const bodyElement = document.querySelector("body");
     if (isOpen) {
