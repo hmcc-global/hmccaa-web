@@ -18,13 +18,13 @@ const LiveStream = () => {
           <h2 className="pb-5">Celebrate With Us Virtually!</h2>
           <p className="mb-5 text-base lg:text-lg">
             We meet every Sunday at 10 am at the T-center. Please join us in
-            person but if you cannot come worship with us through our live
+            person, but if you cannot, come worship with us through our live
             stream!
           </p>
           <div className="flex justify-center lg:justify-start">
             <PrimaryButtonLink
               hasArrow={true}
-              to="https://www.youtube.com/@hmcc_aa/streams"
+              href="https://www.youtube.com/@hmcc_aa/streams"
             >
               Watch Now
             </PrimaryButtonLink>

@@ -9,6 +9,7 @@ import {
   PrimaryButtonLink,
 } from "../../components/Button";
 import { lifeStage } from "../../css/lifeStages.module.css";
+import Link from "../../components/Link";
 
 const imageClassName =
   "bg-Shades-100 border-solid border-4  w-[260px] lg:w-[297px] relative z-10";
@@ -41,9 +42,9 @@ const lifeStages = [
         </p>
         <p>
           For more information or questions, please contact{" "}
-          <a href="mailto:covenant@annarbot.hmcc.net">
+          <Link href="mailto:covenant@annarbot.hmcc.net">
             covenant@annarbor.hmcc.net
-          </a>
+          </Link>
         </p>
       </div>
     ),
@@ -75,7 +76,7 @@ const lifeStages = [
         </p>
         <p>
           If you would like to learn more about our community, email{" "}
-          <a href="mailto:focus@annarbor.hmcc.net">focus@annarbor.hmcc.net</a>
+          <Link href="mailto:focus@annarbor.hmcc.net">focus@annarbor.hmcc.net</Link>
         </p>
       </div>
     ),
@@ -103,7 +104,7 @@ const lifeStages = [
         </p>
         <p>
           For more information contact{" "}
-          <a href="mailto:impact@annarbor.hmcc.net">impact@annarbor.hmcc.net</a>
+          <Link href="mailto:impact@annarbor.hmcc.net">impact@annarbor.hmcc.net</Link>
         </p>
       </div>
     ),
@@ -134,12 +135,12 @@ const lifeStages = [
           </p>
           <p>
             Want to know more about our Undergraduate ministry? Contact{" "}
-            <a href="mailto:access@annarbor.hmcc.net">
+            <Link href="mailto:access@annarbor.hmcc.net">
               access@annarbor.hmcc.net
-            </a>
+            </Link>
           </p>
-          <p>
-            Access, a MSA registered student organization, is the student branch
+          <p className="italic">
+            Access, an MSA registered student organization, is the student branch
             of Harvest Mission Community Church.
           </p>
         </div>
@@ -187,9 +188,9 @@ const lifeStages = [
         </p>
         <p>
           For more information about Global Access, contact{" "}
-          <a href="mailto:globalaccess@annarbor.hmcc.net">
+          <Link href="mailto:globalaccess@annarbor.hmcc.net">
             globalaccess@annarbor.hmcc.net.
-          </a>
+          </Link>
         </p>
       </div>
     ),
@@ -222,7 +223,7 @@ const lifeStages = [
         </p>
         <p>
           For more information about our youth ministry, contact{" "}
-          <a href="mailto:youth@annarbor.hmcc.net">youth@annarbor.hmcc.net</a>
+          <Link href="mailto:youth@annarbor.hmcc.net">youth@annarbor.hmcc.net</Link>
         </p>
       </div>
     ),
@@ -259,9 +260,9 @@ const lifeStages = [
         </p>
         <p>
           For more information about Building Blocks, contact{" "}
-          <a href="mailto:buildingblocks@annarbor.hmcc.net">
+          <Link href="mailto:buildingblocks@annarbor.hmcc.net">
             buildingblocks@annarbor.hmcc.net
-          </a>
+          </Link>
         </p>
       </div>
     ),
@@ -338,7 +339,7 @@ const LifeStagesPage = ({ pageContext }) => {
               another more consistently, we meet in LIFE Groups.
             </p>
             <div className="flex flex-col justify-center">
-              <PrimaryButtonLink to={""} hasArrow={true}>
+              <PrimaryButtonLink to={"../next-steps/lifegroups"} hasArrow={true}>
                 Check Out A Life Group
               </PrimaryButtonLink>
             </div>

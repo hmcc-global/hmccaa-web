@@ -17,6 +17,7 @@ import {
   WorshipLogo,
 } from "../svgs";
 import { StaticImage } from "gatsby-plugin-image";
+import Link from "../Link";
 
 const teams = [
   {
@@ -30,8 +31,8 @@ const teams = [
     Component: KidsLogo,
   },
   {
-    team: "Documentation",
-    abbreviation: "DOCS - PHOTO/VIDOES",
+    team: "Documentations",
+    abbreviation: "DOCS - PHOTO/VIDEO",
     Component: DocsLogo,
   },
   {
@@ -46,7 +47,7 @@ const teams = [
   },
   {
     team: "Video Ministry",
-    abbreviation: "Video Recording",
+    abbreviation: "VIDEO RECORDING",
     Component: VMLogo,
   },
   {
@@ -123,7 +124,7 @@ const MinistryTeams = () => (
           })}
         </div>
         <div className={highlightText}>
-          Please email <a href="mailto:abc@hmccaa.com">abc@hmccaa.com</a> to get
+          Please email <Link href="mailto:abc@hmccaa.com">abc@hmccaa.com</Link> to get
           connected!
         </div>
       </div>

@@ -73,8 +73,11 @@ const FiveEs = () => (
       ))}
     </div>
     <div className="flex justify-center font-bold pb-5 lg:pb-12">
-      <PrimaryButtonLink hasArrow={true}>
-        check out a life group
+      <PrimaryButtonLink
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
+        hasArrow={true}
+      >
+        CHECK OUT A LIFE GROUP
       </PrimaryButtonLink>
     </div>
     <div className="text-center lg:pb-[378px] max-w-[51.25rem] mx-auto font-medium lg:pt-0 lg:px-0 pt-7 pb-8 pr-2">

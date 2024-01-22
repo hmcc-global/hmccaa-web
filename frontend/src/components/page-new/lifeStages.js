@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { bgLeft, bgRight } from "../../css/lifeStagesNew.module.css";
+import Link from "../Link";
 
 const lifeStages = [
   {
@@ -60,7 +61,7 @@ const lifeStages = [
   },
 ];
 
-const righSideItems = [0, 2, 3];
+const desktopViewRightSideItems = [0, 2, 3];
 const LifeStages = () => {
   return (
     <div className="px-4 pt-[1.1875rem] pb-[4.1875rem] lg:py-[9.5625rem] flex flex-col gap-y-10 lg:gap-y-[3.75rem] max-w-[33.125rem] lg:max-w-[66.3125rem]">
@@ -74,10 +75,10 @@ const LifeStages = () => {
             key={`lifeStage-${index}`}
             className={`${
               index % 2 === 0 ? "text-right" : "text-left"
-            } lg:flex lg:row-span-2 gap-x-10${
-              righSideItems.includes(index) ? " lg:col-start-2" : ""
-            }${
-              !righSideItems.includes(index)
+            } lg:flex lg:row-span-2 gap-x-10 ${
+              desktopViewRightSideItems.includes(index) ? "lg:col-start-2 lg:text-left" : "lg:text-right"
+            } ${
+              !desktopViewRightSideItems.includes(index)
                 ? index === 1
                   ? " lg:row-start-2"
                   : " lg:row-start-4"
@@ -86,7 +87,7 @@ const LifeStages = () => {
           >
             <div
               className={`${
-                !righSideItems.includes(index) ? "lg:order-1" : ""
+                !desktopViewRightSideItems.includes(index) ? "lg:order-1" : ""
               }`}
             >
               <div className="text-lg uppercase text-Primary-300 pb-1 lg:text-2xl leading-tighter font-semibold">
@@ -112,9 +113,9 @@ const LifeStages = () => {
       </div>
       <div className="text-Accent-500 text-center text-lg font-bold">
         Please email{" "}
-        <a href="mailto:abc@hmccaa.com" className="text-Accent-500">
+        <Link href="mailto:abc@hmccaa.com" className="text-Accent-500">
           abc@hmccaa.com
-        </a>{" "}
+        </Link>{" "}
         to get connected!
       </div>
     </div>

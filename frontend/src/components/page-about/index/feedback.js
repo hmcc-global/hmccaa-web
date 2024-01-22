@@ -24,7 +24,7 @@ const Feedback = () => {
         </div>
         <div>
           <div className="flex">
-            <SecondaryButtonLink to={"/about/feedback"} hasArrow={true}>
+            <SecondaryButtonLink href="#" hasArrow={true}>
               Feedback Form
             </SecondaryButtonLink>
           </div>
