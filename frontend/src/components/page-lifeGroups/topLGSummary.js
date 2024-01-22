@@ -5,19 +5,19 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const TopLGSummary = () => (
   <div>
-    <h1 className="text-center text-[40px] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-8">
+    <h1 className="text-center text-[40px] pt-[2.1875rem] md:pt-20 font-bold mb-[2.25rem] md:mb-0">
       LIFE GROUPS
     </h1>
 
-    <div className="flex flex-col lg:flex-row gap-y-5 lg:gap-x-14 xl:gap-x-28 lg:pb-[100px]">
-      <div className="lg:order-1 lg:w-[49.1526% text-center">
+    <div className="flex flex-col md:flex-row gap-y-5 md:pb-[100px] content-image">
+      <div className="md:order-1 text-center image-container">
         <StaticImage
           className="max-w-[580px]"
           src="../../images/lifeGroupHuddle.png"
           alt="LG people"
         />
       </div>
-      <div className="lg:w-[40.678%] text-center lg:text-left">
+      <div className=" text-center md:text-left content-container">
         <HighlightedParagraph className="text-[16px]">
           <p>
             In the Bible, Jesus talks about living an abundant life. The vision
