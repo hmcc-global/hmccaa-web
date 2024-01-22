@@ -21,11 +21,11 @@ body {
 }
 
 .subheading {
-  @apply font-bold text-lg lg:text-xl uppercase text-Primary-300 pb-3;
+  @apply font-bold text-lg md:text-xl uppercase text-Primary-300 pb-3;
 }
 
 h2 {
-  @apply font-semibold text-2xl lg:text-4xl leading-tighter text-Shades-100 uppercase;
+  @apply font-semibold text-2xl md:text-4xl leading-tighter text-Shades-100 uppercase;
 }
 
 .linecap-round {
@@ -41,7 +41,7 @@ h2 {
 }
 
 nav.breadcrumb {
-  @apply max-w-container w-full text-base lg:text-xl font-medium text-[#4352B1] pl-[0.125rem] lg:pl-0;
+  @apply max-w-container w-full text-base md:text-xl font-medium text-[#4352B1] pl-[0.125rem] md:pl-0;
 }
 
 nav .breadcrumb__list {
@@ -57,7 +57,7 @@ nav .breadcrumb__link {
 }
 
 p {
-  @apply pb-[1.3125rem] lg:pb-6;
+  @apply pb-[1.3125rem] md:pb-6;
 }
 
 /* react-modal transitions */
@@ -74,7 +74,7 @@ p {
 }
 
 .ReactModal__Content {
-  @apply sm:max-w-[19.625rem] lg:max-w-container m-8 sm:mx-auto sm:my-8 border-none;
+  @apply sm:max-w-[19.625rem] md:max-w-container m-8 sm:mx-auto sm:my-8 border-none;
 }
 
 .ReactModal__Body--open,

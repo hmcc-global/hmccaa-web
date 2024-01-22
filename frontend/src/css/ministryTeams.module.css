@@ -1,18 +1,18 @@
 @config "../config/tailwind.config.js";
 
 .wrapper {
-  @apply max-w-[90rem] mx-auto w-full px-4 lg:px-0 pt-[0.9375rem] pb-[2.3125rem] lg:pt-14 lg:pb-[7.5rem];
+  @apply max-w-[90rem] mx-auto w-full px-4 md:px-0 pt-[0.9375rem] pb-[2.3125rem] md:pt-14 md:pb-[7.5rem];
 }
 
 .container {
   @apply max-w-[31.25rem] lg:max-w-[56.25rem] lg:relative mx-auto lg:left-[1px] lg:py-[16.6875rem] lg:border-solid lg:border-[10px] lg:border-Primary-500 lg:rounded-full;
 }
 .text-container {
-  @apply flex flex-col items-center text-center max-w-[31.25rem] mx-auto gap-y-5 lg:pb-5;
+  @apply flex flex-col items-center text-center max-w-[31.25rem] mx-auto gap-y-5 md:pb-5;
 }
 
 .text-container p {
-  @apply mb-0 text-base lg:text-lg;
+  @apply mb-0 text-base md:text-lg;
 }
 
 .highlight-text {
@@ -36,9 +36,9 @@
 }
 
 .team-wrapper h3 {
-  @apply text-xl lg:text-2xl font-bold uppercase;
+  @apply text-xl md:text-2xl font-bold uppercase;
 }
 
 .team-wrapper div {
-  @apply text-sm lg:text-lg font-semibold;
+  @apply text-sm md:text-lg font-semibold;
 }

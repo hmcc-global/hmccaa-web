@@ -1,15 +1,15 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply pt-5 lg:pt-0 lg:grid lg:pb-20.5 lg:gap-x-5 text-center lg:text-left lg:px-4;
+  @apply pt-5 md:pt-0 md:grid md:pb-20.5 text-center md:text-left max-w-container w-full md:grid-cols-59;
 }
 
 .global-mission-img-container {
-  @apply mx-auto lg:mx-0 px-4 lg:px-0 lg:row-start-1 lg:col-start-2 pb-5;
+  @apply mx-auto md:mx-0 px-4 md:px-0 md:row-start-1 md:col-start-33 md:col-span-27 pb-5;
 }
 
 .global-mission-container {
-  @apply w-full lg:w-auto;
+  @apply w-full md:w-auto md:col-start-33 md:col-span-27;
 }
 
 .global-mission-context {
@@ -17,30 +17,30 @@
 }
 
 .global-mission-context::before {
-  @apply absolute top-0 bottom-0 left-0  h-full border-solid border-l-Primary-500 border-l-[1.875rem] lg:border-l-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
+  @apply absolute top-0 bottom-0 left-0  h-full border-solid border-l-Primary-500 border-l-[1.875rem] md:border-l-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] md:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
 }
 
 .global-mission-context::after {
-  @apply absolute top-0 bottom-0 right-0 h-full border-solid border-r-Primary-500 border-r-[1.875rem] lg:border-r-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
+  @apply absolute top-0 bottom-0 right-0 h-full border-solid border-r-Primary-500 border-r-[1.875rem] md:border-r-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] md:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
 }
 
 .global-mission {
-  @apply relative max-w-sm-lg mx-auto py-3.5 lg:pt-8 lg:pb-1.75 px-[1.875rem] lg:px-[5rem] xl:px-[3.75rem];
+  @apply relative max-w-sm-lg mx-auto py-3.5 md:pt-8 md:pb-1.75 px-[1.875rem] md:px-[5rem] xl:px-[3.75rem];
 }
 .global-mission h3 {
-  @apply uppercase font-semibold text-2xl tracking-medium-wide lg:tracking-normal lg:text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
+  @apply uppercase font-semibold text-2xl tracking-medium-wide md:tracking-normal md:text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
 }
 
 .global-mission p {
-  @apply font-bold text-center text-Secondary-900 tracking-medium-wide text-base lg:text-lg mb-0 lg:mb-6;
+  @apply font-bold text-center text-Secondary-900 tracking-medium-wide text-base md:text-lg mb-0 md:mb-6;
 }
 
 .global-mission p span {
-  @apply text-xl lg:text-2xl leading-normal lg:leading-tighter font-bold lg:font-semibold tracking-normal;
+  @apply text-xl md:text-2xl leading-normal md:leading-tighter font-bold md:font-semibold tracking-normal;
 }
 
 .statement-container {
-  @apply flex flex-col items-center lg:block px-4 lg:px-0 pb-5 lg:pb-0 lg:row-start-1 lg:row-end-5 lg:col-start-1;
+  @apply flex flex-col items-center md:block px-4 md:px-0 pb-5 md:pb-0 md:row-start-1 md:row-end-5 md:col-start-1 md:col-span-29;
 }
 
 .statement-container h2 {
@@ -48,5 +48,5 @@
 }
 
 .button-container {
-  @apply flex mx-auto max-w-btn lg:mx-0;
+  @apply flex mx-auto max-w-btn md:mx-0;
 }

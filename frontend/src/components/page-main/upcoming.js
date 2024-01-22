@@ -3,14 +3,14 @@ import { SecondaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
 
 const UpcomingEvents = () => (
-  <div className="flex flex-col lg:flex-row gap-y-5 gap-x-30 pt-5 pb-[3.0625rem] lg:py-31 px-4 lg:px-32 items-center lg:items-start">
-    <div>
+  <div className="flex flex-col md:flex-row gap-y-5 pt-5 pb-[3.0625rem] items-center md:items-start content-image">
+    <div className="image-container">
       <StaticImage
         src="../../images/upcomingEventsImg.png"
         alt="UpcomingEventsImg"
       />
     </div>
-    <div className="w-full lg:w-2/4 text-center lg:text-left">
+    <div className="w-full text-center lg:text-left content-container">
       <div className="subheading">upcoming events</div>
       <h2>
         Here<span>&#39;</span>s what<span>&#39;</span>s happening next.
