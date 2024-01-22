@@ -4,9 +4,10 @@ import Link from "./Link";
 
 const Instagram = () => (
   <div className="bg-Shades-100 py-5 w-full">
-    <Link 
+    <Link
       href="https://www.instagram.com/hmcc_aa/"
-      className="flex place-content-center gap-x-3 no-underline">
+      className="flex place-content-center gap-x-3 no-underline"
+    >
       <div>
         <InstaIcon className="w-5 h-5 lg:w-10 lg:h-10" />
       </div>
