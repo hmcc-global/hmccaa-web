@@ -1,7 +1,5 @@
-
 const STRAPI_RECURRING_TIME = "event-times.recurring-time";
 const STRAPI_SINGLE_TIME = "event-times.single-time";
-
 
 const addDays = (date, days) => {
   const result = new Date(date);
@@ -28,11 +26,11 @@ const addYears = (date, years) => {
 };
 
 /*
-  * Returns whether the date is before today.
-  * We don't want events to disappear immediately after they start.
-  * We'll use this function to keep showing events until the end of the same day.
+ * Returns whether the date is before today.
+ * We don't want events to disappear immediately after they start.
+ * We'll use this function to keep showing events until the end of the same day.
  */
-const isTodayOrAfter = (date) => {
+const isTodayOrAfter = date => {
   const copyOfDate = new Date(date);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -41,20 +39,25 @@ const isTodayOrAfter = (date) => {
 };
 
 const DATE_ITERATOR = {
-  "Day": addDays,
-  "Week": addWeeks,
-  "Month": addMonths,
-  "Year": addYears,
+  Day: addDays,
+  Week: addWeeks,
+  Month: addMonths,
+  Year: addYears,
 };
 
 const generateRecurringEvent = (timeInfo, baseEvent, maxOccurrences) => {
   maxOccurrences = maxOccurrences || 1;
   const startDate = new Date(timeInfo.DateTime);
   const events = [];
-  const duration = timeInfo.EndDateTime ? new Date(timeInfo.EndDateTime) - startDate : null;
+  const duration = timeInfo.EndDateTime
+    ? new Date(timeInfo.EndDateTime) - startDate
+    : null;
 
   for (let i = 0; i < maxOccurrences; i++) {
-    const eventDate = DATE_ITERATOR[timeInfo.RecurTimeFrame](startDate, i * timeInfo.RecurEveryXTimeFrames);
+    const eventDate = DATE_ITERATOR[timeInfo.RecurTimeFrame](
+      startDate,
+      i * timeInfo.RecurEveryXTimeFrames
+    );
 
     // Stop generating events after the end date
     if (timeInfo.EndRecurDate && eventDate > new Date(timeInfo.EndRecurDate)) {
@@ -66,34 +69,44 @@ const generateRecurringEvent = (timeInfo, baseEvent, maxOccurrences) => {
         ...baseEvent,
         date: eventDate,
         endDate: duration ? new Date(eventDate.getTime() + duration) : null,
-      })
+      });
     }
-
   }
   return events;
 };
 
-const processEvent = (event) => {
+const processEvent = event => {
   const eventInstances = [];
 
-  const fullDescription = event.DescriptionOverride || event.EventTemplate?.Description || "";
+  const fullDescription =
+    event.DescriptionOverride || event.EventTemplate?.Description || "";
   const [description] = fullDescription.split("\n");
   const baseEvent = {
     title: event.NameOverride || event.EventTemplate?.Name || "",
-    imgUrl: event.CoverImageOverride?.url || event.EventTemplate?.CoverImage.url || "",
-    imgAlt: event.CoverImageOverride?.imgAlt || event.EventTemplate?.CoverImage.imgAlt || "",
-    location: event.LocationOverride?.LocationName || event.EventTemplate?.Location.LocationName || "",
+    imgUrl:
+      event.CoverImageOverride?.url ||
+      event.EventTemplate?.CoverImage.url ||
+      "",
+    imgAlt:
+      event.CoverImageOverride?.imgAlt ||
+      event.EventTemplate?.CoverImage.imgAlt ||
+      "",
+    location:
+      event.LocationOverride?.LocationName ||
+      event.EventTemplate?.Location.LocationName ||
+      "",
     description,
   };
 
-  for (const time of (event.Time || [])) {
+  for (const time of event.Time || []) {
     if (time.strapi_component === STRAPI_RECURRING_TIME) {
       const recurringInstances = generateRecurringEvent(
-        time, baseEvent, event.EventTemplate?.ShowXUpcomingEvents
+        time,
+        baseEvent,
+        event.EventTemplate?.ShowXUpcomingEvents
       );
       eventInstances.push(...recurringInstances);
-    }
-    else if (time.strapi_component === STRAPI_SINGLE_TIME) {
+    } else if (time.strapi_component === STRAPI_SINGLE_TIME) {
       if (isTodayOrAfter(time.DateTime) || !time.StopShowingWhenPast) {
         const eventInstance = {
           ...baseEvent,
@@ -112,9 +125,9 @@ const processEvent = (event) => {
   return eventInstances.slice(0, event.EventTemplate?.ShowXUpcomingEvents || 1);
 };
 
-export const processEvents = (events) => {
+export const processEvents = events => {
   const displayEvents = [];
-  events.forEach((event) => {
+  events.forEach(event => {
     const eventInstances = processEvent(event);
     displayEvents.push(...eventInstances);
   });
