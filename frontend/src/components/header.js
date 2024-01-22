@@ -40,8 +40,8 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  const htmlElement = document.querySelector("html");
-  const bodyElement = document.querySelector("body");
+  const htmlElement = document?.querySelector("html");
+  const bodyElement = document?.querySelector("body");
   if (isOpen) {
     htmlElement.classList.add("menu__Html--open");
     bodyElement.classList.add("menu__Body--open");
