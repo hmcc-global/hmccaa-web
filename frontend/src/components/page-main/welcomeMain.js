@@ -4,14 +4,14 @@ import { SecondaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
 
 const WelcomeMain = () => (
-  <div className="flex flex-col lg:flex-row gap-x-32 gap-y-5 lg:pt-14 pt-6 pb-[1.5625rem] lg:pb-14 lg:mx-3 px-4 lg:px-0 items-center lg:items-start w-full lg:w-auto">
-    <div className="lg:order-1">
+  <div className="flex flex-col md:flex-row gap-y-5 pt-6 pb-[1.5625rem] items-center md:items-start content-image">
+    <div className="md:order-1 image-container">
       <StaticImage
         src="../../images/welcomeMainImg.png"
         alt="welcome page image"
       />
     </div>
-    <div className="w-full lg:w-sm lg:h-sm lg:text-left text-center flex lg:block flex-col">
+    <div className="w-full md:text-left text-center flex md:block flex-col content-container">
       <div className="subheading">welcome</div>
       <h2>we are all about jesus</h2>
       <HighlightedParagraph>

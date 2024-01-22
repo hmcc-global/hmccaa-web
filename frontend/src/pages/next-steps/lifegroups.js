@@ -12,11 +12,15 @@ const LifeGroupsPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="px-1 [@media(min-width:375px)]:px-4 max-w-container w-full pt-[1.375rem] lg:pt-10">
-        <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <TopLGSummary />
-        <Life />
-        <FiveEs />
+      <div className="px-1 [@media(min-width:375px)]:px-4 pt-[1.375rem] lg:pt-10 w-full ">
+        <div className="w-full md:px-[3.25rem] flex flex-col items-center">
+          <div className="max-w-container w-full">
+            <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
+            <TopLGSummary />
+            <Life />
+            <FiveEs />
+          </div>
+        </div>
       </div>
     </Layout>
   );
