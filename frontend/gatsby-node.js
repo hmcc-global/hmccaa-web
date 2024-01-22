@@ -17,11 +17,10 @@ exports.createPages = async ({ actions }) => {
   });
 };
 
-
 //TODO: Modify the following code to pull events from GraphQL before merging
-const path = require('path');
+const path = require("path");
 
-const events = require('./src/data/eventData');
+const events = require("./src/data/eventData");
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
@@ -37,4 +36,3 @@ exports.createPages = async ({ actions }) => {
     });
   });
 };
-
