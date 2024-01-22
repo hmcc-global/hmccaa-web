@@ -1,15 +1,15 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply pb-[2.875rem] lg:pb-[8.875rem] pt-8 lg:pt-31 h-full w-full px-4;
+  @apply pb-[2.875rem] md:pb-[8.875rem] pt-8 md:pt-31 max-w-container w-full;
 }
 
 .title-container {
-  @apply text-center pb-10 lg:pb-15;
+  @apply text-center pb-10 md:pb-15;
 }
 
 .middle-container {
-  @apply flex flex-col items-center lg:items-start lg:flex-row lg:gap-x-15 xl:gap-x-30 max-w-[67.5rem] mx-auto;
+  @apply flex flex-col items-center lg:items-start lg:flex-row  lg:gap-x-2 [@media(min-width:1100px)]:gap-x-10 xl:gap-x-30 max-w-[67.5rem] mx-auto;
 }
 
 .middle-container > div {
@@ -17,15 +17,19 @@
 }
 
 .container h3 {
-  @apply flex leading-tighter lg:leading-normal font-semibold text-lg lg:text-2xl;
+  @apply flex leading-tighter md:leading-normal font-semibold text-lg md:text-2xl;
 }
 
 .arrow {
-  @apply pr-3 lg:pr-5;
+  @apply pr-3 md:pr-5;
 }
 
 .sub-head {
   @apply flex;
+}
+
+.sub-head button {
+  @apply text-left;
 }
 
 .box {
@@ -41,5 +45,5 @@
 }
 
 .toggle-container p {
-  @apply mb-0 mt-2 lg:mt-4 text-base lg:text-lg;
+  @apply mb-0 mt-2 md:mt-4 text-base md:text-lg;
 }

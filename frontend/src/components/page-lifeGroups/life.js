@@ -21,7 +21,7 @@ const LifeAcronym = [
 ];
 
 const Life = () => (
-  <div className="pt-[2.375rem] pb-[5.75rem] lg:py-[100px] grid grid-cols-2 lg:grid-cols-4 gap-y-8  gap-x-4 lg:gap-x-5">
+  <div className="pt-[2.375rem] pb-[5.75rem] md:py-[100px] grid grid-cols-2 md:grid-cols-4 gap-y-8  gap-x-4 md:gap-x-5">
     {LifeAcronym.map((item, index) => (
       <span key={`Life-${index}`} className="flex flex-col">
         <div className="first-letter:text-[40px] first-letter:font-bold text-[24px] font-semibold text-center">

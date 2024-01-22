@@ -230,3 +230,18 @@ pre tt:after {
 span.ellipsis {
   @apply text-ellipsis;
 }
+.content-image {
+  @apply max-w-container w-full md:py-15 gap-x-15;
+}
+
+.content-padding-full {
+  @apply px-4 md:px-14 w-full flex flex-col items-center;
+}
+
+.image-container {
+  @apply md:w-[45.7628%];
+}
+
+.content-container {
+  @apply md:w-[49.1526%];
+}
