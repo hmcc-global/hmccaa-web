@@ -1,10 +1,10 @@
 import * as React from "react";
-import Layout from "../layout";
+import Layout from "../components/layout";
 import { graphql } from "gatsby";
-import { PrimaryButtonLink } from "../Button";
-import locationPinIcon from "../../images/icons/locationPin.svg";
-import calendarIcon from "../../images/icons/calendar.svg";
-import clockIcon from "../../images/icons/clock-black.svg";
+import { PrimaryButtonLink } from "../components/Button"
+import locationPinIcon from "../images/icons/locationPin.svg"
+import calendarIcon from "../images/icons/calendar.svg"
+import clockIcon from "../images/icons/clock-black.svg"
 import { StaticImage } from "gatsby-plugin-image";
 
 const EventPage = ({ data, pageContext }) => {
@@ -102,53 +102,53 @@ const EventPage = ({ data, pageContext }) => {
   );
 };
 
-// export const pageQuery = graphql`
-//   query {
-//     allStrapiEvent {
-//     edge {
-//       node {
-//         DescriptionOverride
-//         EventTemplate {
-//           CoverImage {
-//             url
-//           }
-//           Description
-//           Location {
-//             LocationName
-//           }
-//           Name
-//           ShowXUpcomingEvents
-//         }
-//         LocationOverride {
-//           LocationName
-//         }
-//         NameOverride
-//         Time {
-//           ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
-//             id
-//             DateTime
-//             EndDateTime
-//             EndRecurDate
-//             RecurEveryXTimeFrames
-//             RecurTimeFrame
-//             StopShowingWhenPast
-//             strapi_component
-//           }
-//           ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
-//             id
-//             StopShowingWhenPast
-//             EndDateTime
-//             DateTime
-//             strapi_component
-//           }
-//         }
-//         CoverImageOverride {
-//           url
-//         }
-//       }
-//     }
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  query {
+    allStrapiEvent {
+    edge {
+      node {
+        DescriptionOverride
+        EventTemplate {
+          CoverImage {
+            url
+          }
+          Description
+          Location {
+            LocationName
+          }
+          Name
+          ShowXUpcomingEvents
+        }
+        LocationOverride {
+          LocationName
+        }
+        NameOverride
+        Time {
+          ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+            id
+            DateTime
+            EndDateTime
+            EndRecurDate
+            RecurEveryXTimeFrames
+            RecurTimeFrame
+            StopShowingWhenPast
+            strapi_component
+          }
+          ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+            id
+            StopShowingWhenPast
+            EndDateTime
+            DateTime
+            strapi_component
+          }
+        }
+        CoverImageOverride {
+          url
+        }
+      }
+    }
+    }
+  }
+`;
 
 export default EventPage;
