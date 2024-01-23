@@ -16,6 +16,7 @@ const EventsPage = () => {
     query EventQuery {
       allStrapiEvent {
         nodes {
+          id
           DescriptionOverride
           EventTemplate {
             CoverImage {

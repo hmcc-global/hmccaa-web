@@ -82,6 +82,7 @@ const processEvent = event => {
     event.DescriptionOverride || event.EventTemplate?.Description || "";
   const [description] = fullDescription.split("\n");
   const baseEvent = {
+    id: event.id,
     title: event.NameOverride || event.EventTemplate?.Name || "",
     imgUrl:
       event.CoverImageOverride?.url ||

@@ -11,8 +11,9 @@ const EventPage = ({ data, pageContext }) => {
   const { allStrapiEvent } = data;
   const { nodes } = allStrapiEvent;
   console.log(pageContext);
-  const event = pageContext.strapiEvent;
+  const event = pageContext;
   console.log(event);
+  console.log()
 
   return (
     <Layout>
