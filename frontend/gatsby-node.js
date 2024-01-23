@@ -29,6 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allStrapiEvent {
         edges {
           node {
+            id
             DescriptionOverride
             EventTemplate {
               CoverImage {
