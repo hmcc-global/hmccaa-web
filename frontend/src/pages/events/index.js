@@ -60,15 +60,17 @@ const EventsPage = () => {
   `);
 
   const events = processEvents(data.allStrapiEvent.nodes);
+  console.log(events)
 
   return (
     <Layout>
       <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
       <SundayCelebBarEvents />
       <div className="grid grid-cols-3 gap-x-5 gap-y-[2.0625rem] md:gap-y-15 py-36 max-w-container px-4">
-        {events.map(event => (
+        {events.map((event, index) => (
           <EventCard
             key={event.id}
+            eventID={index}
             title={event.title}
             date={event.date.toString()}
             // TODO: use GatsbyImage since static cannot handle dynamic src

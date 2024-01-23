@@ -7,7 +7,13 @@
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ actions }) => {
+
+//TODO: Modify the following code to pull events from GraphQL before merging
+const path = require("path");
+
+// const events = require("./src/data/eventData");
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   createPage({
     path: "/using-dsg",
@@ -15,20 +21,68 @@ exports.createPages = async ({ actions }) => {
     context: {},
     defer: true,
   });
-};
 
-//TODO: Modify the following code to pull events from GraphQL before merging
-const path = require("path");
+  console.warn("got here")
 
-const events = require("./src/data/eventData");
+  const result = await graphql(`
+   {
+    allStrapiEvent {
+      edges {
+      node {
+        DescriptionOverride
+        EventTemplate {
+          CoverImage {
+            url
+          }
+          Description
+          Location {
+            LocationName
+          }
+          Name
+          ShowXUpcomingEvents
+        }
+        LocationOverride {
+          LocationName
+        }
+        NameOverride
+        Time {
+          ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+            id
+            DateTime
+            EndDateTime
+            EndRecurDate
+            RecurEveryXTimeFrames
+            RecurTimeFrame
+            StopShowingWhenPast
+            strapi_component
+          }
+          ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+            id
+            StopShowingWhenPast
+            EndDateTime
+            DateTime
+            strapi_component
+          }
+        }
+        CoverImageOverride {
+          url
+        }
+      }
+    }
+    }
+  }
+`);
 
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions;
+if (result.errors) {
+  reporter.panicOnBuild(`Error while running GraphQL query`);
+  return;
+}
 
-  events.forEach(event => {
+console.warn(result)
+result.data.allStrapiEvent.edges.forEach(({node : event}) => {
     createPage({
       path: `/events/${event.id}`,
-      component: path.resolve(`./src/components/page-events/eventPage.js`),
+      component: path.resolve(`./src/templates/eventPageTemplate.js`),
       context: {
         // Passing the entire event object as context
         event,

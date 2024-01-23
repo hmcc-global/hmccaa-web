@@ -1,18 +1,25 @@
 import * as React from "react";
 import Layout from "../layout";
+import { graphql } from "gatsby";
 import { PrimaryButtonLink } from "../Button";
 import locationPinIcon from "../../images/icons/locationPin.svg";
 import calendarIcon from "../../images/icons/calendar.svg";
 import clockIcon from "../../images/icons/clock-black.svg";
 import { StaticImage } from "gatsby-plugin-image";
 
-const EventPage = ({ pageContext }) => {
+
+const EventPage = ({ data, pageContext }) => {
+  const {allStrapiEvent} = data
+  const {nodes} = allStrapiEvent
   console.log(pageContext);
+  const event = pageContext.strapiEvent
+  console.log(event)
+
   return (
     <Layout>
       <div className="flex flex-col justify-start items-center gap-y-8 lg:gap-y-14 pt-8 gap-x-32 lg:pt-14 py-28">
         <h2 className="text-center lg:text-left text-xl lg:text-3xl font-semibold">
-          {pageContext.event.title}
+          {event.title}
         </h2>
 
         <div className="flex flex-col lg:flex-row justify-center items-center gap-14 lg:gap-48">
@@ -24,7 +31,7 @@ const EventPage = ({ pageContext }) => {
                   <img src={calendarIcon}></img>
                 </div>
                 <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {pageContext.event.date}
+                  {event.date}
                 </div>
               </div>
               <div className="flex items-center gap-1 lg:gap-2">
@@ -33,7 +40,7 @@ const EventPage = ({ pageContext }) => {
                   <img src={clockIcon}></img>
                 </div>
                 <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {pageContext.event.date}
+                  {event.date}
                 </div>
               </div>
               <div className="flex items-center gap-1 lg:gap-2">
@@ -42,7 +49,7 @@ const EventPage = ({ pageContext }) => {
                   <img src={locationPinIcon}></img>
                 </div>
                 <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {pageContext.event.location}
+                  {event.location}
                 </div>
               </div>
             </div>
@@ -59,7 +66,7 @@ const EventPage = ({ pageContext }) => {
           <div className="text-center lg:order-1">
             <StaticImage
               src="https://via.placeholder.com/382x215"
-              alt={pageContext.event.imgAlt}
+              alt={event.imgAlt}
             />
           </div>
         </div>
@@ -95,5 +102,54 @@ const EventPage = ({ pageContext }) => {
     </Layout>
   );
 };
+
+// export const pageQuery = graphql`
+//   query {
+//     allStrapiEvent {
+//     edge {
+//       node {
+//         DescriptionOverride
+//         EventTemplate {
+//           CoverImage {
+//             url
+//           }
+//           Description
+//           Location {
+//             LocationName
+//           }
+//           Name
+//           ShowXUpcomingEvents
+//         }
+//         LocationOverride {
+//           LocationName
+//         }
+//         NameOverride
+//         Time {
+//           ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+//             id
+//             DateTime
+//             EndDateTime
+//             EndRecurDate
+//             RecurEveryXTimeFrames
+//             RecurTimeFrame
+//             StopShowingWhenPast
+//             strapi_component
+//           }
+//           ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+//             id
+//             StopShowingWhenPast
+//             EndDateTime
+//             DateTime
+//             strapi_component
+//           }
+//         }
+//         CoverImageOverride {
+//           url
+//         }
+//       }
+//     }
+//     }
+//   }
+// `;
 
 export default EventPage;
