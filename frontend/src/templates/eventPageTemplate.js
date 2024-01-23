@@ -13,7 +13,7 @@ const EventPage = ({ data, pageContext }) => {
   console.log(pageContext);
   const event = pageContext;
   console.log(event);
-  console.log()
+  console.log();
 
   return (
     <Layout>
