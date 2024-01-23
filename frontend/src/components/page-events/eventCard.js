@@ -23,7 +23,10 @@ const EventCard = ({ eventID, title, date, location, img, description }) => {
   );
 
   return (
-    <Link to={`/events/${eventID}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <Link
+      to={`/events/${eventID}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
       <Card
         title={title}
         date={date}

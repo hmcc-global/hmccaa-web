@@ -7,13 +7,12 @@ import calendarIcon from "../../images/icons/calendar.svg";
 import clockIcon from "../../images/icons/clock-black.svg";
 import { StaticImage } from "gatsby-plugin-image";
 
-
 const EventPage = ({ data, pageContext }) => {
-  const {allStrapiEvent} = data
-  const {nodes} = allStrapiEvent
+  const { allStrapiEvent } = data;
+  const { nodes } = allStrapiEvent;
   console.log(pageContext);
-  const event = pageContext.strapiEvent
-  console.log(event)
+  const event = pageContext.strapiEvent;
+  console.log(event);
 
   return (
     <Layout>

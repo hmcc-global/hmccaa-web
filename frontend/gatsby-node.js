@@ -22,64 +22,64 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     defer: true,
   });
 
-  console.warn("got here")
+  console.warn("got here");
 
   const result = await graphql(`
-   {
-    allStrapiEvent {
-      edges {
-      node {
-        DescriptionOverride
-        EventTemplate {
-          CoverImage {
-            url
+    {
+      allStrapiEvent {
+        edges {
+          node {
+            DescriptionOverride
+            EventTemplate {
+              CoverImage {
+                url
+              }
+              Description
+              Location {
+                LocationName
+              }
+              Name
+              ShowXUpcomingEvents
+            }
+            LocationOverride {
+              LocationName
+            }
+            NameOverride
+            Time {
+              ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+                id
+                DateTime
+                EndDateTime
+                EndRecurDate
+                RecurEveryXTimeFrames
+                RecurTimeFrame
+                StopShowingWhenPast
+                strapi_component
+              }
+              ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+                id
+                StopShowingWhenPast
+                EndDateTime
+                DateTime
+                strapi_component
+              }
+            }
+            CoverImageOverride {
+              url
+            }
           }
-          Description
-          Location {
-            LocationName
-          }
-          Name
-          ShowXUpcomingEvents
-        }
-        LocationOverride {
-          LocationName
-        }
-        NameOverride
-        Time {
-          ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
-            id
-            DateTime
-            EndDateTime
-            EndRecurDate
-            RecurEveryXTimeFrames
-            RecurTimeFrame
-            StopShowingWhenPast
-            strapi_component
-          }
-          ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
-            id
-            StopShowingWhenPast
-            EndDateTime
-            DateTime
-            strapi_component
-          }
-        }
-        CoverImageOverride {
-          url
         }
       }
     }
-    }
+  `);
+
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query`);
+    return;
   }
-`);
 
-if (result.errors) {
-  reporter.panicOnBuild(`Error while running GraphQL query`);
-  return;
-}
-
-console.warn(result)
-result.data.allStrapiEvent.edges.forEach(({node : event}) => {
+  console.warn(result);
+  result.data.allStrapiEvent.edges.forEach(({ node: event }) => {
     createPage({
       path: `/events/${event.id}`,
       component: path.resolve(`./src/templates/eventPageTemplate.js`),

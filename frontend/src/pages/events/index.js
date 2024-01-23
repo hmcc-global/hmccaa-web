@@ -60,7 +60,7 @@ const EventsPage = () => {
   `);
 
   const events = processEvents(data.allStrapiEvent.nodes);
-  console.log(events)
+  console.log(events);
 
   return (
     <Layout>
