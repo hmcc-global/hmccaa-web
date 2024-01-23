@@ -105,7 +105,7 @@ const EventPage = ({ data, pageContext }) => {
 export const pageQuery = graphql`
   query {
     allStrapiEvent {
-      edge {
+      edges {
         node {
           DescriptionOverride
           EventTemplate {

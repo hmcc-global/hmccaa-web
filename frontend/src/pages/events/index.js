@@ -70,7 +70,7 @@ const EventsPage = () => {
         {events.map((event, index) => (
           <EventCard
             key={event.id}
-            eventID={index}
+            eventID={event.id}
             title={event.title}
             date={event.date.toString()}
             // TODO: use GatsbyImage since static cannot handle dynamic src
