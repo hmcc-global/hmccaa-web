@@ -65,8 +65,6 @@ const lgsArray = [
   {
     title: "BUILDING BLOCKS",
     desc: "KIDS",
-    // color: "Accent-500",
-    // color: "[#f0df5c]", // #f0df5c
     color: "[#f0df5c]",
     img: imgBB,
     alt: "BB LIFE Group",
@@ -76,13 +74,10 @@ const lgsArray = [
 
 const GetConnectedCircleDesktop = () => (
   <div className="2 w-full pt-[16rem] pb-[8rem] px-10">
-    {/* <div className={wrapper}> */}
     <div>
-      {/* <div className={container}> */}
       <div
         className={
           "w-full lg:max-w-[56.25rem] lg:relative mx-auto lg:left-[1px] lg:py-[16.6875rem] lg:rounded-full"
-          // "max-w-[31.25rem] lg:max-w-[56.25rem] lg:relative mx-auto lg:left-[1px] lg:py-[16.6875rem] lg:border-solid lg:border-[10px] lg:border-Primary-500 lg:rounded-full"
         }
       >
         <div className={textContainer}>
@@ -92,12 +87,9 @@ const GetConnectedCircleDesktop = () => (
           {lgsArray.map((item, index) => {
             const key = `lgs-${index + 1}`;
             return (
-              // <div key={key} className={`${ministryTeam} ${className}`}>
-              // <div key={key} className={`w-full inline-flex justify-center items-center lg:absolute ${item.css}`}>
               <div
                 key={key}
                 className={`w-full lg:w-auto inline-flex justify-center items-center lg:absolute ${item.css}`}
-                // className={`lg:px-[1.5625rem] lg:py-[1.34375rem] w-full lg:w-auto inline-flex justify-center items-center lg:absolute bg-Shades-0 ${item.css}`}
               >
                 <DoubleGridDesktop
                   title={item.title}
@@ -116,17 +108,6 @@ const GetConnectedCircleDesktop = () => (
         </div>
       </div>
     </div>
-
-    {/* <div className="px-10">
-      <img
-        className="padding-4"
-        alt="Images of LIFE Groups arranged in a circle"
-        src={gc94}
-      />
-    </div> */}
-    {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <GetConnectedText />
-    </div> */}
   </div>
 );
 
@@ -136,7 +117,6 @@ const GetConnectedCircleDesktop = () => (
 // desc on right, white text, left aligned
 const DoubleGridDesktop = ({ title, desc, color, img, alt }) => (
   <div className="w-[17rem] h-[17.5rem]">
-    {/* <div className="relative w-[17rem] h-[17.5rem]"> */}
     <div
       className={`w-[15.5rem] h-[15.5rem] left-[1.25rem] top-[1.75rem] absolute bg-${color}`}
     >
@@ -280,7 +260,7 @@ const GetConnectedCircle = () => {
   // Desktop larger than 1280
   // but Mobile looks small above 780
   const isMobile = useMediaQuery({ maxWidth: 1279 });
-  // Define your switch cases based on screen size
+  // Define switch cases based on screen size
   const switchElement = isMobile ? (
     <GetConnectedCircleMobile />
   ) : (
@@ -288,7 +268,6 @@ const GetConnectedCircle = () => {
   );
 
   return switchElement;
-  // return <div className="1 w-full">{switchElement}</div>;
 };
 
 export default GetConnectedCircle;
