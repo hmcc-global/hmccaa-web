@@ -13,6 +13,24 @@ import imgGA from "../../images/home-get-connected/ga-raw.png";
 import imgImpact from "../../images/home-get-connected/impact-raw.png";
 import imgLatVel from "../../images/home-get-connected/latvel-raw.png";
 
+const GetConnectedText = () => (
+  <div className="w-full flex-col lg:py-5 justify-center text-center">
+    <div className="subheading">Get Connected</div>
+    <h2>There is a place for you at HMCC.</h2>
+    <p className="pt-21">
+      New to Michigan? Coming for school? Looking for community? Whether you
+      believe in God or not, we welcome you! We have fellowship for all
+      different life stages, from youth to students to working adults or married
+      couples!
+    </p>
+    <div className="py-5 flex justify-center">
+      <SecondaryButtonLink to="/connect" hasArrow={true}>
+        Learn More
+      </SecondaryButtonLink>
+    </div>
+  </div>
+);
+
 const lgsArray = [
   {
     title: "COVENANT",
@@ -111,8 +129,6 @@ const GetConnectedCircleDesktop = () => (
   </div>
 );
 
-// title on top, black text
-// desc on bottom, white text, centered
 // title on bottom, white text
 // desc on right, white text, left aligned
 const DoubleGridDesktop = ({ title, desc, color, img, alt }) => (
@@ -169,6 +185,8 @@ const LifeStagesBoxMobile = () => (
   </div>
 );
 
+// title on top, black text
+// desc on bottom, white text, centered
 const GetConnectedCircleMobile = () => (
   <div className="flex-col mx-3 px-4 py-10 w-full inline-flex">
     <div>
@@ -233,24 +251,6 @@ const GetConnectedCircleMobile = () => (
           alt={lgsArray[6].alt}
         />
       </RowMobile>
-    </div>
-  </div>
-);
-
-const GetConnectedText = () => (
-  <div className="w-full flex-col lg:py-5 justify-center text-center">
-    <div className="subheading">Get Connected</div>
-    <h2>There is a place for you at HMCC.</h2>
-    <p className="pt-21">
-      New to Michigan? Coming for school? Looking for community? Whether you
-      believe in God or not, we welcome you! We have fellowship for all
-      different life stages, from youth to students to working adults or married
-      couples!
-    </p>
-    <div className="py-5 flex justify-center">
-      <SecondaryButtonLink to="/connect" hasArrow={true}>
-        Learn More
-      </SecondaryButtonLink>
     </div>
   </div>
 );
