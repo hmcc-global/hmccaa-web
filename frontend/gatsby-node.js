@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     context: {},
     defer: true,
   });
-
+  // GraphQL Query for All Sermons
   const result = await graphql(`
     {
       allStrapiSermon {
@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-
+  // GraphQL Query for All Speakers
   const resultSpeakers = await graphql(`
     {
       allStrapiPreacher {
@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-
+  // GraphQL Query for All Series
   const resultSeries = await graphql(`
     {
       allStrapiSermonSeries {
@@ -62,12 +62,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query`);
+
+  if (result.errors || resultSpeakers.errors || resultSeries.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL queries`);
     return;
   }
-
+  // All Sermons
   const posts = result.data.allStrapiSermon.nodes;
+  // All Speakers List for Drop Down Selection
   let speakers = resultSpeakers?.data?.allStrapiPreacher?.nodes.map(
     ({ Prefix, Name }) => ({
       label: `${Prefix} ${Name}`,
@@ -79,6 +81,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         .replace(/\s+/g, "-"),
     })
   );
+  // All Series List for Drop Down Selection
   let series = resultSeries?.data?.allStrapiSermonSeries?.nodes.map(
     ({ Name }) => ({
       label: Name,
@@ -87,6 +90,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         .replace(/\s+/g, "-"),
     })
   );
+  // All Bible Books List for Drop Down Selection
   let books = posts.map(({ BiblePassage }) =>
     BiblePassage.map(({ Book }) => Book)
   );
@@ -106,6 +110,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const postsPerPage = ITEMS_PER_PAGE;
   const numberOfPages = Math.ceil(posts.length / postsPerPage);
+  // Update Speaker List to include the number of pages of sermons for each speaker and filter the list to create a list of speakers that has at least one sermon.
   speakers = speakers
     .map(speaker => ({
       ...speaker,
@@ -118,6 +123,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }))
     .filter(({ numOfPages }) => numOfPages > 0);
 
+  // Update Series List to include number of pages of sermons for each series.
   series = series.map(item => ({
     ...item,
     numOfPages: Math.ceil(
@@ -125,7 +131,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         postsPerPage
     ),
   }));
-
+  // Update Bible Books List to include number of pages of sermons for each Bible Book.
   books = books.map(item => ({
     ...item,
     numOfPages: Math.ceil(
@@ -134,6 +140,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       ).length / postsPerPage
     ),
   }));
+  // Create Pages for all sermons and pass data in the PageContext Object.
   Array.from({ length: numberOfPages }).forEach((_, index) => {
     createPage({
       path: index === 0 ? `/watch` : `/watch/${index + 1}`,
@@ -149,8 +156,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     });
   });
-
+  /* Loop through speakers to create pages for one of the follow combinations:
+   * Speaker's Sermon, Speaker's And Specific Series' Sermons, and Speaker's, Specific Series' and Specific Bible Book's Sermons
+   */
   speakers.forEach(({ value, prefix, name, numOfPages }) => {
+    // Create pages for Each Speaker with their sermons.
     Array.from({ length: numOfPages }).forEach((_, index) => {
       createPage({
         path: index === 0 ? `/watch/${value}` : `/watch/${value}/${index + 1}`,
@@ -171,12 +181,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
 
     series.forEach(({ value: seriesValue, label }) => {
+      // Set Number of Pages for Sermon for specific speaker and specific series.
       const numPages = Math.ceil(
         posts.filter(
           ({ Preacher: { Prefix, Name }, Series: { Name: seriesName } }) =>
             prefix === Prefix && name === Name && seriesName === label
         ).length / postsPerPage
       );
+      // Create Pages for sermons for specific speaker and specific series.
       const filterValue = `${value}/${seriesValue}`;
       Array.from({ length: numPages }).forEach((_, seriesIndex) => {
         createPage({
@@ -202,6 +214,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
 
       books.forEach(({ value: bookValue, book }) => {
+        // Set Number of Pages for Sermon for specific speaker,  specific series and specific Bible Book.
         const numberOfPages = Math.ceil(
           posts.filter(
             ({
@@ -215,6 +228,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               BiblePassage.some(({ Book }) => Book === book)
           ).length / postsPerPage
         );
+        // Create Pages for sermons for specific speaker, specific series and specific Bible Book.
         const filterValues = `${filterValue}/${bookValue}`;
         Array.from({ length: numberOfPages }).forEach((_, bookIndex) => {
           createPage({
@@ -243,6 +257,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
 
     books.forEach(({ value: bookValue, book }) => {
+      // Set Number of Pages for Sermon for specific speaker and specific Bible Book.
       const numberOfPages = Math.ceil(
         posts.filter(
           ({ Preacher: { Prefix, Name }, BiblePassage }) =>
@@ -251,6 +266,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             BiblePassage.some(({ Book }) => Book === book)
         ).length / postsPerPage
       );
+      // Create Pages for sermons for specific speaker, and specific Bible Book.
       const filterValues = `${value}/${bookValue}`;
       Array.from({ length: numberOfPages }).forEach((_, bookIndex) => {
         createPage({
@@ -276,8 +292,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
     });
   });
-
+  /* Loop through series to create pages for one of the follow combinations:
+   * Series' Sermon, and Specific Series' and Specific Bible Book's Sermons
+   */
   series.forEach(({ value, label, numOfPages }) => {
+    // Create pages for Each Series with their sermons.
     Array.from({ length: numOfPages }).forEach((_, index) => {
       createPage({
         path: index === 0 ? `/watch/${value}` : `/watch/${value}/${index + 1}`,
@@ -297,6 +316,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
 
     books.forEach(({ value: bookValue, book }) => {
+      // Set Number of Pages for Sermon for specific series and specific Bible Book.
       const numberOfPages = Math.ceil(
         posts.filter(
           ({ Series: { Name: seriesName }, BiblePassage }) =>
@@ -304,6 +324,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             BiblePassage.some(({ Book }) => Book === book)
         ).length / postsPerPage
       );
+      // Create Pages for sermons for specific series, and specific Bible Book.
       const filterValues = `${value}/${bookValue}`;
       Array.from({ length: numberOfPages }).forEach((_, bookIndex) => {
         createPage({
@@ -329,6 +350,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
+  // Create pages for Each Bible Book with their sermons.
   books.forEach(({ value, numOfPages, book }) => {
     Array.from({ length: numOfPages }).forEach((_, index) => {
       createPage({

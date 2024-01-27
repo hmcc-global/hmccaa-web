@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
 
 const MAX_PAGINATION = 7;
+// Building the Pagination for the Sermons
 const NumberPaging = ({ page, currentPage }) => {
   if (/.../.test(page) || parseInt(page, 10) === currentPage) {
     return /.../.test(page) ? (
@@ -24,6 +25,7 @@ const NumberPaging = ({ page, currentPage }) => {
   }
 };
 
+// Building the Sermons List
 const Sermons = ({
   sermons: { nodes },
   pageContext: {
@@ -45,6 +47,7 @@ const Sermons = ({
     currentPage + 1
   }`;
   const pages = [currentPage.toString()];
+  // Build an array for what pages number to show with ellipsis if needed
   if (numPages > MAX_PAGINATION) {
     const maxLeft = 4;
     const maxRight = numPages - 2;
@@ -103,6 +106,7 @@ const Sermons = ({
       }
     }
   }
+  // Navigate to new page based upon Drop Down Selection
   const handleChange = () => {
     const selections = document
       .getElementById("sermons-filter")
@@ -115,7 +119,6 @@ const Sermons = ({
           current ? `${accumulator}/${current}` : accumulator,
         ""
       );
-    console.warn(`navigate: ${values}`);
     (values || filterValue) && navigate(`/watch${values}`);
   };
 

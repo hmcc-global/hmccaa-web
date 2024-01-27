@@ -45,7 +45,7 @@ const ComboBox = ({
       window?.removeEventListener("click", handleCloseDropDown);
     };
   }, [id, handleCloseDropDown]);
-  const handleClick = () => {
+  const handleOpenDropDown = () => {
     const container = document.getElementById(id);
     const legend = container.querySelector("legend");
     legend.classList.add("max-w-full");
@@ -70,7 +70,7 @@ const ComboBox = ({
         comboBoxBottom + comboBoxListHeight > height ? "bottom-24" : "top-0",
     });
   };
-  const handleChange = ({ target: { value } }) => {
+  const handleKeyPress = ({ target: { value } }) => {
     if (value === "") {
       setList(options);
     } else {
@@ -115,7 +115,7 @@ const ComboBox = ({
             {label}
           </label>
           <div
-            onClick={handleClick}
+            onClick={handleOpenDropDown}
             className="px-3 pr-[2.4375rem] py-1 flex-wrap cursor-text inline-flex items-center w-full relative rounded-sm"
           >
             <input
@@ -130,7 +130,7 @@ const ComboBox = ({
               aria-controls={`combo-box-${label
                 .toLowerCase()
                 .replace(/\s+/g, "-")}-list`}
-              onChange={handleChange}
+              onChange={handleKeyPress}
               className="w-0 min-w-[30px] grow text-ellipsis opacity-100 block relative z-[2] outline-0 py-2"
               value={comboBoxState.found ? comboBoxState.found?.label : ""}
               data-url={comboBoxState.found ? comboBoxState.found.value : ""}
