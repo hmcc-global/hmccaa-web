@@ -211,3 +211,22 @@ pre tt:before,
 pre tt:after {
   content: none;
 }
+
+.border-highlight {
+  @apply border-[2px] border-Primary-300;
+}
+
+.label-highlight {
+  @apply text-Primary-300 translate-x-[17px];
+}
+
+.selected-item {
+  @apply bg-[rgba(25,118,210,0.08)];
+}
+.selected-item:hover {
+  @apply bg-[rgba(25,118,210,0.08)];
+}
+
+span.ellipsis {
+  @apply text-ellipsis;
+}

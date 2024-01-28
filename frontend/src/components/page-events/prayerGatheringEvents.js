@@ -5,7 +5,7 @@ const PrayerGatheringEvents = () => {
     <div className="bg-Neutral-200 w-full justify-center flex flex-col items-center px-6 sm:px-2 py-[40px]">
       <div className="flex-col justify-start items-center gap-y-2 flex mt-2">
         <div className="subheading">PRAYER GATHERINGS</div>
-        <div className="text-black text-4xl font-semibold leading-10">
+        <div className="text-black text-center text-3xl sm:text-4xl font-semibold leading-10">
           BY PRAYING, WE LEARN TO PRAY.
         </div>
       </div>
@@ -19,7 +19,7 @@ const PrayerGatheringEvents = () => {
       </div>
 
       <div className="mt-8 sm:mt-4 max-w-[32.5rem] sm:px-[3.625rem] py-6 mb-4 bg-Shades-0 bg-opacity-80 rounded-2xl border-2 border-cyan-700 justify-center gap-1 sm:gap-2">
-        <div className="w-full px-8 sm:px-0 sm:max-w-96 text-center mx-auto text-black text-3xl sm:text-xl font-medium">
+        <div className="w-full px-8 sm:px-0 sm:max-w-96 text-center mx-auto text-black text-2xl sm:text-xl font-medium">
           We meet once a month on <span className="font-bold">Thursday</span>{" "}
           from <span className="font-bold">7-9 pm</span> at the{" "}
           <span className="font-bold">T-center</span>.
