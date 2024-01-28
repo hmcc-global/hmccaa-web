@@ -81,5 +81,15 @@ p {
 .ReactModal__Html--open,
 .menu__Html--open,
 .menu__Body--open {
-  @apply overflow-y-hidden;
+  @apply overflow-hidden;
+}
+
+.mobile-nav,
+.ReactModalPortal {
+  @apply hidden;
+}
+
+.menu__Body--open .mobile-nav,
+.ReactModal__Body--open .ReactModalPortal {
+  @apply block;
 }
