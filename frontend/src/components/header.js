@@ -40,14 +40,17 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  React.useEffect(() => {
+  if (typeof document !== "undefined") {
+    const htmlElement = document.querySelector("html");
+    const bodyElement = document.querySelector("body");
     if (isOpen) {
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "100vh";
+      htmlElement.classList.add("menu__Html--open");
+      bodyElement.classList.add("menu__Body--open");
     } else {
-      document.body.style.overflow = "unset";
+      htmlElement.classList.remove("menu__Html--open");
+      bodyElement.classList.remove("menu__Body--open");
     }
-  }, [isOpen]);
+  }
 
   return (
     <header>
@@ -77,43 +80,45 @@ const Header = () => {
         </div>
 
         {isOpen && (
-          <div className="text-Shades-0 w-screen h-screen justify-center bg-[#262626] items-start fixed left-0 right-0 top-0 bottom-0 z-50">
-            <div className="flex flex-col justify-start items-center">
-              <div className="flex flex-row pt-5 w-full justify-between opacity-90">
-                <div></div>
-                <Link className="ml-12" to="/">
-                  <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
-                </Link>
-                <button
-                  onClick={toggleModal}
-                  className="mr-4 flex justify-center items-center"
-                >
-                  <img alt="x" src={x} />
-                </button>
-              </div>
-              <div className="bg-[#262626] h-full w-full flex flex-col items-start">
-                {browseList.map((item, index) => (
-                  <Link
-                    key={`browseLink-${index}`}
-                    to={item.route}
-                    className={`${textStyle} ${
-                      item.route + "/" === path
-                        ? "font-extrabold py-2 px-4"
-                        : "font-medium py-2 px-4"
-                    } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
-                  >
-                    {item.title}
+          <div className="overflow-x-hidden overflow-y-auto z-50 fixed top-0 left-0 w-full h-full outline-0 mobile-nav">
+            <div className="text-Shades-0 h-full justify-center bg-Shades-50 items-start relative">
+              <div className="flex flex-col justify-start items-center">
+                <div className="flex flex-row pt-5 w-full justify-between opacity-90">
+                  <div></div>
+                  <Link className="ml-12" to="/">
+                    <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
                   </Link>
-                ))}
-                <div className={`${borderStyle} mt-6 w-[90vw] self-center`}>
-                  <Link
-                    to="/new"
-                    className={`${textStyle} ${
-                      "/new/" === path ? "font-extrabold" : ""
-                    } font-bold hover:font-extrabold tracking-[0.96px]`}
+                  <button
+                    onClick={toggleModal}
+                    className="mr-4 flex justify-center items-center"
                   >
-                    I&apos;m New
-                  </Link>
+                    <img alt="x" src={x} />
+                  </button>
+                </div>
+                <div className="w-full flex flex-col items-start">
+                  {browseList.map((item, index) => (
+                    <Link
+                      key={`browseLink-${index}`}
+                      to={item.route}
+                      className={`${textStyle} ${
+                        item.route + "/" === path
+                          ? "font-extrabold py-2 px-4"
+                          : "font-medium py-2 px-4"
+                      } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                  <div className={`${borderStyle} mt-6 w-[90vw] self-center`}>
+                    <Link
+                      to="/new"
+                      className={`${textStyle} ${
+                        "/new/" === path ? "font-extrabold" : ""
+                      } font-bold hover:font-extrabold tracking-[0.96px]`}
+                    >
+                      I&apos;m New
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,7 +134,8 @@ const Header = () => {
                 src={mapPinLogo}
               />
             </div>
-            <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6]">
+
+            <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6] z-10">
               {locationsList.map((item, index) =>
                 index == 0 ? (
                   <Link

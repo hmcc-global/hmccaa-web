@@ -58,7 +58,7 @@ const theme = {
       700: "#b91c1c",
       900: "#7f1d1d",
     },
-    Shades: { 0: "#ffffff", 100: "#000000" },
+    Shades: { 0: "#ffffff", 50: "#262626", 100: "#000000" },
     transparent: "transparent",
   },
   fontSize: {
@@ -80,6 +80,8 @@ const theme = {
     montserrat: "Montserrat",
     raleway: "Raleway",
     inter: "Inter",
+    roboto: "Roboto",
+    ubuntu: "Ubuntu",
   },
   borderRadius: {
     none: "0",
@@ -176,6 +178,9 @@ const theme = {
       watch: "url('../images/background/watch.jpeg')",
       give: "url('../images/background/give.jpeg')",
       new: "url('../images/background/new.jpeg')",
+    },
+    screens: {
+      xs: "375px",
     },
   },
 };

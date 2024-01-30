@@ -107,7 +107,7 @@ const processEvent = event => {
       );
       eventInstances.push(...recurringInstances);
     } else if (time.strapi_component === STRAPI_SINGLE_TIME) {
-      if (isTodayOrAfter(time.EndDateTime) || !time.StopShowingWhenPast) {
+      if (isTodayOrAfter(time.DateTime) || !time.StopShowingWhenPast) {
         const eventInstance = {
           ...baseEvent,
           date: new Date(time.DateTime),

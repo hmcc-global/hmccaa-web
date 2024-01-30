@@ -19,7 +19,9 @@ export const Collapsible = ({ sectionHead, sectionBody }) => {
           <button>{sectionHead}</button>
         </h3>
       </div>
-      <div className={`toggle ${toggleContainer}${reveal ? "" : " invisible"}`}>
+      <div
+        className={`toggle ${toggleContainer}${reveal ? "" : " invisibility"}`}
+      >
         <p>{sectionBody}</p>
       </div>
     </div>

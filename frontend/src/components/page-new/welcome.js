@@ -1,5 +1,5 @@
 import * as React from "react";
-import newWelcomePlaceholder from "../../images/new-welcome-placeholder.png";
+import newWelcome from "../../images/new-welcome.png";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 
@@ -7,7 +7,7 @@ const WelcomeSection = () => (
   <div className="flex flex-col lg:flex-row items-center p-3 pb-20.5">
     <div className="pl-2.5 lg:order-2">
       <div>
-        <img src={newWelcomePlaceholder} alt="Welcome" />
+        <img src={newWelcome} alt="Welcome" />
       </div>
     </div>
     <div className="basis-689/1180 pr-8 pt-3.5 order-1 text-center lg:text-left">

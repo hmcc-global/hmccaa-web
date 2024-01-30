@@ -36,7 +36,7 @@ h2 {
   stroke-linejoin: round;
 }
 
-.invisible {
+.invisibility {
   @apply h-0 overflow-hidden;
 }
 
@@ -78,6 +78,18 @@ p {
 }
 
 .ReactModal__Body--open,
-.ReactModal__Html--open {
-  @apply overflow-y-hidden;
+.ReactModal__Html--open,
+.menu__Html--open,
+.menu__Body--open {
+  @apply overflow-hidden;
+}
+
+.mobile-nav,
+.ReactModalPortal {
+  @apply hidden;
+}
+
+.menu__Body--open .mobile-nav,
+.ReactModal__Body--open .ReactModalPortal {
+  @apply block;
 }
