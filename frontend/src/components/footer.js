@@ -129,7 +129,7 @@ const Footer = () => {
                   src={smartPhoneLogo}
                 />
                 <h2 className="text-Shades-0 font-medium text-center text-sm leading-normal mb-0 ml-[12px]">
-                  (PHONE)
+                  (734) 662-4622
                 </h2>
               </div>
               <div className="flex flex-row justify-center items-center mt-[20px] gap-[20px]">
