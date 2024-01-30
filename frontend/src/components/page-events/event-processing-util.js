@@ -34,7 +34,6 @@ const isTodayOrAfter = date => {
   const copyOfDate = new Date(date);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-
   return copyOfDate > today;
 };
 
@@ -108,7 +107,7 @@ const processEvent = event => {
       );
       eventInstances.push(...recurringInstances);
     } else if (time.strapi_component === STRAPI_SINGLE_TIME) {
-      if (isTodayOrAfter(time.DateTime) || !time.StopShowingWhenPast) {
+      if (isTodayOrAfter(time.EndDateTime) || !time.StopShowingWhenPast) {
         const eventInstance = {
           ...baseEvent,
           date: new Date(time.DateTime),
@@ -130,11 +129,11 @@ export const processEvents = events => {
   const displayEvents = [];
   events.forEach(event => {
     const eventInstances = processEvent(event);
+
     displayEvents.push(...eventInstances);
   });
 
   // Sort events
   displayEvents.sort((a, b) => a.date - b.date);
-
   return displayEvents;
 };

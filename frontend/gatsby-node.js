@@ -87,6 +87,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         // Passing the entire event object as context
         event,
+        ID: event.id
       },
     });
   });
