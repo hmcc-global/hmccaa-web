@@ -8,7 +8,6 @@ import clockIcon from "../images/icons/clock-black.svg";
 import { StaticImage } from "gatsby-plugin-image";
 
 const EventPage = ({ data, pageContext }) => {
-
   function formatDateAndTime(isoDateString) {
     const date = new Date(isoDateString);
 
@@ -20,22 +19,28 @@ const EventPage = ({ data, pageContext }) => {
     // Extracting and converting time components to 12-hour format
     let hour = date.getHours();
     const minutes = date.getMinutes();
-    const amPm = hour >= 12 ? 'PM' : 'AM';
-    
+    const amPm = hour >= 12 ? "PM" : "AM";
+
     hour = hour % 12;
     hour = hour ? hour : 12; // the hour '0' should be '12'
 
     // Formatting date and time
-    const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-    const formattedTime = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${amPm}`;
+    const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
+    const formattedTime = `${hour.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")} ${amPm}`;
 
     return { formattedDate, formattedTime };
-}
+  }
 
-  const {event} = pageContext;
+  const { event } = pageContext;
   console.log(event);
 
-  const { formattedDate, formattedTime } = formatDateAndTime(event.Time[0].DateTime);
+  const { formattedDate, formattedTime } = formatDateAndTime(
+    event.Time[0].DateTime
+  );
 
   return (
     <Layout>
@@ -98,7 +103,9 @@ const EventPage = ({ data, pageContext }) => {
             </span>
             <span className="text-black text-base font-normal leading-normal">
               <br />
-              {event.DescriptionOverride? event.DescriptionOverride : event.EventTemplate.Description}
+              {event.DescriptionOverride
+                ? event.DescriptionOverride
+                : event.EventTemplate.Description}
             </span>
           </div>
           <div>
@@ -119,8 +126,8 @@ const EventPage = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query eventPageQuery($ID: String!){
-    allStrapiEvent(filter: {id: {eq: $ID}}){
+  query eventPageQuery($ID: String!) {
+    allStrapiEvent(filter: { id: { eq: $ID } }) {
       edges {
         node {
           id
