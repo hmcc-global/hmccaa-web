@@ -40,7 +40,6 @@ const RightNowMedia = () => (
           </p>
         </div>
         <div className="flex justify-center lg:justify-start">
-
           <SecondaryButtonLink
             href="#"
             hasArrow={true}
