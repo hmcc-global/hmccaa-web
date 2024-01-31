@@ -1,13 +1,13 @@
 version: "3"
 services:
   web:
-    container_name: web
     image: hmccaa/hmcc-web:local
     build: ./
     restart: unless-stopped
     user: root
     environment:
       DATABASE_HOST: strapiDB
+    env_file: ./frontend/.env.development
     entrypoint: /bin/bash
     ports:
       - "1337:1337"
