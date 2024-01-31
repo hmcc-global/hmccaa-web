@@ -1,36 +1,23 @@
 version: "3"
 services:
-  gatsby:
-    container_name: gatsby
-    env_file: ./frontend/.env.development
-    build: ./frontend/
-    image: hmccaa/hmcc-web:gatsby
+  web:
+    container_name: web
+    image: hmccaa/hmcc-web:local
+    build: ./
     restart: unless-stopped
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./frontend/src/:/opt/frontend/src/
-      - ./frontend/.eslintrc.js:/opt/frontend/.eslintrc.js
-      - ./frontend/eslint-custom-gatsby-rule:/opt/frontend/eslint-custom-gatsby-rule
-      - ./frontend/gatsby-config.js:/opt/frontend/gatsby-config.js
-      - ./frontend/.env.development:/opt/frontend/.env.development
-      - ./frontend/scripts/:/opt/frontend/scripts/
-    networks:
-      - strapi
-    depends_on:
-      - strapi
-  strapi:
-    container_name: strapi
-    env_file: ./cms/.env
-    build: ./cms/
-    image: hmccaa/hmcc-web:strapi
-    restart: unless-stopped
+    user: root
     environment:
       DATABASE_HOST: strapiDB
+    entrypoint: /bin/bash
     ports:
       - "1337:1337"
+      - "8000:8000"
     volumes:
-      - ./cms/src/:/opt/cms/src/
+      - ./frontend/:/home/node/frontend/
+      - ./cms/:/home/node/cms/
+      - ./setup/:/home/node/setup/
+      - gatsby_node_modules:/home/node/frontend/node_modules/
+      - strapi_node_modules:/home/node/cms/node_modules/
     networks:
       - strapi
     depends_on:
@@ -53,6 +40,8 @@ services:
 
 volumes:
   strapi-data:
+  gatsby_node_modules:
+  strapi_node_modules:
 
 networks:
   strapi:

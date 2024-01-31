@@ -1,0 +1,4 @@
+.git
+.git*
+.husky
+**/node_modules
