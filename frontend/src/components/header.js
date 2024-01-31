@@ -182,7 +182,7 @@ const Header = () => {
           <div className={borderStyle}>
             <Link
               to="/new"
-              className={`${"min-w-max"} ${textStyle} ${
+              className={`min-w-max ${textStyle} ${
                 "/new/" === path ? "font-extrabold" : ""
               } font-bold hover:font-extrabold tracking-[0.96px]`}
             >
