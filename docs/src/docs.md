@@ -1,6 +1,6 @@
 # Documentation Server
 
-This page contains all documentation regarding the [hmcc-global.github.io/hmccaa-web] site which hosts this documentation you are reading.
+This page contains all documentation regarding the [hmcc-global.github.io/hmccaa-web](https://hmcc-global.github.io/hmccaa-web/) site which hosts this documentation you are reading.
 
 ## Deploying
 
@@ -22,13 +22,15 @@ Then, to run the documentation server locally:
 bash serve.sh
 ```
 
-This command starts up a container with the documentation server, and removes the "Published by HonKit" line at the bottom left of the page. Your local copy of the docs server will sit at `localhost:4000` until the container is stopped.
-
-Alternatively, to just start up the container and build the server (without replacing HonKit advertisements), run:
+This is pretty much the equivalent of:
 
 ```sh
 docker run -it --init -dp 4000:4000  -v `pwd`:`pwd` -w `pwd` --name docs --rm $(docker build -t docs -q .) honkit serve
 ```
+
+## Contributing
+
+The [Honkit docs](https://honkit.netlify.app/) are a great resource for learning how to write docs with Honkit.
 
 ## Pushing Code into Remote Repository
 
