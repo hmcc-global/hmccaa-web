@@ -168,7 +168,7 @@ const Header = () => {
               <Link
                 key={`browseLink-${index}`}
                 to={item.route}
-                className={`${"min-w-max"} ${textStyle} ${
+                className={`min-w-max ${textStyle} ${
                   item.route + "/" === path
                     ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
                     : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
