@@ -27,8 +27,8 @@ const Header = () => {
   const path =
     (typeof window !== "undefined" && window.location.pathname) || "";
   const containerStyle =
-    "flex flex-row h-[60px]lg:h-[100px] relative flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] lg:pt-[40px] lg:pb-[17px] pr-[16px] 2xl:pr-[65px] [@media(min-width:1440px)]:gap-[140px] [@media(min-width:1600px)]:gap-[220px] position-fixed";
-  const logoStyle = "w-[80px] h-[32px] mb-0";
+    "flex flex-row h-[60px] lg:h-[100px] relative flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] lg:pt-[40px] lg:pb-[17px] pr-[16px] 2xl:pr-[65px] [@media(min-width:1140px)]:gap-[40px] [@media(min-width:1440px)]:gap-[100px] [@media(min-width:1600px)]:gap-[210px] position-fixed";
+  const logoStyle = "w-[80px] h-[32px] mb-0 min-w-max";
   const dropDownStyle = "w-[40px] h-[40px] mb-0";
   const textStyle = "text-Shades-0 text-base leading-normal no-underline";
   const mapPinStyle =
@@ -61,9 +61,9 @@ const Header = () => {
           </Link>
           <Link
             to="/"
-            className={`${textStyle} text-center w-[183px] font-semibold`}
+            className={`${textStyle} text-center min-w-max font-semibold`}
           >
-            HARVEST MISSION COMMUNITY CHURCH
+            HARVEST MISSION <br /> COMMUNITY CHURCH
           </Link>
           <button onClick={toggleModal}>
             <img alt="drop down" className={dropDownStyle} src={dropDown} />
@@ -74,8 +74,8 @@ const Header = () => {
           <Link to="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
-          <Link to="/" className={`${textStyle} w-[183px] font-semibold`}>
-            HARVEST MISSION COMMUNITY CHURCH
+          <Link to="/" className={`${textStyle} min-w-max font-semibold`}>
+            HARVEST MISSION <br /> COMMUNITY CHURCH
           </Link>
         </div>
 
@@ -125,8 +125,8 @@ const Header = () => {
           </div>
         )}
 
-        <div className="flex-row items-center gap-4 hidden lg:flex lg:gap-3 [@media(min-width:1040px)]:gap-8 [@media(min-width:1440px)]:gap-11">
-          <div className="relative hover:bg-[#1A56D6] hover:border-[#1A56D6] hover:rounded-t-lg">
+        <div className="flex-row items-center gap-4 hidden lg:flex lg:gap-3 [@media(min-width:1140px)]:gap-8 [@media(min-width:1440px)]:gap-11 shrink-0">
+          <div className="relative hover:bg-[#1A56D6] hover:border-[#1A56D6] hover:rounded-t-lg shrink-0">
             <div className="hover:bg-[#1A56D6] hover:border-[#1A56D6] py-2 px-2 rounded-t-lg peer">
               <img
                 alt="map pin logo"
@@ -163,12 +163,12 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex flex-row items-center gap-4 md:gap:6 [@media(min-width:1040px)]:gap-8 [@media(min-width:1440px)]:gap-11">
+          <div className="flex flex-row items-center justify-items-center gap-2 md:gap:4 [@media(min-width:1140px)]:gap-4 [@media(min-width:1280px)]:gap-6 [@media(min-width:1440px)]:gap-11">
             {browseList.map((item, index) => (
               <Link
                 key={`browseLink-${index}`}
                 to={item.route}
-                className={`${textStyle} ${
+                className={`min-w-max ${textStyle} ${
                   item.route + "/" === path
                     ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
                     : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
@@ -182,7 +182,7 @@ const Header = () => {
           <div className={borderStyle}>
             <Link
               to="/new"
-              className={`${textStyle} ${
+              className={`min-w-max ${textStyle} ${
                 "/new/" === path ? "font-extrabold" : ""
               } font-bold hover:font-extrabold tracking-[0.96px]`}
             >
