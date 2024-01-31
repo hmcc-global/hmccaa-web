@@ -24,7 +24,10 @@ const Feedback = () => {
         </div>
         <div>
           <div className="flex">
-            <SecondaryButtonLink href="https://docs.google.com/forms/d/e/1FAIpQLSdvzMIiSimQ2zAIaPkGHWw0-nK48I5DfSLOjjWczRWEmDTjFg/viewform" hasArrow={true}>
+            <SecondaryButtonLink
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdvzMIiSimQ2zAIaPkGHWw0-nK48I5DfSLOjjWczRWEmDTjFg/viewform"
+              hasArrow={true}
+            >
               Feedback Form
             </SecondaryButtonLink>
           </div>
