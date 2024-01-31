@@ -11,9 +11,8 @@ ENV NODE_ENV=${NODE_ENV}
 
 COPY ./setup /home/node/setup
 COPY ./setup/.bashrc /home/node/.bashrc
-COPY ./setup/start.sh /home/node/start.sh
-RUN chmod -R +x /home/node/setup/init.sh /home/node/start.sh
-# RUN chown -R node:node /home/node/
+COPY ./setup/start.sh ./setup/pull_strapi_server.sh /home/node/
+RUN chmod -R +x /home/node/setup/init.sh /home/node/start.sh /home/node/pull_strapi_server.sh
 
 COPY ./frontend /home/node/frontend
 COPY ./cms /home/node/cms
