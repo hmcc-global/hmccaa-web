@@ -31,11 +31,19 @@ These steps will help you with getting set up to contribute to the HMCCAA-Web re
 
         b. Navigate to Settings -> API Tokens, and create a new API Token. Make sure to select `Unlimited` token duration and `Full access` token type. Then save, and copy the provided token, for use in the next step.
 
-    1. Create a `.env.development` file in your `frontend/` directory, with the following contents:
+    1. Create a `.env.development` file in your `frontend/` directory, with the following contents (make sure to ask in chat for the production URL + token):
 
         ```
         STRAPI_TOKEN=<your token from previous step here>
         STRAPI_API_URL=http://localhost:1337
+        STRAPI_PRODUCTION_URL=<production url here>
+        STRAPI_SERVER_TOKEN=<token here>
+        ```
+
+    1. Pull the necessary data from the production backend:
+
+        ```bash
+        ~/pull_strapi_server.sh
         ```
 
         Now you're ready to connect the frontend!
