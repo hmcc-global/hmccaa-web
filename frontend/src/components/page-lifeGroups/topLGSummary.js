@@ -39,14 +39,6 @@ const TopLGSummary = () => (
             </span>
           </p>
         </HighlightedParagraph>
-        <div className="flex justify-center md:justify-start">
-          <SecondaryButtonLink
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
-            hasArrow={true}
-          >
-            CHECK OUT A LIFE GROUP
-          </SecondaryButtonLink>
-        </div>
       </div>
     </div>
   </div>

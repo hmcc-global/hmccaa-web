@@ -134,7 +134,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-
+  console.warn("RESULTS");
+  console.warn(result);
   if (result.errors || resultSpeakers.errors || resultSeries.errors) {
     reporter.panicOnBuild(`Error while running GraphQL queries`);
     return;
