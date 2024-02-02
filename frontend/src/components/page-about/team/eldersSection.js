@@ -14,7 +14,11 @@ export const elderInfo = [
     role: "Lead Pastor",
     email: "pete.dahlem@hmcc.net",
     emailIcon: true,
-    description: "data",
+    description: [
+      "Pastor Pete joined HMCC after receiving Christ through a LIFE Group in January 2000. He was captivated by our church’s mission to transform lost people into Christ’s disciples who will then transform the world, and continued to grow, serve, and discover his calling to pastoral ministry. Pastor Pete met his wife, Gina, at HMCC, and they were married in August 2010. Their son, Nicholas, was born in July 2011.",
+      "After serving as associate pastor for nine years, Pastor Pete stepped into the lead pastor role in 2015. He believes the church should be a transcultural community where followers of Jesus learn to bring the gospel across cultural barriers to our neighbors, the nations, and the next generation. Pastor Pete loves spending time with his family, anything outdoorsy, carpentry/woodworking, riding motorcycles, and traveling.",
+    ],
+    responsibility: "# Covenant (Married), Latitude & Velocity (Youth)",
   },
   {
     img: imgJoshYang,
@@ -22,8 +26,9 @@ export const elderInfo = [
     role: "Associate Pastor",
     email: "joshua.yang@hmcc.net",
     emailIcon: true,
-    description:
+    description: [
       "Pastor Josh joined the HMCC family in 2006 as a freshman at Northwestern University, where HMCC planted its first church plant. It was here that God grew Pastor Josh’s heart for the local church as he served as a coordinator, LIFE group leader, and worship leader, and in 2011, Pastor Josh first received his calling to pastoral ministry. In 2015, Pastor Josh moved to Ann Arbor and joined the HMCC of Ann Arbor staff as an assistant pastor in 2017. He has a passion to see people fully understand God’s love for them, and to experience Him deeply. In August 2021, Pastor Josh married his wife Erica, with whom he shares a love for Christ, coffee, and the local church (not necessarily in that order).",
+    ],
     responsibility: "#Access (Undergraduate Student)",
   },
   {
@@ -32,7 +37,10 @@ export const elderInfo = [
     role: "Elder",
     email: "dave.yon@annarbor.hmcc.net",
     emailIcon: true,
-    description: "simple data",
+    description: [
+      "David joined HMCC Ann Arbor as a freshman at the University of Michigan in 1998. He joined a LIFE group community that met at his college dorm and as he experienced God’s transformation in his life he joined HMCC. Since that time he served as a LIFE group leader for the undergrad ministry, served on the Worship Team, and led Latitude | Velocity (youth group ministry). David is an educator who has been teaching since 2005 and he is married to Sarah and has 3 children. He and his family most recently returned to Ann Arbor in 2020 after spending 5 years in Hong Kong with the church plant team.",
+    ],
+    responsibility: "#Covenant (Married)",
   },
   {
     img: imgSeongPark,
@@ -40,22 +48,17 @@ export const elderInfo = [
     role: "Elder",
     email: "seongwpark@annarbor.hmcc.net",
     emailIcon: true,
-    description: "last data",
+    description: [
+      "Seong Weon Park joined HMCC Ann Arbor as part of the church plant team in 1996 as the only working person at the time. He has served on the worship band, as coordinator, programming director, and board of directors. He has led all the various life-stages LIFE groups at one time or another (undergraduate, graduate, working single, and the married). He married Helen in 2005 and have 4 children. Seong continues to work as an automotive engineer for major OEM’s in the area.",
+    ],
+    responsibility: "#Covenant (Married)",
   },
 ];
 
 const EldersSection = () => {
   return (
     <div className="w-full flex flex-col items-center lg:items-start gap-y-[3.75rem] pt-[1.6875rem] pb-[1.125rem] lg:py-0">
-      <TeamHeading title="Meet Our Elders">
-        <p className="mb-0">
-          Something about Elders... Lorem Ipsum... esus talks about living an
-          abundant life. The vision of LIFE Group is: to experience the fullness
-          of life in a Biblical community where the Gospel is radically lived
-          out. LIFE Groups seek to accomplish this by sharing our lives with one
-          another within various life stages.
-        </p>
-      </TeamHeading>
+      <TeamHeading title="Meet Our Elders" />
       <Team className="gap-x-4 lg:gap-x-5 lg:pb-[3.75rem]">
         {elderInfo.map((item, index) => (
           <TeamCard

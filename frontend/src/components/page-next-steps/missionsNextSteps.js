@@ -1,6 +1,7 @@
 import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { StaticImage } from "gatsby-plugin-image";
+import { SecondaryButtonLink } from "../Button";
 
 const MissionsNextStep = () => (
   <div className="flex flex-col md:flex-row gap-5 pb-[29px] pt-4 content-image">
@@ -15,15 +16,15 @@ const MissionsNextStep = () => (
       <h2>go to all nations</h2>
       <HighlightedParagraph>
         <p className="pt-5">
-          We believe <span>God has called each one of us to missions</span>,
-          whether it’s overseas or locally. As our vision is to become more
-          transcultural, we want to go where people are. We go in order to
-          experience their culture and way of life, to see what they see and
-          understand what they may encounter each day, to empathize and to
-          connect.
+          We believe <span>God has called each one of us to missions,</span>
+          whether it’s overseas or locally. As our vision is to be a
+          transcultural, allowing us to share the Gospel wherever we go, to
+          people of all nations. We go in order to experience new cultures and
+          way of life, to see and understand, to empathize and to connect people
+          with Jesus.
         </p>
         <p>
-          Throughout the years, we’ve travelled to Indonesia, Singapore, Chile,
+          Throughout the years, we’ve traveled to Indonesia, Singapore, Chile,
           Honduras, Peru, Jordan, as well as locally in Detroit, Chicago,
           Austin, and more.
         </p>
@@ -31,10 +32,10 @@ const MissionsNextStep = () => (
           We have new opportunities each year. See how you can get involved!
         </p>
       </HighlightedParagraph>
-      <div>
-        <p className="text-Accent-200 font-bold">
-          Please email annarbor@hmcc.net to get connected!
-        </p>
+      <div className="flex">
+        <SecondaryButtonLink to="" hasArrow={true}>
+          Learn More
+        </SecondaryButtonLink>
       </div>
     </div>
   </div>

@@ -4,15 +4,148 @@ import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import { StaticImage } from "gatsby-plugin-image";
+import { SecondaryButtonLink } from "../../components/Button";
 
 const HmiPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext;
+  const projects = [
+    {
+      id: 1,
+      destination: "Mexico",
+      year: 1998,
+    },
+    {
+      id: 2,
+      destination: "Kenya",
+      year: 2002,
+    },
+    {
+      id: 3,
+      destination: "India",
+      year: 2007,
+    },
+    {
+      id: 4,
+      destination: "AA && Detroit",
+      year: 2009,
+    },
+    {
+      id: 5,
+      destination: "Indonesia",
+      year: 2012,
+    },
+    {
+      id: 6,
+      destination: "Chicago",
+      year: 2014,
+    },
+    {
+      id: 7,
+      destination: "Peru",
+      year: 2017,
+    },
+    {
+      id: 8,
+      destination: "Jordan",
+      year: 2020,
+    },
+    {
+      id: 9,
+      destination: "Chicago",
+      year: 2022,
+    },
+  ].reduce(
+    (rows, key, index) =>
+      (index % 3 == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
+      rows,
+    []
+  );
+  const workers = [
+    {
+      id: 1,
+      ministry: "Camino De Vida, Peru",
+      workers: "Robert & Karyn Barriger",
+      image: (
+        <StaticImage
+          src="../../images/barrigers.png"
+          alt="Robert & Karyn Barriger"
+        />
+      ),
+      description:
+        "Robert and Karyn Barriger founded Camino de Vida church in Lima, Peru in 1989. They desire to build up the local church as an instrument of God to make himself known as the hope for this world. ",
+    },
+    {
+      id: 2,
+      ministry: "HMCC of Detroit",
+      workers: "Sam & Sunghyun Beck",
+      image: (
+        <StaticImage src="../../images/becks.png" alt="Sam & Sunghyun Beck" />
+      ),
+      description:
+        "Pastor Sam and his wife Sunghyun were called to lead the HMCC Detroit church in 2017 with a mission to see redemption, reconciliation, and restoration in families, communities, and systems as gospel infiltrates the city.",
+    },
+    {
+      id: 3,
+      ministry: "HMCC of Hong Kong",
+      workers: "Seth & Christian Kim",
+      image: (
+        <StaticImage src="../../images/kims.png" alt="Seth & Christinga Kim" />
+      ),
+      description:
+        "Pastor Seth and Christina planted HMCC of Hong Kong in 2015 along with a team from HMCC of Ann Arbor. They desire to be a demonstration of Christ’s love, seeing people be radically changed through the Gospel, trained to be a Christ disciple, and sent out to other nations to be the light unto the world. ",
+    },
+    {
+      id: 4,
+      ministry: "Muslim Bridge Builders",
+      workers: "Timothy & Miriam Harris",
+      image: (
+        <StaticImage
+          src="../../images/muslims.png"
+          alt="Book: Loving Your Muslim Neighbor "
+        />
+      ),
+      description:
+        'In 2006, Pastor Tim and Miriam were led  to do the work of "Bridge-Building" with Muslims and Christians. They work with international students at the University of Michigan and Eastern Michigan University as they try to "build bridges of friendship, trust and understanding between Muslims and Christians." ',
+    },
+    {
+      id: 5,
+      ministry: "HMCC of Jakarta",
+      workers: "Erin & Tina Ye",
+      image: <StaticImage src="../../images/yees.png" alt="Eric & Tina Ye" />,
+      description:
+        "Pastor Eric and Tina Yee helped to plant the HMCC of Jakarta church in 2015. Originally both members of HMCC of Ann Arbor, both felt lead to bring the Gospel to unreached people in Indonesia in 2010. Their desire is to see people’s lives transformed, redirected to God’s purposes, and set out to transform the world for the glory of God.",
+    },
+    {
+      id: 6,
+      ministry: "HMCC of Tangerang",
+      workers: "John & Ester Eom",
+      image: <StaticImage src="../../images/eoms.png" alt="John & Ester Eom" />,
+      description:
+        "In 2009 Pastor John moved to Indonesia with a team to plant HMCC of Indonesia. In 2014 he became pastor of HMCC of Tangerang. The church desires to see people of all walks of life encounter Jesus and be transformed by His grace.",
+    },
+    {
+      id: 7,
+      ministry: "HMCC of Tangerang",
+      workers: "Andrew & Nicole Jun",
+      image: (
+        <StaticImage src="../../images/juns.png" alt="Andrew & Nicole Jun" />
+      ),
+      description:
+        "Pastor Andrew and his family moved to Indonesia in 2010 to lead a church planting team with HMCC. After years of serving college students and unreached Muslim populations, the family is transitioning from local church ministry to focused outreach to Indonesian Muslims in our community and city. Their mission is to see God start disciple-making movements among the millions of unreached Indonesians that live around them.",
+    },
+  ].reduce(
+    (rows, key, index) =>
+      (index % 4 == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
+      rows,
+    []
+  );
+
   return (
     <Layout>
       <div className="px-4 flex flex-col w-full items-center pt-[1.375rem] pb-[7.3125rem] md:pt-10">
-        <div className="w-full md:px-[3.25rem] flex flex-col items-center">
+        <div className="w-full md:px-4 flex flex-col items-center">
           <div className="max-w-container w-full flex flex-col gap-y-[2.1875rem] md:gap-y-[3.75rem]">
             <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
             <div className="flex flex-col items-center gap-y-8 md:gap-y-[6.25rem]">
@@ -33,42 +166,64 @@ const HmiPage = ({ pageContext }) => {
                         As Christ has called us to &apos;make disciples of all
                         nations&apos; (Matthew 28:19), we value the importance
                         of the local church making an impact in its surrounding
-                        community for the Gospel of Jesus Christ. Similar to the
-                        early church seen in the Book of Acts, we believe in
-                        doing missions through planting churches. It is our
-                        desire to establish and raise up visible local bodies of
-                        Christ&apos;s followers who are witnesses to their own
-                        communities.
+                        community and the nations for the Gospel of Jesus
+                        Christ.
                       </p>
                       <p className="mb-0">
-                        Specifically, we seek to target cities with viable
-                        college campuses, as students are the future leaders of
-                        our world. As a church reaches a campus, we believe that
-                        it will begin to impact the community, the city, and
-                        ultimately, the nations. Currently HMI is involved in
-                        short-term projects both locally and internationally.
-                        Starting in Ann Arbor, HMI now has church plants in
-                        Austin, Jakarta, Indonesia, Hong Kong, and Detroit.
+                        Harvest Mission International (HMI) is our outreach
+                        ministry, committed to planting churches, sending
+                        short-term mission teams, and partnering with
+                        missionaries locally and abroad. We currently have
+                        church plants in Austin, Jakarta, Indonesia, Hong Kong,
+                        and Detroit.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-y-[1.25rem] md:gap-y-3  text-center md:text-left w-full">
+                <div className="flex flex-col gap-y-3 md:gap-y-3  text-center md:text-left w-full">
                   <h2 className="uppercase text-xl md:text-3xl leading-tighter">
-                    Projects
+                    Past Projects
                   </h2>
                   <p className="mb-0 text-base md:text-lg">
-                    As an extension of HMCC&apos;s ministries, Harvest Mission
-                    International (HMI) is committed to participating in
-                    short-term missions projects during the spring and summer.
-                    By sending out teams to serve in a cross-cultural missions
-                    environment, it is our hope that kingdom workers will be
-                    trained to serve the body of Christ and to commit to
-                    life-long involvement in world missions. As team members
-                    learn to selflessly serve and support local churches, they
-                    have the opportunity to witness how God is working in other
-                    parts of the world.
+                    Harvest Mission International (HMI) is committed to
+                    participating in short-term missions projects during the
+                    spring and summer. By sending out teams to serve in a
+                    cross-cultural missions environment, it is our hope that
+                    kingdom workers will be trained to serve the body of Christ
+                    and to commit to life-long involvement in world missions. As
+                    team members learn to selflessly serve and support local
+                    churches, they have the opportunity to witness how God is
+                    working in other parts of the world.
                   </p>
+                  <div className="flex flex-col items-center md:block pt-3 md:pt-7">
+                    <div className="flex flex-col gap-y-10 md:flex-row md:justify-between text-left">
+                      {projects.map((list, index) => (
+                        <div
+                          className="flex flex-col gap-y-10"
+                          key={`list-${index}`}
+                        >
+                          {list.map(project => (
+                            <div
+                              className="flex gap-x-5"
+                              key={`project-${project.id}`}
+                            >
+                              <div className="min-w-20">
+                                <div className="bg-[#5e5e5e] pb-[100%]" />
+                              </div>
+                              <div className="flex flex-col gap-y-3">
+                                <span className="text-xl font-medium text-Primary-1000 uppercase">
+                                  {project.destination}
+                                </span>
+                                <span className="text-2xl font-semibold leading-tighter">
+                                  {project.year}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col gap-y-[1.25rem] md:gap-y-3 pt-[0.9375rem]  text-center md:text-left">
@@ -82,6 +237,45 @@ const HmiPage = ({ pageContext }) => {
                   in God&apos;s work around the world through our prayers and
                   financial support.
                 </p>
+                <div className="pt-3 md:pt-7">
+                  <div className="flex flex-col gap-y-10 lg:flex-row lg:gap-x-5 text-left">
+                    {workers.map((list, index) => (
+                      <div
+                        className="flex flex-col gap-y-10 lg:w-[49.1526%]"
+                        key={`list-${index}`}
+                      >
+                        {list.map(worker => (
+                          <div
+                            className="flex flex-col sm:flex-row gap-5"
+                            key={`project-${worker.id}`}
+                          >
+                            <div className="w-full max-w-[11.25rem]">
+                              <div className="relative pb-[111.115%] overflow-hidden">
+                                <div className="absolute top-0 left-0">
+                                  {worker.image}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex flex-col gap-y-3">
+                              <span className="text-xl font-medium text-Primary-1000 uppercase">
+                                {worker.ministry}
+                              </span>
+                              <span className="text-2xl font-semibold leading-tighter">
+                                {worker.workers}
+                              </span>
+                              <p className="mb-2">{worker.description}</p>
+                              <div className="flex">
+                                <SecondaryButtonLink to="/" hasArrow={true}>
+                                  More Info
+                                </SecondaryButtonLink>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

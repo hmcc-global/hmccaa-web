@@ -19,14 +19,9 @@ const WhyWeGiveSection = () => (
       </h2>
       <HighlightedParagraph>
         <p>
-          At HMCC, we believe that when God gives someone a vision, He will
-          always provide for that vision.
-        </p>
-        <p>
-          {" "}
           God invites us to partner with Him in His ministry of making disciples
-          and transforming the world. Our financial giving - whether it is
-          regular tithes or additional gifts - is not only an expression of{" "}
+          and transforming the world. Our financial giving — whether it is
+          regular tithes or additional gifts — is not only an expression of{" "}
           <span>thankfulness and worship unto God</span>, but also{" "}
           <span>
             an act of faith that God will provide and equip His church for His

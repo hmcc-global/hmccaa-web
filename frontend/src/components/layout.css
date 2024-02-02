@@ -235,7 +235,7 @@ span.ellipsis {
 }
 
 .content-padding-full {
-  @apply px-4 md:px-14 w-full flex flex-col items-center;
+  @apply px-4 md:px-8 w-full flex flex-col items-center;
 }
 
 .image-container {

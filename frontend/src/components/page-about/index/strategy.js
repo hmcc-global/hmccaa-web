@@ -49,19 +49,14 @@ const Strategy = () => (
               <h3>Go: Personal Mission & Team-Based Mission</h3>
             </div>
             <div>
-              We have been called to go out and make disciples, by sharing the
-              Good News and testifying of the work God has done in our lives.
+              Jesus calls us to continue his mission until every nation is
+              reached. We live this out through relational evangelism to those
+              around us and abroad in various ways:
               <ul>
-                <li>
-                  Personal Mission happens when an individual lives as the salt
-                  and light in our world, shares his/her faith with others and
-                  invites people into our community.
-                </li>
-                <li>
-                  Team-Based Mission happens when we partner together for God’s
-                  kingdom purposes through opportunities like missional
-                  initiatives, missions teams, and church plant teams.
-                </li>
+                <li>Supported Missionaries</li>
+                <li>Local Organization Partnerships</li>
+                <li>Short-term Missions Teams</li>
+                <li>Evangelism Training</li>
               </ul>
             </div>
           </div>
@@ -73,19 +68,21 @@ const Strategy = () => (
               <h3>Grow: Life-on-Life & Equipping</h3>
             </div>
             <div>
-              We believe it is crucial that we do not grow stagnant in our
-              faith, but that we are continually learning and being challenged.
+              We believe that people grow to maturity in biblical community
+              where the gospel is radically lived out.
               <ul>
                 <li>
-                  Life-on-Life involves intentional relationships like Life
-                  Change Groups (LCG) and discipleship, which allows us to
-                  sharpen each other as Christ-followers.
+                  In LIFE Groups, we practice our faith, study the Bible, pray
+                  together, and build life-on-life discipleship relationships.
                 </li>
                 <li>
-                  Equipping entails purposeful investment in people to live a
-                  transformed life through opportunities such as Experiencing
-                  Classes, Freedom Class, ministry team service, and learning to
-                  study the Bible and pray.
+                  School of Transformation classes provide training and growth
+                  opportunities that support the process of disciple-making
+                  across our church.
+                </li>
+                <li>
+                  Men’s and Women’s Ministries bring the church together across
+                  life-stages to study how to live out our lives for the Gospel.
                 </li>
               </ul>
             </div>
@@ -98,18 +95,18 @@ const Strategy = () => (
               <h3>Gather: Corporate Gatherings & Community Gatherings</h3>
             </div>
             <div>
-              We gather to foster a greater sense of unity and to continue to
-              build up the church body.
+              We gather as the family of God to celebrate what God has done and
+              is doing in our community, to preach and teach the word of God, to
+              serve the Lord with our spiritual gifts, time, and energy, and to
+              seek God in prayer for our church and the world around us. These
+              gatherings include:
               <ul>
                 <li>
-                  Corporate Gatherings are what we do together as the local body
-                  of Christ, such as Sunday Celebration, retreats, and baptism
-                  services.
+                  Weekly Gatherings (Sunday Celebration, Prayer Gathering,
+                  Encounter)
                 </li>
-                <li>
-                  Community Gatherings are what we do in biblical community,
-                  specifically LIFE Group.
-                </li>
+                <li>Special Events (Retreats, Conferences)</li>
+                <li>Ministry Teams</li>
               </ul>
             </div>
           </div>

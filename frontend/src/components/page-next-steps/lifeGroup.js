@@ -27,7 +27,7 @@ const LifeGroup = () => (
         </p>
       </HighlightedParagraph>
       <div className="flex justify-center md:justify-start">
-        <PrimaryButtonLink hasArrow={true} to={"../../next-steps/lifegroups"}>
+        <PrimaryButtonLink hasArrow={true} to={"/next-steps/lifegroups"}>
           Learn More
         </PrimaryButtonLink>
       </div>

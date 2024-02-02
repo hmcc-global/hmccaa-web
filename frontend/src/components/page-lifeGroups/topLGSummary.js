@@ -38,21 +38,7 @@ const TopLGSummary = () => (
               the greater empowerment of the body of Christ.
             </span>
           </p>
-          <p>
-            If you are new to our church, there is no better way to get a taste
-            of who we are and what we believe in then to check out one of our
-            LIFE Groups. Don’t miss out this opportunity to experience the
-            life-changing power of Biblical community!
-          </p>
         </HighlightedParagraph>
-        <div className="flex justify-center md:justify-start">
-          <SecondaryButtonLink
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
-            hasArrow={true}
-          >
-            CHECK OUT A LIFE GROUP
-          </SecondaryButtonLink>
-        </div>
       </div>
     </div>
   </div>

@@ -37,7 +37,7 @@ h2 {
 }
 
 .invisibility {
-  @apply h-0 overflow-hidden;
+  @apply h-0 overflow-hidden opacity-0;
 }
 
 nav.breadcrumb {
