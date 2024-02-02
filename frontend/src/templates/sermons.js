@@ -22,7 +22,7 @@ const WatchPage = ({ data, pageContext }) => {
 
 export const Head = () => <Seo title="Watch" />;
 // Page Query for Sermons with filtering based upon Drop Down Selection
-export const pageQuery = graphql`
+export const query = graphql`
   query sermonsPageQuery(
     $skip: Int!
     $limit: Int!
