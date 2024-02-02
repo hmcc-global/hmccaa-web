@@ -2,12 +2,13 @@ import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { bgLeft, bgRight } from "../../css/lifeStagesNew.module.css";
 import Link from "../Link";
+import { SecondaryButtonLink } from "../Button";
 
 const lifeStages = [
   {
     heading: "A Place for Families",
     description:
-      "Newly married? Have newborns? Kids? We have families from different life stages you can connect with!",
+      "Newly married? Have newborns? Kids? We have families from different life stages you can connect with in our Covenant ministry!",
     lifeStageImage: (
       <StaticImage
         src="../../images/families-life-stage.png"
@@ -18,7 +19,7 @@ const lifeStages = [
   {
     heading: "A Place for Single Adults",
     description:
-      "New to the area? Just graduated? Our single adult group is for anyone out of school and not yet married.",
+      "New to the area? Just graduated? Our FOCUS ministry is for anyone out of school and not yet married.",
     lifeStageImage: (
       <StaticImage
         src="../../images/single-adults-life-stage.png"
@@ -29,7 +30,7 @@ const lifeStages = [
   {
     heading: "A Place for Grad Students",
     description:
-      "In grad school? Taking extra courses? This is a place you can connect with those pursuing higher education.",
+      "In grad school? Taking extra courses? This is a place you can connect with those pursuing higher education in our Impact ministry.",
     lifeStageImage: (
       <StaticImage
         src="../../images/grad-students-life-stage.png"
@@ -40,7 +41,7 @@ const lifeStages = [
   {
     heading: "A Place for International Students",
     description:
-      "Flew in from overseas to school in the US? We have students from China, HK, Indonesia, Malaysia, Japan, and many more!",
+      "Flew in from overseas to attend school in the US? In our Global Access ministry we have students from China, HK, Indonesia, Malaysia, Japan, and many more!",
     lifeStageImage: (
       <StaticImage
         src="../../images/international-students-life-stage.png"
@@ -113,12 +114,11 @@ const LifeStages = () => {
           </div>
         ))}
       </div>
-      <div className="text-Accent-500 text-center text-lg font-bold">
-        Please email{" "}
-        <Link href="mailto:annarbor@hmcc.net" className="text-Accent-500">
-          annarbor@hmcc.net
-        </Link>{" "}
-        to get connected!
+      <div className="flex flex-col items-center gap-y-5">
+        <SecondaryButtonLink to="/" hasArrow={true}>
+          Let Us KNow You&apos;re Interested
+        </SecondaryButtonLink>
+        <p>*We will have a servant leader contact you.</p>
       </div>
     </div>
   );

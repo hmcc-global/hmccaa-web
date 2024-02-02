@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, createRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { ArrowDropDown } from "../svgs";
 
