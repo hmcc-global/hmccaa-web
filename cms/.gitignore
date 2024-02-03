@@ -115,3 +115,4 @@ dist
 build
 .strapi-updater.json
 .strapi/
+types/*

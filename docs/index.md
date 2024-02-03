@@ -4,48 +4,18 @@ This is the main documentation hub for everything regarding the HMCC Ann Arbor W
 
 ## Architecture
 
-This repo is split into three sections: `frontend/` and `cms/` for the `annarbor.hmcc.net` website, and `docs/` for this documentation site. The frontend uses [Gatsby](https://www.gatsbyjs.com/) (a React framework) to serve as a frontend for our website, and [Strapi](https://strapi.io/) as our CMS ([Content Management Service](https://kinsta.com/knowledgebase/content-management-system/)) serves the data provided to the website. For more information about the documentation site, see the [Documentation Server](./docs.md) page.
+This repo is split into three sections: `frontend/` and `cms/` for the `annarbor.hmcc.net` website, and `docs/` for this documentation site. The frontend uses [Gatsby](https://www.gatsbyjs.com/) (a React framework) to serve as a frontend for our website, and [Strapi](https://strapi.io/) as our CMS ([Content Management Service](https://kinsta.com/knowledgebase/content-management-system/)) serves the data provided to the website. For more information about the documentation site, see the [Documentation Server](./src/docs.md) page.
 
 Currently, we can only run the CMS locally - thus, your own locally-deployed version will contain the necessary structures that our CMS provides, but none of the data.
 
-To begin contributing to this project, follow the next section to set up your development environment. With just a few commands, you will create *three* Docker containers:
+To begin contributing to this project, follow the next section to set up your development environment. With just a few commands, you will create *two* Docker containers:
 
-- `gatsby`: a locally deployed version of our frontend website
-- `strapi`: a locally deployed version of our CMS
-- `strapiDB`: a MySQL database which holds the data used by `strapi`.
-
-Furthermore, both `gatsby` and `strapi` will be supported by Webpack, which means that any changes to the `gatsby/src/` and `strapi/src/` folders will immediately hot-reload the respective frontend pages.
+- `web`: Your daily development docker container, which contains your code and allows you to deploy both a local version of our CMS and a local version of our frontend website.
+- `strapiDB`: a MySQL database which holds the data used by Strapi in your `web` container.
 
 ## Getting Started
 
-1. Clone the repo
-
-    ```sh
-    git clone git@github.com:hmcc-global/hmccaa-web.git
-    cd hmccaa-web
-    ```
-
-2. Install [Docker](https://docs.docker.com/get-docker/).
-
-3. Log into Docker - contact one of the existing team members for the proper credentials.
-
-4. Build with Docker:
-
-    ```sh
-    docker compose up
-    ```
-
-5. Navigate to `localhost:1337/admin` to see Strapi, and `localhost:8000` to view your website!
-
-### Full build
-
-If you add more dependencies (eg. in the package.json), they will not be reflected when running `docker compose up` as in the previous commands. You will instead need to run a fresh build of the container from scratch:
-
-```sh
-docker compose -f docker-compose-fullbuild.yml up --build
-```
-
-Then, once changes have been checked in, we can push those changes into a new version of the base Docker image for others to reuse.
+See the [Setup docs](./src/setup.md).
 
 ### Developing with Custom Links
 
@@ -67,10 +37,10 @@ children can also be rendered in Link, in case you want to wrap this around some
 
 ## FAQ
 
-**Q**: Why do neither project have a `package-lock.json` file?
-
-**A**: The `package.json` file is copied to the Docker container before `npm install` is run. Thus, neither the `node_modules/` folder nor `package-lock.json` file should end up in your local directory.
-
 **Q**: My Docker image is giving me `bad_alloc` errors when trying to start up! How do I fix this?
 
 **A**: You are likely out of system space. Try running `docker system prune -af` to clear up some space.
+
+**Q**: I am hitting the error `failed to solve: error from sender: open /path/to/repo/frontend/.cache/redux: permission denied`.
+
+**A**: Try deleting your gatsby cache: `sudo rm -rf /path/to/repo/frontend/.cache`

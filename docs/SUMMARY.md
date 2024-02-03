@@ -1,3 +1,4 @@
 # Summary
 
-* [Documentation Server](docs.md)
+* [Getting Started](src/setup.md)
+* [Documentation Server](src/docs.md)
