@@ -88,11 +88,11 @@ const EventPage = ({ data, pageContext }) => {
           </div>
 
           <div className="text-center pt-4 lg:order-1 ml-5">
-            <StaticImage
+            {/* <StaticImage
               src="https://via.placeholder.com/382x215"
               alt={event.imgAlt}
-            />
-            {/* <img src={event.EventTemplate.CoverImage}></img> */}
+            /> */}
+            <img src={event.EventTemplate.CoverImage}></img>
           </div>
         </div>
 
