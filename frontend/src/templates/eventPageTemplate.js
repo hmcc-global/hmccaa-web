@@ -77,7 +77,7 @@ const EventPage = ({ data, pageContext }) => {
                 </div>
               </div>
             </div>
-            
+
             {/* ADD CODE BACK IN ONCE LINKS ARE ADDED TO GRAPHQL: 
             <div className="flex justify-center pt-6 lg:justify-start lg:pt-10">
               <PrimaryButtonLink
