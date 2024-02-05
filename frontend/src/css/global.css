@@ -112,3 +112,6 @@ p {
 span.ellipsis {
   @apply text-ellipsis;
 }
+.item-container.size-container {
+  @apply md:w-[45.7628%];
+}
