@@ -30,9 +30,9 @@
 html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
-  font: Raleway;
   font-size: var(--font-md);
   line-height: var(--line-height-normal);
+  @apply font-raleway;
 }
 body {
   -moz-osx-font-smoothing: grayscale;

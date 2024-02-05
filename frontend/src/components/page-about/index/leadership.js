@@ -52,7 +52,7 @@ const LeadershipSection = () => {
         <SecondaryButtonLink
           to={"/about/our-team"}
           hasArrow={true}
-          customClassName={{ textContainer: "-indent-[8.8rem] sm:indent-0" }}
+          customClassName={{ textContainer: "-indent-[10rem] sm:indent-0" }}
         >
           More About Our Elders and Deacons
         </SecondaryButtonLink>

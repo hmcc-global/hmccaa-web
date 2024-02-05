@@ -61,7 +61,7 @@ const Belief = () => (
       <h2>What We Believe</h2>
     </div>
     <div className={middleContainer}>
-      <div>
+      <div className="flex flex-col gap-y-10">
         {beliefs
           .filter((_, index) => index < beliefs.length / 2)
           .map((beliefs, index) => (
@@ -72,7 +72,7 @@ const Belief = () => (
             />
           ))}
       </div>
-      <div>
+      <div className="flex flex-col gap-y-10">
         {beliefs
           .filter((_, index) => index >= beliefs.length / 2)
           .map((beliefs, index) => (
