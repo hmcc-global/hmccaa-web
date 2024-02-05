@@ -211,37 +211,3 @@ pre tt:before,
 pre tt:after {
   content: none;
 }
-
-.border-highlight {
-  @apply border-[2px] border-Primary-300;
-}
-
-.label-highlight {
-  @apply text-Primary-300 translate-x-[17px];
-}
-
-.selected-item {
-  @apply bg-[rgba(25,118,210,0.08)];
-}
-.selected-item:hover {
-  @apply bg-[rgba(25,118,210,0.08)];
-}
-
-span.ellipsis {
-  @apply text-ellipsis;
-}
-.content-image {
-  @apply max-w-container w-full md:py-15 gap-x-15;
-}
-
-.content-padding-full {
-  @apply px-4 md:px-8 w-full flex flex-col items-center;
-}
-
-.image-container {
-  @apply md:w-[45.7628%];
-}
-
-.content-container {
-  @apply md:w-[49.1526%];
-}
