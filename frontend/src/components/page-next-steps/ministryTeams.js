@@ -123,7 +123,7 @@ const MinistryTeams = () => (
           })}
         </div>
         <div className="flex justify-center">
-          <PrimaryButtonLink hasArrow={true} to={"/"}>
+          <PrimaryButtonLink hasArrow={true} to={"/next-steps/ministryteams"}>
             Join a Team
           </PrimaryButtonLink>
         </div>

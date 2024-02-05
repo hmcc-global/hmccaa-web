@@ -16,7 +16,7 @@
   @apply max-w-[30.3125rem];
 }
 
-.container h3 {
+.sub-head h3 {
   @apply flex leading-tighter md:leading-normal font-semibold text-lg md:text-2xl;
 }
 
