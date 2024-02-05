@@ -3,7 +3,12 @@ import { useState } from "react";
 import { arrow, subHead, box, toggleContainer } from "../css/belief.module.css";
 import { Chevron } from "./svgs";
 
-export const Collapsible = ({ sectionHead, sectionBody }) => {
+export const Collapsible = ({
+  sectionHead,
+  sectionBody,
+  sectionBlock,
+  overrideCss,
+}) => {
   const [reveal, setReveal] = useState(false);
   const toggle = () => {
     setReveal(!reveal);
@@ -13,7 +18,16 @@ export const Collapsible = ({ sectionHead, sectionBody }) => {
     <div className={box}>
       <div onClick={toggle} className={subHead}>
         <button className={arrow} aria-label="Toggle">
-          <Chevron direction="right" className={reveal && "rotate-90"} />
+          <Chevron
+            direction="right"
+            className={`${
+              reveal
+                ? "rotate-90"
+                : overrideCss && overrideCss?.chevron
+                ? overrideCss?.chevron
+                : ""
+            }`}
+          />
         </button>
         <h3>
           <button>{sectionHead}</button>
@@ -22,7 +36,18 @@ export const Collapsible = ({ sectionHead, sectionBody }) => {
       <div
         className={`toggle ${toggleContainer}${reveal ? "" : " invisibility"}`}
       >
-        <p>{sectionBody}</p>
+        {sectionBody && <p>{sectionBody}</p>}
+        {sectionBlock &&
+          sectionBlock.map((bodyContext, index) => {
+            const isLast = index + 1 === sectionBlock.length;
+            return isLast ? (
+              <p key={`block-${index}`} className="mb-0">
+                {bodyContext}
+              </p>
+            ) : (
+              <p key={`block-${index}`}>{bodyContext}</p>
+            );
+          })}
       </div>
     </div>
   );
