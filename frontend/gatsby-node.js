@@ -75,7 +75,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  console.warn(result);
   result.data.allStrapiEvent.edges.forEach(({ node: event }) => {
     createPage({
       path: `/events/${event.id}`,

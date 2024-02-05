@@ -77,7 +77,9 @@ const EventPage = ({ data, pageContext }) => {
                 </div>
               </div>
             </div>
-            {/* <div className="flex justify-center pt-6 lg:justify-start lg:pt-10">
+            
+            {/* ADD CODE BACK IN ONCE LINKS ARE ADDED TO GRAPHQL: 
+            <div className="flex justify-center pt-6 lg:justify-start lg:pt-10">
               <PrimaryButtonLink
                 hasArrow={true}
                 to={"https://annarbor.hmcc.net/"}
@@ -88,10 +90,6 @@ const EventPage = ({ data, pageContext }) => {
           </div>
 
           <div className="text-center pt-4 lg:order-1 ml-5">
-            {/* <StaticImage
-              src="https://via.placeholder.com/382x215"
-              alt={event.imgAlt}
-            /> */}
             <img src={event.EventTemplate.CoverImage}></img>
           </div>
         </div>
