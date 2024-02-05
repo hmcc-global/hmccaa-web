@@ -4,12 +4,10 @@ import Card from "../../shared/card";
 const SermonCard = ({ img, date, title, speaker, passage, series }) => {
   const attributes = (
     <div className="pt-1 md:pt-2">
-      <p className="font-normal mb-0 text-sm lg:text-lg">
-        Speaker: {speaker}
-        <br />
-        Passage: {passage}
-        <br />
-        Series: {series}
+      <p className="font-normal mb-0 text-sm md:text-lg flex flex-col">
+        <span className="text-lg">Speaker: {speaker}</span>
+        <span>Passage: {passage}</span>
+        <span>Series: {series}</span>
       </p>
     </div>
   );
