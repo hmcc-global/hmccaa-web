@@ -93,3 +93,7 @@ p {
 .ReactModal__Body--open .ReactModalPortal {
   @apply block;
 }
+
+.item-container.size-container {
+  @apply md:w-[45.7628%];
+}

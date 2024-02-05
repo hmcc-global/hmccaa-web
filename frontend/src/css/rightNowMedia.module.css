@@ -1,13 +1,13 @@
 @config "../config/tailwind.config.js";
 
 .wrapper {
-  @apply bg-Neutral-200 inline-flex justify-center items-center pt-[1.75rem] pb-[2.9375rem] lg:py-[4.4375rem] w-full px-[0.875rem];
+  @apply bg-Neutral-200 inline-flex justify-center items-center pt-[1.75rem] pb-[2.9375rem] md:py-15 w-full px-[0.875rem] md:px-8;
 }
 
 .container {
-  @apply max-w-container w-full flex flex-col text-center gap-y-5 lg:text-left lg:flex-row items-center lg:gap-x-5 lg:gap-y-0;
+  @apply max-w-container w-full flex flex-col text-center gap-y-5 md:text-left md:flex-row items-center md:items-start md:gap-x-15 md:gap-y-0;
 }
 
 .description-wrapper {
-  @apply max-w-[42.5rem] w-full gap-y-5 flex flex-col;
+  @apply max-w-[42.5rem] w-full gap-y-5 flex flex-col md:w-[49.1526%];
 }
