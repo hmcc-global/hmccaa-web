@@ -27,8 +27,8 @@ const Header = () => {
   const path =
     (typeof window !== "undefined" && window.location.pathname) || "";
   const containerStyle =
-    "flex flex-row h-[60px] lg:h-[100px] relative flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] lg:pt-[40px] lg:pb-[17px] pr-[16px] 2xl:pr-[65px] [@media(min-width:1140px)]:gap-[40px] [@media(min-width:1440px)]:gap-[100px] [@media(min-width:1600px)]:gap-[210px] position-fixed";
-  const logoStyle = "w-[80px] h-[32px] mb-0 min-w-max";
+    "flex flex-row h-[60px] lg:h-[100px] relative flext-start bg-Primary-700 items-center justify-between px-4 lg:pt-[40px] lg:pb-[17px] 2xl:px-[65px] [@media(min-width:1140px)]:gap-[40px] [@media(min-width:1440px)]:gap-[100px] [@media(min-width:1600px)]:gap-[210px] position-fixed";
+  const logoStyle = "w-20 h-8 mb-0";
   const dropDownStyle = "w-[40px] h-[40px] mb-0";
   const textStyle = "text-Shades-0 text-base leading-normal no-underline";
   const mapPinStyle =
@@ -70,7 +70,7 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex items-center gap-4 md:gap-6 lg:gap-8">
+        <div className="hidden lg:flex items-center gap-4 md:gap-6 lg:gap-8 shrink-0">
           <Link to="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
