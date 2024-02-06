@@ -16,8 +16,8 @@ export const Collapsible = ({
 
   return (
     <div className={box}>
-      <div onClick={toggle} className={subHead}>
-        <button className={arrow} aria-label="Toggle">
+      <div onClick={toggle} className={`${subHead} sub-heading`}>
+        <button className={`${arrow} chevron`} aria-label="Toggle">
           <Chevron
             direction="right"
             className={`${

@@ -15,8 +15,8 @@ const ConnectPage = () => (
     <div className="content-padding-full">
       <div className="max-w-container">
         <SundayCelebration />
-        <CommonQuestions />
         <MapDetails />
+        <CommonQuestions />
         <Questions />
       </div>
     </div>
