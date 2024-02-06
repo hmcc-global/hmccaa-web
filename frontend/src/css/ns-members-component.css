@@ -1,0 +1,5 @@
+@config "../config/tailwind.config.js";
+
+.btn-container span {
+  @apply whitespace-normal max-w-[8.4375rem] [@media(min-width:375px)]:max-w-none;
+}
