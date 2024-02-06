@@ -72,7 +72,9 @@ const EventPage = ({ data, pageContext }) => {
                   <img src={locationPinIcon}></img>
                 </div>
                 <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {event.LocationOverride? event.LocationOverride.LocationName : event.EventTemplate.Location.LocationName}
+                  {event.LocationOverride
+                    ? event.LocationOverride.LocationName
+                    : event.EventTemplate.Location.LocationName}
                 </div>
               </div>
             </div>

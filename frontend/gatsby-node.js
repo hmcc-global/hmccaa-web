@@ -20,7 +20,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     defer: true,
   });
 
-
   //Query each event from GraphQL
   const eventResult = await graphql(`
     {
@@ -90,29 +89,29 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
-    // GraphQL Query for All Sermons
-    const result = await graphql(`
-      {
-        allStrapiSermon {
-          nodes {
-            Title
-            DatePreached
-            BiblePassage {
-              Book
-              ChapterVerse
-            }
-            Series {
-              Name
-              id
-            }
-            Preacher {
-              Name
-              Prefix
-            }
+  // GraphQL Query for All Sermons
+  const result = await graphql(`
+    {
+      allStrapiSermon {
+        nodes {
+          Title
+          DatePreached
+          BiblePassage {
+            Book
+            ChapterVerse
+          }
+          Series {
+            Name
+            id
+          }
+          Preacher {
+            Name
+            Prefix
           }
         }
       }
-    `);
+    }
+  `);
 
   // GraphQL Query for All Speakers
   const resultSpeakers = await graphql(`
