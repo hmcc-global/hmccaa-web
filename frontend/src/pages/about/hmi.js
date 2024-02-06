@@ -56,12 +56,7 @@ const HmiPage = ({ pageContext }) => {
       destination: "Chicago",
       year: 2022,
     },
-  ].reduce(
-    (rows, key, index) =>
-      (index % 3 == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
-      rows,
-    []
-  );
+  ];
   const workers = [
     {
       id: 1,
@@ -180,46 +175,41 @@ const HmiPage = ({ pageContext }) => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-y-3 md:gap-y-3  text-center md:text-left w-full">
-                  <h2 className="uppercase text-xl md:text-3xl leading-tighter">
-                    Past Projects
-                  </h2>
-                  <p className="mb-0 text-base md:text-lg">
-                    Harvest Mission International (HMI) is committed to
-                    participating in short-term missions projects during the
-                    spring and summer. By sending out teams to serve in a
-                    cross-cultural missions environment, it is our hope that
-                    kingdom workers will be trained to serve the body of Christ
-                    and to commit to life-long involvement in world missions. As
-                    team members learn to selflessly serve and support local
-                    churches, they have the opportunity to witness how God is
-                    working in other parts of the world.
-                  </p>
-                  <div className="flex flex-col items-center md:block pt-3 md:pt-7">
-                    <div className="flex flex-col gap-y-10 md:flex-row md:justify-between text-left">
-                      {projects.map((list, index) => (
+                <div className="flex flex-col w-full gap-y-5 md:gap-y-10">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                    <h2 className="uppercase text-xl md:text-3xl">
+                      Past Projects
+                    </h2>
+                    <p className="mb-0 text-base md:text-lg">
+                      Harvest Mission International (HMI) is committed to
+                      participating in short-term missions projects during the
+                      spring and summer. By sending out teams to serve in a
+                      cross-cultural missions environment, it is our hope that
+                      kingdom workers will be trained to serve the body of
+                      Christ and to commit to life-long involvement in world
+                      missions. As team members learn to selflessly serve and
+                      support local churches, they have the opportunity to
+                      witness how God is working in other parts of the world.
+                    </p>
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="grid grid-rows-5 md:grid-rows-3 grid-flow-col gap-y-4 md:gap-y-10 justify-betweenn w-full gap-x-4">
+                      {projects.map(project => (
                         <div
-                          className="flex flex-col gap-y-10"
-                          key={`list-${index}`}
+                          className="flex gap-x-2 md:gap-x-5"
+                          key={`project-${project.id}`}
                         >
-                          {list.map(project => (
-                            <div
-                              className="flex gap-x-5"
-                              key={`project-${project.id}`}
-                            >
-                              <div className="min-w-20">
-                                <div className="bg-[#5e5e5e] pb-[100%]" />
-                              </div>
-                              <div className="flex flex-col gap-y-3">
-                                <span className="text-xl font-medium text-Primary-1000 uppercase">
-                                  {project.destination}
-                                </span>
-                                <span className="text-2xl font-semibold leading-tighter">
-                                  {project.year}
-                                </span>
-                              </div>
-                            </div>
-                          ))}
+                          <div className="min-w-[2.5rem] md:min-w-[5rem]">
+                            <div className="bg-[#5e5e5e] pb-[100%]" />
+                          </div>
+                          <div className="flex flex-col md:gap-y-3">
+                            <span className="text-lg md:text-xl font-medium text-Primary-1000 uppercase">
+                              {project.destination}
+                            </span>
+                            <span className="text-sm md:text-2xl font-semibold leading-tighter">
+                              {project.year}
+                            </span>
+                          </div>
                         </div>
                       ))}
                     </div>
