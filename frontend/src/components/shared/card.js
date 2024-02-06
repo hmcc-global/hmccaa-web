@@ -1,7 +1,6 @@
 import * as React from "react";
 
 const Card = ({ img, date, title, children, containerCss }) => {
-
   function formatDateAndTime(isoDateString) {
     const date = new Date(isoDateString);
 
