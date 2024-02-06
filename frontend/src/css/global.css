@@ -128,14 +128,20 @@ span.ellipsis {
   @apply md:w-[49.1526%];
 }
 
+.collapsible-items .sub-heading {
+  @apply md:items-center;
+}
+.collapsible-items .sub-heading h3 {
+  @apply leading-tighter;
+}
 .collapsible-items .toggle {
   @apply pb-0;
 }
 
 .collapsible-items .toggle p {
-  @apply mt-3;
+  @apply mt-2 md:mt-3 text-base md:text-lg;
 }
 
 .collapsible-items .toggle p:nth-child(2) {
-  @apply mt-6;
+  @apply mt-5 md:mt-6;
 }

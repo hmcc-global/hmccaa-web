@@ -81,8 +81,9 @@ const Strategy = () => (
                   across our church.
                 </li>
                 <li>
-                  Men’s and Women’s Ministries bring the church together across
-                  life-stages to study how to live out our lives for the Gospel.
+                  Men&apos;s and Women&apos;s Ministries bring the church
+                  together across life-stages to study how to live out our lives
+                  for the Gospel.
                 </li>
               </ul>
             </div>
