@@ -36,7 +36,6 @@ const EventPage = ({ data, pageContext }) => {
   }
 
   const { event } = pageContext;
-  console.log(event);
 
   const { formattedDate, formattedTime } = formatDateAndTime(
     event.Time[0].DateTime
@@ -73,7 +72,7 @@ const EventPage = ({ data, pageContext }) => {
                   <img src={locationPinIcon}></img>
                 </div>
                 <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {event.LocationOverride.LocationName}
+                  {event.LocationOverride? event.LocationOverride.LocationName : event.EventTemplate.Location.LocationName}
                 </div>
               </div>
             </div>

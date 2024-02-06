@@ -20,7 +20,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     defer: true,
   });
 
-  const result = await graphql(`
+
+  //Query each event from GraphQL
+  const eventResult = await graphql(`
     {
       allStrapiEvent {
         edges {
@@ -70,12 +72,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
 
-  if (result.errors) {
+  if (eventResult.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query`);
     return;
   }
 
-  result.data.allStrapiEvent.edges.forEach(({ node: event }) => {
+  //Create page for each event from GraphQL
+  eventResult.data.allStrapiEvent.edges.forEach(({ node: event }) => {
     createPage({
       path: `/events/${event.id}`,
       component: path.resolve(`./src/templates/eventPageTemplate.js`),
@@ -86,6 +89,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     });
   });
+
+    // GraphQL Query for All Sermons
+    const result = await graphql(`
+      {
+        allStrapiSermon {
+          nodes {
+            Title
+            DatePreached
+            BiblePassage {
+              Book
+              ChapterVerse
+            }
+            Series {
+              Name
+              id
+            }
+            Preacher {
+              Name
+              Prefix
+            }
+          }
+        }
+      }
+    `);
+
   // GraphQL Query for All Speakers
   const resultSpeakers = await graphql(`
     {
