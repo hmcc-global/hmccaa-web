@@ -26,25 +26,27 @@ const steps = [
   },
 ];
 const GetInvolved = () => (
-  <div className="py-10 flex max-w-container w-full justify-center">
-    <div className="border-2 border-solid border-Neutral-600 rounded-2xl py-5 md:py-20 flex justify-center items-center w-full px-4 md:px-8">
-      <div className="w-full max-w-[61.25rem] flex flex-col gap-y-5 md:gap-y-10">
+  <div className="py-5 md:py-10 flex max-w-container w-full justify-center">
+    <div className="border-2 border-solid border-Neutral-600 rounded-2xl pt-5 pb-[3.125rem] md:py-20 flex justify-center items-center w-full px-4 md:px-8">
+      <div className="w-full max-w-[61.25rem] flex flex-col gap-y-10 items-center md:items-start">
         <div className="text-center">
           <div className="subheading">Get Involved</div>
           <h2>Take It Step by Step</h2>
         </div>
-        <div className="flex gap-x-10 justify-between flex-col md:flex-row items-center">
+        <div className="flex gap-y-10 md:gap-y-0 gap-x-8 justify-between flex-col md:flex-row items-center max-w-[12.5rem] md:max-w-none">
           {steps.map(({ id, image, text, details, href }) => (
             <div
-              className="flex flex-col items-center gap-y-5 text-center md:w-[31%] py-5 md:pt-9 md:pb-[2.1875rem]"
+              className="flex flex-col items-center gap-y-5 text-center md:w-[30.613%] md:pt-9 md:pb-[2.1875rem]"
               key={`step-${id}`}
             >
               <div>{image}</div>
               <div className="flex flex-col gap-y-3 items-center">
-                <div className="text-3xl leading-tighter font-semibold uppercase text-Primary-500 max-w-[175px]  break-normal">
+                <div className="text-xl md:text-3xl leading-tighter font-semibold uppercase text-Primary-500 md:max-w-[11rem] break-normal w-full">
                   {text}
                 </div>
-                <p className="mb-0">{details}</p>
+                <p className="mb-0 md:max-w-[13.75rem] text-base md:text-lg">
+                  {details}
+                </p>
               </div>
               <div className="flex justify-center">
                 <Link
