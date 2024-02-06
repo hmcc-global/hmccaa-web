@@ -27,7 +27,7 @@ const Header = () => {
   const path =
     (typeof window !== "undefined" && window.location.pathname) || "";
   const containerStyle =
-    "flex flex-row h-[60px] lg:h-[100px] relative flext-start bg-Primary-700 items-center justify-center pl-[18px] xl:pl-[80.286px] lg:pt-[40px] lg:pb-[17px] pr-[16px] 2xl:pr-[65px] [@media(min-width:1140px)]:gap-[40px] [@media(min-width:1440px)]:gap-[100px] [@media(min-width:1600px)]:gap-[210px] position-fixed";
+    "flex flex-row h-[60px] lg:h-[100px] relative flext-start bg-Primary-700 items-center justify-between px-[16px] lg:pt-[40px] lg:pb-[17px] 2xl:px-[65px] [@media(min-width:1140px)]:gap-[40px] [@media(min-width:1440px)]:gap-[100px] [@media(min-width:1600px)]:gap-[210px] position-fixed";
   const logoStyle = "w-[80px] h-[32px] mb-0 min-w-max";
   const dropDownStyle = "w-[40px] h-[40px] mb-0";
   const textStyle = "text-Shades-0 text-base leading-normal no-underline";
