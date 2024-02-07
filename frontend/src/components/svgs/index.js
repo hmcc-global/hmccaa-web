@@ -301,10 +301,11 @@ const SeriesIcon = () => (
     />
   </svg>
 );
-const AdsLogo = () => (
-  <svg className="fill-none w-[3.75rem] h-[3.75rem]" viewBox="0 0 60 60">
+
+const AdsLogo = ({ className }) => (
+  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#F0DF5C] w-[3.75rem] h-[3.75rem]" />
+      <rect className="fill-[#F0DF5C] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -363,10 +364,10 @@ const AdsLogo = () => (
   </svg>
 );
 
-const KidsLogo = () => (
-  <svg className="fill-none w-[3.75rem] h-[3.75rem]" viewBox="0 0 60 60">
+const KidsLogo = ({ className }) => (
+  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#FFCF54] w-[3.75rem] h-[3.75rem]" />
+      <rect className="fill-[#FFCF54] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -413,10 +414,10 @@ const KidsLogo = () => (
     </g>
   </svg>
 );
-const DocsLogo = () => (
-  <svg className="fill-none w-[3.75rem] h-[3.75rem]" viewBox="0 0 60 60">
+const DocsLogo = ({ className }) => (
+  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#FF5353] w-[3.75rem] h-[3.75rem]" />
+      <rect className="fill-[#FF5353] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -447,10 +448,10 @@ const DocsLogo = () => (
   </svg>
 );
 
-const HostsLogo = () => (
-  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
+const HostsLogo = ({ className }) => (
+  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="w-[3.75rem] h-[3.75rem] fill-[#54D5FF]" />
+      <rect className="fill-[#54D5FF] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -490,10 +491,10 @@ const HostsLogo = () => (
   </svg>
 );
 
-const FacilitiesLogo = () => (
-  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
+const FacilitiesLogo = ({ className }) => (
+  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="w-[3.75rem] h-[3.75rem] fill-[#54FF65]" />
+      <rect className="fill-[#54FF65] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -523,10 +524,10 @@ const FacilitiesLogo = () => (
   </svg>
 );
 
-const VMLogo = () => (
-  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
+const VMLogo = ({ className }) => (
+  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="w-[3.75rem] h-[3.75rem] fill-[#C854FF]" />
+      <rect className="fill-[#C854FF] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -555,10 +556,10 @@ const VMLogo = () => (
   </svg>
 );
 
-const WorshipLogo = () => (
-  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
+const WorshipLogo = ({ className }) => (
+  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="w-[3.75rem] h-[3.75rem] fill-[#5969FF]" />
+      <rect className="fill-[#5969FF] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"

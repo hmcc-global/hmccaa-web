@@ -111,7 +111,7 @@ const MinistryTeams = () => (
               <div key={key} className={`${ministryTeam} ${className}`}>
                 <div className={teamWrapper}>
                   <div>
-                    <Component />
+                    <Component className="w-10 md:w-[3.75rem]" />
                   </div>
                   <div>
                     <h3>{item.team}</h3>

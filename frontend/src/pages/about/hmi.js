@@ -132,20 +132,22 @@ const HmiPage = ({ pageContext }) => {
     },
   ].reduce(
     (rows, key, index) =>
-      (index % 4 == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
+      (index % 4 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
       rows,
     []
   );
 
   return (
     <Layout>
-      <div className="px-4 flex flex-col w-full items-center pt-[1.375rem] pb-[7.3125rem] md:pt-10">
-        <div className="w-full md:px-4 flex flex-col items-center">
-          <div className="max-w-container w-full flex flex-col gap-y-[2.1875rem] md:gap-y-[3.75rem]">
-            <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-            <div className="flex flex-col items-center gap-y-8 md:gap-y-[6.25rem]">
-              <div className="flex flex-col gap-y-8 md:gap-y-15">
-                <div className="flex flex-col gap-y-9 md:gap-y-15 w-full">
+      <div className="px-2 flex flex-col w-full items-center pt-[1.375rem] pb-[7.3125rem] md:pt-10">
+        <div className="w-full flex flex-col items-center">
+          <div className="w-full flex flex-col gap-y-[2.1875rem] md:gap-y-[3.75rem]">
+            <div className="px-2 md:px-6 flex flex-col items-center">
+              <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
+            </div>
+            <div className="flex flex-col gap-y-8 md:gap-y-15 w-full items-center">
+              <div className="px-2 md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
+                <div className="flex flex-col gap-y-9 md:gap-y-15 max-w-container w-full">
                   <h1 className="uppercase text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
                     Harvest Mission International (HMI)
                   </h1>
@@ -175,7 +177,7 @@ const HmiPage = ({ pageContext }) => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col w-full gap-y-5 md:gap-y-10">
+                <div className="flex flex-col w-full gap-y-5 md:gap-y-10 max-w-container">
                   <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
                     <h2 className="uppercase text-xl md:text-3xl">
                       Past Projects
@@ -216,44 +218,50 @@ const HmiPage = ({ pageContext }) => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-y-[1.25rem] md:gap-y-3 pt-[0.9375rem]  text-center md:text-left">
-                <h2 className="uppercase text-xl md:text-3xl leading-tighter">
-                  Supported Workers
-                </h2>
-                <p className="mb-0 text-base md:text-lg">
-                  Partnership is critical as we strive to reach the nations with
-                  the Gospel message. We know that missions cannot be done by a
-                  sole missionary, but that it is our privilege to participate
-                  in God&apos;s work around the world through our prayers and
-                  financial support.
-                </p>
-                <div className="pt-3 md:pt-7">
-                  <div className="flex flex-col gap-y-10 lg:flex-row lg:gap-x-5 text-left">
+              <div className="md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
+                <div className="flex flex-col gap-y-5 md:gap-y-10 items-center lg:items-start max-w-container w-full">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                    <h2 className="uppercase text-xl md:text-3xl leading-tighter">
+                      Supported Workers
+                    </h2>
+                    <p className="mb-0 text-base md:text-lg">
+                      Partnership is critical as we strive to reach the nations
+                      with the Gospel message. We know that missions cannot be
+                      done by a sole missionary, but that it is our privilege to
+                      participate in God&apos;s work around the world through
+                      our prayers and financial support.
+                    </p>
+                  </div>
+                  <div className="flex gap-x-4 md:gap-x-5 text-left max-w-[35rem] lg:max-w-none">
                     {workers.map((list, index) => (
                       <div
-                        className="flex flex-col gap-y-10 lg:w-[49.1526%]"
+                        className="flex flex-col gap-y-10 w-[49.1526%]"
                         key={`list-${index}`}
                       >
                         {list.map(worker => (
                           <div
-                            className="flex flex-col sm:flex-row gap-5"
+                            className="flex flex-col lg:flex-row gap-5"
                             key={`project-${worker.id}`}
                           >
-                            <div className="w-full max-w-[11.25rem]">
+                            <div className="md:min-w-[11.25rem] max-w-[11.25rem]">
                               <div className="relative pb-[111.115%] overflow-hidden">
                                 <div className="absolute top-0 left-0">
                                   {worker.image}
                                 </div>
                               </div>
                             </div>
-                            <div className="flex flex-col gap-y-3">
-                              <span className="text-xl font-medium text-Primary-1000 uppercase">
-                                {worker.ministry}
-                              </span>
-                              <span className="text-2xl font-semibold leading-tighter">
-                                {worker.workers}
-                              </span>
-                              <p className="mb-2">{worker.description}</p>
+                            <div className="flex flex-col gap-y-5">
+                              <div className="flex flex-col gap-y-3">
+                                <span className="text-sm md:text-xl font-medium text-Primary-1000 uppercase">
+                                  {worker.ministry}
+                                </span>
+                                <span className="text-lg md:text-2xl font-semibold leading-tighter">
+                                  {worker.workers}
+                                </span>
+                                <p className="mb-0 text-sm md:text-base font-medium tracking-medium-wide">
+                                  {worker.description}
+                                </p>
+                              </div>
                               <div className="flex">
                                 <SecondaryButtonLink to="/" hasArrow={true}>
                                   More Info
