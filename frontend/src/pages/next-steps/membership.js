@@ -15,10 +15,12 @@ const MembershipPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-5 md:gap-y-15 min-h-screen">
+      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-9 md:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-15 items-center">
-          <h2 className="font-bold">Membership</h2>
+        <div className="max-w-container w-full flex flex-col gap-y-12 md:gap-y-15 items-center">
+          <h1 className="text-2xl md:text-4xl font-semibold md:font-bold leading-tighter mb-0 uppercase">
+            Membership
+          </h1>
           <div className="gap-y-5 gap-x-15 flex flex-col md:flex-row items-center md:items-start">
             <div className="image-container md:order-1">
               <StaticImage
@@ -26,8 +28,8 @@ const MembershipPage = ({ pageContext }) => {
                 src="../../images/new-members.png"
               />
             </div>
-            <div className="content-container flex flex-col gap-y-10">
-              <div>
+            <div className="content-container flex flex-col gap-y-5 md:gap-y-10">
+              <div className="text-base md:text-lg">
                 <p>
                   As believers in Jesus Christ, we are members of his spiritual
                   body and we see that demonstrated with a commitment to the
@@ -52,9 +54,9 @@ const MembershipPage = ({ pageContext }) => {
             </div>
           </div>
         </div>
-        <div className="max-w-container w-full gap-y-5 flex flex-col items-center border-2 border-solid border-Neutral-600 rounded-2xl px-4 py-5 md:py-[2.375rem]">
-          <div className="max-w-[62.5rem] w-full flex flex-col gap-y-5 text-center">
-            <p className="mb-0">
+        <div className="max-w-container w-full gap-y-5 flex flex-col md:items-start border-2 border-solid border-Neutral-600 rounded-2xl px-[0.875rem] lg:px-[1.8125rem] pt-[1.1875rem] pb-[1.625rem] md:pt-[1.875rem] md:pb-[1.6875rem]">
+          <div className="max-w-[68.1875rem] w-full flex flex-col lg:flex-row gap-y-3 md:gap-y-8 text-center gap-x-8 justify-between">
+            <p className="text-base md:text-lg mb-0 lg:max-w-[39.189375rem]">
               HMCC Distinctives are the specific secondary Biblical beliefs that
               HMCC holds. We know that those who join our church come from many
               different faith backgrounds and traditions, and are in an ongoing
@@ -64,10 +66,18 @@ const MembershipPage = ({ pageContext }) => {
               them and to expect that they will be taught and implemented in our
               church.
             </p>
-            <div className="w-full flex justify-center">
-              <SecondaryButtonLink to="/" hasArrow={true}>
-                Read More on HMCC Distinctives
-              </SecondaryButtonLink>
+            <div className="flex justify-center items-center">
+              <div>
+                <SecondaryButtonLink
+                  to="/"
+                  hasArrow={true}
+                  customClassName={{
+                    textContainer: "-indent-[8.5rem] sm:indent-0",
+                  }}
+                >
+                  Read More on HMCC Distinctives
+                </SecondaryButtonLink>
+              </div>
             </div>
           </div>
         </div>

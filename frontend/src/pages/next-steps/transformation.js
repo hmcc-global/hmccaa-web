@@ -57,7 +57,16 @@ const transformationList = [
       "Through this training, we will utilize scripture and other practical tools to help us obey Jesus’s commands and guide people to discover who God is. Whether you have the desire to reach your family, friends, coworkers, campus, city, or world, this training will challenge and equip you!",
     ],
   },
-];
+].reduce((rows, key, index, list) => {
+  const startIndex = Math.ceil(list.length / 2);
+
+  return (
+    (index % startIndex === 0 && index < 6
+      ? rows.push({ id: rows.length + 1, items: [key] })
+      : rows[rows.length - 1].items.push(key)) && rows
+  );
+}, []);
+console.warn(transformationList);
 
 const TransformationPage = ({ pageContext }) => {
   const {
@@ -65,19 +74,21 @@ const TransformationPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-5 md:gap-y-15 min-h-screen">
+      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-9 md:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-5 md:gap-y-15 items-center">
-          <h2 className="font-bold">Transformation Classes</h2>
-          <div className="gap-y-5 gap-x-15 flex flex-col md:flex-row items-center md:items-start">
+        <div className="max-w-container w-full flex flex-col gap-y-9 md:gap-y-15 items-center">
+          <h1 className="text-2xl font-semibold md:font-bold uppercase md:text-4xl leading-tighter mb-0">
+            Transformation Classes
+          </h1>
+          <div className="gap-y-5 gap-x-15 flex flex-col md:flex-row items-center md:items-start pt-4 md:pt-0">
             <div className="image-container md:order-1">
               <StaticImage
                 alt="Transformation Classes"
                 src="../../images/transformation-classes-page.png"
               />
             </div>
-            <div className="content-container flex flex-col gap-y-10">
-              <div>
+            <div className="content-container flex flex-col gap-y-5 md:gap-y-10">
+              <div className="text-base md:text-lg">
                 <p>
                   At HMCC we love to see people radically experience God and be
                   equipped to share the Gospel to the nations. To do that, we
@@ -105,28 +116,35 @@ const TransformationPage = ({ pageContext }) => {
             </div>
           </div>
         </div>
-        <div className="max-w-container w-full grid  sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {transformationList.map(({ id, image, title, description }) => (
+        <div className="max-w-container w-full grid grid-cols-2 gap-x-4 lg:gap-x-5">
+          {transformationList.map(({ id: listId, items }) => (
             <div
-              className="flex flex-col gap-y-5"
-              key={`transformation-class-${id}`}
+              className="flex flex-col gap-y-15 lg:grid lg:grid-cols-2 lg:gap-x-5"
+              key={`list-${listId}`}
             >
-              <div>{image}</div>
-              <div className="flex flex-col gap-y-3">
-                <div className="text-xl font-bold">{title}</div>
-                <div>
-                  {description.map((text, index) => {
-                    const isLast = index + 1 === description.length;
-                    return isLast ? (
-                      <p key={`p-${index + 1}`} className="mb-0">
-                        {text}
-                      </p>
-                    ) : (
-                      <p key={`p-${index + 1}`}>{text}</p>
-                    );
-                  })}
+              {items.map(({ id, image, title, description }) => (
+                <div
+                  className="flex flex-col gap-y-5 lg:w-auto"
+                  key={`transformation-class-${id}`}
+                >
+                  <div>{image}</div>
+                  <div className="flex flex-col gap-y-3">
+                    <div className="text-lg lg:text-xl font-bold">{title}</div>
+                    <div className="text-base font-medium tracking-medium-wide">
+                      {description.map((text, index) => {
+                        const isLast = index + 1 === description.length;
+                        return isLast ? (
+                          <p key={`p-${index + 1}`} className="mb-0">
+                            {text}
+                          </p>
+                        ) : (
+                          <p key={`p-${index + 1}`}>{text}</p>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           ))}
         </div>
