@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SecondaryButtonLink } from "../Button";
-import "../../css/ns-members-component.css";
+import "../../css/button-compnent.css";
 
 const Membership = () => (
   <div className="max-w-container w-full py-5 md:py-15 flex justify-center items-center">
