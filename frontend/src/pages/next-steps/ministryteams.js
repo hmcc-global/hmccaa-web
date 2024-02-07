@@ -16,6 +16,23 @@ import {
 import { PrimaryButtonLink } from "../../components/Button";
 import { Link } from "gatsby";
 
+const definition = [
+  {
+    id: 1,
+    term: "fulfilling Jesus’ commission to love, serve, and witness to the world around us",
+    reference: "John 13:34, Mark 10:45, Matthew 28:18-20",
+  },
+  {
+    id: 2,
+    term: "something that every Christian is called to participate in, not just a select few",
+    reference: "1 Peter 2:9",
+  },
+  {
+    id: 3,
+    term: "a mindset / lifestyle that must be developed",
+    reference: "Philippians 2:1-5",
+  },
+];
 const giftsAcronym = [
   {
     word: "Gift discovery and development",
@@ -41,7 +58,7 @@ const ministryTeams = [
   {
     id: 1,
     title: "Arts & Design Servants",
-    image: <AdsLogo />,
+    image: <AdsLogo className="w-12 md:w-[3.75rem]" />,
     subtitle: "ADS",
     description:
       "To create art, design, and experiences in order to know God more and to build up the church.",
@@ -49,7 +66,7 @@ const ministryTeams = [
   {
     id: 2,
     title: "Documentations",
-    image: <DocsLogo />,
+    image: <DocsLogo className="w-12  md:w-[3.75rem]" />,
     subtitle: "Docs - Photo/Video",
     description:
       "To communicate the work of God in the church through photo and video with creative excellence.",
@@ -58,7 +75,7 @@ const ministryTeams = [
     id: 3,
     title: "Video Ministry",
     subtitle: "Video Recording",
-    image: <VMLogo />,
+    image: <VMLogo className="w-12  md:w-[3.75rem]" />,
     description:
       "To connect people to God and His church no matter where people are.",
   },
@@ -66,7 +83,7 @@ const ministryTeams = [
     id: 4,
     title: "Building Blocks",
     subtitle: "Kids",
-    image: <KidsLogo />,
+    image: <KidsLogo className="w-12  md:w-[3.75rem]" />,
     description:
       "To lay a Biblical foundation for children to know Christ and to boldly live out their faith.",
   },
@@ -74,7 +91,7 @@ const ministryTeams = [
     id: 5,
     title: "Hospitality",
     subtitle: "Hosts/Welcome Team",
-    image: <HostsLogo />,
+    image: <HostsLogo className="w-12  md:w-[3.75rem]" />,
     description:
       "To create a welcoming environment for all to experience the love of Christ.",
   },
@@ -82,7 +99,7 @@ const ministryTeams = [
     id: 6,
     title: "Servants United",
     subtitle: "Facilities",
-    image: <FacilitiesLogo />,
+    image: <FacilitiesLogo className="w-12  md:w-[3.75rem]" />,
     description:
       "To maintain a clean and welcoming environment that fosters spiritual growth, fellowship, and reverence for God, ultimately demonstrating Christ's love through practical servanthood.",
   },
@@ -90,13 +107,13 @@ const ministryTeams = [
     id: 7,
     title: "Worship Team",
     subtitle: "AV/Band",
-    image: <WorshipLogo />,
+    image: <WorshipLogo className="w-12  md:w-[3.75rem]" />,
     description:
       "To be a community of growing disciples that lead the Church through creative expression to encounter God.",
   },
 ].reduce(
   (rows, key, index) =>
-    (index % 3 == 0 && index < 6
+    (index % 3 === 0 && index < 6
       ? rows.push([key])
       : rows[rows.length - 1].push(key)) && rows,
   []
@@ -108,10 +125,12 @@ const MinistryTeamsPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-5 md:gap-y-15 min-h-screen">
+      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-9 md:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-5 md:gap-y-15 items-center">
-          <h2 className="font-bold">Ministry Teams</h2>
+        <div className="max-w-container w-full flex flex-col gap-y-12 md:gap-y-15 items-center">
+          <h1 className="font-semibold text-2xl md:font-bold md:text-4xl leading-tighter mb-0 uppercase">
+            Ministry Teams
+          </h1>
           <div className="gap-y-5 gap-x-15 flex flex-col md:flex-row items-center md:items-start">
             <div className="image-container md:order-1">
               <StaticImage
@@ -119,55 +138,39 @@ const MinistryTeamsPage = ({ pageContext }) => {
                 src="../../images/ministry-teams-page.jpeg"
               />
             </div>
-            <div className="content-container flex flex-col gap-y-10">
-              <div>
+            <div className="content-container flex flex-col gap-y-5 md:gap-y-10">
+              <div className="text-base md:text-lg">
                 <p className="mb-0">
                   We believe God has gifted each and every single of us with
                   unique giftings to build up the church and the world around
                   us. We hope you are able to get involved and discover more
-                  about yourself and how you can be used for God’s Kingdom.
+                  about yourself and how you can be used for God&paos;s Kingdom.
                 </p>
               </div>
               <div className="flex flex-col gap-y-3">
-                <h3 className="text-2xl font-semibold leading-tighter">
+                <h3 className="text-xl md:text-2xl font-semibold leading-tighter">
                   Ministry is...
                 </h3>
-                <ul className="list-disc flex flex-col gap-y-3">
-                  <li>
-                    <div className="flex flex-col">
-                      <strong>
-                        fulfilling Jesus’ commission to love, serve, and witness
-                        to the world around us
-                      </strong>
-                      <span>(John 13:34, Mark 10:45, Matthew 28:18-20)</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex flex-col">
-                      <strong>
-                        something that every Christian is called to participate
-                        in, not just a select few
-                      </strong>
-                      <span>(1 Peter 2:9)</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="flex flex-col">
-                      <strong>
-                        a mindset / lifestyle that must be developed
-                      </strong>
-                      <span>(Philippians 2:1-5)</span>
-                    </div>
-                  </li>
+                <ul className="list-disc flex flex-col gap-y-3 mb-0 text-base md:text-lg">
+                  {definition.map(({ id, term, reference }) => (
+                    <li key={`ministry-term-${id}`}>
+                      <div className="flex flex-col">
+                        <strong className="tracking-medium-wide">{term}</strong>
+                        <span className="text-sm lg:text-base font-medium tracking-medium-wide">
+                          ({reference})
+                        </span>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div className="max-w-container w-full flex flex-col gap-y-5 md:gap-y-[6.6875rem]">
-          <div className="flex flex-col md:flex-row max-w-[68.75rem] w-full gap-y-4 justify-between">
-            <div className="flex flex-col gap-y-[2.625rem] md:w-[45.455%]">
-              <div className="flex flex-col gap-y-[1.564rem]">
+        <div className="max-w-container w-full flex flex-col gap-y-8 md:gap-y-[6.6875rem]">
+          <div className="flex flex-col md:flex-row max-w-[68.75rem] w-full gap-y-5 gap-x-4 justify-between">
+            <div className="flex flex-col gap-y-[3.3125rem] md:gap-y-[2.625rem] md:w-[45.455%]">
+              <div className="flex flex-col gap-y-[0.938rem] md:gap-y-[1.564rem] text-base md:text-lg">
                 <span>Our ministry teams hold the values of G.I.F.T.S.:</span>
                 <div className="flex flex-col">
                   {giftsAcronym.map((item, index) => (
@@ -176,7 +179,7 @@ const MinistryTeamsPage = ({ pageContext }) => {
                         index === 0 ? (
                           <span
                             key={`word-${textItem.toLowerCase()}`}
-                            className="text-2xl font-bold leading-tighter"
+                            className="text-xl lg:text-2xl font-bold leading-tighter"
                           >
                             {textItem}
                           </span>
@@ -190,43 +193,49 @@ const MinistryTeamsPage = ({ pageContext }) => {
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col gap-y-10">
+              <div className="flex flex-col gap-y-5 md:gap-y-10">
                 {ministryTeams[0].map(
                   ({ id, title, subtitle, image, description }) => (
-                    <div key={`team-${id}`} className="flex flex-col gap-y-5">
-                      <div className="flex gap-x-5">
+                    <div
+                      key={`team-${id}`}
+                      className="flex flex-col gap-y-3 md:gap-y-5"
+                    >
+                      <div className="flex gap-x-3 md:gap-x-5">
                         <div>{image}</div>
-                        <div className="flex flex-col uppercase gap-y-[0.45rem]">
-                          <h3 className="text-2xl font-bold leading-tighter">
+                        <div className="flex flex-col uppercase gap-1 md:gap-y-[0.45rem]">
+                          <h3 className="text-lg md:text-2xl font-bold leading-tighter">
                             {title}
                           </h3>
-                          <div className="font-semibold leading-tighter">
+                          <div className="text-sm md:text-lg font-semibold leading-tighter">
                             ({subtitle})
                           </div>
                         </div>
                       </div>
-                      <p className="mb-0">{description}</p>
+                      <p className="mb-0 text-base md:text-lg">{description}</p>
                     </div>
                   )
                 )}
               </div>
             </div>
-            <div className="flex flex-col gap-y-10 md:w-[45.455%] md:pt-[2.6875rem]">
+            <div className="flex flex-col gap-y-5 md:gap-y-10 md:w-[45.455%] md:pt-[2.6875rem]">
               {ministryTeams[1].map(
                 ({ id, title, subtitle, image, description }) => (
-                  <div key={`team-${id}`} className="flex flex-col gap-y-5">
-                    <div className="flex gap-x-5">
+                  <div
+                    key={`team-${id}`}
+                    className="flex flex-col gap-y-3 md:gap-y-5"
+                  >
+                    <div className="flex gap-x-3 md:gap-x-5">
                       <div>{image}</div>
-                      <div className="flex flex-col uppercase gap-y-[0.45rem]">
-                        <h3 className="text-2xl font-bold leading-tighter">
+                      <div className="flex flex-col uppercase gap-1 md:gap-y-[0.45rem]">
+                        <h3 className="text-lg md:ext-2xl font-bold leading-tighter">
                           {title}
                         </h3>
-                        <div className="font-semibold leading-tighter">
+                        <div className="text-sm md:text-lg font-semibold leading-tighter">
                           ({subtitle})
                         </div>
                       </div>
                     </div>
-                    <p className="mb-0">{description}</p>
+                    <p className="mb-0 text-base md:text-lg">{description}</p>
                   </div>
                 )
               )}
@@ -234,12 +243,12 @@ const MinistryTeamsPage = ({ pageContext }) => {
           </div>
           <div className="flex flex-col max-w-[68.75rem] w-full items-center text-center gap-y-5 md:gap-y-14">
             <PrimaryButtonLink to="/" hasArrow={true}>
-              Join A Tean
+              Join A Team
             </PrimaryButtonLink>
-            <div className="flex flex-col">
-              <div>
+            <div className="flex flex-col gap-y-3 md:gap-y-0">
+              <p className="mb-0 text-base md:text-lg">
                 *Note that you must be an active member opf HMCC to serve.
-              </div>
+              </p>
               <Link
                 to="/"
                 className="py-3 px-4 uppercase text-Accent-500 font-bold tracking-medium-wide"
