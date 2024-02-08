@@ -1,7 +1,6 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { bgLeft, bgRight } from "../../css/lifeStagesNew.module.css";
-import Link from "../Link";
 import { SecondaryButtonLink } from "../Button";
 
 const lifeStages = [

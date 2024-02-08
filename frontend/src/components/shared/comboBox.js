@@ -36,7 +36,7 @@ const ComboBox = ({
         setComboBoxState({ ...comboBoxState, show: false });
       }
     },
-    [id, setComboBoxState]
+    [id, comboBoxState]
   );
   useEffect(() => {
     document.body.addEventListener("click", handleCloseDropDown);
