@@ -7,6 +7,7 @@
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
+
 const path = require("path");
 
 const ITEMS_PER_PAGE = 6;
@@ -18,6 +19,76 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     context: {},
     defer: true,
   });
+
+  //Query each event from GraphQL
+  const eventResult = await graphql(`
+    {
+      allStrapiEvent {
+        edges {
+          node {
+            id
+            DescriptionOverride
+            EventTemplate {
+              CoverImage {
+                url
+              }
+              Description
+              Location {
+                LocationName
+              }
+              Name
+              ShowXUpcomingEvents
+            }
+            LocationOverride {
+              LocationName
+            }
+            NameOverride
+            Time {
+              ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+                id
+                DateTime
+                EndDateTime
+                EndRecurDate
+                RecurEveryXTimeFrames
+                RecurTimeFrame
+                StopShowingWhenPast
+                strapi_component
+              }
+              ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+                id
+                StopShowingWhenPast
+                EndDateTime
+                DateTime
+                strapi_component
+              }
+            }
+            CoverImageOverride {
+              url
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (eventResult.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query`);
+    return;
+  }
+
+  //Create page for each event from GraphQL
+  eventResult.data.allStrapiEvent.edges.forEach(({ node: event }) => {
+    createPage({
+      path: `/events/${event.id}`,
+      component: path.resolve(`./src/templates/eventPageTemplate.js`),
+      context: {
+        // Passing the entire event object as context
+        event,
+        ID: event.id,
+      },
+    });
+  });
+
   // GraphQL Query for All Sermons
   const result = await graphql(`
     {
@@ -41,6 +112,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
+
   // GraphQL Query for All Speakers
   const resultSpeakers = await graphql(`
     {

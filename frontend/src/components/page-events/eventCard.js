@@ -1,8 +1,9 @@
 import * as React from "react";
 import Card from "../shared/card";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
-const EventCard = ({ title, date, location, img, description }) => {
+const EventCard = ({ eventID, title, date, location, img, description }) => {
   const attributes = (
     <div>
       <div className="flex items-center gap-1">
@@ -22,14 +23,19 @@ const EventCard = ({ title, date, location, img, description }) => {
   );
 
   return (
-    <Card
-      title={title}
-      date={date}
-      img={img} // TODO: make dynamic
-      containerCss="md:pb-[3.125rem]"
+    <Link
+      to={`/events/${eventID}`}
+      style={{ textDecoration: "none", color: "inherit" }}
     >
-      {attributes}
-    </Card>
+      <Card
+        title={title}
+        date={date}
+        img={img} // TODO: make dynamic
+        containerCss="md:pb-[3.125rem]"
+      >
+        {attributes}
+      </Card>
+    </Link>
   );
 };
 
