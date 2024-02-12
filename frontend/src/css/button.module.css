@@ -5,11 +5,11 @@
 }
 
 .secondary-button {
-  @apply border-2 border-Accent-500 text-Primary-700;
+  @apply border-2 border-Accent-500 text-Primary-700 hover:text-Accent-500;
 }
 
 .primary-button {
-  @apply bg-Primary-500 text-Neutral-50;
+  @apply bg-Primary-500 text-Neutral-50 hover:text-Accent-500;
 }
 
 .text-container {
