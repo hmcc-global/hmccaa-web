@@ -42,6 +42,7 @@ export const pageQuery = graphql`
       }
     ) {
       nodes {
+        strapi_id
         Title
         DatePreached
         BiblePassage {
