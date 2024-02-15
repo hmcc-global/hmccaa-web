@@ -166,6 +166,7 @@ const Sermons = ({
             speaker={sermon.Preacher.Prefix + " " + sermon.Preacher.Name}
             passage={sermon.Title}
             series={sermon.Series.Name}
+            href={`/watch/sermons/${sermon?.strapi_id}`}
           />
         ))}
       </div>

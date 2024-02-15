@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../../shared/card";
 
-const SermonCard = ({ img, date, title, speaker, passage, series }) => {
+const SermonCard = ({ img, date, title, speaker, passage, series, href }) => {
   const attributes = (
     <div className="pt-1 md:pt-2">
       <p className="font-normal mb-0 text-sm md:text-lg flex flex-col">
@@ -23,6 +23,7 @@ const SermonCard = ({ img, date, title, speaker, passage, series }) => {
       date={formattedDate}
       title={title}
       containerCss="md:pb-[3.5625rem]"
+      href={href}
     >
       {attributes}
     </Card>

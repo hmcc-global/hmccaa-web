@@ -94,19 +94,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     {
       allStrapiSermon {
         nodes {
+          strapi_id
           Title
-          DatePreached
+          DatePreached(formatString: "MMMM  DD, YYYY")
           BiblePassage {
             Book
             ChapterVerse
           }
           Series {
             Name
-            id
+            Background {
+              url
+            }
           }
           Preacher {
             Name
             Prefix
+          }
+          VideoLink
+          Audio {
+            url
+          }
+          Description {
+            data {
+              Description
+            }
           }
         }
       }
@@ -440,6 +452,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           books,
         },
       });
+    });
+  });
+
+  posts.forEach(sermon => {
+    const { strapi_id } = sermon;
+    createPage({
+      path: `/watch/sermons/${strapi_id}`,
+      component: path.resolve("./src/templates/sermon.js"),
+      context: {
+        id: strapi_id,
+        baseURL: process.env.STRAPI_API_URL,
+      },
     });
   });
 };

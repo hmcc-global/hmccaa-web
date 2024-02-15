@@ -41,6 +41,7 @@ module.exports = {
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: [
           "sermon",
+          "sermon-series",
           "preacher",
           "location",
           "contact",
