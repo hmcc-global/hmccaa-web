@@ -16,6 +16,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
   const {
     breadcrumb: { crumbs },
     baseURL,
+    id,
   } = pageContext;
 
   const {
@@ -49,7 +50,24 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
       <div className="px-4 w-full flex items-center flex-col">
         <div className="max-w-container w-full flex flex-col py-[1.375rem] lg:pt-10 lg:pb-[22.8125rem] gap-y-[2.1875rem] lg:gap-y-[3.75rem] items-center">
           <div className="w-full pl-[2px] lg:pl-0">
-            <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
+            <Breadcrumb
+              crumbs={crumbs.map(({ pathname, crumbLabel }) => {
+                if (pathname === "/watch/sermons") {
+                  return { pathname: "/watch", crumbLabel };
+                } else if (crumbLabel === `${id}`) {
+                  return {
+                    crumbLabel: `${series}: ${title}`,
+                    pathname,
+                  };
+                } else {
+                  return {
+                    pathname,
+                    crumbLabel,
+                  };
+                }
+              })}
+              crumbSeparator=" > "
+            />
           </div>
           <div className="flex flex-col gap-y-[0.75rem] lg:gap-y-[3.75rem] items-center max-w-[61.25rem] w-full pb-[3.98625rem] lg:pb-0">
             <h1 className="text-2xl lg:text-4xl leading-tighter font-semibold lg:font-bold mb-0">
@@ -123,7 +141,14 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title={`Sermon: `} />;
+export const Head = ({
+  data: {
+    strapiSermon: {
+      Series: { Name },
+      Title,
+    },
+  },
+}) => <Seo title={`${Name} - ${Title} `} />;
 
 export const pageQuery = graphql`
   query sermonPageQuery($id: Int!) {
