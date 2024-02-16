@@ -52,6 +52,13 @@ export const pageQuery = graphql`
         Series {
           Name
           id
+          Background {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
         }
         Preacher {
           Name

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
 
 const MAX_PAGINATION = 7;
@@ -152,23 +152,37 @@ const Sermons = ({
         />
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5">
-        {nodes.map((sermon, i) => (
-          <SermonCard
-            key={i}
-            title={sermon.Title}
-            date={sermon.DatePreached}
-            img={
-              <StaticImage
-                src="../../../images/Sermon-Ad-Selah-April.png"
-                alt="Selah"
-              />
-            }
-            speaker={sermon.Preacher.Prefix + " " + sermon.Preacher.Name}
-            passage={sermon.Title}
-            series={sermon.Series.Name}
-            href={`/watch/sermons/${sermon?.strapi_id}`}
-          />
-        ))}
+        {nodes.map(
+          (
+            {
+              Title,
+              DatePreached,
+              Series: {
+                Name: SeriesName,
+                Background: {
+                  localFile: {
+                    childImageSharp: { gatsbyImageData },
+                  },
+                },
+              },
+              Preacher: { Prefix, Name: PreacherName },
+              BiblePassage,
+              strapi_id,
+            },
+            i
+          ) => (
+            <SermonCard
+              key={i}
+              title={Title}
+              date={DatePreached}
+              img={<GatsbyImage image={gatsbyImageData} alt={SeriesName} />}
+              speaker={`${Prefix} ${PreacherName}`}
+              passage={BiblePassage}
+              series={SeriesName}
+              href={`/watch/sermons/${strapi_id}`}
+            />
+          )
+        )}
       </div>
       <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
         <div className="flex text-xl lg:text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">

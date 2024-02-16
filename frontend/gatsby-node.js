@@ -175,22 +175,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   );
   // All Bible Books List for Drop Down Selection
-  let books = posts.map(({ BiblePassage }) =>
-    BiblePassage.map(({ Book }) => Book)
-  );
-  books = [].concat(...books).map(book => {
-    const bookLabel = /\(\d[a-z]+\)/.test(book)
-      ? `${book.substring(
-          book.search(/\d/),
-          book.search(/\d/) + 1
-        )} ${book.substring(0, book.search(/\(/))}`
-      : book;
-    return {
-      label: bookLabel,
-      value: book.replace(/\(|\)/g, "").replace(/\s+/, "-").toLowerCase(),
-      book,
-    };
-  });
+  let books = posts
+    .map(({ BiblePassage }) => BiblePassage.map(({ Book }) => Book))
+    .reduce((result, current) => {
+      return result.concat(...current);
+    }, [])
+    .filter((book, index, bookList) => {
+      return bookList.indexOf(book) === index;
+    })
+    .map(book => {
+      console.warn(book);
+      const bookLabel = /\(\d+/.test(book)
+        ? `${book.substring(
+            book.search(/\d+/),
+            book.search(/\d+/) + book.substring(book.search(/\d+/)).search(/\D/)
+          )} ${book.substring(0, book.search(/\(/) - 1)}`
+        : book;
+      return {
+        label: bookLabel,
+        value: book.replace(/\(|\)/g, "").replace(/\s+/, "-").toLowerCase(),
+        book,
+      };
+    });
 
   const postsPerPage = ITEMS_PER_PAGE;
   const numberOfPages = Math.ceil(posts.length / postsPerPage);
