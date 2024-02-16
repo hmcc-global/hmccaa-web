@@ -17,7 +17,7 @@ const NumberPaging = ({ page, currentPage }) => {
     return (
       <Link
         className="text-Shades-100 no-underline"
-        to={`/watch/${page === "1" ? "" : page}`}
+        to={`/watch/${page === "1" ? "" : page}#sermonsList`}
       >
         {page}
       </Link>
@@ -119,7 +119,8 @@ const Sermons = ({
           current ? `${accumulator}/${current}` : accumulator,
         ""
       );
-    (values || filterValue) && navigate(`/watch${values}`);
+    console.warn(values);
+    (values || filterValue) && navigate(`/watch${values}#sermonsList`);
   };
 
   return (
@@ -188,7 +189,7 @@ const Sermons = ({
         <div className="flex text-xl lg:text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
           {!isFirst ? (
             <Link
-              to={previous}
+              to={`${previous}#sermonsList`}
               rel="prev"
               className="font-roboto text-Accent-500 no-underline"
             >
@@ -206,7 +207,7 @@ const Sermons = ({
           ))}
           {!isLast ? (
             <Link
-              to={next}
+              to={`${next}#sermonList`}
               rel="next"
               className="font-roboto text-Accent-500 no-underline"
             >
