@@ -12,7 +12,7 @@ const WatchPage = ({ data, pageContext }) => {
     <Layout>
       <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
       <LiveStream />
-      <div className="px-4 lg:px-8">
+      <div id="sermonsList" className="px-4 lg:px-8">
         <Sermons sermons={data?.allStrapiSermon} pageContext={pageContext} />
       </div>
       <RightNowMedia />
