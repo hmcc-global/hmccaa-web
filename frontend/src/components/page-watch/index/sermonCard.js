@@ -29,16 +29,11 @@ const SermonCard = ({ img, date, title, speaker, passage, series, href }) => {
       </p>
     </div>
   );
-  const formattedDate = new Date(date).toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
 
   return (
     <Card
       img={img}
-      date={formattedDate}
+      graphQLDate={date}
       title={title}
       containerCss="md:pb-[3.5625rem]"
       href={href}
