@@ -41,7 +41,7 @@ const RightNowMedia = () => (
         </div>
         <div className="flex justify-center lg:justify-start">
           <SecondaryButtonLink
-            href="#"
+            href="https://www.rightnowmedia.org/Account/Invite/HMCC"
             hasArrow={true}
             className="bg-Shades-0"
             customClassName={{
