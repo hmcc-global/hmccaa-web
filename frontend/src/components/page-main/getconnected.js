@@ -83,7 +83,7 @@ const lgsArray = [
   {
     title: "BUILDING BLOCKS",
     desc: "KIDS",
-    color: "Accent-1000",
+    color: "Accent-1000", // #f0df5c
     img: imgBB,
     alt: "BB LIFE Group",
     css: `lg:top-[20rem] lg:right-[-6rem]`,
