@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .wrapper {
-  @apply bg-Neutral-200 inline-flex justify-center items-center pt-[1.75rem] pb-[2.9375rem] lg:[4.4375rem] w-full px-[0.875rem];
+  @apply bg-Neutral-200 inline-flex justify-center items-center pt-[1.75rem] pb-[2.9375rem] lg:py-[4.4375rem] w-full px-[0.875rem];
 }
 
 .container {
