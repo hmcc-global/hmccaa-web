@@ -3,7 +3,7 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { StaticImage } from "gatsby-plugin-image";
 
 const WhyWeGiveSection = () => (
-  <div className="flex flex-col lg:flex-row pt-[15px] pb-[68px] items-center lg:items-start gap-y-5">
+  <div className="flex flex-col lg:flex-row pt-[15px] pb-[68px] lg:py-14 items-center lg:items-start gap-y-5">
     <div className="lg:pl-2.5 lg:order-2">
       <div>
         <StaticImage

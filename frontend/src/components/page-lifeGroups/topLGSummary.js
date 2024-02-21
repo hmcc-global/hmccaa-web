@@ -10,7 +10,7 @@ const TopLGSummary = () => (
     </h1>
 
     <div className="flex flex-col lg:flex-row gap-y-5 lg::gap-x-14 xl:gap-x-28 lg:pb-[100px]">
-      <div className="lg:order-1 text-center image-container">
+      <div className="lg:order-1 lg:w-[49.1526% text-center">
         <StaticImage
           className="max-w-[580px]"
           src="../../images/lifeGroupHuddle.png"
