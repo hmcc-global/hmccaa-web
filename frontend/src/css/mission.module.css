@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply @apply pt-20 h-full w-screen relative left-1/2 right-1/2 -mx-[50vw];
+  @apply pt-20 h-full w-screen relative left-1/2 right-1/2 -mx-[50vw];
 }
 
 .top-box {
