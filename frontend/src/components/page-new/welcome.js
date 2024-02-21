@@ -4,13 +4,13 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 
 const WelcomeSection = () => (
-  <div className="flex flex-col lg:flex-row items-center lg:items-start pt-3 pb-20.5 content-image">
-    <div className="lg:order-1 image-container">
+  <div className="flex flex-col lg:flex-row items-center p-3 pb-20.5">
+    <div className="lg:w-sm lg:order-1 text-center">
       <div>
         <img src={newWelcome} alt="Welcome" />
       </div>
     </div>
-    <div className="text-center lg:text-left content-container">
+    <div className="lg:w-sm text-center lg:text-left">
       <div className="subheading">Welcome</div>
       <h2 className="pb-5">We&apos;re Glad You Are Here</h2>
       <HighlightedParagraph>
