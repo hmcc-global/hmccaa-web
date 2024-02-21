@@ -9,7 +9,9 @@ import { SecondaryButtonLink } from "../Button";
 const RightNowMedia = () => (
   <div className={wrapper}>
     <div className={container}>
-      <div className={`${mediaWrapper} max-w-[30rem]`}>
+      <div
+        className={`${mediaWrapper} max-w-[30rem] lg:max-w-none item-container size-container`}
+      >
         <div>
           <iframe
             width="560"

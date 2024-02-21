@@ -4,16 +4,16 @@ import { mediaWrapper, mediaContent } from "../../css/media.module.css";
 
 const LiveStream = () => {
   return (
-    <div className="bg-Neutral-200  w-full flex justify-center py-7 lg:py-15 px-4 mt-[2.5px] lg:mt-0">
-      <div className="flex flex-col lg:flex-row max-w-container w-full gap-x-[7.5rem] items-center gap-y-5">
-        <div className="lg:order-1 w-full lg:w-[49.1526%] max-w-[36.25rem]">
+    <div className="bg-Neutral-200  w-full flex justify-center py-7 lg:py-15 px-4 lg:px-8 mt-[2.5px] lg:mt-0">
+      <div className="flex flex-col lg:flex-row max-w-container w-full gap-x-15 items-center lg:items-start gap-y-5">
+        <div className="lg:order-1 w-full max-w-[36.25rem] image-container">
           <div className={`${mediaWrapper} pb-[3.364%]`}>
             <div>
               <div className={mediaContent}></div>
             </div>
           </div>
         </div>
-        <div className="lg:w-[40.678%] text-center lg:text-left">
+        <div className="text-center lg:text-left content-container">
           <div className="subheading">Live Stream</div>
           <h2 className="pb-5">Celebrate With Us Virtually!</h2>
           <p className="mb-5 text-base lg:text-lg">
