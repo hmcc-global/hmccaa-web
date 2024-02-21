@@ -1,11 +1,11 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply pt-[0.9375rem] pb-[3.125rem] lg:py-15 flex flex-col items-center lg:items-start justify-center lg:flex-row lg:gap-x-15;
+  @apply px-4 pt-[0.9375rem] pb-[3.125rem] lg:py-[3.75rem] flex flex-col items-center lg:items-start justify-center lg:flex-row lg:gap-[60px];
 }
 
 .image-container {
-  @apply lg:order-1 pb-5 lg:pb-0 lg:w-[45.7628%];
+  @apply flex-shrink-0 lg:order-2 pb-5 lg:pb-0;
 }
 
 .image {
@@ -13,7 +13,7 @@
 }
 
 .statement-container {
-  @apply text-center lg:w-[49.1526%]  lg:items-center lg:text-left;
+  @apply text-center lg:basis-[49.32%] lg:order-1 lg:items-center lg:text-left;
 }
 
 .statement {
