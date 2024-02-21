@@ -17,26 +17,26 @@
 }
 
 .global-mission-context::before {
-  @apply absolute top-0 bottom-0 left-0  h-full border-solid border-l-Primary-500 border-l-[1.875rem] md:border-l-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] md:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
+  @apply absolute top-0 bottom-0 left-0  h-full border-solid border-l-Primary-500 border-l-[1.875rem] lg:border-l-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
 }
 
 .global-mission-context::after {
-  @apply absolute top-0 bottom-0 right-0 h-full border-solid border-r-Primary-500 border-r-[1.875rem] md:border-r-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] md:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
+  @apply absolute top-0 bottom-0 right-0 h-full border-solid border-r-Primary-500 border-r-[1.875rem] lg:border-r-[5rem] content-[''] border-t-[14.9375rem] sm:border-t-[9.375rem] lg:border-t-[16.4375rem] xl:border-t-[12.5625rem] border-t-transparent;
 }
 
 .global-mission {
-  @apply relative max-w-sm-lg mx-auto py-3.5 md:pt-8 md:pb-1.75 px-[1.875rem] md:px-[5rem] xl:px-[3.75rem];
+  @apply relative max-w-sm-lg mx-auto py-3.5 lg:pt-8 lg:pb-1.75 px-[1.875rem] lg:px-[5rem] xl:px-[3.75rem];
 }
 .global-mission h3 {
-  @apply uppercase font-semibold text-2xl tracking-medium-wide md:tracking-normal md:text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
+  @apply uppercase font-semibold text-2xl tracking-medium-wide lg:tracking-normal lg:text-3xl leading-tighter text-center text-Shades-0 max-w-sm-md mx-auto pb-3;
 }
 
 .global-mission p {
-  @apply font-bold text-center text-Secondary-900 tracking-medium-wide text-base md:text-lg mb-0 md:mb-6;
+  @apply font-bold text-center text-Secondary-900 tracking-medium-wide text-base lg:text-lg mb-0 lg:mb-6;
 }
 
 .global-mission p span {
-  @apply text-xl md:text-2xl leading-normal md:leading-tighter font-bold md:font-semibold tracking-normal;
+  @apply text-xl lg:text-2xl leading-normal lg:leading-tighter font-bold lg:font-semibold tracking-normal;
 }
 
 .statement-container {
@@ -48,5 +48,5 @@
 }
 
 .button-container {
-  @apply flex mx-auto max-w-btn md:mx-0;
+  @apply flex mx-auto max-w-btn lg:mx-0;
 }
