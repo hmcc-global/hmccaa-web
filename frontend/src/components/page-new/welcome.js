@@ -10,7 +10,7 @@ const WelcomeSection = () => (
         <img src={newWelcome} alt="Welcome" />
       </div>
     </div>
-    <div className="basis-689/1180 pr-8 pt-3.5 order-1">
+    <div className="basis-689/1180 pr-8 pt-3.5 order-1 text-center lg:text-left">
       <div className="subheading">Welcome</div>
       <h2 className="pb-5">We&apos;re Glad You Are Here</h2>
       <HighlightedParagraph>
