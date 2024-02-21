@@ -5,19 +5,19 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const TopLGSummary = () => (
   <div>
-    <h1 className="text-center text-[40px] pt-[2.1875rem] md:pt-20 font-bold mb-[2.25rem] md:mb-0">
+    <h1 className="text-center text-[40px] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-0">
       LIFE GROUPS
     </h1>
 
-    <div className="flex flex-col md:flex-row gap-y-5 md:pb-[100px] content-image">
-      <div className="md:order-1 text-center image-container">
+    <div className="flex flex-col lg:flex-row gap-y-5 lg:pb-[100px] content-image">
+      <div className="lg:order-1 text-center image-container">
         <StaticImage
           className="max-w-[580px]"
           src="../../images/lifeGroupHuddle.png"
           alt="LG people"
         />
       </div>
-      <div className=" text-center md:text-left content-container">
+      <div className=" text-center lg:text-left content-container">
         <HighlightedParagraph className="text-[16px]">
           <p>
             In the Bible, Jesus talks about living an abundant life. The vision
@@ -45,7 +45,7 @@ const TopLGSummary = () => (
             life-changing power of Biblical community!
           </p>
         </HighlightedParagraph>
-        <div className="flex justify-center md:justify-start">
+        <div className="flex justify-center lg:justify-start">
           <SecondaryButtonLink
             href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
             hasArrow={true}

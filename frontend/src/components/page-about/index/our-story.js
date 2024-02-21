@@ -4,8 +4,8 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const OurStory = () => {
   return (
-    <div className="pt-[0.9375rem] pb-[3.125rem] flex flex-col items-center md:items-start justify-center md:flex-row  content-image">
-      <div className="md:order-1  pb-5 md:pb-0 image-container">
+    <div className="pt-[0.9375rem] pb-[3.125rem] flex flex-col items-center lg:items-start justify-center lg:flex-row  content-image">
+      <div className="lg:order-1  pb-5 lg:pb-0 image-container">
         <StaticImage
           src="../../../images/about-our-story-greeters.png"
           alt="Greeter"
@@ -13,7 +13,7 @@ const OurStory = () => {
         />
       </div>
 
-      <div className="text-center md:text-left content-container">
+      <div className="text-center lg:text-left content-container">
         <div className="flex flex-col gap-3 ">
           <div className="subheading">Our Story</div>
           <h2 className="pb-5">
