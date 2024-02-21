@@ -5,7 +5,7 @@
 }
 
 .title-container {
-  @apply text-center pb-10 md:pb-15;
+  @apply text-center pb-10 lg:pb-15;
 }
 
 .middle-container {
@@ -17,11 +17,11 @@
 }
 
 .container h3 {
-  @apply flex leading-tighter md:leading-normal font-semibold text-lg md:text-2xl;
+  @apply flex leading-tighter lg:leading-normal font-semibold text-lg lg:text-2xl;
 }
 
 .arrow {
-  @apply pr-3 md:pr-5;
+  @apply pr-3 lg:pr-5;
 }
 
 .sub-head {
@@ -41,5 +41,5 @@
 }
 
 .toggle-container p {
-  @apply mb-0 mt-2 md:mt-4 text-base md:text-lg;
+  @apply mb-0 mt-2 lg:mt-4 text-base lg:text-lg;
 }
