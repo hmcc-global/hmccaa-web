@@ -36,11 +36,9 @@ const IndexPage = () => (
         </div>
       </div>
     </div>
-    <div className="content-padding-full">
-      <WelcomeMain />
-      <GetConnectedCircle />
-      <UpcomingEvents />
-    </div>
+    <WelcomeMain />
+    <GetConnectedCircle />
+    <UpcomingEvents />
   </Layout>
 );
 
