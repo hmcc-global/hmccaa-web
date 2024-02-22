@@ -7,7 +7,6 @@ import Instagram from "../../components/instaBar";
 import Banner from "../../components/shared/banner";
 import SundayCelebration from "../../components/page-connect/sunday-celebration";
 import MapDetails from "../../components/page-connect/map-details";
-import CommonQuestions from "../../components/page-connect/common-questions";
 
 const ConnectPage = () => (
   <Layout>
@@ -16,7 +15,6 @@ const ConnectPage = () => (
       <div className="max-w-container">
         <SundayCelebration />
         <MapDetails />
-        <CommonQuestions />
         <Questions />
       </div>
     </div>
