@@ -45,7 +45,7 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
     },
     [setMember, setModalOpen]
   );
-  console.warn(member);
+
   return (
     <>
       <div className="flex flex-col items-start gap-y-3">
