@@ -112,36 +112,3 @@ p {
 span.ellipsis {
   @apply text-ellipsis;
 }
-.content-image {
-  @apply max-w-container w-full lg:py-15 gap-x-15;
-}
-
-.content-padding-full {
-  @apply px-4 lg:px-8 w-full flex flex-col items-center;
-}
-
-.image-container {
-  @apply lg:w-[45.7628%];
-}
-
-.content-container {
-  @apply lg:w-[49.1526%];
-}
-
-.collapsible-items .sub-heading {
-  @apply lg:items-center;
-}
-.collapsible-items .sub-heading h3 {
-  @apply leading-tighter;
-}
-.collapsible-items .toggle {
-  @apply pb-0;
-}
-
-.collapsible-items .toggle p {
-  @apply mt-2 lg:mt-3 text-base lg:text-lg;
-}
-
-.collapsible-items .toggle p:nth-child(2) {
-  @apply mt-5 lg:mt-6;
-}

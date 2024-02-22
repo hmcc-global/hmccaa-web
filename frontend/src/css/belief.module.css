@@ -28,10 +28,6 @@
   @apply flex;
 }
 
-.sub-head button {
-  @apply text-left;
-}
-
 .box {
   @apply flex-col flex-nowrap break-inside-avoid-column;
 }
