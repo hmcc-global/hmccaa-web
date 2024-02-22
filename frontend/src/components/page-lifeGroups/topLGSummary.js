@@ -17,7 +17,7 @@ const TopLGSummary = () => (
           alt="LG people"
         />
       </div>
-      <div className=" text-center lg:text-left content-container">
+      <div className="lg:w-[40.678%] text-center lg:text-left">
         <HighlightedParagraph className="text-[16px]">
           <p>
             In the Bible, Jesus talks about living an abundant life. The vision
