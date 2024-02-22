@@ -30,8 +30,8 @@ const Layout = ({ children }) => {
         <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
           {children}
         </main>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
