@@ -139,9 +139,7 @@ const Header = () => {
               {locationsList.map((item, index) =>
                 index == 0 ? (
                   <Link
-                    key={`browseLink-${item.title
-                      .replace(/\s+/g, "-")
-                      .toLowerCase()}`}
+                    key={`browseLink-${index}`}
                     to={"/"}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
@@ -149,9 +147,7 @@ const Header = () => {
                   </Link>
                 ) : (
                   <Link
-                    key={`browseLink-${item.title
-                      .replace(/\s+/g, "-")
-                      .toLowerCase()}`}
+                    key={`browseLink-${index}`}
                     href={item.route}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
@@ -171,9 +167,7 @@ const Header = () => {
           <div className="flex flex-row items-center justify-items-center gap-2 md:gap:4 [@media(min-width:1140px)]:gap-4 [@media(min-width:1280px)]:gap-6 [@media(min-width:1440px)]:gap-11">
             {browseList.map((item, index) => (
               <Link
-                key={`browseLink-${item.title
-                  .replace(/\s+/g, "-")
-                  .toLowerCase()}`}
+                key={`browseLink-${index}`}
                 to={item.route}
                 className={`min-w-max ${textStyle} ${
                   item.route + "/" === path
