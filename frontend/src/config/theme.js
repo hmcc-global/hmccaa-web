@@ -182,21 +182,6 @@ const theme = {
     screens: {
       xs: "375px",
     },
-    gridTemplateColumns: {
-      49: "repeat(49, minmax(0, 1fr))",
-      59: "repeat(59, minmax(0, 1fr))",
-    },
-    gridColumn: {
-      "span-22": "span 22 / span 22",
-      "span-24": "span 24 / span 24",
-      "span-27": "span 27 / span 27",
-      "span-29": "span 29 / span 29",
-      "span-49": "1 / span 49",
-    },
-    gridColumnStart: {
-      26: "26",
-      33: "33",
-    },
   },
 };
 
