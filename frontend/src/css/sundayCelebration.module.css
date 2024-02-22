@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply px-4 pt-[0.9375rem] pb-[3.125rem] lg:py-[3.75rem] flex flex-col items-center lg:items-start justify-center lg:flex-row lg:gap-x-[60px];
+  @apply px-4 pt-[0.9375rem] pb-[3.125rem] lg:py-[3.75rem] flex flex-col items-center lg:items-start justify-center lg:flex-row lg:gap-[60px];
 }
 
 .image-container {

@@ -9,7 +9,7 @@ import Banner from "../../components/shared/banner";
 const GivePage = () => (
   <Layout>
     <Banner bgImage="bg-give bg-center">Giving</Banner>
-    <div className="max-w-contianer mx-4 pb-[67px] lg:pb-0">
+    <div className="max-w-container mx-4 pb-[67px] lg:pb-0">
       <WhyWeGiveSection />
       <HowToGiveSection />
     </div>

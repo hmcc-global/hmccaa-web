@@ -38,7 +38,6 @@ const IndexPage = () => (
     </div>
     <WelcomeMain />
     <GetConnectedCircle />
-    <GetInvolved />
     <UpcomingEvents />
   </Layout>
 );
