@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const LifeGroup = () => (
   <div className="flex flex-col lg:flex-row gap-y-5 gap-x-5 pt-[15px] pb-8 lg:py-14 justify-center items-center">
-    <div className="lg:order-1 text-center image-container">
+    <div className="lg:w-sm lg:order-1 text-center">
       <StaticImage
         src="../../images/LifeGroupImg.png"
         alt="Life Group Next Step"

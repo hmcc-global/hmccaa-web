@@ -5,12 +5,12 @@ import { SecondaryButtonLink } from "../Button";
 
 const WelcomeSection = () => (
   <div className="flex flex-col lg:flex-row items-center p-3 pb-20.5">
-    <div className="lg:order-1 image-container">
+    <div className="pl-2.5 lg:order-2">
       <div>
         <img src={newWelcome} alt="Welcome" />
       </div>
     </div>
-    <div className="basis-680/1180 pr-8 pt-3.5 order-1 text-center lg:text-left">
+    <div className="basis-689/1180 pr-8 pt-3.5 order-1 text-center lg:text-left">
       <div className="subheading">Welcome</div>
       <h2 className="pb-5">We&apos;re Glad You Are Here</h2>
       <HighlightedParagraph>
