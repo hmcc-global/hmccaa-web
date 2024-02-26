@@ -11,10 +11,12 @@ import MapDetails from "../../components/page-connect/map-details";
 const ConnectPage = () => (
   <Layout>
     <Banner bgImage="bg-connect bg-[center_top]">Connect</Banner>
-    <div className="max-w-container">
-      <SundayCelebration />
-      <MapDetails />
-      <Questions />
+    <div className="content-padding-full">
+      <div className="max-w-container">
+        <SundayCelebration />
+        <MapDetails />
+        <Questions />
+      </div>
     </div>
     <Instagram />
   </Layout>
