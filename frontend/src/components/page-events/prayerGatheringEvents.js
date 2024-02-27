@@ -3,14 +3,14 @@ import * as React from "react";
 const PrayerGatheringEvents = () => {
   return (
     <div className="bg-Neutral-200 w-full justify-center flex flex-col items-center px-6 sm:px-2 py-[40px]">
-      <div className="flex-col justify-start items-center gap-y-2 flex mt-2">
+      <div className="flex-col justify-start items-center gap-y-2 flex mt-2 max-w-2xl">
         <div className="subheading">PRAYER GATHERINGS</div>
 
         <div className="text-black text-center text-3xl sm:text-4xl font-semibold leading-10">
           BY PRAYING, WE LEARN TO PRAY.
         </div>
       </div>
-      <div className="text-xl sm:text-base sm:w-2/5 px-4 pt-4 text-center text-black font-normal leading-normal">
+      <div className="text-xl sm:text-base max-w-xl pt-4 text-center text-black font-normal leading-normal">
         “The harvest is plentiful, but the laborers are few; therefore PRAY
         earnestly to the Lord of the harvest to send out laborers into his
         harvest.” -Matthew 9:37b-38
