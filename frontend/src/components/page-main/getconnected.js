@@ -19,8 +19,9 @@ const GetConnectedText = () => (
     <h2>There is a place for you at HMCC.</h2>
     <p className="pt-21">
       New to Michigan? Coming for school? Looking for community? Whether you
-      know God or not, we welcome you! We have fellowship for all different life
-      stages, from youth to students to working adults or married couples!
+      believe in God or not, we welcome you! We have fellowship for all
+      different life stages, from youth to students to working adults or married
+      couples!
     </p>
     <div className="py-5 flex justify-center">
       <SecondaryButtonLink to="/connect" hasArrow={true}>
