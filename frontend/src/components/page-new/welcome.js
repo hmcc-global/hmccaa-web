@@ -4,13 +4,13 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 
 const WelcomeSection = () => (
-  <div className="flex flex-col md:flex-row items-center md:items-start pt-3 pb-20.5 content-image">
-    <div className="md:order-1 image-container">
+  <div className="flex flex-col lg:flex-row items-center lg:items-start pt-3 pb-20.5 content-image">
+    <div className="lg:order-1 image-container">
       <div>
         <img src={newWelcome} alt="Welcome" />
       </div>
     </div>
-    <div className="text-center md:text-left content-container">
+    <div className="text-center lg:text-left content-container">
       <div className="subheading">Welcome</div>
       <h2 className="pb-5">We&apos;re Glad You Are Here</h2>
       <HighlightedParagraph>
@@ -36,7 +36,7 @@ const WelcomeSection = () => (
           </span>
         </p>
       </HighlightedParagraph>
-      <div className="flex justify-center md:justify-start">
+      <div className="flex justify-center lg:justify-start">
         <SecondaryButtonLink to="/connect" hasArrow={true}>
           Let us know you&apos;re coming
         </SecondaryButtonLink>

@@ -3,8 +3,8 @@ import { LaptopIcon, MailIcon } from "../svgs";
 import { PrimaryButtonLink, SecondaryButtonLink } from "../Button";
 
 const HowToGiveSection = () => (
-  <div className="flex pt-[19px] pb-[41px] md:py-20 flex-col items-center m-auto max-w-[640px] text-center gap-5 md:gap-[60px]">
-    <div className="flex flex-col items-center pt-5 md:pt-0">
+  <div className="flex pt-[19px] pb-[41px] lg:py-20 flex-col items-center m-auto max-w-[640px] text-center gap-5 lg:gap-[60px]">
+    <div className="flex flex-col items-center pt-5 lg:pt-0">
       <div className="subheading">Ways To Give</div>
       <h2 className="mb-5">Two Simple Ways to Give</h2>
       <p className="mb-0">
@@ -12,15 +12,15 @@ const HowToGiveSection = () => (
         email address consistently
       </p>
     </div>
-    <div className="flex flex-col md:flex-row md:justify-center gap-y-10  pt-5 md:pt-0">
-      <div className="flex flex-col items-center max-w-[280px] md:p-2.5 gap-2 md:gap-5">
-        <div className="md:m-2.5 w-[5rem] h-[5rem] md:w-25 md:h-25 flex items-center">
+    <div className="flex flex-col lg:flex-row lg:justify-center gap-y-10  pt-5 lg:pt-0">
+      <div className="flex flex-col items-center max-w-[280px] lg:p-2.5 gap-2 lg:gap-5">
+        <div className="lg:m-2.5 w-[5rem] h-[5rem] lg:w-25 lg:h-25 flex items-center">
           <LaptopIcon />
         </div>
-        <div className="text-Primary-500 font-semibold text-2xl leading-tighter md:leading-normal md:text-3xl uppercase ">
+        <div className="text-Primary-500 font-semibold text-2xl leading-tighter lg:leading-normal lg:text-3xl uppercase ">
           Give Online
         </div>
-        <p className="text-[11px] mb-0 md:text-left py-1 md:py-0 font-medium md:font-normal">
+        <p className="text-[11px] mb-0 lg:text-left py-1 lg:py-0 font-medium lg:font-normal">
           *There is a processing fee for online transactions (2.2% + $0.30 for
           credit and debit card transactions. $0.25 for bank account ACH
           deductions).
@@ -32,14 +32,14 @@ const HowToGiveSection = () => (
           Give Now
         </PrimaryButtonLink>
       </div>
-      <div className="flex flex-col items-center max-w-[280px] md:p-2.5 gap-y-2 md:gap-y-0">
-        <div className="md:m-2.5 w-[5rem] h-[5rem] md:w-25 md:h-25 flex items-center">
+      <div className="flex flex-col items-center max-w-[280px] lg:p-2.5 gap-y-2 lg:gap-y-0">
+        <div className="lg:m-2.5 w-[5rem] h-[5rem] lg:w-25 lg:h-25 flex items-center">
           <MailIcon />
         </div>
-        <div className="text-Primary-500 font-semibold text-2xl leading-tighter md:leading-normal md:text-3xl uppercase mb-1 md:mt-5 md:mb-3">
+        <div className="text-Primary-500 font-semibold text-2xl leading-tighter lg:leading-normal lg:text-3xl uppercase mb-1 lg:mt-5 lg:mb-3">
           Give By Mail
         </div>
-        <p className="mb-3 md:mb-5 text-base md:text-lg">
+        <p className="mb-3 lg:mb-5 text-base lg:text-lg">
           Harvest Mission
           <br />
           Community Church
@@ -48,13 +48,13 @@ const HowToGiveSection = () => (
           <br />
           Ann Arbor, MI 48104
         </p>
-        <p className="text-[11px] text-left mb-0  font-medium md:font-normal">
+        <p className="text-[11px] text-left mb-0  font-medium lg:font-normal">
           *Giving by mail may take an additional 1-2 weeks to process mailed
           checks.
         </p>
       </div>
     </div>
-    <div className="max-w-[620px] text-base md:text-lg tracking-medium-wide md:tracking-normal  pt-5 md:pt-0">
+    <div className="max-w-[620px] text-base lg:text-lg tracking-medium-wide lg:tracking-normal  pt-5 lg:pt-0">
       <p>
         Personal information is kept confidential, used only for tax receipt
         purposes, and is only accessible by the Stewardship Team. If you have

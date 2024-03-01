@@ -4,7 +4,7 @@ import { SecondaryButtonLink } from "../Button";
 
 const MapDetails = () => {
   return (
-    <div className="flex flex-col gap-y-5 md:gap-y-0 justify-center pt-5 md:pt-0 bg-Neutral-200 lg:flex-row lg:rounded-2xl max-w-[58.625rem] mx-auto">
+    <div className="flex flex-col gap-y-5 md:gap-y-0 justify-center pt-5 md:pt-0 bg-Neutral-200 md:flex-row md:rounded-2xl max-w-[58.625rem] mx-auto">
       <div className="md:px-[3.925rem] gap-5">
         <div className="flex flex-col justify-center items-center text-center md:gap-8 md:py-[4.75rem]">
           <p className="text-lg font-medium leading-tighter mb-0 text-Shades-100">

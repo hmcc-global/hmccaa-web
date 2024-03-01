@@ -49,14 +49,14 @@ const FiveEs = () => (
       HMCC has defined the five values of biblical community found in Acts
       2:42-47 as follows:
     </h3>
-    <div className="flex flex-col lg:flex-row gap-x-[44px] md:mx-[2px] pb-[5.25rem] md:pb-[6.25rem]  pl-8 pr-4 md:px-0">
+    <div className="flex flex-col lg:flex-row gap-x-[44px] lg:mx-[2px] pb-[5.25rem] lg:pb-[6.25rem]  pl-8 pr-4 lg:px-0">
       {fiveEInfo.map((item, i, index) => (
         <span
           key={`fiveEInfo-${index}`}
           className="flex flex-col text-center items-center"
         >
           <Circle color={item.color} />
-          <div className="pt-5 pb-3 text-2xl font-bold md:font-semibold leading-tighter">
+          <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter">
             {item.word}
           </div>
           <div className="flex flex-col">
@@ -65,14 +65,14 @@ const FiveEs = () => (
             >
               {parse(item.text)}
             </div>
-            <div className="text-base md:text-xs font-medium tracking-medium-wide md:tracking-normal">
+            <div className="text-base lg:text-xs font-medium tracking-medium-wide lg:tracking-normal">
               <p className="mb-[2.375rem] lg:mb-0">{parse(item.verse)}</p>
             </div>
           </div>
         </span>
       ))}
     </div>
-    <div className="flex justify-center font-bold pb-5 md:pb-12">
+    <div className="flex justify-center font-bold pb-5 lg:pb-12">
       <PrimaryButtonLink
         href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
         hasArrow={true}
@@ -80,8 +80,8 @@ const FiveEs = () => (
         CHECK OUT A LIFE GROUP
       </PrimaryButtonLink>
     </div>
-    <div className="text-center md:pb-[378px] max-w-[51.25rem] mx-auto font-medium md:pt-0 md:px-0 pt-7 pb-8 pr-2">
-      <p className="mb-6 md:mb-[1.3125rem]">
+    <div className="text-center lg:pb-[378px] max-w-[51.25rem] mx-auto font-medium lg:pt-0 lg:px-0 pt-7 pb-8 pr-2">
+      <p className="mb-6 lg:mb-[1.3125rem]">
         Most of our LIFE groups for students and young adults happen on{" "}
         <b className="font-montserrat tracking-medium-wide">Tuesdays</b> and{" "}
         <b className="font-montserrat tracking-medium-wide">Wednesdays</b>.
