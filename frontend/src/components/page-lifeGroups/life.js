@@ -21,7 +21,7 @@ const LifeAcronym = [
 });
 
 const Life = () => (
-  <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between pb-10 md:pb-[8.4375rem] gap-y-5">
+  <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between pb-10 lg:pb-[8.4375rem] gap-y-5">
     <div className="w-[40.679%] flex flex-col gap-y-[1.542rem]">
       <h3 className="text-2xl font-semibold leading-tighter">
         The L.I.F.E in LIFE Group stands for
