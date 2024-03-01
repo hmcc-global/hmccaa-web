@@ -1,73 +1,35 @@
 import * as React from "react";
-
-import { SecondaryButtonLink } from "../Button";
+import tempLIFEimg from "../../images/Frame 406.png";
 
 const LifeAcronym = [
   {
     word: "Love",
+    image: tempLIFEimg,
   },
   {
     word: "Investment",
+    image: tempLIFEimg,
   },
   {
     word: "Faith",
+    image: tempLIFEimg,
   },
   {
     word: "Enjoyment",
+    image: tempLIFEimg,
   },
-].map(text => {
-  const [first, ...rest] = text.word.split("");
-  return { ...text, word: [first, rest.join("")] };
-});
+];
 
 const Life = () => (
-  <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between pb-10 lg:pb-[8.4375rem] gap-y-5">
-    <div className="w-[40.679%] flex flex-col gap-y-[1.542rem]">
-      <h3 className="text-2xl font-semibold leading-tighter">
-        The L.I.F.E in LIFE Group stands for
-      </h3>
-      <div>
-        {LifeAcronym.map((item, index) => (
-          <span key={`Life-${index}`} className="flex flex-col text-left">
-            <div className="flex items-end">
-              {item.word.map((textItem, index) =>
-                index === 0 ? (
-                  <span
-                    key={`word-${textItem.toLowerCase()}`}
-                    className="text-3xl font-bold leading-tighter"
-                  >
-                    {textItem}
-                  </span>
-                ) : (
-                  <span
-                    key={`word-${textItem.toLowerCase()}`}
-                    className="text-xl font-medium pb-[1px]"
-                  >
-                    {textItem}
-                  </span>
-                )
-              )}
-            </div>
-          </span>
-        ))}
-      </div>
-    </div>
-    <div className="w-[49.153%] flex flex-col pt-[2.1875rem] pb-9 px-10 justify-center gap-y-[3px] rounded-2xl border-2 border-solid border-Neutral-600">
-      <p>
-        If you are new to our church, there is no better way to get a taste of
-        who we are and what we believe in then to check out one of our LIFE
-        Groups. Don’t miss out this opportunity to experience the life-changing
-        power of Biblical community.
-      </p>
-      <div className="flex justify-center">
-        <SecondaryButtonLink
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
-          hasArrow={true}
-        >
-          CHECK OUT A LIFE GROUP
-        </SecondaryButtonLink>
-      </div>
-    </div>
+  <div className="pt-[2.375rem] pb-[5.75rem] lg:py-[100px] grid grid-cols-2 lg:grid-cols-4 gap-y-8  gap-x-4 lg:gap-x-5">
+    {LifeAcronym.map((item, index) => (
+      <span key={`Life-${index}`} className="flex flex-col">
+        <div className="first-letter:text-[40px] first-letter:font-bold text-[24px] font-semibold text-center">
+          {item.word}
+        </div>
+        <div className="w-full pb-[64.29%] bg-[#5E5E5E]"></div>
+      </span>
+    ))}
   </div>
 );
 
