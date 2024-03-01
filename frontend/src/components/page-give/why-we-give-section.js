@@ -3,8 +3,8 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { StaticImage } from "gatsby-plugin-image";
 
 const WhyWeGiveSection = () => (
-  <div className="flex flex-col md:flex-row pt-[15px] pb-[68px] items-center md:items-start gap-y-5 content-image">
-    <div className="md:order-1 image-container">
+  <div className="flex flex-col lg:flex-row pt-[15px] pb-[68px] items-center lg:items-start gap-y-5 content-image">
+    <div className="lg:order-1 image-container">
       <div>
         <StaticImage
           src="../../images/give-why-we-give.png"
@@ -12,7 +12,7 @@ const WhyWeGiveSection = () => (
         />
       </div>
     </div>
-    <div className="text-center md:text-left content-container">
+    <div className="text-center lg:text-left content-container">
       <div className="subheading">Why We Give</div>
       <h2 className="pb-[20px]">
         As God has given to us abundantly, we can give with joy!
