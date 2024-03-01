@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   textContainer,
+  highlightText,
   container,
   ministryTeam,
   teamWrapper,
@@ -16,7 +17,7 @@ import {
   WorshipLogo,
 } from "../svgs";
 import { StaticImage } from "gatsby-plugin-image";
-import { PrimaryButtonLink } from "../Button";
+import Link from "../Link";
 
 const teams = [
   {
@@ -111,7 +112,7 @@ const MinistryTeams = () => (
               <div key={key} className={`${ministryTeam} ${className}`}>
                 <div className={teamWrapper}>
                   <div>
-                    <Component className="w-10 md:w-[3.75rem]" />
+                    <Component />
                   </div>
                   <div>
                     <h3>{item.team}</h3>
@@ -122,10 +123,9 @@ const MinistryTeams = () => (
             );
           })}
         </div>
-        <div className="flex justify-center">
-          <PrimaryButtonLink hasArrow={true} to={"/next-steps/ministryteams"}>
-            Join a Team
-          </PrimaryButtonLink>
+        <div className={highlightText}>
+          Please email <Link href="mailto:abc@hmccaa.com">abc@hmccaa.com</Link>{" "}
+          to get connected!
         </div>
       </div>
     </div>

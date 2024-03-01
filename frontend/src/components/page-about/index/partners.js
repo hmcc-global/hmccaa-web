@@ -37,7 +37,7 @@ const Partners = () => (
           It is our desire to establish and raise up visible local bodies of
           Christ’s followers who are witnesses to their own communities.
           Specifically, we seek to target{" "}
-          <span>cities with viable college campuses</span> as students are the
+          <span>cities with viable college campuses</span>, as students are the
           future leaders of our world. As a church reaches a campus, we believe
           that it will begin to impact the community, the city, and ultimately,
           the nations.
@@ -45,8 +45,8 @@ const Partners = () => (
         <p>
           Currently HMI is involved in short-term projects both locally and
           internationally. Starting in <span>Ann Arbor</span>, HMI now has
-          church plants in <span>Austin, Jakarta, Indonesia, Hong Kong,</span>{" "}
-          and <span>Detroit</span>.
+          church plants in{" "}
+          <span>Austin, Jakarta, Indonesia, Hong Kong, and Detroit</span>.
         </p>
       </HighlightedParagraph>
       <div className={buttonContainer}>
