@@ -135,9 +135,11 @@ span.ellipsis {
 .collapsible-items .sub-heading {
   @apply lg:items-center;
 }
+
 .collapsible-items .sub-heading h3 {
   @apply leading-tighter;
 }
+
 .collapsible-items .toggle {
   @apply pb-0;
 }
