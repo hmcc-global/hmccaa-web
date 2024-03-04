@@ -124,7 +124,7 @@ const MinistryTeams = () => (
           })}
         </div>
         <div className={highlightText}>
-          Please email <Link href="mailto:abc@hmccaa.com">abc@hmccaa.com</Link>{" "}
+          Please email <Link href="mailto:annarbor@hmcc.net">annarbor@hmcc.net</Link>{" "}
           to get connected!
         </div>
       </div>
