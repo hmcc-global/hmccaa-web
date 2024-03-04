@@ -33,7 +33,7 @@ const MissionsNextStep = () => (
       </HighlightedParagraph>
       <div>
         <p className="text-Accent-200 font-bold">
-          Please email abc@hmccaa.com to get connected!
+          Please email annarbor@hmcc.net to get connected!
         </p>
       </div>
     </div>

@@ -17,7 +17,7 @@ const OurStory = () => {
         <div className="flex flex-col gap-3 ">
           <div className="subheading">Our Story</div>
           <h2 className="pb-5">
-            Transform lives, <br /> Transform the world.
+            Transforming lives, <br /> Transforming the world.
           </h2>
         </div>
         <HighlightedParagraph>

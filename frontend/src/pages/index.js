@@ -16,7 +16,7 @@ const IndexPage = () => (
           src="../images/image245.png"
         />
         <h1 className="absolute mb-0 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 line-clamp-2 xl:text-[60px] lg:text-[50px] md:text-[40px] sm:text-[35px] w-full text-[25px] font-bold leading-tight">
-          Transform lives, <br /> Transform the world.
+          Transforming lives, <br /> Transforming the world.
         </h1>
       </div>
       <div className="w-full bg-Neutral-200 justify-center flex px-4">
