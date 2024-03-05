@@ -17,11 +17,9 @@ export const Head = () => <Seo title="About" />;
 const AboutPage = () => (
   <Layout>
     <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
-    <div className="content-padding-full">
+    <div className="max-w-container">
       <OurStory />
-    </div>
-    <Mission />
-    <div className="content-padding-full">
+      <Mission />
       <Values />
       <LeadershipSection />
       <Belief />
