@@ -173,22 +173,6 @@ module.exports = {
             pathname: "/next-steps/lifegroups",
             crumbLabel: "LIFE Groups",
           },
-          {
-            pathname: "/next-steps/membership",
-            crumbLabel: "Membership",
-          },
-          {
-            pathname: "/next-steps/transformation",
-            crumbLabel: "Transformation Classes",
-          },
-          {
-            pathname: "/next-steps/baptism",
-            crumbLabel: "Baptism",
-          },
-          {
-            pathname: "/next-steps/ministryteams",
-            crumbLabel: "Ministry Teams",
-          },
         ],
       },
     },
