@@ -11,9 +11,7 @@ import LifeStages from "../../components/page-new/lifeStages";
 const NewcomersPage = () => (
   <Layout>
     <Banner bgImage="bg-center bg-new">I&apos;m New</Banner>
-    <div className="content-padding-full">
-      <WelcomeSection />
-    </div>
+    <WelcomeSection />
     <SundayCelebrationSection />
     <LifeStages />
     <div className="pl-[21px] pr-[11px] lg:px-4 w-full flex justify-center">
