@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, createRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { ArrowDropDown } from "../svgs";
 
@@ -36,7 +36,7 @@ const ComboBox = ({
         setComboBoxState({ ...comboBoxState, show: false });
       }
     },
-    [id, setComboBoxState]
+    [id, comboBoxState]
   );
   useEffect(() => {
     document.body.addEventListener("click", handleCloseDropDown);

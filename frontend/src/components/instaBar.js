@@ -12,7 +12,7 @@ const Instagram = () => (
         <InstaIcon className="w-5 h-5 lg:w-10 lg:h-10" />
       </div>
       <h3 className="text-Shades-0 font-medium text-sm lg:text-2xl font-inter leading-relaxed">
-        Follow us on Instagram @HMCC_AA
+        Follow us on Instagram <span className="underline">@HMCC_AA</span>
       </h3>
     </Link>
   </div>

@@ -59,7 +59,7 @@ const Values = () => (
       </div>
     </div>
     <div className={middleContainer}>
-      <div>
+      <div className="flex flex-col gap-y-10">
         {saltValues.map((values, index) => (
           <Collapsible
             key={index}
@@ -68,7 +68,7 @@ const Values = () => (
           />
         ))}
       </div>
-      <div>
+      <div className="flex flex-col gap-y-10">
         {commandValues.map((values, index) => (
           <Collapsible
             key={index}
