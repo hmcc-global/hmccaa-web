@@ -10,7 +10,7 @@ const PrayerGatheringEvents = () => {
           BY PRAYING, WE LEARN TO PRAY.
         </div>
       </div>
-      <div className="text-xl sm:text-base sm:w-2/5 px-4 pt-4 text-center text-black font-normal leading-normal">
+      <div className="text-xl sm:text-base px-4 pt-4 text-center text-black font-normal leading-normal">
         “The harvest is plentiful, but the laborers are few; therefore PRAY
         earnestly to the Lord of the harvest to send out laborers into his
         harvest.” -Matthew 9:37b-38
