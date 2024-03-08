@@ -3,7 +3,7 @@ import * as React from "react";
 const PrayerGatheringEvents = () => {
   return (
     <div className="bg-Neutral-200 w-full justify-center flex flex-col items-center px-6 sm:px-2 py-[40px]">
-      <div className="flex-col justify-start items-center gap-y-2 flex mt-2 max-w-2xl">
+      <div className="flex-col justify-start items-center gap-y-2 flex mt-2">
         <div className="subheading">PRAYER GATHERINGS</div>
 
         <div className="text-black text-center text-3xl sm:text-4xl font-semibold leading-10">
