@@ -66,7 +66,6 @@ const transformationList = [
       : rows[rows.length - 1].items.push(key)) && rows
   );
 }, []);
-console.warn(transformationList);
 
 const TransformationPage = ({ pageContext }) => {
   const {

@@ -24,12 +24,14 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <div className="bg-Neutral-100 font-raleway">
+    <div className="bg-Neutral-100 font-raleway min-w-fit">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
-        {children}
-      </main>
-      <Footer />
+      <div>
+        <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
