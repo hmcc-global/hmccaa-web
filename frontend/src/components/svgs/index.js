@@ -301,11 +301,10 @@ const SeriesIcon = () => (
     />
   </svg>
 );
-
-const AdsLogo = ({ className }) => (
-  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
+const AdsLogo = () => (
+  <svg className="fill-none w-[3.75rem] h-[3.75rem]" viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#F0DF5C] w-full h-full" />
+      <rect className="fill-[#F0DF5C] w-[3.75rem] h-[3.75rem]" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -364,10 +363,10 @@ const AdsLogo = ({ className }) => (
   </svg>
 );
 
-const KidsLogo = ({ className }) => (
-  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
+const KidsLogo = () => (
+  <svg className="fill-none w-[3.75rem] h-[3.75rem]" viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#FFCF54] w-full h-full" />
+      <rect className="fill-[#FFCF54] w-[3.75rem] h-[3.75rem]" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -414,10 +413,10 @@ const KidsLogo = ({ className }) => (
     </g>
   </svg>
 );
-const DocsLogo = ({ className }) => (
-  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
+const DocsLogo = () => (
+  <svg className="fill-none w-[3.75rem] h-[3.75rem]" viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#FF5353] w-full h-full" />
+      <rect className="fill-[#FF5353] w-[3.75rem] h-[3.75rem]" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -448,10 +447,10 @@ const DocsLogo = ({ className }) => (
   </svg>
 );
 
-const HostsLogo = ({ className }) => (
-  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
+const HostsLogo = () => (
+  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#54D5FF] w-full h-full" />
+      <rect className="w-[3.75rem] h-[3.75rem] fill-[#54D5FF]" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -491,10 +490,10 @@ const HostsLogo = ({ className }) => (
   </svg>
 );
 
-const FacilitiesLogo = ({ className }) => (
-  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
+const FacilitiesLogo = () => (
+  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#54FF65] w-full h-full" />
+      <rect className="w-[3.75rem] h-[3.75rem] fill-[#54FF65]" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -524,10 +523,10 @@ const FacilitiesLogo = ({ className }) => (
   </svg>
 );
 
-const VMLogo = ({ className }) => (
-  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
+const VMLogo = () => (
+  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#C854FF] w-full h-full" />
+      <rect className="w-[3.75rem] h-[3.75rem] fill-[#C854FF]" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -556,10 +555,10 @@ const VMLogo = ({ className }) => (
   </svg>
 );
 
-const WorshipLogo = ({ className }) => (
-  <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
+const WorshipLogo = () => (
+  <svg className="w-[3.75rem] h-[3.75rem] fill-none" viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#5969FF] w-full h-full" />
+      <rect className="w-[3.75rem] h-[3.75rem] fill-[#5969FF]" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -598,64 +597,6 @@ const ArrowDropDown = () => (
   </svg>
 );
 
-const ConnectSvg = () => (
-  <svg viewBox="0 0 120 100" className="w-[7.5rem] h-[6.25rem] fill-none">
-    <circle cx="60" cy="72" r="10" className="fill-[#D9D9D9]" />
-    <circle cx="60" cy="28" r="10" className="fill-Primary-50" />
-    <circle cx="95" cy="40" r="10" className="fill-Primary-50" />
-    <circle cx="24" cy="40" r="10" className="fill-Primary-50" />
-    <circle cx="14" cy="71" r="10" className="fill-Primary-50" />
-    <circle cx="106" cy="71" r="10" className="fill-Primary-50" />
-    <rect x="59" y="40" className="w-0.5 h-5 fill-[#848484]" />
-    <rect
-      x="84.1426"
-      y="50"
-      transform="rotate(45 84.1426 50)"
-      className="w-0.5 h-5 fill-[#848484]"
-    />
-    <rect
-      x="34"
-      y="51.4141"
-      transform="rotate(-45 34 51.4141)"
-      className="w-0.5 h-5 fill-[#848484]"
-    />
-    <rect
-      x="27"
-      y="73"
-      transform="rotate(-90 27 73)"
-      className="w-0.5 h-5 fill-[#848484]"
-    />
-    <rect
-      x="73"
-      y="73"
-      transform="rotate(-90 73 73)"
-      className="w-0.5 h-5 fill-[#848484]"
-    />
-  </svg>
-);
-
-const JoinSvg = () => (
-  <svg viewBox="0 0 120 100" className="w-[7.5rem] h-[6.25rem] fill-none">
-    <circle cx="61" cy="80" r="10" className="fill-[#D9D9D9]" />
-    <circle cx="61" cy="20" r="10" className="fill-Primary-50" />
-    <circle cx="86" cy="37" r="10" className="fill-Primary-50" />
-    <circle cx="35" cy="37" r="10" className="fill-Primary-50" />
-    <circle cx="35" cy="64" r="10" className="fill-Primary-50" />
-    <circle cx="86" cy="64" r="10" className="fill-Primary-50" />
-  </svg>
-);
-
-const BecomeSvg = () => (
-  <svg viewBox="0 0 120 100" className="w-[7.5rem] h-[6.25rem] fill-none">
-    <circle cx="101" cy="39" r="10" className="fill-Primary-50" />
-    <circle cx="30" cy="39" r="10" className="fill-Primary-50" />
-    <circle cx="60" cy="19" r="10" className="fill-Primary-50" />
-    <circle cx="67" cy="60" r="10" className="fill-Primary-50" />
-    <circle cx="90" cy="90" r="10" className="fill-Primary-50" />
-    <circle cx="30" cy="80" r="10" className="fill-Primary-50" />
-  </svg>
-);
-
 export {
   ButtonArrow,
   Arrows,
@@ -678,7 +619,4 @@ export {
   VMLogo,
   WorshipLogo,
   ArrowDropDown,
-  ConnectSvg,
-  JoinSvg,
-  BecomeSvg,
 };

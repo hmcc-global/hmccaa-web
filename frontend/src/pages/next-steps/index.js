@@ -6,19 +6,17 @@ import LifeGroup from "../../components/page-next-steps/lifeGroup";
 import MissionsNextStep from "../../components/page-next-steps/missionsNextSteps";
 import Banner from "../../components/shared/banner";
 import MinistryTeams from "../../components/page-next-steps/ministryTeams";
-import Membership from "../../components/page-next-steps/membership";
-import Transformation from "../../components/page-next-steps/transformation";
-import Baptism from "../../components/page-next-steps/baptism";
 
 const NextStepsPage = () => (
   <Layout>
     <Banner bgImage="bg-next-steps bg-center">Next Steps</Banner>
-    <div className="content-padding-full">
+    <div className="px-[1rem]">
       <LifeGroup />
-      <Membership />
-      <Transformation />
-      <Baptism />
+    </div>
+    <div className="px-[1rem]">
       <MinistryTeams />
+    </div>
+    <div className="px-[1rem]">
       <MissionsNextStep />
     </div>
   </Layout>
