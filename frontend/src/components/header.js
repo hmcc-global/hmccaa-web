@@ -143,7 +143,7 @@ const Header = () => {
                     to={"/"}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
-                    {title}
+                    {item.title}
                   </Link>
                 ) : (
                   <Link
@@ -151,7 +151,7 @@ const Header = () => {
                     href={item.route}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
-                    {title}
+                    {item.title}
                   </Link>
                 )
               )}
