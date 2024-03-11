@@ -5,7 +5,6 @@ import imgBryanLiu from "../../../images/team-deacon-bryan-liu.png";
 import imgDennisKim from "../../../images/team-deacon-dennis-kim.png";
 import imgEricaYang from "../../../images/team-deacon-erica-yang.png";
 import imgGinaDahlem from "../../../images/team-deacon-gina-dahlem.png";
-import imgJamesTan from "../../../images/team-deacon-james-tan.png";
 import imgKristinZheng from "../../../images/team-deacon-kristin-zheng.png";
 import imgMieshaWhite from "../../../images/team-deacon-miesha-white.png";
 
@@ -39,17 +38,6 @@ const DeaconsSection = () => {
       name: "Gina Dahlem",
       role: "#Covenant, Lat/Vel, BB",
       email: "gina.dahlem@hmcc.net",
-    },
-    {
-      img: imgJamesTan,
-      name: "James Tan",
-      role: "#Impact (Grad)",
-      email: "james.tan@annarbor.hmcc.net",
-    },
-    {
-      name: "Jen",
-      role: "#Focus",
-      email: "@annarbor.hmcc.net",
     },
     {
       img: imgKristinZheng,
