@@ -115,8 +115,8 @@ const LifeStages = () => {
       </div>
       <div className="text-Accent-500 text-center text-lg font-bold">
         Please email{" "}
-        <Link href="mailto:abc@hmccaa.com" className="text-Accent-500">
-          abc@hmccaa.com
+        <Link href="mailto:annarbor@hmcc.net" className="text-Accent-500">
+          annarbor@hmcc.net
         </Link>{" "}
         to get connected!
       </div>
