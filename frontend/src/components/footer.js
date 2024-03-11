@@ -24,7 +24,7 @@ const Footer = () => {
   // fix remainder of routes when their sections get added
   // all link to next steps for now
   const connectList = [
-    { title: "Interest Form", route: "/" },
+    // { title: "Interest Form", route: "/" }, Add back when there is a real link
     { title: "Join a LIFE Group", route: "/next-steps/lifegroups" },
     { title: "Become a Member", route: "/next-steps" },
     { title: "Join a Ministry Team", route: "/next-steps" },
@@ -171,7 +171,7 @@ const Footer = () => {
             <div className="flex flex-row justify-center items-center mb-5 md:mb-0">
               <CopyrightLogo className="w-5 h-5 md:w-6 md:h-6" />
               <h2 className="text-Shades-0 text-sm md:text-lg font-normal mb-0 ml-1 tracking-medium-wide md:tracking-normal">
-                2023
+                {new Date().getFullYear()}
               </h2>
               <Link
                 to="/"
