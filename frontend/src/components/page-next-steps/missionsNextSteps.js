@@ -16,16 +16,16 @@ const MissionsNextStep = () => (
       <h2>go to all nations</h2>
       <HighlightedParagraph>
         <p className="pt-5">
-          We believe <span>God has called each one of us to missions,</span>
-          whether it’s overseas or locally. As our vision is to be a
-          transcultural, allowing us to share the Gospel wherever we go, to
-          people of all nations. We go in order to experience new cultures and
-          way of life, to see and understand, to empathize and to connect people
-          with Jesus.
+          We believe <span>God has called each one of us to missions</span>,
+          whether it&apos;s overseas or locally. Our vision is to be a
+          transcultural church, allowing us to share the Gospel wherever we go,
+          to people of all nations. We go in order to experience new cultures
+          and ways of life, to see and understand, to empathize and to connect
+          people with Jesus.
         </p>
         <p>
-          Throughout the years, we’ve traveled to Indonesia, Singapore, Chile,
-          Honduras, Peru, Jordan, as well as locally in Detroit, Chicago,
+          Throughout the years, we&apos;ve traveled to Indonesia, Singapore,
+          Chile, Honduras, Peru, Jordan, as well as locally in Detroit, Chicago,
           Austin, and more.
         </p>
         <p>
