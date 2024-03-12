@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply pb-[2.875rem] lg:pb-[8.875rem] pt-8 lg:pt-31 w-full px-4 flex flex-col items-center;
+  @apply pb-[2.875rem] lg:pb-[8.875rem] pt-8 lg:pt-31 max-w-container w-full;
 }
 
 .title-container {
@@ -9,7 +9,7 @@
 }
 
 .middle-container {
-  @apply flex flex-col items-center gap-y-10 md:gap-y-0 md:items-start md:flex-row md:gap-x-5 max-w-[67.5rem] w-full justify-between;
+  @apply flex flex-col items-center lg:items-start lg:flex-row lg:gap-x-15 xl:gap-x-30 max-w-[67.5rem] mx-auto;
 }
 
 .middle-container > div {

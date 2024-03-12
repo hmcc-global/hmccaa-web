@@ -21,7 +21,7 @@ const WelcomeMain = () => (
         </p>
         <p>
           We aim to create <span>a space where you can encounter God</span> and{" "}
-          <span>experience His love in the community of others</span>, whether
+          <span>experience His love in the community of others</span> through
           meeting together on Sunday, gathering in weekly LIFE groups, serving
           the needs of our community, and much more!
         </p>
