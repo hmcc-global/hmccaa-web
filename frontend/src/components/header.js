@@ -65,7 +65,7 @@ const Header = () => {
           >
             HARVEST MISSION <br /> COMMUNITY CHURCH
           </Link>
-          <button onClick={toggleModal}>
+          <button onClick={toggleModal} className="ml-10">
             <img alt="drop down" className={dropDownStyle} src={dropDown} />
           </button>
         </div>
