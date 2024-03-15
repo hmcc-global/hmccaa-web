@@ -14,7 +14,7 @@ import imgImpact from "../../images/home-get-connected/impact-raw.png";
 import imgLatVel from "../../images/home-get-connected/latvel-raw.png";
 
 const GetConnectedText = () => (
-  <div className="w-full flex-col lg:py-5 justify-center text-center">
+  <div className="w-full flex-col xl:py-5 justify-center text-center">
     <div className="subheading">Get Connected</div>
     <h2>There is a place for you at HMCC.</h2>
     <p className="pt-21">
@@ -37,7 +37,7 @@ const lgsArray = [
     color: "Accent-900", // #a842a8
     img: imgCovenant,
     alt: "Covenant LIFE Group",
-    css: `lg:top-[6rem] lg:right-[16rem]`,
+    css: `xl:top-[6rem] xl:right-[16rem]`,
   },
   {
     title: "FOCUS",
@@ -53,7 +53,7 @@ const lgsArray = [
     color: "Accent-300", // #ffbd57
     img: imgImpact,
     alt: "Impact LIFE Group",
-    css: `lg:bottom-[18rem] lg:right-[-5rem]`,
+    css: `xl:bottom-[18rem] xl:right-[-5rem]`,
   },
   {
     title: "ACCESS",
@@ -61,7 +61,7 @@ const lgsArray = [
     color: "Error-300", // #f39ea2
     img: imgAccess,
     alt: "Access LIFE Group",
-    css: `lg:bottom-[12rem] lg:left-[12rem]`,
+    css: `xl:bottom-[12rem] xl:left-[12rem]`,
   },
   {
     title: "GLOBAL ACCESS",
@@ -69,7 +69,7 @@ const lgsArray = [
     color: "Success-500", // #10b981
     img: imgGA,
     alt: "GA LIFE Group",
-    css: `lg:top-[-9rem] lg:left-[20rem]`,
+    css: `xl:top-[-9rem] xl:left-[20rem]`,
   },
   {
     title: "LATITUDE/VELOCITY",
@@ -77,7 +77,7 @@ const lgsArray = [
     color: "Accent-500", // #ff8069
     img: imgLatVel,
     alt: "LatVel LIFE Group",
-    css: `lg:top-[12rem] lg:left-[12rem]`,
+    css: `xl:top-[12rem] xl:left-[12rem]`,
   },
   {
     title: "BUILDING BLOCKS",
@@ -85,7 +85,7 @@ const lgsArray = [
     color: "Accent-1000", // #f0df5c
     img: imgBB,
     alt: "BB LIFE Group",
-    css: `lg:top-[20rem] lg:right-[-6rem]`,
+    css: `xl:top-[20rem] xl:right-[-6rem]`,
   },
 ];
 
@@ -94,7 +94,7 @@ const GetConnectedCircleDesktop = () => (
     <div>
       <div
         className={
-          "w-full lg:max-w-[56.25rem] lg:relative mx-auto lg:left-[1px] lg:py-[16.6875rem] lg:rounded-full"
+          "w-full xl:max-w-[56.25rem] xl:relative mx-auto xl:left-[1px] xl:py-[16.6875rem] xl:rounded-full"
         }
       >
         <div className={textContainer}>
@@ -106,7 +106,7 @@ const GetConnectedCircleDesktop = () => (
             return (
               <div
                 key={key}
-                className={`w-full lg:w-auto inline-flex justify-center items-center lg:absolute ${item.css}`}
+                className={`w-full xl:w-auto inline-flex justify-center items-center xl:absolute ${item.css}`}
               >
                 <DoubleGridDesktop
                   title={item.title}
