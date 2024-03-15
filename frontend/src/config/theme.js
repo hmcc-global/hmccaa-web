@@ -1,3 +1,52 @@
+export const translateArray = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+  length => {
+    let accumulator = {
+      x: {},
+      y: {},
+    };
+    for (let index = 1; index < length; index++) {
+      const conversion = Math.PI / 180;
+      let quadrant = 90;
+      let deltaDegree = 90;
+      const radius = 450;
+      let angle = Number((360 / length).toFixed(4)) * index;
+      while (angle > quadrant) {
+        quadrant += 90;
+        if (quadrant === 270) {
+          deltaDegree = quadrant;
+        }
+      }
+
+      if (quadrant === 90 || quadrant === 270) {
+        angle = Number((deltaDegree - angle).toFixed(4));
+      } else {
+        angle = Number((angle - deltaDegree).toFixed(4));
+      }
+
+      const [x, y] = [
+        Math.round(radius * Math.cos(angle * conversion)) *
+          (quadrant <= 180 ? 1 : -1) -
+          380 * (quadrant <= 180 ? 0.35 : 0.5),
+        Math.round(radius * Math.sin(angle * conversion)) +
+          (quadrant > 90 && quadrant <= 270 ? 450 : 0),
+      ];
+
+      const valueX = (x / 16).toFixed(4);
+      const valueY = (y / 16).toFixed(4);
+      accumulator.x = {
+        ...accumulator.x,
+        [x]: `${valueX}rem`,
+      };
+      accumulator.y = {
+        ...accumulator.y,
+        [y]: `${valueY}rem`,
+      };
+    }
+
+    return accumulator;
+  }
+);
+
 const theme = {
   colors: {
     Neutral: {
@@ -196,6 +245,11 @@ const theme = {
     gridColumnStart: {
       26: "26",
       33: "33",
+    },
+    translate: {
+      ...translateArray
+        .map(({ x, y }) => ({ ...x, ...y }))
+        .reduce((accumulator, value) => ({ ...accumulator, ...value }), {}),
     },
   },
 };
