@@ -1,51 +1,92 @@
-export const translateArray = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
-  length => {
-    let accumulator = {
-      x: {},
-      y: {},
-    };
-    for (let index = 1; index < length; index++) {
-      const conversion = Math.PI / 180;
-      let quadrant = 90;
-      let deltaDegree = 90;
-      const radius = 450;
-      let angle = Number((360 / length).toFixed(4)) * index;
-      while (angle > quadrant) {
-        quadrant += 90;
-        if (quadrant === 270) {
-          deltaDegree = quadrant;
-        }
-      }
+export const buildCoordinates = len => {
+  const [width, height, radius, conversion, deltaAngle] = [
+    380,
+    120,
+    450,
+    Math.PI / 180,
+    Number((360 / len).toFixed(8)),
+  ];
+  let angle = 0;
+  const deltaQuadrant = 90;
+  const coords = new Array(len).fill([]).map(() => {
+    let [x, y] = [
+      Math.round(radius * Math.sin(angle * conversion)),
+      Math.round(radius * Math.cos(angle * conversion)),
+    ];
 
-      if (quadrant === 90 || quadrant === 270) {
-        angle = Number((deltaDegree - angle).toFixed(4));
-      } else {
-        angle = Number((angle - deltaDegree).toFixed(4));
-      }
-
-      const [x, y] = [
-        Math.round(radius * Math.cos(angle * conversion)) *
-          (quadrant <= 180 ? 1 : -1) -
-          380 * (quadrant <= 180 ? 0.35 : 0.5),
-        Math.round(radius * Math.sin(angle * conversion)) +
-          (quadrant > 90 && quadrant <= 270 ? 450 : 0),
+    const padding = 287;
+    const divHeight = 322 / 2;
+    if (angle > 0 && angle <= deltaQuadrant * 2) {
+      const deltaAngle = Number((deltaQuadrant - angle).toFixed(8));
+      const deltaY = Math.round(radius * Math.sin(deltaAngle * conversion));
+      [x, y] = [
+        (deltaY + height * 0.5 > padding && deltaY > 0) ||
+        (deltaY < 0 && Math.abs(deltaY + height * 0.5) < divHeight)
+          ? 250
+          : Math.round(radius * Math.cos(deltaAngle * conversion)) -
+            width * 0.3,
+        deltaY,
       ];
+    } else if (angle > 0) {
+      const quadrant = deltaQuadrant * 3;
+      const deltaAngle = Number((angle - quadrant).toFixed(8));
+      const deltaX =
+        Math.round(radius * Math.cos(deltaAngle * conversion)) + width * 0.6;
+      const deltaY = Math.round(radius * Math.sin(deltaAngle * conversion));
 
-      const valueX = (x / 16).toFixed(4);
-      const valueY = (y / 16).toFixed(4);
-      accumulator.x = {
-        ...accumulator.x,
-        [x]: `${valueX}rem`,
-      };
-      accumulator.y = {
-        ...accumulator.y,
-        [y]: `${valueY}rem`,
-      };
+      [x, y] = [
+        (deltaY + height * 0.5 > padding && deltaY > 0) ||
+        (deltaY < 0 && Math.abs(deltaY + height * 0.5) < divHeight)
+          ? -630
+          : -deltaX,
+        deltaY,
+      ];
     }
+    if (y < 0) {
+      y = radius + Math.abs(y);
+    }
+    angle += deltaAngle;
+    return [x, y];
+  });
 
-    return accumulator;
-  }
-);
+  return coords;
+};
+
+export const translatesArray = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  .map(buildCoordinates)
+  .map(coords =>
+    coords.reduce(
+      ({ x, y }, [xCoords, yCoords]) => ({
+        x: {
+          ...x,
+          [xCoords]: `${(xCoords / 16).toFixed(4)}rem`,
+        },
+        y: {
+          ...y,
+          [yCoords]: `${(yCoords / 16).toFixed(4)}rem`,
+        },
+      }),
+      { x: {}, y: {} }
+    )
+  )
+  .map(({ x, y }) => {
+    let keysX = Object.keys(x);
+    let keysY = Object.keys(y);
+    keysX = keysX.filter(value => Number(value) !== 0);
+    keysY = keysY.filter(value => Number(value) !== 0);
+    let xCoords = {};
+    let yCoords = {};
+    keysX.forEach(key => {
+      xCoords[key] = x[key];
+    });
+    keysY.forEach(key => {
+      yCoords[key] = y[key];
+    });
+    return {
+      x: xCoords,
+      y: yCoords,
+    };
+  });
 
 const theme = {
   colors: {
@@ -247,9 +288,14 @@ const theme = {
       33: "33",
     },
     translate: {
-      ...translateArray
-        .map(({ x, y }) => ({ ...x, ...y }))
-        .reduce((accumulator, value) => ({ ...accumulator, ...value }), {}),
+      ...translatesArray.reduce(
+        (accumulator, { x, y }) => ({
+          ...accumulator,
+          ...x,
+          ...y,
+        }),
+        {}
+      ),
     },
   },
 };

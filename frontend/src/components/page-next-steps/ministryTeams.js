@@ -17,6 +17,7 @@ import {
 } from "../svgs";
 import { StaticImage } from "gatsby-plugin-image";
 import { PrimaryButtonLink } from "../Button";
+import { buildCoordinates } from "../../config/theme";
 
 const teams = [
   {
@@ -56,69 +57,51 @@ const teams = [
   },
 ];
 
-const conversion = Math.PI / 180;
-const radius = 450;
+const coords = buildCoordinates(teams.length);
+
 const translatesX = {
-  21: "xl:translate-x-21",
-  50: "xl:translate-x-50",
-  62: "xl:translate-x-62",
-  76: "xl:translate-x-76",
-  92: "xl:translate-x-92",
-  110: "xl:translate-x-110",
-  132: "xl:translate-x-132",
-  156: "xl:translate-x-156",
-  165: "xl:translate-x-165",
-  185: "xl:translate-x-185",
-  201: "xl:translate-x-201",
-  207: "xl:translate-x-207",
-  219: "xl:translate-x-219",
-  237: "xl:translate-x-237",
-  257: "xl:translate-x-257",
+  13: "xl:translate-x-13",
+  40: "xl:translate-x-40",
+  81: "xl:translate-x-81",
+  111: "xl:translate-x-111",
+  151: "xl:translate-x-151",
+  184: "xl:translate-x-184",
+  204: "xl:translate-x-204",
+  226: "xl:translate-x-226",
+  238: "xl:translate-x-238",
+  250: "xl:translate-x-250",
   276: "xl:translate-x-276",
-  288: "xl:translate-x-288",
   295: "xl:translate-x-295",
-  306: "xl:translate-x-306",
-  310: "xl:translate-x-310",
-  312: "xl:translate-x-312",
   314: "xl:translate-x-314",
-  315: "xl:translate-x-315",
-  317: "xl:translate-x-317",
-  "-455": "xl:-translate-x-455",
+  325: "xl:translate-x-325",
+  329: "xl:translate-x-329",
+  333: "xl:translate-x-333",
+  336: "xl:translate-x-336",
+  "-493": "xl:-translate-x-493",
+  "-656": "xl:-translate-x-656",
+  "-114": "xl:-translate-x-114",
   "-618": "xl:-translate-x-618",
-  "-133": "xl:-translate-x-133",
-  "-580": "xl:-translate-x-580",
-  "-385": "xl:-translate-x-385",
-  "-629": "xl:-translate-x-629",
-  "-542": "xl:-translate-x-542",
-  "-508": "xl:-translate-x-508",
-  "-640": "xl:-translate-x-640",
-  "-344": "xl:-translate-x-344",
-  "-633": "xl:-translate-x-633",
-  "-479": "xl:-translate-x-479",
-  "-6": "xl:-translate-x-6",
-  "-317": "xl:-translate-x-317",
-  "-530": "xl:-translate-x-530",
-  "-635": "xl:-translate-x-635",
-  "-599": "xl:-translate-x-599",
-  "-433": "xl:-translate-x-433",
-  "-415": "xl:-translate-x-415",
-  "-25": "xl:-translate-x-25",
-  "-298": "xl:-translate-x-298",
-  "-488": "xl:-translate-x-488",
-  "-611": "xl:-translate-x-611",
+  "-423": "xl:-translate-x-423",
+  "-630": "xl:-translate-x-630",
+  "-546": "xl:-translate-x-546",
+  "-678": "xl:-translate-x-678",
+  "-382": "xl:-translate-x-382",
+  "-671": "xl:-translate-x-671",
+  "-355": "xl:-translate-x-355",
+  "-568": "xl:-translate-x-568",
   "-637": "xl:-translate-x-637",
-  "-560": "xl:-translate-x-560",
-  "-399": "xl:-translate-x-399",
-  "-190": "xl:-translate-x-190",
-  "-39": "xl:-translate-x-39",
-  "-284": "xl:-translate-x-284",
-  "-638": "xl:-translate-x-638",
-  "-524": "xl:-translate-x-524",
-  "-373": "xl:-translate-x-373",
+  "-453": "xl:-translate-x-453",
+  "-6": "xl:-translate-x-6",
+  "-336": "xl:-translate-x-336",
+  "-526": "xl:-translate-x-526",
+  "-675": "xl:-translate-x-675",
+  "-580": "xl:-translate-x-580",
+  "-667": "xl:-translate-x-667",
+  "-20": "xl:-translate-x-20",
+  "-322": "xl:-translate-x-322",
 };
 
 const translatesY = {
-  0: "xl:translate-y-0",
   54: "xl:translate-y-54",
   78: "xl:translate-y-78",
   100: "xl:translate-y-100",
@@ -177,35 +160,10 @@ const MinistryTeams = () => (
             </p>
           </div>
           <div className="flex flex-col gap-y-3 xl:block py-5 xl:py-0 xl:absolute xl:inset-0 xl:transform xl:-rotate-[40deg]">
-            {teams.map((item, index, currentArray) => {
-              let quadrant = 90;
-              let deltaDegree = 90;
+            {teams.map((item, index) => {
               let className = "xl:-translate-x-[11.875rem]";
-              let [x, y] = [0, 0];
               if (index > 0) {
-                let angle =
-                  Number((360 / currentArray.length).toFixed(4)) * index;
-                while (angle > quadrant) {
-                  quadrant += 90;
-                  if (quadrant === 270) {
-                    deltaDegree = quadrant;
-                  }
-                }
-
-                if (quadrant === 90 || quadrant === 270) {
-                  angle = Number((deltaDegree - angle).toFixed(4));
-                } else {
-                  angle = Number((angle - deltaDegree).toFixed(4));
-                }
-
-                [x, y] = [
-                  Math.round(radius * Math.cos(angle * conversion)) *
-                    (quadrant <= 180 ? 1 : -1) -
-                    380 * (quadrant <= 180 ? 0.35 : 0.5),
-                  Math.round(radius * Math.sin(angle * conversion)) +
-                    (quadrant > 90 && quadrant <= 270 ? 450 : 0),
-                ];
-
+                const [x, y] = coords[index];
                 if (translatesX[x] && translatesY[y]) {
                   className = `${translatesX[x]} ${translatesY[y]}`;
                 }
@@ -217,7 +175,7 @@ const MinistryTeams = () => (
               return (
                 <div
                   key={key}
-                  className={`xl:w-[23.75rem] xl:absolute xl:left-1/2 xl:-top-[3.75rem] xl:z-index-10 xl:transform xl:rotate-[40deg]   ${className}`}
+                  className={`xl:w-[23.75rem] xl:absolute xl:left-1/2 xl:-top-[3.75rem] xl:z-index-10 xl:transform ${className} xl:min-h-[7.5rem] xl:rotate-[40deg]`}
                 >
                   <div className={`${ministryTeam}`}>
                     <div className={teamWrapper}>
