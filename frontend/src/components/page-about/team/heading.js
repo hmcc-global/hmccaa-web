@@ -6,17 +6,12 @@ const Heading = () => (
       Our Team
     </h1>
     <div className="pt-[1.125rem] pb-6 lg:py-0 text-base lg:text-lg  text-center lg:text-left">
-      <p>
-        Something about Elders and Deacons. Lorem Ipsum... esus talks about
-        living an abundant life. The vision of LIFE Group is: to experience the
-        fullness of life in a Biblical community where the Gospel is radically
-        lived out. LIFE Groups seek to accomplish this by sharing our lives with
-        one another within various life stages.
-      </p>
       <p className="mb-0">
-        We desire to live out the 5 E’s (Evangelism, Education, Edification,
-        Extension, Exaltation) of our values in a community context by studying
-        the Bible, worshiping, serving and praying together.
+        At HMCC we desire to live out the Great Commission that Jesus commanded
+        in Matthew 28. We know that empowering a church community to live out
+        Christ’s mission includes Godly leaders to shepherd, guide, and support
+        our members. To do so, our church follows the Biblical framework for
+        elders and deacons laid out in the the book of Acts.
       </p>
     </div>
   </div>
@@ -25,7 +20,7 @@ const Heading = () => (
 const TeamHeading = ({ title, children }) => (
   <div className="w-full flex flex-col items-center lg:items-start gap-y-5 lg:gap-y-3 text-center lg:text-left">
     <h2 className="text-xl font-semibold lg:text-3xl lg:font-bold">{title}</h2>
-    <div className="text-base lg:text-lg">{children}</div>
+    {children && <div className="text-base lg:text-lg">{children}</div>}
   </div>
 );
 
