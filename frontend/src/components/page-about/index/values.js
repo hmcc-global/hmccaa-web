@@ -54,7 +54,7 @@ const Values = () => (
       <div className="subheading">Our Values</div>
       <div className={title}>
         <h2>
-          S<span>a</span>LT C<span>o</span>MM<span>an</span>D
+          S<span>A</span>LT C<span>O</span>MM<span>AN</span>D
         </h2>
       </div>
     </div>
