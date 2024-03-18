@@ -45,6 +45,7 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
     },
     [setMember, setModalOpen]
   );
+
   return (
     <>
       <div className="flex flex-col items-start gap-y-3">
@@ -104,7 +105,9 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
             </div>
             <div className="flex flex-col lg:flex-row gap-5 pl-[1.125rem] pr-4 pb-[3.375rem] lg:px-[3.125rem] lg:pb-[6.1875rem]">
               <div className="sm:min-w-[280px] flex justify-center">
-                <img src={member?.img} alt={member?.name} className="mb-0" />
+                <div>
+                  <img src={member?.img} alt={member?.name} className="mb-0" />
+                </div>
               </div>
               <div>
                 <div className="flex flex-col gap-y-5">
@@ -115,7 +118,9 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
                       </h3>
                       <span>({member?.role})</span>
                     </div>
-                    <p>{member?.description}</p>
+                    {member?.description.map((text, index) => (
+                      <p key={`paragraph-${index}`}>{text}</p>
+                    ))}
                     <span>{member?.responsibility}</span>
                   </div>
                   {member?.email && (
