@@ -13,7 +13,7 @@ const ConnectPage = () => (
   <Layout>
     <Banner bgImage="bg-connect bg-[center_top]">Connect</Banner>
     <div className="content-padding-full">
-      <div className="max-w-container">
+      <div className="max-w-container flex flex-col items-center">
         <SundayCelebration />
         <MapDetails />
         <CommonQuestions />
