@@ -6,6 +6,7 @@ import Seo from "../components/seo";
 import WelcomeMain from "../components/page-main/welcomeMain";
 import UpcomingEvents from "../components/page-main/upcoming";
 import GetConnectedCircle from "../components/page-main/getconnected";
+import GetInvolved from "../components/page-main/getinvolved";
 
 const IndexPage = () => (
   <Layout>
@@ -36,9 +37,12 @@ const IndexPage = () => (
         </div>
       </div>
     </div>
-    <WelcomeMain />
-    <GetConnectedCircle />
-    <UpcomingEvents />
+    <div className="content-padding-full">
+      <WelcomeMain />
+      <GetConnectedCircle />
+      <GetInvolved />
+      <UpcomingEvents />
+    </div>
   </Layout>
 );
 

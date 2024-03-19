@@ -9,14 +9,14 @@
 }
 
 .middle-container {
-  @apply flex flex-col items-center lg:items-start lg:flex-row lg:gap-x-15 xl:gap-x-30 max-w-[67.5rem] mx-auto;
+  @apply flex flex-col items-center lg:items-start lg:flex-row  lg:gap-x-2 [@media(min-width:1100px)]:gap-x-10 xl:gap-x-30 max-w-[67.5rem] mx-auto;
 }
 
 .middle-container > div {
   @apply max-w-[30.3125rem];
 }
 
-.container h3 {
+.sub-head h3 {
   @apply flex leading-tighter lg:leading-normal font-semibold text-lg lg:text-2xl;
 }
 
@@ -26,6 +26,10 @@
 
 .sub-head {
   @apply flex;
+}
+
+.sub-head button {
+  @apply text-left;
 }
 
 .box {

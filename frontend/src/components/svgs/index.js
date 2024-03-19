@@ -598,6 +598,64 @@ const ArrowDropDown = () => (
   </svg>
 );
 
+const ConnectSvg = () => (
+  <svg viewBox="0 0 120 100" className="w-[7.5rem] h-[6.25rem] fill-none">
+    <circle cx="60" cy="72" r="10" className="fill-[#D9D9D9]" />
+    <circle cx="60" cy="28" r="10" className="fill-Primary-50" />
+    <circle cx="95" cy="40" r="10" className="fill-Primary-50" />
+    <circle cx="24" cy="40" r="10" className="fill-Primary-50" />
+    <circle cx="14" cy="71" r="10" className="fill-Primary-50" />
+    <circle cx="106" cy="71" r="10" className="fill-Primary-50" />
+    <rect x="59" y="40" className="w-0.5 h-5 fill-[#848484]" />
+    <rect
+      x="84.1426"
+      y="50"
+      transform="rotate(45 84.1426 50)"
+      className="w-0.5 h-5 fill-[#848484]"
+    />
+    <rect
+      x="34"
+      y="51.4141"
+      transform="rotate(-45 34 51.4141)"
+      className="w-0.5 h-5 fill-[#848484]"
+    />
+    <rect
+      x="27"
+      y="73"
+      transform="rotate(-90 27 73)"
+      className="w-0.5 h-5 fill-[#848484]"
+    />
+    <rect
+      x="73"
+      y="73"
+      transform="rotate(-90 73 73)"
+      className="w-0.5 h-5 fill-[#848484]"
+    />
+  </svg>
+);
+
+const JoinSvg = () => (
+  <svg viewBox="0 0 120 100" className="w-[7.5rem] h-[6.25rem] fill-none">
+    <circle cx="61" cy="80" r="10" className="fill-[#D9D9D9]" />
+    <circle cx="61" cy="20" r="10" className="fill-Primary-50" />
+    <circle cx="86" cy="37" r="10" className="fill-Primary-50" />
+    <circle cx="35" cy="37" r="10" className="fill-Primary-50" />
+    <circle cx="35" cy="64" r="10" className="fill-Primary-50" />
+    <circle cx="86" cy="64" r="10" className="fill-Primary-50" />
+  </svg>
+);
+
+const BecomeSvg = () => (
+  <svg viewBox="0 0 120 100" className="w-[7.5rem] h-[6.25rem] fill-none">
+    <circle cx="101" cy="39" r="10" className="fill-Primary-50" />
+    <circle cx="30" cy="39" r="10" className="fill-Primary-50" />
+    <circle cx="60" cy="19" r="10" className="fill-Primary-50" />
+    <circle cx="67" cy="60" r="10" className="fill-Primary-50" />
+    <circle cx="90" cy="90" r="10" className="fill-Primary-50" />
+    <circle cx="30" cy="80" r="10" className="fill-Primary-50" />
+  </svg>
+);
+
 export {
   ButtonArrow,
   Arrows,
@@ -620,4 +678,7 @@ export {
   VMLogo,
   WorshipLogo,
   ArrowDropDown,
+  ConnectSvg,
+  JoinSvg,
+  BecomeSvg,
 };
