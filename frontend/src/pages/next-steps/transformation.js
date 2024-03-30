@@ -73,21 +73,21 @@ const TransformationPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-9 md:gap-y-15 min-h-screen">
+      <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-9 lg:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-9 md:gap-y-15 items-center">
-          <h1 className="text-2xl font-semibold md:font-bold uppercase md:text-4xl leading-tighter mb-0">
+        <div className="max-w-container w-full flex flex-col gap-y-9 lg:gap-y-15 items-center">
+          <h1 className="text-2xl font-semibold lg:font-bold uppercase lg:text-4xl leading-tighter mb-0">
             Transformation Classes
           </h1>
-          <div className="gap-y-5 gap-x-15 flex flex-col md:flex-row items-center md:items-start pt-4 md:pt-0">
-            <div className="image-container md:order-1">
+          <div className="gap-y-5 gap-x-15 flex flex-col lg:flex-row items-center lg:items-start pt-4 lg:pt-0">
+            <div className="image-container lg:order-1">
               <StaticImage
                 alt="Transformation Classes"
                 src="../../images/transformation-classes-page.png"
               />
             </div>
-            <div className="content-container flex flex-col gap-y-5 md:gap-y-10">
-              <div className="text-base md:text-lg">
+            <div className="content-container flex flex-col gap-y-5 lg:gap-y-10">
+              <div className="text-base lg:text-lg">
                 <p>
                   At HMCC we love to see people radically experience God and be
                   equipped to share the Gospel to the nations. To do that, we

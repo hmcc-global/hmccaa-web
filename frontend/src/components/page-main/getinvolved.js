@@ -15,14 +15,14 @@ const steps = [
     image: <JoinSvg />,
     text: "Join a Life Group",
     details: "This is where our community comes to life. Come and see!",
-    href: "/",
+    href: "/next-steps/lifegroups",
   },
   {
     id: 1,
     image: <BecomeSvg />,
     text: "Become A Member",
     details: "Looking for a church home? Find out more!",
-    href: "/",
+    href: "/next-steps/membership",
   },
 ];
 const GetInvolved = () => (

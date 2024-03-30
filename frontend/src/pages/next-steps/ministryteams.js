@@ -144,7 +144,7 @@ const MinistryTeamsPage = ({ pageContext }) => {
                   We believe God has gifted each and every single of us with
                   unique giftings to build up the church and the world around
                   us. We hope you are able to get involved and discover more
-                  about yourself and how you can be used for God&paos;s Kingdom.
+                  about yourself and how you can be used for God&apos;s Kingdom.
                 </p>
               </div>
               <div className="flex flex-col gap-y-3">
@@ -247,10 +247,10 @@ const MinistryTeamsPage = ({ pageContext }) => {
             </PrimaryButtonLink>
             <div className="flex flex-col gap-y-3 md:gap-y-0">
               <p className="mb-0 text-base md:text-lg">
-                *Note that you must be an active member opf HMCC to serve.
+                *Note that you must be an active member of HMCC to serve.
               </p>
               <Link
-                to="/"
+                to="/next-steps/membership"
                 className="py-3 px-4 uppercase text-Accent-500 font-bold tracking-medium-wide"
               >
                 Become a Member

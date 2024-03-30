@@ -13,18 +13,18 @@ const BaptismPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-5 md:gap-y-15 min-h-screen">
+      <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-12 md:gap-y-15 items-center">
-          <h1 className="text-2xl md:text-4xl font-semibold md:font-bold leading-tighter mb-0 uppercase">
+        <div className="max-w-container w-full flex flex-col gap-y-12 lg:gap-y-15 items-center">
+          <h1 className="text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
             Baptism
           </h1>
-          <div className="gap-y-5 gap-x-15 flex flex-col md:flex-row items-center md:items-start">
-            <div className="image-container md:order-1">
+          <div className="gap-y-5 gap-x-15 flex flex-col lg:flex-row items-center lg:items-start">
+            <div className="image-container lg:order-1">
               <StaticImage alt="Baptism" src="../../images/baptism.png" />
             </div>
-            <div className="content-container flex flex-col gap-y-5 md:gap-y-10">
-              <div className="text-base md:text-lg">
+            <div className="content-container flex flex-col gap-y-5 lg:gap-y-10">
+              <div className="text-base lg:text-lg">
                 <p>
                   At HMCC, we believe that baptism is an important step in the
                   Christian faith as an outward expression of our inward faith.
@@ -43,7 +43,7 @@ const BaptismPage = ({ pageContext }) => {
                   becoming baptized, please sign up with the link below.
                 </p>
               </div>
-              <div className="flex btn-container-wide justify-center md:justify-start">
+              <div className="flex btn-container-wide justify-center lg:justify-start">
                 <PrimaryButtonLink to="/" hasArrow={true}>
                   Sign Up for Baptism Class
                 </PrimaryButtonLink>
