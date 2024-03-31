@@ -11,6 +11,20 @@
 const path = require("path");
 
 const ITEMS_PER_PAGE = 6;
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const sermonSeriesTypeDefs = `
+     type STRAPI_SERMON_SERIESJson implements Node @dontInfer {
+      Name: String!
+      id: ID!
+      strap_id: Int!
+      Background: Node
+    }
+  `;
+  createTypes(sermonSeriesTypeDefs);
+};
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   createPage({

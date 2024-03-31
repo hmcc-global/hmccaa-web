@@ -24,26 +24,19 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
     DatePreached: date,
     Preacher: { Prefix, Name },
     BiblePassage,
-    Series: {
-      Name: series,
-      Background: {
-        localFile: {
-          childImageSharp: { gatsbyImageData },
-        },
-      },
-    },
+    Series: { Name: series, Background },
     Description: {
       data: { Description: description },
     },
-    Audio: { url, mime },
+    Audio,
     VideoLink,
   } = strapiSermon;
   const speaker = `${Prefix} ${Name}`;
   const passeges = BiblePassage.map(
     ({ Book, ChapterVerse }) => `${Book} ${ChapterVerse}`
   );
-  const audioURL = `${baseURL}${url}`;
-  const videoID = VideoLink.match(/\d+/).shift();
+  const audioURL = `${baseURL}${Audio?.url}`;
+  const videoID = VideoLink ? VideoLink.match(/\d+/).shift() : null;
 
   return (
     <Layout>
@@ -73,7 +66,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
             <h1 className="text-2xl lg:text-4xl leading-tighter font-semibold lg:font-bold mb-0">
               {title}
             </h1>
-            <div className="flex flex-col lg:flex-row lg:gap-x-10 items-center pt-[0.9375rem] lg:pt-0 gap-y-5 lg:gap-y-0 lg:items-start">
+            <div className="flex flex-col lg:flex-row lg:gap-x-10 items-center pt-[0.9375rem] lg:pt-0 gap-y-5 lg:gap-y-0 lg:items-start w-full">
               <div className="flex flex-col gap-y-1 lg:gap-y-10 text-base lg:text-xl font-medium w-full lg:w-auto">
                 <div className="flex gap-x-2">
                   <CalendarIcon />
@@ -96,24 +89,30 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
               </div>
               <div className="w-full max-w-[45rem] flex-col flex gap-8">
                 <div className="relative">
-                  <GatsbyImage
-                    image={gatsbyImageData}
-                    alt={title}
-                    className="max-w-[45rem]"
-                  />
-                  <div className="flex justify-center absolute left-0 bottom-0 w-full">
-                    <div className="flex-1">
-                      <div className="subpixel-antialiased font-medium tabular-nums h-full leading-[1.7] max-w-full min-w-[12.5rem] relative overflow-hidden">
-                        <audio
-                          controls
-                          preload="metadata"
-                          className="block w-full"
-                        >
-                          <source src={audioURL} type={mime} />
-                        </audio>
+                  {Background?.localFile?.childImageSharp?.gatsbyImageData && (
+                    <GatsbyImage
+                      image={
+                        Background?.localFile?.childImageSharp?.gatsbyImageData
+                      }
+                      alt={title}
+                      className="max-w-[45rem]"
+                    />
+                  )}
+                  {Audio && (
+                    <div className="flex justify-center absolute left-0 bottom-0 w-full">
+                      <div className="flex-1">
+                        <div className="subpixel-antialiased font-medium tabular-nums h-full leading-[1.7] max-w-full min-w-[12.5rem] relative overflow-hidden">
+                          <audio
+                            controls
+                            preload="metadata"
+                            className="block w-full"
+                          >
+                            <source src={audioURL} type={Audio?.mime} />
+                          </audio>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 {videoID && (
                   <div className={`${mediaWrapper} w-full`}>

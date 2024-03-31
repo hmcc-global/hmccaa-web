@@ -42,7 +42,7 @@ const Card = ({
   return (
     <Link to={href} className="no-underline text-Shades-100 font-normal">
       <div
-        className={`flex flex-col items-center gap-2 pb-[0.9375rem] mx-auto rounded-xl border border-solid border-b-Neutral-900 shadow-md overflow-hidden ${containerCss} md:gap-5`}
+        className={`flex flex-col items-center gap-2 pb-[0.9375rem] mx-auto rounded-xl border border-solid border-b-Neutral-900 shadow-md overflow-hidden ${containerCss} md:gap-5 h-full`}
       >
         {img}
         <div className="flex flex-col gap-1 items-start md:gap-3 px-2 w-full md:px-[1.8125rem]">

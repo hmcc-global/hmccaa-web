@@ -158,14 +158,7 @@ const Sermons = ({
             {
               Title,
               DatePreached,
-              Series: {
-                Name: SeriesName,
-                Background: {
-                  localFile: {
-                    childImageSharp: { gatsbyImageData },
-                  },
-                },
-              },
+              Series: { Name: SeriesName, Background },
               Preacher: { Prefix, Name: PreacherName },
               BiblePassage,
               strapi_id,
@@ -176,7 +169,18 @@ const Sermons = ({
               key={i}
               title={Title}
               date={DatePreached}
-              img={<GatsbyImage image={gatsbyImageData} alt={SeriesName} />}
+              img={
+                Background?.localFile?.childImageSharp?.gatsbyImageData ? (
+                  <GatsbyImage
+                    image={
+                      Background?.localFile?.childImageSharp?.gatsbyImageData
+                    }
+                    alt={SeriesName}
+                  />
+                ) : (
+                  <div className="py-5 w-full"></div>
+                )
+              }
               speaker={`${Prefix} ${PreacherName}`}
               passage={BiblePassage}
               series={SeriesName}
