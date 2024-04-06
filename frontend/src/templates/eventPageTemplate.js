@@ -90,8 +90,8 @@ const EventPage = ({ data, pageContext }) => {
             </div> */}
           </div>
 
-            {/* look into gatsby image <GatsbyImage/> */}
-          
+          {/* look into gatsby image <GatsbyImage/> */}
+
           <div className="text-center pt-4 lg:order-1 ml-5">
             <img src={event.EventTemplate.CoverImage}></img>
           </div>

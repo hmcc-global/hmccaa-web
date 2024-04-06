@@ -9,7 +9,9 @@
  */
 
 const path = require("path");
-const {processEvents} = require("../frontend/src/components/page-events/new-event-processing")
+const {
+  processEvents,
+} = require("../frontend/src/components/page-events/new-event-processing");
 
 const ITEMS_PER_PAGE = 6;
 exports.createPages = async ({ graphql, actions, reporter }) => {
