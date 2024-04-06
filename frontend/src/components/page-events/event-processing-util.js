@@ -44,9 +44,12 @@ const DATE_ITERATOR = {
   Year: addYears,
 };
 
+
+//All of this code needs some kind of refactor
 const generateRecurringEvent = (timeInfo, baseEvent, maxOccurrences) => {
   maxOccurrences = maxOccurrences || 1;
   const startDate = new Date(timeInfo.DateTime);
+  console.log(startDate)
   const events = [];
   const duration = timeInfo.EndDateTime
     ? new Date(timeInfo.EndDateTime) - startDate
@@ -97,7 +100,6 @@ const processEvent = event => {
       "",
     description,
   };
-
   for (const time of event.Time || []) {
     if (time.strapi_component === STRAPI_RECURRING_TIME) {
       const recurringInstances = generateRecurringEvent(
@@ -118,6 +120,7 @@ const processEvent = event => {
     }
   }
 
+  console.log(eventInstances)
   // Sort events
   eventInstances.sort((a, b) => a.date - b.date);
 
@@ -126,6 +129,7 @@ const processEvent = event => {
 };
 
 export const processEvents = events => {
+  console.log("got here")
   const displayEvents = [];
   events.forEach(event => {
     const eventInstances = processEvent(event);

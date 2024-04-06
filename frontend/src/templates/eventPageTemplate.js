@@ -5,7 +5,7 @@ import { PrimaryButtonLink } from "../components/Button";
 import locationPinIcon from "../images/icons/locationPin.svg";
 import calendarIcon from "../images/icons/calendar.svg";
 import clockIcon from "../images/icons/clock-black.svg";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 const EventPage = ({ data, pageContext }) => {
   function formatDateAndTime(isoDateString) {
@@ -90,6 +90,8 @@ const EventPage = ({ data, pageContext }) => {
             </div> */}
           </div>
 
+            {/* look into gatsby image <GatsbyImage/> */}
+          
           <div className="text-center pt-4 lg:order-1 ml-5">
             <img src={event.EventTemplate.CoverImage}></img>
           </div>

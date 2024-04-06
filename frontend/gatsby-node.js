@@ -9,6 +9,7 @@
  */
 
 const path = require("path");
+const {processEvents} = require("../frontend/src/components/page-events/new-event-processing")
 
 const ITEMS_PER_PAGE = 6;
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -71,12 +72,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
 
+  //do all the event handling, and then make a master event list that is fully processed
+  //extract it to a util and call it twice
+
   if (eventResult.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query`);
     return;
   }
 
   //Create page for each event from GraphQL
+  // const parsedEvents = processEvents(eventResult.data.allStrapiEvent.edges)
+  // console.log(parsedEvents)
+
   eventResult.data.allStrapiEvent.edges.forEach(({ node: event }) => {
     createPage({
       path: `/events/${event.id}`,

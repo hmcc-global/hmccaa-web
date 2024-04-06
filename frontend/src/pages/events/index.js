@@ -9,7 +9,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
 import Banner from "../../components/shared/banner";
-import { processEvents } from "../../components/page-events/event-processing-util";
+// import { processEvents } from "../../components/page-events/event-processing-util";
+import { processEvents } from "../../components/page-events/new-event-processing";
 
 const EventsPage = () => {
   const data = useStaticQuery(graphql`
@@ -59,8 +60,9 @@ const EventsPage = () => {
       }
     }
   `);
-
+  console.log(data.allStrapiEvent.nodes)
   const events = processEvents(data.allStrapiEvent.nodes);
+  console.log(events)
 
   return (
     <Layout>
@@ -73,6 +75,7 @@ const EventsPage = () => {
           {events.map(event => (
             <EventCard
               key={event.id}
+              eventID={event.id}
               title={event.title}
               date={event.date.toString()}
               // TODO: use GatsbyImage since static cannot handle dynamic src
