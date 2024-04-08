@@ -10,7 +10,7 @@ const UpcomingEvents = () => (
         alt="UpcomingEventsImg"
       />
     </div>
-    <div className="w-full lg:2/4 text-center lg:text-left">
+    <div className="w-full lg:w-2/4 text-center lg:text-left">
       <div className="subheading">upcoming events</div>
       <h2>
         Here<span>&#39;</span>s what<span>&#39;</span>s happening next.

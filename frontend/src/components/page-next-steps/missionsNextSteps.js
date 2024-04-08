@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { SecondaryButtonLink } from "../Button";
 
 const MissionsNextStep = () => (
-  <div className="flex flex-col lg:flex-row gap-5 pb-[29px] pt-4 content-image">
+  <div className="flex flex-col lg:flex-row gap-5 pb-[29px] pt-4 content-image items-center lg:items-start">
     <div className="lg:order-1 text-center image-container">
       <StaticImage
         src="../../images/missionsNextStepImg.png"
