@@ -1,6 +1,7 @@
 import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { StaticImage } from "gatsby-plugin-image";
+import { SecondaryButtonLink } from "../Button";
 
 const MissionsNextStep = () => (
   <div className="flex flex-col lg:flex-row gap-5 pb-[29px] pt-4 lg:py-14">
@@ -31,10 +32,10 @@ const MissionsNextStep = () => (
           We have new opportunities each year. See how you can get involved!
         </p>
       </HighlightedParagraph>
-      <div>
-        <p className="text-Accent-200 font-bold">
-          Please email annarbor@hmcc.net to get connected!
-        </p>
+      <div className="flex">
+        <SecondaryButtonLink to="" hasArrow={true}>
+          Learn More
+        </SecondaryButtonLink>
       </div>
     </div>
   </div>
