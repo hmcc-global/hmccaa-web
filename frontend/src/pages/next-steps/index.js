@@ -13,14 +13,12 @@ import Baptism from "../../components/page-next-steps/baptism";
 const NextStepsPage = () => (
   <Layout>
     <Banner bgImage="bg-next-steps bg-center">Next Steps</Banner>
-    <div className="px-[1rem]">
+    <div className="content-padding-full">
       <LifeGroup />
       <Membership />
       <Transformation />
       <Baptism />
       <MinistryTeams />
-    </div>
-    <div className="px-[1rem]">
       <MissionsNextStep />
     </div>
   </Layout>
