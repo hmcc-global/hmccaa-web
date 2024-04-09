@@ -113,7 +113,7 @@ span.ellipsis {
   @apply text-ellipsis;
 }
 .content-image {
-  @apply max-w-container w-full md:py-15 gap-x-15;
+  @apply max-w-container w-full lg:py-15 gap-x-15;
 }
 
 .content-padding-full {
@@ -121,13 +121,33 @@ span.ellipsis {
 }
 
 .image-container {
-  @apply md:w-[45.7628%];
+  @apply lg:w-[45.7628%];
 }
 
 .content-container {
-  @apply md:w-[49.1526%];
+  @apply lg:w-[49.1526%];
 }
 
 .item-container.size-container {
   @apply lg:w-[45.7628%];
+}
+
+.collapsible-items .sub-heading {
+  @apply lg:items-center;
+}
+
+.collapsible-items .sub-heading h3 {
+  @apply leading-tighter;
+}
+
+.collapsible-items .toggle {
+  @apply pb-0;
+}
+
+.collapsible-items .toggle p {
+  @apply mt-2 lg:mt-3 text-base lg:text-lg;
+}
+
+.collapsible-items .toggle p:nth-child(2) {
+  @apply mt-5 lg:mt-6;
 }
