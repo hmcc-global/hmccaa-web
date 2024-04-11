@@ -32,7 +32,7 @@ const MissionsNextStep = () => (
           We have new opportunities each year. See how you can get involved!
         </p>
       </HighlightedParagraph>
-      <div className="flex justify-center lg:justify-start ">
+      <div className="flex justify-center lg:justify-start">
         <SecondaryButtonLink to="" hasArrow={true}>
           Learn More
         </SecondaryButtonLink>
