@@ -28,7 +28,7 @@
 }
 
 .container {
-  @apply lg:pb-20.25 pt-8 lg:pt-[10.625rem] max-w-container;
+  @apply lg:py-20 pt-10 max-w-container;
 }
 
 .svg-container {
