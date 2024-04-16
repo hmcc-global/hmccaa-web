@@ -11,7 +11,7 @@ const NumberPaging = ({ page, currentPage }) => {
     return /.../.test(page) ? (
       <span>{page}</span>
     ) : (
-      <span className="font-black">{page}</span>
+      <span className="font-normal">{page}</span>
     );
   } else {
     return (
