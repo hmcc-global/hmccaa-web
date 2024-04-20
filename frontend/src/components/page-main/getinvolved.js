@@ -32,7 +32,8 @@ const steps = [
   },
 ];
 
-const linkClassnames = "flex py-3 px-5 flex-col text-Accent-500 font-bold tracking-medium-wide underline uppercase";
+const linkClassnames =
+  "flex py-3 px-5 flex-col text-Accent-500 font-bold tracking-medium-wide underline uppercase";
 
 const GetInvolved = () => (
   <div className="py-5 md:py-10 flex max-w-container w-full justify-center">
@@ -58,21 +59,15 @@ const GetInvolved = () => (
                 </p>
               </div>
               <div className="flex justify-center">
-                {external ? 
-                  <Link
-                    href={`${href}`}
-                    className={linkClassnames}
-                  >
+                {external ? (
+                  <Link href={`${href}`} className={linkClassnames}>
                     {action}
                   </Link>
-                  :
-                  <Link
-                    to={`${href}`}
-                    className={linkClassnames}
-                  >
+                ) : (
+                  <Link to={`${href}`} className={linkClassnames}>
                     {action}
                   </Link>
-                }
+                )}
               </div>
             </div>
           ))}
