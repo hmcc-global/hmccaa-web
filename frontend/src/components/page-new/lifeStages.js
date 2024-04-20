@@ -114,7 +114,7 @@ const LifeStages = () => {
         ))}
       </div>
       <div className="flex flex-col items-center gap-y-5">
-        <SecondaryButtonLink to="/" hasArrow={true}>
+        <SecondaryButtonLink href="https://fs23.formsite.com/whitemn/dtuolqqeba/index.html" hasArrow={true}>
           Let Us Know You&apos;re Interested
         </SecondaryButtonLink>
         <p>*We will have a servant leader contact you.</p>
