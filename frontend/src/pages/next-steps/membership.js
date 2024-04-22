@@ -42,9 +42,15 @@ const MembershipPage = ({ pageContext }) => {
                   prayer, and service.
                 </p>
                 <p className="mb-0">
-                  <span className="font-bold">If you&apos;re interested in becoming a member at HMCC</span>, please check 
-                  our Events page for any upcoming <span className="font-bold text-Accent-700">Experiencing Membership</span> classes 
-                  or email us at <span className="font-bold">annarbor@hmcc.net</span>
+                  <span className="font-bold">
+                    If you&apos;re interested in becoming a member at HMCC
+                  </span>
+                  , please check our Events page for any upcoming{" "}
+                  <span className="font-bold text-Accent-700">
+                    Experiencing Membership
+                  </span>{" "}
+                  classes or email us at{" "}
+                  <span className="font-bold">annarbor@hmcc.net</span>
                 </p>
               </div>
               <div className="flex">
