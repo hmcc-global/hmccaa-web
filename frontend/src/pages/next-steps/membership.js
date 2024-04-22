@@ -42,13 +42,20 @@ const MembershipPage = ({ pageContext }) => {
                   prayer, and service.
                 </p>
                 <p className="mb-0">
-                  If you&apos;re interested in becoming a member at HMCC, please
-                  click the link below.
+                  <span className="font-bold">
+                    If you&apos;re interested in becoming a member at HMCC
+                  </span>
+                  , please check our Events page for any upcoming{" "}
+                  <span className="font-bold text-Accent-700">
+                    Experiencing Membership
+                  </span>{" "}
+                  classes or email us at{" "}
+                  <span className="font-bold">annarbor@hmcc.net</span>
                 </p>
               </div>
               <div className="flex">
-                <PrimaryButtonLink href="/" hasArrow={true}>
-                  Become a Member
+                <PrimaryButtonLink to="/events" hasArrow={true}>
+                  Events Page
                 </PrimaryButtonLink>
               </div>
             </div>

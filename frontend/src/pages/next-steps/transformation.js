@@ -108,8 +108,8 @@ const TransformationPage = ({ pageContext }) => {
                 </p>
               </div>
               <div className="flex">
-                <PrimaryButtonLink to="/" hasArrow={true}>
-                  Sign Up Now
+                <PrimaryButtonLink to="/events" hasArrow={true}>
+                  Events Page
                 </PrimaryButtonLink>
               </div>
             </div>

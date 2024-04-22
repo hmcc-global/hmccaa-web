@@ -7,6 +7,7 @@ import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
 import { StaticImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
+import EventsNotes from "../../components/page-events/eventsNote";
 import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
 import Banner from "../../components/shared/banner";
 import { processEvents } from "../../components/page-events/event-processing-util";
@@ -89,6 +90,7 @@ const EventsPage = () => {
           ))}
         </div>
       )}
+      <EventsNotes />
       <PrayerGatheringEvents />
       <Instagram />
     </Layout>
