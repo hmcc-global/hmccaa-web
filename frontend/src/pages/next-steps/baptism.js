@@ -44,8 +44,8 @@ const BaptismPage = ({ pageContext }) => {
                 </p>
               </div>
               <div className="flex btn-container-wide justify-center lg:justify-start">
-                <PrimaryButtonLink to="/" hasArrow={true}>
-                  Sign Up for Baptism Class
+                <PrimaryButtonLink to="/events" hasArrow={true}>
+                  Events Page
                 </PrimaryButtonLink>
               </div>
             </div>
