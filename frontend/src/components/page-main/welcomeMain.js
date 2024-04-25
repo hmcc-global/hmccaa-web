@@ -20,10 +20,10 @@ const WelcomeMain = () => (
           and <span>knowing Him changes everything.</span>
         </p>
         <p>
-          Here you will find <span>a place where you can encounter God</span> and{" "}
-          <span>experience His love in the community of others</span> through meeting 
-          together on Sunday, gathering in weekly LIFE groups,  serving the needs of 
-          our community and much more!
+          Here you will find <span>a place where you can encounter God</span>{" "}
+          and <span>experience His love in the community of others</span>{" "}
+          through meeting together on Sunday, gathering in weekly LIFE groups,
+          serving the needs of our community and much more!
         </p>
         <p>
           We hope that we can get to know you and together, understand more of
