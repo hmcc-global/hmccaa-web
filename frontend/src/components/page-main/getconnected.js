@@ -119,10 +119,6 @@ const GetConnectedCircleDesktop = () => (
             );
           })}
         </div>
-        <div className={highlightText}>
-          Please email <a href="mailto:annarbor@hmcc.net">annarbor@hmcc.net</a>{" "}
-          to get connected!
-        </div>
       </div>
     </div>
   </div>
