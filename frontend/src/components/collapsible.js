@@ -7,6 +7,7 @@ export const Collapsible = ({
   sectionHead,
   sectionBody,
   sectionBlock,
+  headCss,
   overrideCss,
 }) => {
   const [reveal, setReveal] = useState(false);
@@ -30,7 +31,7 @@ export const Collapsible = ({
           />
         </button>
         <h3>
-          <button>{sectionHead}</button>
+          <button className={headCss}>{sectionHead}</button>
         </h3>
       </div>
       <div

@@ -54,7 +54,7 @@ const Values = () => (
       <div className="subheading">Our Values</div>
       <div className={title}>
         <h2>
-          S<span>A</span>LT C<span>O</span>MM<span>AN</span>D
+          <span>S</span>A<span>LT</span> <span>C</span>O<span>MM</span>AN<span>D</span>
         </h2>
       </div>
     </div>
@@ -65,6 +65,7 @@ const Values = () => (
             key={index}
             sectionHead={values.sectionHead}
             sectionBody={values.sectionBody}
+            headCss={"first-letter:text-Accent-700"}
           />
         ))}
       </div>
@@ -74,6 +75,7 @@ const Values = () => (
             key={index}
             sectionHead={values.sectionHead}
             sectionBody={values.sectionBody}
+            headCss={"first-letter:text-Accent-700"}
           />
         ))}
       </div>
