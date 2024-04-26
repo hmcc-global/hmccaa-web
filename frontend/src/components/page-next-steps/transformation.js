@@ -19,10 +19,7 @@ const Transformation = () => (
         <p>
           Transformation classes dive deeper into some fundamentals of our faith
           - such as what it means to be a disciple of Christ, how to break free
-          from our past, or how to spread God’s Word.
-        </p>
-        <p className="mb-0">
-          Classes are offered in the beginning of each calendar year.
+          from our past, or how to spread God&apos;s Word.
         </p>
       </div>
       <div className="flex justify-center md:justify-start">

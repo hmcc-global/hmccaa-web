@@ -16,7 +16,7 @@ const Membership = () => (
         </p>
         <div className="flex justify-center btn-container">
           <SecondaryButtonLink to="/next-steps/membership" hasArrow={true}>
-            Sign Up For Membership
+            Learn More
           </SecondaryButtonLink>
         </div>
       </div>
