@@ -20,7 +20,7 @@
 }
 
 .count {
-  @apply font-bold text-6xl leading-tighter text-Accent-700 pr-5 lg:pr-8 lg:absolute lg:top-0 lg:left-0;
+  @apply font-bold text-6xl leading-tighter text-Primary-500 pr-5 lg:pr-8 lg:absolute lg:top-0 lg:left-0;
 }
 
 .container h3 {
