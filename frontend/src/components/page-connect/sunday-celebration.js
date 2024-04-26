@@ -25,8 +25,8 @@ const sundayCelebration = () => (
         <div className={paragraph}>
           <p>
             Sunday Celebration is HMCC’s weekend gathering where we come
-            together to worship God and celebrate His work in our lives. All are
-            welcome!
+            together to worship God and celebrate His work in our lives.{" "}
+            <span className="text-Accent-700 font-bold">All are welcome!</span>
           </p>
         </div>
       </div>
