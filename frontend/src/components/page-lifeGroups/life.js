@@ -22,9 +22,9 @@ const LifeAcronym = [
 
 const Life = () => (
   <div className="flex flex-col-reverse md:flex-row items-center md:items-start md:justify-between pb-10 md:pb-[8.4375rem] gap-y-5">
-    <div className="w-[40.679%] flex flex-col gap-y-[1.542rem]">
-      <h3 className="text-2xl font-semibold leading-tighter">
-        The L.I.F.E in LIFE Group stands for
+    <div className="md:w-[40.679%] flex flex-col gap-y-[1.542rem]">
+      <h3 className="text-xl font-medium leading-tighter">
+        The L.I.F.E in LIFE Group stands for:
       </h3>
       <div>
         {LifeAcronym.map((item, index) => (
@@ -52,7 +52,7 @@ const Life = () => (
         ))}
       </div>
     </div>
-    <div className="w-[49.153%] flex flex-col pt-[2.1875rem] pb-9 px-10 justify-center gap-y-[3px] rounded-2xl border-2 border-solid border-Neutral-600">
+    <div className="md:w-[49.153%] flex flex-col px-2 py-6 justify-center gap-y-[3px] text-center rounded-2xl border-2 border-solid border-Neutral-600">
       <p>
         If you are new to our church, there is no better way to get a taste of
         who we are and what we believe in then to check out one of our LIFE
