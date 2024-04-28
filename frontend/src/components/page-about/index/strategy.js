@@ -17,7 +17,9 @@ const Strategy = () => (
   <div className={container}>
     <div className={titleContainer}>
       <div className="subheading">Our Strategy</div>
-      <h2>The 3G&apos;s: Gather, Grow, Go</h2>
+      <h2>
+        The <span className="text-Accent-700">3G</span>&apos;s: Gather, Grow, Go
+      </h2>
     </div>
     <div className="px-4 lg:relative">
       <div className={svgContainer}>
@@ -46,7 +48,10 @@ const Strategy = () => (
           <div className="lg:relative lg:pl-[66px]">
             <div className="flex items-center pb-3 lg:pb-0 lg:block">
               <div className={count}>3</div>
-              <h3>Go: Personal Mission & Team-Based Mission</h3>
+              <h3>
+                <span className="text-Accent-700">Go:</span> Personal Mission &
+                Team-Based Mission
+              </h3>
             </div>
             <div>
               Jesus calls us to continue his mission until every nation is
@@ -65,7 +70,10 @@ const Strategy = () => (
           <div className="lg:relative lg:pl-[66px]">
             <div className="flex items-center pb-3 lg:pb-0 lg:block">
               <div className={count}>2</div>
-              <h3>Grow: Life-on-Life & Equipping</h3>
+              <h3>
+                <span className="text-Accent-700">Grow:</span> Life-on-Life &
+                Equipping
+              </h3>
             </div>
             <div>
               We believe that people grow to maturity in biblical community
@@ -93,7 +101,10 @@ const Strategy = () => (
           <div className="lg:relative lg:pl-[66px]">
             <div className="flex items-center lg:block">
               <div className={count}>1</div>
-              <h3>Gather: Corporate Gatherings & Community Gatherings</h3>
+              <h3>
+                <span className="text-Accent-700">Gather:</span> Corporate
+                Gatherings & Community Gatherings
+              </h3>
             </div>
             <div>
               We gather as the family of God to celebrate what God has done and

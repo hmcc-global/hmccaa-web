@@ -78,15 +78,7 @@ const DeaconsSection = () => {
   ];
   return (
     <div className="w-full flex flex-col items-center lg:items-start gap-y-5 lg:gap-y-[3.75rem] pt-[1.625rem] pb-[0.125rem] lg:py-0">
-      <TeamHeading title="Meet Our Deacons">
-        <p>
-          Something about Deacons... Lorem Ipsum... esus talks about living an
-          abundant life. The vision of LIFE Group is: to experience the fullness
-          of life in a Biblical community where the Gospel is radically lived
-          out. LIFE Groups seek to accomplish this by sharing our lives with one
-          another within various life stages.
-        </p>
-      </TeamHeading>
+      <TeamHeading title="Meet Our Deacons"></TeamHeading>
       <Team className="max-w-[36.25rem] lg:max-w-none gap-x-5">
         {deaconInfo.map((item, index) => (
           <TeamCard

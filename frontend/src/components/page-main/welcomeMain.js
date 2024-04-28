@@ -13,17 +13,17 @@ const WelcomeMain = () => (
     </div>
     <div className="w-full lg:text-left text-center flex lg:block flex-col content-container">
       <div className="subheading">welcome</div>
-      <h2>we are all about jesus</h2>
+      <h2>JESUS IS OUR CENTER.</h2>
       <HighlightedParagraph>
         <p className="pt-5">
           At HMCC, we believe Jesus is the most important person in the universe
           and <span>knowing Him changes everything.</span>
         </p>
         <p>
-          We aim to create <span>a space where you can encounter God</span> and{" "}
-          <span>experience His love in the community of others</span> through
-          meeting together on Sunday, gathering in weekly LIFE groups, serving
-          the needs of our community, and much more!
+          Here you will find <span>a place where you can encounter God</span>{" "}
+          and <span>experience His love in the community of others</span>{" "}
+          through meeting together on Sunday, gathering in weekly LIFE groups,
+          serving the needs of our community and much more!
         </p>
         <p>
           We hope that we can get to know you and together, understand more of

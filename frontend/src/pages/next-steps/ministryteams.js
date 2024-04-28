@@ -241,22 +241,25 @@ const MinistryTeamsPage = ({ pageContext }) => {
               )}
             </div>
           </div>
-          <div className="flex flex-col max-w-[68.75rem] w-full items-center text-center gap-y-5 md:gap-y-14">
-            <PrimaryButtonLink to="/" hasArrow={true}>
-              Join A Team
-            </PrimaryButtonLink>
-            <div className="flex flex-col gap-y-3 md:gap-y-0">
-              <p className="mb-0 text-base md:text-lg">
-                *Note that you must be an active member of HMCC to serve.
-              </p>
-              <Link
-                to="/next-steps/membership"
-                className="py-3 px-4 uppercase text-Accent-500 font-bold tracking-medium-wide"
-              >
-                Become a Member
-              </Link>
-            </div>
-          </div>
+        </div>
+        <div className="flex flex-col max-w-[44rem] w-full items-center text-center gap-y-5 md:gap-y-10">
+          <p className="text-base lg:text-lg mb-0">
+            <span className="font-bold">
+              If you are interested in joining a Ministry Team
+            </span>
+            , please check our Events page for any upcoming{" "}
+            <span className="text-Accent-700 font-bold">
+              Experiencing Ministry
+            </span>{" "}
+            classes or email us at{" "}
+            <span className="font-bold">annarbor@hmcc.net</span>
+          </p>
+          <p className="text-base lg:text-lg mb-0">
+            *Note that you must be an active member of HMCC to serve.
+          </p>
+          <PrimaryButtonLink to="/events" hasArrow={true}>
+            Events Page
+          </PrimaryButtonLink>
         </div>
       </div>
     </Layout>
