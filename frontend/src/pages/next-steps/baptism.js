@@ -42,7 +42,13 @@ const BaptismPage = ({ pageContext }) => {
                   <span className="font-bold">
                     If you are interested in learning more about baptism or
                     becoming baptized
-                  </span>, please check our Events page for any upcoming <span className="text-Accent-700 font-bold">Baptism classes</span> or email us at <span className="font-bold">annarbor@hmcc.net</span>
+                  </span>
+                  , please check our Events page for any upcoming{" "}
+                  <span className="text-Accent-700 font-bold">
+                    Baptism classes
+                  </span>{" "}
+                  or email us at{" "}
+                  <span className="font-bold">annarbor@hmcc.net</span>
                 </p>
               </div>
               <div className="flex btn-container-wide justify-center lg:justify-start">
