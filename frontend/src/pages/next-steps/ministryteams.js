@@ -254,7 +254,9 @@ const MinistryTeamsPage = ({ pageContext }) => {
             classes or email us at{" "}
             <span className="font-bold">annarbor@hmcc.net</span>
           </p>
-          <p className="text-base lg:text-lg mb-0">*Note that you must be an active member of HMCC to serve.</p>
+          <p className="text-base lg:text-lg mb-0">
+            *Note that you must be an active member of HMCC to serve.
+          </p>
           <PrimaryButtonLink to="/events" hasArrow={true}>
             Events Page
           </PrimaryButtonLink>
