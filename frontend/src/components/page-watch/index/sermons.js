@@ -145,7 +145,7 @@ const Sermons = ({
           filterValue={filterValue}
         />
         <ComboBox
-          label="Books"
+          label="Book"
           options={books}
           handleChange={handleChange}
           filterValue={filterValue}
