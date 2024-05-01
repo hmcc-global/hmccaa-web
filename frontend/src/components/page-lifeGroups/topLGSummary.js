@@ -9,7 +9,7 @@ const TopLGSummary = () => (
       LIFE GROUPS
     </h1>
 
-    <div className="flex flex-col lg:flex-row gap-y-5 lg:pb-[100px] content-image">
+    <div className="flex flex-col lg:flex-row gap-y-5 lg:pb-25 pb-15 content-image">
       <div className="lg:order-1 text-center image-container">
         <StaticImage
           className="max-w-[580px]"

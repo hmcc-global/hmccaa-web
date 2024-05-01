@@ -42,11 +42,13 @@ const Acronym = [
 ];
 
 const Life = () => (
-  <div className="flex flex-row">
+  <div className="flex lg:flex-row lg:flex-nowrap flex-wrap gap-6 pb-25 justify-center">
     {Acronym.map((item, index) => (
-      <div key={index}>
-        <p>{item.text}</p>
-        {item.image}
+      <div key={index} className="flex flex-col">
+        <p className="font-bold first-letter:text-4xl text-2xl text-center mb-0">
+          {item.text}
+        </p>
+        <div className="max-w-[300px] self-center">{item.image}</div>
       </div>
     ))}
   </div>
