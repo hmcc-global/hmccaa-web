@@ -45,9 +45,9 @@ const Life = () => (
   <div className="flex lg:flex-row lg:flex-nowrap flex-wrap gap-6 pb-25 justify-center">
     {Acronym.map((item, index) => (
       <div key={index} className="flex flex-col">
-        <p className="font-bold first-letter:text-4xl text-2xl text-center mb-0">
+        <h3 className="first-letter:font-bold first-letter:text-4xl font-semibold text-2xl text-center mb-0 ">
           {item.text}
-        </p>
+        </h3>
         <div className="max-w-[300px] self-center">{item.image}</div>
       </div>
     ))}
