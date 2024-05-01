@@ -175,6 +175,7 @@ const InstaIcon = ({ className = "scale-100" }) => (
     />
   </svg>
 );
+
 const CopyrightLogo = ({ className }) => (
   <svg
     viewBox="0 0 20 21"
@@ -367,7 +368,7 @@ const AdsLogo = ({ className }) => (
 const KidsLogo = ({ className }) => (
   <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#FFCF54] w-full h-full" />
+      <rect className="fill-[#FFC47D] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -414,10 +415,11 @@ const KidsLogo = ({ className }) => (
     </g>
   </svg>
 );
+
 const DocsLogo = ({ className }) => (
   <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#FF5353] w-full h-full" />
+      <rect className="fill-[#FE8383] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -451,7 +453,7 @@ const DocsLogo = ({ className }) => (
 const HostsLogo = ({ className }) => (
   <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#54D5FF] w-full h-full" />
+      <rect className="fill-[#B1E5E7] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -494,7 +496,7 @@ const HostsLogo = ({ className }) => (
 const FacilitiesLogo = ({ className }) => (
   <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#54FF65] w-full h-full" />
+      <rect className="fill-[#A4EC99] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -527,7 +529,7 @@ const FacilitiesLogo = ({ className }) => (
 const VMLogo = ({ className }) => (
   <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#C854FF] w-full h-full" />
+      <rect className="fill-[#C1B5FF] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
@@ -559,7 +561,7 @@ const VMLogo = ({ className }) => (
 const WorshipLogo = ({ className }) => (
   <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#5969FF] w-full h-full" />
+      <rect className="fill-[#96BCFB] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
