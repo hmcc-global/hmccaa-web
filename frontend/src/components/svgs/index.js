@@ -306,7 +306,7 @@ const SeriesIcon = () => (
 const AdsLogo = ({ className }) => (
   <svg className={`fill-none ${className}`} viewBox="0 0 60 60">
     <g>
-      <rect className="fill-[#F0DF5C] w-full h-full" />
+      <rect className="fill-[#FCFF8D] w-full h-full" />
       <path
         d="M45 3.75L56.25 3.75L56.25 15L60 15L60 3.75L60 0L56.25 -1.63918e-07L45 -6.55671e-07L45 3.75Z"
         className="fill-Shades-100"
