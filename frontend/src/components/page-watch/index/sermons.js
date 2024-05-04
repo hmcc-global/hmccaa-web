@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Link, navigate } from "gatsby";
+import { useEffect } from 'react';
+import { useLocation } from "@reach/router";
 import SermonCard from "./sermonCard";
 import { StaticImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
@@ -25,6 +27,51 @@ const NumberPaging = ({ page, currentPage }) => {
   }
 };
 
+const useSharedScrollRestoration = () => {
+  const location = useLocation();
+  const prevPathRef = React.useRef("/watch");
+
+  useEffect(() => {
+    const scrollKey = `scroll-${prevPathRef.current}`;
+    const savedScrollPosition = sessionStorage.getItem(scrollKey) || 0;
+
+    window.scrollTo(0, parseInt(savedScrollPosition, 10));
+
+    const handleScroll = () => {
+      sessionStorage.setItem(scrollKey, window.scrollY.toString());
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevPathRef.current]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const newPath = location.pathname;
+      prevPathRef.current = newPath;
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [location.pathname]);
+
+  const handleNavigate = (newPath) => {
+    const scrollKey = `scroll-${newPath}`;
+    const currentScrollPosition = window.scrollY.toString();
+    sessionStorage.setItem(scrollKey, currentScrollPosition);
+    navigate(newPath);
+  };
+
+  return handleNavigate;
+};
+
+
 // Building the Sermons List
 const Sermons = ({
   sermons: { nodes },
@@ -37,6 +84,8 @@ const Sermons = ({
     filterValue = null,
   },
 }) => {
+  const handleNavigate = useSharedScrollRestoration();
+
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
   const previous =
@@ -119,7 +168,7 @@ const Sermons = ({
           current ? `${accumulator}/${current}` : accumulator,
         ""
       );
-    (values || filterValue) && navigate(`/watch${values}`);
+    (values || filterValue) && handleNavigate(`/watch${values}`);
   };
 
   return (
