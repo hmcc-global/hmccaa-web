@@ -6,52 +6,90 @@ export const buildCoordinates = len => {
     Math.PI / 180,
     Number((360 / len).toFixed(8)),
   ];
-  let angle = 0;
-  const deltaQuadrant = 90;
-  const coords = new Array(len).fill([]).map(() => {
-    let [x, y] = [
-      Math.round(radius * Math.sin(angle * conversion)),
+  const halfAngle = Number(
+    (90 - Number((deltaAngle / 2).toFixed(8))).toFixed(8)
+  );
+  const coords = [];
+  let [x, y] = [
+    Math.round(radius * Math.cos(halfAngle * conversion)),
+    Math.round(radius * Math.sin(halfAngle * conversion)),
+  ];
+  coords.push([
+    Math.round(radius + -x - width / 2),
+    Math.round(radius - y - height / 2),
+  ]);
+  coords.push([
+    Math.round(radius + x + width / 2),
+    Math.round(radius - y - height / 2),
+  ]);
+
+  const bottomY =
+    len % 2 === 0
+      ? bottomAngle(
+          Number((deltaAngle / 2).toFixed(8)),
+          deltaAngle,
+          len / 2 - 1,
+          radius,
+          conversion,
+          width,
+          height
+        )
+      : [260, 840];
+  const lastItem = coords[coords.length - 1];
+  [x, y] = lastItem;
+  const totalHalf = Math.ceil(len / 2) - 1;
+  const deltaY = Math.round((bottomY - y) / totalHalf);
+  for (let i = 1; i <= totalHalf; i++) {
+    const partialAngle = Number((deltaAngle / 2).toFixed(8));
+    const angle = Number(
+      (90 - Number((partialAngle + i * deltaAngle).toFixed(8))).toFixed(8)
+    );
+
+    [x, y] = [
       Math.round(radius * Math.cos(angle * conversion)),
+      lastItem[1] + deltaY * i,
     ];
+    coords.push([Math.round(radius + x + width / 2), y]);
+  }
+  let index = len % 2 === 0 ? coords.length - 1 : coords.length - 2;
+  for (let i = coords.length; i < len; i++) {
+    const partialAngle = Number((deltaAngle / 2).toFixed(8));
+    const angle = Number(
+      (Number((partialAngle + i * deltaAngle).toFixed(8)) - 270).toFixed(8)
+    );
+    [x, y] = [
+      Math.round(radius * Math.cos(angle * conversion)),
 
-    const padding = 287;
-    const divHeight = 322 / 2;
-    if (angle > 0 && angle <= deltaQuadrant * 2) {
-      const deltaAngle = Number((deltaQuadrant - angle).toFixed(8));
-      const deltaY = Math.round(radius * Math.sin(deltaAngle * conversion));
-      [x, y] = [
-        (deltaY + height * 0.5 > padding && deltaY > 0) ||
-        (deltaY < 0 && Math.abs(deltaY + height * 0.5) < divHeight)
-          ? 250
-          : Math.round(radius * Math.cos(deltaAngle * conversion)) -
-            width * 0.3,
-        deltaY,
-      ];
-    } else if (angle > 0) {
-      const quadrant = deltaQuadrant * 3;
-      const deltaAngle = Number((angle - quadrant).toFixed(8));
-      const deltaX =
-        Math.round(radius * Math.cos(deltaAngle * conversion)) + width * 0.6;
-      const deltaY = Math.round(radius * Math.sin(deltaAngle * conversion));
-
-      [x, y] = [
-        (deltaY + height * 0.5 > padding && deltaY > 0) ||
-        (deltaY < 0 && Math.abs(deltaY + height * 0.5) < divHeight)
-          ? -630
-          : -deltaX,
-        deltaY,
-      ];
-    }
-    if (y < 0) {
-      y = radius + Math.abs(y);
-    }
-    angle += deltaAngle;
-    return [x, y];
-  });
-
+      coords[index--],
+    ];
+    coords.push([Math.round(radius - x - width / 2), y]);
+  }
   return coords;
 };
 
+const bottomAngle = (
+  partialAngle,
+  angle,
+  halfLength,
+  radius,
+  conversion,
+  width,
+  height
+) => {
+  const lastHalfAngle = Number((partialAngle + angle * halfLength).toFixed(8));
+  return [
+    Math.round(
+      radius +
+        Math.round(radius * Math.cos(90 - lastHalfAngle * conversion)) +
+        width / 2
+    ),
+    Math.round(
+      radius -
+        Math.round(radius * Math.sin(90 - lastHalfAngle * conversion)) -
+        height / 2
+    ),
+  ];
+};
 export const translatesArray = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
   .map(buildCoordinates)
   .map(coords =>
@@ -286,16 +324,6 @@ const theme = {
     gridColumnStart: {
       26: "26",
       33: "33",
-    },
-    translate: {
-      ...translatesArray.reduce(
-        (accumulator, { x, y }) => ({
-          ...accumulator,
-          ...x,
-          ...y,
-        }),
-        {}
-      ),
     },
   },
 };

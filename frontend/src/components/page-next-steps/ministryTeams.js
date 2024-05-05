@@ -17,8 +17,8 @@ import {
 } from "../svgs";
 import { StaticImage } from "gatsby-plugin-image";
 import { PrimaryButtonLink } from "../Button";
-import { buildCoordinates } from "../../config/theme";
-
+import { buildCoordinates, translatesArray } from "../../config/theme";
+console.warn(translatesArray);
 const teams = [
   {
     team: "Art & Design Servants",
@@ -77,6 +77,8 @@ const translatesX = {
   329: "xl:translate-x-329",
   333: "xl:translate-x-333",
   336: "xl:translate-x-336",
+  352: "xl:translate-x-[11rem]",
+  439: "xl:translate-x-[20rem]",
   "-493": "xl:-translate-x-493",
   "-656": "xl:-translate-x-656",
   "-114": "xl:-translate-x-114",
@@ -106,6 +108,7 @@ const translatesY = {
   78: "xl:translate-y-78",
   100: "xl:translate-y-100",
   139: "xl:translate-y-139",
+  169: "xl:translate-y-169",
   187: "xl:translate-y-187",
   225: "xl:translate-y-225",
   256: "xl:translate-y-256",
@@ -159,7 +162,7 @@ const MinistryTeams = () => (
               our gifts to help those around us!
             </p>
           </div>
-          <div className="flex flex-col gap-y-3 xl:block py-5 xl:py-0 xl:absolute xl:inset-0 xl:transform xl:-rotate-[40deg]">
+          <div className="flex flex-col gap-y-3 xl:block py-5 xl:py-0 xl:absolute xl:inset-0 xl:transform">
             {teams.map((item, index) => {
               let className = "xl:-translate-x-[11.875rem]";
               if (index > 0) {
@@ -175,7 +178,7 @@ const MinistryTeams = () => (
               return (
                 <div
                   key={key}
-                  className={`xl:w-[23.75rem] xl:absolute xl:left-1/2 xl:-top-[3.75rem] xl:z-index-10 xl:transform ${className} xl:min-h-[7.5rem] xl:rotate-[40deg]`}
+                  className={`xl:w-[23.75rem] xl:absolute xl:left-1/2 xl:z-index-10 xl:-top-[0.625rem] xl:transform ${className} h-0 overflow-hidden border-b-[0.625rem]  border-solid`}
                 >
                   <div className={`${ministryTeam}`}>
                     <div className={teamWrapper}>
