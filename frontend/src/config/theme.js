@@ -15,15 +15,15 @@ export const buildCoordinates = len => {
     Math.round(radius * Math.sin(halfAngle * conversion)),
   ];
   coords.push([
-    Math.round(radius + -x - width / 2),
+    Math.round(radius + -x - (3 * width) / 4),
     Math.round(radius - y - height / 2),
   ]);
   coords.push([
-    Math.round(radius + x + width / 2),
+    Math.round(radius + x - width / 4),
     Math.round(radius - y - height / 2),
   ]);
 
-  const bottomY =
+  const [bottomX, bottomY] =
     len % 2 === 0
       ? bottomAngle(
           Number((deltaAngle / 2).toFixed(8)),
@@ -35,11 +35,14 @@ export const buildCoordinates = len => {
           height
         )
       : [260, 840];
-  const lastItem = coords[coords.length - 1];
-  [x, y] = lastItem;
-  const totalHalf = Math.ceil(len / 2) - 1;
-  const deltaY = Math.round((bottomY - y) / totalHalf);
-  for (let i = 1; i <= totalHalf; i++) {
+  const topItem = coords[coords.length - 1];
+  [x, y] = topItem;
+  const totalHalf = Math.ceil(len / 2);
+  const totalHalfCount = totalHalf - 1;
+
+  const deltaY = Math.round((bottomY - y) / totalHalfCount);
+
+  for (let i = 1; i < totalHalfCount; i++) {
     const partialAngle = Number((deltaAngle / 2).toFixed(8));
     const angle = Number(
       (90 - Number((partialAngle + i * deltaAngle).toFixed(8))).toFixed(8)
@@ -47,12 +50,13 @@ export const buildCoordinates = len => {
 
     [x, y] = [
       Math.round(radius * Math.cos(angle * conversion)),
-      lastItem[1] + deltaY * i,
+      topItem[1] + deltaY * i,
     ];
-    coords.push([Math.round(radius + x + width / 2), y]);
+    coords.push([Math.round(radius + x - (4 * width) / 12), y]);
   }
+  coords.push([bottomX, bottomY]);
   let index = len % 2 === 0 ? coords.length - 1 : coords.length - 2;
-  for (let i = coords.length; i < len; i++) {
+  for (let i = coords.length - 1; i < len; i++) {
     const partialAngle = Number((deltaAngle / 2).toFixed(8));
     const angle = Number(
       (Number((partialAngle + i * deltaAngle).toFixed(8)) - 270).toFixed(8)
@@ -60,7 +64,7 @@ export const buildCoordinates = len => {
     [x, y] = [
       Math.round(radius * Math.cos(angle * conversion)),
 
-      coords[index--],
+      coords[index--][1],
     ];
     coords.push([Math.round(radius - x - width / 2), y]);
   }
@@ -97,34 +101,48 @@ export const translatesArray = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
       ({ x, y }, [xCoords, yCoords]) => ({
         x: {
           ...x,
-          [xCoords]: `${(xCoords / 16).toFixed(4)}rem`,
+          [xCoords]: `${Math.abs(xCoords / 16).toFixed(4)}rem`,
         },
         y: {
           ...y,
-          [yCoords]: `${(yCoords / 16).toFixed(4)}rem`,
+          [yCoords]: `${Math.abs(yCoords / 16).toFixed(4)}rem`,
         },
       }),
       { x: {}, y: {} }
     )
-  )
-  .map(({ x, y }) => {
-    let keysX = Object.keys(x);
-    let keysY = Object.keys(y);
-    keysX = keysX.filter(value => Number(value) !== 0);
-    keysY = keysY.filter(value => Number(value) !== 0);
-    let xCoords = {};
-    let yCoords = {};
-    keysX.forEach(key => {
-      xCoords[key] = x[key];
-    });
-    keysY.forEach(key => {
-      yCoords[key] = y[key];
-    });
+  );
+const positionXY = translatesArray.reduce(
+  ({ x, y }, { x: xCoords, y: yCoords }) => {
+    const xKeys = Object.keys(xCoords);
+    const yKeys = Object.keys(yCoords);
+    const updatedXCoords = xKeys.reduce((accumulator, key) => {
+      return {
+        ...accumulator,
+        [Math.abs(key)]: xCoords[key],
+      };
+    }, {});
+    const updatedYCoords = yKeys.reduce((accumulator, key) => {
+      return {
+        ...accumulator,
+        [Math.abs(key)]: yCoords[key],
+      };
+    }, {});
     return {
-      x: xCoords,
-      y: yCoords,
+      x: {
+        ...x,
+        ...updatedXCoords,
+      },
+      y: {
+        ...y,
+        ...updatedYCoords,
+      },
     };
-  });
+  },
+  {
+    x: {},
+    y: {},
+  }
+);
 
 const theme = {
   colors: {
@@ -324,6 +342,10 @@ const theme = {
     gridColumnStart: {
       26: "26",
       33: "33",
+    },
+    inset: {
+      ...positionXY.x,
+      ...positionXY.y,
     },
   },
 };
