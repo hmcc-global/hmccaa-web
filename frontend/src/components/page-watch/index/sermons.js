@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
 
 const MAX_PAGINATION = 7;
@@ -17,7 +17,7 @@ const NumberPaging = ({ page, currentPage }) => {
     return (
       <Link
         className="text-Shades-100 no-underline"
-        to={`/watch/${page === "1" ? "" : page}`}
+        to={`/watch/${page === "1" ? "" : page}#sermonsList`}
       >
         {page}
       </Link>
@@ -119,7 +119,8 @@ const Sermons = ({
           current ? `${accumulator}/${current}` : accumulator,
         ""
       );
-    (values || filterValue) && navigate(`/watch${values}`);
+    console.warn(values);
+    (values || filterValue) && navigate(`/watch${values}#sermonsList`);
   };
 
   return (
@@ -152,28 +153,47 @@ const Sermons = ({
         />
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5">
-        {nodes.map((sermon, i) => (
-          <SermonCard
-            key={i}
-            title={sermon.Title}
-            date={sermon.DatePreached}
-            img={
-              <StaticImage
-                src="../../../images/Sermon-Ad-Selah-April.png"
-                alt="Selah"
-              />
-            }
-            speaker={sermon.Preacher.Prefix + " " + sermon.Preacher.Name}
-            passage={sermon.Title}
-            series={sermon.Series.Name}
-          />
-        ))}
+        {nodes.map(
+          (
+            {
+              Title,
+              DatePreached,
+              Series: { Name: SeriesName, Background },
+              Preacher: { Prefix, Name: PreacherName },
+              BiblePassage,
+              strapi_id,
+            },
+            i
+          ) => (
+            <SermonCard
+              key={i}
+              title={Title}
+              date={DatePreached}
+              img={
+                Background?.localFile?.childImageSharp?.gatsbyImageData ? (
+                  <GatsbyImage
+                    image={
+                      Background?.localFile?.childImageSharp?.gatsbyImageData
+                    }
+                    alt={SeriesName}
+                  />
+                ) : (
+                  <div className="py-5 w-full"></div>
+                )
+              }
+              speaker={`${Prefix} ${PreacherName}`}
+              passage={BiblePassage}
+              series={SeriesName}
+              href={`/watch/sermons/${strapi_id}`}
+            />
+          )
+        )}
       </div>
       <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
         <div className="flex text-xl lg:text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
           {!isFirst ? (
             <Link
-              to={previous}
+              to={`${previous}#sermonsList`}
               rel="prev"
               className="font-roboto text-Accent-500 no-underline"
             >
@@ -191,7 +211,7 @@ const Sermons = ({
           ))}
           {!isLast ? (
             <Link
-              to={next}
+              to={`${next}#sermonList`}
               rel="next"
               className="font-roboto text-Accent-500 no-underline"
             >

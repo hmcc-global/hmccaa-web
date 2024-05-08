@@ -1,8 +1,26 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { PrimaryButtonLink } from "../Button";
 import { mediaWrapper, mediaContent } from "../../css/media.module.css";
+import { useEffect } from "react";
+
+const MOBILE_SIZE = 768;
+const handleMobile = () =>
+  typeof window !== "undefined" && window.innerWidth < MOBILE_SIZE ? "m." : "";
 
 const LiveStream = () => {
+  const [mobile, setMobile] = useState(handleMobile());
+  const handleResize = () => {
+    setMobile(handleMobile());
+  };
+
+  useEffect(() => {
+    window?.addEventListener("resize", handleResize);
+
+    return function cleanup() {
+      window?.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="bg-Neutral-200  w-full flex justify-center py-7 lg:py-15 px-4 lg:px-8 mt-[2.5px] lg:mt-0">
       <div className="flex flex-col lg:flex-row max-w-container w-full gap-x-15 items-center lg:items-start gap-y-5">
@@ -24,7 +42,7 @@ const LiveStream = () => {
           <div className="flex justify-center lg:justify-start">
             <PrimaryButtonLink
               hasArrow={true}
-              href="https://www.youtube.com/@hmcc_aa/streams"
+              href={`https://${mobile}youtube.com/@hmcc_aa/streams`}
             >
               Watch Now
             </PrimaryButtonLink>

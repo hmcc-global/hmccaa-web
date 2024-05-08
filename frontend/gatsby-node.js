@@ -11,6 +11,20 @@
 const path = require("path");
 
 const ITEMS_PER_PAGE = 6;
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const sermonSeriesTypeDefs = `
+     type STRAPI_SERMON_SERIESJson implements Node @dontInfer {
+      Name: String!
+      id: ID!
+      strap_id: Int!
+      Background: Node
+    }
+  `;
+  createTypes(sermonSeriesTypeDefs);
+};
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   createPage({
@@ -94,19 +108,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     {
       allStrapiSermon {
         nodes {
+          strapi_id
           Title
-          DatePreached
+          DatePreached(formatString: "MMMM  DD, YYYY")
           BiblePassage {
             Book
             ChapterVerse
           }
           Series {
             Name
-            id
+            Background {
+              url
+            }
           }
           Preacher {
             Name
             Prefix
+          }
+          VideoLink
+          Audio {
+            url
+          }
+          Description {
+            data {
+              Description
+            }
           }
         }
       }
@@ -163,22 +189,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   );
   // All Bible Books List for Drop Down Selection
-  let books = posts.map(({ BiblePassage }) =>
-    BiblePassage.map(({ Book }) => Book)
-  );
-  books = [].concat(...books).map(book => {
-    const bookLabel = /\(\d[a-z]+\)/.test(book)
-      ? `${book.substring(
-          book.search(/\d/),
-          book.search(/\d/) + 1
-        )} ${book.substring(0, book.search(/\(/))}`
-      : book;
-    return {
-      label: bookLabel,
-      value: book.replace(/\(|\)/g, "").replace(/\s+/, "-").toLowerCase(),
-      book,
-    };
-  });
+  let books = posts
+    .map(({ BiblePassage }) => BiblePassage.map(({ Book }) => Book))
+    .reduce((result, current) => {
+      return result.concat(...current);
+    }, [])
+    .filter((book, index, bookList) => {
+      return bookList.indexOf(book) === index;
+    })
+    .map(book => {
+      console.warn(book);
+      const bookLabel = /\(\d+/.test(book)
+        ? `${book.substring(
+            book.search(/\d+/),
+            book.search(/\d+/) + book.substring(book.search(/\d+/)).search(/\D/)
+          )} ${book.substring(0, book.search(/\(/) - 1)}`
+        : book;
+      return {
+        label: bookLabel,
+        value: book.replace(/\(|\)/g, "").replace(/\s+/, "-").toLowerCase(),
+        book,
+      };
+    });
 
   const postsPerPage = ITEMS_PER_PAGE;
   const numberOfPages = Math.ceil(posts.length / postsPerPage);
@@ -440,6 +472,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           books,
         },
       });
+    });
+  });
+
+  posts.forEach(sermon => {
+    const { strapi_id } = sermon;
+    createPage({
+      path: `/watch/sermons/${strapi_id}`,
+      component: path.resolve("./src/templates/sermon.js"),
+      context: {
+        id: strapi_id,
+        baseURL: process.env.STRAPI_API_URL,
+      },
     });
   });
 };
