@@ -7,12 +7,16 @@ function processEvents(events) {
   const futureEvents = events.filter(event => {
     const eventTime = event.Time[0];
     const startTime = new Date(eventTime.DateTime);
-    const endTime = eventTime.EndRecurDate ? new Date(eventTime.EndRecurDate) : null;
+    const endTime = eventTime.EndRecurDate
+      ? new Date(eventTime.EndRecurDate)
+      : null;
 
     // Check if the event is a recurring event and if its end recur date is still in the future
-    return (endTime ? endTime > now : startTime > now);
-  });  
-  const sortedEvents = futureEvents.sort((a, b) => new Date(a.Time[0].DateTime) - new Date(b.Time[0].DateTime));
+    return endTime ? endTime > now : startTime > now;
+  });
+  const sortedEvents = futureEvents.sort(
+    (a, b) => new Date(a.Time[0].DateTime) - new Date(b.Time[0].DateTime)
+  );
 
   const reformattedEvents = reformatEvents(sortedEvents);
   return reformattedEvents;
@@ -22,16 +26,27 @@ const reformatEvents = events => {
   const eventInstances = [];
 
   events.forEach(event => {
-    const isRecurring = event.Time[0].strapi_component === STRAPI_RECURRING_TIME;
+    const isRecurring =
+      event.Time[0].strapi_component === STRAPI_RECURRING_TIME;
 
-    const fullDescription = event.DescriptionOverride || event.EventTemplate?.Description || "";
+    const fullDescription =
+      event.DescriptionOverride || event.EventTemplate?.Description || "";
     const [description] = fullDescription.split("\n");
     const baseEvent = {
       id: event.id,
       title: event.NameOverride || event.EventTemplate?.Name || "",
-      imgUrl: event.CoverImageOverride?.url || event.EventTemplate?.CoverImage.url || "",
-      imgAlt: event.CoverImageOverride?.imgAlt || event.EventTemplate?.CoverImage.imgAlt || "",
-      location: event.LocationOverride?.LocationName || event.EventTemplate?.Location.LocationName || "",
+      imgUrl:
+        event.CoverImageOverride?.url ||
+        event.EventTemplate?.CoverImage.url ||
+        "",
+      imgAlt:
+        event.CoverImageOverride?.imgAlt ||
+        event.EventTemplate?.CoverImage.imgAlt ||
+        "",
+      location:
+        event.LocationOverride?.LocationName ||
+        event.EventTemplate?.Location.LocationName ||
+        "",
       description,
       date: event.Time[0].DateTime,
     };
@@ -69,19 +84,19 @@ function generateRepeatingEvents(event) {
     occurrenceCount++;
 
     switch (interval) {
-      case 'day':
+      case "day":
         currentDate.setDate(currentDate.getDate() + 1);
         newEndDateTime.setDate(newEndDateTime.getDate() + 1);
         break;
-      case 'week':
+      case "week":
         currentDate.setDate(currentDate.getDate() + 7);
         newEndDateTime.setDate(newEndDateTime.getDate() + 7);
         break;
-      case 'month':
+      case "month":
         currentDate.setMonth(currentDate.getMonth() + 1);
         newEndDateTime.setMonth(newEndDateTime.getMonth() + 1);
         break;
-      case 'year':
+      case "year":
         currentDate.setFullYear(currentDate.getFullYear() + 1);
         newEndDateTime.setFullYear(newEndDateTime.getFullYear() + 1);
         break;
@@ -94,10 +109,6 @@ function generateRepeatingEvents(event) {
 }
 
 module.exports.processEvents = processEvents;
-
-
-
-
 
 // const STRAPI_RECURRING_TIME = "event-times.recurring-time";
 // const STRAPI_SINGLE_TIME = "event-times.single-time";
