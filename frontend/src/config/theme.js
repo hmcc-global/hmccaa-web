@@ -1,3 +1,146 @@
+export const buildCoordinates = len => {
+  const [width, height, radius, conversion, deltaAngle] = [
+    380,
+    120,
+    450,
+    Math.PI / 180,
+    Number((360 / len).toFixed(8)),
+  ];
+  const halfAngle = Number(
+    (90 - Number((deltaAngle / 2).toFixed(8))).toFixed(8)
+  );
+  const coords = [];
+  let [x, y] = [
+    Math.round(radius * Math.cos(halfAngle * conversion)),
+    Math.round(radius * Math.sin(halfAngle * conversion)),
+  ];
+  coords.push([
+    Math.round(radius + -x - (5 * width) / 8),
+    Math.round(radius - y),
+  ]);
+  coords.push([Math.round(radius + x - width / 4), Math.round(radius - y)]);
+
+  const [bottomX, bottomY] =
+    len % 2 === 0
+      ? bottomAngle(
+          Number((deltaAngle / 2).toFixed(8)),
+          deltaAngle,
+          len / 2 - 1,
+          radius,
+          conversion,
+          width,
+          height
+        )
+      : [260, 840];
+  const topItem = coords[coords.length - 1];
+  [x, y] = topItem;
+  const totalHalf = Math.ceil(len / 2);
+  const totalHalfCount = totalHalf - 1;
+
+  const deltaY = Math.round((bottomY - y) / totalHalfCount);
+
+  for (let i = 1; i < totalHalfCount; i++) {
+    const partialAngle = Number((deltaAngle / 2).toFixed(8));
+    const angle = Number(
+      (90 - Number((partialAngle + i * deltaAngle).toFixed(8))).toFixed(8)
+    );
+
+    [x, y] = [
+      Math.round(radius * Math.cos(angle * conversion)),
+      topItem[1] + deltaY * i,
+    ];
+    coords.push([Math.round(radius + x - (4 * width) / 12), y]);
+  }
+  coords.push([bottomX, bottomY]);
+  let index = len % 2 === 0 ? coords.length - 1 : coords.length - 2;
+  for (let i = coords.length - 1; i < len; i++) {
+    const partialAngle = Number((deltaAngle / 2).toFixed(8));
+    const angle = Number(
+      (Number((partialAngle + i * deltaAngle).toFixed(8)) - 270).toFixed(8)
+    );
+    [x, y] = [
+      Math.round(radius * Math.cos(angle * conversion)),
+
+      coords[index--][1],
+    ];
+    coords.push([Math.round(radius - x - width / 2), y]);
+  }
+  return coords;
+};
+
+const bottomAngle = (
+  partialAngle,
+  angle,
+  halfLength,
+  radius,
+  conversion,
+  width,
+  height
+) => {
+  const lastHalfAngle = Number((partialAngle + angle * halfLength).toFixed(8));
+  return [
+    Math.round(
+      radius +
+        Math.round(radius * Math.cos(90 - lastHalfAngle * conversion)) +
+        width / 2
+    ),
+    Math.round(
+      radius -
+        Math.round(radius * Math.sin(90 - lastHalfAngle * conversion)) -
+        height / 2
+    ),
+  ];
+};
+export const translatesArray = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  .map(buildCoordinates)
+  .map(coords =>
+    coords.reduce(
+      ({ x, y }, [xCoords, yCoords]) => ({
+        x: {
+          ...x,
+          [xCoords]: `${Math.abs(xCoords / 16).toFixed(4)}rem`,
+        },
+        y: {
+          ...y,
+          [yCoords]: `${Math.abs(yCoords / 16).toFixed(4)}rem`,
+        },
+      }),
+      { x: {}, y: {} }
+    )
+  );
+const positionXY = translatesArray.reduce(
+  ({ x, y }, { x: xCoords, y: yCoords }) => {
+    const xKeys = Object.keys(xCoords);
+    const yKeys = Object.keys(yCoords);
+    const updatedXCoords = xKeys.reduce((accumulator, key) => {
+      return {
+        ...accumulator,
+        [Math.abs(key)]: xCoords[key],
+      };
+    }, {});
+    const updatedYCoords = yKeys.reduce((accumulator, key) => {
+      return {
+        ...accumulator,
+        [Math.abs(key)]: yCoords[key],
+      };
+    }, {});
+    return {
+      x: {
+        ...x,
+        ...updatedXCoords,
+      },
+      y: {
+        ...y,
+        ...updatedYCoords,
+      },
+    };
+  },
+  {
+    x: {},
+    y: {},
+  }
+);
+
 const theme = {
   colors: {
     Neutral: {
@@ -196,6 +339,10 @@ const theme = {
     gridColumnStart: {
       26: "26",
       33: "33",
+    },
+    inset: {
+      ...positionXY.x,
+      ...positionXY.y,
     },
   },
 };
