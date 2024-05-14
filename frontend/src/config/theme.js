@@ -15,13 +15,10 @@ export const buildCoordinates = len => {
     Math.round(radius * Math.sin(halfAngle * conversion)),
   ];
   coords.push([
-    Math.round(radius + -x - (3 * width) / 4),
-    Math.round(radius - y - height / 2),
+    Math.round(radius + -x - (5 * width) / 8),
+    Math.round(radius - y),
   ]);
-  coords.push([
-    Math.round(radius + x - width / 4),
-    Math.round(radius - y - height / 2),
-  ]);
+  coords.push([Math.round(radius + x - width / 4), Math.round(radius - y)]);
 
   const [bottomX, bottomY] =
     len % 2 === 0
