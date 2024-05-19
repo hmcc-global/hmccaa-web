@@ -70,7 +70,7 @@ const EventsPage = () => {
       {events.length == 0 ? (
         <div className="text-center py-36">No events found.</div>
       ) : (
-        <div className="grid grid-cols-3 gap-x-5 gap-y-[2.0625rem] md:gap-y-15 py-36 max-w-container px-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container px-4">
           {events.map(event => (
             <EventCard
               key={event.id}
