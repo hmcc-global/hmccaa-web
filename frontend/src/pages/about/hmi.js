@@ -273,34 +273,6 @@ const HmiPage = ({ pageContext }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-y-[1.25rem] lg:gap-y-3  text-center lg:text-left">
-            <h2 className="uppercase text-xl lg:text-3xl leading-tighter">
-              Projects
-            </h2>
-            <p className="mb-0 text-base lg:text-lg">
-              As an extension of HMCC&apos;s ministries, Harvest Mission
-              International (HMI) is committed to participating in short-term
-              missions projects during the spring and summer. By sending out
-              teams to serve in a cross-cultural missions environment, it is our
-              hope that kingdom workers will be trained to serve the body of
-              Christ and to commit to life-long involvement in world missions.
-              As team members learn to selflessly serve and support local
-              churches, they have the opportunity to witness how God is working
-              in other parts of the world.
-            </p>
-          </div>
-          <div className="flex flex-col gap-y-[1.25rem] lg:gap-y-3 pt-[0.9375rem]  text-center lg:text-left">
-            <h2 className="uppercase text-xl lg:text-3xl leading-tighter">
-              Supported Workers
-            </h2>
-            <p className="mb-0 text-base lg:text-lg">
-              Partnership is critical as we strive to reach the nations with the
-              Gospel message. We know that missions cannot be done by a sole
-              missionary, but that it is our privilege to participate in
-              God&apos;s work around the world through our prayers and financial
-              support.
-            </p>
-          </div>
         </div>
       </div>
     </Layout>
