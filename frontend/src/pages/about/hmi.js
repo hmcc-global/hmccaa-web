@@ -14,47 +14,42 @@ const HmiPage = ({ pageContext }) => {
     {
       id: 1,
       destination: "Mexico",
-      year: 1998,
+      year: "1998",
     },
     {
       id: 2,
       destination: "Kenya",
-      year: 2002,
+      year: "2002",
     },
     {
       id: 3,
       destination: "India",
-      year: 2007,
+      year: "2006-2008",
     },
     {
       id: 4,
-      destination: "AA && Detroit",
-      year: 2009,
+      destination: "AA & Detroit",
+      year: "2009",
     },
     {
       id: 5,
       destination: "Indonesia",
-      year: 2012,
+      year: "2012",
     },
     {
       id: 6,
       destination: "Chicago",
-      year: 2014,
+      year: "2014, 2022",
     },
     {
       id: 7,
       destination: "Peru",
-      year: 2017,
+      year: "1999-2005, 2016-2024",
     },
     {
       id: 8,
       destination: "Jordan",
-      year: 2020,
-    },
-    {
-      id: 9,
-      destination: "Chicago",
-      year: 2022,
+      year: "2018-2020",
     },
   ];
   const workers = [
@@ -84,7 +79,7 @@ const HmiPage = ({ pageContext }) => {
     {
       id: 3,
       ministry: "HMCC of Hong Kong",
-      workers: "Seth & Christian Kim",
+      workers: "Seth & Christina Kim",
       image: (
         <StaticImage src="../../images/kims.png" alt="Seth & Christinga Kim" />
       ),
@@ -102,12 +97,12 @@ const HmiPage = ({ pageContext }) => {
         />
       ),
       description:
-        'In 2006, Pastor Tim and Miriam were led  to do the work of "Bridge-Building" with Muslims and Christians. They work with international students at the University of Michigan and Eastern Michigan University as they try to "build bridges of friendship, trust and understanding between Muslims and Christians." ',
+        'In 2006, Pastor Tim and Miriam were led to do the work of "Bridge-Building" with Muslims and Christians. They build relationships and share the gospel with Muslims both in the US and internationally, and train and mobilize Christians to love their Muslim neighbors.',
     },
     {
       id: 5,
       ministry: "HMCC of Jakarta",
-      workers: "Erin & Tina Ye",
+      workers: "Eric & Tina Yee",
       image: <StaticImage src="../../images/yees.png" alt="Eric & Tina Ye" />,
       description:
         "Pastor Eric and Tina Yee helped to plant the HMCC of Jakarta church in 2015. Originally both members of HMCC of Ann Arbor, both felt lead to bring the Gospel to unreached people in Indonesia in 2010. Their desire is to see people’s lives transformed, redirected to God’s purposes, and set out to transform the world for the glory of God.",
@@ -118,7 +113,7 @@ const HmiPage = ({ pageContext }) => {
       workers: "John & Ester Eom",
       image: <StaticImage src="../../images/eoms.png" alt="John & Ester Eom" />,
       description:
-        "In 2009 Pastor John moved to Indonesia with a team to plant HMCC of Indonesia. In 2014 he became pastor of HMCC of Tangerang. The church desires to see people of all walks of life encounter Jesus and be transformed by His grace.",
+        "In 2009 Pastor John moved to Indonesia with a team to plant HMCC of Indonesia. In 2014 he became pastor of HMCC of Tangerang.",
     },
     {
       id: 7,
@@ -128,7 +123,7 @@ const HmiPage = ({ pageContext }) => {
         <StaticImage src="../../images/juns.png" alt="Andrew & Nicole Jun" />
       ),
       description:
-        "Pastor Andrew and his family moved to Indonesia in 2010 to lead a church planting team with HMCC. After years of serving college students and unreached Muslim populations, the family is transitioning from local church ministry to focused outreach to Indonesian Muslims in our community and city. Their mission is to see God start disciple-making movements among the millions of unreached Indonesians that live around them.",
+        "Andrew, Nickey, and their family moved to Indonesia in 2010 to lead a church planting team with HMCC. After years of local church leadership, the family is transitioning to focused outreach to unreached people groups in their area. Their mission is to see God start disciple-making movements among the millions of unreached Indonesians that live around them.",
     },
   ].reduce(
     (rows, key, index) =>
@@ -171,7 +166,7 @@ const HmiPage = ({ pageContext }) => {
                         ministry, committed to planting churches, sending
                         short-term mission teams, and partnering with
                         missionaries locally and abroad. We currently have
-                        church plants in Austin, Jakarta, Indonesia, Hong Kong,
+                        church plants in Austin, Jakarta, Tangerang, Hong Kong,
                         and Detroit.
                       </p>
                     </div>
@@ -184,14 +179,15 @@ const HmiPage = ({ pageContext }) => {
                     </h2>
                     <p className="mb-0 text-base md:text-lg">
                       Harvest Mission International (HMI) is committed to
-                      participating in short-term missions projects during the
-                      spring and summer. By sending out teams to serve in a
-                      cross-cultural missions environment, it is our hope that
-                      kingdom workers will be trained to serve the body of
-                      Christ and to commit to life-long involvement in world
-                      missions. As team members learn to selflessly serve and
-                      support local churches, they have the opportunity to
-                      witness how God is working in other parts of the world.
+                      participating in short-term missions projects. By sending
+                      out teams to serve in a cross-cultural missions
+                      environment, it is our hope that kingdom workers will be
+                      trained to serve the body of Christ and to commit to
+                      life-long involvement in world missions. As team members
+                      learn to selflessly serve and support local churches, they
+                      have the opportunity to witness how God is working in
+                      other parts of the world. Here are a selection of past
+                      short-term teams that we have sent:
                     </p>
                   </div>
                   <div className="flex flex-col">
@@ -276,34 +272,6 @@ const HmiPage = ({ pageContext }) => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-y-[1.25rem] lg:gap-y-3  text-center lg:text-left">
-            <h2 className="uppercase text-xl lg:text-3xl leading-tighter">
-              Projects
-            </h2>
-            <p className="mb-0 text-base lg:text-lg">
-              As an extension of HMCC&apos;s ministries, Harvest Mission
-              International (HMI) is committed to participating in short-term
-              missions projects during the spring and summer. By sending out
-              teams to serve in a cross-cultural missions environment, it is our
-              hope that kingdom workers will be trained to serve the body of
-              Christ and to commit to life-long involvement in world missions.
-              As team members learn to selflessly serve and support local
-              churches, they have the opportunity to witness how God is working
-              in other parts of the world.
-            </p>
-          </div>
-          <div className="flex flex-col gap-y-[1.25rem] lg:gap-y-3 pt-[0.9375rem]  text-center lg:text-left">
-            <h2 className="uppercase text-xl lg:text-3xl leading-tighter">
-              Supported Workers
-            </h2>
-            <p className="mb-0 text-base lg:text-lg">
-              Partnership is critical as we strive to reach the nations with the
-              Gospel message. We know that missions cannot be done by a sole
-              missionary, but that it is our privilege to participate in
-              God&apos;s work around the world through our prayers and financial
-              support.
-            </p>
           </div>
         </div>
       </div>
