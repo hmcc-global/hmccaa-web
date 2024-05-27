@@ -45,7 +45,7 @@ const Partners = () => (
         <p>
           Currently HMI is involved in short-term projects both locally and
           internationally. Starting in <span>Ann Arbor</span>, HMI now has
-          church plants in <span>Austin, Jakarta, Tangerang, Hong Kong,</span>{" "}
+          church plants in <span>Austin, Jakarta, Indonesia, Hong Kong,</span>{" "}
           and <span>Detroit</span>.
         </p>
       </HighlightedParagraph>

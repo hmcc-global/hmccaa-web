@@ -32,7 +32,7 @@ const commandValues = [
       "To willingly come together as a diverse group of people to experience and live out the Gospel, in order to fulfill God's purposes.",
   },
   {
-    sectionHead: "M - Ministry inside and out",
+    sectionHead: "M - Ministry inside and outside",
     sectionBody:
       "To be a visible display and viable demonstration of God's Kingdom by stewarding our God-given spiritual gift(s), resources and experiences to build God's Church and transform the world.",
   },
