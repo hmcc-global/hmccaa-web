@@ -26,7 +26,7 @@ const IndexPage = () => (
             JOIN US THIS <br /> SUNDAY!
           </h2>
           <div className="flex-1 flex flex-col items-center md:items-start lg:pl-4">
-            <div className="font-bold">SERVICE TIMES</div>
+            <div className="font-bold">Sunday Celebration Time</div>
             <div className="font-bold text-3xl mb-2">10:00 AM ET</div>
             <div className="flex sm:justify-start justify-center text-center ">
               <PrimaryButtonLink to={"/connect"} hasArrow={true}>
