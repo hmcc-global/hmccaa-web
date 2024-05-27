@@ -43,8 +43,9 @@ const OurStory = () => {
             Although the composition of our church may continue to change, our
             mission will always remain the same.{" "}
             <span>
-              We desire to see people’s lives transformed, redirected to Gods
-              purposes, and set out to transform the world for the glory of God.
+              We desire to see people’s lives transformed, redirected to
+              God&apos;s purposes, and set out to transform the world for the
+              glory of God.
             </span>
           </p>
         </HighlightedParagraph>
