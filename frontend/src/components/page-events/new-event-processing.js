@@ -55,10 +55,10 @@ const reformatEvents = events => {
     if (isRecurring) {
       const newEvents = generateRepeatingEvents(event); // Generate all occurrences
       newEvents.forEach((newEvent, index) => {
-        const newBaseEvent = { 
-          ...baseEvent, 
+        const newBaseEvent = {
+          ...baseEvent,
           date: newEvent.Time[0].DateTime,
-          id: `${event.id}-${index}` // unique id for each occurrence
+          id: `${event.id}-${index}`, // unique id for each occurrence
         };
         eventInstances.push(newBaseEvent);
       });
@@ -106,4 +106,3 @@ function generateRepeatingEvents(event) {
 }
 
 module.exports.processEvents = processEvents;
-

@@ -24,52 +24,52 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
   const eventResult = await graphql(`
-  {
-    allStrapiEvent {
-      nodes {
-        id
-        DescriptionOverride
-        EventTemplate {
-          CoverImage {
-            url
+    {
+      allStrapiEvent {
+        nodes {
+          id
+          DescriptionOverride
+          EventTemplate {
+            CoverImage {
+              url
+            }
+            Description
+            Location {
+              LocationName
+            }
+            Name
+            ShowXUpcomingEvents
           }
-          Description
-          Location {
+          LocationOverride {
             LocationName
           }
-          Name
-          ShowXUpcomingEvents
-        }
-        LocationOverride {
-          LocationName
-        }
-        NameOverride
-        Time {
-          ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
-            id
-            DateTime
-            EndDateTime
-            EndRecurDate
-            RecurEveryXTimeFrames
-            RecurTimeFrame
-            StopShowingWhenPast
-            strapi_component
+          NameOverride
+          Time {
+            ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+              id
+              DateTime
+              EndDateTime
+              EndRecurDate
+              RecurEveryXTimeFrames
+              RecurTimeFrame
+              StopShowingWhenPast
+              strapi_component
+            }
+            ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+              id
+              StopShowingWhenPast
+              EndDateTime
+              DateTime
+              strapi_component
+            }
           }
-          ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
-            id
-            StopShowingWhenPast
-            EndDateTime
-            DateTime
-            strapi_component
+          CoverImageOverride {
+            url
           }
-        }
-        CoverImageOverride {
-          url
         }
       }
     }
-  }
-`);
+  `);
 
   if (eventResult.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query`);
@@ -77,10 +77,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   //Create page for each event from GraphQL
-  const parsedEvents = processEvents(eventResult.data.allStrapiEvent.nodes)
-  console.log(parsedEvents)
+  const parsedEvents = processEvents(eventResult.data.allStrapiEvent.nodes);
+  console.log(parsedEvents);
 
-  parsedEvents.forEach((event) => {
+  parsedEvents.forEach(event => {
     if (!event.id) {
       console.error("Event does not have an id:", event);
     } else {
@@ -93,7 +93,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
     }
   });
-  
 
   // GraphQL Query for All Sermons
   const result = await graphql(`
