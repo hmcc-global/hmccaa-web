@@ -14,6 +14,7 @@ function processEvents(events) {
     // Check if the event is a recurring event and if its end recur date is still in the future
     return endTime ? endTime > now : startTime > now;
   });
+
   const sortedEvents = futureEvents.sort(
     (a, b) => new Date(a.Time[0].DateTime) - new Date(b.Time[0].DateTime)
   );
@@ -52,9 +53,13 @@ const reformatEvents = events => {
     };
 
     if (isRecurring) {
-      const newEvents = generateRepeatingEvents(event, 10); // Generate 10 additional occurrences
-      newEvents.forEach(newEvent => {
-        const newBaseEvent = { ...baseEvent, date: newEvent.Time[0].DateTime };
+      const newEvents = generateRepeatingEvents(event); // Generate all occurrences
+      newEvents.forEach((newEvent, index) => {
+        const newBaseEvent = { 
+          ...baseEvent, 
+          date: newEvent.Time[0].DateTime,
+          id: `${event.id}-${index}` // unique id for each occurrence
+        };
         eventInstances.push(newBaseEvent);
       });
     } else {
@@ -71,34 +76,26 @@ function generateRepeatingEvents(event) {
   let interval = baseEventTime.RecurTimeFrame.toLowerCase();
   let currentDate = new Date(baseEventTime.DateTime);
   const endRecurDate = new Date(baseEventTime.EndRecurDate);
-  let occurrenceCount = 0;
 
-  while (currentDate <= endRecurDate && occurrenceCount < 10) {
+  while (currentDate <= endRecurDate) {
     let newEvent = JSON.parse(JSON.stringify(event));
     let newDateTime = new Date(currentDate);
-    let newEndDateTime = new Date(newEvent.Time[0].EndDateTime);
 
     newEvent.Time[0].DateTime = newDateTime.toISOString();
-    newEvent.Time[0].EndDateTime = newEndDateTime.toISOString();
     events.push(newEvent);
-    occurrenceCount++;
 
     switch (interval) {
       case "day":
         currentDate.setDate(currentDate.getDate() + 1);
-        newEndDateTime.setDate(newEndDateTime.getDate() + 1);
         break;
       case "week":
         currentDate.setDate(currentDate.getDate() + 7);
-        newEndDateTime.setDate(newEndDateTime.getDate() + 7);
         break;
       case "month":
         currentDate.setMonth(currentDate.getMonth() + 1);
-        newEndDateTime.setMonth(newEndDateTime.getMonth() + 1);
         break;
       case "year":
         currentDate.setFullYear(currentDate.getFullYear() + 1);
-        newEndDateTime.setFullYear(newEndDateTime.getFullYear() + 1);
         break;
       default:
         throw new Error("Unsupported recurrence interval");
@@ -110,57 +107,3 @@ function generateRepeatingEvents(event) {
 
 module.exports.processEvents = processEvents;
 
-// const STRAPI_RECURRING_TIME = "event-times.recurring-time";
-// const STRAPI_SINGLE_TIME = "event-times.single-time";
-
-// //OVERVIEW:
-
-// //parse events by time, make sure only future events are displayed
-
-// function processEvents(events) {
-//   const now = new Date();
-
-//   const futureEvents = events.filter(
-//     event => new Date(event.Time[0].DateTime) > now
-//   );
-
-//   const sortedEvents = futureEvents.sort(
-//     (a, b) => new Date(a.Time[0].DateTime) - new Date(b.Time[0].DateTime)
-//   );
-
-//   const reformattedEvents = reformatEvents(sortedEvents);
-
-//   return reformattedEvents;
-// }
-
-// const reformatEvents = events => {
-//   const eventInstances = [];
-
-//   events.forEach(event => {
-//     const fullDescription =
-//       event.DescriptionOverride || event.EventTemplate?.Description || "";
-//     const [description] = fullDescription.split("\n");
-//     const baseEvent = {
-//       id: event.id,
-//       title: event.NameOverride || event.EventTemplate?.Name || "",
-//       imgUrl:
-//         event.CoverImageOverride?.url ||
-//         event.EventTemplate?.CoverImage.url ||
-//         "",
-//       imgAlt:
-//         event.CoverImageOverride?.imgAlt ||
-//         event.EventTemplate?.CoverImage.imgAlt ||
-//         "",
-//       location:
-//         event.LocationOverride?.LocationName ||
-//         event.EventTemplate?.Location.LocationName ||
-//         "",
-//       description,
-//       date: event.Time[0].DateTime,
-//     };
-//     eventInstances.push(baseEvent);
-//   });
-//   return eventInstances;
-// };
-
-// module.exports.processEvents = processEvents;
