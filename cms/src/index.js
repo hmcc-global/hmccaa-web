@@ -252,14 +252,14 @@ module.exports = {
           wpfc_service_type,
           sermon_date: DatePreached,
           bible_passage,
-          sermon_video_link: VideoLink,
+          sermon_video_link,
         }) => {
           const sermon_series = wpfc_sermon_series.map((series) => {
             const value = seriesEntry.find(({ Name }) => Name === series);
             return value.id;
           });
 
-          const preachers = wpfc_preacher.map((preacher) => {
+          const preachers = wpfc_preacher?.map((preacher) => {
             const value = preachersEntry.find(({ Name }) => {
               let preacherName = Name;
               if (/Joshua/i.test(preacherName)) {
@@ -277,66 +277,114 @@ module.exports = {
             return value?.id;
           });
 
-          let updatedPassages = !/Various Passage/i.test(bible_passage)
-            ? bible_passage
-                .split(",")
-                .map((passage) => {
-                  return /^\d/.test(passage.trim())
-                    ? passage
-                        .trim()
-                        .replace(/\s+/, "")
-                        .replace(/\s*-\s*/g, "-")
-                        .replace(/\s*:\s*/g, ":")
-                    : passage
-                        .trim()
-                        .replace(/\s*-\s*/g, "-")
-                        .replace(/\s*:\s*/g, ":");
-                })
-                .filter((passage) => passage !== "")
-                .map((passage) => passage.split(/\s+/))
-                .map((passage) => {
-                  if (Array.isArray(passage) && /^\d/.test(passage[0])) {
-                    let index = passage[0].substring(0, 1);
-                    const book = passage[0].substring(1);
-                    switch (index) {
-                      case "1":
-                        index = "1st";
-                        break;
-                      case "2":
-                        index = "2nd";
-                        break;
-                      case "3":
-                        index = "3rd";
-                        break;
+          let updated_bible_passage = /\d\s+[A-Z]/.test(bible_passage)
+            ? bible_passage.replace(/(\d)\s+([A-Z])/g, "$1$2")
+            : bible_passage;
+
+          updated_bible_passage =
+            updated_bible_passage &&
+            !/Various Passage/i.test(updated_bible_passage)
+              ? updated_bible_passage
+                  .replace(/\s*-\s*/g, "-")
+                  .replace(/\s*:\s*/g, ":")
+                  .replace(/,\s+(\d+)/g, ",$1")
+                  .replace(/,(\d+[A-Za-z])/g, ", $1")
+                  .replace(/([A-Za-z]):/, "$1 :")
+              : updated_bible_passage;
+
+          updated_bible_passage =
+            updated_bible_passage &&
+            !/Various Passage/i.test(updated_bible_passage)
+              ? updated_bible_passage
+                  .split(", ")
+                  .map((passage) => passage.split(/\s+/))
+                  .map((passage) => {
+                    if (Array.isArray(passage) && /^\d/.test(passage[0])) {
+                      let index = passage[0].substring(0, 1);
+                      const book = passage[0].substring(1);
+                      switch (index) {
+                        case "1":
+                          index = "1st";
+                          break;
+                        case "2":
+                          index = "2nd";
+                          break;
+                        case "3":
+                          index = "3rd";
+                          break;
+                      }
+                      passage[0] = `${book} (${index})`;
+                    } else if (
+                      Array.isArray(passage) &&
+                      passage[0] === "Psalm"
+                    ) {
+                      passage[0] = "Psalms";
+                    } else if (
+                      Array.isArray(passage) &&
+                      passage[0] === "Mathew"
+                    ) {
+                      passage[0] = "Matthew";
                     }
-                    passage[0] = `${book} (${index})`;
-                  }
-                  return passage;
-                })
-            : null;
+                    if (
+                      Array.isArray(passage) &&
+                      passage.length > 1 &&
+                      /,/.test(passage[1])
+                    ) {
+                      passage[1] = passage[1].replace(/,/g, ", ");
+                    }
+                    if (Array.isArray(passage)) {
+                      passage[0] =
+                        passage[0].substring(0, 1).toUpperCase() +
+                        passage[0].substring(1);
+                    }
+                    return passage;
+                  })
+              : null;
 
           const data = {
             Title,
             DatePreached,
-            ServiceType: wpfc_service_type.pop(),
-            VideoLink,
-            Preacher: {
-              connect: preachers,
-            },
+            VideoLink: sermon_video_link || "",
             Series: {
               connect: sermon_series,
             },
-            publishedAt: new Date(),
-            BiblePassage: [],
           };
 
-          if (updatedPassages) {
-            data.BiblePassage = updatedPassages.map((passage) => {
+          if (wpfc_service_type) {
+            data.ServiceType = wpfc_service_type
+              .pop()
+              .replace(/^Easter$/, "Easter Sunday");
+          } else {
+            data.ServiceType = "Other";
+          }
+
+          if (preachers) {
+            data.Preacher = {
+              connect: preachers,
+            };
+          }
+
+          if (updated_bible_passage) {
+            data.BiblePassage = updated_bible_passage.map((passage) => {
               return {
-                ChapterVerse: passage.pop(),
-                Book: passage.pop(),
+                ChapterVerse: passage[1],
+                Book: passage[0],
               };
             });
+            const isInvalid = data.BiblePassage.some(({ ChapterVerse }) =>
+              ChapterVerse.startsWith(":")
+            );
+
+            if (preachers && wpfc_service_type && !isInvalid) {
+              data.publishedAt = new Date();
+            }
+          } else {
+            data.BiblePassage = [
+              {
+                Book: "Genesis",
+                ChapterVerse: "1",
+              },
+            ];
           }
 
           if (sermon_topics) {
