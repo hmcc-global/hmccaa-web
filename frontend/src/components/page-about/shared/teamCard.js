@@ -23,14 +23,34 @@ const TeamCardImage = ({ info }) =>
     <div className="w-full pb-[101.5%] bg-[#5E5E5E]">&nbsp;</div>
   );
 
-const TeamCardInfo = ({ info, customClassName }) => (
+// rolesLast used for deacons; when roles are last assume in array format for simplicity
+const TeamCardInfo = ({ info, rolesLast, customClassName }) => (
   <>
     <h3 className={`font-bold ${customClassName.h3}`}>{info.name}</h3>
-    <div className={customClassName.role}>{info.role}</div>
+    {!rolesLast && <div className={customClassName.role}>{info.role}</div>}
+    {info.email && (
+      <div className="flex items-center gap-x-1 text-sm font-medium">
+        {info.emailIcon && (
+          <span>
+            <MailIcon className="w-5 h-5" />
+          </span>
+        )}
+        <Link
+          href={`mailto:${info.email}`}
+          className="no-underline text-Shades-100 break-all"
+        >
+          {info.email}
+        </Link>
+      </div>
+    )}
+    {rolesLast && <div className={`flex flex-col ${customClassName.role}`}>
+      {info.role.map((item, index) => (
+        <div key={index}>#{item}</div>
+      ))}</div>}
   </>
 );
 
-const TeamCard = ({ info, customClassName, showModal = false }) => {
+const TeamCard = ({ info, rolesLast, customClassName, showModal = false }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [member, setMember] = useState();
   const modalCloseTimeout = 300;
@@ -64,26 +84,11 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
         <div className={`flex-col flex w-full ${customClassName.container}`}>
           {showModal ? (
             <button className="text-left" onClick={() => handleClick(info)}>
-              <TeamCardInfo info={info} customClassName={customClassName} />
+              <TeamCardInfo info={info} rolesLast={rolesLast} customClassName={customClassName} />
             </button>
           ) : (
             <div className="text-left">
-              <TeamCardInfo info={info} customClassName={customClassName} />
-            </div>
-          )}
-          {info.email && (
-            <div className="flex items-center gap-x-1 text-sm font-medium">
-              {info.emailIcon && (
-                <span>
-                  <MailIcon className="w-5 h-5" />
-                </span>
-              )}
-              <Link
-                href={`mailto:${info.email}`}
-                className="no-underline text-Shades-100 break-all"
-              >
-                {info.email}
-              </Link>
+              <TeamCardInfo info={info} rolesLast={rolesLast} customClassName={customClassName} />
             </div>
           )}
         </div>
