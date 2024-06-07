@@ -54,7 +54,7 @@ const DeaconsSection = () => {
     {
       img: imgNateJacobson,
       name: "Nate Jacobson",
-      role: "Outreach",
+      role: "#Outreach",
       email: "nate.jacobson@annarbor.hmcc.net",
     },
     {
