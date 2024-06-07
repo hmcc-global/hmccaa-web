@@ -43,10 +43,13 @@ const TeamCardInfo = ({ info, rolesLast, customClassName }) => (
         </Link>
       </div>
     )}
-    {rolesLast && <div className={`flex flex-col ${customClassName.role}`}>
-      {info.role.map((item, index) => (
-        <div key={index}>#{item}</div>
-      ))}</div>}
+    {rolesLast && (
+      <div className={`flex flex-col ${customClassName.role}`}>
+        {info.role.map((item, index) => (
+          <div key={index}>#{item}</div>
+        ))}
+      </div>
+    )}
   </>
 );
 
@@ -84,11 +87,19 @@ const TeamCard = ({ info, rolesLast, customClassName, showModal = false }) => {
         <div className={`flex-col flex w-full ${customClassName.container}`}>
           {showModal ? (
             <button className="text-left" onClick={() => handleClick(info)}>
-              <TeamCardInfo info={info} rolesLast={rolesLast} customClassName={customClassName} />
+              <TeamCardInfo
+                info={info}
+                rolesLast={rolesLast}
+                customClassName={customClassName}
+              />
             </button>
           ) : (
             <div className="text-left">
-              <TeamCardInfo info={info} rolesLast={rolesLast} customClassName={customClassName} />
+              <TeamCardInfo
+                info={info}
+                rolesLast={rolesLast}
+                customClassName={customClassName}
+              />
             </div>
           )}
         </div>
