@@ -125,6 +125,19 @@ const HmiPage = ({ pageContext }) => {
       description:
         "Andrew, Nickey, and their family moved to Indonesia in 2010 to lead a church planting team with HMCC. After years of local church leadership, the family is transitioning to focused outreach to unreached people groups in their area. Their mission is to see God start disciple-making movements among the millions of unreached Indonesians that live around them.",
     },
+    {
+      id: 8,
+      ministry: "East Asia",
+      workers: "T & J",
+      image: (
+        <StaticImage
+          src="../../images/stock-globe.jpg"
+          alt="Tristan & Jen Ray"
+        />
+      ),
+      description:
+        "T & J were sent out from HMCC of Ann Arbor to serve in an East Asian nation as missionaries in 2024",
+    },
   ].reduce(
     (rows, key, index) =>
       (index % 4 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
