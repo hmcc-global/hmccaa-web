@@ -82,7 +82,7 @@ const FiveEs = () => (
     </div>
     <div className="text-center lg:pb-50 max-w-[51.25rem] mx-auto font-medium lg:pt-0 lg:px-0 pt-7 pb-25 pr-2">
       <p className="mb-6 lg:mb-[1.3125rem]">
-        Most of our LIFE groups for students and young adults happen on{" "}
+        Most of our Life groups for students and young adults happen on{" "}
         <b className="font-montserrat tracking-medium-wide">Tuesdays</b> and{" "}
         <b className="font-montserrat tracking-medium-wide">Wednesdays</b>.
       </p>

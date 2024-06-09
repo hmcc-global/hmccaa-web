@@ -26,6 +26,6 @@ const LifeGroupsPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="LIFE Groups" />;
+export const Head = () => <Seo title="Life Groups" />;
 
 export default LifeGroupsPage;

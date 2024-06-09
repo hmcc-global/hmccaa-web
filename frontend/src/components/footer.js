@@ -25,7 +25,7 @@ const Footer = () => {
   // all link to next steps for now
   const connectList = [
     // { title: "Interest Form", route: "/" }, Add back when there is a real link
-    { title: "Join a LIFE Group", route: "/next-steps/lifegroups" },
+    { title: "Join a Life Group", route: "/next-steps/lifegroups" },
     { title: "Become a Member", route: "/next-steps" },
     { title: "Join a Ministry Team", route: "/next-steps" },
   ];
