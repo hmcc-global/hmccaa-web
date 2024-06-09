@@ -7,11 +7,12 @@ import imgEricaYang from "../../../images/team-deacon-erica-yang.png";
 import imgGinaDahlem from "../../../images/team-deacon-gina-dahlem.png";
 import imgKristinZheng from "../../../images/team-deacon-kristin-zheng.png";
 import imgMieshaWhite from "../../../images/team-deacon-miesha-white.png";
-
 import imgNateJacobson from "../../../images/team-deacon-nate-jacobson.png";
 import imgSarahYon from "../../../images/team-deacon-sarah-yon.png";
 import imgSolomonZheng from "../../../images/team-deacon-solomon-zheng.png";
 import imgTiffanyKim from "../../../images/team-deacon-tiffany-kim.png";
+import imgPhiBang from "../../../images/team-deacon-phi-bang.png";
+import imgDannyBang from "../../../images/team-deacon-danny-bang.png";
 import TeamCard from "../shared/teamCard";
 
 const DeaconsSection = () => {
@@ -75,6 +76,18 @@ const DeaconsSection = () => {
       name: "Tiffany Kim",
       role: ["Access (UG)"],
       email: "tiffany.kim@annarbor.hmcc.net",
+    },
+    {
+      img: imgPhiBang,
+      name: "Phi Bang",
+      role: ["Building Blocks"],
+      email: "phi.bang@annarbor.hmcc.net",
+    },
+    {
+      img: imgDannyBang,
+      name: "Danny Bang",
+      role: ["Building Blocks"],
+      email: "danny.bang@annarbor.hmcc.net",
     },
   ];
 
