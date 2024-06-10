@@ -22,7 +22,7 @@ const WelcomeMain = () => (
         <p>
           Here you will find <span>a place where you can encounter God</span>{" "}
           and <span>experience His love in the community of others</span>{" "}
-          through meeting together on Sunday, gathering in weekly LIFE groups,
+          through meeting together on Sunday, gathering in weekly Life groups,
           serving the needs of our community and much more!
         </p>
         <p>

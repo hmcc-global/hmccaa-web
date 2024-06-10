@@ -134,7 +134,7 @@ const lifeStages = [
             world. We believe that college students have amazing potential to be
             the world leaders of tomorrow as they encounter the power of God and
             experience life transformation today. That’s why we invest in
-            college students through LIFE Group, a community where students can
+            college students through Life group, a community where students can
             grow in faith and develop as people.
           </p>
           <p>
@@ -342,7 +342,7 @@ const LifeStagesPage = ({ pageContext }) => {
             <p className="mb-0 text-center font-medium">
               LIFE Stages are the overall larger groups of fellowship. For
               smaller groups of community where we grow and challenge one
-              another more consistently, we meet in LIFE Groups.
+              another more consistently, we meet in Life groups.
             </p>
             <div className="flex flex-col justify-center">
               <PrimaryButtonLink

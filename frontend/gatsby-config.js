@@ -172,7 +172,7 @@ module.exports = {
           },
           {
             pathname: "/next-steps/lifegroups",
-            crumbLabel: "LIFE Groups",
+            crumbLabel: "Life Groups",
           },
           {
             pathname: "/next-steps/membership",

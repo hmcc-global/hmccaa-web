@@ -80,7 +80,7 @@ const Strategy = () => (
               where the gospel is radically lived out.
               <ul>
                 <li>
-                  In LIFE Groups, we practice our faith, study the Bible, pray
+                  In Life groups, we practice our faith, study the Bible, pray
                   together, and build life-on-life discipleship relationships.
                 </li>
                 <li>
