@@ -371,11 +371,16 @@ module.exports = {
                 Book: passage[0],
               };
             });
-            const isInvalid = data.BiblePassage.some(({ ChapterVerse }) =>
-              ChapterVerse.startsWith(":")
+            const isInvalid = data.BiblePassage.some(
+              ({ ChapterVerse }) => !/^\d/.test(ChapterVerse)
             );
 
-            if (preachers && wpfc_service_type && !isInvalid) {
+            if (
+              preachers &&
+              wpfc_service_type &&
+              !isInvalid &&
+              sermon_video_link
+            ) {
               data.publishedAt = new Date();
             }
           } else {
