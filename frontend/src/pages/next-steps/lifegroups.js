@@ -28,16 +28,18 @@ const Images = () => {
       src="../../images/LifegroupEnjoyment.png"
       alt="Lifegroup image 4"
       key="lg4"
-    />
+    />,
   ];
 
   return (
     <div className="flex lg:flex-row lg:flex-nowrap flex-wrap gap-6 pb-25 justify-center">
       {ImagesArr.map((item, index) => (
-        <div key={index} className="max-w-[300px] self-center">{item}</div>
+        <div key={index} className="max-w-[300px] self-center">
+          {item}
+        </div>
       ))}
     </div>
-  )
+  );
 };
 
 const LifeGroupsPage = ({ pageContext }) => {
