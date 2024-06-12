@@ -180,7 +180,7 @@ const Header = () => {
             ))}
           </div>
 
-          <div className={borderStyle}>
+          <div className={`hover:bg-Accent-500 ${borderStyle}`}>
             <Link
               to="/new"
               className={`min-w-max ${textStyle} ${
