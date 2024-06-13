@@ -218,7 +218,6 @@ const theme = {
     "6xl": "3.75rem",
     "7xl": "4.5rem",
     "8xl": "6rem",
-    "hover-increase": "calc(100% + 2px)",
   },
   fontFamily: {
     montserrat: "Montserrat",

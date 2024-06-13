@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .button {
-  @apply no-underline uppercase rounded-sm py-[0.625rem] px-[1.125rem] shadow-button font-bold tracking-medium-wide flex items-center [@media(min-width:375px)]:max-w-none hover:text-hover-increase;
+  @apply no-underline uppercase rounded-sm py-[0.625rem] px-[1.125rem] shadow-button font-bold tracking-medium-wide flex items-center [@media(min-width:375px)]:max-w-none;
 }
 
 .secondary-button {
