@@ -10,22 +10,22 @@ import FiveEs from "../../components/page-lifeGroups/fiveEs";
 const Images = () => {
   const ImagesArr = [
     <StaticImage
-      src="../../images/LifegroupLove.png"
+      src="../../images/lifegroup-1.png"
       alt="Lifegroup image 1"
       key="lg1"
     />,
     <StaticImage
-      src="../../images/LifegroupInvestment.png"
+      src="../../images/lifegroup-2.png"
       alt="Lifegroup image 2"
       key="lg2"
     />,
     <StaticImage
-      src="../../images/LifegroupFaith.png"
+      src="../../images/lifegroup-3.png"
       alt="Lifegroup image 3"
       key="lg3"
     />,
     <StaticImage
-      src="../../images/LifegroupEnjoyment.png"
+      src="../../images/lifegroup-4.png"
       alt="Lifegroup image 4"
       key="lg4"
     />,
