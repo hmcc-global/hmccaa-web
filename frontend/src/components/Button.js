@@ -49,8 +49,12 @@ export const Button = ({
   </button>
 );
 
+// 'group' links with svgs/index.js in ButtonArrow for white arrow hover
 export const SecondaryButtonLink = props => (
-  <ButtonLink {...props} className={`${props.className} ${secondaryButton}`} />
+  <ButtonLink
+    {...props}
+    className={`group ${props.className} ${secondaryButton}`}
+  />
 );
 
 export const PrimaryButtonLink = props => (
