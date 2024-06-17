@@ -23,7 +23,7 @@ module.exports = {
     const fs = require("fs");
     const path = require("path");
     const xml = fs.readFileSync(
-      path.join(__dirname, "/data/hmcc.aa.wordpress.2024-03-23.xml"),
+      path.join(__dirname, "/data/hmcc.aa.wordpress.2024-06-11.xml"),
       "utf-8"
     );
     const result = parser.toJson(xml, {
