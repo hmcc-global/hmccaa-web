@@ -36,7 +36,7 @@ const lgsArray = [
     desc: "MARRIED COUPLES",
     color: "Accent-900", // #a842a8
     img: imgCovenant,
-    alt: "Covenant LIFE Group",
+    alt: "Covenant Life group",
     css: `xl:top-[6rem] xl:right-[16rem]`,
   },
   {
@@ -44,7 +44,7 @@ const lgsArray = [
     desc: "SINGLE ADULTS",
     color: "Accent-700", // #f0508b
     img: imgFocus,
-    alt: "Focus LIFE Group",
+    alt: "Focus Life group",
     css: `bottom-[5rem] right-[18rem]`,
   },
   {
@@ -52,7 +52,7 @@ const lgsArray = [
     desc: "GRADUATE STUDENTS",
     color: "Accent-300", // #ffbd57
     img: imgImpact,
-    alt: "Impact LIFE Group",
+    alt: "Impact Life group",
     css: `xl:bottom-[18rem] xl:right-[-5rem]`,
   },
   {
@@ -60,7 +60,7 @@ const lgsArray = [
     desc: "UNDERGRADUATES",
     color: "Error-300", // #f39ea2
     img: imgAccess,
-    alt: "Access LIFE Group",
+    alt: "Access Life group",
     css: `xl:bottom-[12rem] xl:left-[12rem]`,
   },
   {
@@ -68,7 +68,7 @@ const lgsArray = [
     desc: "INTERNATIONAL STUDENTS",
     color: "Success-500", // #10b981
     img: imgGA,
-    alt: "GA LIFE Group",
+    alt: "GA Life group",
     css: `xl:top-[-9rem] xl:left-[20rem]`,
   },
   {
@@ -76,7 +76,7 @@ const lgsArray = [
     desc: "YOUTH",
     color: "Accent-500", // #ff8069
     img: imgLatVel,
-    alt: "LatVel LIFE Group",
+    alt: "LatVel Life group",
     css: `xl:top-[12rem] xl:left-[12rem]`,
   },
   {
@@ -84,7 +84,7 @@ const lgsArray = [
     desc: "KIDS",
     color: "Accent-1000", // #f0df5c
     img: imgBB,
-    alt: "BB LIFE Group",
+    alt: "BB Life group",
     css: `xl:top-[20rem] xl:right-[-6rem]`,
   },
 ];

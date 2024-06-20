@@ -17,12 +17,12 @@ const LifeGroup = () => (
       <HighlightedParagraph>
         <p className="pt-5">
           In the Bible, Jesus talks about living an abundant life. The vision of
-          LIFE Group is:{" "}
+          Life group is:{" "}
           <span>
             to experience the fullness of life in a Biblical community where the
             Gospel is radically lived out
           </span>
-          . LIFE Groups seek to accomplish this by sharing our lives with one
+          . Life groups seek to accomplish this by sharing our lives with one
           another within various life stages.
         </p>
       </HighlightedParagraph>
