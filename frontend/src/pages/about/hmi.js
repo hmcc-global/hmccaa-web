@@ -65,6 +65,7 @@ const HmiPage = ({ pageContext }) => {
       ),
       description:
         "Robert and Karyn Barriger founded Camino de Vida church in Lima, Peru in 1989. They desire to build up the local church as an instrument of God to make himself known as the hope for this world. ",
+      moreInfo: "https://caminodevida.com/#",
     },
     {
       id: 2,
@@ -75,6 +76,7 @@ const HmiPage = ({ pageContext }) => {
       ),
       description:
         "Pastor Sam and his wife Sunghyun were called to lead the HMCC Detroit church in 2017 with a mission to see redemption, reconciliation, and restoration in families, communities, and systems as gospel infiltrates the city.",
+      moreInfo: "https://detroit.hmcc.net/",
     },
     {
       id: 3,
@@ -85,6 +87,7 @@ const HmiPage = ({ pageContext }) => {
       ),
       description:
         "Pastor Seth and Christina planted HMCC of Hong Kong in 2015 along with a team from HMCC of Ann Arbor. They desire to be a demonstration of Christ’s love, seeing people be radically changed through the Gospel, trained to be a Christ disciple, and sent out to other nations to be the light unto the world. ",
+      moreInfo: "https://hongkong.hmcc.net/",
     },
     {
       id: 4,
@@ -98,6 +101,7 @@ const HmiPage = ({ pageContext }) => {
       ),
       description:
         'In 2006, Pastor Tim and Miriam were led to do the work of "Bridge-Building" with Muslims and Christians. They build relationships and share the gospel with Muslims both in the US and internationally, and train and mobilize Christians to love their Muslim neighbors.',
+      moreInfo: "http://lovingyourmuslimneighbor.com",
     },
     {
       id: 5,
@@ -106,6 +110,7 @@ const HmiPage = ({ pageContext }) => {
       image: <StaticImage src="../../images/yees.png" alt="Eric & Tina Ye" />,
       description:
         "Pastor Eric and Tina Yee helped to plant the HMCC of Jakarta church in 2015. Originally both members of HMCC of Ann Arbor, both felt lead to bring the Gospel to unreached people in Indonesia in 2010. Their desire is to see people’s lives transformed, redirected to God’s purposes, and set out to transform the world for the glory of God.",
+      moreInfo: "https://jakarta.hmcc.net/",
     },
     {
       id: 6,
@@ -114,6 +119,7 @@ const HmiPage = ({ pageContext }) => {
       image: <StaticImage src="../../images/eoms.png" alt="John & Ester Eom" />,
       description:
         "In 2009 Pastor John moved to Indonesia with a team to plant HMCC of Indonesia. In 2014 he became pastor of HMCC of Tangerang.",
+      moreInfo: "https://tangerang.hmcc.net/",
     },
     {
       id: 7,
@@ -124,6 +130,7 @@ const HmiPage = ({ pageContext }) => {
       ),
       description:
         "Andrew, Nickey, and their family moved to Indonesia in 2010 to lead a church planting team with HMCC. After years of local church leadership, the family is transitioning to focused outreach to unreached people groups in their area. Their mission is to see God start disciple-making movements among the millions of unreached Indonesians that live around them.",
+      moreInfo: "https://tangerang.hmcc.net/",
     },
     {
       id: 8,
@@ -272,9 +279,14 @@ const HmiPage = ({ pageContext }) => {
                                 </p>
                               </div>
                               <div className="flex">
-                                <SecondaryButtonLink to="/" hasArrow={true}>
-                                  More Info
-                                </SecondaryButtonLink>
+                                {worker.moreInfo && (
+                                  <SecondaryButtonLink
+                                    to={worker.moreInfo}
+                                    hasArrow={true}
+                                  >
+                                    More Info
+                                  </SecondaryButtonLink>
+                                )}
                               </div>
                             </div>
                           </div>
