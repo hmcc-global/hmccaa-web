@@ -23,7 +23,6 @@ const TeamCardImage = ({ info }) =>
     <div className="w-full pb-[101.5%] bg-[#5E5E5E]">&nbsp;</div>
   );
 
-
 const TeamCardInfo = ({ info, customClassName }) => (
   <>
     <h3 className={`font-bold ${customClassName.h3}`}>{info.name}</h3>
@@ -85,17 +84,11 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
         <div className={`flex-col flex w-full ${customClassName.container}`}>
           {showModal ? (
             <button className="text-left" onClick={() => handleClick(info)}>
-              <TeamCardInfo
-                info={info}
-                customClassName={customClassName}
-              />
+              <TeamCardInfo info={info} customClassName={customClassName} />
             </button>
           ) : (
             <div className="text-left">
-              <TeamCardInfo
-                info={info}
-                customClassName={customClassName}
-              />
+              <TeamCardInfo info={info} customClassName={customClassName} />
             </div>
           )}
         </div>
