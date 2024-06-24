@@ -42,11 +42,13 @@ const TeamCardInfo = ({ info, customClassName }) => (
         </Link>
       </div>
     )}
-    <div className="flex flex-col text-sm font-medium">
-      {info.ministries.map((item, index) => (
-        <div key={index}># {item}</div>
-      ))}
-    </div>
+    {info.ministries && (
+      <div className="flex flex-col text-sm font-medium">
+        {info.ministries.map((item, index) => (
+          <div key={index}># {item}</div>
+        ))}
+      </div>
+    )}
   </>
 );
 
