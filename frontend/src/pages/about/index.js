@@ -7,6 +7,7 @@ import Strategy from "../../components/page-about/index/strategy";
 import Mission from "../../components/page-about/index/mission";
 import Values from "../../components/page-about/index/values";
 import Belief from "../../components/page-about/index/belief";
+import Vision from "../../components/page-about/index/vision";
 import LeadershipSection from "../../components/page-about/index/leadership";
 import Feedback from "../../components/page-about/index/feedback";
 import OurStory from "../../components/page-about/index/our-story";
@@ -25,6 +26,9 @@ const AboutPage = () => (
       <Values />
       <LeadershipSection />
       <Belief />
+    </div>
+    <Vision />
+    <div className="content-padding-full">
       <Strategy />
       <Partners />
     </div>
