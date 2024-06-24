@@ -66,16 +66,16 @@ const DeaconsSection = () => {
       ministries: ["Outreach"],
     },
     {
-      img: imgSarahYon,
-      name: "Sarah Yon",
-      email: "sarah.yon@annarbor.hmcc.net",
-      ministries: ["Covenant (Married)"],
-    },
-    {
       img: imgPhiBang,
       name: "Phi Bang",
       email: "phi.bang@annarbor.hmcc.net",
       ministries: ["Building Blocks (Children)"],
+    },
+    {
+      img: imgSarahYon,
+      name: "Sarah Yon",
+      email: "sarah.yon@annarbor.hmcc.net",
+      ministries: ["Covenant (Married)"],
     },
     {
       img: imgSolomonZheng,
