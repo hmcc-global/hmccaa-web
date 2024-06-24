@@ -16,8 +16,8 @@ const Mission = () => (
           </div>
           <h2>Our mission</h2>
           <p>
-            To <span>transform lost people</span> into Christ’s disciples who
-            will then <span>transform the world</span>.
+            To <span>transform lost people</span> into Christ&apos;s disciples
+            who will then <span>transform the world</span>.
           </p>
         </div>
       </div>
