@@ -23,11 +23,11 @@ const TeamCardImage = ({ info }) =>
     <div className="w-full pb-[101.5%] bg-[#5E5E5E]">&nbsp;</div>
   );
 
-// rolesLast used for deacons; when roles are last assume in array format for simplicity
-const TeamCardInfo = ({ info, rolesLast, customClassName }) => (
+
+const TeamCardInfo = ({ info, customClassName }) => (
   <>
     <h3 className={`font-bold ${customClassName.h3}`}>{info.name}</h3>
-    {!rolesLast && <div className={customClassName.role}>{info.role}</div>}
+    {info.role && <div className="text-m">{info.role}</div>}
     {info.email && (
       <div className="flex items-center gap-x-1 text-sm font-medium">
         {info.emailIcon && (
@@ -43,17 +43,15 @@ const TeamCardInfo = ({ info, rolesLast, customClassName }) => (
         </Link>
       </div>
     )}
-    {rolesLast && (
-      <div className={`flex flex-col ${customClassName.role}`}>
-        {info.role.map((item, index) => (
-          <div key={index}>#{item}</div>
-        ))}
-      </div>
-    )}
+    <div className="flex flex-col text-sm font-medium">
+      {info.ministries.map((item, index) => (
+        <div key={index}># {item}</div>
+      ))}
+    </div>
   </>
 );
 
-const TeamCard = ({ info, rolesLast, customClassName, showModal = false }) => {
+const TeamCard = ({ info, customClassName, showModal = false }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [member, setMember] = useState();
   const modalCloseTimeout = 300;
@@ -89,7 +87,6 @@ const TeamCard = ({ info, rolesLast, customClassName, showModal = false }) => {
             <button className="text-left" onClick={() => handleClick(info)}>
               <TeamCardInfo
                 info={info}
-                rolesLast={rolesLast}
                 customClassName={customClassName}
               />
             </button>
@@ -97,7 +94,6 @@ const TeamCard = ({ info, rolesLast, customClassName, showModal = false }) => {
             <div className="text-left">
               <TeamCardInfo
                 info={info}
-                rolesLast={rolesLast}
                 customClassName={customClassName}
               />
             </div>
