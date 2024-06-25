@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Collapsible } from "../../collapsible";
+import { SecondaryButtonLink } from "../../Button";
 import {
   container,
   titleContainer,
@@ -79,6 +80,31 @@ const Belief = () => (
           ))}
       </div>
     </div>
+    <div className="max-w-container w-full pt-10 md:pt-15 flex justify-center items-center">
+      <div className="w-full border-2 border-solid border-Neutral-600 pt-[1.625rem] pb-[1.6875rem] md:py-[4.5rem] flex text-center px-6 md:px-8 rounded-2xl justify-center">
+        <div className="max-w-[42.5rem] flex flex-col gap-y-5 w-full">
+          <h2>THEOLOGICAL DISTINCTIVES</h2>
+          <p className="mb-0 text-base md:text-lg">
+            HMCC of Ann Arbor&apos;s Theological Distinctives are views that we
+            firmly hold to as a church and that our elders are convinced of
+            their truthfulness and biblical support, but we also do not expect
+            that everyone will agree on all of these distinctives.
+          </p>
+          <div className="flex justify-center">
+            <SecondaryButtonLink
+              href="https://docs.google.com/document/d/1NXPvLM2kn_cAGqbsc60_xUZZEspcf2AkEJ_azu_18rY/edit?usp=sharing"
+              hasArrow={true}
+              customClassName={{
+                textContainer: "-indent-[11rem] sm:indent-0",
+              }}
+            >
+              Read More on Our HMCC Distinctives
+            </SecondaryButtonLink>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 );
+
 export default Belief;
