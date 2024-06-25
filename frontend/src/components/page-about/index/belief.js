@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Collapsible } from "../../collapsible";
+import { SecondaryButtonLink } from "../../Button";
 import {
   container,
   titleContainer,
@@ -8,49 +9,44 @@ import {
 
 const beliefs = [
   {
-    sectionHead: "The Bible",
+    sectionHead: "About God",
     sectionBody:
-      "We believe the Bible, both the Old and New Testaments, is the only inspired, infallible, and authoritative Word of God. It is the supreme source of truth for Christian faith and living.",
+      "We believe in one God eternally existing in three divine persons: Father, Son, and Holy Spirit. God is the Creator of all things, is perfect in love and holiness, and is worthy of all worship and devotion. He sovereignly rules over all things and brings about his eternal purposes to redeem his lost people and restore his fallen creation.",
   },
   {
-    sectionHead: "God",
+    sectionHead: "About Salvation through Jesus Christ",
     sectionBody:
-      "We believe in one God, Creator of all things, infinitely perfect and eternally existing in three persons: Father, Son, and Holy Spirit.",
+      "We believe that Jesus Christ, being fully God and fully human, was conceived by the Holy Spirit and born of the virgin Mary. He was tempted as we are, but lived a holy life without sin. He died on the cross as an atoning sacrifice to pay for our sin and rebellion, making peace between lost humanity and our holy God through his shed blood. He rose again in victory over death, and ascended to the Father where he intercedes for us and waits to return and make all things new. Through faith in Jesus Christ alone, we are restored to relationship with God and given the gift of eternal life.",
   },
   {
-    sectionHead: "Jesus",
+    sectionHead: "About the Work of the Holy Spirit",
     sectionBody:
-      "We believe that Jesus Christ is true (fully) God and true (fully) man, having been conceived of the Holy Spirit and born of the virgin Mary. He died on the cross, the complete and final sacrifice for our sins according to the Scriptures. He arose bodily from the dead, and ascended into heaven where, at God’s right hand, He intercedes for His people and rules as Lord over all.",
+      "We believe in the person and power of the Holy Spirit, who inspired the holy scriptures, glorifies Jesus Christ, and convicts the world of sin, righteousness, and judgment. It is the work of the Spirit to indwell and regenerate believers, granting adoption and spiritual life. The Holy Spirit continues his work by granting spiritual gifts and sanctifying, instructing, guiding, and empowering believers.",
   },
   {
-    sectionHead: "Holy Spirit",
+    sectionHead: "About Revelation",
     sectionBody:
-      "We believe that the ministry of the Holy Spirit is to glorify the Lord Jesus Christ, and during this age to convict the world of sin. He also regenerates the believing sinner, indwelling, guiding, instructing, and empowering us for godly living and sacrifice.",
+      "We believe that God has revealed himself to the world through the Bible, both Old and New Testaments, which is the only written word of God. The Bible is divinely inspired, authoritative, and without error in all that it affirms, and is the supreme source of truth for faith and living. God also reveals himself through his creation and through the ministry of the Holy Spirit, in alignment with the scriptures.",
   },
   {
-    sectionHead: "Man",
+    sectionHead: "About Humanity",
     sectionBody:
-      "We believe that the man was created in the image of God, but fell into sin and is therefore destined for eternal death. Only through regeneration by the Holy Spirit can salvation and spiritual life be obtained.",
+      "We believe that God created human beings, male and female, in his own image. Humanity is called to multiply and fill the earth as God's image bearers and representatives, to steward the created world, and to live in loving fellowship with God.",
   },
   {
-    sectionHead: "Salvation",
+    sectionHead: "About the Fall",
     sectionBody:
-      "We believe that the shed blood of Jesus Christ and His resurrection provide the only grounds for justification and salvation for all who believe, and only those who receive Jesus Christ by faith are born of the Holy Spirit and thus become children of God.",
+      "We believe that our forebears, Adam and Eve, fell into Satan's temptation by disobeying God's command, and were thus separated from fellowship with God and rendered spiritually dead by their sin. As a result, all of humanity is in need of salvation from our sins that can only come by the grace and mercy of God through his Son Jesus Christ.",
   },
   {
-    sectionHead: "Future Events",
+    sectionHead: "About the Church",
     sectionBody:
-      "We believe in the visible, personal, glorious, imminent return of Jesus Christ, His bodily resurrection of the dead, the judgment of the just and the unjust, and the fulfillment of Christ’s Kingdom in the new heavens and the new earth. Then shall the eager expectation of creation be fulfilled and the whole earth shall proclaim the glory of God who makes all things new.",
+      "We believe that the Church is the bride of Christ who he shed his blood to save, and is made up of all people who through saving faith in Jesus have been regenerated by the Holy Spirit and are united together as Christ's body. Jesus is the head of his universal Church, which is manifested in local churches. The Church together lives out Christ's commands and pursues his mission in the world.",
   },
   {
-    sectionHead: "Church",
+    sectionHead: "About the New Creation",
     sectionBody:
-      "We believe that the true Church is composed of all such persons who through saving faith in Jesus Christ have been regenerated by the Holy Spirit and are united together in the body of Christ. We believe that Jesus Christ is the Head of the Church, and that every local church has the right under Christ to decide and govern its own affairs.",
-  },
-  {
-    sectionHead: "Ordinances",
-    sectionBody:
-      "We believe that water baptism and the Lord’s Supper are ordinances to be observed by the Church during the present age. They are, however, not to be regarded as means of salvation.",
+      "We believe in the visible, personal, glorious, imminent return of Jesus Christ, His bodily resurrection of the dead, the judgment of the just and the unjust, and the fulfillment of Christ's Kingdom in the new heavens and the new earth. Then shall the eager expectation of creation be fulfilled and the whole earth shall proclaim the glory of God who makes all things new.",
   },
 ];
 
@@ -61,7 +57,7 @@ const Belief = () => (
       <h2>What We Believe</h2>
     </div>
     <div className={middleContainer}>
-      <div className="flex flex-col gap-y-10">
+      <div className="flex flex-col gap-y-10 pb-10">
         {beliefs
           .filter((_, index) => index < beliefs.length / 2)
           .map((beliefs, index) => (
@@ -84,6 +80,31 @@ const Belief = () => (
           ))}
       </div>
     </div>
+    <div className="max-w-container w-full pt-10 md:pt-15 flex justify-center items-center">
+      <div className="w-full border-2 border-solid border-Neutral-600 pt-[1.625rem] pb-[1.6875rem] md:py-[4.5rem] flex text-center px-6 md:px-8 rounded-2xl justify-center">
+        <div className="max-w-[42.5rem] flex flex-col gap-y-5 w-full">
+          <h2>THEOLOGICAL DISTINCTIVES</h2>
+          <p className="mb-0 text-base md:text-lg">
+            HMCC of Ann Arbor&apos;s Theological Distinctives are views that we
+            firmly hold to as a church and that our elders are convinced of
+            their truthfulness and biblical support, but we also do not expect
+            that everyone will agree on all of these distinctives.
+          </p>
+          <div className="flex justify-center">
+            <SecondaryButtonLink
+              href="https://docs.google.com/document/d/1NXPvLM2kn_cAGqbsc60_xUZZEspcf2AkEJ_azu_18rY/edit?usp=sharing"
+              hasArrow={true}
+              customClassName={{
+                textContainer: "-indent-[11rem] sm:indent-0",
+              }}
+            >
+              Read More on Our HMCC Distinctives
+            </SecondaryButtonLink>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 );
+
 export default Belief;
