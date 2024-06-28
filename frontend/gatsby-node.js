@@ -198,7 +198,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       return bookList.indexOf(book) === index;
     })
     .map(book => {
-      console.warn(book);
       const bookLabel = /\(\d+/.test(book)
         ? `${book.substring(
             book.search(/\d+/),
