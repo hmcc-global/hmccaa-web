@@ -190,6 +190,10 @@ module.exports = {
             pathname: "/next-steps/ministryteams",
             crumbLabel: "Ministry Teams",
           },
+          {
+            pathname: "/next-steps/missions",
+            crumbLabel: "Missions Support",
+          },
         ],
       },
     },
