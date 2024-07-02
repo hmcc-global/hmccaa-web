@@ -50,6 +50,7 @@ const reformatEvents = events => {
         "",
       description,
       date: event.Time[0].DateTime,
+      contact: event.ContactOverride || event.EventTemplate?.Contact,
     };
 
     if (isRecurring) {

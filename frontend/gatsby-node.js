@@ -29,6 +29,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         nodes {
           id
           DescriptionOverride
+          ContactOverride {
+            Name
+            Email
+            PhoneNumber
+            AutoformatPhoneNumber
+          }
           EventTemplate {
             CoverImage {
               url
@@ -39,6 +45,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             Name
             ShowXUpcomingEvents
+            Contact {
+              Name
+              Email
+              PhoneNumber
+              AutoformatPhoneNumber
+            }
           }
           LocationOverride {
             LocationName

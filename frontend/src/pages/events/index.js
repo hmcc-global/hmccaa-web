@@ -5,7 +5,7 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, getImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
 import Banner from "../../components/shared/banner";
@@ -63,6 +63,7 @@ const EventsPage = () => {
   console.log(data.allStrapiEvent.nodes);
   const events = processEvents(data.allStrapiEvent.nodes);
   console.log(events);
+  // console.log(getSrc("http://127.0.0.1:1337/uploads/1samuel_53b3c5ad9f.png"));
 
   return (
     <Layout>
@@ -80,9 +81,9 @@ const EventsPage = () => {
               date={event.date.toString()}
               // TODO: use GatsbyImage since static cannot handle dynamic src
               img={
-                <StaticImage
+                <img
                   className="flex-shrink-0 mb-0"
-                  src={"../../images/prayer-gathering.png"}
+                  src={`http://127.0.0.1:1337${event.imgUrl}`}
                   alt={event.imgAlt}
                 />
               }

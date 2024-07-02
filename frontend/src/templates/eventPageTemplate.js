@@ -34,9 +34,19 @@ const EventPage = ({ pageContext }) => {
     return { formattedDate, formattedTime };
   }
 
+  const formatContact = (contact) => {
+    if (contact === undefined) {
+      return "annarbor@hmcc.net";
+    }
+
+    return `${contact.Name} at ${contact.Email}`;
+  }
+
   const { event } = pageContext;
 
   const { formattedDate, formattedTime } = formatDateAndTime(event.date);
+
+  const contact = formatContact(event.contact);
 
   return (
     <Layout>
@@ -86,7 +96,7 @@ const EventPage = ({ pageContext }) => {
           </div>
 
           <div className="text-center pt-4 lg:order-1 ml-5">
-            <img src={event.imgUrl} alt={event.imgAlt} />
+            <img src={`http://127.0.0.1:1337${event.imgUrl}`} alt={event.imgAlt} />
           </div>
         </div>
 
@@ -108,7 +118,7 @@ const EventPage = ({ pageContext }) => {
               <br />
             </span>
             <span className="text-black text-base font-normal leading-normal">
-              Have a question? Please contact aaaa at aaaa@hmcc.net
+              Have a question? Please contact {contact}
             </span>
           </div>
         </div>
