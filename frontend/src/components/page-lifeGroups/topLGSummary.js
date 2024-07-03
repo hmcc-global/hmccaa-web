@@ -3,13 +3,7 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
 
-const TopLGSummary = ({ lgSignupsRef }) => {
-  const handleScroll = () => {
-    if (lgSignupsRef.current) {
-      lgSignupsRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+const TopLGSummary = () => {
   return (
     <div>
       <h1 className="text-center text-[40px] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-0">
@@ -53,11 +47,7 @@ const TopLGSummary = ({ lgSignupsRef }) => {
             </p>
           </HighlightedParagraph>
           <div className="flex lg:justify-start justify-center">
-            <SecondaryButtonLink
-              hasArrow={true}
-              className="hover:cursor-pointer"
-              onClick={handleScroll}
-            >
+            <SecondaryButtonLink hasArrow={true} to="#lg-signups-anchor">
               CHECK OUT A LIFE GROUP
             </SecondaryButtonLink>
           </div>

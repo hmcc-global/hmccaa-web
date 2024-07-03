@@ -43,14 +43,14 @@ const fiveEInfo = [
   },
 ];
 
-const FiveEs = ({ lgSignupsRef }) => {
+const FiveEs = () => {
   return (
     <div>
-      <h3 className="text-center text-[24px] font-semibold mb-10 leading-tighter">
+      <h3 className="text-center text-[1.5rem] font-semibold mb-10 leading-tighter">
         HMCC has defined the five values of biblical community found in Acts
         2:42-47 as follows:
       </h3>
-      <div className="flex flex-col lg:flex-row gap-x-[44px] lg:mx-[2px] pl-8 pr-4 lg:px-0">
+      <div className="flex flex-col lg:flex-row gap-x-[2.75rem] lg:mx-[2px] pl-8 pr-4 lg:px-0">
         {fiveEInfo.map((item, i, index) => (
           <span
             key={`fiveEInfo-${index}`}
@@ -75,7 +75,7 @@ const FiveEs = ({ lgSignupsRef }) => {
       </div>
       <div
         className="flex flex-col justify-center items-center gap-5 pt-[5.25rem] lg:pt-[6.25rem] pb-5 lg:pb-12"
-        ref={lgSignupsRef}
+        id="lg-signups-anchor"
       >
         <PrimaryButtonLink
           href="https://docs.google.com/forms/d/e/1FAIpQLSd85EV0Vw9ucYW9YOEsWaoRvl4jvWjmy0uJpASlMtpz8GRyug/viewform"

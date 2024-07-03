@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { StaticImage } from "gatsby-plugin-image";
-import { useRef } from "react";
 
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
@@ -48,18 +47,15 @@ const LifeGroupsPage = ({ pageContext }) => {
     breadcrumb: { crumbs },
   } = pageContext;
 
-  // fix button link stuff
-  const lgSignupsRef = useRef(null);
-
   return (
     <Layout>
       <div className="px-1 [@media(min-width:375px)]:px-4 pt-[1.375rem] lg:pt-10 w-full ">
         <div className="w-full md:px-4 flex flex-col items-center">
           <div className="max-w-container w-full">
             <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-            <TopLGSummary lgSignupsRef={lgSignupsRef} />
+            <TopLGSummary />
             <Images />
-            <FiveEs lgSignupsRef={lgSignupsRef} />
+            <FiveEs />
           </div>
         </div>
       </div>
