@@ -29,6 +29,7 @@ const Layout = ({ children }) => {
       <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
         {children}
       </main>
+      <div className="py-[200px] bg-Primary-50"></div>
       <Footer />
     </div>
   );
