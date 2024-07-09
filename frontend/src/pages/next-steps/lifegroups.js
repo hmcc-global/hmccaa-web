@@ -46,6 +46,7 @@ const LifeGroupsPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext;
+
   return (
     <Layout>
       <div className="px-1 [@media(min-width:375px)]:px-4 pt-[1.375rem] lg:pt-10 w-full ">
