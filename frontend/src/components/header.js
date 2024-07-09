@@ -1,9 +1,11 @@
 import * as React from "react";
 import hmccLogo from "../images/hmcc-ripple-white.svg";
-import mapPinLogo from "../images/icons/map-pin-filled.png";
+import mapPinLogo from "../images/icons/map-pin-filled.svg";
 import dropDown from "../images/icons/dropdown.svg";
 import x from "../images/icons/X.svg";
 import Link from "./Link";
+
+// FIX QUESTION MARK ON CONNECT
 
 const Header = () => {
   const browseList = [
