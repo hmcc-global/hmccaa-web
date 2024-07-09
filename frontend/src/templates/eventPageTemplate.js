@@ -5,35 +5,9 @@ import locationPinIcon from "../images/icons/locationPin.svg";
 import calendarIcon from "../images/icons/calendar.svg";
 import clockIcon from "../images/icons/clock-black.svg";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { formatDateAndTime } from "../components/page-events/event-processing-util";
 
 const EventPage = ({ pageContext }) => {
-  function formatDateAndTime(isoDateString) {
-    const date = new Date(isoDateString);
-
-    // Extracting date components
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1; // getMonth() returns month from 0-11
-    const day = date.getDate();
-
-    // Extracting and converting time components to 12-hour format
-    let hour = date.getHours();
-    const minutes = date.getMinutes();
-    const amPm = hour >= 12 ? "PM" : "AM";
-
-    hour = hour % 12;
-    hour = hour ? hour : 12; // the hour '0' should be '12'
-
-    // Formatting date and time
-    const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day
-      .toString()
-      .padStart(2, "0")}`;
-    const formattedTime = `${hour.toString().padStart(2, "0")}:${minutes
-      .toString()
-      .padStart(2, "0")} ${amPm}`;
-
-    return { formattedDate, formattedTime };
-  }
-
   const formatContact = (contact) => {
     if (contact === undefined) {
       return "annarbor@hmcc.net";
@@ -42,11 +16,13 @@ const EventPage = ({ pageContext }) => {
     return `${contact.Name} at ${contact.Email}`;
   }
 
-  const { event } = pageContext;
+  const { event, time } = pageContext;
 
-  const { formattedDate, formattedTime } = formatDateAndTime(event.date);
+  const { formattedDate, formattedTime } = formatDateAndTime(time.start);
 
   const contact = formatContact(event.contact);
+
+  console.log(event.description);
 
   return (
     <Layout>
@@ -105,10 +81,13 @@ const EventPage = ({ pageContext }) => {
             <span className="text-black text-2xl font-semibold leading-7">
               Details
             </span>
-            <span className="text-black text-base font-normal leading-normal">
+            {event.description.map((line, i) => <span key={i} className="text-black text-base font-normal leading-normal">
               <br />
-              {event.description}
-            </span>
+              {line}
+            </span>)}
+            {event.displayIsStreamed && <span className="text-black text-base font-normal leading-normal">
+              We will also live stream this event at the link below. <PrimaryButtonLink href="https://www.youtube.com/hmccannarbor/live" hasArrow={false}>Stream</PrimaryButtonLink> 
+            </span>}
           </div>
           <div>
             <span className="text-black text-2xl font-semibold leading-7">

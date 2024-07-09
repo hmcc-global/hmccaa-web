@@ -11,7 +11,8 @@
 const path = require("path");
 const {
   processEvents,
-} = require("../frontend/src/components/page-events/new-event-processing");
+} = require("../frontend/src/components/page-events/event-processing");
+const { getFullEventId } = require('./src/components/page-events/event-processing-util');
 
 const ITEMS_PER_PAGE = 6;
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -24,17 +25,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
   const eventResult = await graphql(`
-    {
+    query EventQuery {
       allStrapiEvent {
         nodes {
           id
           DescriptionOverride
+          DescriptionAddendum
           ContactOverride {
             Name
             Email
             PhoneNumber
             AutoformatPhoneNumber
           }
+          StopShowingWhenPastOverride
+          DisplayIsStreamedOverride
+          ShowXUpcomingEvents
           EventTemplate {
             CoverImage {
               url
@@ -44,7 +49,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               LocationName
             }
             Name
-            ShowXUpcomingEvents
+            StopShowingWhenPast
+            DisplayIsStreamed
             Contact {
               Name
               Email
@@ -90,19 +96,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   //Create page for each event from GraphQL
   const parsedEvents = processEvents(eventResult.data.allStrapiEvent.nodes);
-  console.log(parsedEvents);
+  // console.log(parsedEvents);
 
   parsedEvents.forEach(event => {
-    if (!event.id) {
-      console.error("Event does not have an id:", event);
+    if (!event.id || !event.times) {
+      console.error("Event missing critical fields:", event);
     } else {
-      createPage({
-        path: `/events/${event.id}`,
-        component: path.resolve(`./src/templates/eventPageTemplate.js`),
-        context: {
-          event,
-        },
-      });
+      event.times.forEach(time => {
+        console.log(time);
+        let eventPath = encodeURI(`/events/${getFullEventId(event.id, time)}`);
+        console.log("Creating event page", eventPath);
+        createPage({
+          path: eventPath,
+          component: path.resolve(`./src/templates/eventPageTemplate.js`),
+          context: {
+            event,
+            time,
+          },
+        });
+      })
     }
   });
 

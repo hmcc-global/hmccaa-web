@@ -68,6 +68,11 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "ShowXUpcomingEvents": {
+      "type": "integer",
+      "default": 1,
+      "required": true
     }
   }
 }
