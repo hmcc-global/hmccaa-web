@@ -5,23 +5,17 @@ import locationPinIcon from "../images/icons/locationPin.svg";
 import calendarIcon from "../images/icons/calendar.svg";
 import clockIcon from "../images/icons/clock-black.svg";
 import { formatDateAndTime } from "../components/page-events/event-processing-util";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const EventPage = ({ pageContext }) => {
-  const formatContact = (contact) => {
-    if (contact === undefined) {
-      return "annarbor@hmcc.net";
-    }
-
-    return `${contact.Name} at ${contact.Email}`;
-  }
-
   const { event, time } = pageContext;
 
   const { formattedDate, formattedTime } = formatDateAndTime(time.start);
 
-  const contact = formatContact(event.contact);
-
   console.log(event.description);
+
+  console.log(event.imgUrl);
+  // return "hello";
 
   return (
     <Layout>
@@ -71,7 +65,18 @@ const EventPage = ({ pageContext }) => {
           </div>
 
           <div className="text-center pt-4 lg:order-1 ml-5">
-            <img src={`http://127.0.0.1:1337${event.imgUrl}`} alt={event.imgAlt} />
+            {
+              event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
+                <GatsbyImage
+                  image={
+                    event.img?.localFile?.childImageSharp?.gatsbyImageData
+                  }
+                  alt={event.imgAlt}
+                />
+              ) : (
+                <div className="py-5 w-full"></div>
+              )
+            }
           </div>
         </div>
 
@@ -96,7 +101,7 @@ const EventPage = ({ pageContext }) => {
               <br />
             </span>
             <span className="text-black text-base font-normal leading-normal">
-              Have a question? Please contact {contact}
+              Have a question? Please contact {event.contact}
             </span>
           </div>
         </div>

@@ -1,18 +1,23 @@
 const DEFAULT_CONTACT = "annarbor@hmcc.net";
 
 function formatContact(contact) {
-  if (!contact || !contact.Name || !contact.Email) {
+  console.log("contact", contact);
+  if (!contact || !contact.Email) {
     return DEFAULT_CONTACT;
   }
 
+  
   let contactString = contact.Name + " at " + contact.Email;
-
+  if (!contact.Name) {
+    contactString = contact.Email;
+  }
+  
   let phoneNumberString = formatPhoneNumber(contact.PhoneNumber, contact.AutoformatPhoneNumber);
   return phoneNumberString ? contactString + " or " + phoneNumberString : contactString;
 }
 
 function formatPhoneNumber(numberStr, autoformat) {
-  if (!numberStr) {
+  if (!numberStr || numberStr === "dummy") {
     return null;
   }
 
@@ -99,7 +104,7 @@ const DATE_ITERATOR = {
   Year: addYears,
 };
 
-const getFullEventId = (eventId, time) => eventId + '-' + time.start.toISOString() + (time.end ? time.end.toISOString() : "");
+const getFullEventId = (eventId, time) => eventId + '-' + time.start.valueOf() + (time.end ? time.end.valueOf() : "");
 
 module.exports = {
   formatContact,
