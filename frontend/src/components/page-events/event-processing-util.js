@@ -1,12 +1,16 @@
 const DEFAULT_CONTACT = "annarbor@hmcc.net";
 
 function formatContact(contact) {
-  if (!contact || !contact.Name || !contact.Email) {
+  if (!contact || !contact.Email) {
     return DEFAULT_CONTACT;
   }
 
+  
   let contactString = contact.Name + " at " + contact.Email;
-
+  if (!contact.Name) {
+    contactString = contact.Email;
+  }
+  
   let phoneNumberString = formatPhoneNumber(contact.PhoneNumber, contact.AutoformatPhoneNumber);
   return phoneNumberString ? contactString + " or " + phoneNumberString : contactString;
 }
