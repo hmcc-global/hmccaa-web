@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
   const eventResult = await graphql(`
-    query EventQuery {
+    query EventSinglePageQuery {
       allStrapiEvent {
         nodes {
           id

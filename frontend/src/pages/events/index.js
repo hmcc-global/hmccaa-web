@@ -14,7 +14,7 @@ import { getFullEventId } from "../../components/page-events/event-processing-ut
 
 const EventsPage = () => {
   const data = useStaticQuery(graphql`
-    query EventQuery {
+    query EventsPageQuery {
       allStrapiEvent {
         nodes {
           id
