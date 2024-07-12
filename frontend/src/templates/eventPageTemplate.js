@@ -4,7 +4,6 @@ import { PrimaryButtonLink } from "../components/Button";
 import locationPinIcon from "../images/icons/locationPin.svg";
 import calendarIcon from "../images/icons/calendar.svg";
 import clockIcon from "../images/icons/clock-black.svg";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { formatDateAndTime } from "../components/page-events/event-processing-util";
 
 const EventPage = ({ pageContext }) => {
