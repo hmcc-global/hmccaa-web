@@ -27,7 +27,6 @@ const EventsPage = () => {
             PhoneNumber
             AutoformatPhoneNumber
           }
-          StopShowingWhenPastOverride
           DisplayIsStreamedOverride
           ShowXUpcomingEvents
           EventTemplate {
@@ -45,7 +44,6 @@ const EventsPage = () => {
               LocationName
             }
             Name
-            StopShowingWhenPast
             DisplayIsStreamed
             Contact {
               Name

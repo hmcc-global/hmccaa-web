@@ -32,7 +32,6 @@ function processEvents(e) {
       description,
       contact: util.formatContact(event.ContactOverride || event.EventTemplate?.Contact),
       displayIsStreamed: event.DisplayIsStreamedOverride || event.EventTemplate?.DisplayIsStreamed,
-      stopShowingWhenPast: event.StopShowingWhenPastOverride || event.EventTemplate?.StopShowingWhenPast,
       showXUpcoming: event.ShowXUpcomingEvents,
       times: processEventTimes(event.Time),
     };
