@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "Topic": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Sermons": {
       "type": "relation",

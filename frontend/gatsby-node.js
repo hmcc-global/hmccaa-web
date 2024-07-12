@@ -57,6 +57,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           EventTemplate {
             CoverImage {
               url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              alternativeText
             }
             Description
             Location {
@@ -97,6 +103,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           CoverImageOverride {
             url
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            alternativeText
           }
         }
       }
@@ -117,8 +129,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       console.error("Event missing critical fields:", event);
     } else {
       event.times.forEach(time => {
-        console.log(time);
-        let eventPath = encodeURI(`/events/${getFullEventId(event.id, time)}`);
+        let eventPath = `/events/${encodeURIComponent(getFullEventId(event.id, time))}`;
         console.log("Creating event page", eventPath);
         createPage({
           path: eventPath,

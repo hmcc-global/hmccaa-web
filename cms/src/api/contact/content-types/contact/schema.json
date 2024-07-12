@@ -14,7 +14,7 @@
   "attributes": {
     "Name": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Email": {
       "type": "email",
