@@ -15,13 +15,15 @@ function processEvents(e) {
     return {
       id: event.id,
       title: event.NameOverride || event.EventTemplate?.Name || "",
+      img:
+        event.CoverImageOverride || event.EventTemplate?.CoverImage || null,
       imgUrl:
         event.CoverImageOverride?.url ||
         event.EventTemplate?.CoverImage.url ||
         "",
       imgAlt:
-        event.CoverImageOverride?.imgAlt ||
-        event.EventTemplate?.CoverImage.imgAlt ||
+        event.CoverImageOverride?.alternativeText ||
+        event.EventTemplate?.CoverImage.alternativeText ||
         "",
       location:
         event.LocationOverride?.LocationName ||

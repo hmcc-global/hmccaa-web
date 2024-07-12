@@ -26,21 +26,18 @@ const EventCard = ({ eventID, title, time, location, img, description }) => {
       </p>
     </div>
   );
+  console.log(`/events/${eventID}`);
 
   return (
-    <Link
-      to={`/events/${eventID}`}
-      style={{ textDecoration: "none", color: "inherit" }}
+    <Card
+      title={title}
+      date={time}
+      img={img}
+      containerCss="md:pb-[3.125rem]"
+      href={`/events/${eventID}`}
     >
-      <Card
-        title={title}
-        date={time}
-        img={img}
-        containerCss="md:pb-[3.125rem]"
-      >
-        {attributes}
-      </Card>
-    </Link>
+      {attributes}
+    </Card>
   );
 };
 

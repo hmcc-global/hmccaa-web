@@ -12,7 +12,7 @@ function formatContact(contact) {
 }
 
 function formatPhoneNumber(numberStr, autoformat) {
-  if (!numberStr) {
+  if (!numberStr || numberStr === "dummy") {
     return null;
   }
 
@@ -99,7 +99,7 @@ const DATE_ITERATOR = {
   Year: addYears,
 };
 
-const getFullEventId = (eventId, time) => eventId + '-' + time.start.toISOString() + (time.end ? time.end.toISOString() : "");
+const getFullEventId = (eventId, time) => eventId + '-' + time.start.valueOf() + (time.end ? time.end.valueOf() : "");
 
 module.exports = {
   formatContact,

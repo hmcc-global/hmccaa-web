@@ -24,7 +24,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::contact.contact",
-      "required": true
+      "required": false
     },
     "Location": {
       "type": "relation",

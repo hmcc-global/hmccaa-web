@@ -11,6 +11,7 @@ import PrayerGatheringEvents from "../../components/page-events/prayerGatheringE
 import Banner from "../../components/shared/banner";
 import { processEvents, filterEventTimes } from "../../components/page-events/event-processing";
 import { getFullEventId } from "../../components/page-events/event-processing-util";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const EventsPage = () => {
   const data = useStaticQuery(graphql`
@@ -32,6 +33,12 @@ const EventsPage = () => {
           EventTemplate {
             CoverImage {
               url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              alternativeText
             }
             Description
             Location {
@@ -72,6 +79,12 @@ const EventsPage = () => {
           }
           CoverImageOverride {
             url
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            alternativeText
           }
         }
       }
@@ -89,19 +102,24 @@ const EventsPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container px-4">
           {events.map(event => (
             event.times.map(time => {
-              let key = encodeURI(getFullEventId(event.id, time));
-              console.log(time);
+              let key = encodeURIComponent(getFullEventId(event.id, time));
+              console.log(time, key);
               return <EventCard
                 key={key}
                 eventID={key}
                 title={event.title}
                 time={time.start.toString()}
                 img={
-                  <img
-                    className="flex-shrink-0 mb-0"
-                    src={`http://127.0.0.1:1337${event.imgUrl}`}
-                    alt={event.imgAlt}
-                  />
+                  event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
+                    <GatsbyImage
+                      image={
+                        event.img?.localFile?.childImageSharp?.gatsbyImageData
+                      }
+                      alt={event.imgAlt}
+                    />
+                  ) : (
+                    <div className="py-5 w-full"></div>
+                  )
                 }
                 location={event.location}
                 description={event.description[0]}
