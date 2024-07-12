@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_utility_links",
+  "info": {
+    "displayName": "Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Hyperlink": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

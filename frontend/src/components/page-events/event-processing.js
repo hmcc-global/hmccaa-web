@@ -11,6 +11,10 @@ function processEvents(e) {
     if (event.DescriptionAddendum) {
       description.push(...event.DescriptionAddendum.trim().split('\n'));
     }
+    
+    // Configure event sign up link
+    let signUpLinkTemp = event.SignUpLinkOverride || event.EventTemplate?.SignUpLink || null;
+    let signUpLink = signUpLinkTemp ? { text: signUpLinkTemp.Text, link: signUpLinkTemp.Hyperlink } : null;
 
     return {
       id: event.id,
@@ -31,6 +35,7 @@ function processEvents(e) {
         "",
       description,
       contact: util.formatContact(event.ContactOverride || event.EventTemplate?.Contact),
+      signUpLink,
       displayIsStreamed: event.DisplayIsStreamedOverride || event.EventTemplate?.DisplayIsStreamed,
       showXUpcoming: event.ShowXUpcomingEvents,
       times: processEventTimes(event.Time),
@@ -106,5 +111,19 @@ function filterEventTimes(events) {
   }).filter(event => event.times.length !== 0)
 }
 
+function filterAllPastEventTimes(events) {
+  return events.map(event => {
+    if (event.times) {
+      event.times = event.times.filter(time => time.showWhenPast || util.isTodayOrAfter(time.end ? time.end : time.start));
+    }
+    else {
+      event.times = [];
+    }
+    return event;
+
+  }).filter(event => event.times.length !== 0)
+}
+
 module.exports.processEvents = processEvents;
 module.exports.filterEventTimes = filterEventTimes;
+module.exports.filterAllPastEventTimes = filterAllPastEventTimes;
