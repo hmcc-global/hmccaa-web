@@ -3,7 +3,12 @@ import Card from "../shared/card";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
-const EventCard = ({ eventID, title, date, location, img, description }) => {
+const MAX_DESCRIPTION_LEN = 68;
+
+const EventCard = ({ eventID, title, time, location, img, description }) => {
+  if (description.length > MAX_DESCRIPTION_LEN) {
+    description = description.substring(0, MAX_DESCRIPTION_LEN).trimEnd() + "...";
+  }
   const attributes = (
     <div>
       <div className="flex items-center gap-1">
@@ -29,8 +34,8 @@ const EventCard = ({ eventID, title, date, location, img, description }) => {
     >
       <Card
         title={title}
-        date={date}
-        img={img} // TODO: make dynamic
+        date={time}
+        img={img}
         containerCss="md:pb-[3.125rem]"
       >
         {attributes}

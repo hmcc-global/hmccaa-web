@@ -5,20 +5,31 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, getImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 import EventsNotes from "../../components/page-events/eventsNote";
 import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
 import Banner from "../../components/shared/banner";
-import { processEvents } from "../../components/page-events/event-processing-util";
+import { processEvents, filterEventTimes } from "../../components/page-events/event-processing";
+import { getFullEventId } from "../../components/page-events/event-processing-util";
 
 const EventsPage = () => {
   const data = useStaticQuery(graphql`
-    query EventQuery {
+    query EventsPageQuery {
       allStrapiEvent {
         nodes {
           id
           DescriptionOverride
+          DescriptionAddendum
+          ContactOverride {
+            Name
+            Email
+            PhoneNumber
+            AutoformatPhoneNumber
+          }
+          StopShowingWhenPastOverride
+          DisplayIsStreamedOverride
+          ShowXUpcomingEvents
           EventTemplate {
             CoverImage {
               url
@@ -28,7 +39,14 @@ const EventsPage = () => {
               LocationName
             }
             Name
-            ShowXUpcomingEvents
+            StopShowingWhenPast
+            DisplayIsStreamed
+            Contact {
+              Name
+              Email
+              PhoneNumber
+              AutoformatPhoneNumber
+            }
           }
           LocationOverride {
             LocationName
@@ -60,8 +78,7 @@ const EventsPage = () => {
       }
     }
   `);
-
-  const events = processEvents(data.allStrapiEvent.nodes);
+  let events = filterEventTimes(processEvents(data.allStrapiEvent.nodes));
 
   return (
     <Layout hasSpacing={false}>
@@ -72,21 +89,25 @@ const EventsPage = () => {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container px-4">
           {events.map(event => (
-            <EventCard
-              key={event.id}
-              title={event.title}
-              date={event.date.toString()}
-              // TODO: use GatsbyImage since static cannot handle dynamic src
-              img={
-                <StaticImage
-                  className="flex-shrink-0 mb-0"
-                  src={"../../images/prayer-gathering.png"}
-                  alt={event.imgAlt}
-                />
-              }
-              location={event.location}
-              description={event.description}
-            />
+            event.times.map(time => {
+              let key = encodeURI(getFullEventId(event.id, time));
+              console.log(time);
+              return <EventCard
+                key={key}
+                eventID={key}
+                title={event.title}
+                time={time.start.toString()}
+                img={
+                  <img
+                    className="flex-shrink-0 mb-0"
+                    src={`http://127.0.0.1:1337${event.imgUrl}`}
+                    alt={event.imgAlt}
+                  />
+                }
+                location={event.location}
+                description={event.description[0]}
+              />;
+            })
           ))}
         </div>
       )}

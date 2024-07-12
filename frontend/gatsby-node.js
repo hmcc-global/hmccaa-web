@@ -9,6 +9,10 @@
  */
 
 const path = require("path");
+const {
+  processEvents,
+} = require("../frontend/src/components/page-events/event-processing");
+const { getFullEventId } = require('./src/components/page-events/event-processing-util');
 
 const ITEMS_PER_PAGE = 6;
 
@@ -34,51 +38,65 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     defer: true,
   });
 
-  //Query each event from GraphQL
   const eventResult = await graphql(`
-    {
+    query EventSinglePageQuery {
       allStrapiEvent {
-        edges {
-          node {
-            id
-            DescriptionOverride
-            EventTemplate {
-              CoverImage {
-                url
-              }
-              Description
-              Location {
-                LocationName
-              }
-              Name
-              ShowXUpcomingEvents
-            }
-            LocationOverride {
-              LocationName
-            }
-            NameOverride
-            Time {
-              ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
-                id
-                DateTime
-                EndDateTime
-                EndRecurDate
-                RecurEveryXTimeFrames
-                RecurTimeFrame
-                StopShowingWhenPast
-                strapi_component
-              }
-              ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
-                id
-                StopShowingWhenPast
-                EndDateTime
-                DateTime
-                strapi_component
-              }
-            }
-            CoverImageOverride {
+        nodes {
+          id
+          DescriptionOverride
+          DescriptionAddendum
+          ContactOverride {
+            Name
+            Email
+            PhoneNumber
+            AutoformatPhoneNumber
+          }
+          StopShowingWhenPastOverride
+          DisplayIsStreamedOverride
+          ShowXUpcomingEvents
+          EventTemplate {
+            CoverImage {
               url
             }
+            Description
+            Location {
+              LocationName
+            }
+            Name
+            StopShowingWhenPast
+            DisplayIsStreamed
+            Contact {
+              Name
+              Email
+              PhoneNumber
+              AutoformatPhoneNumber
+            }
+          }
+          LocationOverride {
+            LocationName
+          }
+          NameOverride
+          Time {
+            ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+              id
+              DateTime
+              EndDateTime
+              EndRecurDate
+              RecurEveryXTimeFrames
+              RecurTimeFrame
+              StopShowingWhenPast
+              strapi_component
+            }
+            ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+              id
+              StopShowingWhenPast
+              EndDateTime
+              DateTime
+              strapi_component
+            }
+          }
+          CoverImageOverride {
+            url
           }
         }
       }
@@ -91,16 +109,27 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   //Create page for each event from GraphQL
-  eventResult.data.allStrapiEvent.edges.forEach(({ node: event }) => {
-    createPage({
-      path: `/events/${event.id}`,
-      component: path.resolve(`./src/templates/eventPageTemplate.js`),
-      context: {
-        // Passing the entire event object as context
-        event,
-        ID: event.id,
-      },
-    });
+  const parsedEvents = processEvents(eventResult.data.allStrapiEvent.nodes);
+  // console.log(parsedEvents);
+
+  parsedEvents.forEach(event => {
+    if (!event.id || !event.times) {
+      console.error("Event missing critical fields:", event);
+    } else {
+      event.times.forEach(time => {
+        console.log(time);
+        let eventPath = encodeURI(`/events/${getFullEventId(event.id, time)}`);
+        console.log("Creating event page", eventPath);
+        createPage({
+          path: eventPath,
+          component: path.resolve(`./src/templates/eventPageTemplate.js`),
+          context: {
+            event,
+            time,
+          },
+        });
+      })
+    }
   });
 
   // GraphQL Query for All Sermons

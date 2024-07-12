@@ -23,14 +23,14 @@
     "Contact": {
       "type": "relation",
       "relation": "oneToOne",
-      "required": true,
-      "target": "api::contact.contact"
+      "target": "api::contact.contact",
+      "required": true
     },
     "Location": {
       "type": "relation",
       "relation": "oneToOne",
-      "required": true,
-      "target": "api::location.location"
+      "target": "api::location.location",
+      "required": true
     },
     "CoverImage": {
       "type": "media",
@@ -39,11 +39,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "ShowXUpcomingEvents": {
-      "type": "integer",
-      "default": 1,
-      "required": true
     },
     "StopShowingWhenPast": {
       "type": "boolean",
