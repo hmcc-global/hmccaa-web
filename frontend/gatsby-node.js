@@ -51,7 +51,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             PhoneNumber
             AutoformatPhoneNumber
           }
-          StopShowingWhenPastOverride
           DisplayIsStreamedOverride
           ShowXUpcomingEvents
           EventTemplate {
@@ -69,7 +68,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               LocationName
             }
             Name
-            StopShowingWhenPast
             DisplayIsStreamed
             Contact {
               Name

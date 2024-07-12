@@ -40,11 +40,6 @@
         "images"
       ]
     },
-    "StopShowingWhenPast": {
-      "type": "boolean",
-      "default": true,
-      "required": true
-    },
     "DisplayIsStreamed": {
       "type": "boolean",
       "default": false,
