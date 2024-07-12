@@ -16,8 +16,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::event-template.event-template",
-      "inversedBy": "Events",
-      "required": true
+      "inversedBy": "Events"
     },
     "Time": {
       "type": "dynamiczone",
@@ -70,6 +69,12 @@
       "type": "integer",
       "default": 1,
       "required": true
+    },
+    "SignUpLinkOverride": {
+      "type": "component",
+      "repeatable": false,
+      "required": false,
+      "component": "utility.link"
     }
   }
 }

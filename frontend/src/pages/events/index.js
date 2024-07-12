@@ -21,13 +21,6 @@ const EventsPage = () => {
           id
           DescriptionOverride
           DescriptionAddendum
-          ContactOverride {
-            Name
-            Email
-            PhoneNumber
-            AutoformatPhoneNumber
-          }
-          DisplayIsStreamedOverride
           ShowXUpcomingEvents
           EventTemplate {
             CoverImage {
@@ -101,7 +94,6 @@ const EventsPage = () => {
           {events.map(event => (
             event.times.map(time => {
               let key = encodeURIComponent(getFullEventId(event.id, time));
-              console.log(time, key);
               return <EventCard
                 key={key}
                 eventID={key}

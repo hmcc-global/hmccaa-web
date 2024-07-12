@@ -50,6 +50,11 @@
       "relation": "oneToMany",
       "target": "api::event.event",
       "mappedBy": "EventTemplate"
+    },
+    "SignUpLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "utility.link"
     }
   }
 }
