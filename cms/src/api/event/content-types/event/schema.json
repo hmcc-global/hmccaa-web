@@ -61,10 +61,6 @@
         "images"
       ]
     },
-    "StopShowingWhenPastOverride": {
-      "type": "boolean",
-      "required": false
-    },
     "DisplayIsStreamedOverride": {
       "type": "boolean",
       "default": false,
