@@ -22,7 +22,7 @@ function formatPhoneNumber(numberStr, autoformat) {
 
   let filteredNumberStr = numberStr.replace(/\D/g, "");
 
-  if (filteredNumberStr.length != 10) {
+  if (filteredNumberStr.length !== 10) {
     console.error("Failed to format phone number:", numberStr);
     return numberStr; // can't autoformat
   }
@@ -55,11 +55,6 @@ function formatDateAndTime(isoDateString) {
     .padStart(2, "0")} ${amPm}`;
 
   return { formattedDate, formattedTime };
-}
-
-function formatDateAndTimeStr(isoDateString) {
-  const {formattedDate, formattedTime} = formatDateAndTime(isoDateString);
-  return `${formattedDate}${formattedTime}`;
 }
 
 /*
@@ -107,10 +102,10 @@ const DATE_ITERATOR = {
 const getFullEventId = (eventId, time) => eventId + '-' + time.start.toISOString() + (time.end ? time.end.toISOString() : "");
 
 module.exports = {
-  formatContact: formatContact,
-  formatPhoneNumber: formatPhoneNumber,
-  formatDateAndTime, formatDateAndTime,
-  isTodayOrAfter: isTodayOrAfter,
-  DATE_ITERATOR: DATE_ITERATOR,
-  getFullEventId: getFullEventId,
+  formatContact,
+  formatPhoneNumber,
+  formatDateAndTime,
+  isTodayOrAfter,
+  DATE_ITERATOR,
+  getFullEventId,
 };

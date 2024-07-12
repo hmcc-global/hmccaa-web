@@ -5,7 +5,6 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
-import { StaticImage, getImage } from "gatsby-plugin-image";
 import EventCard from "../../components/page-events/eventCard";
 import EventsNotes from "../../components/page-events/eventsNote";
 import PrayerGatheringEvents from "../../components/page-events/prayerGatheringEvents";
@@ -84,7 +83,7 @@ const EventsPage = () => {
     <Layout>
       <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
       <SundayCelebBarEvents />
-      {events.length == 0 ? (
+      {events.length === 0 ? (
         <div className="text-center py-36">No events found.</div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container px-4">
