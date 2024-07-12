@@ -20,7 +20,8 @@
         "images"
       ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": true
     },
     "Sermons": {
       "type": "relation",

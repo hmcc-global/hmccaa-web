@@ -17,7 +17,8 @@
       "required": true
     },
     "DatePreached": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "ServiceType": {
       "type": "enumeration",
@@ -67,13 +68,15 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::sermon-series.sermon-series",
-      "inversedBy": "Sermons"
+      "inversedBy": "Sermons",
+      "required": true
     },
     "Preacher": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::preacher.preacher",
-      "inversedBy": "Sermons"
+      "inversedBy": "Sermons",
+      "required": true
     },
     "SermonTopics": {
       "type": "relation",
