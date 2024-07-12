@@ -56,7 +56,7 @@ jobs:
       - name: git checkout
         uses: actions/checkout@v3
       - name: Sync files to server
-        run: rsync -avzr --delete-after --exclude={'node_modules/','.env','build/','cron/'} ./cms/ ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content
+        run: rsync -avzr --delete-after --exclude={'node_modules/','.env','build/','cron/','public/uploads/'} ./cms/ ${{ secrets.CMS_SSH_USER }}@${{ secrets.CMS_SSH_HOST }}:/home/${{ secrets.CMS_SSH_USER }}/annarbor-content
       - name: Confirm build is done
         run: |
           date '+%Y-%m-%d %T.%6N' > ./latest-build
