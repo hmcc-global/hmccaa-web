@@ -8,19 +8,9 @@ import { formatDateAndTime } from "../components/page-events/event-processing-ut
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const EventPage = ({ pageContext }) => {
-  const formatContact = (contact) => {
-    if (!contact) {
-      return "annarbor@hmcc.net";
-    }
-
-    return `${contact.Name} at ${contact.Email}`;
-  }
-
   const { event, time } = pageContext;
 
   const { formattedDate, formattedTime } = formatDateAndTime(time.start);
-
-  const contact = formatContact(event.contact);
 
   console.log(event.description);
 
@@ -111,7 +101,7 @@ const EventPage = ({ pageContext }) => {
               <br />
             </span>
             <span className="text-black text-base font-normal leading-normal">
-              Have a question? Please contact {contact}
+              Have a question? Please contact {event.contact}
             </span>
           </div>
         </div>

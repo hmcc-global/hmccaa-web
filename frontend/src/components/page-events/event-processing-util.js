@@ -1,6 +1,7 @@
 const DEFAULT_CONTACT = "annarbor@hmcc.net";
 
 function formatContact(contact) {
+  console.log("contact", contact);
   if (!contact || !contact.Email) {
     return DEFAULT_CONTACT;
   }

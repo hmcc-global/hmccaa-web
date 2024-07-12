@@ -16,7 +16,8 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::event-template.event-template",
-      "inversedBy": "Events"
+      "inversedBy": "Events",
+      "required": true
     },
     "Time": {
       "type": "dynamiczone",
