@@ -26,7 +26,6 @@ const EventCard = ({ eventID, title, time, location, img, description }) => {
       </p>
     </div>
   );
-  console.log(`/events/${eventID}`);
 
   return (
     <Card

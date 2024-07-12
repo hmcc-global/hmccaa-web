@@ -12,11 +12,6 @@ const EventPage = ({ pageContext }) => {
 
   const { formattedDate, formattedTime } = formatDateAndTime(time.start);
 
-  console.log(event.description);
-
-  console.log(event.imgUrl);
-  // return "hello";
-
   return (
     <Layout>
       <div className="flex flex-col justify-start items-center gap-y-8 lg:gap-y-14 pt-8 gap-x-32 lg:pt-14 py-28">
@@ -52,16 +47,14 @@ const EventPage = ({ pageContext }) => {
                 </div>
               </div>
             </div>
-
-            {/* ADD CODE BACK IN ONCE LINKS ARE ADDED TO GRAPHQL: 
-            <div className="flex justify-center pt-6 lg:justify-start lg:pt-10">
+            {event.signUpLink && <div className="flex justify-center pt-6 lg:justify-start lg:pt-10">
               <PrimaryButtonLink
                 hasArrow={true}
-                to={"https://annarbor.hmcc.net/"}
+                to={event.signUpLink.link}
               >
-                Sign Up
+                {event.signUpLink.text}
               </PrimaryButtonLink>
-            </div> */}
+            </div>}
           </div>
 
           <div className="text-center pt-4 lg:order-1 ml-5">

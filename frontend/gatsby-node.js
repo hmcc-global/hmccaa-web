@@ -11,6 +11,7 @@
 const path = require("path");
 const {
   processEvents,
+  filterAllPastEventTimes
 } = require("../frontend/src/components/page-events/event-processing");
 const { getFullEventId } = require('./src/components/page-events/event-processing-util');
 
@@ -75,6 +76,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               PhoneNumber
               AutoformatPhoneNumber
             }
+            SignUpLink {
+              Text
+              Hyperlink
+            }
+          }
+          SignUpLinkOverride {
+            Text
+            Hyperlink
           }
           LocationOverride {
             LocationName
@@ -119,8 +128,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   //Create page for each event from GraphQL
-  const parsedEvents = processEvents(eventResult.data.allStrapiEvent.nodes);
-  // console.log(parsedEvents);
+  const parsedEvents = filterAllPastEventTimes(processEvents(eventResult.data.allStrapiEvent.nodes));
 
   parsedEvents.forEach(event => {
     if (!event.id || !event.times) {
@@ -238,9 +246,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     .map(book => {
       const bookLabel = /\(\d+/.test(book)
         ? `${book.substring(
-            book.search(/\d+/),
-            book.search(/\d+/) + book.substring(book.search(/\d+/)).search(/\D/)
-          )} ${book.substring(0, book.search(/\(/) - 1)}`
+          book.search(/\d+/),
+          book.search(/\d+/) + book.substring(book.search(/\d+/)).search(/\D/)
+        )} ${book.substring(0, book.search(/\(/) - 1)}`
         : book;
       return {
         label: bookLabel,
@@ -269,7 +277,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     ...item,
     numOfPages: Math.ceil(
       posts.filter(({ Series: { Name } }) => item.label === Name).length /
-        postsPerPage
+      postsPerPage
     ),
   }));
   // Update Bible Books List to include number of pages of sermons for each Bible Book.
