@@ -1,5 +1,77 @@
-const STRAPI_RECURRING_TIME = "event-times.recurring-time";
-const STRAPI_SINGLE_TIME = "event-times.single-time";
+const DEFAULT_CONTACT = "annarbor@hmcc.net";
+
+function formatContact(contact) {
+  if (!contact || !contact.Name || !contact.Email) {
+    return DEFAULT_CONTACT;
+  }
+
+  let contactString = contact.Name + " at " + contact.Email;
+
+  let phoneNumberString = formatPhoneNumber(contact.PhoneNumber, contact.AutoformatPhoneNumber);
+  return phoneNumberString ? contactString + " or " + phoneNumberString : contactString;
+}
+
+function formatPhoneNumber(numberStr, autoformat) {
+  if (!numberStr) {
+    return null;
+  }
+
+  if (!autoformat) {
+    return numberStr;
+  }
+
+  let filteredNumberStr = numberStr.replace(/\D/g, "");
+
+  if (filteredNumberStr.length != 10) {
+    console.error("Failed to format phone number:", numberStr);
+    return numberStr; // can't autoformat
+  }
+
+  return `(${filteredNumberStr.substr(0, 3)})${filteredNumberStr.substr(3, 3)}-${filteredNumberStr.substr(6)}`;
+}
+
+function formatDateAndTime(isoDateString) {
+  const date = new Date(isoDateString);
+
+  // Extracting date components
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1; // getMonth() returns month from 0-11
+  const day = date.getDate();
+
+  // Extracting and converting time components to 12-hour format
+  let hour = date.getHours();
+  const minutes = date.getMinutes();
+  const amPm = hour >= 12 ? "PM" : "AM";
+
+  hour = hour % 12;
+  hour = hour ? hour : 12; // the hour '0' should be '12'
+
+  // Formatting date and time
+  const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day
+    .toString()
+    .padStart(2, "0")}`;
+  const formattedTime = `${hour.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")} ${amPm}`;
+
+  return { formattedDate, formattedTime };
+}
+
+function formatDateAndTimeStr(isoDateString) {
+  const {formattedDate, formattedTime} = formatDateAndTime(isoDateString);
+  return `${formattedDate}${formattedTime}`;
+}
+
+/*
+ * Returns whether the date is on or after today.
+ * We don't want events to disappear immediately after they start.
+ * We'll use this function to keep showing events until the end of the same day.
+ */
+const isTodayOrAfter = date => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return date >= today;
+};
 
 const addDays = (date, days) => {
   const result = new Date(date);
@@ -25,18 +97,6 @@ const addYears = (date, years) => {
   return result;
 };
 
-/*
- * Returns whether the date is before today.
- * We don't want events to disappear immediately after they start.
- * We'll use this function to keep showing events until the end of the same day.
- */
-const isTodayOrAfter = date => {
-  const copyOfDate = new Date(date);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return copyOfDate > today;
-};
-
 const DATE_ITERATOR = {
   Day: addDays,
   Week: addWeeks,
@@ -44,96 +104,13 @@ const DATE_ITERATOR = {
   Year: addYears,
 };
 
-const generateRecurringEvent = (timeInfo, baseEvent, maxOccurrences) => {
-  maxOccurrences = maxOccurrences || 1;
-  const startDate = new Date(timeInfo.DateTime);
-  const events = [];
-  const duration = timeInfo.EndDateTime
-    ? new Date(timeInfo.EndDateTime) - startDate
-    : null;
+const getFullEventId = (eventId, time) => eventId + '-' + time.start.toISOString() + (time.end ? time.end.toISOString() : "");
 
-  for (let i = 0; i < maxOccurrences; i++) {
-    const eventDate = DATE_ITERATOR[timeInfo.RecurTimeFrame](
-      startDate,
-      i * timeInfo.RecurEveryXTimeFrames
-    );
-
-    // Stop generating events after the end date
-    if (timeInfo.EndRecurDate && eventDate > new Date(timeInfo.EndRecurDate)) {
-      break;
-    }
-
-    if (isTodayOrAfter(eventDate) || !timeInfo.StopShowingWhenPast) {
-      events.push({
-        ...baseEvent,
-        date: eventDate,
-        endDate: duration ? new Date(eventDate.getTime() + duration) : null,
-      });
-    }
-  }
-  return events;
-};
-
-const processEvent = event => {
-  const eventInstances = [];
-
-  const fullDescription =
-    event.DescriptionOverride || event.EventTemplate?.Description || "";
-  const [description] = fullDescription.split("\n");
-  const baseEvent = {
-    id: event.id,
-    title: event.NameOverride || event.EventTemplate?.Name || "",
-    imgUrl:
-      event.CoverImageOverride?.url ||
-      event.EventTemplate?.CoverImage.url ||
-      "",
-    imgAlt:
-      event.CoverImageOverride?.imgAlt ||
-      event.EventTemplate?.CoverImage.imgAlt ||
-      "",
-    location:
-      event.LocationOverride?.LocationName ||
-      event.EventTemplate?.Location.LocationName ||
-      "",
-    description,
-  };
-
-  for (const time of event.Time || []) {
-    if (time.strapi_component === STRAPI_RECURRING_TIME) {
-      const recurringInstances = generateRecurringEvent(
-        time,
-        baseEvent,
-        event.EventTemplate?.ShowXUpcomingEvents
-      );
-      eventInstances.push(...recurringInstances);
-    } else if (time.strapi_component === STRAPI_SINGLE_TIME) {
-      if (isTodayOrAfter(time.DateTime) || !time.StopShowingWhenPast) {
-        const eventInstance = {
-          ...baseEvent,
-          date: new Date(time.DateTime),
-          endDate: time.EndDateTime ? new Date(time.EndDateTime) : null,
-        };
-        eventInstances.push(eventInstance);
-      }
-    }
-  }
-
-  // Sort events
-  eventInstances.sort((a, b) => a.date - b.date);
-
-  // Truncate events to first X
-  return eventInstances.slice(0, event.EventTemplate?.ShowXUpcomingEvents || 1);
-};
-
-export const processEvents = events => {
-  const displayEvents = [];
-  events.forEach(event => {
-    const eventInstances = processEvent(event);
-
-    displayEvents.push(...eventInstances);
-  });
-
-  // Sort events
-  displayEvents.sort((a, b) => a.date - b.date);
-  return displayEvents;
+module.exports = {
+  formatContact: formatContact,
+  formatPhoneNumber: formatPhoneNumber,
+  formatDateAndTime, formatDateAndTime,
+  isTodayOrAfter: isTodayOrAfter,
+  DATE_ITERATOR: DATE_ITERATOR,
+  getFullEventId: getFullEventId,
 };
