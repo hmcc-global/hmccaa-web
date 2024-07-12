@@ -1,4 +1,4 @@
-name: Publish PR Build to Servers
+name: Publish PR Build to DevSite/Strapi/Docs
 run-name: Deploy after PR merge to main (merged by ${{ github.actor }})
 on:
   push:
