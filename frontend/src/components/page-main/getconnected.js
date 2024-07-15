@@ -17,7 +17,7 @@ const GetConnectedText = () => (
   <div className="w-full flex-col xl:py-5 justify-center text-center">
     <div className="subheading">Get Connected</div>
     <h2>There is a place for you at HMCC.</h2>
-    <p className="pt-21">
+    <p className="pt-5">
       New to Michigan? Coming for school? Looking for community? Whether you
       know God or not, we welcome you! We have fellowship for all different life
       stages, from youth to students to working adults or married couples!
@@ -90,7 +90,7 @@ const lgsArray = [
 ];
 
 const GetConnectedCircleDesktop = () => (
-  <div className="2 w-full pt-[16rem] pb-[8rem] px-10">
+  <div className="2 w-full pt-[12rem] pb-[8rem] px-10">
     <div>
       <div
         className={
