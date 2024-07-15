@@ -16,7 +16,7 @@ import Banner from "../../components/shared/banner";
 export const Head = () => <Seo title="About" />;
 
 const AboutPage = () => (
-  <Layout>
+  <Layout spacingColor="bg-Neutral-200">
     <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
     <div className="content-padding-full">
       <OurStory />
