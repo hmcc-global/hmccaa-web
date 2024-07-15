@@ -6,7 +6,7 @@ import ComboBox from "../../shared/comboBox";
 
 const MAX_PAGINATION = 7;
 // Building the Pagination for the Sermons
-const NumberPaging = ({ page, currentPage }) => {
+const NumberPaging = ({ page, currentPage, filterValue = null }) => {
   if (/.../.test(page) || parseInt(page, 10) === currentPage) {
     return /.../.test(page) ? (
       <span>{page}</span>
@@ -17,7 +17,9 @@ const NumberPaging = ({ page, currentPage }) => {
     return (
       <Link
         className="text-Shades-100 no-underline"
-        to={`/watch/${page === "1" ? "" : page}#sermonsList`}
+        to={`/watch/${filterValue ? filterValue + "/" : ""}${
+          page === "1" ? "" : page
+        }#sermonsList`}
       >
         {page}
       </Link>
@@ -59,8 +61,8 @@ const Sermons = ({
       } else if (currentPage === 2) {
         const previous = currentPage - 1;
         const next = currentPage + 1;
-        pages.unshift(previous);
-        pages.push(next);
+        pages.unshift(previous.toString());
+        pages.push(next.toString());
       } else {
         for (let index = currentPage - 1; index > 0; index--) {
           pages.unshift(index.toString());
@@ -75,7 +77,7 @@ const Sermons = ({
       pages.unshift(previous.toString());
       pages.unshift("...");
       pages.unshift("1");
-      pages.push(next);
+      pages.push(next.toString());
       pages.push("..");
       pages.push(numPages.toString());
     } else {
@@ -87,7 +89,7 @@ const Sermons = ({
       } else if (rightEnd === currentPage) {
         const previous = currentPage - 1;
         pages.unshift(previous.toString());
-        pages.push(numPages);
+        pages.push(numPages.toString());
       } else {
         for (let index = currentPage - 1; index >= maxRight; index--) {
           pages.unshift(index.toString());
@@ -106,6 +108,7 @@ const Sermons = ({
       }
     }
   }
+  console.warn(pages);
   // Navigate to new page based upon Drop Down Selection
   const handleChange = () => {
     const selections = document
@@ -207,6 +210,7 @@ const Sermons = ({
               key={`page-number-${index}`}
               page={page}
               currentPage={currentPage}
+              filterValue={filterValue}
             />
           ))}
           {!isLast ? (
