@@ -11,9 +11,11 @@
 const path = require("path");
 const {
   processEvents,
-  filterAllPastEventTimes
+  filterAllPastEventTimes,
 } = require("../frontend/src/components/page-events/event-processing");
-const { getFullEventId } = require('./src/components/page-events/event-processing-util');
+const {
+  getFullEventId,
+} = require("./src/components/page-events/event-processing-util");
 
 const ITEMS_PER_PAGE = 6;
 
@@ -128,14 +130,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   //Create page for each event from GraphQL
-  const parsedEvents = filterAllPastEventTimes(processEvents(eventResult.data.allStrapiEvent.nodes));
+  const parsedEvents = filterAllPastEventTimes(
+    processEvents(eventResult.data.allStrapiEvent.nodes)
+  );
 
   parsedEvents.forEach(event => {
     if (!event.id || !event.times) {
       console.error("Event missing critical fields:", event);
     } else {
       event.times.forEach(time => {
-        let eventPath = `/events/${encodeURIComponent(getFullEventId(event.id, time))}`;
+        let eventPath = `/events/${encodeURIComponent(
+          getFullEventId(event.id, time)
+        )}`;
         console.log("Creating event page", eventPath);
         createPage({
           path: eventPath,
@@ -145,7 +151,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             time,
           },
         });
-      })
+      });
     }
   });
 
@@ -246,9 +252,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     .map(book => {
       const bookLabel = /\(\d+/.test(book)
         ? `${book.substring(
-          book.search(/\d+/),
-          book.search(/\d+/) + book.substring(book.search(/\d+/)).search(/\D/)
-        )} ${book.substring(0, book.search(/\(/) - 1)}`
+            book.search(/\d+/),
+            book.search(/\d+/) + book.substring(book.search(/\d+/)).search(/\D/)
+          )} ${book.substring(0, book.search(/\(/) - 1)}`
         : book;
       return {
         label: bookLabel,
@@ -277,7 +283,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     ...item,
     numOfPages: Math.ceil(
       posts.filter(({ Series: { Name } }) => item.label === Name).length /
-      postsPerPage
+        postsPerPage
     ),
   }));
   // Update Bible Books List to include number of pages of sermons for each Bible Book.
