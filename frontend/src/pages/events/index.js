@@ -64,7 +64,7 @@ const EventsPage = () => {
   const events = processEvents(data.allStrapiEvent.nodes);
 
   return (
-    <Layout>
+    <Layout hasSpacing={false}>
       <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
       <SundayCelebBarEvents />
       {events.length == 0 ? (

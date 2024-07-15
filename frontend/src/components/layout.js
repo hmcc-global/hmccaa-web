@@ -12,7 +12,11 @@ import Header from "./header";
 import "./layout.css";
 import Footer from "./footer";
 
-const Layout = ({ children }) => {
+const Layout = ({
+  children,
+  hasSpacing = true,
+  spacingColor = "bg-Shades-0",
+}) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,7 +33,7 @@ const Layout = ({ children }) => {
       <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
         {children}
       </main>
-      <div className="py-[200px] bg-Primary-50"></div>
+      {hasSpacing && <div className={`py-20 ${spacingColor}`}></div>}
       <Footer />
     </div>
   );
