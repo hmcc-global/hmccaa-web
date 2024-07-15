@@ -2,7 +2,7 @@ import * as React from "react";
 
 const PrayerGatheringEvents = () => {
   return (
-    <div className="bg-Neutral-200 w-full justify-center flex flex-col items-center px-6 sm:px-2 pt-[2.5rem] pb-40">
+    <div className="bg-Neutral-200 w-full justify-center flex flex-col items-center px-6 sm:px-2 pt-[2.5rem] pb-20 lg:pb-40">
       <div className="flex-col justify-start items-center gap-y-2 flex mt-2">
         <div className="subheading">PRAYER GATHERINGS</div>
 

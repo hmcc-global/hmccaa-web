@@ -33,7 +33,7 @@ const Layout = ({
       <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
         {children}
       </main>
-      {hasSpacing && <div className={`py-20 ${spacingColor}`}></div>}
+      {hasSpacing && <div className={`py-10 lg:py-20 ${spacingColor}`}></div>}
       <Footer />
     </div>
   );
