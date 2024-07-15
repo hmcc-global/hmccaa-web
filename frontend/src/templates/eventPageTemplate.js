@@ -6,96 +6,113 @@ import calendarIcon from "../images/icons/calendar.svg";
 import clockIcon from "../images/icons/clock-black.svg";
 import { formatDateAndTime } from "../components/page-events/event-processing-util";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { Breadcrumb } from "gatsby-plugin-breadcrumb";
+import { CalendarIcon, ClockIcon, PinIcon } from "../components/svgs";
+import Link from "../components/Link";
 
 const EventPage = ({ pageContext }) => {
-  const { event, time } = pageContext;
+  const {
+    event,
+    time,
+    breadcrumb: { crumbs },
+  } = pageContext;
 
   const { formattedDate, formattedTime } = formatDateAndTime(time.start);
 
   return (
     <Layout>
-      <div className="flex flex-col justify-start items-center gap-y-8 lg:gap-y-14 pt-8 gap-x-32 lg:pt-14 py-28">
-        <h2 className="text-center mt-2 lg:text-left text-xl lg:text-3xl font-semibold">
-          {event.title}
-        </h2>
+      <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen extend-breadcrumbs">
+        <Breadcrumb
+          crumbs={crumbs}
+          crumbSeparator=" > "
+          crumbLabel={event.title}
+        />
+        <div className="max-w-extend-container w-full flex flex-col gap-y-3 lg:gap-y-15 items-center justify-start gap-x-32">
+          <h1 className="text-center lg:text-lef  text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
+            {event.title}
+          </h1>
 
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-14 lg:gap-8">
-          <div>
-            <div className="flex flex-col items-start gap-5 lg:gap-9">
-              <div className="flex items-center gap-1 lg:gap-2">
-                <div className="w-5 h-5 lg:w-6 lg:h-6 relative">
-                  <img src={calendarIcon} alt="Calendar icon" />
+          <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-5 lg:gap-8 pt-[0.9375rem] lg:pt-0">
+            <div className="flex flex-col gap-y-5 lg:gap-y-15">
+              <div className="flex flex-col items-start lg:gap-9 text-black text-base lg:text-xl font-medium leading-normal">
+                <div className="flex items-center gap-1 lg:gap-2 py-[0.3125rem] lg:py-0">
+                  <CalendarIcon className="w-5 h-5 lg:w-6 lg:h-6" />
+                  <div>{formattedDate}</div>
                 </div>
-                <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {formattedDate}
-                </div>
-              </div>
-              <div className="flex items-center gap-1 lg:gap-2">
-                <div className="w-5 h-5 lg:w-6 lg:h-6 relative">
-                  <img src={clockIcon} alt="Clock icon" />
-                </div>
-                <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {formattedTime}
-                </div>
-              </div>
-              <div className="flex items-center gap-1 lg:gap-2">
-                <div className="w-5 h-5 lg:w-6 lg:h-6 relative">
-                  <img src={locationPinIcon} alt="Location pin icon" />
-                </div>
-                <div className="text-black text-md md:text-xl font-medium leading-tight lg:leading-loose">
-                  {event.location}
+                <div className="flex flex-col lg:gap-y-3">
+                  <div className="flex items-center gap-1 lg:gap-2">
+                    <ClockIcon className="w-5 h-5 lg:w-8 lg:h-8" />
+                    <div>{formattedTime}</div>
+                  </div>
+                  <div className="flex items-center gap-1 lg:gap-2">
+                    <PinIcon className="w-5 h-5 lg:w-8 lg:h-8" />
+                    <div>{event.location}</div>
+                  </div>
                 </div>
               </div>
+              {event.signUpLink && (
+                <div className="flex justify-center lg:justify-start">
+                  <PrimaryButtonLink hasArrow={true} to={event.signUpLink.link}>
+                    {event.signUpLink.text}
+                  </PrimaryButtonLink>
+                </div>
+              )}
             </div>
-            {event.signUpLink && <div className="flex justify-center pt-6 lg:justify-start lg:pt-10">
-              <PrimaryButtonLink
-                hasArrow={true}
-                to={event.signUpLink.link}
-              >
-                {event.signUpLink.text}
-              </PrimaryButtonLink>
-            </div>}
-          </div>
 
-          <div className="text-center pt-4 lg:order-1 ml-5">
-            {
-              event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
+            <div className="text-center lg:order-1 lg:w-[59.184%]">
+              {event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
                 <GatsbyImage
-                  image={
-                    event.img?.localFile?.childImageSharp?.gatsbyImageData
-                  }
+                  image={event.img?.localFile?.childImageSharp?.gatsbyImageData}
                   alt={event.imgAlt}
                 />
               ) : (
                 <div className="py-5 w-full"></div>
-              )
-            }
+              )}
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col w-full items-start gap-y-8 pb-5">
-          <div>
-            <span className="text-black text-2xl font-semibold leading-7">
-              Details
-            </span>
-            {event.description.map((line, i) => <span key={i} className="text-black text-base font-normal leading-normal">
-              <br />
-              {line}
-            </span>)}
-            {event.displayIsStreamed && <span className="text-black text-base font-normal leading-normal">
-              We will also live stream this event at the link below. <PrimaryButtonLink href="https://www.youtube.com/hmccannarbor/live" hasArrow={false}>Stream</PrimaryButtonLink> 
-            </span>}
-          </div>
-          <div>
-            <span className="text-black text-2xl font-semibold leading-7">
-              Contact
-            </span>
-            <span className="text-black text-base font-normal leading-normal tracking-wide">
-              <br />
-            </span>
-            <span className="text-black text-base font-normal leading-normal">
-              Have a question? Please contact {event.contact}
-            </span>
+          <div className="flex flex-col w-full gap-y-10 pt-2 lg:pt-0">
+            <div className="flex flex-col gap-y-6">
+              <h3 className="text-black text-xl lg:text-2xl font-semibold leading-tighter">
+                Details
+              </h3>
+              <article className="text-black text-base font-normal leading-normal">
+                {event.description
+                  .filter(line => line !== "")
+                  .map((line, i, currentArray) =>
+                    event?.displayIsStreamed ? (
+                      <p key={i}>{line}</p>
+                    ) : i < currentArray.length - 1 ? (
+                      <p key={i}>{line}</p>
+                    ) : (
+                      <p key={i} className="mb-0">
+                        {line}
+                      </p>
+                    )
+                  )}
+
+                {event.displayIsStreamed && (
+                  <span className="text-black text-base font-normal leading-normal">
+                    We will also live stream this event at the link below.{" "}
+                    <PrimaryButtonLink
+                      href="https://www.youtube.com/hmccannarbor/live"
+                      hasArrow={false}
+                    >
+                      Stream
+                    </PrimaryButtonLink>
+                  </span>
+                )}
+              </article>
+            </div>
+            <div className="flex flex-col gap-y-6">
+              <h3 className="text-black text-xl lg:text-2xl font-semibold leading-tighter">
+                Contact
+              </h3>
+              <p className="text-black text-base font-normal leading-normal mb-0">
+                Have a question? Please contact{" "}
+                <Link href={`mailto:${event.contact}`}>{event.contact}</Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

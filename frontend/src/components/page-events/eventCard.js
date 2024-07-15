@@ -7,7 +7,8 @@ const MAX_DESCRIPTION_LEN = 68;
 
 const EventCard = ({ eventID, title, time, location, img, description }) => {
   if (description.length > MAX_DESCRIPTION_LEN) {
-    description = description.substring(0, MAX_DESCRIPTION_LEN).trimEnd() + "...";
+    description =
+      description.substring(0, MAX_DESCRIPTION_LEN).trimEnd() + "...";
   }
   const attributes = (
     <div>

@@ -4,14 +4,19 @@ function formatContact(contact) {
   if (!contact || !contact.Email) {
     return DEFAULT_CONTACT;
   }
-  
+
   let contactString = contact.Name + " at " + contact.Email;
   if (!contact.Name) {
     contactString = contact.Email;
   }
-  
-  let phoneNumberString = formatPhoneNumber(contact.PhoneNumber, contact.AutoformatPhoneNumber);
-  return phoneNumberString ? contactString + " or " + phoneNumberString : contactString;
+
+  let phoneNumberString = formatPhoneNumber(
+    contact.PhoneNumber,
+    contact.AutoformatPhoneNumber
+  );
+  return phoneNumberString
+    ? contactString + " or " + phoneNumberString
+    : contactString;
 }
 
 function formatPhoneNumber(numberStr, autoformat) {
@@ -30,7 +35,10 @@ function formatPhoneNumber(numberStr, autoformat) {
     return numberStr; // can't autoformat
   }
 
-  return `(${filteredNumberStr.substr(0, 3)})${filteredNumberStr.substr(3, 3)}-${filteredNumberStr.substr(6)}`;
+  return `(${filteredNumberStr.substr(0, 3)})${filteredNumberStr.substr(
+    3,
+    3
+  )}-${filteredNumberStr.substr(6)}`;
 }
 
 function formatDateAndTime(isoDateString) {
@@ -102,7 +110,8 @@ const DATE_ITERATOR = {
   Year: addYears,
 };
 
-const getFullEventId = (eventId, time) => eventId + '-' + time.start.valueOf() + (time.end ? time.end.valueOf() : "");
+const getFullEventId = (eventId, time) =>
+  eventId + "-" + time.start.valueOf() + (time.end ? time.end.valueOf() : "");
 
 module.exports = {
   formatContact,
