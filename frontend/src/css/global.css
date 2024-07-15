@@ -44,6 +44,10 @@ nav.breadcrumb {
   @apply max-w-container w-full text-base lg:text-xl font-medium text-[#4352B1] pl-[0.125rem] lg:pl-0;
 }
 
+.extend-breadcrumbs nav.breadcrumb {
+  @apply max-w-extend-container;
+}
+
 nav .breadcrumb__list {
   @apply flex flex-wrap list-none m-0;
 }

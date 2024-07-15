@@ -242,6 +242,7 @@ const theme = {
   },
   extend: {
     maxWidth: {
+      "extend-container": "78.75rem",
       container: "73.75rem",
       btn: "10.3125rem",
       "sm-md": "21.875rem",

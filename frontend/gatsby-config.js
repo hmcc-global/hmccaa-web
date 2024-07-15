@@ -194,6 +194,10 @@ module.exports = {
             pathname: "/next-steps/missions",
             crumbLabel: "Missions Support",
           },
+          {
+            pathname: "/events",
+            crumbLabel: "Events",
+          },
         ],
       },
     },
