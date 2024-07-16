@@ -9,14 +9,14 @@ const MAX_PAGINATION = 7;
 const NumberPaging = ({ page, currentPage, filterValue = null }) => {
   if (/.../.test(page) || parseInt(page, 10) === currentPage) {
     return /.../.test(page) ? (
-      <span>{page}</span>
+      <span className="text-Accent-500 text-xl font-normal">{page}</span>
     ) : (
-      <span className="font-normal">{page}</span>
+      <span className="font-bold text-xl text-Primary-700">{page}</span>
     );
   } else {
     return (
       <Link
-        className="text-Shades-100 no-underline"
+        className="text-Accent-500 text-xl font-normal no-underline"
         to={`/watch/${filterValue ? filterValue + "/" : ""}${
           page === "1" ? "" : page
         }#sermonsList`}
