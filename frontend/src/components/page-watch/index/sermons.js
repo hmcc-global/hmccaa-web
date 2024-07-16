@@ -6,7 +6,7 @@ import ComboBox from "../../shared/comboBox";
 
 const MAX_PAGINATION = 7;
 // Building the Pagination for the Sermons
-const NumberPaging = ({ page, currentPage }) => {
+const NumberPaging = ({ page, currentPage, filterValue = null }) => {
   if (/.../.test(page) || parseInt(page, 10) === currentPage) {
     return /.../.test(page) ? (
       <span>{page}</span>
@@ -17,7 +17,9 @@ const NumberPaging = ({ page, currentPage }) => {
     return (
       <Link
         className="text-Shades-100 no-underline"
-        to={`/watch/${page === "1" ? "" : page}#sermonsList`}
+        to={`/watch/${filterValue ? filterValue + "/" : ""}${
+          page === "1" ? "" : page
+        }#sermonsList`}
       >
         {page}
       </Link>
@@ -59,8 +61,8 @@ const Sermons = ({
       } else if (currentPage === 2) {
         const previous = currentPage - 1;
         const next = currentPage + 1;
-        pages.unshift(previous);
-        pages.push(next);
+        pages.unshift(previous.toString());
+        pages.push(next.toString());
       } else {
         for (let index = currentPage - 1; index > 0; index--) {
           pages.unshift(index.toString());
@@ -75,7 +77,7 @@ const Sermons = ({
       pages.unshift(previous.toString());
       pages.unshift("...");
       pages.unshift("1");
-      pages.push(next);
+      pages.push(next.toString());
       pages.push("..");
       pages.push(numPages.toString());
     } else {
@@ -87,7 +89,7 @@ const Sermons = ({
       } else if (rightEnd === currentPage) {
         const previous = currentPage - 1;
         pages.unshift(previous.toString());
-        pages.push(numPages);
+        pages.push(numPages.toString());
       } else {
         for (let index = currentPage - 1; index >= maxRight; index--) {
           pages.unshift(index.toString());
@@ -106,6 +108,7 @@ const Sermons = ({
       }
     }
   }
+
   // Navigate to new page based upon Drop Down Selection
   const handleChange = () => {
     const selections = document
@@ -189,39 +192,42 @@ const Sermons = ({
           )
         )}
       </div>
-      <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
-        <div className="flex text-xl lg:text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
-          {!isFirst ? (
-            <Link
-              to={`${previous}#sermonsList`}
-              rel="prev"
-              className="font-roboto text-Accent-500 no-underline"
-            >
-              &lt;
-            </Link>
-          ) : (
-            <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
-          )}
-          {pages.map((page, index) => (
-            <NumberPaging
-              key={`page-number-${index}`}
-              page={page}
-              currentPage={currentPage}
-            />
-          ))}
-          {!isLast ? (
-            <Link
-              to={`${next}#sermonList`}
-              rel="next"
-              className="font-roboto text-Accent-500 no-underline"
-            >
-              &gt;
-            </Link>
-          ) : (
-            <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
-          )}
+      {pages.length > 1 && (
+        <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
+          <div className="flex text-xl lg:text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
+            {!isFirst ? (
+              <Link
+                to={`${previous}#sermonsList`}
+                rel="prev"
+                className="font-roboto text-Accent-500 no-underline"
+              >
+                &lt;
+              </Link>
+            ) : (
+              <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
+            )}
+            {pages.map((page, index) => (
+              <NumberPaging
+                key={`page-number-${index}`}
+                page={page}
+                currentPage={currentPage}
+                filterValue={filterValue}
+              />
+            ))}
+            {!isLast ? (
+              <Link
+                to={`${next}#sermonList`}
+                rel="next"
+                className="font-roboto text-Accent-500 no-underline"
+              >
+                &gt;
+              </Link>
+            ) : (
+              <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

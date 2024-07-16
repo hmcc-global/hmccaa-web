@@ -2,7 +2,7 @@
   @apply bg-[#5E5E5E] relative w-full;
 }
 
-.media-wrapper div {
+.media-wrapper > div {
   @apply pb-[62.5%];
 }
 
