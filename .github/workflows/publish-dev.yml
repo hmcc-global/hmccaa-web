@@ -1,4 +1,4 @@
-name: Publish PR Build to Servers
+name: Publish PR Build to DevSite/Strapi/Docs
 run-name: Deploy after PR merge to main (merged by ${{ github.actor }})
 on:
   push:
@@ -117,7 +117,7 @@ jobs:
           echo 'User-agent: *' > ./public/robots.txt
           echo 'Disallow: /' >> ./public/robots.txt
       - name: Sync files to server
-        run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/hmccaa/annarbor-dev
+        run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/annarbor-dev
 
   build-docs:
     runs-on: ubuntu-latest
