@@ -90,6 +90,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           LocationOverride {
             LocationName
+            GoogleMapsLink
           }
           NameOverride
           Time {

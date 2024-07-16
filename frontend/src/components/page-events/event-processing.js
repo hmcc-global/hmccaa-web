@@ -41,7 +41,9 @@ function processEvents(e) {
         event.LocationOverride?.LocationName ||
         event.EventTemplate?.Location.LocationName ||
         "",
-      googleMapsLink: event?.EventTemplate?.Location?.GoogleMapsLink,
+      googleMapsLink:
+        event?.LocationOverride?.GoogleMapsLink ||
+        event?.EventTemplate?.Location?.GoogleMapsLink,
       description,
       contact: util.formatContact(
         event.ContactOverride || event.EventTemplate?.Contact
