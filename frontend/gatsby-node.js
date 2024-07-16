@@ -69,6 +69,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             Description
             Location {
               LocationName
+              GoogleMapsLink
             }
             Name
             DisplayIsStreamed
