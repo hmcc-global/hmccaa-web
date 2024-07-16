@@ -237,7 +237,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       label: Name,
       value: Name.toLowerCase()
         .replace(/[.'"&]./g, "")
-        .replace(/\s+/g, "-"),
+        .replace(/\s+/g, "-")
+        .replace(/#/g, "HASH"),
     })
   );
   // All Bible Books List for Drop Down Selection

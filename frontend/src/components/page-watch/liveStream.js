@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PrimaryButtonLink } from "../Button";
 import { mediaWrapper, mediaContent } from "../../css/media.module.css";
 import { useEffect } from "react";
+import { StaticImage } from "gatsby-plugin-image";
 
 const MOBILE_SIZE = 768;
 const handleMobile = () =>
@@ -27,7 +28,15 @@ const LiveStream = () => {
         <div className="lg:order-1 w-full max-w-[36.25rem] image-container">
           <div className={`${mediaWrapper} pb-[3.364%]`}>
             <div>
-              <div className={mediaContent}></div>
+              <div className={mediaContent}>
+                <div>
+                  <StaticImage
+                    src="../../images/YouTube-watch.png"
+                    alt="Watch Sermon Online"
+                    className=""
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
