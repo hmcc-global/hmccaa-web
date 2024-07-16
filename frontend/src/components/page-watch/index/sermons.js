@@ -9,14 +9,14 @@ const MAX_PAGINATION = 7;
 const NumberPaging = ({ page, currentPage, filterValue = null }) => {
   if (/.../.test(page) || parseInt(page, 10) === currentPage) {
     return /.../.test(page) ? (
-      <span>{page}</span>
+      <span className="text-Accent-500 font-normal">{page}</span>
     ) : (
-      <span className="font-normal">{page}</span>
+      <span className="font-bold text-Primary-700">{page}</span>
     );
   } else {
     return (
       <Link
-        className="text-Shades-100 no-underline"
+        className="text-Accent-500 text-xl font-normal no-underline"
         to={`/watch/${filterValue ? filterValue + "/" : ""}${
           page === "1" ? "" : page
         }#sermonsList`}
@@ -194,7 +194,7 @@ const Sermons = ({
       </div>
       {pages.length > 1 && (
         <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
-          <div className="flex text-xl lg:text-3xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
+          <div className="flex text-xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
             {!isFirst ? (
               <Link
                 to={`${previous}#sermonsList`}
