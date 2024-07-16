@@ -10,10 +10,10 @@ import MapDetails from "../../components/page-connect/map-details";
 import CommonQuestions from "../../components/page-connect/common-questions";
 
 const ConnectPage = () => (
-  <Layout>
+  <Layout hasSpacing={false}>
     <Banner bgImage="bg-connect bg-[center_top]">Connect</Banner>
     <div className="content-padding-full">
-      <div className="max-w-container flex flex-col items-center">
+      <div className="max-w-container flex flex-col items-center pb-20 lg:pb-40">
         <SundayCelebration />
         <MapDetails />
         <CommonQuestions />
