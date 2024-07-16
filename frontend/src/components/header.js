@@ -33,7 +33,7 @@ const Header = () => {
   const logoStyle = "w-20 h-8 mb-0";
   const dropDownStyle = "w-[40px] h-[40px] mb-0";
   const textStyle = "text-Shades-0 text-base leading-normal no-underline";
-  const mapPinStyle = "mb-0 shrink-0 h-[20px] w-[20px] peer hover:bg-[#1A56D6]";
+  const mapPinStyle = "mb-0 shrink-0 h-5 w-5 peer hover:bg-[#1A56D6]";
   const borderStyle =
     "flex items-center py-2 px-4 md:px-6 rounded-lg border-2 border-[#FF8069] shadow-md";
 
