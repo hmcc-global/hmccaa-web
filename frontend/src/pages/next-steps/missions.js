@@ -39,44 +39,42 @@ const MissionsPage = ({
       .reduce((prev, curr) => ((prev << 5) - prev + curr.charCodeAt(0)) | 0, 0);
 
   const missions = [
-    {
-      id: 1,
-      trip: "Peru Missions",
-      dates: "June 7 - June 17, 2023",
-      city: "Peru",
-      image: (
-        <StaticImage
-          alt="Peru Team"
-          src="../../images/peru-team.png"
-          className="w-full"
-        />
-      ),
-      details: [
-        "Lorem Ipsum... esus talks about living an abundant life. The vision of LIFE Group is: to experience the fullness of life in a Biblical community where the Gospel is radically lived out. LIFE Groups seek to accomplish this by sharing our lives with one another within various life stages.",
-        "We desire to live out the 5 E’s (Evangelism, Education, Edification, Extension, Exaltation) of our values in a community context by studying the Bible, worshiping, serving and praying together. ",
-      ],
-
-      images: ["", "", "", "", ""],
-    },
-    {
-      id: 2,
-      trip: "Chicago Missions",
-      dates: "June 7 - June 17, 2023",
-      city: "Chicago",
-      image: (
-        <StaticImage
-          alt="Chicago Team"
-          className="w-full"
-          src="../../images/chicago-team-placement.png"
-        />
-      ),
-      details: [
-        "Lorem Ipsum... esus talks about living an abundant life. The vision of LIFE Group is: to experience the fullness of life in a Biblical community where the Gospel is radically lived out. LIFE Groups seek to accomplish this by sharing our lives with one another within various life stages.",
-        "We desire to live out the 5 E’s (Evangelism, Education, Edification, Extension, Exaltation) of our values in a community context by studying the Bible, worshiping, serving and praying together. ",
-      ],
-
-      images: ["", "", "", "", ""],
-    },
+    // {
+    //   id: 1,
+    //   trip: "Peru Missions",
+    //   dates: "June 7 - June 17, 2023",
+    //   city: "Peru",
+    //   image: (
+    //     <StaticImage
+    //       alt="Peru Team"
+    //       src="../../images/peru-team.png"
+    //       className="w-full"
+    //     />
+    //   ),
+    //   details: [
+    //     "Lorem Ipsum... esus talks about living an abundant life. The vision of LIFE Group is: to experience the fullness of life in a Biblical community where the Gospel is radically lived out. LIFE Groups seek to accomplish this by sharing our lives with one another within various life stages.",
+    //     "We desire to live out the 5 E’s (Evangelism, Education, Edification, Extension, Exaltation) of our values in a community context by studying the Bible, worshiping, serving and praying together. ",
+    //   ],
+    //   images: ["", "", "", "", ""],
+    // },
+    // {
+    //   id: 2,
+    //   trip: "Chicago Missions",
+    //   dates: "June 7 - June 17, 2023",
+    //   city: "Chicago",
+    //   image: (
+    //     <StaticImage
+    //       alt="Chicago Team"
+    //       className="w-full"
+    //       src="../../images/chicago-team-placement.png"
+    //     />
+    //   ),
+    //   details: [
+    //     "Lorem Ipsum... esus talks about living an abundant life. The vision of LIFE Group is: to experience the fullness of life in a Biblical community where the Gospel is radically lived out. LIFE Groups seek to accomplish this by sharing our lives with one another within various life stages.",
+    //     "We desire to live out the 5 E’s (Evangelism, Education, Edification, Extension, Exaltation) of our values in a community context by studying the Bible, worshiping, serving and praying together. ",
+    //   ],
+    //   images: ["", "", "", "", ""],
+    // },
   ];
 
   return (
