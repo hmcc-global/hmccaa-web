@@ -127,12 +127,14 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
                 )}
               </div>
             </div>
-            <div className="w-full pl-[5px] pt-2 lg:pt-0 max-w-[45rem] lg:max-w-none">
-              <h3 className="text-xl lg:text-2xl font-semibold leading-tighter mb-[1.563rem] lg:mb-[1.576rem]">
-                Details
-              </h3>
-              <p className="mb-0 text-base lg:text-lg">{description}</p>
-            </div>
+            {description && (
+              <div className="w-full pl-[5px] pt-2 lg:pt-0 max-w-[45rem] lg:max-w-none">
+                <h3 className="text-xl lg:text-2xl font-semibold leading-tighter mb-[1.563rem] lg:mb-[1.576rem]">
+                  Details
+                </h3>
+                <p className="mb-0 text-base lg:text-lg">{description}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
