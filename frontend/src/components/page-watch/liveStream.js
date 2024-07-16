@@ -33,7 +33,6 @@ const LiveStream = () => {
                   <StaticImage
                     src="../../images/YouTube-watch.png"
                     alt="Watch Sermon Online"
-                    className=""
                   />
                 </div>
               </div>
