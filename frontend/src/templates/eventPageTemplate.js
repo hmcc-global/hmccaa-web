@@ -1,9 +1,6 @@
 import * as React from "react";
 import Layout from "../components/layout";
 import { PrimaryButtonLink } from "../components/Button";
-import locationPinIcon from "../images/icons/locationPin.svg";
-import calendarIcon from "../images/icons/calendar.svg";
-import clockIcon from "../images/icons/clock-black.svg";
 import { formatDateAndTime } from "../components/page-events/event-processing-util";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
@@ -46,7 +43,15 @@ const EventPage = ({ pageContext }) => {
                   </div>
                   <div className="flex items-center gap-1 lg:gap-2">
                     <PinIcon className="w-5 h-5 lg:w-8 lg:h-8" />
-                    <div>{event.location}</div>
+                    <div>
+                      {event.googleMapsLink ? (
+                        <Link href={event.googleMapsLink}>
+                          {event.location}
+                        </Link>
+                      ) : (
+                        event.location
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
