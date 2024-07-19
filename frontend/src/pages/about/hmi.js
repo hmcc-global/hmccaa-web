@@ -116,7 +116,7 @@ const HmiPage = ({ pageContext }) => {
       ministry: "HMCC of Hong Kong",
       workers: "Seth & Christina Kim",
       image: (
-        <StaticImage src="../../images/kims.jpeg" alt="Seth & Christinga Kim" />
+        <StaticImage src="../../images/kims.png" alt="Seth & Christinga Kim" />
       ),
       description:
         "Pastor Seth and Christina planted HMCC of Hong Kong in 2015 along with a team from HMCC of Ann Arbor. They desire to be a demonstration of Christ’s love, seeing people be radically changed through the Gospel, trained to be a Christ disciple, and sent out to other nations to be the light unto the world. ",
@@ -128,7 +128,7 @@ const HmiPage = ({ pageContext }) => {
       workers: "Timothy & Miriam Harris",
       image: (
         <StaticImage
-          src="../../images/muslims.png"
+          src="../../images/harris.png"
           alt="Book: Loving Your Muslim Neighbor "
         />
       ),
@@ -140,7 +140,7 @@ const HmiPage = ({ pageContext }) => {
       id: 5,
       ministry: "HMCC of Jakarta",
       workers: "Eric & Tina Yee",
-      image: <StaticImage src="../../images/yees.jpg" alt="Eric & Tina Yee" />,
+      image: <StaticImage src="../../images/yees.png" alt="Eric & Tina Yee" />,
       description:
         "Pastor Eric and Tina Yee helped to plant the HMCC of Jakarta church in 2015. Originally both members of HMCC of Ann Arbor, both felt lead to bring the Gospel to unreached people in Indonesia in 2010. Their desire is to see people’s lives transformed, redirected to God’s purposes, and set out to transform the world for the glory of God.",
       moreInfo: "https://jakarta.hmcc.net/",
@@ -171,7 +171,7 @@ const HmiPage = ({ pageContext }) => {
       workers: "T & J",
       image: (
         <StaticImage
-          src="../../images/stock-globe.jpg"
+          src="../../images/tj.png"
           alt="Tristan & Jen Ray"
         />
       ),
@@ -184,6 +184,11 @@ const HmiPage = ({ pageContext }) => {
       rows,
     []
   );
+
+  const project_cols = 2;
+  const project_lg_cols = 3;
+  let project_rows = (projects.length + project_cols - 1) / project_cols;
+  let project_lg_rows = (projects.length + project_lg_cols - 1) / project_lg_cols;
 
   return (
     <Layout>
@@ -250,7 +255,7 @@ const HmiPage = ({ pageContext }) => {
                           className="flex gap-x-2 md:gap-x-5"
                           key={`project-${project.id}`}
                         >
-                          <div className="w-[5rem] md:w-[5rem] h-[3rem] md:h-[3rem]">
+                          <div className="w-[2.5rem] md:w-[5rem]">
                             {project.image}
                           </div>
                           <div className="flex flex-col md:gap-y-3">
