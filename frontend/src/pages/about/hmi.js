@@ -149,7 +149,7 @@ const HmiPage = ({ pageContext }) => {
       id: 6,
       ministry: "HMCC of Tangerang",
       workers: "John & Ester Eom",
-      image: <StaticImage src="../../images/eoms.jpeg" alt="John & Ester Eom" />,
+      image: <StaticImage src="../../images/eoms.png" alt="John & Ester Eom" />,
       description:
         "In 2009 Pastor John moved to Indonesia with a team to plant HMCC of Indonesia. In 2014 he became pastor of HMCC of Tangerang.",
       moreInfo: "https://tangerang.hmcc.net/",
