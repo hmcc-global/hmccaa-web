@@ -15,41 +15,74 @@ const HmiPage = ({ pageContext }) => {
       id: 1,
       destination: "Mexico",
       year: "1998",
+      image: <StaticImage
+        src="../../images/flag-mexico.png"
+        alt="Flag of Mexico"
+      />,
     },
     {
       id: 2,
       destination: "Kenya",
       year: "2002",
+      image: <StaticImage
+        src="../../images/flag-kenya.png"
+        alt="Flag of Kenya"
+      />,
     },
     {
       id: 3,
       destination: "India",
       year: "2006-2008",
+      image: <StaticImage
+        src="../../images/flag-india.png"
+        alt="Flag of India"
+      />,
     },
     {
       id: 4,
       destination: "AA & Detroit",
       year: "2009",
+      image: <StaticImage
+        src="../../images/flag-michigan.png"
+        alt="Flag of Michigan"
+      />,
     },
     {
       id: 5,
       destination: "Indonesia",
       year: "2012",
+      image: <StaticImage
+        src="../../images/flag-indonesia.png"
+        alt="Flag of Indonesia"
+      />,
     },
     {
       id: 6,
       destination: "Chicago",
       year: "2014, 2022",
+      image: <StaticImage
+        src="../../images/flag-chicago.png"
+        alt="Flag of Chicago"
+      />,
     },
     {
       id: 7,
       destination: "Peru",
       year: "1999-2005, 2016-2024",
+      image: <StaticImage
+        src="../../images/flag-peru.png"
+        alt="Flag of Peru"
+        height="2rem"
+      />,
     },
     {
       id: 8,
       destination: "Jordan",
       year: "2018-2020",
+      image: <StaticImage
+        src="../../images/flag-jordan.png"
+        alt="Flag of Jordan"
+      />,
     },
   ];
   const workers = [
@@ -83,7 +116,7 @@ const HmiPage = ({ pageContext }) => {
       ministry: "HMCC of Hong Kong",
       workers: "Seth & Christina Kim",
       image: (
-        <StaticImage src="../../images/kims.png" alt="Seth & Christinga Kim" />
+        <StaticImage src="../../images/kims.jpeg" alt="Seth & Christinga Kim" />
       ),
       description:
         "Pastor Seth and Christina planted HMCC of Hong Kong in 2015 along with a team from HMCC of Ann Arbor. They desire to be a demonstration of Christ’s love, seeing people be radically changed through the Gospel, trained to be a Christ disciple, and sent out to other nations to be the light unto the world. ",
@@ -107,7 +140,7 @@ const HmiPage = ({ pageContext }) => {
       id: 5,
       ministry: "HMCC of Jakarta",
       workers: "Eric & Tina Yee",
-      image: <StaticImage src="../../images/yees.png" alt="Eric & Tina Ye" />,
+      image: <StaticImage src="../../images/yees.jpg" alt="Eric & Tina Yee" />,
       description:
         "Pastor Eric and Tina Yee helped to plant the HMCC of Jakarta church in 2015. Originally both members of HMCC of Ann Arbor, both felt lead to bring the Gospel to unreached people in Indonesia in 2010. Their desire is to see people’s lives transformed, redirected to God’s purposes, and set out to transform the world for the glory of God.",
       moreInfo: "https://jakarta.hmcc.net/",
@@ -116,7 +149,7 @@ const HmiPage = ({ pageContext }) => {
       id: 6,
       ministry: "HMCC of Tangerang",
       workers: "John & Ester Eom",
-      image: <StaticImage src="../../images/eoms.png" alt="John & Ester Eom" />,
+      image: <StaticImage src="../../images/eoms.jpeg" alt="John & Ester Eom" />,
       description:
         "In 2009 Pastor John moved to Indonesia with a team to plant HMCC of Indonesia. In 2014 he became pastor of HMCC of Tangerang.",
       moreInfo: "https://tangerang.hmcc.net/",
@@ -211,14 +244,14 @@ const HmiPage = ({ pageContext }) => {
                     </p>
                   </div>
                   <div className="flex flex-col">
-                    <div className="grid grid-rows-5 md:grid-rows-3 grid-flow-col gap-y-4 md:gap-y-10 justify-betweenn w-full gap-x-4">
+                    <div className="grid grid-rows-4 md:grid-rows-3 grid-flow-col gap-y-4 md:gap-y-10 justify-betweenn w-full gap-x-4">
                       {projects.map(project => (
                         <div
                           className="flex gap-x-2 md:gap-x-5"
                           key={`project-${project.id}`}
                         >
-                          <div className="min-w-[2.5rem] md:min-w-[5rem]">
-                            <div className="bg-[#5e5e5e] pb-[100%]" />
+                          <div className="w-[5rem] md:w-[5rem] h-[3rem] md:h-[3rem]">
+                            {project.image}
                           </div>
                           <div className="flex flex-col md:gap-y-3">
                             <span className="text-lg md:text-xl font-medium text-Primary-1000 uppercase">
