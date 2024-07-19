@@ -68,6 +68,16 @@ function formatDateAndTime(isoDateString) {
   return { formattedDate, formattedTime };
 }
 
+function sortTimes(a, b) {
+  if (a.start.valueOf() === b.start.valueOf()) {
+    if (a.end) {
+      return b.end ? a.end.valueOf() - b.end.valueOf() : -1;
+    }
+    return b.end ? 1 : 0;
+  }
+  return a.start.valueOf() - b.start.valueOf();
+}
+
 /*
  * Returns whether the date is on or after today.
  * We don't want events to disappear immediately after they start.
@@ -117,6 +127,7 @@ module.exports = {
   formatContact,
   formatPhoneNumber,
   formatDateAndTime,
+  sortTimes,
   isTodayOrAfter,
   DATE_ITERATOR,
   getFullEventId,
