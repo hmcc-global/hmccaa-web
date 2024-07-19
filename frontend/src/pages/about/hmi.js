@@ -172,7 +172,7 @@ const HmiPage = ({ pageContext }) => {
       image: (
         <StaticImage
           src="../../images/tj.png"
-          alt="Tristan & Jen Ray"
+          alt="T & J"
         />
       ),
       description:
