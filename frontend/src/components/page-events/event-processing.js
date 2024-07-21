@@ -115,7 +115,7 @@ function processEventTimes(times) {
       return null;
     })
     .flat()
-    .sort((a, b) => (a.start === b.start ? a.end - b.end : a.start - b.start));
+    .sort(util.sortTimes);
 }
 
 function filterEventTimes(events) {
