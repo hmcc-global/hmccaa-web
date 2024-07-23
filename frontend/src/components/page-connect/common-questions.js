@@ -19,7 +19,7 @@ const commonQuestions = [
   },
   {
     id: 3,
-    question: "What do you have for my kids",
+    question: "What do you have for my kids?",
     answer: [
       "Check your kids in at the T-center basement where they can enjoy creative worship and fun Bible lessons.",
       "Building Blocks is available during our Sunday service for kids from 6 months to 5th grade. We have an amazing team of servant leaders who are background checked and trained to teach their respective classes.",
