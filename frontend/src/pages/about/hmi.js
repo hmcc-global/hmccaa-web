@@ -15,74 +15,78 @@ const HmiPage = ({ pageContext }) => {
       id: 1,
       destination: "Mexico",
       year: "1998",
-      image: <StaticImage
-        src="../../images/flag-mexico.png"
-        alt="Flag of Mexico"
-      />,
+      image: (
+        <StaticImage src="../../images/flag-mexico.png" alt="Flag of Mexico" />
+      ),
     },
     {
       id: 2,
       destination: "Kenya",
       year: "2002",
-      image: <StaticImage
-        src="../../images/flag-kenya.png"
-        alt="Flag of Kenya"
-      />,
+      image: (
+        <StaticImage src="../../images/flag-kenya.png" alt="Flag of Kenya" />
+      ),
     },
     {
       id: 3,
       destination: "India",
       year: "2006-2008",
-      image: <StaticImage
-        src="../../images/flag-india.png"
-        alt="Flag of India"
-      />,
+      image: (
+        <StaticImage src="../../images/flag-india.png" alt="Flag of India" />
+      ),
     },
     {
       id: 4,
       destination: "AA & Detroit",
       year: "2009",
-      image: <StaticImage
-        src="../../images/flag-michigan.png"
-        alt="Flag of Michigan"
-      />,
+      image: (
+        <StaticImage
+          src="../../images/flag-michigan.png"
+          alt="Flag of Michigan"
+        />
+      ),
     },
     {
       id: 5,
       destination: "Indonesia",
       year: "2012",
-      image: <StaticImage
-        src="../../images/flag-indonesia.png"
-        alt="Flag of Indonesia"
-      />,
+      image: (
+        <StaticImage
+          src="../../images/flag-indonesia.png"
+          alt="Flag of Indonesia"
+        />
+      ),
     },
     {
       id: 6,
       destination: "Chicago",
       year: "2014, 2022",
-      image: <StaticImage
-        src="../../images/flag-chicago.png"
-        alt="Flag of Chicago"
-      />,
+      image: (
+        <StaticImage
+          src="../../images/flag-chicago.png"
+          alt="Flag of Chicago"
+        />
+      ),
     },
     {
       id: 7,
       destination: "Peru",
       year: "1999-2005, 2016-2024",
-      image: <StaticImage
-        src="../../images/flag-peru.png"
-        alt="Flag of Peru"
-        height="2rem"
-      />,
+      image: (
+        <StaticImage
+          src="../../images/flag-peru.png"
+          alt="Flag of Peru"
+          height="2rem"
+        />
+      ),
     },
     {
       id: 8,
       destination: "Jordan",
       year: "2018-2020",
-      image: <StaticImage
-        src="../../images/flag-jordan.png"
-        alt="Flag of Jordan"
-      />,
+      image: (
+        <StaticImage src="../../images/flag-jordan.png" alt="Flag of Jordan" />
+      ),
     },
   ];
   const workers = [
@@ -169,12 +173,7 @@ const HmiPage = ({ pageContext }) => {
       id: 8,
       ministry: "East Asia",
       workers: "T & J",
-      image: (
-        <StaticImage
-          src="../../images/tj.png"
-          alt="T & J"
-        />
-      ),
+      image: <StaticImage src="../../images/tj.png" alt="T & J" />,
       description:
         "T & J were sent out from HMCC of Ann Arbor to serve in an East Asian nation as missionaries in 2024",
     },
@@ -188,7 +187,8 @@ const HmiPage = ({ pageContext }) => {
   const project_cols = 2;
   const project_lg_cols = 3;
   let project_rows = (projects.length + project_cols - 1) / project_cols;
-  let project_lg_rows = (projects.length + project_lg_cols - 1) / project_lg_cols;
+  let project_lg_rows =
+    (projects.length + project_lg_cols - 1) / project_lg_cols;
 
   return (
     <Layout>
