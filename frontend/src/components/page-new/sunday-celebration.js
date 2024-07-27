@@ -15,7 +15,7 @@ const SundayCelebrationSection = () => {
         className={`flex flex-col bg-Shades-0 items-center h-full border-solid border-2 max-w-container rounded-xl py-6 px-6 border-Neutral-700 lg:px-16 lg:py-10 ${containerLg}`}
       >
         <div className={`flex justify-evenly pb-5 lg:pb-0 ${titleLg}`}>
-          <h2 className="text-center text-[24px] lg:text-left lg:text-[48px]">
+          <h2 className="text-center text-2xl lg:text-left lg:text-5xl">
             Sunday Celebration
           </h2>
         </div>
