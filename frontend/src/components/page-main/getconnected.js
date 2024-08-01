@@ -147,7 +147,7 @@ const DoubleGridDesktop = ({ title, desc, color, img, alt }) => (
 );
 
 const DoubleGridMobile = ({ title, desc, color, img, alt }) => {
-  let descSize = desc.length > 16 ? "xs" : "sm";
+  let descTextSize = desc.length > 16 ? "text-xs" : "text-sm";
   return (
     <div className="flex-col justify-start items-center gap-1 inline-flex">
       <div className="text-center w-full text-Shades-100 text-lg font-bold">
@@ -158,7 +158,7 @@ const DoubleGridMobile = ({ title, desc, color, img, alt }) => {
           className={`w-[9.5rem] h-[9.5rem] left-[.625rem] top-[1rem] absolute bg-${color}`}
         >
           <div
-            className={`text-center text-${descSize} bottom-[0rem] absolute w-full text-Shades-0 text-md font-bold`}
+            className={`text-center ${descTextSize} bottom-[0rem] absolute w-full text-Shades-0 text-md font-bold`}
           >
             {desc}
           </div>
