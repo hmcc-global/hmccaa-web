@@ -14,3 +14,4 @@ jobs:
       ssh_user: ${{ secrets.SSH_USER }}
       strapi_token: ${{ secrets.STRAPI_TOKEN }}
       strapi_api_url: ${{ secrets.STRAPI_SERVER }}
+ 
