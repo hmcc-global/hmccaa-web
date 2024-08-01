@@ -1,0 +1,16 @@
+name: Call - Deploy To Prod Frontendd
+on:
+  workflow_call:
+    
+jobs:
+  deploy:
+    uses: ./.github/workflows/workflow-deploy.yml
+    with:
+      build_type: production
+      publish_location: prod
+    secrets:
+      ssh_key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+      ssh_host: ${{ secrets.PROD_SSH_HOST }}
+      ssh_user: ${{ secrets.PROD_SSH_USER }}
+      strapi_token: ${{ secrets.STRAPI_TOKEN }}
+      strapi_api_url: ${{ secrets.STRAPI_SERVER }}

@@ -1,0 +1,55 @@
+name: Call - Deploy To Frontend
+on:
+  workflow_call:
+    inputs:
+      build_type:
+        required: true
+        type: string
+      publish_location:
+        required: true
+        type: string
+    secrets:
+      ssh_key:
+        required: true
+      ssh_host:
+        required: true
+      ssh_user:
+        required: true
+      strapi_token:
+        required: true
+      strapi_api_url:
+        required: true
+    
+jobs:
+  deploy-site:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-${{ inputs.publish_location }}
+      cancel-in-progress: true
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.ssh_key }}
+          known_hosts: "placeholder"
+          name: id_rsa
+      - name: Define known_hosts
+        run: ssh-keyscan -H ${{ secrets.ssh_host }} >> ~/.ssh/known_hosts
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: Build Gatsby
+        run: |
+          cd ${{ github.workspace }}/frontend
+
+          # Add env file
+          echo 'STRAPI_TOKEN=${{ secrets.strapi_token }}' > ./.env.${{ inputs.build_type }}
+          echo 'STRAPI_API_URL=${{ secrets.strapi_api_url }}' >> ./.env.${{ inputs.build_type }}
+
+          npm install
+          NODE_ENV=${{ inputs.build_type }} npm run build
+
+          # Add anti-webscraping
+          echo 'User-agent: *' > ./public/robots.txt
+          echo 'Disallow: /' >> ./public/robots.txt
+      - name: Sync files to server
+        run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.ssh_user }}@${{ secrets.ssh_host }}:/home/${{ secrets.ssh_user }}/annarbor-${{ inputs.publish_location }}
