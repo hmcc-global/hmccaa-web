@@ -1,4 +1,4 @@
-name: Call - Deploy To Prod Frontendd
+name: Call - Deploy To Prod Frontend
 on:
   workflow_call:
     
