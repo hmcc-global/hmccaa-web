@@ -87,7 +87,7 @@ jobs:
   deploy-dev-site:
     needs: [check-files-changed]
     if: needs.check-files-changed.outputs.frontend_changed == 'True'
-    uses: ./.github/workflows/workflow-deploy-dev.yml
+    uses: ./.github/workflows/component-deploy-dev.yml
     secrets: inherit
 
   build-docs:

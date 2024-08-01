@@ -1,5 +1,5 @@
 name: Publish Production Frontend
-run-name: Deploy after PR merge to release branch (merged by ${{ github.actor }})
+run-name: Deploy New Release to Production (triggered by ${{ github.actor }})
 on:
   push:
     branches:
@@ -8,5 +8,5 @@ on:
     
 jobs:
   deploy-prod-site:
-    uses: ./.github/workflows/workflow-deploy-prod.yml
+    uses: ./.github/workflows/component-deploy-prod.yml
     secrets: inherit

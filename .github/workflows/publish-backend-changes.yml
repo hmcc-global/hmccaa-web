@@ -6,9 +6,9 @@ on:
 
 jobs:
   deploy-dev-site:
-    uses: ./.github/workflows/workflow-deploy-dev.yml
+    uses: ./.github/workflows/component-deploy-dev.yml
     secrets: inherit
 
   deploy-prod-site:
-    uses: ./.github/workflows/workflow-deploy-prod.yml
+    uses: ./.github/workflows/component-deploy-prod.yml
     secrets: inherit

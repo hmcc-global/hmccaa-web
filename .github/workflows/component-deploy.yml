@@ -1,4 +1,4 @@
-name: Call - Deploy To Frontend
+name: Component - Deploy To Frontend
 on:
   workflow_call:
     inputs:

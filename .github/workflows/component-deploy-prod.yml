@@ -1,10 +1,10 @@
-name: Call - Deploy To Prod Frontend
+name: Component - Deploy To Prod Frontend
 on:
   workflow_call:
     
 jobs:
   deploy:
-    uses: ./.github/workflows/workflow-deploy.yml
+    uses: ./.github/workflows/component-deploy.yml
     with:
       build_type: production
       publish_location: prod
