@@ -1,0 +1,16 @@
+name: Component - Deploy To Dev Frontend
+on:
+  workflow_call:
+    
+jobs:
+  deploy:
+    uses: ./.github/workflows/component-deploy.yml
+    with:
+      build_type: production
+      publish_location: dev
+    secrets:
+      ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      ssh_host: ${{ secrets.SSH_HOST }}
+      ssh_user: ${{ secrets.SSH_USER }}
+      strapi_token: ${{ secrets.STRAPI_TOKEN }}
+      strapi_api_url: ${{ secrets.STRAPI_SERVER }}

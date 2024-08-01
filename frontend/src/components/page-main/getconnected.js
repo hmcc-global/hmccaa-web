@@ -146,27 +146,32 @@ const DoubleGridDesktop = ({ title, desc, color, img, alt }) => (
   </div>
 );
 
-const DoubleGridMobile = ({ title, desc, color, img, alt }) => (
-  <div className="flex-col justify-start items-center gap-1 inline-flex">
-    <div className="text-center w-full text-Shades-100 text-lg font-bold">
-      {title}
-    </div>
-    <div className="relative w-[9.75rem] h-[10rem]">
-      <div
-        className={`w-[9.5rem] h-[9.5rem] left-[.625rem] top-[1rem] absolute bg-${color}`}
-      >
-        <div className="text-center text-sm bottom-[0rem] absolute w-full text-Shades-0 text-md font-bold">
-          {desc}
+const DoubleGridMobile = ({ title, desc, color, img, alt }) => {
+  let descTextSize = desc.length > 16 ? "text-xs" : "text-sm";
+  return (
+    <div className="flex-col justify-start items-center gap-1 inline-flex">
+      <div className="text-center w-full text-Shades-100 text-lg font-bold">
+        {title}
+      </div>
+      <div className="relative w-[9.75rem] h-[10rem]">
+        <div
+          className={`w-[9.5rem] h-[9.5rem] left-[.625rem] top-[1rem] absolute bg-${color}`}
+        >
+          <div
+            className={`text-center ${descTextSize} bottom-[0rem] absolute w-full text-Shades-0 text-md font-bold`}
+          >
+            {desc}
+          </div>
+        </div>
+        <div
+          className={`w-[9.5rem] h-[9.5rem] left-0 top-0 absolute border-4 border-${color}`}
+        >
+          <img src={img} alt={alt} className="mb-0 w-full h-full" />
         </div>
       </div>
-      <div
-        className={`w-[9.5rem] h-[9.5rem] left-0 top-0 absolute border-4 border-${color}`}
-      >
-        <img src={img} alt={alt} className="mb-0 w-full h-full" />
-      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const RowMobile = ({ children }) => (
   <div className="justify-start items-center gap-8 inline-flex">{children}</div>
@@ -187,7 +192,7 @@ const GetConnectedCircleMobile = () => (
     <div>
       <GetConnectedText />
     </div>
-    <div className="flex-col justify-start items-center gap-4 inline-flex">
+    <div className="flex-col justify-start items-center gap-9 inline-flex">
       <RowMobile>
         <LifeStagesBoxMobile />
         <DoubleGridMobile

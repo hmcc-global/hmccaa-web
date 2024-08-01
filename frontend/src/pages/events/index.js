@@ -13,7 +13,10 @@ import {
   processEvents,
   filterEventTimes,
 } from "../../components/page-events/event-processing";
-import { getFullEventId, sortTimes } from "../../components/page-events/event-processing-util";
+import {
+  getFullEventId,
+  sortTimes,
+} from "../../components/page-events/event-processing-util";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const EventsPage = ({ data }) => {
@@ -27,33 +30,35 @@ const EventsPage = ({ data }) => {
         <div className="text-center py-36">No events found.</div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container px-4">
-          {filterEventTimes(events).map(event =>
-            event.times.map(time => ({ event, time }))
-          ).flat().sort((a, b) => sortTimes(a.time, b.time)).map(({event, time}) => {
-            let key = encodeURIComponent(getFullEventId(event.id, time));
-            return (
-              <EventCard
-                key={key}
-                eventID={key}
-                title={event.title}
-                time={time.start.toString()}
-                img={
-                  event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
-                    <GatsbyImage
-                      image={
-                        event.img?.localFile?.childImageSharp?.gatsbyImageData
-                      }
-                      alt={event.imgAlt}
-                    />
-                  ) : (
-                    <div className="py-5 w-full"></div>
-                  )
-                }
-                location={event.location}
-                description={event.description[0]}
-              />
-            );
-          })}
+          {filterEventTimes(events)
+            .map(event => event.times.map(time => ({ event, time })))
+            .flat()
+            .sort((a, b) => sortTimes(a.time, b.time))
+            .map(({ event, time }) => {
+              let key = encodeURIComponent(getFullEventId(event.id, time));
+              return (
+                <EventCard
+                  key={key}
+                  eventID={key}
+                  title={event.title}
+                  time={time.start.toString()}
+                  img={
+                    event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
+                      <GatsbyImage
+                        image={
+                          event.img?.localFile?.childImageSharp?.gatsbyImageData
+                        }
+                        alt={event.imgAlt}
+                      />
+                    ) : (
+                      <div className="py-5 w-full"></div>
+                    )
+                  }
+                  location={event.location}
+                  description={event.description[0]}
+                />
+              );
+            })}
         </div>
       )}
       <EventsNotes />
