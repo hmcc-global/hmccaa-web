@@ -4,36 +4,8 @@ on:
   push:
     branches:
       - "release"
+  workflow_dispatch:
+    
 jobs:
   deploy-prod-site:
-    runs-on: ubuntu-latest
-    concurrency:
-      group: deploy-prod
-      cancel-in-progress: true
-    steps:
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
-          known_hosts: "placeholder"
-          name: id_rsa
-      - name: Define known_hosts
-        run: ssh-keyscan -H ${{ secrets.PROD_SSH_HOST }} >> ~/.ssh/known_hosts
-      - name: git checkout
-        uses: actions/checkout@v3
-      - name: Build Gatsby
-        run: |
-          cd ${{ github.workspace }}/frontend
-
-          # Add env file
-          echo 'STRAPI_TOKEN=${{ secrets.STRAPI_TOKEN }}' > ./.env.production
-          echo 'STRAPI_API_URL=${{ secrets.STRAPI_SERVER }}' >> ./.env.production
-
-          npm install
-          NODE_ENV=production npm run build
-
-          # Add anti-webscraping
-          echo 'User-agent: *' > ./public/robots.txt
-          echo 'Disallow: /' >> ./public/robots.txt
-      - name: Sync files to server
-        run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_SSH_HOST }}:/home/${{ secrets.PROD_SSH_USER }}/annarbor-prod
+    uses: ./.github/workflows/workflow-deploy-prod.yml

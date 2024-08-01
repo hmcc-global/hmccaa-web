@@ -1,0 +1,16 @@
+name: Publish Development Frontend
+on:
+  workflow_dispatch:
+    
+jobs:
+  deploy-prod-site:
+    uses: ./.github/workflows/workflow-deploy.yml
+    with:
+      build_type: production
+      publish_type: dev
+    secrets:
+      ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      ssh_host: ${{ secrets.SSH_HOST }}
+      ssh_user: ${{ secrets.SSH_USER }}
+      strapi_token: ${{ secrets.STRAPI_TOKEN }}
+      strapi_api_rl: ${{ secrets.STRAPI_SERVER }}
