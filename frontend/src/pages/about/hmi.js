@@ -177,12 +177,24 @@ const HmiPage = ({ pageContext }) => {
       description:
         "T & J were sent out from HMCC of Ann Arbor to serve in an East Asian nation as missionaries in 2024",
     },
-  ].reduce(
-    (rows, key, index) =>
-      (index % 4 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
-      rows,
-    []
-  );
+  ].reduce((rows, key, index, list) => {
+    const len = list.length;
+    if (index > 0) {
+      const modIndex = index % (len / 2);
+      if (index < len / 2) {
+        rows[index + modIndex] = key;
+      } else {
+        let position = modIndex + 1;
+        if (position > 1) {
+          position += modIndex;
+        }
+        rows[position] = key;
+      }
+    } else {
+      rows[index] = key;
+    }
+    return rows;
+  }, new Array(workers.length));
 
   return (
     <Layout>
@@ -280,51 +292,54 @@ const HmiPage = ({ pageContext }) => {
                       our prayers and financial support.
                     </p>
                   </div>
-                  <div className="flex gap-x-4 md:gap-x-5 text-left max-w-[35rem] lg:max-w-none">
-                    {workers.map((list, index) => (
-                      <div
-                        className="flex flex-col gap-y-10 w-[49.1526%]"
-                        key={`list-${index}`}
-                      >
-                        {list.map(worker => (
-                          <div
-                            className="flex flex-col lg:flex-row gap-5"
-                            key={`project-${worker.id}`}
-                          >
-                            <div className="md:min-w-[11.25rem] max-w-[11.25rem]">
-                              <div className="relative pb-[111.115%] overflow-hidden">
-                                <div className="absolute top-0 left-0">
-                                  {worker.image}
+                  <div className="grid grid-cols-2 gap-x-4 md:gap-x-5 gap-y-10 text-left max-w-[35rem] lg:max-w-none">
+                    {workers.map(
+                      ({
+                        id,
+                        image,
+                        ministry,
+                        workers,
+                        description,
+                        moreInfo,
+                      }) => {
+                        return (
+                          <React.Fragment key={`project-${id}`}>
+                            <div className={`flex flex-col lg:flex-row gap-5`}>
+                              <div className="md:min-w-[11.25rem] max-w-[11.25rem]">
+                                <div className="relative pb-[111.115%] overflow-hidden">
+                                  <div className="absolute top-0 left-0">
+                                    {image}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex flex-col gap-y-5">
+                                <div className="flex flex-col gap-y-3">
+                                  <span className="text-sm md:text-xl font-medium text-Primary-1000 uppercase">
+                                    {ministry}
+                                  </span>
+                                  <span className="text-lg md:text-2xl font-semibold leading-tighter">
+                                    {workers}
+                                  </span>
+                                  <p className="mb-0 text-sm md:text-base font-medium tracking-medium-wide">
+                                    {description}
+                                  </p>
+                                </div>
+                                <div className="flex">
+                                  {moreInfo && (
+                                    <SecondaryButtonLink
+                                      to={moreInfo}
+                                      hasArrow={true}
+                                    >
+                                      More Info
+                                    </SecondaryButtonLink>
+                                  )}
                                 </div>
                               </div>
                             </div>
-                            <div className="flex flex-col gap-y-5">
-                              <div className="flex flex-col gap-y-3">
-                                <span className="text-sm md:text-xl font-medium text-Primary-1000 uppercase">
-                                  {worker.ministry}
-                                </span>
-                                <span className="text-lg md:text-2xl font-semibold leading-tighter">
-                                  {worker.workers}
-                                </span>
-                                <p className="mb-0 text-sm md:text-base font-medium tracking-medium-wide">
-                                  {worker.description}
-                                </p>
-                              </div>
-                              <div className="flex">
-                                {worker.moreInfo && (
-                                  <SecondaryButtonLink
-                                    to={worker.moreInfo}
-                                    hasArrow={true}
-                                  >
-                                    More Info
-                                  </SecondaryButtonLink>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    ))}
+                          </React.Fragment>
+                        );
+                      }
+                    )}
                   </div>
                 </div>
               </div>
