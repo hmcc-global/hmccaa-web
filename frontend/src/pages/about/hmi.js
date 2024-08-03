@@ -194,7 +194,7 @@ const HmiPage = ({ pageContext }) => {
       rows[index] = key;
     }
     return rows;
-  }, new Array(workers.length));
+  }, []);
 
   return (
     <Layout>
