@@ -13,6 +13,7 @@ const Header = () => {
     { id: 4, title: "Events", route: "/events" },
     { id: 5, title: "Watch", route: "/watch" },
     { id: 6, title: "Give", route: "/give" },
+    { id: 7, title: "I'm New", route: "/new" },
   ];
 
   const locationsList = [
@@ -95,29 +96,48 @@ const Header = () => {
                   </button>
                 </div>
                 <div className="w-full flex flex-col items-start">
-                  {browseList.map(({ title, route, id }) => (
-                    <Link
-                      key={`browseLink-mobile-${id}`}
-                      to={route}
-                      className={`${textStyle} ${
-                        route + "/" === path
-                          ? "font-extrabold py-2 px-4"
-                          : "font-medium py-2 px-4"
-                      } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
-                    >
-                      {title}
-                    </Link>
-                  ))}
-                  <div className={`${borderStyle} mt-6 w-[90vw] self-center`}>
-                    <Link
-                      to="/new"
-                      className={`${textStyle} ${
-                        "/new/" === path ? "font-extrabold" : ""
-                      } font-bold hover:font-extrabold tracking-[0.96px]`}
-                    >
-                      I&apos;m New
-                    </Link>
-                  </div>
+                  {browseList.map(({ title, route, id }) => {
+                    if (route === "/new") {
+                      return (
+                        <Link
+                          key={`browseLink-mobile-${id}`}
+                          to="/new"
+                          className={`${textStyle} 
+                          ${"w-full text-left flex items-center text-xl h-[75px] px-5 border-b-[0.5px]"} ${
+                            "/new/" === path ? "font-extrabold" : ""
+                          } `}
+                        >
+                          <div className="w-[90vw] py-2 px-9 bg-[#FF8069] shadow-md rounded-lg text-Primary-900 font-semibold hover:font-extrabold tracking-[0.96px]  ">
+                            I&apos;m New
+                          </div>
+                        </Link>
+                      );
+                    } else {
+                      return (
+                        <Link
+                          key={`browseLink-mobile-${id}`}
+                          to={route}
+                          className={`${textStyle} ${
+                            route + "/" === path
+                              ? "font-extrabold py-2 px-4"
+                              : "font-medium py-2 px-4"
+                          } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
+                        >
+                          {title}
+                        </Link>
+                      );
+                    }
+                  })}
+                  {/* <div className={`${borderStyle} mt-6 w-[90vw] self-center`}> */}
+                  {/* <Link
+                    to="/new"
+                    className={`${textStyle} ${"text-xl text-Primary-900 mt-6 w-[90vw] py-2 px-4 md:px-6 rounded-lg bg-[#FF8069]"} ${
+                      "/new/" === path ? "font-extrabold" : ""
+                    } font-semibold hover:font-extrabold tracking-[0.96px]`}
+                  >
+                    I&apos;m New
+                  </Link> */}
+                  {/* </div> */}
                 </div>
               </div>
             </div>
