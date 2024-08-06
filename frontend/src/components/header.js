@@ -119,7 +119,7 @@ const Header = () => {
                           to={route}
                           className={`${textStyle} ${
                             route + "/" === path
-                              ? "font-extrabold py-2 px-4"
+                              ? "font-extrabold py-2 px-4 bg-Primary-300"
                               : "font-medium py-2 px-4"
                           } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
                         >
@@ -128,16 +128,6 @@ const Header = () => {
                       );
                     }
                   })}
-                  {/* <div className={`${borderStyle} mt-6 w-[90vw] self-center`}> */}
-                  {/* <Link
-                    to="/new"
-                    className={`${textStyle} ${"text-xl text-Primary-900 mt-6 w-[90vw] py-2 px-4 md:px-6 rounded-lg bg-[#FF8069]"} ${
-                      "/new/" === path ? "font-extrabold" : ""
-                    } font-semibold hover:font-extrabold tracking-[0.96px]`}
-                  >
-                    I&apos;m New
-                  </Link> */}
-                  {/* </div> */}
                 </div>
               </div>
             </div>
