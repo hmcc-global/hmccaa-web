@@ -174,30 +174,39 @@ const Header = () => {
           </div>
 
           <div className="flex flex-row items-center justify-items-center gap-2 md:gap:4 [@media(min-width:1140px)]:gap-4 [@media(min-width:1280px)]:gap-6 [@media(min-width:1440px)]:gap-11">
-            {browseList.map(({ title, id, route }) => (
-              <Link
-                key={`browseLink-${id}`}
-                to={route}
-                className={`min-w-max ${textStyle} ${
-                  route + "/" === path
-                    ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
-                    : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
-                } tracking-[0.96px]`}
-              >
-                {title}
-              </Link>
-            ))}
-          </div>
-
-          <div className={`hover:bg-Accent-500 ${borderStyle}`}>
-            <Link
-              to="/new"
-              className={`min-w-max ${textStyle} ${
-                "/new/" === path ? "font-extrabold" : ""
-              } font-bold hover:font-extrabold tracking-[0.96px]`}
-            >
-              I&apos;m New
-            </Link>
+            {browseList.map(({ title, id, route }) => {
+              if (route === "/new") {
+                return (
+                  <div
+                    key={`browseLink-${id}`}
+                    className={`hover:bg-Accent-500 ${borderStyle}`}
+                  >
+                    <Link
+                      to={route}
+                      className={`min-w-max ${textStyle} ${
+                        route + "/" === path ? "font-extrabold" : ""
+                      } font-bold hover:font-extrabold tracking-[0.96px]`}
+                    >
+                      I&apos;m New
+                    </Link>
+                  </div>
+                );
+              } else {
+                return (
+                  <Link
+                    key={`browseLink-${id}`}
+                    to={route}
+                    className={`min-w-max ${textStyle} ${
+                      route + "/" === path
+                        ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
+                        : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
+                    } tracking-[0.96px]`}
+                  >
+                    {title}
+                  </Link>
+                );
+              }
+            })}
           </div>
         </div>
       </div>
