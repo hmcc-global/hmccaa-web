@@ -107,7 +107,12 @@ const Header = () => {
                             "/new/" === path ? "font-extrabold" : ""
                           } `}
                         >
-                          <div className="w-[90vw] py-2 px-9 bg-[#FF8069] shadow-md rounded-lg text-Primary-900 font-semibold hover:font-extrabold tracking-[0.96px]  ">
+                          <div
+                            className={`
+                              ${"/new/" === path ? "bg-Accent-500" : ""}
+                              ${"w-[90vw] py-2 px-9 shadow-md rounded-lg hover:font-extrabold tracking-[0.96px] border-2 border-Accent-500 active:bg-Accent-500"}
+                            `}
+                          >
                             I&apos;m New
                           </div>
                         </Link>
