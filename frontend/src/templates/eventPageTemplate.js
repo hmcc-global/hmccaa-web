@@ -33,7 +33,7 @@ const EventPage = ({ pageContext }) => {
             <div className="flex flex-col gap-y-5 lg:gap-y-15">
               <div className="flex flex-col items-start lg:gap-9 text-black text-base lg:text-xl font-medium leading-normal">
                 <div className="flex items-center gap-1 lg:gap-2 py-[0.3125rem] lg:py-0">
-                  <CalendarIcon className="w-5 h-5 lg:w-6 lg:h-6" />
+                  <CalendarIcon className="w-5 h-5 lg:w-8 lg:h-8" />
                   <div>{formattedDate}</div>
                 </div>
                 <div className="flex flex-col lg:gap-y-3">
