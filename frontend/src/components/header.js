@@ -70,7 +70,7 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex items-center gap-4 md:gap-6 lg:gap-8 shrink-0">
+        <div className="hidden lg:flex items-center gap-4 md:gap-3 shrink-0">
           <Link to="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
