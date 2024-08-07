@@ -71,18 +71,20 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
   return (
     <>
       <div className="flex flex-col items-start gap-y-3">
-        {showModal ? (
-          <button
-            className="text-left w-full"
-            onClick={() => handleClick(info)}
-          >
-            <TeamCardImage info={info} />
-          </button>
-        ) : (
-          <div className="text-left w-full">
-            <TeamCardImage info={info} />
+        <div className="text-left relative w-full pb-[110%] overflow-hidden">
+          <div className="absolute">
+            {showModal ? (
+              <button
+                className="text-left w-full"
+                onClick={() => handleClick(info)}
+              >
+                <TeamCardImage info={info} />
+              </button>
+            ) : (
+              <TeamCardImage info={info} />
+            )}
           </div>
-        )}
+        </div>
         <div className={`flex-col flex w-full ${customClassName.container}`}>
           {showModal ? (
             <button className="text-left" onClick={() => handleClick(info)}>
