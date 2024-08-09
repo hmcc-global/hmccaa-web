@@ -31,7 +31,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
     Audio,
     VideoLink,
   } = strapiSermon;
-  const speaker = `${Prefix} ${Name}`;
+  const speaker = `${Prefix || ''} ${Name}`;
   const passeges = BiblePassage.map(
     ({ Book, ChapterVerse }) => `${Book} ${ChapterVerse}`
   );
