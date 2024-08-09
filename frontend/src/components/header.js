@@ -13,6 +13,7 @@ const Header = () => {
     { id: 4, title: "Events", route: "/events" },
     { id: 5, title: "Watch", route: "/watch" },
     { id: 6, title: "Give", route: "/give" },
+    { id: 7, title: "I'm New", route: "/new" },
   ];
 
   const locationsList = [
@@ -69,7 +70,7 @@ const Header = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex items-center gap-4 md:gap-6 lg:gap-8 shrink-0">
+        <div className="hidden lg:flex items-center gap-4 md:gap-3 shrink-0">
           <Link to="/">
             <img alt="hmcc logo" className={logoStyle} src={hmccLogo} />
           </Link>
@@ -95,29 +96,43 @@ const Header = () => {
                   </button>
                 </div>
                 <div className="w-full flex flex-col items-start">
-                  {browseList.map(({ title, route, id }) => (
-                    <Link
-                      key={`browseLink-mobile-${id}`}
-                      to={route}
-                      className={`${textStyle} ${
-                        route + "/" === path
-                          ? "font-extrabold py-2 px-4"
-                          : "font-medium py-2 px-4"
-                      } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
-                    >
-                      {title}
-                    </Link>
-                  ))}
-                  <div className={`${borderStyle} mt-6 w-[90vw] self-center`}>
-                    <Link
-                      to="/new"
-                      className={`${textStyle} ${
-                        "/new/" === path ? "font-extrabold" : ""
-                      } font-bold hover:font-extrabold tracking-[0.96px]`}
-                    >
-                      I&apos;m New
-                    </Link>
-                  </div>
+                  {browseList.map(({ title, route, id }) => {
+                    if (route === "/new") {
+                      return (
+                        <Link
+                          key={`browseLink-mobile-${id}`}
+                          to="/new"
+                          className={`${textStyle} 
+                          ${"w-full text-left flex items-center text-xl h-[75px] px-5 border-b-[0.5px]"} ${
+                            "/new/" === path ? "font-extrabold" : ""
+                          } `}
+                        >
+                          <div
+                            className={`
+                              ${"/new/" === path ? "bg-Accent-500" : ""}
+                              ${"w-[90vw] py-2 px-9 shadow-md rounded-lg hover:font-extrabold tracking-[0.96px] border-2 border-Accent-500 active:bg-Accent-500"}
+                            `}
+                          >
+                            I&apos;m New
+                          </div>
+                        </Link>
+                      );
+                    } else {
+                      return (
+                        <Link
+                          key={`browseLink-mobile-${id}`}
+                          to={route}
+                          className={`${textStyle} ${
+                            route + "/" === path
+                              ? "font-extrabold py-2 px-4 bg-Primary-300"
+                              : "font-medium py-2 px-4"
+                          } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
+                        >
+                          {title}
+                        </Link>
+                      );
+                    }
+                  })}
                 </div>
               </div>
             </div>
@@ -164,30 +179,39 @@ const Header = () => {
           </div>
 
           <div className="flex flex-row items-center justify-items-center gap-2 md:gap:4 [@media(min-width:1140px)]:gap-4 [@media(min-width:1280px)]:gap-6 [@media(min-width:1440px)]:gap-11">
-            {browseList.map(({ title, id, route }) => (
-              <Link
-                key={`browseLink-${id}`}
-                to={route}
-                className={`min-w-max ${textStyle} ${
-                  route + "/" === path
-                    ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
-                    : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
-                } tracking-[0.96px]`}
-              >
-                {title}
-              </Link>
-            ))}
-          </div>
-
-          <div className={`hover:bg-Accent-500 ${borderStyle}`}>
-            <Link
-              to="/new"
-              className={`min-w-max ${textStyle} ${
-                "/new/" === path ? "font-extrabold" : ""
-              } font-bold hover:font-extrabold tracking-[0.96px]`}
-            >
-              I&apos;m New
-            </Link>
+            {browseList.map(({ title, id, route }) => {
+              if (route === "/new") {
+                return (
+                  <div
+                    key={`browseLink-${id}`}
+                    className={`hover:bg-Accent-500 ${borderStyle}`}
+                  >
+                    <Link
+                      to={route}
+                      className={`min-w-max ${textStyle} ${
+                        route + "/" === path ? "font-extrabold" : ""
+                      } font-bold hover:font-extrabold tracking-[0.96px]`}
+                    >
+                      I&apos;m New
+                    </Link>
+                  </div>
+                );
+              } else {
+                return (
+                  <Link
+                    key={`browseLink-${id}`}
+                    to={route}
+                    className={`min-w-max ${textStyle} ${
+                      route + "/" === path
+                        ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
+                        : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
+                    } tracking-[0.96px]`}
+                  >
+                    {title}
+                  </Link>
+                );
+              }
+            })}
           </div>
         </div>
       </div>

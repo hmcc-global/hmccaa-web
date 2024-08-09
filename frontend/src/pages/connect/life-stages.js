@@ -42,7 +42,7 @@ const lifeStages = [
         </p>
         <p>
           For more information or questions, please contact{" "}
-          <Link href="mailto:covenant@annarbot.hmcc.net">
+          <Link href="mailto:covenant@annarbor.hmcc.net">
             covenant@annarbor.hmcc.net
           </Link>
         </p>
