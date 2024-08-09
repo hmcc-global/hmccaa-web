@@ -8,6 +8,7 @@ jobs:
     with:
       build_type: production
       publish_location: dev
+      add_robots_txt: true
     secrets:
       ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
       ssh_host: ${{ secrets.SSH_HOST }}
