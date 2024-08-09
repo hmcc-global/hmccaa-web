@@ -26,41 +26,50 @@ const EventsPage = ({ data }) => {
     <Layout hasSpacing={false}>
       <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
       <SundayCelebBarEvents />
-      {events.length === 0 ? (
-        <div className="text-center py-36">No events found.</div>
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container px-4">
-          {filterEventTimes(events)
-            .map(event => event.times.map(time => ({ event, time })))
-            .flat()
-            .sort((a, b) => sortTimes(a.time, b.time))
-            .map(({ event, time }) => {
-              let key = encodeURIComponent(getFullEventId(event.id, time));
-              return (
-                <EventCard
-                  key={key}
-                  eventID={key}
-                  title={event.title}
-                  time={time.start.toString()}
-                  img={
-                    event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
-                      <GatsbyImage
-                        image={
-                          event.img?.localFile?.childImageSharp?.gatsbyImageData
-                        }
-                        alt={event.imgAlt}
-                      />
-                    ) : (
-                      <div className="py-5 w-full"></div>
-                    )
-                  }
-                  location={event.location}
-                  description={event.description[0]}
-                />
-              );
-            })}
-        </div>
-      )}
+      <div className="px-4 w-full flex flex-col items-center">
+        {events.length === 0 ? (
+          <div className="text-center py-36">No events found.</div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container">
+            {filterEventTimes(events)
+              .map(event => event.times.map(time => ({ event, time })))
+              .flat()
+              .sort((a, b) => sortTimes(a.time, b.time))
+              .map(({ event, time }) => {
+                let key = encodeURIComponent(getFullEventId(event.id, time));
+                return (
+                  <EventCard
+                    key={key}
+                    eventID={key}
+                    title={event.title}
+                    time={time.start.toString()}
+                    img={
+                      <div className="relative pb-[63.493%] w-full">
+                        <div className="absolute inset-0">
+                          {event.img?.localFile?.childImageSharp
+                            ?.gatsbyImageData ? (
+                            <GatsbyImage
+                              image={
+                                event.img?.localFile?.childImageSharp
+                                  ?.gatsbyImageData
+                              }
+                              alt={event.imgAlt}
+                              className="h-full"
+                            />
+                          ) : (
+                            <div className="h-full w-full"></div>
+                          )}
+                        </div>
+                      </div>
+                    }
+                    location={event.location}
+                    description={event.description[0]}
+                  />
+                );
+              })}
+          </div>
+        )}
+      </div>
       <EventsNotes />
       <PrayerGatheringEvents />
       <Instagram />

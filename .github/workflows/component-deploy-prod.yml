@@ -8,6 +8,7 @@ jobs:
     with:
       build_type: production
       publish_location: prod
+      git_ref: release
     secrets:
       ssh_key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
       ssh_host: ${{ secrets.PROD_SSH_HOST }}

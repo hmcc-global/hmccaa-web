@@ -8,6 +8,10 @@ on:
       publish_location:
         required: true
         type: string
+      git_ref:
+        required: false
+        type: string
+        default: ''
     secrets:
       ssh_key:
         required: true
@@ -37,6 +41,8 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.ssh_host }} >> ~/.ssh/known_hosts
       - name: git checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.git_ref }}
       - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend

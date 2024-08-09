@@ -78,7 +78,7 @@ const FiveEs = () => {
         id="lg-signups-anchor"
       >
         <PrimaryButtonLink
-          href="https://docs.google.com/forms/d/e/1FAIpQLSd85EV0Vw9ucYW9YOEsWaoRvl4jvWjmy0uJpASlMtpz8GRyug/viewform"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeaS447hV0_fVkanehmEalMRkryJzb8Ahssuq4a5VxfElFSEQ/viewform"
           hasArrow={true}
           className="-indent-[1.6rem] xs:indent-0"
         >
