@@ -184,12 +184,6 @@ const HmiPage = ({ pageContext }) => {
     []
   );
 
-  const project_cols = 2;
-  const project_lg_cols = 3;
-  let project_rows = (projects.length + project_cols - 1) / project_cols;
-  let project_lg_rows =
-    (projects.length + project_lg_cols - 1) / project_lg_cols;
-
   return (
     <Layout>
       <div className="px-2 flex flex-col w-full items-center pt-[1.375rem] pb-[7.3125rem] md:pt-10">
@@ -249,20 +243,20 @@ const HmiPage = ({ pageContext }) => {
                     </p>
                   </div>
                   <div className="flex flex-col">
-                    <div className="grid grid-rows-4 md:grid-rows-3 grid-flow-col gap-y-4 md:gap-y-10 justify-betweenn w-full gap-x-4">
+                    <div className="grid grid-rows-4 md:grid-rows-3 grid-flow-col gap-4 md:gap-10 justify-betweenn w-full">
                       {projects.map(project => (
                         <div
                           className="flex gap-x-2 md:gap-x-5"
                           key={`project-${project.id}`}
                         >
-                          <div className="w-[2.5rem] md:w-[5rem]">
+                          <div className="w-[2.5rem] md:w-[6.25rem]">
                             {project.image}
                           </div>
                           <div className="flex flex-col md:gap-y-3">
-                            <span className="text-lg md:text-xl font-medium text-Primary-1000 uppercase">
+                            <span className="text-lg md:text-xl font-bold text-Primary-1000 uppercase">
                               {project.destination}
                             </span>
-                            <span className="text-sm md:text-2xl font-semibold leading-tighter">
+                            <span className="text-sm md:text-lg leading-tighter">
                               {project.year}
                             </span>
                           </div>
