@@ -13,7 +13,12 @@ import Feedback from "../../components/page-about/index/feedback";
 import OurStory from "../../components/page-about/index/our-story";
 import Banner from "../../components/shared/banner";
 
-export const Head = () => <Seo title="About" />;
+export const Head = () => (
+  <Seo
+    title="About"
+    description="HMCC's mission is to transform lost people into Christ's disciples who will then transform the world. We do this by gathering, growing, and going. Learn more about us!"
+  />
+);
 
 const AboutPage = () => (
   <Layout spacingColor="bg-Neutral-200">

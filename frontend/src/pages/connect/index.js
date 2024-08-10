@@ -24,6 +24,11 @@ const ConnectPage = () => (
   </Layout>
 );
 
-export const Head = () => <Seo title="Connect" />;
+export const Head = () => (
+  <Seo
+    title="Connect"
+    description="Find out more about HMCC - when and where we meet, frequently asked questions, or simply say hi so we can connect with you!"
+  />
+);
 
 export default ConnectPage;

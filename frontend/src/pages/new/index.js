@@ -22,6 +22,11 @@ const NewcomersPage = () => (
   </Layout>
 );
 
-export const Head = () => <Seo title="I'm New" />;
+export const Head = () => (
+  <Seo
+    title="I'm New"
+    description="Welcome to HMCC! We are on the University of Michigan campus and are open to people of all life stages and backgrounds. We'd love to get to know you."
+  />
+);
 
 export default NewcomersPage;

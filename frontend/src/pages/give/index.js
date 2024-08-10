@@ -16,6 +16,11 @@ const GivePage = () => (
   </Layout>
 );
 
-export const Head = () => <Seo title="Give" />;
+export const Head = () => (
+  <Seo
+    title="Giving"
+    description="If you're interested in supporting what God is doing here at Harvest Mission Community Church, there are a couple options you can give."
+  />
+);
 
 export default GivePage;

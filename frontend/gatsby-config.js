@@ -27,7 +27,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `HMCC Ann Arbor`,
-    description: `Becoming a transcultural spiritual family reaching our neighbors, the nations, and the next generation. Transforming lives. Transforming the world.`,
+    description: `Welcome to Ann Arbor! We are a church on the University of Michigan campus that is open to people of all life stages and backgrounds. Come visit us on Sundays at 10 am!`,
     author: `HMCC Ann Arbor Web Team`,
     siteUrl: `https://annarbor.hmcc.net`,
   },

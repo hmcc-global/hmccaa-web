@@ -24,6 +24,11 @@ const NextStepsPage = () => (
   </Layout>
 );
 
-export const Head = () => <Seo title="Next Steps" />;
+export const Head = () => (
+  <Seo
+    title="Next Steps"
+    description="Come check out our Life Groups, where we encourage each other in our journey of faith! Also, learn more about membership, ministry teams, and missions."
+  />
+);
 
 export default NextStepsPage;
