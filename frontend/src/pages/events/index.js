@@ -77,7 +77,12 @@ const EventsPage = ({ data }) => {
   );
 };
 
-export const Head = () => <Seo title="Events" />;
+export const Head = () => (
+  <Seo
+    title="Upcoming Events"
+    description="Events are ways we gather as a church body to connect across different life stages. Don’t miss out on opportunities to have fun and get to know others!"
+  />
+);
 
 export const pageQuery = graphql`
   query EventsPageQuery {

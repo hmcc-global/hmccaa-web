@@ -184,7 +184,7 @@ const Sermons = ({
                   <div className="py-5 w-full"></div>
                 )
               }
-              speaker={`${Prefix || ''} ${PreacherName}`}
+              speaker={`${Prefix || ""} ${PreacherName}`}
               passage={BiblePassage}
               series={SeriesName}
               href={`/watch/sermons/${strapi_id}`}
