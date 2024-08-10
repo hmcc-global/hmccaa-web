@@ -60,7 +60,7 @@ jobs:
       - name: Add anti-webscraping
         if: ${{ inputs.add_robots_txt }}
         run: |
-          echo 'User-agent: *' > ./public/robots.txt
-          echo 'Disallow: /' >> ./public/robots.txt
+          echo 'User-agent: *' > ./frontend/public/robots.txt
+          echo 'Disallow: /' >> ./frontend/public/robots.txt
       - name: Sync files to server
         run: rsync -avzr --delete-after ./frontend/public/ ${{ secrets.ssh_user }}@${{ secrets.ssh_host }}:/home/${{ secrets.ssh_user }}/annarbor-${{ inputs.publish_location }}
