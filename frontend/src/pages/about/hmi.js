@@ -88,7 +88,26 @@ const HmiPage = ({ pageContext }) => {
         <StaticImage src="../../images/flag-jordan.png" alt="Flag of Jordan" />
       ),
     },
-  ];
+  ].sort((a, b) => {
+    const recentYearsAlpha = a.year.split(/,\s*/g).pop();
+    const recentYearAlpha = /-/.test(recentYearsAlpha)
+      ? recentYearsAlpha.split(/\s*-\s*/).pop()
+      : recentYearsAlpha;
+    const recentYearsBravo = b.year.split(/,\s*/g).pop();
+    const recentYearBravo = /-/.test(recentYearsBravo)
+      ? recentYearsBravo.split(/\s*-\s*/).pop()
+      : recentYearsBravo;
+    console.log(Number(recentYearAlpha), Number(recentYearBravo));
+
+    if (Number(recentYearAlpha) === Number(recentYearBravo)) {
+      return 0;
+    } else if (Number(recentYearAlpha) < Number(recentYearBravo)) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
   const workers = [
     {
       id: 1,
@@ -255,7 +274,7 @@ const HmiPage = ({ pageContext }) => {
                     </p>
                   </div>
                   <div className="flex flex-col">
-                    <div className="grid grid-rows-4 md:grid-rows-3 grid-flow-col gap-4 md:gap-10 justify-betweenn w-full">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 md:gap-y-10 justify-betweenn w-full gap-x-4">
                       {projects.map(project => (
                         <div
                           className="flex gap-x-2 md:gap-x-5"
