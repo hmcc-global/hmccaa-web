@@ -3,15 +3,9 @@ import { ArrowDropDown } from "../svgs";
 import "../../css/comboBox.css";
 
 const ComboBox = forwardRef(
-  ({ label, options, handleChange: navigateChange, filterValue }, ref) => {
-    const foundItem = filterValue
-      ? options.find(
-          ({ value }) =>
-            value.length &&
-            filterValue
-              .split(/\//g)
-              .some(selectedValue => selectedValue === value)
-        )
+  ({ label, options, handleChange: navigateChange, currentlySelected }, ref) => {
+    const foundItem = currentlySelected
+      ? options.find(({ value }) => value.length && currentlySelected === value)
       : null;
     const [comboBoxState, setComboBoxState] = useState({
       show: false,

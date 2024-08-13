@@ -8,6 +8,7 @@ import Sermons from "../components/page-watch/index/sermons";
 import LiveStream from "../components/page-watch/liveStream";
 
 const WatchPage = ({ data, pageContext }) => {
+  console.log(pageContext);
   return (
     <Layout hasSpacing={false}>
       <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
@@ -28,23 +29,12 @@ export const Head = () => (
 );
 // Page Query for Sermons with filtering based upon Drop Down Selection
 export const pageQuery = graphql`
-  query sermonsPageQuery(
-    $skip: Int!
-    $limit: Int!
-    $prefix: String
-    $name: String
-    $seriesName: String
-    $book: String
-  ) {
+  query sermonsPageQuery($skip: Int!, $limit: Int!, $sermonIds: [Int]) {
     allStrapiSermon(
       sort: { DatePreached: DESC }
       limit: $limit
       skip: $skip
-      filter: {
-        Preacher: { Name: { eq: $name }, Prefix: { eq: $prefix } }
-        Series: { Name: { eq: $seriesName } }
-        BiblePassage: { elemMatch: { Book: { eq: $book } } }
-      }
+      filter: { strapi_id: { in: $sermonIds } }
     ) {
       nodes {
         strapi_id

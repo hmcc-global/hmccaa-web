@@ -8,8 +8,8 @@
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 
-const { CreateEventPages } = require('./src/page-generation/events');
-const { CreateSermonPages } = require('./src/page-generation/sermons');
+const { CreateEventPages } = require("./src/page-generation/events");
+const { CreateSermonPages } = require("./src/page-generation/sermons");
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
