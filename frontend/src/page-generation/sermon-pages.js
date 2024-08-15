@@ -1,3 +1,9 @@
+const hash = require("crypto-js/sha256");
+
+function getSermonPageUrl(strapi_id) {
+  return `/watch/sermons/${hash(strapi_id.toString()).toString()}`;
+}
+
 const SermonTraits = Object.freeze({
   type: "type",
   speaker: "speaker",
@@ -80,6 +86,7 @@ function getNormalizedSermonTraitsFromUrl(url) {
   return normalized_traits;
 }
 
+module.exports.getSermonPageUrl = getSermonPageUrl;
 module.exports.SermonTraits = SermonTraits;
 module.exports.SermonTraitMetadata = SermonTraitMetadata;
 module.exports.normalizeTrait = normalizeTrait;

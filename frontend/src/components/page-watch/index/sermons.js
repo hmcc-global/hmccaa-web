@@ -4,6 +4,7 @@ import SermonCard from "./sermonCard";
 import { GatsbyImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
 import {
+  getSermonPageUrl,
   normalizeTrait,
   getNormalizedSermonTraitsFromUrl,
   getUrlFromNormalizedSermonTraits,
@@ -30,6 +31,38 @@ const Number = ({ page, currentPage, url }) => {
   }
 };
 
+// Returns an array signifying the page numbers to display, eg.
+//    (10, 50) would return [1, 2, ..., 9, 10, 11, ..., 49, 50]
+function getPageNumbers(currentPage, totalPages) {
+  // Test cases:
+  //    (3, 10) should return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  //    (5, 11) should return [1, 2, 3, 4, 5, 6, 7, ..., 11]
+  //    (6, 11) should return [1, ..., 4, 5, 6, 7, 8, ..., 11]
+  //    (7, 11) should return [1, ..., 5, 6, 7, 8, 9, 10, 11]
+  let enumerate = (first, last) =>
+    Array.from({ length: last - first + 1 }).map((_, i) => i + first);
+
+  let pages = [];
+
+  if (totalPages <= 10) {
+    pages = enumerate(1, totalPages);
+  } else if (currentPage <= 5) {
+    pages = [...enumerate(1, 7), null, totalPages];
+  } else if (currentPage + 4 >= totalPages) {
+    pages = [1, null, ...enumerate(totalPages - 6, totalPages)];
+  } else {
+    pages = [
+      1,
+      null,
+      ...enumerate(currentPage - 2, currentPage + 2),
+      null,
+      totalPages,
+    ];
+  }
+
+  return pages.map(page => (page !== null ? page.toString() : "..."));
+}
+
 // TODO: fix everything here
 // when 4 pages it goes 3214
 // there's a .. and a ...
@@ -37,75 +70,17 @@ const Number = ({ page, currentPage, url }) => {
 const NumberPaging = ({ currentPage, numPages, url }) => {
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const previous = url + (currentPage === 2 ? "" : `/${currentPage - 1}`);
-  const next = url + `/${currentPage + 1}`;
-  const pages = [currentPage.toString()];
-  // Build an array for what pages number to show with ellipsis if needed
-  if (numPages > MAX_PAGINATION) {
-    const maxLeft = 4;
-    const maxRight = numPages - 2;
-    if (currentPage < maxLeft) {
-      if (isFirst) {
-        for (let index = currentPage + 1; index < maxLeft; index++) {
-          pages.push(index.toString());
-        }
-      } else if (currentPage === 2) {
-        const previous = currentPage - 1;
-        const next = currentPage + 1;
-        pages.unshift(previous.toString());
-        pages.push(next.toString());
-      } else {
-        for (let index = currentPage - 1; index > 0; index--) {
-          pages.unshift(index.toString());
-        }
-      }
+  const previousPage = url + (currentPage === 2 ? "" : `/${currentPage - 1}`);
+  const nextPage = `${url}/${currentPage + 1}`;
 
-      pages.push("...");
-      pages.push(numPages.toString());
-    } else if (currentPage < maxRight) {
-      const next = currentPage + 1;
-      const previous = currentPage - 1;
-      pages.unshift(previous.toString());
-      pages.unshift("...");
-      pages.unshift("1");
-      pages.push(next.toString());
-      pages.push("..");
-      pages.push(numPages.toString());
-    } else {
-      const rightEnd = numPages - 1;
-      if (maxRight === currentPage) {
-        for (let index = maxRight + 1; index <= numPages; index++) {
-          pages.push(index.toString());
-        }
-      } else if (rightEnd === currentPage) {
-        const previous = currentPage - 1;
-        pages.unshift(previous.toString());
-        pages.push(numPages.toString());
-      } else {
-        for (let index = currentPage - 1; index >= maxRight; index--) {
-          pages.unshift(index.toString());
-        }
-      }
-      pages.unshift("...");
-      pages.unshift("1");
-    }
-  } else {
-    for (let index = 0; index < MAX_PAGINATION && index < numPages; index++) {
-      const page = (index + 1).toString();
-      if (page < currentPage) {
-        pages.unshift(page);
-      } else if (page > currentPage) {
-        pages.push(page);
-      }
-    }
-  }
+  const pages = getPageNumbers(currentPage, numPages);
 
   return pages.length > 1 ? (
     <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
       <div className="flex text-xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
         {!isFirst ? (
           <Link
-            to={`${previous}#sermonsList`}
+            to={`${previousPage}#sermonsList`}
             rel="prev"
             className="font-roboto text-Accent-500 no-underline"
           >
@@ -124,7 +99,7 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
         ))}
         {!isLast ? (
           <Link
-            to={`${next}#sermonList`}
+            to={`${nextPage}#sermonList`}
             rel="next"
             className="font-roboto text-Accent-500 no-underline"
           >
@@ -224,7 +199,7 @@ const Sermons = ({
               speaker={`${Prefix || ""} ${PreacherName}`}
               passage={BiblePassage}
               series={SeriesName}
-              href={`/watch/sermons/${strapi_id}`}
+              href={getSermonPageUrl(strapi_id)}
             />
           )
         )}

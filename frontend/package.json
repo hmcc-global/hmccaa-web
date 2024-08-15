@@ -6,6 +6,7 @@
   "author": "HMCCAA Web Team <website@annarbor.hmcc.net>",
   "dependencies": {
     "babel-preset-gatsby": "^3.11.0",
+    "crypto-js": "^4.2.0",
     "gatsby": "^5.12.11",
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.2",
