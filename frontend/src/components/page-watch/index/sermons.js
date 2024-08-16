@@ -40,22 +40,22 @@ function getPageNumbers(currentPage, totalPages) {
     ];
   }
 
-  return pages.map(page => (page !== null ? page.toString() : "..."));
+  return pages.map(page => (page !== null ? page.toString() : page));
 }
 
 // Number line for page navigation on sermons page
 const NumberLine = ({ page, currentPage, url }) => {
-  if (/.../.test(page) || parseInt(page, 10) === currentPage) {
-    return /.../.test(page) ? (
-      <span className="text-Accent-500 font-normal">{page}</span>
-    ) : (
-      <span className="font-bold text-Primary-700">{page}</span>
+  if (page === null) {
+    return (
+      <span className="text-Accent-500 font-normal tracking-tight">· · ·</span>
     );
+  } else if (parseInt(page, 10) === currentPage) {
+    return <span className="font-bold text-Primary-700">{page}</span>;
   } else {
     return (
       <Link
         className="text-Accent-500 text-xl font-normal no-underline"
-        to={`${url}${page === "1" ? "" : `/${page}`}#sermonsList`}
+        to={`${url}${page === "1" ? "" : `/${page}`}#sermons-list-paged`}
       >
         {page}
       </Link>
@@ -72,11 +72,11 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
   const pages = getPageNumbers(currentPage, numPages);
 
   return pages.length > 1 ? (
-    <div className="flex flex-col items-center pt-[0.875rem] lg:pt-5">
-      <div className="flex text-xl text-Shades-100 font-normal justify-between max-w-[22.8125rem] gap-x-10">
+    <div className="bg-green-500 flex flex-col items-center pt-[0.875rem] lg:pt-5 w-full justify-center">
+      <div className="flex text-xl text-Shades-100 font-normal justify-between gap-x-4 lg:gap-x-8">
         {!isFirst ? (
           <Link
-            to={`${previousPage}#sermonsList`}
+            to={`${previousPage}#sermons-list-paged`}
             rel="prev"
             className="font-roboto text-Accent-500 no-underline"
           >
@@ -95,7 +95,7 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
         ))}
         {!isLast ? (
           <Link
-            to={`${nextPage}#sermonList`}
+            to={`${nextPage}#sermons-list-paged`}
             rel="next"
             className="font-roboto text-Accent-500 no-underline"
           >
@@ -165,7 +165,10 @@ const Sermons = ({
           />
         ))}
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5">
+      <div
+        id="sermons-list-paged"
+        className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5"
+      >
         {nodes.map(
           (
             {
