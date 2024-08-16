@@ -165,12 +165,12 @@ const ComboBox = forwardRef(
                   data-option-value=""
                   onClick={evt =>
                     handleSelection(evt, {
-                      label: `Select a ${label}`,
+                      label: `Sort by ${label}`,
                       value: "",
                     })
                   }
                 >
-                  Select a {label}
+                  Sort by {label}
                 </li>
                 {list.map(({ label, value }, index) => (
                   <li
