@@ -89,19 +89,19 @@ const HmiPage = ({ pageContext }) => {
       ),
     },
   ].sort((a, b) => {
-    const recentYearsAlpha = a.year.split(/,\s*/g).pop();
-    const recentYearAlpha = /-/.test(recentYearsAlpha)
-      ? recentYearsAlpha.split(/\s*-\s*/).pop()
-      : recentYearsAlpha;
-    const recentYearsBravo = b.year.split(/,\s*/g).pop();
-    const recentYearBravo = /-/.test(recentYearsBravo)
-      ? recentYearsBravo.split(/\s*-\s*/).pop()
-      : recentYearsBravo;
-    console.log(Number(recentYearAlpha), Number(recentYearBravo));
-
-    if (Number(recentYearAlpha) === Number(recentYearBravo)) {
+    const retrieveRecentYears = years =>
+      Number(
+        years
+          .split(/,\s*/g)
+          .pop()
+          .split(/\s*[-]+\s*/)
+          .pop()
+      );
+    const recentYearAlpha = retrieveRecentYears(a.year);
+    const recentYearBravo = retrieveRecentYears(b.year);
+    if (recentYearAlpha === recentYearBravo) {
       return 0;
-    } else if (Number(recentYearAlpha) < Number(recentYearBravo)) {
+    } else if (recentYearAlpha < recentYearBravo) {
       return 1;
     } else {
       return -1;
@@ -196,21 +196,22 @@ const HmiPage = ({ pageContext }) => {
       description:
         "T & J were sent out from HMCC of Ann Arbor to serve in an East Asian nation as missionaries in 2024",
     },
-  ].reduce((rows, key, index, list) => {
+  ].reduce((rows, worker, index, list) => {
+    /*
+     * Rebuilding the array to have the top half of workers on the left side,
+     * while having the bottom half of works on right side using grid layout.
+     * The top half will have even indes, while the bottom half
+     * will be an odd index.
+     */
     const len = list.length;
-    if (index > 0) {
-      const modIndex = index % (len / 2);
-      if (index < len / 2) {
-        rows[index + modIndex] = key;
-      } else {
-        let position = modIndex + 1;
-        if (position > 1) {
-          position += modIndex;
-        }
-        rows[position] = key;
+    const counter = Math.ceil(len / 2);
+    if (index < counter) {
+      const evenKey = index * 2;
+      const oddKey = index * 2 + 1;
+      rows[evenKey] = worker;
+      if (oddKey < len) {
+        rows[oddKey] = list[index + counter];
       }
-    } else {
-      rows[index] = key;
     }
     return rows;
   }, []);
