@@ -2,7 +2,7 @@ import * as React from "react";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import { StaticImage } from "gatsby-plugin-image";
 import { SecondaryButtonLink } from "../../components/Button";
 
@@ -342,6 +342,11 @@ const HmiPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Harvest Mission International (HMI)" />;
+export const Head = () => (
+  <Seo
+    title="Harvest Mission International (HMI)"
+    description={PageDescriptions["about-hmi"]}
+  />
+);
 
 export default HmiPage;

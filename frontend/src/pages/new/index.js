@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import WelcomeSection from "../../components/page-new/welcome";
 import SundayCelebrationSection from "../../components/page-new/sunday-celebration";
 import Questions from "../../components/gotQuestions";
@@ -23,10 +23,7 @@ const NewcomersPage = () => (
 );
 
 export const Head = () => (
-  <Seo
-    title="I'm New"
-    description="Welcome to HMCC! We are on the University of Michigan campus and are open to people of all life stages and backgrounds. We'd love to get to know you."
-  />
+  <Seo title="I'm New" description={PageDescriptions.new} />
 );
 
 export default NewcomersPage;

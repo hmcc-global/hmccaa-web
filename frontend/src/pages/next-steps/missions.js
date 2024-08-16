@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/layout";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { StaticImage } from "gatsby-plugin-image";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import { CalendarIcon, PinIcon } from "../../components/svgs";
 import { PrimaryButtonLink } from "../../components/Button";
 
@@ -155,6 +155,11 @@ const MissionsPage = ({
   );
 };
 
-export const Head = () => <Seo title="Missions Support" />;
+export const Head = () => (
+  <Seo
+    title="Missions Support"
+    description={PageDescriptions["next-steps-missions"]}
+  />
+);
 
 export default MissionsPage;

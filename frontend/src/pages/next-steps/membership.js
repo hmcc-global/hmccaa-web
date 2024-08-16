@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import { StaticImage } from "gatsby-plugin-image";
 import {
   PrimaryButtonLink,
@@ -93,6 +93,11 @@ const MembershipPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Membership" />;
+export const Head = () => (
+  <Seo
+    title="Membership"
+    description={PageDescriptions["next-steps-membership"]}
+  />
+);
 
 export default MembershipPage;
