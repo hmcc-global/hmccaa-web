@@ -75,6 +75,22 @@ const unknownBook = unknown => {
 const getBookName = strapiBook =>
   BOOKS.get(strapiBook) || unknownBook(strapiBook);
 
+const sortBibleBooks = (a, b) => {
+  if (a === b) {
+    return 0;
+  }
+  for (const [_, v] of BOOKS) {
+    if (a === v) {
+      return -1;
+    }
+    if (b === v) {
+      return 1;
+    }
+  }
+  return 1;
+};
+
 module.exports = {
   getBookName,
+  sortBibleBooks,
 };

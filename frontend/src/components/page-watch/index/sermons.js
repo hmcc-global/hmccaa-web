@@ -8,6 +8,7 @@ import {
   normalizeTrait,
   getNormalizedSermonTraitsFromUrl,
   getUrlFromNormalizedSermonTraits,
+  SermonTraitMetadata,
 } from "../../../page-generation/sermon-pages";
 
 const MAX_PAGINATION = 7;
@@ -153,14 +154,16 @@ const Sermons = ({
         id="sermons-filter"
         className="grid grid-cols-2 gap-y-3  max-w-[17rem] lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  "
       >
-        {traits.map((traits, idx) => (
+        {traits.map((traitInfo, idx) => (
           <ComboBox
             key={idx}
-            label={traits.dropdownLabel}
-            options={traits.traits.map(trait => ({
-              label: trait,
-              value: normalizeTrait(trait),
-            }))}
+            label={SermonTraitMetadata.get(traitInfo.field).dropdownLabel}
+            options={traitInfo.traits
+              .sort(SermonTraitMetadata.get(traitInfo.field).sortingFn)
+              .map(trait => ({
+                label: trait,
+                value: normalizeTrait(trait),
+              }))}
             handleChange={handleChange}
             currentlySelected={currentlySelectedTraits[idx]}
             ref={refs.current[idx]}

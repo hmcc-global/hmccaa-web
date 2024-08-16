@@ -88,7 +88,6 @@ class SermonGroup {
     for (let t in SermonTraits) {
       traitInfo.push({
         field: t,
-        ...SermonTraitMetadata.get(t),
         traits: this.traits[curr_index++].toArray(),
       });
     }
@@ -171,7 +170,7 @@ function processSermon(sermon) {
   };
 }
 
-async function tempCreateSermonPages(graphql, createPage, reporter) {
+async function CreateSermonPages(graphql, createPage, reporter) {
   // GraphQL Query for All Sermons
   const result = await graphql(`
     {

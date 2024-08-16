@@ -1,4 +1,5 @@
 const hash = require("crypto-js/sha256");
+const { sortBibleBooks } = require("./strapi-bible");
 
 function getSermonPageUrl(strapi_id) {
   return `/watch/sermons/${hash(strapi_id.toString()).toString()}`;
@@ -12,12 +13,26 @@ const SermonTraits = Object.freeze({
   topic: "topic",
 });
 
+const defaultSort = (a, b) => a.localeCompare(b);
+
 const SermonTraitMetadata = new Map([
   [
     SermonTraits.type,
     {
       dropdownLabel: "Service Type",
       restLabel: "gathering",
+      sortingFn: (a, b) => {
+        if (a === b) {
+          return 0;
+        }
+        if (a === "Sunday Celebration" || b === "Other") {
+          return -1;
+        }
+        if (a === "Other" || b === "Sunday Celebration") {
+          return 1;
+        }
+        return defaultSort(a, b);
+      },
     },
   ],
   [
@@ -25,6 +40,7 @@ const SermonTraitMetadata = new Map([
     {
       dropdownLabel: "Speaker",
       restLabel: "speaker",
+      sortingFn: defaultSort,
     },
   ],
   [
@@ -32,6 +48,7 @@ const SermonTraitMetadata = new Map([
     {
       dropdownLabel: "Sermon Series",
       restLabel: "series",
+      sortingFn: defaultSort,
     },
   ],
   [
@@ -39,6 +56,7 @@ const SermonTraitMetadata = new Map([
     {
       dropdownLabel: "Bible Book",
       restLabel: "book",
+      sortingFn: sortBibleBooks,
     },
   ],
   [
@@ -46,6 +64,7 @@ const SermonTraitMetadata = new Map([
     {
       dropdownLabel: "Sermon Topic",
       restLabel: "topic",
+      sortingFn: (a, b) => defaultSort(a.toLowerCase(), b.toLowerCase()),
     },
   ],
 ]);
