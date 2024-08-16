@@ -11,27 +11,6 @@ import {
   SermonTraitMetadata,
 } from "../../../page-generation/sermon-pages";
 
-const MAX_PAGINATION = 7;
-// Building the Pagination for the Sermons
-const Number = ({ page, currentPage, url }) => {
-  if (/.../.test(page) || parseInt(page, 10) === currentPage) {
-    return /.../.test(page) ? (
-      <span className="text-Accent-500 font-normal">{page}</span>
-    ) : (
-      <span className="font-bold text-Primary-700">{page}</span>
-    );
-  } else {
-    return (
-      <Link
-        className="text-Accent-500 text-xl font-normal no-underline"
-        to={`${url}${page === "1" ? "" : `/${page}`}#sermonsList`}
-      >
-        {page}
-      </Link>
-    );
-  }
-};
-
 // Returns an array signifying the page numbers to display, eg.
 //    (10, 50) would return [1, 2, ..., 9, 10, 11, ..., 49, 50]
 function getPageNumbers(currentPage, totalPages) {
@@ -64,10 +43,26 @@ function getPageNumbers(currentPage, totalPages) {
   return pages.map(page => (page !== null ? page.toString() : "..."));
 }
 
-// TODO: fix everything here
-// when 4 pages it goes 3214
-// there's a .. and a ...
-// generally just needs some refactoring
+// Number line for page navigation on sermons page
+const NumberLine = ({ page, currentPage, url }) => {
+  if (/.../.test(page) || parseInt(page, 10) === currentPage) {
+    return /.../.test(page) ? (
+      <span className="text-Accent-500 font-normal">{page}</span>
+    ) : (
+      <span className="font-bold text-Primary-700">{page}</span>
+    );
+  } else {
+    return (
+      <Link
+        className="text-Accent-500 text-xl font-normal no-underline"
+        to={`${url}${page === "1" ? "" : `/${page}`}#sermonsList`}
+      >
+        {page}
+      </Link>
+    );
+  }
+};
+
 const NumberPaging = ({ currentPage, numPages, url }) => {
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
@@ -91,7 +86,7 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
           <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
         )}
         {pages.map((page, index) => (
-          <Number
+          <NumberLine
             key={`page-number-${index}`}
             page={page}
             currentPage={currentPage}
