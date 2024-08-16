@@ -97,11 +97,8 @@ class SermonGroup {
   createPage(createPageAPI) {
     const numberOfPages = Math.ceil(this.sermons.length / ITEMS_PER_PAGE);
     Array.from({ length: numberOfPages }).forEach((_, index) => {
-      console.log(this.url, index);
-      let full_url = this.url + (index === 0 ? "" : `/${index + 1}`);
-      console.log("creating page", full_url);
       createPageAPI({
-        path: full_url,
+        path: this.url + (index === 0 ? "" : `/${index + 1}`),
         component: path.resolve("./src/templates/sermons.js"),
         context: {
           limit: ITEMS_PER_PAGE,
@@ -208,10 +205,8 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   sermons.forEach(sermon => {
     sermonCollection.addSermon(sermon.strapi_id, processSermon(sermon));
 
-    const url = getSermonPageUrl(sermon.strapi_id);
-    console.log(`Creating page ${url}`);
     createPage({
-      path: url,
+      path: getSermonPageUrl(sermon.strapi_id),
       component: path.resolve("./src/templates/sermon.js"),
       context: {
         id: sermon.strapi_id,

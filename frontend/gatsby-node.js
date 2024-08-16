@@ -10,6 +10,7 @@
 
 const { CreateEventPages } = require("./src/page-generation/events");
 const { CreateSermonPages } = require("./src/page-generation/sermons");
+const { Pages } = require("./src/page-generation/create-page");
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -27,7 +28,12 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  await CreateEventPages(graphql, createPage, reporter);
+  let pages = new Pages(createPage);
+  let createPageFn = page => pages.addPage(page);
 
-  await CreateSermonPages(graphql, createPage, reporter);
+  await CreateEventPages(graphql, createPageFn, reporter);
+
+  await CreateSermonPages(graphql, createPageFn, reporter);
+
+  pages.createPages();
 };

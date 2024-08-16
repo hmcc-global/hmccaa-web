@@ -111,7 +111,6 @@ async function CreateEventPages(graphql, createPage, reporter) {
         let eventPath = `/events/${encodeURIComponent(
           getFullEventId(event.id, time)
         )}`;
-        console.log("Creating event page", eventPath);
         createPage({
           path: eventPath,
           component: path.resolve(`./src/templates/eventPageTemplate.js`),
