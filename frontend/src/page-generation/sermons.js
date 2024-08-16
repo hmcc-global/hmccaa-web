@@ -146,7 +146,7 @@ class AllSermons {
 }
 
 function processSpeaker({ Prefix, Name }) {
-  return `${Prefix || ""} ${Name}`;
+  return (Prefix ? `${Prefix} ` : "") + Name;
 }
 
 function processBiblePassages(passages) {
