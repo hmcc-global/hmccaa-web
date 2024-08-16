@@ -15,12 +15,10 @@ class Pages {
   }
 
   createPage(page) {
-    // console.log("createPage", page.path);
     this.createPageAPI(page);
   }
 
   createPages() {
-    console.log();
     const spinner = new Spinner(`%s  ${this.pages.length} pages to create...`);
     spinner.start();
     this.pages.forEach(page => this.createPage(page));

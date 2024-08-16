@@ -131,13 +131,9 @@ const Sermons = ({
     const traits = Array.from(selections)
       .map(element => element.dataset.url)
       .map(element => (element === "" ? null : element));
-    console.log("handleChange", traits);
     const url = getUrlFromNormalizedSermonTraits(traits);
-    console.log(url);
     navigate(`${url}#sermonsList`);
   };
-
-  console.log(nodes, "***", currentPage, numPages, url, traits);
 
   return (
     <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10">
