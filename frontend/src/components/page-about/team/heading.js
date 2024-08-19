@@ -5,7 +5,7 @@ const Heading = () => (
     <h1 className="font-semibold lg:font-bold leading-tighter text-2xl lg:text-4xl uppercase mb-0 tracking-normal">
       Our Team
     </h1>
-    <div className="pt-[1.125rem] pb-6 lg:py-0 text-base lg:text-lg  text-center lg:text-left">
+    <div className="max-w-[42.5rem] pt-[1.125rem] pb-6 lg:py-0 text-base lg:text-lg text-center">
       <p className="mb-0">
         At HMCC we desire to live out the Great Commission that Jesus commanded
         in Matthew 28. We know that empowering a church community to live out
