@@ -75,9 +75,9 @@ function normalizeTrait(trait) {
     .toLowerCase()
     .replace(/[.'"&]./g, "")
     .replace(/\s+/g, "-")
-    .replace(/#/g, "HASH")
-    .replace(/%/g, "PERCENT")
-    .replace(/\?/g, "QUESTION");
+    .replace(/#/g, "hash")
+    .replace(/%/g, "percent")
+    .replace(/\?/g, "question");
 }
 
 function getUrlFromNormalizedSermonTraits(traits) {

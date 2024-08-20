@@ -164,10 +164,6 @@ const Sermons = ({
         ))}
       </div>
       <div
-        id="loader"
-        className="fixed inset-x-1/2 inset-y-1/3 mx-auto my-auto w-full z-50"
-      ></div>
-      <div
         id="sermons-list-paged"
         className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5"
       >
