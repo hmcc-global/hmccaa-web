@@ -10,6 +10,7 @@ import {
   getUrlFromNormalizedSermonTraits,
   SermonTraitMetadata,
 } from "../../../page-generation/sermon-pages";
+import { showLoader } from "../../../components/svgs/loader";
 
 // Returns an array signifying the page numbers to display, eg.
 //    (10, 50) would return [1, 2, ..., 9, 10, 11, ..., 49, 50]
@@ -132,6 +133,7 @@ const Sermons = ({
       .map(element => element.dataset.url)
       .map(element => (element === "" ? null : element));
     const url = getUrlFromNormalizedSermonTraits(traits);
+    showLoader();
     navigate(`${url}#sermonsList`);
   };
 
@@ -161,6 +163,10 @@ const Sermons = ({
           />
         ))}
       </div>
+      <div
+        id="loader"
+        className="fixed inset-x-1/2 inset-y-1/3 mx-auto my-auto w-full z-50"
+      ></div>
       <div
         id="sermons-list-paged"
         className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5"

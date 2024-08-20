@@ -23,8 +23,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-modal": "^3.16.1",
-    "react-responsive": "^9.0.2",
-    "shelljs": "^0.8.5"
+    "react-responsive": "^9.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

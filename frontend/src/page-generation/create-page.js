@@ -1,4 +1,3 @@
-const sh = require("shelljs");
 const { Spinner } = require("cli-spinner");
 
 Spinner.setDefaultSpinnerString("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏");
