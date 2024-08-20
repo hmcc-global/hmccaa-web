@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import Partners from "../../components/page-about/index/partners";
 import Strategy from "../../components/page-about/index/strategy";
 import Mission from "../../components/page-about/index/mission";
@@ -14,10 +14,7 @@ import OurStory from "../../components/page-about/index/our-story";
 import Banner from "../../components/shared/banner";
 
 export const Head = () => (
-  <Seo
-    title="About"
-    description="HMCC's mission is to transform lost people into Christ's disciples who will then transform the world. We do this by gathering, growing, and going. Learn more about us!"
-  />
+  <Seo title="About" description={PageDescriptions.about} />
 );
 
 const AboutPage = () => (

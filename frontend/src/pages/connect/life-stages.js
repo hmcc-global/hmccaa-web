@@ -2,7 +2,7 @@ import * as React from "react";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import { StaticImage } from "gatsby-plugin-image";
 import {
   SecondaryButtonLink,
@@ -359,6 +359,11 @@ const LifeStagesPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Life Stages" />;
+export const Head = () => (
+  <Seo
+    title="Life Stages"
+    description={PageDescriptions["connect-life-stages"]}
+  />
+);
 
 export default LifeStagesPage;

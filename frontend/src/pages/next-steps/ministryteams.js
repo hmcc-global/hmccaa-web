@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { StaticImage } from "gatsby-plugin-image";
 import {
@@ -14,7 +14,6 @@ import {
   WorshipLogo,
 } from "../../components/svgs";
 import { PrimaryButtonLink } from "../../components/Button";
-import { Link } from "gatsby";
 
 const definition = [
   {
@@ -265,6 +264,11 @@ const MinistryTeamsPage = ({ pageContext }) => {
     </Layout>
   );
 };
-export const Head = () => <Seo title="Ministry Teams" />;
+export const Head = () => (
+  <Seo
+    title="Ministry Teams"
+    description={PageDescriptions["next-steps-ministryteams"]}
+  />
+);
 
 export default MinistryTeamsPage;

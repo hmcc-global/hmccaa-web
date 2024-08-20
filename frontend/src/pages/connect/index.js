@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import Questions from "../../components/gotQuestions";
 import Instagram from "../../components/instaBar";
 import Banner from "../../components/shared/banner";
@@ -25,10 +25,7 @@ const ConnectPage = () => (
 );
 
 export const Head = () => (
-  <Seo
-    title="Connect"
-    description="Find out more about HMCC - when and where we meet, frequently asked questions, or simply say hi so we can connect with you!"
-  />
+  <Seo title="Connect" description={PageDescriptions.connect} />
 );
 
 export default ConnectPage;

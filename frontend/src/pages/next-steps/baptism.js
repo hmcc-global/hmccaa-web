@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { PrimaryButtonLink } from "../../components/Button";
 import { StaticImage } from "gatsby-plugin-image";
@@ -64,6 +64,8 @@ const BaptismPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Baptism" />;
+export const Head = () => (
+  <Seo title="Baptism" description={PageDescriptions["next-steps-baptism"]} />
+);
 
 export default BaptismPage;
