@@ -119,7 +119,7 @@ const Sermons = ({
   const currentlySelectedTraits = getNormalizedSermonTraitsFromUrl(url);
   let refs = useRef([]);
   for (let _ in traits) {
-    refs.current.push({current:undefined});
+    refs.current.push({ current: undefined });
   }
 
   // Navigate to new page based upon Drop Down Selection
