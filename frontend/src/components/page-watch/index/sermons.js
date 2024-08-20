@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useRef } from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -39,6 +39,9 @@ const Sermons = ({
     filterValue = null,
   },
 }) => {
+  const speakersRef = useRef();
+  const seriesRef = useRef();
+  const booksRef = useRef();
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
   const previous =
@@ -122,7 +125,6 @@ const Sermons = ({
           current ? `${accumulator}/${current}` : accumulator,
         ""
       );
-    console.warn(values);
     (values || filterValue) && navigate(`/watch${values}#sermonsList`);
   };
 
@@ -141,18 +143,21 @@ const Sermons = ({
           options={speakers}
           handleChange={handleChange}
           filterValue={filterValue}
+          ref={speakersRef}
         />
         <ComboBox
           label="Series"
           options={series}
           handleChange={handleChange}
           filterValue={filterValue}
+          ref={seriesRef}
         />
         <ComboBox
           label="Book"
           options={books}
           handleChange={handleChange}
           filterValue={filterValue}
+          ref={booksRef}
         />
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5">
@@ -184,7 +189,7 @@ const Sermons = ({
                   <div className="py-5 w-full"></div>
                 )
               }
-              speaker={`${Prefix || ''} ${PreacherName}`}
+              speaker={`${Prefix || ""} ${PreacherName}`}
               passage={BiblePassage}
               series={SeriesName}
               href={`/watch/sermons/${strapi_id}`}

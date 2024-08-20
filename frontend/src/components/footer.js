@@ -6,7 +6,7 @@ import mailLogo from "../images/icons/mail.svg";
 import smartPhoneLogo from "../images/icons/smartphone.svg";
 import facebookLogo from "../images/icons/facebook.svg";
 import instagramLogo from "../images/icons/instagram.svg";
-import twitterLogo from "../images/icons/twitter.svg";
+import spotifyLogo from "../images/icons/spotify.png";
 import { CopyrightLogo } from "./svgs";
 import Link from "./Link";
 
@@ -154,13 +154,13 @@ const Footer = () => {
                   />
                 </Link>
                 <Link
-                  href="https://twitter.com/HMCC_AA"
+                  href="https://open.spotify.com/show/77heADJky8greTAyS6Jqe3?si=c0af363557064d5a/\./"
                   className="hover:opacity-75"
                 >
                   <img
-                    alt="twitter logo"
+                    alt="spotify logo"
                     className="w-[32px] h-[32px] mb-0"
-                    src={twitterLogo}
+                    src={spotifyLogo}
                   />
                 </Link>
               </div>

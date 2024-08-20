@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import Questions from "../../components/gotQuestions";
 import Instagram from "../../components/instaBar";
 import Banner from "../../components/shared/banner";
@@ -24,6 +24,8 @@ const ConnectPage = () => (
   </Layout>
 );
 
-export const Head = () => <Seo title="Connect" />;
+export const Head = () => (
+  <Seo title="Connect" description={PageDescriptions.connect} />
+);
 
 export default ConnectPage;

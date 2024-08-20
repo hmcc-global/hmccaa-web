@@ -41,7 +41,7 @@ const TopLGSummary = () => {
             </p>
             <p>
               If you are new to our church, there is no better way to get a
-              taste of who we are and what we believe in then to check out one
+              taste of who we are and what we believe in than to check out one
               of our Life groups. Don&apos;t miss out this opportunity to
               experience the life-changing power of Biblical community.
             </p>

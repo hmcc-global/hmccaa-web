@@ -3,7 +3,7 @@ import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import TopLGSummary from "../../components/page-lifeGroups/topLGSummary";
 import FiveEs from "../../components/page-lifeGroups/fiveEs";
 
@@ -63,6 +63,11 @@ const LifeGroupsPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Life Groups" />;
+export const Head = () => (
+  <Seo
+    title="Life Groups"
+    description={PageDescriptions["next-steps-lifegroups"]}
+  />
+);
 
 export default LifeGroupsPage;

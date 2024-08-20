@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import WelcomeSection from "../../components/page-new/welcome";
 import SundayCelebrationSection from "../../components/page-new/sunday-celebration";
 import Questions from "../../components/gotQuestions";
@@ -22,6 +22,8 @@ const NewcomersPage = () => (
   </Layout>
 );
 
-export const Head = () => <Seo title="I'm New" />;
+export const Head = () => (
+  <Seo title="I'm New" description={PageDescriptions.new} />
+);
 
 export default NewcomersPage;

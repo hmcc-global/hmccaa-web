@@ -34,12 +34,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  });
 
   const eventResult = await graphql(`
     query EventSinglePageQuery {
@@ -224,7 +218,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // All Speakers List for Drop Down Selection
   let speakers = resultSpeakers?.data?.allStrapiPreacher?.nodes.map(
     ({ Prefix, Name }) => ({
-      label: `${Prefix || ''} ${Name}`,
+      label: `${Prefix || ""} ${Name}`,
       prefix: Prefix,
       name: Name,
       value: `${Prefix}-${Name}`

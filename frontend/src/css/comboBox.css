@@ -1,0 +1,48 @@
+.select-value legend {
+  @apply max-w-[0.01px];
+}
+
+.open legend {
+  @apply max-w-full;
+}
+
+.open fieldset,
+.selected-value fieldset {
+  @apply border-[2px] border-Primary-300;
+}
+
+.close label {
+  @apply scale-100 translate-y-3;
+}
+
+.open label,
+.selected-value label {
+  @apply text-Primary-300 translate-x-[1.0625rem] scale-75 -translate-y-2;
+}
+
+.position-bottom .presentation {
+  @apply bottom-24;
+}
+
+.position-top .presentation {
+  @apply top-0;
+}
+
+.selected-value legend {
+  @apply max-w-full;
+}
+
+.close .presentation {
+  @apply invisible z-0;
+}
+
+.open .presentation {
+  @apply z-[1300];
+}
+
+.selected-item {
+  @apply bg-[rgba(25,118,210,0.08)];
+}
+.selected-item:hover {
+  @apply bg-[rgba(25,118,210,0.08)];
+}

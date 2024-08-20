@@ -2,7 +2,7 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import Instagram from "../../components/instaBar";
 import SundayCelebBarEvents from "../../components/page-events/sundayCelebBarEvents";
 import EventCard from "../../components/page-events/eventCard";
@@ -77,7 +77,9 @@ const EventsPage = ({ data }) => {
   );
 };
 
-export const Head = () => <Seo title="Events" />;
+export const Head = () => (
+  <Seo title="Upcoming Events" description={PageDescriptions.events} />
+);
 
 export const pageQuery = graphql`
   query EventsPageQuery {

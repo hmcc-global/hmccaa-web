@@ -2,7 +2,7 @@ import React from "react";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 
 import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Seo, { PageDescriptions } from "../../components/seo";
 import { Heading } from "../../components/page-about/team/heading";
 import EldersSection from "../../components/page-about/team/eldersSection";
 import DeaconsSection from "../../components/page-about/team/deaconsSection";
@@ -27,6 +27,8 @@ const OurTeamPage = ({ pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Our Team" />;
+export const Head = () => (
+  <Seo title="Our Team" description={PageDescriptions["about-our-team"]} />
+);
 
 export default OurTeamPage;

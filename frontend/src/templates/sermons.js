@@ -20,7 +20,12 @@ const WatchPage = ({ data, pageContext }) => {
   );
 };
 
-export const Head = () => <Seo title="Watch" />;
+export const Head = () => (
+  <Seo
+    title="Watch Online"
+    description="Please join us in person on Sundays at the T-center. But if you cannot, come worship with us through our live stream! You can find our past sermons here too."
+  />
+);
 // Page Query for Sermons with filtering based upon Drop Down Selection
 export const pageQuery = graphql`
   query sermonsPageQuery(
