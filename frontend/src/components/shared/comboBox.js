@@ -22,8 +22,8 @@ const ComboBox = forwardRef(
           if (value && !value.length) {
             ref.current.classList.remove("open");
             ref.current.classList.add("close");
-            setComboBoxState({ ...comboBoxState, show: false });
           }
+          setComboBoxState({ ...comboBoxState, show: false });
         }
       };
       document.body.addEventListener("click", handleClose);
@@ -81,14 +81,13 @@ const ComboBox = forwardRef(
         ref.current.querySelector("input").value = label;
       }
       ref.current.querySelector("input").dataset.url = value;
-      setComboBoxState({ ...comboBoxState, show: false });
+      setComboBoxState({ show: false, found: { label, value } });
       navigateChange();
     };
 
     const handleClear = evt => {
-      console.log("clear");
       handleSelection(evt, {
-        label: `Sort by ${label}`,
+        label: "",
         value: "",
       });
     };
@@ -168,18 +167,6 @@ const ComboBox = forwardRef(
                   .toLowerCase()
                   .replace(/\s+/g, "-")}-list`}
               >
-                <li
-                  key={`${label.toLowerCase().replace(/\s+/g, "-")}-0`}
-                  role="option"
-                  aria-disabled="false"
-                  aria-selected="false"
-                  tabIndex="-1"
-                  className="font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)] font-medium"
-                  data-option-value=""
-                  onClick={handleClear}
-                >
-                  Sort by {label}
-                </li>
                 {list.map(({ label, value }, index) => (
                   <li
                     key={`${label.toLowerCase().replace(/\s+/g, "-")}-${
