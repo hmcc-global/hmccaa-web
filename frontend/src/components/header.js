@@ -7,13 +7,14 @@ import Link from "./Link";
 
 const Header = () => {
   const browseList = [
-    { id: 1, title: "About", route: "/about" },
-    { id: 2, title: "Connect", route: "/connect" },
-    { id: 3, title: "Next Steps", route: "/next-steps" },
-    { id: 4, title: "Events", route: "/events" },
-    { id: 5, title: "Watch", route: "/watch" },
-    { id: 6, title: "Give", route: "/give" },
-    { id: 7, title: "I'm New", route: "/new" },
+    { id: 1, title: "Home", route: "/" },
+    { id: 2, title: "About", route: "/about" },
+    { id: 3, title: "Connect", route: "/connect" },
+    { id: 4, title: "Next Steps", route: "/next-steps" },
+    { id: 5, title: "Events", route: "/events" },
+    { id: 6, title: "Watch", route: "/watch" },
+    { id: 7, title: "Give", route: "/give" },
+    { id: 8, title: "I'm New", route: "/new" },
   ];
 
   const locationsList = [
@@ -123,7 +124,8 @@ const Header = () => {
                           key={`browseLink-mobile-${id}`}
                           to={route}
                           className={`${textStyle} ${
-                            route + "/" === path
+                            route + "/" === path ||
+                            (route === "/" && path === "/") // highlight home tab
                               ? "font-extrabold py-2 px-4 bg-Primary-300"
                               : "font-medium py-2 px-4"
                           } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
