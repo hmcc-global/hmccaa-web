@@ -165,26 +165,26 @@ const MinistryTeamsPage = ({ pageContext }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-x-4">
-            <div className="flex-[50%]">
+          <div className="grid grid-cols-2 md:grid-rows-1 md:grid-cols-4 gap-4">
+            <div className="">
               <StaticImage
                 alt="Ministry Teams"
                 src="../../images/ministry-teams-1.png"
               />
             </div>
-            <div className="flex-[50%]">
+            <div className="">
               <StaticImage
                 alt="Ministry Teams"
                 src="../../images/ministry-teams-2.png"
               />
             </div>
-            <div className="flex-[50%]">
+            <div className="">
               <StaticImage
                 alt="Ministry Teams"
                 src="../../images/ministry-teams-3.png"
               />
             </div>
-            <div className="flex-[50%]">
+            <div className="">
               <StaticImage
                 alt="Ministry Teams"
                 src="../../images/ministry-teams-4.png"
