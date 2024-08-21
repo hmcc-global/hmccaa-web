@@ -32,7 +32,7 @@ const Layout = ({
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         id="loader"
-        className="fixed inset-x-1/2 inset-y-1/3 mx-auto my-auto w-full z-50"
+        className="fixed inset-x-[calc(50%-3.5rem)] inset-y-1/3 mx-auto my-auto w-full z-50 max-w-[7rem]"
       ></div>
       <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
         {children}
