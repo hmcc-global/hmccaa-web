@@ -75,7 +75,7 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
   return pages.length > 1 ? (
     <div className="bg-green-500 flex flex-col items-center pt-[0.875rem] lg:pt-5 w-full justify-center">
       <div className="flex text-xl text-Shades-100 font-normal justify-between gap-x-4 lg:gap-x-8">
-        {!isFirst ? (
+        {!isFirst && (
           <Link
             to={`${previousPage}#sermons-list-paged`}
             rel="prev"
@@ -83,8 +83,6 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
           >
             &lt;
           </Link>
-        ) : (
-          <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
         )}
         {pages.map((page, index) => (
           <NumberLine
@@ -94,7 +92,7 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
             url={url}
           />
         ))}
-        {!isLast ? (
+        {!isLast && (
           <Link
             to={`${nextPage}#sermons-list-paged`}
             rel="next"
@@ -102,8 +100,6 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
           >
             &gt;
           </Link>
-        ) : (
-          <span className="font-roboto opacity-0 text-Shades-0">&lt;</span>
         )}
       </div>
     </div>
