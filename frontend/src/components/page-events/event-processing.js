@@ -109,6 +109,7 @@ function processEventTimes(times) {
       return null;
     })
     .flat()
+    .filter(x => x !== null)
     .sort(util.sortTimes);
 }
 
