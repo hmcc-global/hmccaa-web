@@ -11,26 +11,28 @@ import Link from "../components/Link";
 
 const IndexPage = () => (
   <Layout>
-    <div className="w-full relative">
-      <div className="absolute bg-Accent-50 text-[#2f3300] font-medium text-xl text-center top-0 inset-x-0 z-50 py-[0.9375rem] flex justify-center">
-        <div className="flex flex-col sm:flex-row gap-2 lg:gap-4 items-center px-4">
-          <div className="h-full min-w-[1.875rem] flex items-center">
+    <div className="w-full">
+      <div className="bg-Accent-50 text-[#2f3300] font-medium text-xl text-center py-[0.9375rem] flex justify-center">
+        <div className="sm:flex sm:gap-4 lg:items-center lg:max-w-none px-2 [@media(min-width:425px)]:px-8 [@media(min-width:550px)]:px-24 sm:px-16 lg:px-4 text-center sm:text-left lg:text-center">
+          <div className="inline">
             <StaticImage
               src="../images/icons/bell.png"
               alt="bell icon"
               className="w-[1.875rem]"
             />
           </div>
-          <div>
-            <span className="font-bold">Life Group</span> is one of the best
-            ways to experience community at HMCC.{" "}
+          <div className="inline lg:flex lg:gap-4">
+            <div className="inline pr-4 lg:px-0 pl-4 sm:pl-0">
+              <span className="font-bold">Life Group</span> is one of the best
+              ways to experience community at HMCC.{" "}
+            </div>
+            <Link
+              to="/next-steps/lifegroups"
+              className="text-Accent-500 underline font-bold whitespace-nowrap inline"
+            >
+              Sign up today!
+            </Link>
           </div>
-          <Link
-            to="/next-steps/lifegroups"
-            className="text-Accent-500 underline font-bold whitespace-nowrap"
-          >
-            Sign up today!
-          </Link>
         </div>
       </div>
       <div className="relative text-center text-Shades-0">
