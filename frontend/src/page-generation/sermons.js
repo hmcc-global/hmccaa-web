@@ -154,6 +154,7 @@ function processBiblePassages(passages) {
 }
 
 function processTopics(topics) {
+  if (topics === null) return [];
   return topics.map(({ Topic }) => Topic);
 }
 
@@ -173,7 +174,7 @@ async function CreateSermonPages(graphql, createPage, reporter) {
     {
       allStrapiSermon {
         nodes {
-          strapi_id
+          strapiId
           BiblePassage {
             Book
           }
@@ -203,13 +204,13 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   let sermonCollection = new AllSermons();
 
   sermons.forEach(sermon => {
-    sermonCollection.addSermon(sermon.strapi_id, processSermon(sermon));
+    sermonCollection.addSermon(sermon.strapiId, processSermon(sermon));
 
     createPage({
-      path: getSermonPageUrl(sermon.strapi_id),
+      path: getSermonPageUrl(sermon.strapiId),
       component: path.resolve("./src/templates/sermon.js"),
       context: {
-        id: sermon.strapi_id,
+        id: sermon.strapiId,
         baseURL: process.env.STRAPI_API_URL,
       },
     });

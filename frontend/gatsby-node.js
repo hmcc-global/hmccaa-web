@@ -12,19 +12,6 @@ const { CreateEventPages } = require("./src/page-generation/events");
 const { CreateSermonPages } = require("./src/page-generation/sermons");
 const { Pages } = require("./src/page-generation/create-page");
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-  const sermonSeriesTypeDefs = `
-     type STRAPI_SERMON_SERIESJson implements Node @dontInfer {
-      Name: String!
-      id: ID!
-      strap_id: Int!
-      Background: Node
-    }
-  `;
-  createTypes(sermonSeriesTypeDefs);
-};
-
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 

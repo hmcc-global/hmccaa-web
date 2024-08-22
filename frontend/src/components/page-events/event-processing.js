@@ -1,7 +1,5 @@
 const util = require("./event-processing-util");
 
-const STRAPI_RECURRING_TIME = "event-times.recurring-time";
-const STRAPI_SINGLE_TIME = "event-times.single-time";
 const MAX_RECURRING_EVENTS = 10;
 
 function processEvents(e) {
@@ -29,10 +27,6 @@ function processEvents(e) {
       id: event.id,
       title: event.NameOverride || event.EventTemplate?.Name || "",
       img: event.CoverImageOverride || event.EventTemplate?.CoverImage || null,
-      imgUrl:
-        event.CoverImageOverride?.url ||
-        event.EventTemplate?.CoverImage.url ||
-        "",
       imgAlt:
         event.CoverImageOverride?.alternativeText ||
         event.EventTemplate?.CoverImage.alternativeText ||
@@ -89,7 +83,7 @@ function processEventTimes(times) {
 
   return (times || [])
     .map(time => {
-      if (time.strapi_component === STRAPI_RECURRING_TIME) {
+      if (util.getEventTimeType(time) === util.STRAPI_RECURRING_TIME) {
         let initial_time = {
           start: new Date(time.DateTime),
           end: time.EndDateTime ? new Date(time.EndDateTime) : null,
@@ -104,14 +98,14 @@ function processEventTimes(times) {
 
         return recur(initial_time, recur_info);
       }
-      if (time.strapi_component === STRAPI_SINGLE_TIME) {
+      if (util.getEventTimeType(time) === util.STRAPI_SINGLE_TIME) {
         return {
           start: new Date(time.DateTime),
           end: time.EndDateTime ? new Date(time.EndDateTime) : null,
           showWhenPast: !time.StopShowingWhenPast,
         };
       }
-      console.error("Unknown component", time.strapi_component);
+      console.error("Unknown component", time, util.getEventTimeType(time));
       return null;
     })
     .flat()

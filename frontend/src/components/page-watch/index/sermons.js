@@ -171,7 +171,7 @@ const Sermons = ({
               Series: { Name: SeriesName, Background },
               Preacher: { Prefix, Name: PreacherName },
               BiblePassage,
-              strapi_id,
+              strapiId,
             },
             i
           ) => (
@@ -180,11 +180,9 @@ const Sermons = ({
               title={Title}
               date={DatePreached}
               img={
-                Background?.localFile?.childImageSharp?.gatsbyImageData ? (
+                Background?.file?.childImageSharp?.gatsbyImageData ? (
                   <GatsbyImage
-                    image={
-                      Background?.localFile?.childImageSharp?.gatsbyImageData
-                    }
+                    image={Background?.file?.childImageSharp?.gatsbyImageData}
                     alt={SeriesName}
                   />
                 ) : (
@@ -194,7 +192,7 @@ const Sermons = ({
               speaker={`${Prefix || ""} ${PreacherName}`}
               passage={BiblePassage}
               series={SeriesName}
-              href={getSermonPageUrl(strapi_id)}
+              href={getSermonPageUrl(strapiId)}
             />
           )
         )}
