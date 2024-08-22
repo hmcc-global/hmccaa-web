@@ -7,10 +7,32 @@ import WelcomeMain from "../components/page-main/welcomeMain";
 import UpcomingEvents from "../components/page-main/upcoming";
 import GetConnectedCircle from "../components/page-main/getconnected";
 import GetInvolved from "../components/page-main/getinvolved";
+import Link from "../components/Link";
 
 const IndexPage = () => (
   <Layout>
-    <div className="w-full">
+    <div className="w-full relative">
+      <div className="absolute bg-Accent-50 text-[#2f3300] font-medium text-xl text-center top-0 inset-x-0 z-50 py-[0.9375rem] flex justify-center">
+        <div className="flex flex-col sm:flex-row gap-2 lg:gap-4 items-center px-4">
+          <div className="h-full min-w-[1.875rem] flex items-center">
+            <StaticImage
+              src="../images/icons/bell.png"
+              alt="bell icon"
+              className="w-[1.875rem]"
+            />
+          </div>
+          <div>
+            <span className="font-bold">Life Group</span> is one of the best
+            ways to experience community at HMCC.{" "}
+          </div>
+          <Link
+            to="/next-steps/lifegroups"
+            className="text-Accent-500 underline font-bold whitespace-nowrap"
+          >
+            Sign up today!
+          </Link>
+        </div>
+      </div>
       <div className="relative text-center text-Shades-0">
         <StaticImage
           className="w-full h-full mb-0"
