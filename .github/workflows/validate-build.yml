@@ -73,6 +73,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Validate Frontend
         uses: ./.github/actions/validate-frontend
+        with:
+          strapi_token: ${{ secrets.STRAPI_TOKEN }}
+          strapi_server: ${{ secrets.STRAPI_SERVER }}
 
   validate-docs:
     runs-on: ubuntu-latest

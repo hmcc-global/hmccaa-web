@@ -1,4 +1,11 @@
 name: Validate Frontend
+inputs: 
+  strapi_token:
+    type: string
+    required: true
+  strapi_server:
+    type: string
+    required: true
 runs:
   using: "composite"
   steps:
@@ -7,8 +14,8 @@ runs:
         cd ${{ github.workspace }}/frontend
 
         # Add env file
-        echo 'STRAPI_TOKEN=${{ secrets.STRAPI_TOKEN }}' > ./.env.production
-        echo 'STRAPI_API_URL=${{ secrets.STRAPI_SERVER }}' >> ./.env.production
+        echo 'STRAPI_TOKEN=${{ inputs.strapi_token }}' > ./.env.production
+        echo 'STRAPI_API_URL=${{ inputs.strapi_server }}' >> ./.env.production
 
         npm install
         NODE_ENV=production npm run build
