@@ -62,12 +62,17 @@ jobs:
           npm run strapi services:list
 
   validate-frontend:
+    runs-on: ubuntu-latest
     needs: [check-files-changed]
     if: needs.check-files-changed.outputs.frontend_changed == 'True'
-    uses: ./.github/workflows/component-validate-frontend.yml
-    with:
-      concurrency_group: validate-dev-${{ github.ref }}
-    secrets: inherit
+    concurrency:
+      group: validate-dev-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Validate Frontend
+        uses: ./.github/actions/validate-frontend.yml
 
   validate-docs:
     runs-on: ubuntu-latest
