@@ -11,6 +11,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import Seo from "../components/seo";
 import { graphql } from "gatsby";
 import { mediaWrapper } from "../css/media.module.css";
+import { getSermonPageUrl } from "../page-generation/sermon-pages";
 
 const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
   const {
@@ -47,7 +48,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
               crumbs={crumbs.map(({ pathname, crumbLabel }) => {
                 if (pathname === "/watch/sermons") {
                   return { pathname: "/watch", crumbLabel };
-                } else if (crumbLabel === `${id}`) {
+                } else if (pathname === getSermonPageUrl(id)) {
                   return {
                     crumbLabel: `${series}: ${title}`,
                     pathname,

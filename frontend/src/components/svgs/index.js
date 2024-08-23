@@ -193,7 +193,10 @@ const CopyrightLogo = ({ className }) => (
 );
 
 const CloseIcon = ({ className }) => (
-  <svg className={`${className} fill-none`} viewBox="0 0 60 60">
+  <svg
+    className={`${className} fill-none w-[1rem] h-[1rem] select-none inline-block shrink-0`}
+    viewBox="0 0 60 60"
+  >
     <path
       d="M48.2026 45.5475C48.3768 45.7217 48.515 45.9286 48.6093 46.1562C48.7036 46.3838 48.7521 
               46.6277 48.7521 46.8741C48.7521 47.1205 48.7036 47.3644 48.6093 47.592C48.515 47.8196 48.3768 
@@ -676,6 +679,56 @@ const ClockIcon = ({ className = "w-8 h-8" }) => (
   </svg>
 );
 
+const Loader = props => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={92}
+    height={92}
+    preserveAspectRatio="xMidYMid"
+    style={{
+      margin: "initial",
+      display: "block",
+      shapeRendering: "auto",
+      background: "0 0",
+    }}
+    viewBox="0 0 100 100"
+    {...props}
+  >
+    <g
+      className="ldl-scale"
+      style={{
+        transformOrigin: "50% 50%",
+        transform: "rotate(0deg) scale(.8,.8)",
+      }}
+    >
+      <g
+        className="ldl-ani"
+        style={{
+          transformBox: "view-box",
+          opacity: 1,
+          transformOrigin: "50px 50px",
+          transform: "matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)",
+          animation: "1.25s linear 0s infinite normal forwards running animate",
+        }}
+      >
+        <g className="ldl-layer">
+          <image
+            width={100}
+            height={100}
+            className="ldl-ani"
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAATlBMVEVFWa5fcLpQY7O4wOFCVq08UatKXrH///86T6o/VKxXabZpeb7Ey+bt7/d0g8OkrtitttyIlczi5fPP1Op+jMebpdT29/vX3O77/P6Rnc88SU/qAAAEb0lEQVRo3u1Ya5ebIBDl7QwgqPiI//+PFtQTWExa2016Tntyv2RXzL2BeTAz5IMPPvjgb0IgCvI+IChKFbxNAihvm2bwTJK3AMbFj+sSJcxbFNAEDQDYNU2rkbwewhpIHxj3wN+wBXQWSAL0TXOjr98C+G4XkK5pmhFeL8D5ITBGgekNAl0rxP5HFFjfINA3EyARYOYo4F5vZaHnxmui+jbyt+oN0ZyOZh4ifTbBayHU0hyw4i3pCJnd+Tl5U7pDdF2wnZHvy9gSEAHJBx988MEH/yeEEIhSQgV5rRkQKJ+vQAQKxTQ1buz7dZq87zqe0Pmpd1T9kp+ZcX3ILAmjrp86HpahnW9Nxq1dbBfZjWaK/BJKaVpyR2pU1K2dHdrEWhH71VFG8DggcfGEj08EEMysXYjMFdqFTyNlSV6WvNeBAIT2kbumvrXW94aJjbmy/IGngnkdBO35cPrd89L1VCFApk7uBLtYMj01lNJnpkgvbNDEh/lEHrzTYuPOJwhC6egUnttlGIYlJFuPhurHAkwbF1/ubCA1+8BHjSBLbozuNvFlN89tiCYxWgkpf2ZrITC9QNRXgcUbBSAK66jSOgNfs0muQRQCbWcIyMyerbOT95TkY7uMu0DoFUhSsBu/3E0/eKcA8ImvPH+cBayLlAW9npZiZy7vrDQ7EsWY1qzyJHU82yNnE1iclEVcSMPnbPSVVexCpqDsvU15JKWOnpISZuUhrQwhuUMUmFdR0Aug/JbpewJf2UGysVvmLVQOfxKiPiCl0w8YEgNpBlNSoJiKuOhUTa9Gu3VilT+dnTSlTO2mQIIGkoHKFgE3VuMZqdYhPe+cuuRPQiY74RevDUUqclD1em7bNNfJKJchqnYxw1f8sm8SOOC3Gt68AYrnxW8OO6QrU54W9eJrBeqxiWBtPrnrOHFkBBSPbHBbQf6xAkxNAV95KYy7vjWXG1aBdYDYLwoSvypo3x6ZsbiQnpMDEENE5bRfFDir7ABstbszLX6kCnMsV5cNbPmKDw1RlQKWqaJpe5SVBOrRh3hN3LMRrbOppi5loo1nJlZhxUC/bCLkRF4kALUXZjaEwP0pm3bpueV+HY0mjSX5N+Z0XUqMCvBxaSkTEOtDQBkBCXEpEmio40HSaSkLgYn++aAjHfQo8VSMkfLKbG5hpQKk+BOBI0Geviurkiz6jWPy90WOxDMpEI+LyvFwiITWTk5Habhc/CK5O+TKAB+9cS+5l3Y+VLreUaZ+XZsSpU1ZF3laHMC5aUg3bXROz21Yls0Le2coe1yaUjMmP65Kx5k78mAbVfV71L+KRShFHiMv16WpN+K1o7fmhGXKJeQLEObmjKFzDF8kgnqs+o/skUkEv60itg6KL/MDkeBHTeT3VcQeUVOOqIx5sNM9839LB2Uq9somtmwHw16Hojy62MttbP3/vQ33fKue65Y2pCzvDK2L9qet4E8GCfI+R1gn321TBJuQJglrusgujBJc/8tJiJRwRn3LPO8EP+PyD/4F/ACT5E0oalQJLgAAAABJRU5ErkJggg=="
+          />
+        </g>
+      </g>
+    </g>
+    <style>
+      {
+        "@keyframes animate{0%{transform:translate(0,0) rotate(0deg) scale(1,1) skew(0deg,0deg);opacity:1}14%{transform:translate(0,0) rotate(9.33deg)}18%{transform:translate(0,0) rotate(12deg)}26%{transform:translate(0,0) rotate(17.33deg)}30%{transform:translate(0,0) rotate(20deg)}32%{animation-timing-function:cubic-bezier(.26,.46,.46,.87);transform:translate(0,0) rotate(7.76deg)}40%{transform:translate(0,0) rotate(-14deg)}42%{animation-timing-function:cubic-bezier(.26,.46,.46,.87);transform:translate(0,0) rotate(-5.43deg)}50%{transform:translate(0,0) rotate(9.8deg)}52%{animation-timing-function:cubic-bezier(.26,.46,.46,.87);transform:translate(0,0) rotate(3.8deg)}60%{transform:translate(0,0) rotate(-6.86deg)}62%{animation-timing-function:cubic-bezier(.26,.46,.46,.87);transform:translate(0,0) rotate(-2.66deg)}70%{transform:translate(0,0) rotate(4.8deg)}72%{animation-timing-function:cubic-bezier(.26,.46,.46,.87);transform:translate(0,0) rotate(1.86deg)}80%{transform:translate(0,0) rotate(-3.36deg)}82%{animation-timing-function:cubic-bezier(.26,.46,.46,.87);transform:translate(0,0) rotate(-1.3deg)}90%{transform:translate(0,0) rotate(2.35deg)}92%{animation-timing-function:cubic-bezier(.31,.43,.54,.73);transform:translate(0,0) rotate(.91deg)}to{animation-timing-function:cubic-bezier(.31,.43,.54,.73);transform:translate(0,0) rotate(-1.65deg)}}"
+      }
+    </style>
+  </svg>
+);
+
 export {
   ButtonArrow,
   Arrows,
@@ -703,4 +756,5 @@ export {
   BecomeSvg,
   PinIcon,
   ClockIcon,
+  Loader,
 };

@@ -16,6 +16,7 @@ services:
       - ./frontend/:/home/node/frontend/
       - ./cms/:/home/node/cms/
       - ./setup/:/home/node/setup/
+      - gatsby_cache:/home/node/frontend/.cache
       - gatsby_node_modules:/home/node/frontend/node_modules/
       - strapi_node_modules:/home/node/cms/node_modules/
     networks:
@@ -40,6 +41,7 @@ services:
 
 volumes:
   strapi-data:
+  gatsby_cache:
   gatsby_node_modules:
   strapi_node_modules:
 

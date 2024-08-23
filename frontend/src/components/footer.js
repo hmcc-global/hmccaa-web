@@ -33,7 +33,7 @@ const Footer = () => {
     <footer>
       <div className="bg-Primary-700 justify-center items-center flex">
         <div className="flex flex-col justify-center items-center max-w-container w-full px-4 xl:px-0">
-          <div className="flex flex-col items-center md:items-start md:flex-row gap-y-10 px-4 py-5 md:p-12 w-full lg:justify-between xl:justify-normal xl:gap-[10.753%]">
+          <div className="flex flex-col items-center md:items-start md:flex-row gap-y-10 px-4 pt-20 md:p-12 w-full lg:justify-between xl:justify-normal xl:gap-[10.753%]">
             <div className="flex flex-col max-w-[180px] items-center">
               <div className="flex flex-col items-center">
                 <img
@@ -104,9 +104,10 @@ const Footer = () => {
                 />
                 <Link
                   href="https://www.google.com/maps/place/Harvest+Mission+Community+Church/@42.2816338,-83.7372209,17z/data=!4m5!3m4!1s0x883cae6a77eef201:0xaf4019d9fc7aec8e!8m2!3d42.2816359!4d-83.7371982?hl=en&shorturl=1"
-                  className="text-Shades-0 font-medium text-center text-sm leading-normal mb-0 ml-[12px] no-underline hover:opacity-75"
+                  className="text-Shades-0 font-medium text-left text-sm leading-normal mb-0 ml-[12px] no-underline hover:opacity-75"
                 >
-                  1001 E Huron St, Ann Arbor, MI 48104
+                  1001 E Huron St,
+                  <br /> Ann Arbor, MI 48104
                 </Link>
               </div>
               <div className="flex flex-row justify-center items-center mt-[15px]">

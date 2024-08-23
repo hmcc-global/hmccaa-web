@@ -1,17 +1,14 @@
 import React, { useState, useEffect, forwardRef } from "react";
-import { ArrowDropDown } from "../svgs";
+import { ArrowDropDown, CloseIcon } from "../svgs";
 import "../../css/comboBox.css";
 
 const ComboBox = forwardRef(
-  ({ label, options, handleChange: navigateChange, filterValue }, ref) => {
-    const foundItem = filterValue
-      ? options.find(
-          ({ value }) =>
-            value.length &&
-            filterValue
-              .split(/\//g)
-              .some(selectedValue => selectedValue === value)
-        )
+  (
+    { label, options, handleChange: navigateChange, currentlySelected },
+    ref
+  ) => {
+    const foundItem = currentlySelected
+      ? options.find(({ value }) => value.length && currentlySelected === value)
       : null;
     const [comboBoxState, setComboBoxState] = useState({
       show: false,
@@ -25,8 +22,8 @@ const ComboBox = forwardRef(
           if (value && !value.length) {
             ref.current.classList.remove("open");
             ref.current.classList.add("close");
-            setComboBoxState({ ...comboBoxState, show: false });
           }
+          setComboBoxState({ ...comboBoxState, show: false });
         }
       };
       document.body.addEventListener("click", handleClose);
@@ -84,9 +81,17 @@ const ComboBox = forwardRef(
         ref.current.querySelector("input").value = label;
       }
       ref.current.querySelector("input").dataset.url = value;
-      setComboBoxState({ ...comboBoxState, show: false });
+      setComboBoxState({ show: false, found: { label, value } });
       navigateChange();
     };
+
+    const handleClear = evt => {
+      handleSelection(evt, {
+        label: "",
+        value: "",
+      });
+    };
+
     return (
       <div
         ref={ref}
@@ -105,12 +110,13 @@ const ComboBox = forwardRef(
               {label}
             </label>
             <div
-              onClick={handleOpen}
-              className="px-3 pr-[2.4375rem] py-1 flex-wrap cursor-text inline-flex items-center w-full relative rounded-sm"
+              onClick={foundItem ? handleClear : handleOpen}
+              className="px-3 pr-[2.4375rem] py-1 flex-wrap cursor-pointer inline-flex items-center w-full relative rounded-sm"
             >
               <input
                 autoComplete="off"
                 type="text"
+                disabled={foundItem}
                 role="combobox"
                 aria-invalid="false"
                 aria-autocomplete="list"
@@ -130,7 +136,7 @@ const ComboBox = forwardRef(
                   type="button"
                   className="inline-flex items-center justify-center relative outline-0 -mr-[2px] cursor-pointer select-none align-middle text-center text-2xl rounded-[50%] overflow-visible p-[2px]"
                 >
-                  <ArrowDropDown />
+                  {foundItem ? <CloseIcon /> : <ArrowDropDown />}
                   <span className="overflow-hidden pointer-events-none absolute z-0 inset-0 rounded-[50%]" />
                 </button>
               </div>
@@ -161,23 +167,6 @@ const ComboBox = forwardRef(
                   .toLowerCase()
                   .replace(/\s+/g, "-")}-list`}
               >
-                <li
-                  key={`${label.toLowerCase().replace(/\s+/g, "-")}-0`}
-                  role="option"
-                  aria-disabled="false"
-                  aria-selected="false"
-                  tabIndex="-1"
-                  className="font-ubuntu flex overflow-hidden justify-start items-center cursor-pointer py-[6px] px-4 outline-0 hover:bg-[rgba(0,0,0,0.04)] font-medium"
-                  data-option-value=""
-                  onClick={evt =>
-                    handleSelection(evt, {
-                      label: `Select a ${label}`,
-                      value: "",
-                    })
-                  }
-                >
-                  Select a {label}
-                </li>
                 {list.map(({ label, value }, index) => (
                   <li
                     key={`${label.toLowerCase().replace(/\s+/g, "-")}-${

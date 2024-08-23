@@ -7,21 +7,22 @@ import Link from "./Link";
 
 const Header = () => {
   const browseList = [
-    { id: 1, title: "About", route: "/about" },
-    { id: 2, title: "Connect", route: "/connect" },
-    { id: 3, title: "Next Steps", route: "/next-steps" },
-    { id: 4, title: "Events", route: "/events" },
-    { id: 5, title: "Watch", route: "/watch" },
-    { id: 6, title: "Give", route: "/give" },
-    { id: 7, title: "I'm New", route: "/new" },
+    { title: "Home", route: "/" },
+    { title: "About", route: "/about" },
+    { title: "Connect", route: "/connect" },
+    { title: "Next Steps", route: "/next-steps" },
+    { title: "Events", route: "/events" },
+    { title: "Watch", route: "/watch" },
+    { title: "Give", route: "/give" },
+    { title: "I'm New", route: "/new" },
   ];
 
   const locationsList = [
-    { id: 1, title: "Ann Arbor", route: "/" },
-    { id: 2, title: "Austin", route: "https://austin.hmcc.net/" },
-    { id: 3, title: "Detroit", route: "https://detroit.hmcc.net/" },
-    { id: 4, title: "Hong Kong", route: "https://hongkong.hmcc.net/" },
-    { id: 5, title: "Jakarta", route: "https://jakarta.hmcc.net/" },
+    { title: "Ann Arbor", route: "/" },
+    { title: "Austin", route: "https://austin.hmcc.net/" },
+    { title: "Detroit", route: "https://detroit.hmcc.net/" },
+    { title: "Hong Kong", route: "https://hongkong.hmcc.net/" },
+    { title: "Jakarta", route: "https://jakarta.hmcc.net/" },
   ];
 
   const [isOpen, setIsOpen] = React.useState(false);
@@ -96,11 +97,11 @@ const Header = () => {
                   </button>
                 </div>
                 <div className="w-full flex flex-col items-start">
-                  {browseList.map(({ title, route, id }) => {
+                  {browseList.map(({ title, route }) => {
                     if (route === "/new") {
                       return (
                         <Link
-                          key={`browseLink-mobile-${id}`}
+                          key={`browseLink-mobile-${title}`}
                           to="/new"
                           className={`${textStyle} 
                           ${"w-full text-left flex items-center text-xl h-[75px] px-5 border-b-[0.5px]"} ${
@@ -120,10 +121,11 @@ const Header = () => {
                     } else {
                       return (
                         <Link
-                          key={`browseLink-mobile-${id}`}
+                          key={`browseLink-mobile-${title}`}
                           to={route}
                           className={`${textStyle} ${
-                            route + "/" === path
+                            route + "/" === path ||
+                            (route === "/" && path === "/") // highlight home tab
                               ? "font-extrabold py-2 px-4 bg-Primary-300"
                               : "font-medium py-2 px-4"
                           } w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none`}
@@ -150,10 +152,10 @@ const Header = () => {
             </div>
 
             <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6] z-10">
-              {locationsList.map(({ title, id, route }) =>
+              {locationsList.map(({ title, route }) =>
                 route === "/" ? (
                   <Link
-                    key={`locationLink-${id}`}
+                    key={`locationLink-${title}`}
                     to={route}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
@@ -161,7 +163,7 @@ const Header = () => {
                   </Link>
                 ) : (
                   <Link
-                    key={`locationLink-${id}`}
+                    key={`locationLink-${title}`}
                     href={route}
                     className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
                   >
@@ -179,11 +181,11 @@ const Header = () => {
           </div>
 
           <div className="flex flex-row items-center justify-items-center gap-2 md:gap:4 [@media(min-width:1140px)]:gap-4 [@media(min-width:1280px)]:gap-6 [@media(min-width:1440px)]:gap-11">
-            {browseList.map(({ title, id, route }) => {
+            {browseList.map(({ title, route }) => {
               if (route === "/new") {
                 return (
                   <div
-                    key={`browseLink-${id}`}
+                    key={`browseLink-${title}`}
                     className={`hover:bg-Accent-500 ${borderStyle}`}
                   >
                     <Link
@@ -199,7 +201,7 @@ const Header = () => {
               } else {
                 return (
                   <Link
-                    key={`browseLink-${id}`}
+                    key={`browseLink-${title}`}
                     to={route}
                     className={`min-w-max ${textStyle} ${
                       route + "/" === path

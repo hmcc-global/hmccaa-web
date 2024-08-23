@@ -1,0 +1,96 @@
+const BOOKS = new Map([
+  ["Genesis", "Genesis"],
+  ["Exodus", "Exodus"],
+  ["Leviticus", "Leviticus"],
+  ["Numbers", "Numbers"],
+  ["Deuteronomy", "Deuteronomy"],
+  ["Joshua", "Joshua"],
+  ["Judges", "Judges"],
+  ["Ruth", "Ruth"],
+  ["Samuel (1st)", "1 Samuel"],
+  ["Samuel (2nd)", "2 Samuel"],
+  ["Kings (1st)", "1 Kings"],
+  ["Kings (2nd)", "2 Kings"],
+  ["Chronicles (1st)", "1 Chronicles"],
+  ["Chronicles (2nd)", "2 Chronicles"],
+  ["Ezra", "Ezra"],
+  ["Nehemiah", "Nehemiah"],
+  ["Esther", "Esther"],
+  ["Job", "Job"],
+  ["Psalms", "Psalms"],
+  ["Proverbs", "Proverbs"],
+  ["Ecclesiastes", "Ecclesiastes"],
+  ["Song of Solomon", "Song of Solomon"],
+  ["Isaiah", "Isaiah"],
+  ["Jeremiah", "Jeremiah"],
+  ["Lamentations", "Lamentations"],
+  ["Ezekiel", "Ezekiel"],
+  ["Daniel", "Daniel"],
+  ["Hosea", "Hosea"],
+  ["Joel", "Joel"],
+  ["Amos", "Amos"],
+  ["Obadiah", "Obadiah"],
+  ["Jonah", "Jonah"],
+  ["Micah", "Micah"],
+  ["Nahum", "Nahum"],
+  ["Habakkuk", "Habakkuk"],
+  ["Zephaniah", "Zephaniah"],
+  ["Haggai", "Haggai"],
+  ["Zechariah", "Zechariah"],
+  ["Malachi", "Malachi"],
+  ["Matthew", "Matthew"],
+  ["Mark", "Mark"],
+  ["Luke", "Luke"],
+  ["John", "John"],
+  ["Acts", "Acts"],
+  ["Romans", "Romans"],
+  ["Corinthians (1st)", "1 Corinthians"],
+  ["Corinthians (2nd)", "2 Corinthians"],
+  ["Galatians", "Galatians"],
+  ["Ephesians", "Ephesians"],
+  ["Philippians", "Philippians"],
+  ["Colossians", "Colossians"],
+  ["Thessalonians (1st)", "1 Thessalonians"],
+  ["Thessalonians (2nd)", "2 Thessalonians"],
+  ["Timothy (1st)", "1 Timothy"],
+  ["Timothy (2nd)", "2 Timothy"],
+  ["Titus", "Titus"],
+  ["Philemon", "Philemon"],
+  ["Hebrews", "Hebrews"],
+  ["James", "James"],
+  ["Peter (1st)", "1 Peter"],
+  ["Peter (2nd)", "2 Peter"],
+  ["John (1st)", "1 John"],
+  ["John (2nd)", "2 John"],
+  ["John (3rd)", "3 John"],
+  ["Jude", "Jude"],
+  ["Revelation", "Revelation"],
+]);
+
+const unknownBook = unknown => {
+  console.error("Unknown Bible book", unknown);
+  return "Unknown";
+};
+
+const getBookName = strapiBook =>
+  BOOKS.get(strapiBook) || unknownBook(strapiBook);
+
+const sortBibleBooks = (a, b) => {
+  if (a === b) {
+    return 0;
+  }
+  for (const [_, v] of BOOKS) {
+    if (a === v) {
+      return -1;
+    }
+    if (b === v) {
+      return 1;
+    }
+  }
+  return 1;
+};
+
+module.exports = {
+  getBookName,
+  sortBibleBooks,
+};
