@@ -10,6 +10,7 @@ runs:
   using: "composite"
   steps:
     - name: Build Gatsby
+      shell: bash
       run: |
         cd ${{ github.workspace }}/frontend
 
