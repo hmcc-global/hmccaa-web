@@ -6,7 +6,15 @@ on:
       - "release"
 jobs:
   validate-prod-frontend:
-    uses: ./.github/workflows/component-validate-frontend.yml
-    with:
-      concurrency_group: validate-prod-${{ github.ref }}
-    secrets: inherit
+    runs-on: ubuntu-latest
+    concurrency:
+      group: validate-dev-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Validate Frontend
+        uses: ./.github/actions/validate-frontend
+        with:
+          strapi_token: ${{ secrets.STRAPI_TOKEN }}
+          strapi_server: ${{ secrets.STRAPI_SERVER }}
