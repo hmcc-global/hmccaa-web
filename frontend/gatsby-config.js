@@ -35,13 +35,14 @@ module.exports = {
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
     {
-      resolve: "gatsby-source-strapi",
+      resolve: "gatsby-source-strapi-graphql",
       options: {
         apiURL: process.env.STRAPI_API_URL,
-        accessToken: process.env.STRAPI_TOKEN,
+        token: process.env.STRAPI_TOKEN,
         collectionTypes: [
           "sermon",
           "sermon-series",
+          "sermon-topic",
           "preacher",
           "location",
           "contact",

@@ -65,9 +65,9 @@ const EventPage = ({ pageContext }) => {
             </div>
 
             <div className="text-center lg:order-1 lg:w-[59.184%]">
-              {event.img?.localFile?.childImageSharp?.gatsbyImageData ? (
+              {event.img?.file?.childImageSharp?.gatsbyImageData ? (
                 <GatsbyImage
-                  image={event.img?.localFile?.childImageSharp?.gatsbyImageData}
+                  image={event.img?.file?.childImageSharp?.gatsbyImageData}
                   alt={event.imgAlt}
                 />
               ) : (
