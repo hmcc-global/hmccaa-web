@@ -1,0 +1,14 @@
+name: Validate Frontend
+runs:
+  using: "composite"
+  steps:
+    - name: Build Gatsby
+      run: |
+        cd ${{ github.workspace }}/frontend
+
+        # Add env file
+        echo 'STRAPI_TOKEN=${{ secrets.STRAPI_TOKEN }}' > ./.env.production
+        echo 'STRAPI_API_URL=${{ secrets.STRAPI_SERVER }}' >> ./.env.production
+
+        npm install
+        NODE_ENV=production npm run build
