@@ -26,9 +26,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
     Preacher: { Prefix, Name },
     BiblePassage,
     Series: { Name: series, Background },
-    Description: {
-      data: { Description: description },
-    },
+    Description: description,
     Audio,
     VideoLink,
   } = strapiSermon;
@@ -90,11 +88,9 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
               </div>
               <div className="w-full max-w-[45rem] flex-col flex gap-8">
                 <div className="relative">
-                  {Background?.localFile?.childImageSharp?.gatsbyImageData && (
+                  {Background?.file?.childImageSharp?.gatsbyImageData && (
                     <GatsbyImage
-                      image={
-                        Background?.localFile?.childImageSharp?.gatsbyImageData
-                      }
+                      image={Background?.file?.childImageSharp?.gatsbyImageData}
                       alt={title}
                       className="max-w-[45rem]"
                     />
@@ -154,9 +150,9 @@ export const Head = ({
 
 export const pageQuery = graphql`
   query sermonPageQuery($id: Int!) {
-    strapiSermon(strapi_id: { eq: $id }) {
+    strapiSermon(strapiId: { eq: $id }) {
       Title
-      DatePreached(formatString: "MMMM  DD, YYYY")
+      DatePreached
       Preacher {
         Prefix
         Name
@@ -168,7 +164,7 @@ export const pageQuery = graphql`
       Series {
         Name
         Background {
-          localFile {
+          file {
             childImageSharp {
               gatsbyImageData
             }
@@ -180,11 +176,7 @@ export const pageQuery = graphql`
         url
         mime
       }
-      Description {
-        data {
-          Description
-        }
-      }
+      Description
     }
   }
 `;

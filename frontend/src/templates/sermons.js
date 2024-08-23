@@ -33,12 +33,12 @@ export const pageQuery = graphql`
       sort: { DatePreached: DESC }
       limit: $limit
       skip: $skip
-      filter: { strapi_id: { in: $sermonIds } }
+      filter: { strapiId: { in: $sermonIds } }
     ) {
       nodes {
-        strapi_id
+        strapiId
         Title
-        DatePreached(formatString: "MMMM  DD, YYYY")
+        DatePreached
         BiblePassage {
           Book
           ChapterVerse
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
           Name
           id
           Background {
-            localFile {
+            file {
               childImageSharp {
                 gatsbyImageData
               }
