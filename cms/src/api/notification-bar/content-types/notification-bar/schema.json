@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "notification_bars",
+  "info": {
+    "singularName": "notification-bar",
+    "pluralName": "notification-bars",
+    "displayName": "Notification Bar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ShowNotificationBar": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "Text": {
+      "type": "blocks",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "custom_pages",
+  "info": {
+    "singularName": "custom-page",
+    "pluralName": "custom-pages",
+    "displayName": "Custom Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "URL": {
+      "type": "string",
+      "required": true,
+      "regex": "^(\\/[A-Za-z0-9_-]+)+$",
+      "unique": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "BannerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Content": {
+      "type": "blocks",
+      "required": true
+    },
+    "BottomButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "utility.link"
+    }
+  }
+}
