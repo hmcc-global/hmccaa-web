@@ -10,6 +10,7 @@
 
 const { CreateEventPages } = require("./src/page-generation/events");
 const { CreateSermonPages } = require("./src/page-generation/sermons");
+const { CreateCustomPages } = require("./src/page-generation/custom");
 const { Pages } = require("./src/page-generation/create-page");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -21,6 +22,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await CreateEventPages(graphql, createPageFn, reporter);
 
   await CreateSermonPages(graphql, createPageFn, reporter);
+
+  await CreateCustomPages(graphql, createPageFn, reporter);
 
   pages.createPages();
 };
