@@ -80,14 +80,12 @@ const FiveEs = () => {
         <PrimaryButtonLink
           href="https://docs.google.com/forms/d/e/1FAIpQLSeaS447hV0_fVkanehmEalMRkryJzb8Ahssuq4a5VxfElFSEQ/viewform"
           hasArrow={true}
-          className="-indent-[1.6rem] xs:indent-0"
         >
           LG SIGN UP: <span className="font-normal">UNDERGRAD STUDENTS</span>
         </PrimaryButtonLink>
         <PrimaryButtonLink
           href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
           hasArrow={true}
-          className="-indent-[1.6rem] xs:indent-0"
         >
           LG SIGN UP: <span className="font-normal">ALL OTHER LIFE STAGES</span>
         </PrimaryButtonLink>

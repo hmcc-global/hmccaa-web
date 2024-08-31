@@ -49,11 +49,7 @@ const LeadershipSection = () => {
         {elderCards}
       </Team>
       <div className="flex">
-        <SecondaryButtonLink
-          to={"/about/our-team"}
-          hasArrow={true}
-          customClassName={{ textContainer: "-indent-[10rem] sm:indent-0" }}
-        >
+        <SecondaryButtonLink to={"/about/our-team"} hasArrow={true}>
           More About Our Elders and Deacons
         </SecondaryButtonLink>
       </div>
