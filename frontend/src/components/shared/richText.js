@@ -7,7 +7,9 @@ const formatText = ({ text, code, bold, italic, underline, strikethrough }) => {
   }
   const style = `whitespace-pre-wrap ${bold ? "font-bold" : ""}  ${
     italic ? "italic" : ""
-  } ${underline ? "underline" : ""} ${strikethrough ? "line-through" : ""}`;
+  } ${underline ? "underline" : ""} ${
+    strikethrough ? "line-through" : ""
+  }`.trim();
   const span = <span className={style}>{text}</span>;
   return code ? <code>{span}</code> : span;
 };
@@ -16,7 +18,7 @@ const formatLink = ({ url, children }) => {
   return (
     <Link
       href={url}
-      className="text-Accent-500 underline font-bold whitespace-nowrap inline"
+      className="text-Accent-500 underline font-bold whitespace-nowrap inline-block"
     >
       {formatParagraph(children)}
     </Link>
@@ -80,11 +82,13 @@ const formatNode = ({ type, format, level, image, children }) => {
   switch (type) {
     case "image":
       return (
-        <img
-          src={image.url}
-          alt={image.alternativeText}
-          className="flex justify-center items-center content-image lg:w-1/3"
-        />
+        <div>
+          <img
+            src={image.url}
+            alt={image.alternativeText}
+            className="flex justify-center items-center content-image lg:w-1/3"
+          />
+        </div>
       );
     case "heading":
       return formatHeading(level, children);
@@ -110,24 +114,28 @@ const formatNode = ({ type, format, level, image, children }) => {
           break;
       }
     case "paragraph":
+      return <p>{formatParagraph(children)}</p>;
     default: // Treat default case as regular paragraph
       return <div>{formatParagraph(children)}</div>;
   }
 };
 
 const RichText = ({ data, addPaddingToParagraphs = false }) => {
+  console.log(data);
   if (!Array.isArray(data)) {
     return "";
   }
 
   return (
-    <div>
-      {data.map((node, idx) => (
-        <div key={idx} className={addPaddingToParagraphs ? "my-3" : ""}>
-          {formatNode(node)}
-        </div>
-      ))}
-    </div>
+    <>
+      {data.map((node, idx) =>
+        addPaddingToParagraphs ? (
+          <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
+        ) : (
+          <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
+        )
+      )}
+    </>
   );
 };
 

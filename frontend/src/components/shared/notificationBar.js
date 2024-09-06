@@ -25,10 +25,8 @@ const NotificationBar = () => {
             className="w-[1.875rem]"
           />
         </div>
-        <div className="inline lg:flex lg:gap-4">
-          <div className="inline pr-4 lg:px-0 pl-4 sm:pl-0">
-            <RichText data={data?.Text} />
-          </div>
+        <div className="inline lg:flex lg:gap-4 notification-text-container">
+          <RichText data={data?.Text} />
         </div>
       </div>
     </div>
