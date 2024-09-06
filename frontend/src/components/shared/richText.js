@@ -120,7 +120,7 @@ const formatNode = ({ type, format, level, image, children }) => {
   }
 };
 
-const RichText = ({ data, addPaddingToParagraphs = false }) => {
+const RichText = ({ data }) => {
   console.log(data);
   if (!Array.isArray(data)) {
     return "";
@@ -128,13 +128,9 @@ const RichText = ({ data, addPaddingToParagraphs = false }) => {
 
   return (
     <>
-      {data.map((node, idx) =>
-        addPaddingToParagraphs ? (
-          <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
-        ) : (
-          <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
-        )
-      )}
+      {data.map((node, idx) => (
+        <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
+      ))}
     </>
   );
 };
