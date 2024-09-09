@@ -40,6 +40,7 @@ module.exports = {
         apiURL: process.env.STRAPI_API_URL,
         token: process.env.STRAPI_TOKEN,
         collectionTypes: [
+          "custom-page",
           "sermon",
           "sermon-series",
           "sermon-topic",
@@ -49,7 +50,7 @@ module.exports = {
           "event",
           "event-template",
         ],
-        singleTypes: [],
+        singleTypes: ["notification-bar"],
       },
     },
     {
