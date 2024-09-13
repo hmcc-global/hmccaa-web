@@ -146,5 +146,5 @@ span.ellipsis {
 }
 
 .notification-text-container p {
-  @apply mb-0;
+  @apply mb-0 inline px-4 lg:px-0 sm:pl-0;
 }

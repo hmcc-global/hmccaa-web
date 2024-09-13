@@ -121,7 +121,6 @@ const formatNode = ({ type, format, level, image, children }) => {
 };
 
 const RichText = ({ data }) => {
-  console.log(data);
   if (!Array.isArray(data)) {
     return "";
   }
