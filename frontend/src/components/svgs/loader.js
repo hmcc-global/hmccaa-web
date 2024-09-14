@@ -7,14 +7,14 @@ const showLoader = () => {
   if (loaderNode !== null) {
     loaderNode.classList.remove("invisible");
     const root = createRoot(loaderNode);
-    root.render(<Loader />);
+    root.render(<Loader className="w-[5.75rem] h-[5.75rem]" />);
   }
 };
 
 const LoadContainer = () => (
   <div
     id="loader"
-    className="absolute inset-x-[calc(50%-3.5rem)] inset-y-1/3 mx-auto my-auto w-full max-w-[7rem] invisible"
+    className="fixed top-1/2 mx-auto w-full max-w-[5.75rem] max-h-[5.75rem] invisible -translate-x-[2.875rem]"
   ></div>
 );
 

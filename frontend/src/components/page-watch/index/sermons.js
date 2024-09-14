@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -115,9 +115,14 @@ const Sermons = ({
 }) => {
   const currentlySelectedTraits = getNormalizedSermonTraitsFromUrl(url);
   let refs = useRef([]);
-  for (let _ in traits) {
-    refs.current.push({ current: undefined });
-  }
+
+  refs.current = useMemo(() => {
+    const list = [];
+    for (let _ in traits) {
+      list.push({ current: undefined });
+    }
+    return list;
+  }, [traits]);
 
   // Navigate to new page based upon Drop Down Selection
   const handleChange = () => {
