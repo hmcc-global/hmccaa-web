@@ -14,7 +14,12 @@ const { CreateCustomPages } = require("./src/page-generation/custom");
 const { Pages } = require("./src/page-generation/create-page");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  createRedirect({
+    fromPath: `/lg`,
+    toPath: `/next-steps/lifegroups`,
+  });
 
   let pages = new Pages(createPage);
   let createPageFn = page => pages.addPage(page);
