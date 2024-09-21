@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -10,7 +10,7 @@ import {
   getUrlFromNormalizedSermonTraits,
   SermonTraitMetadata,
 } from "../../../page-generation/sermon-pages";
-import { showLoader } from "../../../components/svgs/loader";
+import { LoadContainer, showLoader } from "../../../components/svgs/loader";
 
 // Returns an array signifying the page numbers to display, eg.
 //    (10, 50) would return [1, 2, ..., 9, 10, 11, ..., 49, 50]
@@ -115,15 +115,20 @@ const Sermons = ({
 }) => {
   const currentlySelectedTraits = getNormalizedSermonTraitsFromUrl(url);
   let refs = useRef([]);
-  for (let _ in traits) {
-    refs.current.push({ current: undefined });
-  }
+
+  refs.current = useMemo(() => {
+    const list = [];
+    for (let _ in traits) {
+      list.push({ current: undefined });
+    }
+    return list;
+  }, [traits]);
 
   // Navigate to new page based upon Drop Down Selection
   const handleChange = () => {
-    const selections = document
-      .getElementById("sermons-filter")
-      .querySelectorAll(".combo-box-container input");
+    const selections = refs?.current
+      .filter(element => element.current)
+      .map(element => element?.current.querySelector("input"));
 
     const traits = Array.from(selections)
       .map(element => element.dataset.url)
@@ -134,7 +139,8 @@ const Sermons = ({
   };
 
   return (
-    <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10">
+    <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10 relative">
+      <LoadContainer />
       <div className="flex flex-col items-center">
         <div className="subheading">Previous Sermons</div>
         <h2>Watch Again</h2>
