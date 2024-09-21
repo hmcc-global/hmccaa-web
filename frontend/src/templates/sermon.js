@@ -35,7 +35,11 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
     ({ Book, ChapterVerse }) => `${Book} ${ChapterVerse}`
   );
   const audioURL = `${baseURL}${Audio?.url}`;
-  const videoID = VideoLink ? VideoLink.match(/\d+/).shift() : null;
+  let video = VideoLink;
+  if (video?.includes("vimeo")) {
+    const videoID = video.match(/\d+/).shift();
+    video = `https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`;
+  }
 
   return (
     <Layout>
@@ -111,11 +115,11 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
                     </div>
                   )}
                 </div>
-                {videoID && (
+                {VideoLink && (
                   <div className={`${mediaWrapper} w-full`}>
                     <div>
                       <iframe
-                        src={`https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+                        src={VideoLink}
                         allow="autoplay; fullscreen; picture-in-picture"
                       ></iframe>
                     </div>
