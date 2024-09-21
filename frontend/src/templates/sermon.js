@@ -39,8 +39,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
   if (video?.includes("vimeo")) {
     const videoID = video.match(/\d+/).shift();
     video = `https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`;
-  }
-  if (video?.includes("youtube")) {
+  } else if (video?.includes("youtube")) {
     const url = new URL(video);
     const v = url.searchParams.get("v");
     video = `https://www.youtube-nocookie.com/embed/${v}`;
