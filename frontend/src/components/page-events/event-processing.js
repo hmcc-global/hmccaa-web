@@ -29,7 +29,7 @@ function processEvents(e) {
       img: event.CoverImageOverride || event.EventTemplate?.CoverImage || null,
       imgAlt:
         event.CoverImageOverride?.alternativeText ||
-        event.EventTemplate?.CoverImage.alternativeText ||
+        event.EventTemplate?.CoverImage?.alternativeText ||
         "",
       location:
         event.LocationOverride?.LocationName ||
