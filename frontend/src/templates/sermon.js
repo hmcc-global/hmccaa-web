@@ -40,6 +40,12 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
     const videoID = video.match(/\d+/).shift();
     video = `https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`;
   }
+  if (video?.includes("youtube")) {
+    const url = new URL(video);
+    const v = url.searchParams.get("v");
+    video = `https://www.youtube-nocookie.com/embed/${v}`;
+    console.log("video:", video);
+  }
 
   return (
     <Layout>
@@ -115,11 +121,11 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
                     </div>
                   )}
                 </div>
-                {VideoLink && (
+                {video && (
                   <div className={`${mediaWrapper} w-full`}>
                     <div>
                       <iframe
-                        src={VideoLink}
+                        src={video}
                         allow="autoplay; fullscreen; picture-in-picture"
                       ></iframe>
                     </div>
