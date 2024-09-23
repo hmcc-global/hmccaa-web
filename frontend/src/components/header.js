@@ -203,7 +203,9 @@ const Header = () => {
                   <Link
                     key={`browseLink-${title}`}
                     to={route}
-                    className={`min-w-max ${textStyle} ${
+                    className={`${
+                      route === "/" ? "hidden" : ""
+                    } min-w-max ${textStyle} ${
                       route + "/" === path
                         ? "font-extrabold hover:bg-Primary-300 py-2 px-4 rounded-default"
                         : "font-normal hover:bg-Primary-300 py-2 px-4 rounded-default"
