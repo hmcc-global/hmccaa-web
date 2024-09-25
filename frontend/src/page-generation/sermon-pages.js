@@ -1,8 +1,8 @@
 const hash = require("crypto-js/sha256");
 const { sortBibleBooks } = require("./strapi-bible");
 
-function getSermonPageUrl(strapi_id) {
-  return `/watch/sermons/${hash(strapi_id.toString()).toString()}`;
+function getSermonPageUrl(strapiId) {
+  return `/watch/sermons/${hash(strapiId.toString()).toString()}`;
 }
 
 const SermonTraits = Object.freeze({

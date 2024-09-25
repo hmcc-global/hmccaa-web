@@ -140,3 +140,11 @@ span.ellipsis {
 .collapsible-items .toggle p:nth-child(2) {
   @apply mt-5 lg:mt-6;
 }
+
+.notification-text-container > div {
+  @apply inline pr-4 lg:px-0 pl-4 sm:pl-0;
+}
+
+.notification-text-container p {
+  @apply mb-0 inline px-4 lg:px-0 sm:pl-0;
+}

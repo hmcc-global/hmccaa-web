@@ -682,35 +682,12 @@ const ClockIcon = ({ className = "w-8 h-8" }) => (
 const Loader = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={92}
-    height={92}
     preserveAspectRatio="xMidYMid"
-    style={{
-      margin: "initial",
-      display: "block",
-      shapeRendering: "auto",
-      background: "0 0",
-    }}
     viewBox="0 0 100 100"
     {...props}
   >
-    <g
-      className="ldl-scale"
-      style={{
-        transformOrigin: "50% 50%",
-        transform: "rotate(0deg) scale(.8,.8)",
-      }}
-    >
-      <g
-        className="ldl-ani"
-        style={{
-          transformBox: "view-box",
-          opacity: 1,
-          transformOrigin: "50px 50px",
-          transform: "matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)",
-          animation: "1.25s linear 0s infinite normal forwards running animate",
-        }}
-      >
+    <g className="ldl-scale origin-center transform rotate-0 scale-[.8]">
+      <g className="ldl-ani origin-center animate-spin">
         <g className="ldl-layer">
           <image
             width={100}

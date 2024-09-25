@@ -31,7 +31,7 @@ const EventsPage = ({ data }) => {
           <div className="text-center py-36">No events found.</div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10 max-w-container">
-            {filterEventTimes(events)
+            {events
               .map(event => event.times.map(time => ({ event, time })))
               .flat()
               .sort((a, b) => sortTimes(a.time, b.time))
@@ -46,11 +46,10 @@ const EventsPage = ({ data }) => {
                     img={
                       <div className="relative pb-[63.493%] w-full">
                         <div className="absolute inset-0">
-                          {event.img?.localFile?.childImageSharp
-                            ?.gatsbyImageData ? (
+                          {event.img?.file?.childImageSharp?.gatsbyImageData ? (
                             <GatsbyImage
                               image={
-                                event.img?.localFile?.childImageSharp
+                                event.img?.file?.childImageSharp
                                   ?.gatsbyImageData
                               }
                               alt={event.imgAlt}
@@ -92,7 +91,7 @@ export const pageQuery = graphql`
         EventTemplate {
           CoverImage {
             url
-            localFile {
+            file {
               childImageSharp {
                 gatsbyImageData
               }
@@ -117,7 +116,7 @@ export const pageQuery = graphql`
         }
         NameOverride
         Time {
-          ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+          ... on StrapiComponentEventTimesRecurringTime {
             id
             DateTime
             EndDateTime
@@ -125,19 +124,17 @@ export const pageQuery = graphql`
             RecurEveryXTimeFrames
             RecurTimeFrame
             StopShowingWhenPast
-            strapi_component
           }
-          ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+          ... on StrapiComponentEventTimesSingleTime {
             id
             StopShowingWhenPast
             EndDateTime
             DateTime
-            strapi_component
           }
         }
         CoverImageOverride {
           url
-          localFile {
+          file {
             childImageSharp {
               gatsbyImageData
             }

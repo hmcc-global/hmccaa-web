@@ -26,7 +26,7 @@ async function CreateEventPages(graphql, createPage, reporter) {
           EventTemplate {
             CoverImage {
               url
-              localFile {
+              file {
                 childImageSharp {
                   gatsbyImageData
                 }
@@ -61,7 +61,7 @@ async function CreateEventPages(graphql, createPage, reporter) {
           }
           NameOverride
           Time {
-            ... on STRAPI__COMPONENT_EVENT_TIMES_RECURRING_TIME {
+            ... on StrapiComponentEventTimesRecurringTime {
               id
               DateTime
               EndDateTime
@@ -69,19 +69,17 @@ async function CreateEventPages(graphql, createPage, reporter) {
               RecurEveryXTimeFrames
               RecurTimeFrame
               StopShowingWhenPast
-              strapi_component
             }
-            ... on STRAPI__COMPONENT_EVENT_TIMES_SINGLE_TIME {
+            ... on StrapiComponentEventTimesSingleTime {
               id
               StopShowingWhenPast
               EndDateTime
               DateTime
-              strapi_component
             }
           }
           CoverImageOverride {
             url
-            localFile {
+            file {
               childImageSharp {
                 gatsbyImageData
               }

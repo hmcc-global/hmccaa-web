@@ -94,9 +94,6 @@ const Belief = () => (
             <SecondaryButtonLink
               href="https://docs.google.com/document/d/1NXPvLM2kn_cAGqbsc60_xUZZEspcf2AkEJ_azu_18rY/edit?usp=sharing"
               hasArrow={true}
-              customClassName={{
-                textContainer: "-indent-[11rem] sm:indent-0",
-              }}
             >
               Read More on Our HMCC Distinctives
             </SecondaryButtonLink>

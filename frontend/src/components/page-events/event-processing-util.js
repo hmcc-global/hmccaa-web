@@ -1,4 +1,6 @@
 const DEFAULT_CONTACT = "annarbor@hmcc.net";
+const STRAPI_RECURRING_TIME = "event-times.recurring-time";
+const STRAPI_SINGLE_TIME = "event-times.single-time";
 
 function formatContact(contact) {
   if (!contact || !contact.Email) {
@@ -41,13 +43,36 @@ function formatPhoneNumber(numberStr, autoformat) {
   )}-${filteredNumberStr.substr(6)}`;
 }
 
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const suffix = num => {
+  if (num % 10 === 1) return "st";
+  if (num % 10 === 2) return "nd";
+  if (num % 10 === 3) return "rd";
+  return "th";
+};
+
 function formatDateAndTime(isoDateString) {
   const date = new Date(isoDateString);
 
   // Extracting date components
   const year = date.getFullYear();
-  const month = date.getMonth() + 1; // getMonth() returns month from 0-11
-  const day = date.getDate();
+  const month = MONTHS[date.getMonth()]; // getMonth() returns month from 0-11
+  let day = date.getDate();
+  day = `${day}${suffix(day)}`;
 
   // Extracting and converting time components to 12-hour format
   let hour = date.getHours();
@@ -58,10 +83,8 @@ function formatDateAndTime(isoDateString) {
   hour = hour ? hour : 12; // the hour '0' should be '12'
 
   // Formatting date and time
-  const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day
-    .toString()
-    .padStart(2, "0")}`;
-  const formattedTime = `${hour.toString().padStart(2, "0")}:${minutes
+  const formattedDate = `${month} ${day}, ${year}`;
+  const formattedTime = `${hour}:${minutes
     .toString()
     .padStart(2, "0")} ${amPm}`;
 
@@ -76,6 +99,13 @@ function sortTimes(a, b) {
     return b.end ? 1 : 0;
   }
   return a.start.valueOf() - b.start.valueOf();
+}
+
+function getEventTimeType(time) {
+  if (time.RecurTimeFrame !== undefined) {
+    return STRAPI_RECURRING_TIME;
+  }
+  return STRAPI_SINGLE_TIME;
 }
 
 /*
@@ -124,10 +154,13 @@ const getFullEventId = (eventId, time) =>
   eventId + "-" + time.start.valueOf() + (time.end ? time.end.valueOf() : "");
 
 module.exports = {
+  STRAPI_SINGLE_TIME,
+  STRAPI_RECURRING_TIME,
   formatContact,
   formatPhoneNumber,
   formatDateAndTime,
   sortTimes,
+  getEventTimeType,
   isTodayOrAfter,
   DATE_ITERATOR,
   getFullEventId,
