@@ -20,7 +20,7 @@ async function CreateCustomPages(graphql, createPage, reporter) {
   result.data.allStrapiCustomPage?.nodes
     ?.map(({ URL }) => URL)
     .forEach(url => {
-      console.log("Creating custom page:", url);
+      reporter.info(`Found custom page to create: ${url}`);
       createPage({
         path: url,
         component: path.resolve("./src/templates/customPage.js"),
