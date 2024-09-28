@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     toPath: `/next-steps/lifegroups`,
   });
 
-  let pages = new Pages(createPage);
+  let pages = new Pages(createPage, reporter);
   let createPageFn = page => pages.addPage(page);
 
   await CreateEventPages(graphql, createPageFn, reporter);
