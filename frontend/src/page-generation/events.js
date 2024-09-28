@@ -101,6 +101,8 @@ async function CreateEventPages(graphql, createPage, reporter) {
     processEvents(eventResult.data.allStrapiEvent.nodes)
   );
 
+  reporter.info(`Found ${parsedEvents.length} events to create pages for.`);
+
   parsedEvents.forEach(event => {
     if (!event.id || !event.times) {
       console.error("Event missing critical fields:", event);
