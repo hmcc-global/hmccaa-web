@@ -1,12 +1,8 @@
-const { Spinner } = require("cli-spinner");
-
-Spinner.setDefaultSpinnerString("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏");
-Spinner.setDefaultSpinnerDelay(80);
-
 class Pages {
-  constructor(createPageAPI) {
+  constructor(createPageAPI, reporter) {
     this.pages = [];
     this.createPageAPI = createPageAPI;
+    this.reporter = reporter;
   }
 
   addPage({ path, component, context }) {
@@ -18,10 +14,13 @@ class Pages {
   }
 
   createPages() {
-    const spinner = new Spinner(`%s  ${this.pages.length} pages to create...`);
-    spinner.start();
+    this.reporter.info(`${this.pages.length} pages to create...`);
+    const timer = this.reporter.activityTimer("Create All Pages");
+    timer.start();
+
     this.pages.forEach(page => this.createPage(page));
-    spinner.stop(true);
+
+    timer.end();
   }
 }
 
