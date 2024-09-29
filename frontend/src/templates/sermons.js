@@ -16,7 +16,15 @@ const WatchPage = ({ data, pageContext }) => {
     pageContext.sermonIds.includes(324) &&
     pageContext.sermonIds.includes(325)
   ) {
-    console.log("watch page data:", data);
+    console.log(
+      "watch page data:",
+      data.allStrapiSermon?.nodes[0],
+      data.allStrapiSermon?.nodes[1],
+      data.allStrapiSermon?.nodes[0],
+      data.allStrapiSermon?.nodes[0],
+      data.allStrapiSermon?.nodes[4],
+      data.allStrapiSermon?.nodes[5]
+    );
   }
   return (
     <Layout hasSpacing={false}>
