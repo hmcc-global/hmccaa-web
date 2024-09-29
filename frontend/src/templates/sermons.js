@@ -8,13 +8,14 @@ import Sermons from "../components/page-watch/index/sermons";
 import LiveStream from "../components/page-watch/liveStream";
 
 const WatchPage = ({ data, pageContext }) => {
+  let ids = data.allStrapiSermon?.nodes.map(node => node.strapiId);
   if (
-    pageContext.sermonIds.includes(326) &&
-    pageContext.sermonIds.includes(321) &&
-    pageContext.sermonIds.includes(322) &&
-    pageContext.sermonIds.includes(323) &&
-    pageContext.sermonIds.includes(324) &&
-    pageContext.sermonIds.includes(325)
+    ids.includes(326) &&
+    ids.includes(321) &&
+    ids.includes(322) &&
+    ids.includes(323) &&
+    ids.includes(324) &&
+    ids.includes(325)
   ) {
     console.log(
       "watch page data:",
