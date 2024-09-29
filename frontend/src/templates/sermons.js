@@ -8,6 +8,16 @@ import Sermons from "../components/page-watch/index/sermons";
 import LiveStream from "../components/page-watch/liveStream";
 
 const WatchPage = ({ data, pageContext }) => {
+  if (
+    pageContext.sermonIds.includes(326) &&
+    pageContext.sermonIds.includes(321) &&
+    pageContext.sermonIds.includes(322) &&
+    pageContext.sermonIds.includes(323) &&
+    pageContext.sermonIds.includes(324) &&
+    pageContext.sermonIds.includes(325)
+  ) {
+    console.log("watch page data:", data);
+  }
   return (
     <Layout hasSpacing={false}>
       <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
