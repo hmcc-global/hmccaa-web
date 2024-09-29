@@ -20,11 +20,17 @@ const WatchPage = ({ data, pageContext }) => {
     console.log(
       "watch page data:",
       data.allStrapiSermon?.nodes[0],
+      data.allStrapiSermon?.nodes[0].Background.file,
       data.allStrapiSermon?.nodes[1],
-      data.allStrapiSermon?.nodes[0],
-      data.allStrapiSermon?.nodes[0],
+      data.allStrapiSermon?.nodes[1].Background.file,
+      data.allStrapiSermon?.nodes[2],
+      data.allStrapiSermon?.nodes[2].Background.file,
+      data.allStrapiSermon?.nodes[3],
+      data.allStrapiSermon?.nodes[3].Background.file,
       data.allStrapiSermon?.nodes[4],
-      data.allStrapiSermon?.nodes[5]
+      data.allStrapiSermon?.nodes[4].Background.file,
+      data.allStrapiSermon?.nodes[5],
+      data.allStrapiSermon?.nodes[5].Background.file
     );
   }
   return (
