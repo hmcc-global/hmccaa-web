@@ -10,6 +10,7 @@ import LiveStream from "../components/page-watch/liveStream";
 const WatchPage = ({ data, pageContext }) => {
   let ids = data.allStrapiSermon?.nodes.map(node => node.strapiId);
   if (
+    pageContext.skip === 0 &&
     ids.includes(326) &&
     ids.includes(321) &&
     ids.includes(322) &&
