@@ -138,6 +138,11 @@ const Sermons = ({
     navigate(`${url}#sermonsList`);
   };
 
+  let temp = title => {
+    console.log(`Did not find background img for sermon ${title}.`);
+    return <div className="py-5 w-full"></div>;
+  };
+
   return (
     <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10 relative">
       <LoadContainer />
@@ -192,7 +197,7 @@ const Sermons = ({
                     alt={SeriesName}
                   />
                 ) : (
-                  <div className="py-5 w-full"></div>
+                  temp(Title)
                 )
               }
               speaker={`${Prefix || ""} ${PreacherName}`}
