@@ -12,6 +12,7 @@ services:
     ports:
       - "1337:1337"
       - "8000:8000"
+      - "9000:9000"
     volumes:
       - ./frontend/:/home/node/frontend/
       - ./cms/:/home/node/cms/
