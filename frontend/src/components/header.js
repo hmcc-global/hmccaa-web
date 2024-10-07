@@ -17,14 +17,6 @@ const Header = () => {
     { title: "I'm New", route: "/new" },
   ];
 
-  const locationsList = [
-    { title: "Ann Arbor", route: "/" },
-    { title: "Austin", route: "https://austin.hmcc.net/" },
-    { title: "Detroit", route: "https://detroit.hmcc.net/" },
-    { title: "Hong Kong", route: "https://hongkong.hmcc.net/" },
-    { title: "Jakarta", route: "https://jakarta.hmcc.net/" },
-  ];
-
   const [isOpen, setIsOpen] = React.useState(false);
   const path =
     (typeof window !== "undefined" && window.location.pathname) || "";
@@ -142,44 +134,6 @@ const Header = () => {
         )}
 
         <div className="flex-row items-center gap-4 hidden lg:flex lg:gap-3 [@media(min-width:1140px)]:gap-8 [@media(min-width:1440px)]:gap-11 shrink-0">
-          <div className="relative hover:bg-[#1A56D6] hover:border-[#1A56D6] hover:rounded-t-lg shrink-0">
-            <div className="hover:bg-[#1A56D6] hover:border-[#1A56D6] py-2 px-2 rounded-t-lg peer">
-              <img
-                alt="map pin logo"
-                className={`${mapPinStyle}`}
-                src={mapPinLogo}
-              />
-            </div>
-
-            <div className="hidden peer-hover:flex hover:flex w-[150px] flex-col absolute bg-[#1A56D6] z-10">
-              {locationsList.map(({ title, route }) =>
-                route === "/" ? (
-                  <Link
-                    key={`locationLink-${title}`}
-                    to={route}
-                    className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
-                  >
-                    {title}
-                  </Link>
-                ) : (
-                  <Link
-                    key={`locationLink-${title}`}
-                    href={route}
-                    className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 border-b-[0.1px] border-gray-100 tracking-[0.96px]`}
-                  >
-                    {title}
-                  </Link>
-                )
-              )}
-              <Link
-                href="https://tangerang.hmcc.net/"
-                className={`${textStyle} hover:bg-[#0C2966] py-2 px-4 tracking-[0.96px]`}
-              >
-                Tangerang
-              </Link>
-            </div>
-          </div>
-
           <div className="flex flex-row items-center justify-items-center gap-2 md:gap:4 [@media(min-width:1140px)]:gap-4 [@media(min-width:1280px)]:gap-6 [@media(min-width:1440px)]:gap-11">
             {browseList.map(({ title, route }) => {
               if (route === "/new") {
