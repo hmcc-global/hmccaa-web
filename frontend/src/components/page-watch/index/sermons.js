@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
 import {
   getSermonPageUrl,
@@ -138,8 +138,16 @@ const Sermons = ({
     navigate(`${url}#sermonsList`);
   };
 
-  let temp = title => {
-    console.log(`Did not find background img for sermon ${title}.`);
+  let getBackgroundImg = (Background, SeriesName) => {
+    let data = Background?.file?.childImageSharp?.gatsbyImageData;
+    if (data) {
+      return <GatsbyImage image={data} alt={SeriesName} />;
+    }
+    let url = Background?.url;
+    if (url) {
+      return <StaticImage src={url} alt={SeriesName} />;
+    }
+    console.log(`Did not find background img for sermon series ${SeriesName}.`);
     return <div className="py-5 w-full"></div>;
   };
 
@@ -190,16 +198,7 @@ const Sermons = ({
               key={i}
               title={Title}
               date={DatePreached}
-              img={
-                Background?.file?.childImageSharp?.gatsbyImageData ? (
-                  <GatsbyImage
-                    image={Background?.file?.childImageSharp?.gatsbyImageData}
-                    alt={SeriesName}
-                  />
-                ) : (
-                  temp(Title)
-                )
-              }
+              img={getBackgroundImg(Background, SeriesName)}
               speaker={`${Prefix || ""} ${PreacherName}`}
               passage={BiblePassage}
               series={SeriesName}
