@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from "react";
 import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
 import {
   getSermonPageUrl,
@@ -146,10 +146,7 @@ const Sermons = ({
     let url = Background?.url;
     if (url) {
       return (
-        <StaticImage
-          src={`${process.env.STRAPI_API_URL}${url}`}
-          alt={SeriesName}
-        />
+        <img src={`${process.env.STRAPI_API_URL}${url}`} alt={SeriesName} />
       );
     }
     console.log(`Did not find background img for sermon series ${SeriesName}.`);
