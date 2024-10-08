@@ -61,7 +61,7 @@ const MembershipPage = ({ pageContext }) => {
             </div>
           </div>
         </div>
-        <div className="max-w-container w-full gap-y-5 flex flex-col lg:items-start border-2 border-solid border-Neutral-600 rounded-2xl px-[0.875rem] lg:px-[1.8125rem] pt-[1.1875rem] pb-[1.625rem] lg:pt-[1.875rem] lg:pb-[1.6875rem]">
+        <div className="max-w-container w-full gap-y-5 flex flex-col lg:items-start border-2 border-solid border-Neutral-600 rounded-2xl px-[0.875rem] lg:px-[1.8125rem] py-20 lg:pt-[1.875rem] lg:pb-[1.6875rem]">
           <div className="max-w-[68.1875rem] w-full flex flex-col lg:flex-row gap-y-3 lg:gap-y-8 text-center gap-x-8 justify-between">
             <p className="text-base lg:text-lg mb-0 lg:max-w-[39.189375rem]">
               HMCC Distinctives are the specific secondary Biblical beliefs that
