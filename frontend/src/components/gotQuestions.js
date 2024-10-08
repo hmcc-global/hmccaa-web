@@ -3,7 +3,7 @@ import { MailIcon } from "./svgs";
 
 const Questions = () => (
   <div className="pb-[1.125rem] pt-5 max-w-container w-full">
-    <div className="flex flex-col xl:flex-row gap-5 xl:gap-x-10 py-5 px-[0.875rem] items-center justify-center border-2 border-Neutral-600 rounded-xl">
+    <div className="flex flex-col xl:flex-row gap-5 xl:gap-x-10 py-20 xl:py-5 px-[0.875rem] items-center justify-center border-2 border-Neutral-600 rounded-xl">
       <div>
         <h2 className="text-2xl lg:text-5xl font-bold lg:font-semibold lg:tracking-medium-wide text-center sm:text-left">
           GOT ANY QUESTIONS?

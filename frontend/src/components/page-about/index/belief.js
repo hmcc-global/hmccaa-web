@@ -81,7 +81,7 @@ const Belief = () => (
       </div>
     </div>
     <div className="max-w-container w-full pt-10 md:pt-15 flex justify-center items-center">
-      <div className="w-full border-2 border-solid border-Neutral-600 pt-[1.625rem] pb-[1.6875rem] md:py-[4.5rem] flex text-center px-6 md:px-8 rounded-2xl justify-center">
+      <div className="w-full border-2 border-solid border-Neutral-600 py-20 md:py-[4.5rem] flex text-center px-6 md:px-8 rounded-2xl justify-center">
         <div className="max-w-[42.5rem] flex flex-col gap-y-5 w-full">
           <h2>THEOLOGICAL DISTINCTIVES</h2>
           <p className="mb-0 text-base md:text-lg">

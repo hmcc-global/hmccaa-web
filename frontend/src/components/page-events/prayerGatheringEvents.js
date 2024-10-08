@@ -19,7 +19,7 @@ const PrayerGatheringEvents = () => {
         Join us for a church-wide Prayer Gathering at our Transformation Center!
       </div>
 
-      <div className="mt-8 sm:mt-4 max-w-[32.5rem] sm:px-[3.625rem] py-6 mb-4 bg-Shades-0 bg-opacity-80 rounded-2xl border-2 border-cyan-700 justify-center gap-1 sm:gap-2">
+      <div className="mt-8 sm:mt-4 max-w-[32.5rem] sm:px-[3.625rem] py-10 xl:py-6 mb-4 bg-Shades-0 bg-opacity-80 rounded-2xl border-2 border-cyan-700 justify-center gap-1 sm:gap-2">
         <div className="w-full px-8 sm:px-0 sm:max-w-96 text-center mx-auto text-black text-2xl sm:text-xl font-medium">
           We meet once a month on <span className="font-bold">Thursday</span>{" "}
           from <span className="font-bold">7-9 pm</span> at the{" "}
