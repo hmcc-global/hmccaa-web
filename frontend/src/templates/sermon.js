@@ -13,6 +13,24 @@ import { graphql } from "gatsby";
 import { mediaWrapper } from "../css/media.module.css";
 import { getSermonPageUrl } from "../page-generation/sermon-pages";
 
+const getSermonVideoPlayer = videoLink => {
+  if (videoLink?.includes("vimeo")) {
+    const videoID = videoLink.match(/\d+/).shift();
+    return {
+      src: `https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`,
+      js: <script src="https://player.vimeo.com/api/player.js"></script>,
+    };
+  } else if (videoLink?.includes("youtube")) {
+    const url = new URL(videoLink);
+    const v = url.searchParams.get("v");
+    return {
+      src: `https://www.youtube-nocookie.com/embed/${v}`,
+      js: "",
+    };
+  }
+  return null;
+};
+
 const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
   const {
     breadcrumb: { crumbs },
@@ -35,7 +53,9 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
     ({ Book, ChapterVerse }) => `${Book} ${ChapterVerse}`
   );
   const audioURL = `${baseURL}${Audio?.url}`;
-  const videoID = VideoLink ? VideoLink.match(/\d+/).shift() : null;
+  const video = getSermonVideoPlayer(VideoLink);
+
+  console.log(video);
 
   return (
     <Layout>
@@ -111,15 +131,15 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
                     </div>
                   )}
                 </div>
-                {videoID && (
+                {video && (
                   <div className={`${mediaWrapper} w-full`}>
                     <div>
                       <iframe
-                        src={`https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+                        src={video.src}
                         allow="autoplay; fullscreen; picture-in-picture"
                       ></iframe>
                     </div>
-                    <script src="https://player.vimeo.com/api/player.js"></script>
+                    {video.js}
                   </div>
                 )}
               </div>
