@@ -15,6 +15,7 @@ module.exports = {
       script: "npm run start",
       env: {
         NODE_ENV: "production",
+        DATABASE_POOL_MAX: "64",
       },
     },
   ],
