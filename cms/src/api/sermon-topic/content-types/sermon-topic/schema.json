@@ -4,7 +4,7 @@
   "info": {
     "singularName": "sermon-topic",
     "pluralName": "sermon-topics",
-    "displayName": "SermonTopic"
+    "displayName": "Sermon Topic"
   },
   "options": {
     "draftAndPublish": false
