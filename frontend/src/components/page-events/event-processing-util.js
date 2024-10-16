@@ -111,24 +111,15 @@ function formatEventTimeAsObject(obj) {
   let { date: startDate, time: startTime } = formatDateAndTime(start);
   let { date: endDate, time: endTime } = formatDateAndTime(end);
   if (startDate === endDate) {
-    // If date is the same then we don't want to return null on midnight
-    if (startTime === null) {
-      startTime = "12AM";
-    }
-    if (endTime === null) {
-      endTime = "12AM";
-    }
-    return { date: startDate, time: `${startTime} - ${endTime}` };
+    // If start and end date are the same then we want to specify real times for midnight
+    return { date: startDate, time: `${startTime || "12AM"} - ${endTime || "12AM"}` };
   }
 
-  // If both start and end time are null we should omit the time
+  // If both start and end time are null we should omit the time,
+  // otherwise we should specify both times
   if (startTime || endTime) {
-    if (startTime === null) {
-      startTime = "12AM";
-    }
-    if (endTime === null) {
-      endTime = "12AM";
-    }
+    startTime = startTime || "12AM";
+    endTime = endTime || "12AM";
   }
 
   return {
