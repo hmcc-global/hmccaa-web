@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../../components/layout";
 import Seo, { PageDescriptions } from "../../components/seo";
@@ -14,6 +14,7 @@ import {
   filterEventTimes,
 } from "../../components/page-events/event-processing";
 import {
+  formatEventTimeAsString,
   getFullEventId,
   sortTimes,
 } from "../../components/page-events/event-processing-util";
@@ -37,12 +38,13 @@ const EventsPage = ({ data }) => {
               .sort((a, b) => sortTimes(a.time, b.time))
               .map(({ event, time }) => {
                 let key = encodeURIComponent(getFullEventId(event.id, time));
+                console.log(formatEventTimeAsString(time));
                 return (
                   <EventCard
                     key={key}
                     eventID={key}
                     title={event.title}
-                    time={time.start.toString()}
+                    time={formatEventTimeAsString(time)}
                     img={
                       <div className="relative pb-[63.493%] w-full">
                         <div className="absolute inset-0">

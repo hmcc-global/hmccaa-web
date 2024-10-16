@@ -84,11 +84,65 @@ function formatDateAndTime(isoDateString) {
 
   // Formatting date and time
   const formattedDate = `${month} ${day}, ${year}`;
-  const formattedTime = `${hour}:${minutes
-    .toString()
-    .padStart(2, "0")} ${amPm}`;
+  const formattedTime = timeIsMidnight(date)
+    ? null
+    : `${hour}:${minutes.toString().padStart(2, "0")} ${amPm}`;
 
-  return { formattedDate, formattedTime };
+  return { date: formattedDate, time: formattedTime };
+}
+
+function timeIsMidnight(date) {
+  return date.getHours() === 0 && date.getMinutes() === 0;
+}
+
+function dateToString({ date, time }) {
+  return time ? `${date}, ${time}` : date;
+}
+
+function formatEventTimeAsObject(obj) {
+  // Returns in two strings: date and time.
+  //     If there is an end time on the same date, then time string reflects this.
+  //     If there is an end time on a different date, then entire string will be returned
+  //     in date string and time string will be null.
+  const { start, end } = obj;
+  if (end === null) {
+    return formatDateAndTime(start);
+  }
+  let { date: startDate, time: startTime } = formatDateAndTime(start);
+  let { date: endDate, time: endTime } = formatDateAndTime(end);
+  if (startDate === endDate) {
+    // If date is the same then we don't want to return null on midnight
+    if (startTime === null) {
+      startTime = "12AM";
+    }
+    if (endTime === null) {
+      endTime = "12AM";
+    }
+    return { date: startDate, time: `${startTime} - ${endTime}` };
+  }
+
+  // If both start and end time are null we should omit the time
+  if (startTime || endTime) {
+    if (startTime === null) {
+      startTime = "12AM";
+    }
+    if (endTime === null) {
+      endTime = "12AM";
+    }
+  }
+
+  return {
+    date: `${dateToString({
+      date: startDate,
+      time: startTime,
+    })} - ${dateToString({ date: endDate, time: endTime })}`,
+    time: null,
+  };
+}
+
+function formatEventTimeAsString(time) {
+  let object = formatEventTimeAsObject(time);
+  return dateToString(object);
 }
 
 function sortTimes(a, b) {
@@ -164,4 +218,6 @@ module.exports = {
   isTodayOrAfter,
   DATE_ITERATOR,
   getFullEventId,
+  formatEventTimeAsObject,
+  formatEventTimeAsString,
 };
