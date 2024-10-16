@@ -29,7 +29,8 @@ const commonQuestions = [
     id: 4,
     question: "Where do I go when I arrive?",
     answer: [
-      "From E Huron St, you can see blue signs for HMCC. Walk to the right of the building and follow the sidewalk to enter through the blue door on your left. You will be greeted by our hospitality team who will guide you on where to sit.",
+      "From E Huron St, you can see blue signs from HMCC. Due to ongoing construction, walk to the left of the building and follow the pathway to enter through the large blue door on your right. You will be greeted by our hospitality team who will guide you on where to sit.",
+      "You can also enter from E. Ann St by walking up the stairs next to the blue HMCC banner on the fence. You can come in through both the left and right entrances.",
     ],
   },
 ];
