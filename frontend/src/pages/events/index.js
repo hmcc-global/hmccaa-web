@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../../components/layout";
 import Seo, { PageDescriptions } from "../../components/seo";
@@ -14,6 +14,7 @@ import {
   filterEventTimes,
 } from "../../components/page-events/event-processing";
 import {
+  formatEventTimeAsString,
   getFullEventId,
   sortTimes,
 } from "../../components/page-events/event-processing-util";
@@ -42,7 +43,7 @@ const EventsPage = ({ data }) => {
                     key={key}
                     eventID={key}
                     title={event.title}
-                    time={time.start.toString()}
+                    time={formatEventTimeAsString(time)}
                     img={
                       <div className="relative pb-[63.493%] w-full">
                         <div className="absolute inset-0">

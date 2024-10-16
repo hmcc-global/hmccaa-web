@@ -13,7 +13,7 @@ import {
 import { LoadContainer, showLoader } from "../../../components/svgs/loader";
 
 // Returns an array signifying the page numbers to display, eg.
-//    (10, 50) would return [1, 2, ..., 9, 10, 11, ..., 49, 50]
+//    (10, 50) would return [1, ..., 8, 9, 10, 11, 12, ..., 50]
 function getPageNumbers(currentPage, totalPages) {
   // Test cases:
   //    (3, 10) should return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
