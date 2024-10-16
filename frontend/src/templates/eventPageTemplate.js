@@ -18,7 +18,6 @@ const EventPage = ({ pageContext }) => {
 
   const { date: formattedDate, time: formattedTime } =
     formatEventTimeAsObject(time);
-  console.log("template:", formattedDate, formattedTime);
   return (
     <Layout>
       <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen extend-breadcrumbs">

@@ -10,7 +10,6 @@ const Card = ({
   href = "#",
   graphQLDate,
 }) => {
-  console.log("date:", typeof date);
   return (
     <Link to={href} className="no-underline text-Shades-100 font-normal">
       <div

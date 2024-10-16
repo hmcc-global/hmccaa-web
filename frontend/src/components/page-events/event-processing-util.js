@@ -112,7 +112,10 @@ function formatEventTimeAsObject(obj) {
   let { date: endDate, time: endTime } = formatDateAndTime(end);
   if (startDate === endDate) {
     // If start and end date are the same then we want to specify real times for midnight
-    return { date: startDate, time: `${startTime || "12AM"} - ${endTime || "12AM"}` };
+    return {
+      date: startDate,
+      time: `${startTime || "12AM"} - ${endTime || "12AM"}`,
+    };
   }
 
   // If both start and end time are null we should omit the time,

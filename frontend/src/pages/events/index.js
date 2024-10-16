@@ -38,7 +38,6 @@ const EventsPage = ({ data }) => {
               .sort((a, b) => sortTimes(a.time, b.time))
               .map(({ event, time }) => {
                 let key = encodeURIComponent(getFullEventId(event.id, time));
-                console.log(formatEventTimeAsString(time));
                 return (
                   <EventCard
                     key={key}
