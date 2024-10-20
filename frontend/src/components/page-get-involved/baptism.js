@@ -16,7 +16,7 @@ const Baptism = () => (
           what baptism means and see if it&apos;s the next step for you!
         </p>
         <div className="flex justify-center">
-          <SecondaryButtonLink to="/next-steps/baptism" hasArrow={true}>
+          <SecondaryButtonLink to="/get-involved/baptism" hasArrow={true}>
             Learn More
           </SecondaryButtonLink>
         </div>

@@ -293,7 +293,7 @@ const MinistryTeamsPage = ({ pageContext }) => {
 export const Head = () => (
   <Seo
     title="Ministry Teams"
-    description={PageDescriptions["next-steps-ministryteams"]}
+    description={PageDescriptions["get-involved-ministryteams"]}
   />
 );
 

@@ -93,7 +93,7 @@ const MembershipPage = ({ pageContext }) => {
 export const Head = () => (
   <Seo
     title="Membership"
-    description={PageDescriptions["next-steps-membership"]}
+    description={PageDescriptions["get-involved-membership"]}
   />
 );
 

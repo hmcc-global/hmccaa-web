@@ -158,7 +158,7 @@ const MissionsPage = ({
 export const Head = () => (
   <Seo
     title="Missions Support"
-    description={PageDescriptions["next-steps-missions"]}
+    description={PageDescriptions["get-involved-missions"]}
   />
 );
 

@@ -15,7 +15,7 @@ const Membership = () => (
           means to be a member with our elders and church leaders.
         </p>
         <div className="flex justify-center btn-container">
-          <SecondaryButtonLink to="/next-steps/membership" hasArrow={true}>
+          <SecondaryButtonLink to="/get-involved/membership" hasArrow={true}>
             Learn More
           </SecondaryButtonLink>
         </div>
