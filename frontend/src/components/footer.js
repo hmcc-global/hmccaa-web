@@ -14,7 +14,6 @@ const Footer = () => {
   const browseList = [
     { title: "Home", route: "/" },
     { title: "About", route: "/about" },
-    { title: "Connect", route: "/connect" },
     { title: "Next Steps", route: "/next-steps" },
     { title: "Events", route: "/events" },
     { title: "Watch", route: "/watch" },
