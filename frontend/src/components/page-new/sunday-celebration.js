@@ -28,7 +28,6 @@ const sundayCelebration = () => (
             together to worship God and celebrate His work in our lives.{" "}
             <span className="text-Accent-700 font-bold">All are welcome!</span>
           </p>
-
         </div>
       </div>
     </div>
