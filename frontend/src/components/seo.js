@@ -23,19 +23,19 @@ export const PageDescriptions = {
     "Events are ways we gather as a church body to connect across different life stages. Don’t miss out on opportunities to have fun and get to know others!",
   give: "If you're interested in supporting what God is doing here at Harvest Mission Community Church, there are a couple options you can give.",
   new: "Welcome to HMCC! We are on the University of Michigan campus and are open to people of all life stages and backgrounds. We'd love to get to know you.",
-  "next-steps":
+  "get-involved":
     "Come check out our Life Groups, where we encourage each other in our journey of faith! Also, learn more about membership, ministry teams, and missions.",
-  "next-steps-baptism":
+  "get-involved-baptism":
     "Baptism represents a union with Jesus in his death and resurrection, which is only possible through saving faith in him. Learn more about baptism here at HMCC.",
-  "next-steps-lifegroups":
+  "get-involved-lifegroups":
     "Life Group is an avenue to develop Christ-centered relationships. There's no better way to get a taste of who we are and what we believe in than through Life Groups!",
-  "next-steps-membership":
+  "get-involved-membership":
     "As believers in Jesus, we are members of his spiritual body, demonstrated by a commitment to the local church. Find out what membership at HMCC looks like!",
-  "next-steps-ministryteams":
+  "get-involved-ministryteams":
     "God has given us unique gifts to build up the church and the world around us. Check out some possible ways we can serve one another as a church body!",
-  "next-steps-missions":
+  "get-involved-missions":
     "God has called each of us to missions, whether overseas or local. We send out mission teams each year to various places. See how you can support or get involved!",
-  "next-steps-transformation":
+  "get-involved-transformation":
     "Transformation classes are meant to help challenge, encourage, and equip our members to know God more deeply and live out His calling for their lives.",
 };
 

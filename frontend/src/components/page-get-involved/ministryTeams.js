@@ -260,7 +260,10 @@ const MinistryTeams = () => (
             })}
           </div>
           <div className="flex justify-center xl:relative z-10">
-            <PrimaryButtonLink hasArrow={true} to={"/next-steps/ministryteams"}>
+            <PrimaryButtonLink
+              hasArrow={true}
+              to={"/get-involved/ministryteams"}
+            >
               Join a Team
             </PrimaryButtonLink>
           </div>

@@ -23,7 +23,7 @@ const Transformation = () => (
         </p>
       </div>
       <div className="flex justify-center md:justify-start">
-        <SecondaryButtonLink to="/next-steps/transformation">
+        <SecondaryButtonLink to="/get-involved/transformation">
           More Info
         </SecondaryButtonLink>
       </div>

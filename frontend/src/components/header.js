@@ -9,7 +9,7 @@ const Header = () => {
   const browseList = [
     { title: "Home", route: "/" },
     { title: "About", route: "/about" },
-    { title: "Next Steps", route: "/next-steps" },
+    { title: "Get Involved", route: "/get-involved" },
     { title: "Events", route: "/events" },
     { title: "Watch", route: "/watch" },
     { title: "Give", route: "/give" },
