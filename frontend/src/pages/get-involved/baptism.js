@@ -65,7 +65,7 @@ const BaptismPage = ({ pageContext }) => {
 };
 
 export const Head = () => (
-  <Seo title="Baptism" description={PageDescriptions["next-steps-baptism"]} />
+  <Seo title="Baptism" description={PageDescriptions["get-involved-baptism"]} />
 );
 
 export default BaptismPage;

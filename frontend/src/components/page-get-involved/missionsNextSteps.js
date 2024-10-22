@@ -33,7 +33,7 @@ const MissionsNextStep = () => (
         </p>
       </HighlightedParagraph>
       <div className="flex justify-center lg:justify-start">
-        <SecondaryButtonLink to="/next-steps/missions" hasArrow={true}>
+        <SecondaryButtonLink to="/get-involved/missions" hasArrow={true}>
           Learn More
         </SecondaryButtonLink>
       </div>

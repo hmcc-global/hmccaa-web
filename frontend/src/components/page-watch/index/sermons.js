@@ -13,7 +13,7 @@ import {
 import { LoadContainer, showLoader } from "../../../components/svgs/loader";
 
 // Returns an array signifying the page numbers to display, eg.
-//    (10, 50) would return [1, 2, ..., 9, 10, 11, ..., 49, 50]
+//    (10, 50) would return [1, ..., 8, 9, 10, 11, 12, ..., 50]
 function getPageNumbers(currentPage, totalPages) {
   // Test cases:
   //    (3, 10) should return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -138,8 +138,18 @@ const Sermons = ({
     navigate(`${url}#sermonsList`);
   };
 
-  let temp = title => {
-    console.log(`Did not find background img for sermon ${title}.`);
+  let getBackgroundImg = (Background, SeriesName) => {
+    let data = Background?.file?.childImageSharp?.gatsbyImageData;
+    if (data) {
+      return <GatsbyImage image={data} alt={SeriesName} />;
+    }
+    let url = Background?.url;
+    if (url) {
+      return (
+        <img src={`${process.env.STRAPI_API_URL}${url}`} alt={SeriesName} />
+      );
+    }
+    console.log(`Did not find background img for sermon series ${SeriesName}.`);
     return <div className="py-5 w-full"></div>;
   };
 
@@ -190,16 +200,7 @@ const Sermons = ({
               key={i}
               title={Title}
               date={DatePreached}
-              img={
-                Background?.file?.childImageSharp?.gatsbyImageData ? (
-                  <GatsbyImage
-                    image={Background?.file?.childImageSharp?.gatsbyImageData}
-                    alt={SeriesName}
-                  />
-                ) : (
-                  temp(Title)
-                )
-              }
+              img={getBackgroundImg(Background, SeriesName)}
               speaker={`${Prefix || ""} ${PreacherName}`}
               passage={BiblePassage}
               series={SeriesName}

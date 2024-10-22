@@ -317,7 +317,7 @@ const theme = {
     backgroundImage: {
       about: "url('../images/background/about.png')",
       connect: "url('../images/background/connect.jpeg')",
-      "next-steps": "url('../images/background/next-steps.jpg')",
+      "get-involved": "url('../images/background/get-involved.jpg')",
       events: "url('../images/background/events.jpeg')",
       watch: "url('../images/background/watch.jpeg')",
       give: "url('../images/background/give.jpeg')",

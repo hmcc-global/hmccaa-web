@@ -3,7 +3,7 @@ import { SecondaryButtonLink } from "../Button";
 
 const Baptism = () => (
   <div className="max-w-container w-full py-5 md:py-15 flex justify-center items-center">
-    <div className="w-full border-2 border-solid border-Neutral-600 pt-[1.625rem] pb-[1.6875rem] md:py-[4.5rem] flex text-center px-6 md:px-8 rounded-2xl justify-center">
+    <div className="w-full border-2 border-solid border-Neutral-600 py-20 md:py-[4.5rem] flex text-center px-6 md:px-8 rounded-2xl justify-center">
       <div className="max-w-[42.5rem] flex flex-col gap-y-5 w-full">
         <div>
           <div className="subheading">Baptism</div>
@@ -16,7 +16,7 @@ const Baptism = () => (
           what baptism means and see if it&apos;s the next step for you!
         </p>
         <div className="flex justify-center">
-          <SecondaryButtonLink to="/next-steps/baptism" hasArrow={true}>
+          <SecondaryButtonLink to="/get-involved/baptism" hasArrow={true}>
             Learn More
           </SecondaryButtonLink>
         </div>

@@ -17,7 +17,7 @@ const steps = [
     image: <JoinSvg />,
     text: "Join a Life Group",
     details: "This is where our community comes to life. Come and see!",
-    href: "/next-steps/lifegroups",
+    href: "/get-involved/lifegroups",
     action: "Learn More",
     external: false,
   },
@@ -26,7 +26,7 @@ const steps = [
     image: <BecomeSvg />,
     text: "Become A Member",
     details: "Looking for a church home? Find out more!",
-    href: "/next-steps/membership",
+    href: "/get-involved/membership",
     action: "Learn More",
     external: false,
   },
@@ -37,7 +37,7 @@ const linkClassnames =
 
 const GetInvolved = () => (
   <div className="pt-40 pb-10 md:pb-15 flex max-w-container w-full justify-center">
-    <div className="border-2 border-solid border-Neutral-600 rounded-2xl pt-5 pb-[3.125rem] md:py-20 flex justify-center items-center w-full px-4 md:px-8">
+    <div className="border-2 border-solid border-Neutral-600 rounded-2xl py-20 flex justify-center items-center w-full px-4 md:px-8">
       <div className="w-full max-w-[61.25rem] flex flex-col gap-y-10 items-center">
         <div className="text-center">
           <div className="subheading">Get Involved</div>

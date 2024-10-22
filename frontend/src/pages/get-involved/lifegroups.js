@@ -66,7 +66,7 @@ const LifeGroupsPage = ({ pageContext }) => {
 export const Head = () => (
   <Seo
     title="Life Groups"
-    description={PageDescriptions["next-steps-lifegroups"]}
+    description={PageDescriptions["get-involved-lifegroups"]}
   />
 );
 

@@ -14,8 +14,7 @@ const Footer = () => {
   const browseList = [
     { title: "Home", route: "/" },
     { title: "About", route: "/about" },
-    { title: "Connect", route: "/connect" },
-    { title: "Next Steps", route: "/next-steps" },
+    { title: "Get Involved", route: "/get-involved" },
     { title: "Events", route: "/events" },
     { title: "Watch", route: "/watch" },
     { title: "Give", route: "/give" },
@@ -25,9 +24,9 @@ const Footer = () => {
   // all link to next steps for now
   const connectList = [
     // { title: "Interest Form", route: "/" }, Add back when there is a real link
-    { title: "Join a Life Group", route: "/next-steps/lifegroups" },
-    { title: "Become a Member", route: "/next-steps" },
-    { title: "Join a Ministry Team", route: "/next-steps" },
+    { title: "Join a Life Group", route: "/get-involved/lifegroups" },
+    { title: "Become a Member", route: "/get-involved" },
+    { title: "Join a Ministry Team", route: "/get-involved" },
   ];
   return (
     <footer>

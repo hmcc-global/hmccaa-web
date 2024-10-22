@@ -169,31 +169,31 @@ module.exports = {
             crumbLabel: "Sermons",
           },
           {
-            pathname: "/next-steps",
+            pathname: "/get-involved",
             crumbLabel: "Next Steps",
           },
           {
-            pathname: "/next-steps/lifegroups",
+            pathname: "/get-involved/lifegroups",
             crumbLabel: "Life Groups",
           },
           {
-            pathname: "/next-steps/membership",
+            pathname: "/get-involved/membership",
             crumbLabel: "Membership",
           },
           {
-            pathname: "/next-steps/transformation",
+            pathname: "/get-involved/transformation",
             crumbLabel: "Transformation Classes",
           },
           {
-            pathname: "/next-steps/baptism",
+            pathname: "/get-involved/baptism",
             crumbLabel: "Baptism",
           },
           {
-            pathname: "/next-steps/ministryteams",
+            pathname: "/get-involved/ministryteams",
             crumbLabel: "Ministry Teams",
           },
           {
-            pathname: "/next-steps/missions",
+            pathname: "/get-involved/missions",
             crumbLabel: "Missions Support",
           },
           {
