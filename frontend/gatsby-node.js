@@ -18,12 +18,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   let pages = new Pages(createPage, reporter);
   let createPageFn = page => pages.addPage(page);
+  let createPageAndPrintFn = page => {
+    reporter.info(`Creating page: ${page.path}`);
+    createPageFn(page);
+  };
 
-  await CreateEventPages(graphql, createPageFn, reporter);
+  await CreateEventPages(graphql, createPageAndPrintFn, reporter);
 
   await CreateSermonPages(graphql, createPageFn, reporter);
 
-  await CreateCustomPages(graphql, createPageFn, reporter);
+  await CreateCustomPages(graphql, createPageAndPrintFn, reporter);
 
   pages.createPages();
 };

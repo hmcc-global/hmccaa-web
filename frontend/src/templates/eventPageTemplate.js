@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../components/layout";
 import { PrimaryButtonLink } from "../components/Button";
-import { formatDateAndTime } from "../components/page-events/event-processing-util";
+import { formatEventTimeAsObject } from "../components/page-events/event-processing-util";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { CalendarIcon, ClockIcon, PinIcon } from "../components/svgs";
@@ -16,8 +16,8 @@ const EventPage = ({ pageContext }) => {
 
   console.log(event);
 
-  const { formattedDate, formattedTime } = formatDateAndTime(time.start);
-
+  const { date: formattedDate, time: formattedTime } =
+    formatEventTimeAsObject(time);
   return (
     <Layout>
       <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen extend-breadcrumbs">
@@ -39,10 +39,12 @@ const EventPage = ({ pageContext }) => {
                   <div>{formattedDate}</div>
                 </div>
                 <div className="flex flex-col lg:gap-y-3">
-                  <div className="flex items-center gap-1 lg:gap-2">
-                    <ClockIcon className="w-5 h-5 lg:w-8 lg:h-8" />
-                    <div>{formattedTime}</div>
-                  </div>
+                  {formattedTime && (
+                    <div className="flex items-center gap-1 lg:gap-2">
+                      <ClockIcon className="w-5 h-5 lg:w-8 lg:h-8" />
+                      <div>{formattedTime}</div>
+                    </div>
+                  )}
                   <div className="flex items-center gap-1 lg:gap-2">
                     <PinIcon className="w-5 h-5 lg:w-8 lg:h-8" />
                     <div>
