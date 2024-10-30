@@ -31,7 +31,7 @@ const IndexPage = () => (
             <div className="font-bold">Sunday Celebration Time</div>
             <div className="font-bold text-3xl mb-2">10:00 AM ET</div>
             <div className="flex sm:justify-start justify-center text-center ">
-              <PrimaryButtonLink to={"/connect"} hasArrow={true}>
+              <PrimaryButtonLink to={"/new"} hasArrow={true}>
                 Plan Your Visit
               </PrimaryButtonLink>
             </div>
