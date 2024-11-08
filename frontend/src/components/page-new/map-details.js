@@ -4,18 +4,23 @@ import { SecondaryButtonLink } from "../Button";
 
 const MapDetails = () => {
   return (
-    <div className="flex flex-col gap-y-5 lg:gap-y-0 justify-center pt-5 lg:pt-0 bg-Neutral-200 lg:flex-row lg:rounded-2xl max-w-[58.625rem] mx-auto">
+    <div className="flex flex-col gap-y-5 lg:gap-y-0 justify-center pt-5 lg:pt-0 bg-Primary-700 lg:flex-row lg:rounded-2xl max-w-[58.625rem] mx-auto">
       <div className="lg:px-[3.925rem] gap-5">
         <div className="flex flex-col justify-center items-center text-center lg:gap-8 lg:py-[4.75rem]">
-          <p className="text-lg font-medium leading-tighter mb-0 text-Shades-100">
-            Sunday Mornings <br />{" "}
-            <span className="font-bold text-xl text-Shades-100">10 AM</span>
-          </p>
+          <h5 className="text-lg font-normal text-[#7AD1FF] uppercase">
+            Harvest Mission <br /> Community Church
+          </h5>
+          <h1 className="text-4xl font-bold leading-tighter mb-0 text-Neutral-50">
+            Join us on <br /> Sunday
+          </h1>
+          <h3 className="font-bold text-2xl text-Secondary-700">10 AM</h3>
           <div className="flex flex-col gap-1 lg:gap-5">
             <p className="mb-0">
-              <span className="font-medium text-lg">Transformation Center</span>
+              <span className="font-medium text-lg text-Neutral-50">
+                Transformation Center
+              </span>
               <br />{" "}
-              <span className="font-bold text-xl">
+              <span className="font-bold text-xl text-Secondary-700">
                 1001 E Huron St, <br /> Ann Arbor, MI 48104
               </span>
             </p>
