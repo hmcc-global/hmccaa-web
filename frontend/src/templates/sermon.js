@@ -28,7 +28,7 @@ const getSermonVideoPlayer = videoLink => {
       js: "",
     };
   }
-  console.log(`Could not parse sermon video link: ${videoLink}`);
+  console.log(`Could not parse sermon video link: \`${videoLink}\``);
   return null;
 };
 
