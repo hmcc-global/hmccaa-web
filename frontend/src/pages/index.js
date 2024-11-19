@@ -23,8 +23,11 @@ const IndexPage = () => (
               />
             </div>
           </div>
-          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[3.75rem]  line-clamp-2 md:text-5xl text-3xl w-full font-bold leading-tight tracking-[0.04em]">
-            Transform lives, Transform the world.
+          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[3.75rem]  line-clamp-2 md:text-5xl text-3xl w-full font-bold leading-tight tracking-[0.04em] px-2">
+            <span className="inline-block">Transform lives,</span>
+            <span className="inline-block pl-[0.4rem]">
+              Transform the world.
+            </span>
           </h1>
         </div>
         <div className="w-full bg-Primary-700/[0.8] flex justify-center px-4 absolute bottom-0">
