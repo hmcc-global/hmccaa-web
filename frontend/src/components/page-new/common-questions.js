@@ -37,16 +37,14 @@ const commonQuestions = [
 const CommonQuestions = () => {
   return (
     <div className="flex flex-col items-center md:items-start md:grid md:grid-cols-49 gap-y-10 max-w-[61.25rem] w-full py-5 md:py-15">
-      <div className="max-w-[27.5rem] md:max-w-none md:col-start-1 md:col-span-22">
+      <div className="max-w-[33.75rem] md:max-w-none md:col-start-1 md:col-span-22">
         <StaticImage
           src="../../images/transformation-center-building.png"
           alt="Transformation Center"
         />
       </div>
-      <h2 className="text-center text-2xl md:text-3xl md:row-start-1 md:row-end-2 md:col-span-49">
-        Common Questions
-      </h2>
       <div className="flex flex-col gap-y-10 md:gap-y-8 collapsible-items md:col-start-26 md:col-span-24">
+        <h2 className="text-2xl md:text-3xl">Common Questions</h2>
         {commonQuestions.map(({ id, question, answer }) => (
           <Collapsible
             key={id}
