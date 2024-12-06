@@ -4,8 +4,8 @@ import { SecondaryButtonLink } from "../Button";
 
 const MapDetails = () => {
   return (
-    <div className="flex flex-col w-full text-center justify-center pt-5 bg-Primary-700 md:flex-row lg:max-w-[73.75rem] lg:pt-0 lg:rounded-2xl">
-      <div className="flex flex-col gap-5 pb-4 lg:gap-0 lg:h-[33.75rem] lg:w-[26.25rem] lg:px-17 lg:py-11">
+    <div className="flex flex-col w-full text-center justify-center pt-5 bg-Primary-700 lg:flex-row lg:max-h-[33.75rem] lg:max-w-[73.75rem] lg:pt-0 lg:rounded-2xl">
+      <div className="flex flex-col gap-5 pb-4 lg:gap-0 lg:w-[26.25rem] lg:px-17 lg:py-11">
         <div className="flex flex-col gap-3 mb-8">
           <h5 className="text-base font-normal text-[#7AD1FF] uppercase">
             Harvest Mission <br /> Community Church
@@ -35,8 +35,8 @@ const MapDetails = () => {
           </SecondaryButtonLink>
         </div>
       </div>
-      <div className="lg:w-[47.5rem] py-2">
-        <div className="lg:w-[47rem] h-full lg:overflow-hidden rounded-tr-2xl rounded-br-2xl">
+      <div className="lg:max-w-[47.5rem] py-2">
+        <div className="lg:w-[46rem] h-full lg:overflow-hidden rounded-tr-2xl rounded-br-2xl">
           <StaticImage
             src="../../images/connect-map-parking.png"
             alt=""
