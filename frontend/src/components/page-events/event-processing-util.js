@@ -95,11 +95,11 @@ function timeIsMidnight(date) {
   return date.getHours() === 0 && date.getMinutes() === 0;
 }
 
-function dateToString({ date, time }) {
-  return time ? `${date}, ${time}` : date;
+function dateToString({ date, time }, showTimes = true) {
+  return showTimes & time ? `${date}, ${time}` : date;
 }
 
-function formatEventTimeAsObject(obj) {
+function formatEventTimeAsObject(obj, showTimes = true) {
   // Returns in two strings: date and time.
   //     If there is an end time on the same date, then time string reflects this.
   //     If there is an end time on a different date, then entire string will be returned
@@ -126,17 +126,20 @@ function formatEventTimeAsObject(obj) {
   }
 
   return {
-    date: `${dateToString({
-      date: startDate,
-      time: startTime,
-    })} - ${dateToString({ date: endDate, time: endTime })}`,
+    date: `${dateToString(
+      {
+        date: startDate,
+        time: startTime,
+      },
+      showTimes
+    )} - ${dateToString({ date: endDate, time: endTime }, showTimes)}`,
     time: null,
   };
 }
 
-function formatEventTimeAsString(time) {
-  let object = formatEventTimeAsObject(time);
-  return dateToString(object);
+function formatEventTimeAsString(time, showTimes = true) {
+  let object = formatEventTimeAsObject(time, showTimes);
+  return dateToString(object, showTimes);
 }
 
 function sortTimes(a, b) {
