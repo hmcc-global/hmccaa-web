@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "missions_trips",
+  "info": {
+    "singularName": "missions-trip",
+    "pluralName": "missions-trips",
+    "displayName": "Missions Trips",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "StartDate": {
+      "type": "date",
+      "required": true
+    },
+    "EndDate": {
+      "type": "date"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "Links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.link"
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
