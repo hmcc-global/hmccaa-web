@@ -68,6 +68,7 @@ const MissionsPage = ({
     ),
     location: showLocation(obj.Location),
     images: obj.Images,
+    links: obj.Links,
     description: obj.Description,
   }));
   console.log("data", missions);
@@ -86,7 +87,15 @@ const MissionsPage = ({
             <div className="flex flex-col w-full lg:gap-y-15">
               {missions.map(
                 (
-                  { strapiId, name, dates, location, description, images },
+                  {
+                    strapiId,
+                    name,
+                    dates,
+                    location,
+                    links,
+                    description,
+                    images,
+                  },
                   index
                 ) => (
                   <div
@@ -110,11 +119,16 @@ const MissionsPage = ({
                             <span>{location}</span>
                           </div>
                         </div>
-                        <div className="flex pt-4 lg:pt-10">
-                          <PrimaryButtonLink href="#" hasArrow={true}>
-                            Help Support
-                          </PrimaryButtonLink>
-                        </div>
+                        {links.map(({ Hyperlink, Text }, idx) => (
+                          <div
+                            key={`${Text}${idx}`}
+                            className="flex pt-4 lg:pt-10"
+                          >
+                            <PrimaryButtonLink href={Hyperlink} hasArrow={true}>
+                              {Text}
+                            </PrimaryButtonLink>
+                          </div>
+                        ))}
                       </div>
                       <div className="image-container">
                         {showImage(images[0])}
