@@ -1,4 +1,5 @@
 import * as React from "react";
+import Seo from "../components/seo";
 import Layout from "../components/layout";
 import { PrimaryButtonLink } from "../components/Button";
 import { formatEventTimeAsObject } from "../components/page-events/event-processing-util";
@@ -6,6 +7,12 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { CalendarIcon, ClockIcon, PinIcon } from "../components/svgs";
 import Link from "../components/Link";
+
+export const Head = ({
+  pageContext: {
+    event: { title, description },
+  },
+}) => <Seo title={`Events | ${title}`} description={description} />;
 
 const EventPage = ({ pageContext }) => {
   const {
