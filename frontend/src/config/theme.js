@@ -225,7 +225,6 @@ const theme = {
     inter: "Inter",
     roboto: "Roboto",
     ubuntu: "Ubuntu",
-    bebas: '"Bebas Neue"',
   },
   borderRadius: {
     none: "0",

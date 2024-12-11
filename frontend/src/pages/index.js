@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ButtonLink, PrimaryButtonLink } from "../components/Button";
+import { PrimaryButtonLink } from "../components/Button";
 import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -13,36 +13,27 @@ const IndexPage = () => (
   <Layout>
     <div className="w-full">
       <NotificationBar />
-      <div className="relative text-center text-Shades-0 bg-Primary-700">
-        <div className="mx-auto">
-          <div className="max-w-[90rem] w-full mx-auto relative overflow-hidden">
-            <div className="sm:pb-[25rem] pb-[38rem] md:pb-[64.723%]">
-              <StaticImage
-                className="w-full mb-0 absolute [@media(min-width:500px)]:left-0 top-0 min-w-[45rem] -left-1/2"
-                src="../images/main-cover.png"
-              />
-            </div>
-          </div>
-          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[3.75rem]  line-clamp-2 md:text-5xl text-3xl w-full font-bold leading-tight tracking-[0.04em] px-2">
-            <span className="inline-block">Transform lives,</span>
-            <span className="inline-block pl-[0.4rem]">
-              Transform the world.
-            </span>
-          </h1>
-        </div>
-        <div className="w-full bg-Primary-700/[0.8] flex justify-center px-4 absolute bottom-0">
-          <div className="flex md:flex-row flex-col md:py-12 py-6  md:gap-10 gap-4">
-            <h2 className="flex-1 mb-0 lg:pr-4 md:text-3xl text-2xl md:text-left text-center font-semibold leading-tight -tracking-[0.02em] text-Shades-0 md:whitespace-nowrap ">
-              JOIN US THIS SUNDAY @ 10 AM
-            </h2>
-            <div className="flex justify-center">
-              <ButtonLink
-                to={"/connect"}
-                hasArrow={true}
-                className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base"
-              >
+      <div className="relative text-center text-Shades-0">
+        <StaticImage
+          className="w-full h-full mb-0"
+          src="../images/image245.png"
+        />
+        <h1 className="absolute mb-0 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 line-clamp-2 xl:text-[3.75rem] lg:text-[3.125rem] md:text-[2.5rem] sm:text-[2rem] w-full text-[1.5rem] font-bold leading-tight">
+          Transforming lives, <br /> Transforming the world.
+        </h1>
+      </div>
+      <div className="w-full bg-Neutral-200 justify-center flex px-4">
+        <div className="flex md:flex-row flex-col justify-center items-center py-[50px] max-w-container w-full lg:gap-30 md:gap-10 gap-4">
+          <h2 className="flex-1 mb-0 lg:pr-4 xl:text-[3.75rem] lg:text-[3rem] md:text-[2.75rem] sm:text-[2.5rem] text-[2rem] md:text-right text-center font-bold leading-tight tracking-[3.6px]">
+            JOIN US THIS <br /> SUNDAY!
+          </h2>
+          <div className="flex-1 flex flex-col items-center md:items-start lg:pl-4">
+            <div className="font-bold">Sunday Celebration Time</div>
+            <div className="font-bold text-3xl mb-2">10:00 AM ET</div>
+            <div className="flex sm:justify-start justify-center text-center ">
+              <PrimaryButtonLink to={"/new"} hasArrow={true}>
                 Plan Your Visit
-              </ButtonLink>
+              </PrimaryButtonLink>
             </div>
           </div>
         </div>
