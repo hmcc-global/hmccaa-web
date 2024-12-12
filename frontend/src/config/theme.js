@@ -346,6 +346,9 @@ const theme = {
       ...positionXY.x,
       ...positionXY.y,
     },
+    screens: {
+      "1.5xl": "1455px",
+    },
   },
 };
 

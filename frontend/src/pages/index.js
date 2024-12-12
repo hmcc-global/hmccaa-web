@@ -15,10 +15,11 @@ const IndexPage = () => (
       <NotificationBar />
       <div className="relative text-center text-Shades-0 bg-Primary-700">
         <div className="mx-auto">
-          <div className="max-w-[90rem] w-full mx-auto relative overflow-hidden">
-            <div className="sm:pb-[25rem] pb-[38rem] md:pb-[64.723%]">
+          <div className="w-full mx-auto relative overflow-hidden">
+            <div className=" pb-[38rem] sm:pb-[64.723%] 1.5xl:pb-[58.25rem]">
               <StaticImage
-                className="w-full mb-0 absolute [@media(min-width:500px)]:left-0 top-0 min-w-[45rem] -left-1/2"
+                className="w-full mb-0 absolute inset-0"
+                layout="fullWidth"
                 src="../images/main-cover.png"
               />
             </div>
@@ -41,6 +42,10 @@ const IndexPage = () => (
                 hasArrow={true}
                 className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base"
               >
+<<<<<<< HEAD
+=======
+>>>>>>> d7a41b7 (updates to make image full screen)
+>>>>>>> 6716f95 (updates to make image full screen)
                 Plan Your Visit
               </ButtonLink>
             </div>
