@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ButtonLink, PrimaryButtonLink } from "../components/Button";
+import { ButtonLink } from "../components/Button";
 import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
