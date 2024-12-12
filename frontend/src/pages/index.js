@@ -42,10 +42,6 @@ const IndexPage = () => (
                 hasArrow={true}
                 className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base"
               >
-<<<<<<< HEAD
-=======
->>>>>>> d7a41b7 (updates to make image full screen)
->>>>>>> 6716f95 (updates to make image full screen)
                 Plan Your Visit
               </ButtonLink>
             </div>
