@@ -21,7 +21,7 @@ const IndexPage = () => (
                 className="w-full mb-0 absolute inset-0"
                 layout="fullWidth"
                 alt="Sunday Celebration"
-                src="../images/main-cover.png"
+                src="../images/main-cover.jpg"
               />
             </div>
           </div>
