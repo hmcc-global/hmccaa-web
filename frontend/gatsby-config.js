@@ -49,6 +49,7 @@ module.exports = {
           "contact",
           "event",
           "event-template",
+          "missions-trip",
         ],
         singleTypes: ["notification-bar"],
       },
