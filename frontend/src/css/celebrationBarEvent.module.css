@@ -1,11 +1,11 @@
 @config "../config/tailwind.config.js";
 
 .short-hand {
-  @apply max-w-[14px] lg:max-w-none overflow-hidden whitespace-nowrap;
+  @apply max-w-[14px] normal-case lg:max-w-none overflow-hidden whitespace-nowrap;
 }
 
 .hyphen {
-  @apply relative;
+  @apply relative normal-case;
 }
 .hyphen::before {
   @apply inline lg:hidden content-["-"];
