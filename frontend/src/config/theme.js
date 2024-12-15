@@ -225,6 +225,7 @@ const theme = {
     inter: "Inter",
     roboto: "Roboto",
     ubuntu: "Ubuntu",
+    bebas: '"Bebas Neue"',
   },
   borderRadius: {
     none: "0",
@@ -344,6 +345,9 @@ const theme = {
     inset: {
       ...positionXY.x,
       ...positionXY.y,
+    },
+    screens: {
+      "1.5xl": "1455px",
     },
   },
 };

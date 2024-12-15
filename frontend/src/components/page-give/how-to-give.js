@@ -14,8 +14,8 @@ const HowToGiveSection = () => (
     </div>
     <div className="flex flex-col lg:flex-row lg:justify-center gap-y-10  pt-5 lg:pt-0">
       <div className="flex flex-col items-center max-w-[280px] lg:p-2.5 gap-2 lg:gap-5">
-        <div className="lg:m-2.5 w-[5rem] h-[5rem] lg:w-25 lg:h-25 flex items-center">
-          <LaptopIcon />
+        <div className="lg:m-2.5 flex items-center">
+          <LaptopIcon className="w-[5rem] h-[5rem] lg:w-25 lg:h-25" />
         </div>
         <div className="text-Primary-500 font-semibold text-2xl leading-tighter lg:leading-normal lg:text-3xl uppercase ">
           Give Online
@@ -33,8 +33,8 @@ const HowToGiveSection = () => (
         </PrimaryButtonLink>
       </div>
       <div className="flex flex-col items-center max-w-[280px] lg:p-2.5 gap-y-2 lg:gap-y-0">
-        <div className="lg:m-2.5 w-[5rem] h-[5rem] lg:w-25 lg:h-25 flex items-center">
-          <MailIcon />
+        <div className="lg:m-2.5 flex items-center">
+          <MailIcon className="w-[5rem] h-[5rem] lg:w-25 lg:h-25" />
         </div>
         <div className="text-Primary-500 font-semibold text-2xl leading-tighter lg:leading-normal lg:text-3xl uppercase mb-1 lg:mt-5 lg:mb-3">
           Give By Mail
