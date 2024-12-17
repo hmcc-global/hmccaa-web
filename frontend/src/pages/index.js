@@ -16,9 +16,9 @@ const IndexPage = () => (
       <div className="relative text-center text-Shades-0 bg-Primary-700">
         <div className="mx-auto">
           <div className="w-full mx-auto relative overflow-hidden">
-            <div className=" pb-[38rem] sm:pb-[64.723%] 1.5xl:pb-[58.25rem]">
+            <div className=" pb-[38rem] sm:pb-[64.723%] 1.5xl:pb-[58.25rem [&>.gatsby-image-wrapper]:absolute">
               <StaticImage
-                className="w-full mb-0 absolute inset-0"
+                className="w-full mb-0 inset-0"
                 layout="fullWidth"
                 alt="Sunday Celebration"
                 src="../images/main-cover.jpg"
