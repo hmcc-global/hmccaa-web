@@ -48,6 +48,7 @@ const formatParagraph = children => {
         answer[answer.length - 1].text.length - END.length
       );
       answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
+      console.log("[RichText] Found Collapsible:", question, answer);
       return (
         <Collapsible
           sectionHead={formatParagraphHelper(question)}
@@ -56,6 +57,11 @@ const formatParagraph = children => {
             chevron: "md:w-10",
           }}
         />
+      );
+    } else {
+      console.log(
+        "[RichText] Found collapsible but encountered error; formatting as text. Text:",
+        children
       );
     }
   }
