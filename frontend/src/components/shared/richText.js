@@ -38,7 +38,6 @@ const formatParagraph = children => {
   ) {
     let midIndex = children.findIndex(child => child.text?.includes(MID));
     let midIndexIndex = children[midIndex].text.indexOf(MID);
-    console.log(children, midIndex);
     if (midIndex != -1) {
       let question = structuredClone(children.slice(0, midIndex + 1));
       question[midIndex].text = question[midIndex].text.slice(0, midIndexIndex);
@@ -49,7 +48,6 @@ const formatParagraph = children => {
         answer[answer.length - 1].text.length - END.length
       );
       answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
-      console.log(question, answer);
       return (
         <Collapsible
           sectionHead={formatParagraphHelper(question)}
