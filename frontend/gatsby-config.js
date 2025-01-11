@@ -208,5 +208,11 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["HOST_ORIGIN"],
+      },
+    },
   ],
 };

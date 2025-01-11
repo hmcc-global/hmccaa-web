@@ -76,6 +76,7 @@ jobs:
         with:
           strapi_token: ${{ secrets.STRAPI_TOKEN }}
           strapi_server: ${{ secrets.STRAPI_SERVER }}
+          host_server: ${{ secrets.HOST_SERVER }}
 
   validate-docs:
     runs-on: ubuntu-latest

@@ -27,6 +27,8 @@ on:
         required: true
       strapi_api_url:
         required: true
+      host_server:
+        required: true
     
 jobs:
   deploy-site:
@@ -56,7 +58,7 @@ jobs:
           echo 'STRAPI_API_URL=${{ secrets.strapi_api_url }}' >> ./.env.${{ inputs.build_type }}
 
           npm install
-          NODE_ENV=${{ inputs.build_type }} npm run build
+          NODE_ENV=${{ inputs.build_type }} HOST_ORIGIN=${{ secrets.host_server }} npm run build
       - name: Add anti-webscraping
         if: ${{ inputs.add_robots_txt }}
         run: |
