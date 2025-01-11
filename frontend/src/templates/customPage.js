@@ -7,13 +7,12 @@ import RichText from "../components/shared/richText";
 
 const CustomPage = ({ data }) => {
   const pageData = data.strapiCustomPage;
-  // TODO: this doesn't load the banner image properly into tailwind, so we will stick with the default for now.
-  // const url = pageData?.BannerImage?.file?.publicURL;
-  // const background = url ? `bg-[url(http://localhost:8000${url})]` : "bg-events";
-  const background = "bg-events";
+  const url = pageData?.BannerImage?.file?.publicURL;
+  const bgImage = url ? "" : "bg-events";
+  const bgImageUrl = url ? `${document.location.origin}${url}` : null;
   return (
     <Layout hasSpacing={false}>
-      <Banner bgImage={`bg-[center_60%] ${background}`}>
+      <Banner bgImage={`bg-[center_60%] ${bgImage}`} bgImageUrl={bgImageUrl}>
         {pageData?.Title}
       </Banner>
       <div className="content-padding-full w-3 py-[0.9375rem] px-2 [@media(min-width:425px)]:px-8 [@media(min-width:550px)]:px-24 sm:px-16 lg:px-4 flex gap-y-3 [&>*]:w-full">
