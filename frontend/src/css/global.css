@@ -148,3 +148,11 @@ span.ellipsis {
 .notification-text-container p {
   @apply mb-0 inline px-4 lg:px-0 sm:pl-0;
 }
+
+.custom-page .collapsible h3 {
+  @apply lg:text-lg lg:leading-tighter;
+}
+
+.custom-page .collapsible .chevron {
+  @apply lg:pr-3;
+}

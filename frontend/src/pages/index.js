@@ -39,7 +39,7 @@ const IndexPage = () => (
             </h2>
             <div className="flex justify-center">
               <ButtonLink
-                to={"/connect"}
+                to={"/new"}
                 hasArrow={true}
                 className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base"
               >
