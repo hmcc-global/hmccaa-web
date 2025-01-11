@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "../Link";
+import { Collapsible } from "../collapsible";
 
 const formatText = ({ text, code, bold, italic, underline, strikethrough }) => {
   if (text === "") {
@@ -26,6 +27,45 @@ const formatLink = ({ url, children }) => {
 };
 
 const formatParagraph = children => {
+  const BEG = "<collapsible-question>";
+  const MID = "</collapsible-question><collapsible-answer>";
+  const END = "</collapsible-answer>";
+
+  if (
+    children.length > 0 &&
+    children[0].text?.startsWith(BEG) &&
+    children[children.length - 1].text?.endsWith(END)
+  ) {
+    let midIndex = children.findIndex(child => child.text?.includes(MID));
+    let midIndexIndex = children[midIndex].text.indexOf(MID);
+    console.log(children, midIndex);
+    if (midIndex != -1) {
+      let question = structuredClone(children.slice(0, midIndex + 1));
+      question[midIndex].text = question[midIndex].text.slice(0, midIndexIndex);
+      question[0].text = question[0].text.slice(BEG.length);
+      let answer = children.slice(midIndex);
+      answer[answer.length - 1].text = answer[answer.length - 1].text.slice(
+        0,
+        answer[answer.length - 1].text.length - END.length
+      );
+      answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
+      console.log(question, answer);
+      return (
+        <Collapsible
+          sectionHead={formatParagraphHelper(question)}
+          sectionBlock={formatParagraphHelper(answer)}
+          overrideCss={{
+            chevron: "md:w-10",
+          }}
+        />
+      );
+    }
+  }
+
+  return formatParagraphHelper(children);
+};
+
+const formatParagraphHelper = children => {
   return children.map(child => {
     switch (child.type) {
       case "link":
