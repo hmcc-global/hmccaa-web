@@ -11,6 +11,7 @@
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-breadcrumb": "^12.3.2",
+    "gatsby-plugin-env-variables": "^2.3.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.10.0",
     "gatsby-plugin-sharp": "^5.11.0",
@@ -46,7 +47,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "HOST_ORIGIN=http://localhost:8000 gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "lint": "NODE_ENV=test eslint src --ext .js,.jsx,.ts,.tsx --rulesdir node_modules/gatsby/dist/utils/eslint-rules",
     "start": "gatsby develop",

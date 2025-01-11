@@ -9,7 +9,8 @@ const CustomPage = ({ data }) => {
   const pageData = data.strapiCustomPage;
   const url = pageData?.BannerImage?.file?.publicURL;
   const bgImage = url ? "" : "bg-events";
-  const bgImageUrl = url ? `${document.location.origin}${url}` : null;
+  const bgImageUrl = url ? `${process.env.HOST_ORIGIN}${url}` : null;
+  console.log("[CustomPage] Generated banner url:", bgImageUrl || bgImage);
   return (
     <Layout hasSpacing={false}>
       <Banner bgImage={`bg-[center_60%] ${bgImage}`} bgImageUrl={bgImageUrl}>
