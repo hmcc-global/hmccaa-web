@@ -52,7 +52,7 @@ const formatParagraph = children => {
       return (
         <Collapsible
           sectionHead={formatParagraphHelper(question)}
-          sectionBlock={formatParagraphHelper(answer)}
+          sectionBody={formatParagraphHelper(answer)}
           overrideCss={{
             chevron: "md:w-10",
           }}
