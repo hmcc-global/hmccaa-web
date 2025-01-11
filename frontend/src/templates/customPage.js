@@ -8,6 +8,7 @@ import RichText from "../components/shared/richText";
 const CustomPage = ({ data }) => {
   const pageData = data.strapiCustomPage;
   const url = pageData?.BannerImage?.file?.publicURL;
+  console.log("[CustomPage] Found banner url:", url);
   const bgImage = url ? "" : "bg-events";
   const bgImageUrl = url ? `${document.location.origin}${url}` : null;
   return (
