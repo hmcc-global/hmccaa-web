@@ -142,7 +142,7 @@ span.ellipsis {
 }
 
 .notification-text-container > div {
-  @apply inline pr-4 lg:px-0 pl-4 sm:pl-0;
+  @apply inline pr-4 lg:px-0 pl-4 sm:pl-0 pb-0;
 }
 
 .notification-text-container p {
