@@ -49,7 +49,7 @@ const formatParagraph = children => {
       );
       answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
       console.log("[RichText] Found Collapsible:", question, answer);
-      let f = (
+      return (
         <Collapsible
           sectionHead={formatParagraphHelper(question)}
           sectionBody={formatParagraphHelper(answer)}
@@ -58,8 +58,6 @@ const formatParagraph = children => {
           }}
         />
       );
-      console.log("[RichText] Collapsible created:", f);
-      return f;
     } else {
       console.log(
         "[RichText] Found collapsible but encountered error; formatting as text. Text:",
@@ -160,9 +158,17 @@ const formatNode = ({ type, format, level, image, children }) => {
           break;
       }
     case "paragraph":
-      return <div>{formatParagraph(children)}</div>;
+      return (
+        <div className="pb-[1.3125rem] lg:pb-5">
+          {formatParagraph(children)}
+        </div>
+      );
     default: // Treat default case as regular paragraph
-      return <div>{formatParagraph(children)}</div>;
+      return (
+        <div className="pb-[1.3125rem] lg:pb-5">
+          {formatParagraph(children)}
+        </div>
+      );
   }
 };
 
@@ -171,30 +177,13 @@ const RichText = ({ data }) => {
     return "";
   }
 
-  let f = node => {
-    let formatted = formatNode(node);
-    console.log(
-      "[RichText] Formatted node:",
-      formatted,
-      "; props:",
-      formatted.props.children
-    );
-    console.log(
-      "[RichText] React fragment:",
-      <React.Fragment>{formatted}</React.Fragment>
-    );
-    return formatted;
-  };
-
-  let d = (
+  return (
     <>
       {data.map((node, idx) => (
-        <React.Fragment key={idx}>{f(node)}</React.Fragment>
+        <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
       ))}
     </>
   );
-  console.log("[RichText] Entire React Object:", d);
-  return d;
 };
 
 export default RichText;

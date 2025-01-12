@@ -12,7 +12,6 @@ export const Collapsible = ({
 }) => {
   const [reveal, setReveal] = useState(false);
   const toggle = () => {
-    console.log("[Collapsible] Toggling to ", reveal ? "hidden" : "showing");
     setReveal(!reveal);
   };
 
