@@ -16,7 +16,7 @@ export const Collapsible = ({
   };
 
   return (
-    <div className={box}>
+    <div className={`${box} collapsible`}>
       <div onClick={toggle} className={`${subHead} sub-heading`}>
         <button className={`${arrow} chevron`} aria-label="Toggle">
           <Chevron
@@ -37,16 +37,16 @@ export const Collapsible = ({
       <div
         className={`toggle ${toggleContainer}${reveal ? "" : " invisibility"}`}
       >
-        {sectionBody && <p>{sectionBody}</p>}
+        {sectionBody && <div>{sectionBody}</div>}
         {sectionBlock &&
           sectionBlock.map((bodyContext, index) => {
             const isLast = index + 1 === sectionBlock.length;
             return isLast ? (
-              <p key={`block-${index}`} className="mb-0">
+              <div key={`block-${index}`} className="mb-0">
                 {bodyContext}
-              </p>
+              </div>
             ) : (
-              <p key={`block-${index}`}>{bodyContext}</p>
+              <div key={`block-${index}`}>{bodyContext}</div>
             );
           })}
       </div>

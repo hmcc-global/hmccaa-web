@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "../Link";
+import { Collapsible } from "../collapsible";
 
 const formatText = ({ text, code, bold, italic, underline, strikethrough }) => {
   if (text === "") {
@@ -20,12 +21,61 @@ const formatLink = ({ url, children }) => {
       href={url}
       className="text-Accent-500 underline font-bold whitespace-nowrap inline-block"
     >
-      {formatParagraph(children)}
+      {formatParagraphHelper(children)}
     </Link>
   );
 };
 
 const formatParagraph = children => {
+  const BEG = "<collapsible-question>";
+  const MID = "</collapsible-question><collapsible-answer>";
+  const END = "</collapsible-answer>";
+
+  if (
+    children.length > 0 &&
+    children[0].text?.startsWith(BEG) &&
+    children[children.length - 1].text?.endsWith(END)
+  ) {
+    let midIndex = children.findIndex(child => child.text?.includes(MID));
+    let midIndexIndex = children[midIndex].text.indexOf(MID);
+    if (midIndex != -1) {
+      let question = structuredClone(children.slice(0, midIndex + 1));
+      question[midIndex].text = question[midIndex].text.slice(0, midIndexIndex);
+      question[0].text = question[0].text.slice(BEG.length);
+      let answer = children.slice(midIndex);
+      answer[answer.length - 1].text = answer[answer.length - 1].text.slice(
+        0,
+        answer[answer.length - 1].text.length - END.length
+      );
+      answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
+      console.log("[RichText] Found Collapsible:", question, answer);
+      return (
+        <div className="pb-[1.3125rem] lg:pb-3">
+          <Collapsible
+            sectionHead={formatParagraphHelper(question)}
+            sectionBody={formatParagraphHelper(answer)}
+            overrideCss={{
+              chevron: "md:w-10",
+            }}
+          />
+        </div>
+      );
+    } else {
+      console.log(
+        "[RichText] Found collapsible but encountered error; formatting as text. Text:",
+        children
+      );
+    }
+  }
+
+  return (
+    <div className="pb-[1.3125rem] lg:pb-7">
+      {formatParagraphHelper(children)}
+    </div>
+  );
+};
+
+const formatParagraphHelper = children => {
   return children.map(child => {
     switch (child.type) {
       case "link":
@@ -41,7 +91,7 @@ const formatOrderedList = children => {
   return (
     <ol className="list-decimal list-inside">
       {children.map((child, idx) => (
-        <li key={idx}>{formatParagraph(child.children)}</li>
+        <li key={idx}>{formatParagraphHelper(child.children)}</li>
       ))}
     </ol>
   );
@@ -51,14 +101,14 @@ const formatUnorderedList = children => {
   return (
     <ul className="list-disc list-inside">
       {children.map((child, idx) => (
-        <li key={idx}>{formatParagraph(child.children)}</li>
+        <li key={idx}>{formatParagraphHelper(child.children)}</li>
       ))}
     </ul>
   );
 };
 
 const formatHeading = (level, children) => {
-  const text = formatParagraph(children);
+  const text = formatParagraphHelper(children);
   const headingStyle = "text-center";
   switch (level) {
     case 1:
@@ -95,7 +145,7 @@ const formatNode = ({ type, format, level, image, children }) => {
     case "quote":
       return (
         <blockquote className="block ms-4 me-4 my-1">
-          {formatParagraph(children)}
+          {formatParagraphHelper(children)}
         </blockquote>
       );
     case "code":
@@ -114,9 +164,9 @@ const formatNode = ({ type, format, level, image, children }) => {
           break;
       }
     case "paragraph":
-      return <p>{formatParagraph(children)}</p>;
+      return formatParagraph(children);
     default: // Treat default case as regular paragraph
-      return <div>{formatParagraph(children)}</div>;
+      return formatParagraph(children);
   }
 };
 

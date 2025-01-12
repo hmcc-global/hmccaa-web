@@ -6,6 +6,9 @@ inputs:
   strapi_server:
     type: string
     required: true
+  host_server:
+    type: string
+    required: true
 runs:
   using: "composite"
   steps:
@@ -19,4 +22,4 @@ runs:
         echo 'STRAPI_API_URL=${{ inputs.strapi_server }}' >> ./.env.production
 
         npm install
-        NODE_ENV=production npm run build
+        NODE_ENV=production HOST_ORIGIN=${{ inputs.host_server }} npm run build
