@@ -172,10 +172,16 @@ const RichText = ({ data }) => {
     return "";
   }
 
+  let f = node => {
+    let formatted = formatNode(node);
+    console.log("[RichText] Formatted node:", formatted);
+    return formatted;
+  };
+
   return (
     <>
       {data.map((node, idx) => (
-        <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
+        <React.Fragment key={idx}>{f(node)}</React.Fragment>
       ))}
     </>
   );
