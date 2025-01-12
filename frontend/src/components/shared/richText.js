@@ -178,7 +178,7 @@ const RichText = ({ data }) => {
       "[RichText] Formatted node:",
       formatted,
       "; props:",
-      formatted.children
+      formatted.props.children
     );
     console.log(
       "[RichText] React fragment:",
