@@ -186,13 +186,15 @@ const RichText = ({ data }) => {
     return formatted;
   };
 
-  return (
+  let d = (
     <>
       {data.map((node, idx) => (
         <React.Fragment key={idx}>{f(node)}</React.Fragment>
       ))}
     </>
   );
+  console.log("[RichText] Entire React Object:", d);
+  return d;
 };
 
 export default RichText;
