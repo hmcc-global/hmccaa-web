@@ -49,7 +49,7 @@ const formatParagraph = children => {
       );
       answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
       console.log("[RichText] Found Collapsible:", question, answer);
-      return (
+      let f = (
         <div>
           test collapsible div
           <Collapsible
@@ -61,6 +61,8 @@ const formatParagraph = children => {
           />
         </div>
       );
+      console.log("[RichText] Collapsible created:", f);
+      return f;
     } else {
       console.log(
         "[RichText] Found collapsible but encountered error; formatting as text. Text:",
