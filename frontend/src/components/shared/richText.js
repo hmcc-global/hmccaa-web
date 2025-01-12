@@ -50,16 +50,13 @@ const formatParagraph = children => {
       answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
       console.log("[RichText] Found Collapsible:", question, answer);
       let f = (
-        <div>
-          test collapsible div
-          <Collapsible
-            sectionHead={formatParagraphHelper(question)}
-            sectionBody={formatParagraphHelper(answer)}
-            overrideCss={{
-              chevron: "md:w-10",
-            }}
-          />
-        </div>
+        <Collapsible
+          sectionHead={formatParagraphHelper(question)}
+          sectionBody={formatParagraphHelper(answer)}
+          overrideCss={{
+            chevron: "md:w-10",
+          }}
+        />
       );
       console.log("[RichText] Collapsible created:", f);
       return f;
