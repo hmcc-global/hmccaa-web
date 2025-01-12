@@ -160,7 +160,7 @@ const formatNode = ({ type, format, level, image, children }) => {
           break;
       }
     case "paragraph":
-      return <p>{formatParagraph(children)}</p>;
+      return <div>{formatParagraph(children)}</div>;
     default: // Treat default case as regular paragraph
       return <div>{formatParagraph(children)}</div>;
   }
