@@ -148,11 +148,6 @@ const lifeStages = [
             branch of Harvest Mission Community Church.
           </p>
         </div>
-        <div className="flex">
-          <SecondaryButtonLink to={""} hasArrow={true}>
-            ACCESS WEBSITE
-          </SecondaryButtonLink>
-        </div>
       </>
     ),
   },
