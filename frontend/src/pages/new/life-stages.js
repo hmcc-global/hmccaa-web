@@ -346,7 +346,7 @@ const LifeStagesPage = ({ pageContext }) => {
             </p>
             <div className="flex flex-col justify-center">
               <PrimaryButtonLink
-                to={"../get-involved/lifegroups"}
+                to={"../../get-involved/lifegroups"}
                 hasArrow={true}
               >
                 Check Out A Life Group
