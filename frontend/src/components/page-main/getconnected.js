@@ -23,7 +23,7 @@ const GetConnectedText = () => (
       stages, from youth to students to working adults or married couples!
     </p>
     <div className="py-5 flex justify-center">
-      <SecondaryButtonLink to="/connect" hasArrow={true}>
+      <SecondaryButtonLink to="/get-involved" hasArrow={true}>
         Learn More
       </SecondaryButtonLink>
     </div>

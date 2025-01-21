@@ -29,7 +29,7 @@ const NotFoundPage = () => (
           </div>
           <div className="pb-3">
             <Link
-              to="/connect"
+              to="/new"
               className="text-Primary-300 font-extrabold text-start leading-normal underline decoration-0 hover:opacity-75 uppercase tracking-widest text-base"
             >
               Sunday Celebration Info
