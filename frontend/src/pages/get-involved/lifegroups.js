@@ -25,7 +25,7 @@ const Images = () => {
       key="lg3"
     />,
     <StaticImage
-      src="../../images/lifegroup-4.png"
+      src="../../images/lifeGroupHuddle.png"
       alt="Lifegroup image 4"
       key="lg4"
     />,
