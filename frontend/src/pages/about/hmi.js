@@ -179,14 +179,11 @@ const HmiPage = ({ pageContext }) => {
     },
     {
       id: 7,
-      ministry: "HMCC of Tangerang",
-      workers: "Andrew & Nicole Jun",
-      image: (
-        <StaticImage src="../../images/juns.png" alt="Andrew & Nicole Jun" />
-      ),
+      ministry: "Southeast Asia",
+      workers: "Alex & Noel",
+      image: <StaticImage src="../../images/tj.png" alt="Alex & Noel" />,
       description:
-        "Andrew, Nickey, and their family moved to Indonesia in 2010 to lead a church planting team with HMCC. After years of local church leadership, the family is transitioning to focused outreach to unreached people groups in their area. Their mission is to see God start disciple-making movements among the millions of unreached Indonesians that live around them.",
-      moreInfo: "https://tangerang.hmcc.net/",
+        "Alex & Noel are supported workers in Southeast Asia, focused on outreach to unreached people groups in their area. Their hope is to see disciple-making movements among the many unreached peoples who live around them.",
     },
     {
       id: 8,
@@ -194,7 +191,7 @@ const HmiPage = ({ pageContext }) => {
       workers: "T & J",
       image: <StaticImage src="../../images/tj.png" alt="T & J" />,
       description:
-        "T & J were sent out from HMCC of Ann Arbor to serve in an East Asian nation as missionaries in 2024",
+        "T & J were sent out from HMCC of Ann Arbor to serve in an East Asian nation as missionaries in 2024.",
     },
   ].reduce((rows, worker, index, list) => {
     /*
