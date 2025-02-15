@@ -20,7 +20,7 @@ const TopLGSummary = () => {
               width="560"
               height="315"
               src="https://www.youtube-nocookie.com/embed/5OOb0W8Kv_A"
-              title="YouTube video player"
+              title="LIFE Group Intro Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
