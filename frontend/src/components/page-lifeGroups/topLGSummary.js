@@ -2,6 +2,7 @@ import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
+import { mediaWrapper } from "../../css/media.module.css";
 
 const TopLGSummary = () => {
   return (
@@ -11,12 +12,19 @@ const TopLGSummary = () => {
       </h1>
 
       <div className="flex flex-col lg:flex-row gap-y-5 lg:pb-25 pb-15 content-image">
-        <div className="lg:order-1 text-center image-container">
-          <StaticImage
-            className="max-w-[36.25rem]"
-            src="../../images/lifeGroupHuddle.png"
-            alt="LG people"
-          />
+        <div
+          className={`${mediaWrapper} lg:order-1 text-center image-container`}
+        >
+          <div>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube-nocookie.com/embed/5OOb0W8Kv_A"
+              title="LIFE Group Intro Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
         <div className=" text-center lg:text-left content-container">
           <HighlightedParagraph className="text-lg">
