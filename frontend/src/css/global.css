@@ -156,3 +156,47 @@ span.ellipsis {
 .custom-page .collapsible .chevron {
   @apply lg:pr-3;
 }
+
+.display {
+  @apply font-bebas font-bold text-5xl tracking-small-wide sm:text-3xl;
+}
+
+.custom-content h1 {
+  @apply font-bold text-5xl tracking-small-tight sm:text-2xl;
+}
+
+.custom-content h2 {
+  @apply font-bold text-4xl tracking-small-tight sm:text-2xl sm:font-semibold;
+}
+
+.custom-content h3 {
+  @apply font-semibold text-3xl tracking-small-tight sm:text-xl;
+}
+
+.custom-content h4 {
+  @apply font-semibold text-2xl tracking-small-tight sm:text-mid-lg;
+}
+
+.custom-content h5 {
+  @apply font-semibold text-xl tracking-small-tight sm:text-lg;
+}
+
+.custom-content h6 {
+  @apply font-semibold text-mid-lg tracking-small-tight sm:text-base;
+}
+
+.custom-content .h7 {
+  @apply font-semibold text-lg tracking-small-tight sm:text-sm;
+}
+
+.custom-content .subheading {
+  @apply font-semibold text-lg sm:font-bold sm:text-lg;
+}
+
+.custom-content p.medium {
+  @apply text-lg sm:text-base;
+}
+
+.custom-content p.small {
+  @apply text-base sm:text-sm;
+}
