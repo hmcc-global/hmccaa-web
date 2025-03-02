@@ -11,7 +11,11 @@ const formatText = ({ text, code, bold, italic, underline, strikethrough }) => {
   } ${underline ? "underline" : ""} ${
     strikethrough ? "line-through" : ""
   }`.trim();
-  const span = <span className={style}>{text}</span>;
+  const span = (
+    <span className={style} key={text}>
+      {text}
+    </span>
+  );
   return code ? <code>{span}</code> : span;
 };
 
@@ -26,7 +30,7 @@ const formatLink = ({ url, children }) => {
   );
 };
 
-const formatParagraph = children => {
+const formatParagraph = (children, addPaddingBelowParagraph = true) => {
   const BEG = "<collapsible-question>";
   const MID = "</collapsible-question><collapsible-answer>";
   const END = "</collapsible-answer>";
@@ -69,7 +73,7 @@ const formatParagraph = children => {
   }
 
   return (
-    <div className="pb-[1.3125rem] lg:pb-7">
+    <div className={addPaddingBelowParagraph ? "pb-[1.3125rem] lg:pb-7" : ""}>
       {formatParagraphHelper(children)}
     </div>
   );
@@ -128,7 +132,10 @@ const formatHeading = (level, children) => {
   }
 };
 
-const formatNode = ({ type, format, level, image, children }) => {
+const formatNode = (
+  { type, format, level, image, children },
+  addPaddingBelowParagraph = true
+) => {
   switch (type) {
     case "image":
       return (
@@ -164,13 +171,13 @@ const formatNode = ({ type, format, level, image, children }) => {
           break;
       }
     case "paragraph":
-      return formatParagraph(children);
+      return formatParagraph(children, addPaddingBelowParagraph);
     default: // Treat default case as regular paragraph
-      return formatParagraph(children);
+      return formatParagraph(children, addPaddingBelowParagraph);
   }
 };
 
-const RichText = ({ data }) => {
+const RichText = ({ data, addPaddingBelowParagraph = true }) => {
   if (!Array.isArray(data)) {
     return "";
   }
@@ -178,7 +185,9 @@ const RichText = ({ data }) => {
   return (
     <>
       {data.map((node, idx) => (
-        <React.Fragment key={idx}>{formatNode(node)}</React.Fragment>
+        <React.Fragment key={idx}>
+          {formatNode(node, addPaddingBelowParagraph)}
+        </React.Fragment>
       ))}
     </>
   );

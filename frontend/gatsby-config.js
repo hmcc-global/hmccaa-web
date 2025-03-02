@@ -50,6 +50,7 @@ module.exports = {
           "event",
           "event-template",
           "missions-trip",
+          "supported-missionary",
         ],
         singleTypes: ["notification-bar"],
       },
