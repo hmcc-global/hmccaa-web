@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supported_missionaries",
+  "info": {
+    "singularName": "supported-missionary",
+    "pluralName": "supported-missionaries",
+    "displayName": "Supported Missionaries",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Ministry": {
+      "type": "string",
+      "required": true
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.link"
+    }
+  }
+}

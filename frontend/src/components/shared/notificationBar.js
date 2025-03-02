@@ -26,7 +26,7 @@ const NotificationBar = () => {
           />
         </div>
         <div className="inline lg:flex lg:gap-4 notification-text-container">
-          <RichText data={data?.Text} />
+          <RichText data={data?.Text} addPaddingBelowParagraph={false} />
         </div>
       </div>
     </div>
