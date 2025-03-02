@@ -2,7 +2,10 @@ import React from "react";
 import Link from "../Link";
 import { Collapsible } from "../collapsible";
 
-const formatText = ({ text, code, bold, italic, underline, strikethrough }) => {
+const formatText = (
+  { text, code, bold, italic, underline, strikethrough },
+  idx
+) => {
   if (text === "") {
     return "";
   }
@@ -12,16 +15,17 @@ const formatText = ({ text, code, bold, italic, underline, strikethrough }) => {
     strikethrough ? "line-through" : ""
   }`.trim();
   const span = (
-    <span className={style} key={text}>
+    <span className={style} key={`${text}${idx}`}>
       {text}
     </span>
   );
-  return code ? <code>{span}</code> : span;
+  return code ? <code key={`${text}${idx}`}>{span}</code> : span;
 };
 
-const formatLink = ({ url, children }) => {
+const formatLink = ({ url, children }, idx) => {
   return (
     <Link
+      key={`${url}${idx}`}
       href={url}
       className="text-Accent-500 underline font-bold whitespace-nowrap inline-block"
     >
@@ -80,13 +84,13 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
 };
 
 const formatParagraphHelper = children => {
-  return children.map(child => {
+  return children.map((child, idx) => {
     switch (child.type) {
       case "link":
-        return formatLink(child);
+        return formatLink(child, idx);
       case "text":
       default:
-        return formatText(child);
+        return formatText(child, idx);
     }
   });
 };
