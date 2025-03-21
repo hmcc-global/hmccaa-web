@@ -162,7 +162,7 @@ const Sermons = ({
       </div>
       <div
         id="sermons-filter"
-        className="grid grid-cols-2 gap-y-3  max-w-[17rem] lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  "
+        className="grid grid-cols-2 gap-y-3  lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  "
       >
         {traits.map((traitInfo, idx) => (
           <ComboBox
@@ -182,7 +182,7 @@ const Sermons = ({
       </div>
       <div
         id="sermons-list-paged"
-        className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5"
+        className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5"
       >
         {nodes.map(
           (
