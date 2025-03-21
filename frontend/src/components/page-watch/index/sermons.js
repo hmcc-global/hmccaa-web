@@ -171,8 +171,8 @@ const Sermons = ({
             options={traitInfo.traits
               .sort(SermonTraitMetadata.get(traitInfo.field).sortingFn)
               .map(trait => ({
-                label: trait,
-                value: normalizeTrait(trait),
+                label: trait.replace(/_/g, " "), // Replace underscores with spaces for display
+                value: normalizeTrait(trait), // Keep normalized value for URLs
               }))}
             handleChange={handleChange}
             currentlySelected={currentlySelectedTraits[idx]}
