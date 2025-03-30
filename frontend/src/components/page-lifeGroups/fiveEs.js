@@ -78,7 +78,7 @@ const FiveEs = () => {
         id="lg-signups-anchor"
       >
         <PrimaryButtonLink
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeaS447hV0_fVkanehmEalMRkryJzb8Ahssuq4a5VxfElFSEQ/viewform"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSc3hifaq6b9MOlaFxUHIuhNS8EJRRM7ldDv_gMaT-f75LtNmA/viewform?usp=sharing"
           hasArrow={true}
         >
           LG SIGN UP: <span className="font-normal">UNDERGRAD STUDENTS</span>
