@@ -122,15 +122,15 @@ const formatHeading = (level, children) => {
     case 1:
       return <h2 className={headingStyle}>{text}</h2>;
     case 2:
-      return <h2 className={headingStyle}>{text}</h2>;
-    case 3:
       return <h3 className={headingStyle}>{text}</h3>;
-    case 4:
+    case 3:
       return <h4 className={headingStyle}>{text}</h4>;
-    case 5:
+    case 4:
       return <h5 className={headingStyle}>{text}</h5>;
-    case 6:
+    case 5:
       return <h6 className={headingStyle}>{text}</h6>;
+    case 6:
+      return <div className={` .h7 ${headingStyle}`}>{text}</div>;
     default:
       return text;
   }
