@@ -11,7 +11,7 @@ const LifeGroup = () => (
         alt="Life Group Next Step"
       />
     </div>
-    <div className="text-center lg:text-left content-container">
+    <div className="content-container">
       <div className="subheading">life groups</div>
       <h2>build lasting relationships.</h2>
       <HighlightedParagraph>
@@ -26,7 +26,7 @@ const LifeGroup = () => (
           another within various life stages.
         </p>
       </HighlightedParagraph>
-      <div className="flex justify-center lg:justify-start">
+      <div className="flex">
         <PrimaryButtonLink hasArrow={true} to={"/get-involved/lifegroups"}>
           Learn More
         </PrimaryButtonLink>

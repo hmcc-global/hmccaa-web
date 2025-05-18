@@ -26,7 +26,7 @@ const TopLGSummary = () => {
             ></iframe>
           </div>
         </div>
-        <div className=" text-center lg:text-left content-container">
+        <div className="text-left content-container">
           <HighlightedParagraph className="text-lg">
             <p>
               In the Bible, Jesus talks about living an abundant life. The

@@ -151,7 +151,7 @@ const HmiPage = ({
                   </div>
                 </div>
                 <div className="flex flex-col w-full gap-y-5 md:gap-y-10 max-w-container">
-                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem]">
                     <h2 className="uppercase text-xl md:text-3xl">
                       Past Projects
                     </h2>

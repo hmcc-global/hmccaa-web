@@ -11,7 +11,7 @@ const WelcomeMain = () => (
         alt="welcome page image"
       />
     </div>
-    <div className="w-full lg:text-left text-center flex lg:block flex-col content-container">
+    <div className="w-full text-left flex lg:block flex-col content-container">
       <div className="subheading">welcome</div>
       <h2>JESUS IS OUR CENTER.</h2>
       <HighlightedParagraph>
@@ -30,7 +30,7 @@ const WelcomeMain = () => (
           God’s love by the way we love one another.
         </p>
       </HighlightedParagraph>
-      <div className="flex lg:justify-start justify-center">
+      <div className="flex">
         <SecondaryButtonLink to="/about" hasArrow={true}>
           About Us
         </SecondaryButtonLink>

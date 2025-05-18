@@ -3,7 +3,7 @@ import * as React from "react";
 import { SecondaryButtonLink } from "../Button";
 
 const Transformation = () => (
-  <div className="max-w-container w-full flex flex-col md:flex-row content-image gap-y-5 py-5 text-center md:text-left items-center">
+  <div className="max-w-container w-full flex flex-col md:flex-row content-image gap-y-5 py-5 lg:items-center">
     <div className="max-w-[26.25rem] md:max-w-none image-container">
       <StaticImage
         src="../../images/transformation-classes.png"
@@ -22,7 +22,7 @@ const Transformation = () => (
           from our past, or how to spread God&apos;s Word.
         </p>
       </div>
-      <div className="flex justify-center md:justify-start">
+      <div className="flex">
         <SecondaryButtonLink to="/get-involved/transformation">
           More Info
         </SecondaryButtonLink>

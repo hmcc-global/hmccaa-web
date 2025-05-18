@@ -46,7 +46,7 @@ const fiveEInfo = [
 const FiveEs = () => {
   return (
     <div>
-      <h3 className="text-center text-[1.5rem] font-semibold mb-10 leading-tighter">
+      <h3 className="text-left lg:text-center text-[1.5rem] font-semibold mb-10 leading-tighter">
         HMCC has defined the five values of biblical community found in Acts
         2:42-47 as follows:
       </h3>
@@ -54,7 +54,7 @@ const FiveEs = () => {
         {fiveEInfo.map((item, i, index) => (
           <span
             key={`fiveEInfo-${index}`}
-            className="flex flex-col text-center items-center"
+            className="flex flex-col lg:text-center lg:items-center"
           >
             <Circle color={item.color} />
             <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter">
@@ -90,7 +90,7 @@ const FiveEs = () => {
           LG SIGN UP: <span className="font-normal">ALL OTHER LIFE STAGES</span>
         </PrimaryButtonLink>
       </div>
-      <div className="text-center lg:pb-50 max-w-[51.25rem] mx-auto font-medium lg:pt-0 lg:px-0 pt-7 pb-25 pr-2">
+      <div className="lg:text-center lg:pb-50 max-w-[51.25rem] mx-auto font-medium lg:pt-0 lg:px-0 pt-7 pb-25 pr-2">
         <p className="mb-6 lg:mb-[1.3125rem]">
           Most of our Life groups for students and young adults happen on{" "}
           <b className="font-montserrat tracking-medium-wide">Tuesdays</b> and{" "}

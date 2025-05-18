@@ -10,7 +10,7 @@ const UpcomingEvents = () => (
         alt="UpcomingEventsImg"
       />
     </div>
-    <div className="w-full text-center lg:text-left content-container">
+    <div className="w-full text-left content-container">
       <div className="subheading">upcoming events</div>
       <h2>
         Here<span>&#39;</span>s what<span>&#39;</span>s happening next.
@@ -20,7 +20,7 @@ const UpcomingEvents = () => (
         those across different life stages. Don’t miss out on the opportunities
         to have fun and get to know others!
       </p>
-      <div className="flex justify-center lg:justify-start">
+      <div className="flex justify-start">
         <SecondaryButtonLink to="/events" hasArrow={true}>
           More Events
         </SecondaryButtonLink>
