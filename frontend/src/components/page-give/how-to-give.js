@@ -67,8 +67,11 @@ const HowToGiveSection = () => (
           States. Year-end giving reports will be issued every January.
         </p>
       </div>
-      <div className="flex items-start w-full sm:justify-center">
-        <SecondaryButtonLink href="https://hmcc-aa.churchcenter.com/giving/profile">
+      <div className="flex w-full sm:justify-center">
+        <SecondaryButtonLink
+          className="w-full sm:w-auto"
+          href="https://hmcc-aa.churchcenter.com/giving/profile"
+        >
           View Donor Profile
         </SecondaryButtonLink>
       </div>
