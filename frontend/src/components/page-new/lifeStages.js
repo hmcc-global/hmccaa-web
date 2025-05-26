@@ -113,7 +113,7 @@ const LifeStages = () => {
           </div>
         ))}
       </div>
-      <div className="flex flex-col items-center gap-y-5">
+      <div className="flex flex-col lg:items-center w-full gap-y-5">
         <SecondaryButtonLink
           href="https://fs23.formsite.com/whitemn/dtuolqqeba/index.html"
           hasArrow={true}

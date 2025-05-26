@@ -32,7 +32,7 @@ const MissionsNextStep = () => (
           We have new opportunities each year. See how you can get involved!
         </p>
       </HighlightedParagraph>
-      <div className="flex">
+      <div className="lg:flex">
         <SecondaryButtonLink to="/get-involved/missions" hasArrow={true}>
           Learn More
         </SecondaryButtonLink>

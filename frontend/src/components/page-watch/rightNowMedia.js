@@ -41,7 +41,7 @@ const RightNowMedia = () => (
             RightNow Media is free for anyone connected to HMCC.
           </p>
         </div>
-        <div className="flex justify-center lg:justify-start">
+        <div className="lg:flex lg:justify-start">
           <SecondaryButtonLink
             href="https://www.rightnowmedia.org/Account/Invite/HMCC"
             hasArrow={true}

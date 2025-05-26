@@ -126,7 +126,7 @@ const MinistryTeamsPage = ({ pageContext }) => {
     <Layout>
       <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-9 md:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-12 md:gap-y-15 items-center">
+        <div className="max-w-container w-full flex flex-col gap-y-12 md:gap-y-15 items-left lg:items-center">
           <h1 className="font-semibold text-2xl md:font-bold md:text-4xl leading-tighter mb-0 uppercase">
             Ministry Teams
           </h1>
@@ -267,7 +267,7 @@ const MinistryTeamsPage = ({ pageContext }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col max-w-[44rem] w-full items-center text-center gap-y-5 md:gap-y-10">
+        <div className="flex flex-col max-w-[44rem] w-full lg:items-center lg:text-center gap-y-5 md:gap-y-10">
           <p className="text-base lg:text-lg mb-0">
             <span className="font-bold">
               If you are interested in joining a Ministry Team

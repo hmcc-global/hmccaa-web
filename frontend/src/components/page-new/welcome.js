@@ -36,7 +36,7 @@ const WelcomeSection = () => (
           </span>
         </p>
       </HighlightedParagraph>
-      <div className="flex justify-center lg:justify-start">
+      <div className="lg:flex lg:justify-start">
         <SecondaryButtonLink
           href="https://fs23.formsite.com/whitemn/dtuolqqeba/index.html"
           hasArrow={true}

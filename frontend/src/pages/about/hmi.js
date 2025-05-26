@@ -131,7 +131,7 @@ const HmiPage = ({
                         alt="Hands All In"
                       />
                     </div>
-                    <div className="text-center md:text-left content-container">
+                    <div className="lg:text-center content-container">
                       <p className="mb-6 md:mb-[1.3125rem]">
                         As Christ has called us to &apos;make disciples of all
                         nations&apos; (Matthew 28:19), we value the importance
@@ -198,7 +198,7 @@ const HmiPage = ({
                     <h2 className="uppercase text-xl md:text-3xl leading-tighter">
                       Supported Workers
                     </h2>
-                    <p className="mb-0 text-base md:text-lg">
+                    <p className="mb-0 text-base md:text-lg text-left lg:text-center">
                       Partnership is critical as we strive to reach the nations
                       with the Gospel message. We know that missions cannot be
                       done by a sole missionary, but that it is our privilege to

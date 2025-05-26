@@ -22,7 +22,7 @@ const GetConnectedText = () => (
       know God or not, we welcome you! We have fellowship for all different life
       stages, from youth to students to working adults or married couples!
     </p>
-    <div className="py-5 flex">
+    <div className="py-5 lg:flex">
       <SecondaryButtonLink to="/new/life-stages" hasArrow={true}>
         Learn More
       </SecondaryButtonLink>

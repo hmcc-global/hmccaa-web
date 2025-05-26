@@ -47,7 +47,7 @@ const LiveStream = () => {
             person, but if you cannot, come worship with us through our live
             stream!
           </p>
-          <div className="flex">
+          <div className="lg:flex">
             <PrimaryButtonLink
               hasArrow={true}
               href={`https://${mobile}youtube.com/@hmcc_aa/streams`}

@@ -26,7 +26,7 @@ const LifeGroup = () => (
           another within various life stages.
         </p>
       </HighlightedParagraph>
-      <div className="flex">
+      <div className="lg:flex">
         <PrimaryButtonLink hasArrow={true} to={"/get-involved/lifegroups"}>
           Learn More
         </PrimaryButtonLink>

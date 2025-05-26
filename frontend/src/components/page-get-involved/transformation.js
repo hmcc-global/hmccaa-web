@@ -22,7 +22,7 @@ const Transformation = () => (
           from our past, or how to spread God&apos;s Word.
         </p>
       </div>
-      <div className="flex">
+      <div className="lg:flex">
         <SecondaryButtonLink to="/get-involved/transformation">
           More Info
         </SecondaryButtonLink>

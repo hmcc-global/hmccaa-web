@@ -48,5 +48,5 @@
 }
 
 .button-container {
-  @apply flex lg:mx-auto max-w-btn;
+  @apply lg:flex lg:mx-auto lg:max-w-btn;
 }

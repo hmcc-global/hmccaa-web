@@ -20,7 +20,7 @@ const UpcomingEvents = () => (
         those across different life stages. Don’t miss out on the opportunities
         to have fun and get to know others!
       </p>
-      <div className="flex justify-start">
+      <div className="lg:flex lg:justify-start">
         <SecondaryButtonLink to="/events" hasArrow={true}>
           More Events
         </SecondaryButtonLink>

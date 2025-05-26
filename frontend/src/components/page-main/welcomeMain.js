@@ -30,7 +30,7 @@ const WelcomeMain = () => (
           God’s love by the way we love one another.
         </p>
       </HighlightedParagraph>
-      <div className="flex">
+      <div className="lg:flex">
         <SecondaryButtonLink to="/about" hasArrow={true}>
           About Us
         </SecondaryButtonLink>
