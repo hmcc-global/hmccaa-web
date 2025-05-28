@@ -7,7 +7,7 @@ import { mediaWrapper } from "../../css/media.module.css";
 const TopLGSummary = () => {
   return (
     <div>
-      <h1 className="text-center text-[2.5rem] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-0">
+      <h1 className="lg:text-center text-[2.5rem] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-0">
         LIFE GROUPS
       </h1>
 
@@ -54,7 +54,7 @@ const TopLGSummary = () => {
               experience the life-changing power of Biblical community.
             </p>
           </HighlightedParagraph>
-          <div className="flex lg:justify-start justify-center">
+          <div className="lg:flex lg:justify-start">
             <SecondaryButtonLink hasArrow={true} to="#lg-signups-anchor">
               CHECK OUT A LIFE GROUP
             </SecondaryButtonLink>

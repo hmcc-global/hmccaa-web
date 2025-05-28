@@ -121,7 +121,7 @@ const HmiPage = ({
             <div className="flex flex-col gap-y-8 md:gap-y-15 w-full items-center">
               <div className="px-2 md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
                 <div className="flex flex-col gap-y-9 md:gap-y-15 max-w-container w-full">
-                  <h1 className="uppercase text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
+                  <h1 className="uppercase lg:text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
                     Harvest Mission International (HMI)
                   </h1>
                   <div className="flex flex-col md:flex-row gap-y-[1.25rem]  gap-x-15">
@@ -194,7 +194,7 @@ const HmiPage = ({
               </div>
               <div className="md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
                 <div className="flex flex-col gap-y-5 md:gap-y-10 items-center lg:items-start max-w-container w-full">
-                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-left">
                     <h2 className="uppercase text-xl md:text-3xl leading-tighter">
                       Supported Workers
                     </h2>

@@ -324,7 +324,7 @@ const LifeStagesPage = ({ pageContext }) => {
                     </div>
                   </div>
                   <div className="flex flex-col gap-y-5 lg:gap-y-4 lg:max-w-[66.10169%]">
-                    <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-center lg:text-left">
+                    <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-left">
                       {heading}
                     </h2>
                     <div className={lifeStage}>{description}</div>
@@ -339,7 +339,7 @@ const LifeStagesPage = ({ pageContext }) => {
               smaller groups of community where we grow and challenge one
               another more consistently, we meet in Life groups.
             </p>
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col w-full">
               <PrimaryButtonLink
                 to={"../../get-involved/lifegroups"}
                 hasArrow={true}

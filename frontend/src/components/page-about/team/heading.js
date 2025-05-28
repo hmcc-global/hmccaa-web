@@ -18,7 +18,7 @@ const Heading = () => (
 );
 
 const TeamHeading = ({ title, children }) => (
-  <div className="w-full flex flex-col items-center lg:items-start gap-y-5 lg:gap-y-3 text-center lg:text-left">
+  <div className="w-full flex flex-col items-start gap-y-5 lg:gap-y-3 text-center lg:text-left">
     <h2 className="text-xl font-semibold lg:text-3xl lg:font-bold">{title}</h2>
     {children && <div className="text-base lg:text-lg">{children}</div>}
   </div>

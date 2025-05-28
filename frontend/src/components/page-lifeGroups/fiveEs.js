@@ -74,7 +74,7 @@ const FiveEs = () => {
         ))}
       </div>
       <div
-        className="flex flex-col justify-center items-center gap-5 pt-[5.25rem] lg:pt-[6.25rem] pb-5 lg:pb-12"
+        className="flex flex-col justify-center items-stretch gap-5 pt-[5.25rem] lg:pt-[6.25rem] pb-5 lg:pb-12"
         id="lg-signups-anchor"
       >
         <PrimaryButtonLink
