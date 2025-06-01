@@ -220,7 +220,7 @@ const Circle = ({ color }) => (
     <rect width="80" height="80" rx="40" className={color} />
     <path
       d="M51.1683 49.16V54H31.4483V25.6H50.8083V30.44H36.9683V37.28H48.9283V41.76H36.9683V49.16H51.1683Z"
-      className="fill-Shades-0"
+      className="fill-transparent"
     />
   </svg>
 );
