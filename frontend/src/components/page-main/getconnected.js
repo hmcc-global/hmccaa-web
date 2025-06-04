@@ -14,7 +14,7 @@ import imgImpact from "../../images/home-get-connected/impact-raw.png";
 import imgLatVel from "../../images/home-get-connected/latvel-raw.png";
 
 const GetConnectedText = () => (
-  <div className="w-full flex-col xl:py-5 justify-center text-center">
+  <div className="w-full flex-col xl:py-5">
     <div className="subheading">Get Connected</div>
     <h2>There is a place for you at HMCC.</h2>
     <p className="pt-5">
@@ -22,7 +22,7 @@ const GetConnectedText = () => (
       know God or not, we welcome you! We have fellowship for all different life
       stages, from youth to students to working adults or married couples!
     </p>
-    <div className="py-5 flex justify-center">
+    <div className="py-5 lg:flex lg:justify-center lg:w-full">
       <SecondaryButtonLink to="/new/life-stages" hasArrow={true}>
         Learn More
       </SecondaryButtonLink>
@@ -90,7 +90,7 @@ const lgsArray = [
 ];
 
 const GetConnectedCircleDesktop = () => (
-  <div className="2 w-full pt-[12rem] pb-[8rem] px-10">
+  <div className="2 w-full pt-[12rem] pb-[8rem]">
     <div>
       <div
         className={
@@ -188,7 +188,7 @@ const LifeStagesBoxMobile = () => (
 // title on top, black text
 // desc on bottom, white text, centered
 const GetConnectedCircleMobile = () => (
-  <div className="flex-col mx-3 px-4 py-10 w-full inline-flex">
+  <div className="flex-col mx-3 py-10 w-full inline-flex">
     <div>
       <GetConnectedText />
     </div>

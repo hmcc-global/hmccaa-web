@@ -121,7 +121,7 @@ const HmiPage = ({
             <div className="flex flex-col gap-y-8 md:gap-y-15 w-full items-center">
               <div className="px-2 md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
                 <div className="flex flex-col gap-y-9 md:gap-y-15 max-w-container w-full">
-                  <h1 className="uppercase text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
+                  <h1 className="uppercase lg:text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
                     Harvest Mission International (HMI)
                   </h1>
                   <div className="flex flex-col md:flex-row gap-y-[1.25rem]  gap-x-15">
@@ -131,7 +131,7 @@ const HmiPage = ({
                         alt="Hands All In"
                       />
                     </div>
-                    <div className="text-center md:text-left content-container">
+                    <div className="content-container">
                       <p className="mb-6 md:mb-[1.3125rem]">
                         As Christ has called us to &apos;make disciples of all
                         nations&apos; (Matthew 28:19), we value the importance
@@ -151,7 +151,7 @@ const HmiPage = ({
                   </div>
                 </div>
                 <div className="flex flex-col w-full gap-y-5 md:gap-y-10 max-w-container">
-                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem]">
                     <h2 className="uppercase text-xl md:text-3xl">
                       Past Projects
                     </h2>
@@ -194,11 +194,11 @@ const HmiPage = ({
               </div>
               <div className="md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
                 <div className="flex flex-col gap-y-5 md:gap-y-10 items-center lg:items-start max-w-container w-full">
-                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-left">
                     <h2 className="uppercase text-xl md:text-3xl leading-tighter">
                       Supported Workers
                     </h2>
-                    <p className="mb-0 text-base md:text-lg">
+                    <p className="mb-0 text-base md:text-lg text-left">
                       Partnership is critical as we strive to reach the nations
                       with the Gospel message. We know that missions cannot be
                       done by a sole missionary, but that it is our privilege to

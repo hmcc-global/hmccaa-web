@@ -89,12 +89,12 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
               crumbSeparator=" > "
             />
           </div>
-          <div className="flex flex-col gap-y-[0.75rem] lg:gap-y-[3.75rem] items-center max-w-[61.25rem] w-full pb-[3.98625rem] lg:pb-0">
-            <h1 className="text-2xl lg:text-4xl leading-tighter font-semibold lg:font-bold mb-0">
+          <div className="flex flex-col gap-y-[0.75rem] lg:gap-y-[3.75rem] items-start lg:items-center max-w-[61.25rem] w-full pb-[3.98625rem] lg:pb-0">
+            <h1 className="text-2xl lg:text-4xl leading-tighter font-semibold lg:font-bold mb-0 text-left lg:text-center w-full">
               {title}
             </h1>
-            <div className="flex flex-col lg:flex-row lg:gap-x-10 items-center pt-[0.9375rem] lg:pt-0 gap-y-5 lg:gap-y-0 lg:items-start w-full">
-              <div className="flex flex-col gap-y-1 lg:gap-y-10 text-base lg:text-xl font-medium w-full lg:w-auto">
+            <div className="flex flex-col lg:flex-row lg:gap-x-10 items-start lg:items-center pt-[0.9375rem] lg:pt-0 gap-y-5 lg:gap-y-0 w-full">
+              <div className="flex flex-col gap-y-1 lg:gap-y-10 text-base lg:text-xl font-medium w-full lg:w-auto text-left">
                 <div className="flex gap-x-2">
                   <CalendarIcon />
                   <div>{date}</div>

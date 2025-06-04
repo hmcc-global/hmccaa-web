@@ -5,7 +5,7 @@
 }
 
 .container {
-  @apply max-w-container w-full flex flex-col text-center gap-y-5 lg:text-left lg:flex-row items-center lg:items-start lg:gap-x-15 lg:gap-y-0;
+  @apply max-w-container w-full flex flex-col text-left gap-y-5 lg:flex-row items-center lg:items-start lg:gap-x-15 lg:gap-y-0;
 }
 
 .description-wrapper {

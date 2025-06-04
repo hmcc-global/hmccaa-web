@@ -80,8 +80,8 @@ const MissionsPage = ({
         {missions.length == 0 ? (
           <MissionsEmpty />
         ) : (
-          <div className="max-w-[61.25rem] w-full flex flex-col gap-y-12 lg:gap-y-15 items-center">
-            <h1 className="text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase text-center">
+          <div className="max-w-[61.25rem] w-full flex flex-col gap-y-12 lg:gap-y-15 lg:items-center">
+            <h1 className="text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase lg:text-center">
               Missions Project Support
             </h1>
             <div className="flex flex-col w-full lg:gap-y-15">
@@ -99,7 +99,7 @@ const MissionsPage = ({
                   index
                 ) => (
                   <div
-                    className={`flex flex-col w-full gap-y-5 lg:gap-y-10 items-center lg:items-start pt-4 lg:pt-0 ${
+                    className={`flex flex-col w-full gap-y-5 lg:gap-y-10 items-start pt-4 lg:pt-0 ${
                       index + 1 < missions.length
                         ? "pb-6 lg:pb-[4.875rem] border-b-solid border-b-Shades-100 border-b-4"
                         : ""

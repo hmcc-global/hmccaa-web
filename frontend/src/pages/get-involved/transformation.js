@@ -75,8 +75,8 @@ const TransformationPage = ({ pageContext }) => {
     <Layout>
       <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-9 lg:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-9 lg:gap-y-15 items-center">
-          <h1 className="text-2xl font-semibold lg:font-bold uppercase lg:text-4xl leading-tighter mb-0">
+        <div className="max-w-container w-full flex flex-col gap-y-9 lg:gap-y-15 lg:items-center">
+          <h1 className="text-2xl font-semibold lg:font-bold uppercase lg:text-4xl leading-tighter mb-0 text-left lg:text-center">
             Transformation Classes
           </h1>
           <div className="gap-y-5 gap-x-15 flex flex-col lg:flex-row items-center lg:items-start pt-4 lg:pt-0">
@@ -107,7 +107,7 @@ const TransformationPage = ({ pageContext }) => {
                   deeply and live out His calling for their lives.
                 </p>
               </div>
-              <div className="flex">
+              <div className="lg:flex">
                 <PrimaryButtonLink to="/events" hasArrow={true}>
                   Events Page
                 </PrimaryButtonLink>

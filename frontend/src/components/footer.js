@@ -44,7 +44,7 @@ const Footer = () => {
                   HARVEST MISSION COMMUNITY CHURCH
                 </h2>
               </div>
-              <p className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-center md:text-left">
+              <p className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-left">
                 To transform lost people into Christ’s disciples who will then
                 transform the world.
               </p>

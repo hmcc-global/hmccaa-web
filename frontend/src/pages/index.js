@@ -37,7 +37,7 @@ const IndexPage = () => (
             <h2 className="flex-1 mb-0 lg:pr-4 md:text-3xl text-2xl md:text-left text-center font-semibold leading-tight -tracking-[0.02em] text-Shades-0 md:whitespace-nowrap ">
               JOIN US THIS SUNDAY @ 10 AM
             </h2>
-            <div className="flex justify-center">
+            <div className="lg:flex lg:justify-center">
               <ButtonLink
                 to={"/new"}
                 hasArrow={true}

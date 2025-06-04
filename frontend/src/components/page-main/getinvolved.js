@@ -46,7 +46,7 @@ const GetInvolved = () => (
         <div className="flex gap-y-10 md:gap-y-0 gap-x-8 justify-between flex-col md:flex-row items-center max-w-[12.5rem] md:max-w-none w-full">
           {steps.map(({ id, image, text, details, href, action, external }) => (
             <div
-              className="flex flex-col items-center gap-y-5 text-center md:w-[30.613%] md:pt-9 md:pb-[2.1875rem]"
+              className="flex flex-col items-start lg:items-center gap-y-5 text-left md:w-[30.613%] md:pt-9 md:pb-[2.1875rem]"
               key={`step-${id}`}
             >
               <div>{image}</div>

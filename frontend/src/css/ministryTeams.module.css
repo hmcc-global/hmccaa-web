@@ -1,14 +1,14 @@
 @config "../config/tailwind.config.js";
 
 .wrapper {
-  @apply max-w-[90rem] mx-auto w-full px-4 xl:px-0 pt-[0.9375rem] pb-[2.3125rem] xl:pt-14 xl:pb-[7.5rem];
+  @apply max-w-[90rem] mx-auto w-full pt-[0.9375rem] pb-[2.3125rem] xl:pt-14 xl:pb-[7.5rem];
 }
 
 .container {
   @apply max-w-[31.25rem] xl:max-w-[57.5rem] xl:relative mx-auto xl:left-[1px] xl:py-[16.6875rem] xl:border-solid xl:border-[10px] xl:border-Primary-500 xl:rounded-full;
 }
 .text-container {
-  @apply flex flex-col items-center text-center max-w-[31.25rem] mx-auto gap-y-5 xl:pb-5;
+  @apply flex flex-col items-start lg:items-center text-left lg:text-center max-w-[31.25rem] mx-auto gap-y-5 xl:pb-5;
 }
 
 .text-container p {

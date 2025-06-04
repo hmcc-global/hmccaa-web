@@ -77,7 +77,11 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
   }
 
   return (
-    <div className={addPaddingBelowParagraph ? "pb-[1.3125rem] lg:pb-7" : ""}>
+    <div
+      className={`text-left ${
+        addPaddingBelowParagraph ? "pb-[1.3125rem] lg:pb-7" : ""
+      }`}
+    >
       {formatParagraphHelper(children)}
     </div>
   );
@@ -117,7 +121,7 @@ const formatUnorderedList = children => {
 
 const formatHeading = (level, children) => {
   const text = formatParagraphHelper(children);
-  const headingStyle = "text-center";
+  const headingStyle = "text-left";
   switch (level) {
     case 1:
       return <h2 className={headingStyle}>{text}</h2>;
@@ -147,7 +151,7 @@ const formatNode = (
           <img
             src={image.url}
             alt={image.alternativeText}
-            className="flex justify-center items-center content-image lg:w-1/3"
+            className="items-start lg:items-center content-image lg:w-1/3"
           />
         </div>
       );
