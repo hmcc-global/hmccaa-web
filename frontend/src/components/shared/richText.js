@@ -9,7 +9,7 @@ const formatText = (
   if (text === "") {
     return "";
   }
-  const style = `whitespace-pre-wrap ${bold ? "font-bold" : ""}  ${
+  const style = `whitespace-pre-wrap break-all ${bold ? "font-bold" : ""}  ${
     italic ? "italic" : ""
   } ${underline ? "underline" : ""} ${
     strikethrough ? "line-through" : ""
