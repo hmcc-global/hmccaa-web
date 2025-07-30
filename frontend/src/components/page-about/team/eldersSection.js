@@ -57,7 +57,7 @@ export const elderInfo = [
 
 const EldersSection = () => {
   return (
-    <div className="flex flex-col items-center gap-y-[3.75rem] pt-[1.6875rem] pb-[1.125rem] lg:py-0">
+    <div className="flex flex-col lg:items-center gap-y-[3.75rem] pt-[1.6875rem] pb-[1.125rem] lg:py-0">
       <TeamHeading title="Meet Our Elders" />
       <Team className="gap-x-4 lg:gap-x-5 lg:pb-[3.75rem]">
         {elderInfo.map((item, index) => (

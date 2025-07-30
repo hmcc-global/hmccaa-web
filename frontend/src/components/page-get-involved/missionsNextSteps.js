@@ -11,7 +11,7 @@ const MissionsNextStep = () => (
         alt="Missions Next Step"
       />
     </div>
-    <div className="text-center lg:text-left content-container">
+    <div className="content-container">
       <div className="subheading">Missions</div>
       <h2>go to all nations</h2>
       <HighlightedParagraph>
@@ -32,7 +32,7 @@ const MissionsNextStep = () => (
           We have new opportunities each year. See how you can get involved!
         </p>
       </HighlightedParagraph>
-      <div className="flex justify-center lg:justify-start">
+      <div className="lg:flex">
         <SecondaryButtonLink to="/get-involved/missions" hasArrow={true}>
           Learn More
         </SecondaryButtonLink>

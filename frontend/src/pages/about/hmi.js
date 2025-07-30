@@ -110,114 +110,6 @@ const HmiPage = ({
     }
   });
 
-  // let nodes = [
-  //   {
-  //     id: 1,
-  //     ministry: "Camino De Vida, Peru",
-  //     workers: "Robert & Karyn Barriger",
-  //     image: (
-  //       <StaticImage
-  //         src="../../images/barrigers.png"
-  //         alt="Robert & Karyn Barriger"
-  //       />
-  //     ),
-  //     description:
-  //       "Robert and Karyn Barriger founded Camino de Vida church in Lima, Peru in 1989. They desire to build up the local church as an instrument of God to make himself known as the hope for this world. ",
-  //     moreInfo: "https://caminodevida.com/#",
-  //   },
-  //   {
-  //     id: 2,
-  //     ministry: "HMCC of Detroit",
-  //     workers: "Sam & Sunghyun Beck",
-  //     image: (
-  //       <StaticImage src="../../images/becks.png" alt="Sam & Sunghyun Beck" />
-  //     ),
-  //     description:
-  //       "Pastor Sam and his wife Sunghyun were called to lead the HMCC Detroit church in 2017 with a mission to see redemption, reconciliation, and restoration in families, communities, and systems as gospel infiltrates the city.",
-  //     moreInfo: "https://detroit.hmcc.net/",
-  //   },
-  //   {
-  //     id: 3,
-  //     ministry: "HMCC of Hong Kong",
-  //     workers: "Seth & Christina Kim",
-  //     image: (
-  //       <StaticImage src="../../images/kims.png" alt="Seth & Christinga Kim" />
-  //     ),
-  //     description:
-  //       "Pastor Seth and Christina planted HMCC of Hong Kong in 2015 along with a team from HMCC of Ann Arbor. They desire to be a demonstration of Christ’s love, seeing people be radically changed through the Gospel, trained to be a Christ disciple, and sent out to other nations to be the light unto the world. ",
-  //     moreInfo: "https://hongkong.hmcc.net/",
-  //   },
-  //   {
-  //     id: 4,
-  //     ministry: "Muslim Bridge Builders",
-  //     workers: "Timothy & Miriam Harris",
-  //     image: (
-  //       <StaticImage
-  //         src="../../images/harris.png"
-  //         alt="Book: Loving Your Muslim Neighbor "
-  //       />
-  //     ),
-  //     description:
-  //       'In 2006, Pastor Tim and Miriam were led to do the work of "Bridge-Building" with Muslims and Christians. They build relationships and share the gospel with Muslims both in the US and internationally, and train and mobilize Christians to love their Muslim neighbors.',
-  //     moreInfo: "http://lovingyourmuslimneighbor.com",
-  //   },
-  //   {
-  //     id: 5,
-  //     ministry: "HMCC of Jakarta",
-  //     workers: "Eric & Tina Yee",
-  //     image: <StaticImage src="../../images/yees.png" alt="Eric & Tina Yee" />,
-  //     description:
-  //       "Pastor Eric and Tina Yee helped to plant the HMCC of Jakarta church in 2015. Originally both members of HMCC of Ann Arbor, both felt lead to bring the Gospel to unreached people in Indonesia in 2010. Their desire is to see people’s lives transformed, redirected to God’s purposes, and set out to transform the world for the glory of God.",
-  //     moreInfo: "https://jakarta.hmcc.net/",
-  //   },
-  //   {
-  //     id: 6,
-  //     ministry: "HMCC of Tangerang",
-  //     workers: "John & Ester Eom",
-  //     image: <StaticImage src="../../images/eoms.png" alt="John & Ester Eom" />,
-  //     description:
-  //       "In 2009 Pastor John moved to Indonesia with a team to plant HMCC of Indonesia. In 2014 he became pastor of HMCC of Tangerang.",
-  //     moreInfo: "https://tangerang.hmcc.net/",
-  //   },
-  //   {
-  //     id: 7,
-  //     ministry: "Southeast Asia",
-  //     workers: "Alex & Noel",
-  //     image: <StaticImage src="../../images/tj.png" alt="Alex & Noel" />,
-  //     description:
-  //       "Alex & Noel are supported workers in Southeast Asia, focused on outreach to unreached people groups in their area. Their hope is to see disciple-making movements among the many unreached peoples who live around them.",
-  //   },
-  //   {
-  //     id: 8,
-  //     ministry: "East Asia",
-  //     workers: "T & J",
-  //     image: <StaticImage src="../../images/tj.png" alt="T & J" />,
-  //     description:
-  //       "T & J were sent out from HMCC of Ann Arbor to serve in an East Asian nation as missionaries in 2024.",
-  //   },
-  // ];
-  // let workers = nodes.reduce((rows, worker, index, list) => {
-  //   /*
-  //    * Rebuilding the array to have the top half of workers on the left side,
-  //    * while having the bottom half of works on right side using grid layout.
-  //    * The top half will have even indes, while the bottom half
-  //    * will be an odd index.
-  //    */
-  //   const len = list.length;
-  //   const counter = Math.ceil(len / 2);
-  //   if (index < counter) {
-  //     const evenKey = index * 2;
-  //     const oddKey = index * 2 + 1;
-  //     rows[evenKey] = worker;
-  //     if (oddKey < len) {
-  //       rows[oddKey] = list[index + counter];
-  //     }
-  //   }
-  //   return rows;
-  // }, []);
-
-  console.log(workers);
-
   return (
     <Layout>
       <div className="px-2 flex flex-col w-full items-center pt-[1.375rem] pb-[7.3125rem] md:pt-10">
@@ -229,7 +121,7 @@ const HmiPage = ({
             <div className="flex flex-col gap-y-8 md:gap-y-15 w-full items-center">
               <div className="px-2 md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
                 <div className="flex flex-col gap-y-9 md:gap-y-15 max-w-container w-full">
-                  <h1 className="uppercase text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
+                  <h1 className="uppercase lg:text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
                     Harvest Mission International (HMI)
                   </h1>
                   <div className="flex flex-col md:flex-row gap-y-[1.25rem]  gap-x-15">
@@ -239,7 +131,7 @@ const HmiPage = ({
                         alt="Hands All In"
                       />
                     </div>
-                    <div className="text-center md:text-left content-container">
+                    <div className="content-container">
                       <p className="mb-6 md:mb-[1.3125rem]">
                         As Christ has called us to &apos;make disciples of all
                         nations&apos; (Matthew 28:19), we value the importance
@@ -259,7 +151,7 @@ const HmiPage = ({
                   </div>
                 </div>
                 <div className="flex flex-col w-full gap-y-5 md:gap-y-10 max-w-container">
-                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem]">
                     <h2 className="uppercase text-xl md:text-3xl">
                       Past Projects
                     </h2>
@@ -302,11 +194,11 @@ const HmiPage = ({
               </div>
               <div className="md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
                 <div className="flex flex-col gap-y-5 md:gap-y-10 items-center lg:items-start max-w-container w-full">
-                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-center md:text-left">
+                  <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-left">
                     <h2 className="uppercase text-xl md:text-3xl leading-tighter">
                       Supported Workers
                     </h2>
-                    <p className="mb-0 text-base md:text-lg">
+                    <p className="mb-0 text-base md:text-lg text-left">
                       Partnership is critical as we strive to reach the nations
                       with the Gospel message. We know that missions cannot be
                       done by a sole missionary, but that it is our privilege to

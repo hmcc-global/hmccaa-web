@@ -16,7 +16,7 @@ const CustomPage = ({ data }) => {
       <Banner bgImage={`bg-[center_60%] ${bgImage}`} bgImageUrl={bgImageUrl}>
         {pageData?.Title}
       </Banner>
-      <div className="content-padding-full w-3 py-[1.5375rem] px-2 [@media(min-width:425px)]:px-8 [@media(min-width:550px)]:px-24 sm:px-16 lg:px-4 flex [&>*]:w-full">
+      <div className="content-padding-full w-3 py-[1.5375rem] px-2 [@media(min-width:425px)]:px-8 [@media(min-width:550px)]:px-24 sm:px-16 lg:px-4 flex [&>*]:w-full custom-content">
         <RichText data={pageData?.Content} />
       </div>
     </Layout>

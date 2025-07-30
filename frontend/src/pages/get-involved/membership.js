@@ -17,7 +17,7 @@ const MembershipPage = ({ pageContext }) => {
     <Layout>
       <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-9 lg:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-12 lg:gap-y-15 items-center">
+        <div className="max-w-container w-full flex flex-col gap-y-12 lg:gap-y-15 lg:items-center">
           <h1 className="text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
             Membership
           </h1>
@@ -53,7 +53,7 @@ const MembershipPage = ({ pageContext }) => {
                   <span className="font-bold">annarbor@hmcc.net</span>
                 </p>
               </div>
-              <div className="flex">
+              <div className="lg:flex">
                 <PrimaryButtonLink to="/events" hasArrow={true}>
                   Events Page
                 </PrimaryButtonLink>

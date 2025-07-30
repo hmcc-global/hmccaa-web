@@ -13,7 +13,7 @@
 }
 
 .statement-container {
-  @apply text-center lg:w-[49.1526%]  lg:items-center lg:text-left;
+  @apply text-left lg:w-[49.1526%] lg:items-center;
 }
 
 .statement {

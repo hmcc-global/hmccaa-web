@@ -9,7 +9,7 @@ const formatText = (
   if (text === "") {
     return "";
   }
-  const style = `whitespace-pre-wrap ${bold ? "font-bold" : ""}  ${
+  const style = `whitespace-pre-wrap break-all ${bold ? "font-bold" : ""}  ${
     italic ? "italic" : ""
   } ${underline ? "underline" : ""} ${
     strikethrough ? "line-through" : ""
@@ -77,7 +77,11 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
   }
 
   return (
-    <div className={addPaddingBelowParagraph ? "pb-[1.3125rem] lg:pb-7" : ""}>
+    <div
+      className={`text-left ${
+        addPaddingBelowParagraph ? "pb-[1.3125rem] lg:pb-7" : ""
+      }`}
+    >
       {formatParagraphHelper(children)}
     </div>
   );
@@ -117,20 +121,20 @@ const formatUnorderedList = children => {
 
 const formatHeading = (level, children) => {
   const text = formatParagraphHelper(children);
-  const headingStyle = "text-center";
+  const headingStyle = "text-left";
   switch (level) {
     case 1:
       return <h2 className={headingStyle}>{text}</h2>;
     case 2:
-      return <h2 className={headingStyle}>{text}</h2>;
-    case 3:
       return <h3 className={headingStyle}>{text}</h3>;
-    case 4:
+    case 3:
       return <h4 className={headingStyle}>{text}</h4>;
-    case 5:
+    case 4:
       return <h5 className={headingStyle}>{text}</h5>;
-    case 6:
+    case 5:
       return <h6 className={headingStyle}>{text}</h6>;
+    case 6:
+      return <div className={` .h7 ${headingStyle}`}>{text}</div>;
     default:
       return text;
   }
@@ -147,7 +151,7 @@ const formatNode = (
           <img
             src={image.url}
             alt={image.alternativeText}
-            className="flex justify-center items-center content-image lg:w-1/3"
+            className="items-start lg:items-center content-image lg:w-1/3"
           />
         </div>
       );

@@ -34,7 +34,7 @@ const EventPage = ({ pageContext }) => {
           crumbLabel={event.title}
         />
         <div className="max-w-extend-container w-full flex flex-col gap-y-3 lg:gap-y-15 items-center justify-start gap-x-32">
-          <h1 className="text-center lg:text-lef  text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
+          <h1 className="text-left text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
             {event.title}
           </h1>
 

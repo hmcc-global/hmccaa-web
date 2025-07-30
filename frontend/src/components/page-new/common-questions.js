@@ -44,7 +44,7 @@ const CommonQuestions = () => {
         />
       </div>
       <div className="flex flex-col gap-y-10 md:gap-y-8 collapsible-items md:col-start-26 md:col-span-24">
-        <h2 className="text-center text-2xl md:text-left md:text-3xl">
+        <h2 className="text-left px-4 text-2xl md:text-3xl lg:text-center">
           Common Questions
         </h2>
         {commonQuestions.map(({ id, question, answer }) => (

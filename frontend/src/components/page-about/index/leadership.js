@@ -40,8 +40,8 @@ const LeadershipSection = () => {
   ));
 
   return (
-    <div className="py-10 lg:py-20 flex flex-col items-center max-w-container">
-      <div className="text-center pb-[3.75rem]">
+    <div className="py-10 lg:py-20 flex flex-col lg:items-center max-w-container">
+      <div className="lg:text-center pb-[3.75rem]">
         <div className="subheading">Our Leadership</div>
         <h2>Meet Our Elders</h2>
       </div>

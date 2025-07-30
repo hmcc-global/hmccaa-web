@@ -16,7 +16,7 @@ export const Collapsible = ({
   };
 
   return (
-    <div className={`${box} collapsible`}>
+    <div className={`${box} collapsible px-3 sm:px-0`}>
       <div onClick={toggle} className={`${subHead} sub-heading`}>
         <button className={`${arrow} chevron`} aria-label="Toggle">
           <Chevron
@@ -35,7 +35,9 @@ export const Collapsible = ({
         </h3>
       </div>
       <div
-        className={`toggle ${toggleContainer}${reveal ? "" : " invisibility"}`}
+        className={`toggle ${toggleContainer}${
+          reveal ? "" : " invisibility"
+        } px-2 sm:px-0`}
       >
         {sectionBody && <div>{sectionBody}</div>}
         {sectionBlock &&

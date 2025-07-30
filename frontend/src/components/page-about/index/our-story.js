@@ -13,7 +13,7 @@ const OurStory = () => {
         />
       </div>
 
-      <div className="text-center lg:text-left content-container">
+      <div className="text-left content-container">
         <div className="flex flex-col gap-3 ">
           <div className="subheading">Our Story</div>
           <h2 className="pb-5">

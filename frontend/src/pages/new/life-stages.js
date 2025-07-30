@@ -279,11 +279,11 @@ const LifeStagesPage = ({ pageContext }) => {
       <div className="px-2 min-[375px]:px-4 flex flex-col w-full items-center pt-[1.375rem] lg:pt-10 gap-y-[2.1875rem] lg:gap-y-[3.75rem] pb-[4.8125rem] lg:pb-[8.1875rem]">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
         <div className="max-w-container w-full flex flex-col items-center lg:gap-y-20">
-          <div className="flex flex-col gap-y-9 lg:gap-y-15 text-center max-w-[61.25rem]">
-            <h1 className="uppercase text-2xl lg:text-4xl font-bold leading-tighter mb-0">
+          <div className="flex flex-col gap-y-9 lg:gap-y-15 text-left lg:text-center max-w-[61.25rem]">
+            <h1 className="uppercase text-2xl lg:text-4xl font-bold leading-tighter mb-0 text-left lg:text-center">
               Life Stages
             </h1>
-            <p className="mb-0 pt-[1.125rem] pb-6 lg:py-0">
+            <p className="mb-0 pt-[1.125rem] pb-6 lg:py-0 text-left lg:text-center">
               Whether you’re coming for school or just moved to Michigan for
               family or career, or any other reasons, we probably have a group
               for you! Scroll down to see the different LIFE Stages. We would
@@ -324,7 +324,7 @@ const LifeStagesPage = ({ pageContext }) => {
                     </div>
                   </div>
                   <div className="flex flex-col gap-y-5 lg:gap-y-4 lg:max-w-[66.10169%]">
-                    <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-center lg:text-left">
+                    <h2 className="text-Primary-500 text-xl lg:text-3xl leading-tighter lg:font-bold text-left">
                       {heading}
                     </h2>
                     <div className={lifeStage}>{description}</div>
@@ -333,13 +333,13 @@ const LifeStagesPage = ({ pageContext }) => {
               )
             )}
           </div>
-          <div className="max-w-[62.5rem] flex flex-col items-center gap-y-9">
-            <p className="mb-0 text-center font-medium">
+          <div className="max-w-[62.5rem] flex flex-col items-start lg:items-center gap-y-9">
+            <p className="mb-0 text-left lg:text-center font-medium">
               LIFE Stages are the overall larger groups of fellowship. For
               smaller groups of community where we grow and challenge one
               another more consistently, we meet in Life groups.
             </p>
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col w-full">
               <PrimaryButtonLink
                 to={"../../get-involved/lifegroups"}
                 hasArrow={true}
