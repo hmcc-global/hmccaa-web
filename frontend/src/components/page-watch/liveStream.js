@@ -23,7 +23,7 @@ const LiveStream = () => {
   }, []);
 
   return (
-    <div className="bg-Neutral-200  w-full flex py-7 lg:py-15 px-4 lg:px-8 mt-[2.5px] lg:mt-0">
+    <div className="bg-Neutral-200  w-full flex flex-col items-center py-7 lg:py-15 px-4 lg:px-8 mt-[2.5px] lg:mt-0">
       <div className="flex flex-col lg:flex-row max-w-container w-full gap-x-15 gap-y-5">
         <div className="lg:order-1 w-full max-w-[36.25rem] image-container">
           <div className={`${mediaWrapper} pb-[3.364%]`}>
@@ -47,7 +47,7 @@ const LiveStream = () => {
             person, but if you cannot, come worship with us through our live
             stream!
           </p>
-          <div className="lg:flex">
+          <div className="flex">
             <PrimaryButtonLink
               hasArrow={true}
               href={`https://${mobile}youtube.com/@hmcc_aa/streams`}
