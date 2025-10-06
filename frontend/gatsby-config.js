@@ -176,7 +176,7 @@ module.exports = {
           },
           {
             pathname: "/get-involved",
-            crumbLabel: "Next Steps",
+            crumbLabel: "Get Involved",
           },
           {
             pathname: "/get-involved/lifegroups",
