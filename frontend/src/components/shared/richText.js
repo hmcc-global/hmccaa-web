@@ -147,11 +147,11 @@ const formatNode = (
   switch (type) {
     case "image":
       return (
-        <div>
+        <div className="flex justify-center items-center content-image ">
           <img
             src={image.url}
             alt={image.alternativeText}
-            className="items-start lg:items-center content-image lg:w-1/3"
+            className="lg:w-1/3"
           />
         </div>
       );
