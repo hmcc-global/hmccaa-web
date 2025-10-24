@@ -1,4 +1,5 @@
 import * as React from "react";
+import { graphql } from "gatsby";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -42,18 +43,26 @@ const Images = () => {
   );
 };
 
-const LifeGroupsPage = ({ pageContext }) => {
-  const {
+const LifeGroupsPage = ({
+  data: {
+    strapiLifeGroupsPage: {
+      Pictures: images,
+      PromoVideo: videoOembed,
+      SignUpLinks: links,
+    },
+  },
+  pageContext: {
     breadcrumb: { crumbs },
-  } = pageContext;
-
+  },
+}) => {
+  console.log(images, videoOembed, links);
   return (
     <Layout>
       <div className="px-1 [@media(min-width:375px)]:px-4 pt-[1.375rem] lg:pt-10 w-full ">
         <div className="w-full md:px-4 flex flex-col items-center">
           <div className="max-w-container w-full">
             <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-            <TopLGSummary />
+            <TopLGSummary oembed={"{"} />
             <Images />
             <FiveEs />
           </div>
@@ -62,6 +71,28 @@ const LifeGroupsPage = ({ pageContext }) => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query lifeGroupsPageQuery {
+    strapiLifeGroupsPage {
+      PromoVideo
+      Pictures {
+        strapiId
+        alternativeText
+        file {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+      SignUpLinks {
+        Hyperlink
+        Text
+        strapiId
+      }
+    }
+  }
+`;
 
 export const Head = () => (
   <Seo
