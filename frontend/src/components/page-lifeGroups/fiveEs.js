@@ -43,7 +43,7 @@ const fiveEInfo = [
   },
 ];
 
-const FiveEs = () => {
+const FiveEs = links => {
   return (
     <div>
       <h3 className="text-left lg:text-center text-[1.5rem] font-semibold mb-10 leading-tighter">
@@ -56,7 +56,7 @@ const FiveEs = () => {
             key={`fiveEInfo-${index}`}
             className="flex flex-col lg:text-center lg:items-center"
           >
-            <div className="relative">
+            <div className="relative flex justify-center">
               <Circle color={item.color} />
               <div className="absolute inset-0 text-Shades-0 text-center flex items-center justify-center">
                 <div className="text-[3.75em] lg:text-[2.75rem] font-bold leading-none">
@@ -64,7 +64,7 @@ const FiveEs = () => {
                 </div>
               </div>
             </div>
-            <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter">
+            <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter text-center">
               {item.word}
             </div>
             <div className="flex flex-col">

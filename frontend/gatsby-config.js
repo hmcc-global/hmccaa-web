@@ -24,6 +24,9 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+console.log(process.env.STRAPI_API_URL);
+console.log(process.env.STRAPI_TOKEN);
+
 module.exports = {
   siteMetadata: {
     title: `HMCC Ann Arbor`,
@@ -52,7 +55,7 @@ module.exports = {
           "missions-trip",
           "supported-missionary",
         ],
-        singleTypes: ["notification-bar"],
+        singleTypes: ["notification-bar", "life-groups-page"],
       },
     },
     {
@@ -176,7 +179,7 @@ module.exports = {
           },
           {
             pathname: "/get-involved",
-            crumbLabel: "Next Steps",
+            crumbLabel: "Get Involved",
           },
           {
             pathname: "/get-involved/lifegroups",
