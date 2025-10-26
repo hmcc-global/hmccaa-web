@@ -80,11 +80,6 @@ exports.onCreateNode = async ({ node, actions }) => {
       node.extension &&
       ["mp3", "wav", "flac"].includes(node.extension.toLowerCase())
     ) {
-      console.log(
-        "[FileNodeDelete] Deleting audio File node:",
-        node.absolutePath
-      );
-
       try {
         fs.unlinkSync(node.absolutePath); // actually remove the file
         totalDeletedBytes += sizeBytes;
