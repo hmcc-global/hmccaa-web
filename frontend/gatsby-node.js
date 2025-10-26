@@ -34,47 +34,113 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 // gatsby-node.js
 
-function logMemory(label) {
-  const used = process.memoryUsage();
+// --- configurable settings ---
+const MEM_LOG_INTERVAL_MS = 3_000; // log every 3s
+const SAMPLE_NODE_TYPES = true; // occasional node type sampling
+const NODE_SAMPLE_RATE = 0.0005; // ~0.05% of nodes get logged
+// ------------------------------
+
+let memInterval = null;
+
+function formatMem() {
+  const m = process.memoryUsage();
+  const toMB = v => (v / 1024 / 1024).toFixed(2);
+  return `rss=${toMB(m.rss)} MB, heapUsed=${toMB(
+    m.heapUsed
+  )} MB, heapTotal=${toMB(m.heapTotal)} MB, external=${toMB(m.external)} MB`;
+}
+
+function logMem(label) {
   console.log(
-    `[${label}] Memory usage: rss=${(used.rss / 1024 / 1024).toFixed(
-      2
-    )} MB, heapUsed=${(used.heapUsed / 1024 / 1024).toFixed(2)} MB`
+    `[${new Date().toISOString()}] [${label}] Memory: ${formatMem()}`
   );
 }
 
+function startMemTicker(contextLabel = "ticker") {
+  if (memInterval) return; // avoid duplicates
+  memInterval = setInterval(() => {
+    logMem(contextLabel);
+  }, MEM_LOG_INTERVAL_MS);
+
+  // Ensure ticker doesn't keep Node alive if Gatsby tries to exit
+  memInterval.unref?.();
+}
+
+function stopMemTicker() {
+  if (memInterval) {
+    clearInterval(memInterval);
+    memInterval = null;
+  }
+}
+
 exports.onPreInit = () => {
-  logMemory("onPreInit");
+  logMem("onPreInit");
+  startMemTicker("build");
 };
 
 exports.onPreBootstrap = () => {
-  logMemory("onPreBootstrap");
+  logMem("onPreBootstrap");
 };
 
-exports.sourceNodes = async (args, options) => {
-  logMemory("before sourceNodes");
-  // Let other plugins run their sourceNodes
+exports.createSchemaCustomization = () => {
+  logMem("createSchemaCustomization");
 };
 
-exports.onCreateNode = ({ node, actions }) => {
-  if (node.internal && node.internal.type) {
-    // Occasionally log node types to see if one type is exploding in count
-    if (Math.random() < 0.0005) {
-      console.log(`Node created: ${node.internal.type}`);
-    }
+exports.sourceNodes = async args => {
+  logMem("before sourceNodes");
+  // You can wrap long-running source plugins with temporary timers if needed.
+  // Example: args.reporter.activityTimer("Custom sourceNodes timer").start()/end()
+};
+
+exports.onCreateNode = ({ node }) => {
+  if (
+    SAMPLE_NODE_TYPES &&
+    node?.internal?.type &&
+    Math.random() < NODE_SAMPLE_RATE
+  ) {
+    console.log(`[node sample] type=${node.internal.type}`);
   }
 };
 
 exports.onPostBootstrap = ({ getNodes }) => {
-  logMemory("onPostBootstrap");
-  console.log("Total nodes so far:", getNodes().length);
+  logMem("onPostBootstrap");
+  console.log(`[nodes] count=${getNodes().length}`);
 };
 
 exports.onPreExtractQueries = () => {
-  logMemory("onPreExtractQueries");
+  logMem("onPreExtractQueries");
+};
+
+exports.onCreatePage = () => {
+  logMem("onCreatePage");
 };
 
 exports.onPostBuild = ({ getNodes }) => {
-  logMemory("onPostBuild");
-  console.log("Final node count:", getNodes().length);
+  logMem("onPostBuild");
+  console.log(`[nodes] final count=${getNodes().length}`);
+  stopMemTicker();
 };
+
+// Safety net: stop ticker if Gatsby exits unexpectedly
+process.on("exit", code => {
+  logMem(`process exit code=${code}`);
+  stopMemTicker();
+});
+process.on("SIGINT", () => {
+  logMem("SIGINT");
+  stopMemTicker();
+});
+process.on("SIGTERM", () => {
+  logMem("SIGTERM");
+  stopMemTicker();
+});
+process.on("uncaughtException", err => {
+  console.error("[uncaughtException]", err && (err.stack || err));
+  logMem("uncaughtException");
+  stopMemTicker();
+});
+process.on("unhandledRejection", reason => {
+  console.error("[unhandledRejection]", reason && (reason.stack || reason));
+  logMem("unhandledRejection");
+  stopMemTicker();
+});
