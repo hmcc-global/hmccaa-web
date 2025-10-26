@@ -13,6 +13,9 @@ const { CreateSermonPages } = require("./src/page-generation/sermons");
 const { CreateCustomPages } = require("./src/page-generation/custom");
 const { Pages } = require("./src/page-generation/create-page");
 
+const fs = require("fs");
+const path = require("path");
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
@@ -98,11 +101,12 @@ exports.onCreateNode = async ({ node }) => {
     try {
       const stats = fs.statSync(node.absolutePath);
       const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
+      const parent = node.parent ? getNode(node.parent) : null;
       console.log(
         `[FileNode] Created: ${path.relative(
           process.cwd(),
           node.absolutePath
-        )} (${sizeMB} MB)`
+        )} (${sizeMB} MB) (parent type: ${parent?.internal?.type})`
       );
     } catch (err) {
       console.log(
@@ -154,3 +158,29 @@ process.on("unhandledRejection", reason => {
   logMem("unhandledRejection");
   stopMemTicker();
 });
+
+///// MONKEY PATCH
+
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
+
+// Wrap it with a logger
+const tracedCreateRemoteFileNode = async args => {
+  console.log("[TRACE] createRemoteFileNode called with URL:", args.url);
+
+  // Print a short stack trace so you can see which plugin invoked it
+  console.log(new Error().stack);
+
+  return createRemoteFileNode(args);
+};
+
+// Expose it so other plugins still get a working function
+exports.createResolvers = ({ createResolvers }) => {
+  // no-op, just here so Gatsby doesn't complain
+};
+
+// Monkey‑patch the require cache so any plugin that imports it gets our wrapper
+require.cache[
+  require.resolve("gatsby-source-filesystem")
+].exports.createRemoteFileNode = tracedCreateRemoteFileNode;
+
+////////////
