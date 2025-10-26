@@ -35,6 +35,65 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   pages.createPages();
 };
 
+// Our site does care to download images, so that the image/sharp plugins
+// can optimize them and such, but we don't care to download audio files,
+// because all cases where we use them (aka just in sermon recordings) only
+// rely on the mp3 url and the frontend loads it directly from CMS with that
+// url.
+//
+// Unfortunately he `gatsby-source-strapi-graphql` plugin doesn't give us
+// an option to customize which file types we actually care to download.
+// Thus this hack just goes through and deletes all the audio files one by
+// one as they're being downloaded.
+//
+// This is important because over time the number of sermons tracked on the
+// website grows, and thus the amount of disk space being used to download
+// audios also grows - and each ~50MB file does add up. For example, we've
+// had issues where the free tier Github runner runs out of disk space and
+// fails as a result of downloading too many audio files.
+exports.onCreateNode = async ({ node, actions }) => {
+  const { deleteNode } = actions;
+
+  // Only care about File nodes (these represent actual files on disk)
+  if (node.internal.type === "File") {
+    try {
+      const stats = fs.statSync(node.absolutePath);
+      const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
+      console.log(
+        `[FileNode] Created: ${path.relative(
+          process.cwd(),
+          node.absolutePath
+        )} (${sizeMB} MB)`
+      );
+    } catch (err) {
+      console.log(
+        `[FileNode] Created: ${node.absolutePath} (size unknown: ${err.message})`
+      );
+    }
+
+    if (
+      node.extension &&
+      ["mp3", "wav", "flac"].includes(node.extension.toLowerCase())
+    ) {
+      console.log(
+        "[FileNodeDelete] Deleting audio File node:",
+        node.absolutePath
+      );
+
+      try {
+        fs.unlinkSync(node.absolutePath); // actually remove the file
+        console.log("Deleted audio file from disk:", node.absolutePath);
+      } catch (err) {
+        console.error("Error deleting audio file:", err.message);
+      }
+
+      deleteNode({ node });
+    }
+  }
+};
+
+// ------- Log Memory on various steps and periodically -------
+
 // --- configurable settings ---
 const MEM_LOG_INTERVAL_MS = 30_000; // log every 3s0
 // ------------------------------
@@ -89,39 +148,6 @@ exports.sourceNodes = async args => {
   logMem("before sourceNodes");
   // You can wrap long-running source plugins with temporary timers if needed.
   // Example: args.reporter.activityTimer("Custom sourceNodes timer").start()/end()
-};
-
-exports.onCreateNode = async ({ node, actions }) => {
-  const { deleteNode } = actions;
-
-  // Only care about File nodes (these represent actual files on disk)
-  if (node.internal.type === "File") {
-    try {
-      const stats = fs.statSync(node.absolutePath);
-      const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
-      console.log(
-        `[FileNode] Created: ${path.relative(
-          process.cwd(),
-          node.absolutePath
-        )} (${sizeMB} MB)`
-      );
-    } catch (err) {
-      console.log(
-        `[FileNode] Created: ${node.absolutePath} (size unknown: ${err.message})`
-      );
-    }
-
-    if (
-      node.extension &&
-      ["mp3", "wav", "flac"].includes(node.extension.toLowerCase())
-    ) {
-      console.log(
-        "[FileNodeDelete] Deleting audio File node:",
-        node.absolutePath
-      );
-      deleteNode({ node });
-    }
-  }
 };
 
 exports.onPostBootstrap = ({ getNodes }) => {
