@@ -46,7 +46,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --verbose",
     "develop": "HOST_ORIGIN=http://localhost:8000 gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "lint": "NODE_ENV=test eslint src --ext .js,.jsx,.ts,.tsx --rulesdir node_modules/gatsby/dist/utils/eslint-rules",
