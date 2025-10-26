@@ -35,12 +35,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   pages.createPages();
 };
 
-// gatsby-node.js
-
 // --- configurable settings ---
-const MEM_LOG_INTERVAL_MS = 3_000; // log every 3s
-const SAMPLE_NODE_TYPES = true; // occasional node type sampling
-const NODE_SAMPLE_RATE = 0.0005; // ~0.05% of nodes get logged
+const MEM_LOG_INTERVAL_MS = 30_000; // log every 3s0
 // ------------------------------
 
 let memInterval = null;
@@ -95,23 +91,35 @@ exports.sourceNodes = async args => {
   // Example: args.reporter.activityTimer("Custom sourceNodes timer").start()/end()
 };
 
-exports.onCreateNode = async ({ node, getNode }) => {
+exports.onCreateNode = async ({ node, actions }) => {
+  const { deleteNode } = actions;
+
   // Only care about File nodes (these represent actual files on disk)
   if (node.internal.type === "File") {
     try {
       const stats = fs.statSync(node.absolutePath);
       const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
-      const parent = node.parent ? getNode(node.parent) : null;
       console.log(
         `[FileNode] Created: ${path.relative(
           process.cwd(),
           node.absolutePath
-        )} (${sizeMB} MB) (parent type: ${parent?.internal?.type})`
+        )} (${sizeMB} MB)`
       );
     } catch (err) {
       console.log(
         `[FileNode] Created: ${node.absolutePath} (size unknown: ${err.message})`
       );
+    }
+
+    if (
+      node.extension &&
+      ["mp3", "wav", "flac"].includes(node.extension.toLowerCase())
+    ) {
+      console.log(
+        "[FileNodeDelete] Deleting audio File node:",
+        node.absolutePath
+      );
+      deleteNode({ node });
     }
   }
 };
@@ -158,29 +166,3 @@ process.on("unhandledRejection", reason => {
   logMem("unhandledRejection");
   stopMemTicker();
 });
-
-///// MONKEY PATCH
-
-const { createRemoteFileNode } = require("gatsby-source-filesystem");
-
-// Wrap it with a logger
-const tracedCreateRemoteFileNode = async args => {
-  console.log("[TRACE] createRemoteFileNode called with URL:", args.url);
-
-  // Print a short stack trace so you can see which plugin invoked it
-  console.log(new Error().stack);
-
-  return createRemoteFileNode(args);
-};
-
-// Expose it so other plugins still get a working function
-exports.createResolvers = ({ createResolvers }) => {
-  // no-op, just here so Gatsby doesn't complain
-};
-
-// Monkey‑patch the require cache so any plugin that imports it gets our wrapper
-require.cache[
-  require.resolve("gatsby-source-filesystem")
-].exports.createRemoteFileNode = tracedCreateRemoteFileNode;
-
-////////////
