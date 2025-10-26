@@ -95,7 +95,7 @@ exports.sourceNodes = async args => {
   // Example: args.reporter.activityTimer("Custom sourceNodes timer").start()/end()
 };
 
-exports.onCreateNode = async ({ node }) => {
+exports.onCreateNode = async ({ node, getNode }) => {
   // Only care about File nodes (these represent actual files on disk)
   if (node.internal.type === "File") {
     try {
