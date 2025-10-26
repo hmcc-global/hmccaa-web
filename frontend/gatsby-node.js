@@ -92,13 +92,23 @@ exports.sourceNodes = async args => {
   // Example: args.reporter.activityTimer("Custom sourceNodes timer").start()/end()
 };
 
-exports.onCreateNode = ({ node }) => {
-  if (
-    SAMPLE_NODE_TYPES &&
-    node?.internal?.type &&
-    Math.random() < NODE_SAMPLE_RATE
-  ) {
-    console.log(`[node sample] type=${node.internal.type}`);
+exports.onCreateNode = async ({ node }) => {
+  // Only care about File nodes (these represent actual files on disk)
+  if (node.internal.type === "File") {
+    try {
+      const stats = fs.statSync(node.absolutePath);
+      const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
+      console.log(
+        `[FileNode] Created: ${path.relative(
+          process.cwd(),
+          node.absolutePath
+        )} (${sizeMB} MB)`
+      );
+    } catch (err) {
+      console.log(
+        `[FileNode] Created: ${node.absolutePath} (size unknown: ${err.message})`
+      );
+    }
   }
 };
 
