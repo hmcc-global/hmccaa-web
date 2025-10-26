@@ -1,5 +1,5 @@
 name: Validate Frontend
-inputs: 
+inputs:
   strapi_token:
     type: string
     required: true
@@ -23,3 +23,5 @@ runs:
 
         npm install
         NODE_ENV=production HOST_ORIGIN=${{ inputs.host_server }} npm run build
+
+        echo "Finished build with error code $?"
