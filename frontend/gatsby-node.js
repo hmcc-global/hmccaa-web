@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   await CreateEventPages(graphql, createPageAndPrintFn, reporter);
 
-  await CreateSermonPages(graphql, createPageFn, reporter);
+  // await CreateSermonPages(graphql, createPageFn, reporter);
 
   await CreateCustomPages(graphql, createPageAndPrintFn, reporter);
 
