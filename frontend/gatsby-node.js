@@ -51,20 +51,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 // audios also grows - and each ~50MB file does add up. For example, we've
 // had issues where the free tier Github runner runs out of disk space and
 // fails as a result of downloading too many audio files.
+let totalFileBytes = 0;
+let totalDeletedBytes = 0;
 exports.onCreateNode = async ({ node, actions }) => {
   const { deleteNode } = actions;
 
   // Only care about File nodes (these represent actual files on disk)
   if (node.internal.type === "File") {
+    let sizeBytes = 0;
     try {
       const stats = fs.statSync(node.absolutePath);
-      const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
-      console.log(
-        `[FileNode] Created: ${path.relative(
-          process.cwd(),
-          node.absolutePath
-        )} (${sizeMB} MB)`
-      );
+      sizeBytes = stats.size;
+      totalFileBytes += sizeBytes;
+      // const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
+      // console.log(
+      //   `[FileNode] Created: ${path.relative(
+      //     process.cwd(),
+      //     node.absolutePath
+      //   )} (${sizeMB} MB)`
+      // );
     } catch (err) {
       console.log(
         `[FileNode] Created: ${node.absolutePath} (size unknown: ${err.message})`
@@ -82,7 +87,7 @@ exports.onCreateNode = async ({ node, actions }) => {
 
       try {
         fs.unlinkSync(node.absolutePath); // actually remove the file
-        console.log("Deleted audio file from disk:", node.absolutePath);
+        totalDeletedBytes += sizeBytes;
       } catch (err) {
         console.error("Error deleting audio file:", err.message);
       }
@@ -165,7 +170,23 @@ exports.onCreatePage = () => {
 
 exports.onPostBuild = ({ getNodes }) => {
   logMem("onPostBuild");
-  console.log(`[nodes] final count=${getNodes().length}`);
+  console.log(
+    `[${new Date().toISOString()}] [nodes] final count=${getNodes().length}`
+  );
+  console.log(
+    `[${new Date().toISOString()}] [files created] sizeMB=${(
+      totalFileBytes /
+      1024 /
+      1024
+    ).toFixed(2)}`
+  );
+  console.log(
+    `[${new Date().toISOString()}] [files deleted] sizeMB=${(
+      totalDeletedBytes /
+      1024 /
+      1024
+    ).toFixed(2)}`
+  );
   stopMemTicker();
 };
 
