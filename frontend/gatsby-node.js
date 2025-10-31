@@ -63,25 +63,19 @@ exports.onCreateNode = async ({ node, actions }) => {
       const stats = fs.statSync(node.absolutePath);
       sizeBytes = stats.size;
       totalFileBytes += sizeBytes;
-      // const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
-      // console.log(
-      //   `[FileNode] Created: ${path.relative(
-      //     process.cwd(),
-      //     node.absolutePath
-      //   )} (${sizeMB} MB)`
-      // );
     } catch (err) {
       console.log(
         `[FileNode] Created: ${node.absolutePath} (size unknown: ${err.message})`
       );
     }
 
+    // Remove audio files to save on room
     if (
       node.extension &&
       ["mp3", "wav", "flac"].includes(node.extension.toLowerCase())
     ) {
       try {
-        fs.unlinkSync(node.absolutePath); // actually remove the file
+        fs.unlinkSync(node.absolutePath);
         totalDeletedBytes += sizeBytes;
       } catch (err) {
         console.error("Error deleting audio file:", err.message);
@@ -157,10 +151,6 @@ exports.onPostBootstrap = ({ getNodes }) => {
 
 exports.onPreExtractQueries = () => {
   logMem("onPreExtractQueries");
-};
-
-exports.onCreatePage = () => {
-  logMem("onCreatePage");
 };
 
 exports.onPostBuild = ({ getNodes }) => {
