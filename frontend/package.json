@@ -12,6 +12,7 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-breadcrumb": "^12.3.2",
     "gatsby-plugin-env-variables": "^2.3.0",
+    "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.10.0",
     "gatsby-plugin-sharp": "^5.11.0",
