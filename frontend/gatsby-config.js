@@ -215,5 +215,19 @@ module.exports = {
         allowList: ["HOST_ORIGIN"],
       },
     },
+    {
+      resolve: "gatsby-plugin-htaccess",
+      options: {
+        // keep your 404 mapping
+        ErrorDocument: "404.html",
+        custom: `
+<IfModule mod_headers.c>
+  <FilesMatch "\\.(png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf|mp4|webm|mp3|wav)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+        `,
+      },
+    },
   ],
 };
