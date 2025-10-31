@@ -151,6 +151,7 @@ exports.onPostBootstrap = ({ getNodes }) => {
 
 exports.onPreExtractQueries = () => {
   logMem("onPreExtractQueries");
+  stopMemTicker();
 };
 
 exports.onPostBuild = ({ getNodes }) => {
@@ -172,7 +173,6 @@ exports.onPostBuild = ({ getNodes }) => {
       1024
     ).toFixed(2)}`
   );
-  stopMemTicker();
 };
 
 // Safety net: stop ticker if Gatsby exits unexpectedly
