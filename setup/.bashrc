@@ -115,3 +115,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Load environment variables from ~/frontend/.env.development
+if [ -f "$HOME/frontend/.env.development" ]; then
+    export $(grep -v '^#' "$HOME/frontend/.env.development" | xargs)
+fi
