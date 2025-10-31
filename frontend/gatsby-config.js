@@ -219,7 +219,7 @@ module.exports = {
       resolve: "gatsby-plugin-htaccess",
       options: {
         // keep your 404 mapping
-        ErrorDocument: "404.html",
+        ErrorDocument: "ErrorDocument 404 /404.html",
         custom: `
 <IfModule mod_headers.c>
   <FilesMatch "\\.(png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf|mp4|webm|mp3|wav)$">
