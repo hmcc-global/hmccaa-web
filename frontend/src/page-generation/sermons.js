@@ -159,6 +159,9 @@ function processTopics(topics) {
 }
 
 function processSermon(sermon) {
+  if (sermon.Series === null) {
+    console.log("Unable to parse sermon series:", sermon);
+  }
   return {
     type: sermon.ServiceType || "",
     speaker: processSpeaker(sermon.Preacher),
