@@ -41,7 +41,10 @@ const IndexPage = () => (
               <ButtonLink
                 to={"/new"}
                 hasArrow={true}
-                className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base"
+                customClassName={{
+                  buttonArrow: "fill-Accent-50",
+                }}
+                className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base hover:bg-Accent-500"
               >
                 Plan Your Visit
               </ButtonLink>
