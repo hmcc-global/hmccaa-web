@@ -6,7 +6,6 @@ import Seo, { PageDescriptions } from "../../components/seo";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { SecondaryButtonLink } from "../../components/Button";
 import RichText from "../../components/shared/richText";
-import Link from "../../components/Link";
 
 const HmiPage = ({
   data: {
