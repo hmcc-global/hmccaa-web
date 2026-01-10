@@ -1,7 +1,6 @@
 import * as React from "react";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
-import { StaticImage } from "gatsby-plugin-image";
 import { mediaWrapper } from "../../css/media.module.css";
 
 const TopLGSummary = () => {

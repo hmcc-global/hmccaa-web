@@ -328,9 +328,7 @@ const theme = {
       give: "url('../images/background/give.jpeg')",
       new: "url('../images/background/new.jpeg')",
     },
-    screens: {
-      xs: "375px",
-    },
+
     gridTemplateColumns: {
       49: "repeat(49, minmax(0, 1fr))",
       59: "repeat(59, minmax(0, 1fr))",
@@ -351,6 +349,7 @@ const theme = {
       ...positionXY.y,
     },
     screens: {
+      xs: "375px",
       "1.5xl": "1455px",
     },
   },

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { shortHand, hyphen } from "../../css/celebrationBarEvent.module.css";
 
 const SundayCelebBarEvents = () => {
   return (

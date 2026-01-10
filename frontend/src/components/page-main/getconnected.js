@@ -1,9 +1,6 @@
 import * as React from "react";
 import { useMediaQuery } from "react-responsive";
-import {
-  textContainer,
-  highlightText,
-} from "../../css/ministryTeams.module.css";
+import { textContainer } from "../../css/ministryTeams.module.css";
 import { SecondaryButtonLink } from "../Button";
 import imgAccess from "../../images/home-get-connected/access-raw.png";
 import imgBB from "../../images/home-get-connected/bb-raw.png";

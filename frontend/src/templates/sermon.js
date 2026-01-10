@@ -144,6 +144,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
                     <div>
                       <iframe
                         src={video.src}
+                        title={title}
                         allow="autoplay; fullscreen; picture-in-picture"
                       ></iframe>
                     </div>

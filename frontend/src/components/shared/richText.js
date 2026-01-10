@@ -46,7 +46,7 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
   ) {
     let midIndex = children.findIndex(child => child.text?.includes(MID));
     let midIndexIndex = children[midIndex].text.indexOf(MID);
-    if (midIndex != -1) {
+    if (midIndex !== -1) {
       let question = structuredClone(children.slice(0, midIndex + 1));
       question[midIndex].text = question[midIndex].text.slice(0, midIndexIndex);
       question[0].text = question[0].text.slice(BEG.length);
