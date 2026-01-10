@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
     "sharp": "^0.32.1",
+    "strapi-plugin-oembed": "^1.2.1",
     "styled-components": "^5.3.11",
     "xml2json": "^0.12.0"
   },
