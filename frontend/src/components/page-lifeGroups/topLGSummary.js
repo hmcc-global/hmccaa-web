@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { mediaWrapper } from "../../css/media.module.css";
 import OEmbedVideo from "../shared/oembed";
 
-const TopLGSummary = oembed => {
+const TopLGSummary = ({ oembed })=> {
   return (
     <div>
       <h1 className="lg:text-center text-[2.5rem] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-0">
@@ -13,36 +13,10 @@ const TopLGSummary = oembed => {
       </h1>
 
       <div className="flex flex-col lg:flex-row gap-y-5 lg:pb-25 pb-15 content-image">
-        {/* <div
-          className={`${mediaWrapper} lg:order-1 text-center image-container`}
-        >
-          <div>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/5OOb0W8Kv_A"
-              title="LIFE Group Intro Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div> */}
-        {/* <OEmbedVideo
+        <OEmbedVideo
           oembedString={oembed}
           className={`${mediaWrapper} lg:order-1 text-center image-container`}
-          fallback={
-            <div>
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/5OOb0W8Kv_A"
-                title="LIFE Group Intro Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-          }
-        /> */}
+        />
         <div className="text-left content-container">
           <HighlightedParagraph className="text-lg">
             <p>
