@@ -31,7 +31,7 @@ const TeamCardInfo = ({ info, customClassName }) => (
       <div className="flex items-center gap-x-1 text-sm font-medium">
         {info.emailIcon && (
           <span>
-            <MailIcon className="w-5 h-5" />
+            <MailIcon className="w-[1em] h-[1em]" />
           </span>
         )}
         <Link
