@@ -42,7 +42,7 @@ const LifeGroupsPage = ({
         <div className="w-full md:px-4 flex flex-col items-center">
           <div className="max-w-container w-full">
             <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-            <TopLGSummary oembed={"{videoOembed}"} />
+            <TopLGSummary oembed={videoOembed} />
             <Images images={images} />
             <FiveEs links={links} />
           </div>
