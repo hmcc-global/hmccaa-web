@@ -4,10 +4,7 @@ import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import Layout from "../../components/layout";
 import Seo, { PageDescriptions } from "../../components/seo";
 import { StaticImage } from "gatsby-plugin-image";
-import {
-  SecondaryButtonLink,
-  PrimaryButtonLink,
-} from "../../components/Button";
+import { PrimaryButtonLink } from "../../components/Button";
 import { lifeStage } from "../../css/lifeStages.module.css";
 import Link from "../../components/Link";
 
