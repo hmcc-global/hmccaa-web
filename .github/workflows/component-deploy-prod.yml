@@ -3,16 +3,38 @@ on:
   workflow_call:
     
 jobs:
-  deploy:
-    uses: ./.github/workflows/component-deploy.yml
+  build:
+    uses: ./.github/workflows/component-build.yml
     with:
       build_type: production
       publish_location: prod
       git_ref: release
+      artifact_name: frontend-build-prod-${{ github.run_id }}
+    secrets:
+      strapi_token: ${{ secrets.STRAPI_TOKEN }}
+      strapi_api_url: ${{ secrets.STRAPI_SERVER }}
+      host_server: ${{ secrets.HOST_SERVER }}
+
+  sync-server-1:
+    needs: [build]
+    uses: ./.github/workflows/component-sync.yml
+    with:
+      publish_location: prod
+      artifact_name: frontend-build-prod-${{ github.run_id }}
+      server_name: annarbor-hmcc-net
     secrets:
       ssh_key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
       ssh_host: ${{ secrets.PROD_SSH_HOST }}
       ssh_user: ${{ secrets.PROD_SSH_USER }}
-      strapi_token: ${{ secrets.STRAPI_TOKEN }}
-      strapi_api_url: ${{ secrets.STRAPI_SERVER }}
-      host_server: ${{ secrets.HOST_SERVER }}
+
+  sync-server-2:
+    needs: [build]
+    uses: ./.github/workflows/component-sync.yml
+    with:
+      publish_location: prod
+      artifact_name: frontend-build-prod-${{ github.run_id }}
+      server_name: hmcc-net
+    secrets:
+      ssh_key: ${{ secrets.PROD_SSH_PRIVATE_KEY_NEW }}
+      ssh_host: ${{ secrets.PROD_SSH_HOST_NEW }}
+      ssh_user: ${{ secrets.PROD_SSH_USER_NEW }}

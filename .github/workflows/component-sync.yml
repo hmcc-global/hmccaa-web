@@ -1,0 +1,43 @@
+name: Component - Sync To Server
+on:
+  workflow_call:
+    inputs:
+      publish_location:
+        required: true
+        type: string
+      artifact_name:
+        required: true
+        type: string
+      server_name:
+        required: true
+        type: string
+    secrets:
+      ssh_key:
+        required: true
+      ssh_host:
+        required: true
+      ssh_user:
+        required: true
+
+jobs:
+  sync-site:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: sync-${{ inputs.publish_location }}-${{ inputs.server_name }}
+      cancel-in-progress: true
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.ssh_key }}
+          known_hosts: "placeholder"
+          name: id_rsa
+      - name: Define known_hosts
+        run: ssh-keyscan -H ${{ secrets.ssh_host }} >> ~/.ssh/known_hosts
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: ./frontend-public/
+      - name: Sync files to server
+        run: rsync -avzr --delete-after ./frontend-public/ ${{ secrets.ssh_user }}@${{ secrets.ssh_host }}:/home/${{ secrets.ssh_user }}/annarbor-${{ inputs.publish_location }}
