@@ -17,7 +17,7 @@ import {
 } from "../svgs";
 import { StaticImage } from "gatsby-plugin-image";
 import { PrimaryButtonLink } from "../Button";
-import { buildCoordinates, translatesArray } from "../../config/theme";
+import { buildCoordinates } from "../../config/theme";
 const teams = [
   {
     team: "Art & Design Servants",

@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "life_groups_pages",
+  "info": {
+    "singularName": "life-groups-page",
+    "pluralName": "life-groups-pages",
+    "displayName": "Life Groups Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PromoVideo": {
+      "type": "customField",
+      "customField": "plugin::oembed.oembed",
+      "required": true
+    },
+    "Pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "SignUpLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.link"
+    }
+  }
+}

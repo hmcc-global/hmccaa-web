@@ -27,7 +27,11 @@ export const ButtonLink = ({
     >
       {children}
     </span>{" "}
-    {hasArrow && <ButtonArrow className="whitespace-nowrap" />}
+    {hasArrow && (
+      <ButtonArrow
+        className={`whitespace-nowrap ${customClassName?.buttonArrow}`}
+      />
+    )}
   </Link>
 );
 

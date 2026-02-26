@@ -37,7 +37,7 @@ const showImage = image => {
   return file?.childImageSharp?.gatsbyImageData ? (
     <GatsbyImage
       image={file?.childImageSharp?.gatsbyImageData}
-      alt={"hey"}
+      alt={alternativeText}
       className="h-full"
     />
   ) : (
@@ -77,7 +77,7 @@ const MissionsPage = ({
     <Layout>
       <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[2.25rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen">
         <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        {missions.length == 0 ? (
+        {missions.length === 0 ? (
           <MissionsEmpty />
         ) : (
           <div className="max-w-[61.25rem] w-full flex flex-col gap-y-12 lg:gap-y-15 lg:items-center">

@@ -25,7 +25,7 @@ const IndexPage = () => (
               />
             </div>
           </div>
-          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[3.75rem]  line-clamp-2 md:text-5xl text-3xl w-full font-bold leading-tight tracking-[0.04em] px-2">
+          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[3.75rem]  line-clamp-2 md:text-6xl text-3xl w-full font-semibold leading-tight tracking-[0.04em] px-2">
             <span className="inline-block">Transform lives,</span>
             <span className="inline-block pl-[0.4rem]">
               Transform the world.
@@ -41,7 +41,10 @@ const IndexPage = () => (
               <ButtonLink
                 to={"/new"}
                 hasArrow={true}
-                className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base"
+                customClassName={{
+                  buttonArrow: "fill-Accent-50",
+                }}
+                className="text-Shades-0 border-Accent-500 border-solid border-2 md:text-lg text-base hover:bg-Accent-500"
               >
                 Plan Your Visit
               </ButtonLink>

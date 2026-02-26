@@ -1,7 +1,6 @@
 import * as React from "react";
 import Card from "../shared/card";
 import { StaticImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
 
 const MAX_DESCRIPTION_LEN = 68;
 
