@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_focus_areas",
+  "info": {
+    "singularName": "team-focus-area",
+    "pluralName": "team-focus-areas",
+    "displayName": "Team Focus Area"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FocusArea": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "team_member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team-member.team-member",
+      "inversedBy": "focus_areas"
+    }
+  }
+}
