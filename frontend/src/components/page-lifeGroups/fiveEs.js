@@ -54,7 +54,7 @@ const FiveEs = () => {
         {fiveEInfo.map((item, i, index) => (
           <span
             key={`fiveEInfo-${index}`}
-            className="flex flex-col lg:text-center lg:items-center"
+            className="flex flex-col items-center lg:text-center"
           >
             <div className="relative">
               <Circle color={item.color} />
