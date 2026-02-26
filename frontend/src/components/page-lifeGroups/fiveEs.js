@@ -43,7 +43,7 @@ const fiveEInfo = [
   },
 ];
 
-const FiveEs = () => {
+const FiveEs = ({ links }) => {
   return (
     <div>
       <h3 className="text-left lg:text-center text-[1.5rem] font-semibold mb-10 leading-tighter">
@@ -51,12 +51,12 @@ const FiveEs = () => {
         2:42-47 as follows:
       </h3>
       <div className="flex flex-col lg:flex-row gap-x-[2.75rem] lg:mx-[2px] pl-8 pr-4 lg:px-0">
-        {fiveEInfo.map((item, i, index) => (
+        {fiveEInfo.map((item, index) => (
           <span
             key={`fiveEInfo-${index}`}
             className="flex flex-col lg:text-center lg:items-center"
           >
-            <div className="relative">
+            <div className="relative flex justify-center">
               <Circle color={item.color} />
               <div className="absolute inset-0 text-Shades-0 text-center flex items-center justify-center">
                 <div className="text-[3.75em] lg:text-[2.75rem] font-bold leading-none">
@@ -64,7 +64,7 @@ const FiveEs = () => {
                 </div>
               </div>
             </div>
-            <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter">
+            <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter text-center">
               {item.word}
             </div>
             <div className="flex flex-col">
@@ -84,18 +84,15 @@ const FiveEs = () => {
         className="flex flex-col justify-center items-stretch lg:items-center gap-5 pt-[5.25rem] lg:pt-[6.25rem] pb-5 lg:pb-12"
         id="lg-signups-anchor"
       >
-        <PrimaryButtonLink
-          href="https://forms.gle/obLFvBBwJ74KeZMy8"
-          hasArrow={true}
-        >
-          LG SIGN UP: <span className="font-normal">UNDERGRAD STUDENTS</span>
-        </PrimaryButtonLink>
-        <PrimaryButtonLink
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeSKeuDEtmv9mQAmm603df8IW82Uq6g_kiIKp-QnsUdBNcZbQ/viewform"
-          hasArrow={true}
-        >
-          LG SIGN UP: <span className="font-normal">ALL OTHER LIFE STAGES</span>
-        </PrimaryButtonLink>
+        {links?.map((link, index) => (
+          <PrimaryButtonLink
+            key={link.strapiId || index}
+            href={link.Hyperlink}
+            hasArrow={true}
+          >
+            LG SIGN UP: <span className="font-normal">{link.Text.toUpperCase()}</span>
+          </PrimaryButtonLink>
+        ))}
       </div>
       <div className="lg:text-center lg:pb-50 max-w-[51.25rem] mx-auto font-medium lg:pt-0 lg:px-0 pt-7 pb-25 pr-2">
         <p className="mb-6 lg:mb-[1.3125rem]">
