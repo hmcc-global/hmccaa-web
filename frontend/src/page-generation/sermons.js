@@ -159,6 +159,9 @@ function processTopics(topics) {
 }
 
 function processSermon(sermon) {
+  if (!sermon.Series) {
+    return null;
+  }
   return {
     type: sermon.ServiceType || "",
     speaker: processSpeaker(sermon.Preacher),
@@ -203,8 +206,18 @@ async function CreateSermonPages(graphql, createPage, reporter) {
 
   let sermonCollection = new AllSermons();
 
+  let skippedCount = 0;
   sermons.forEach(sermon => {
-    sermonCollection.addSermon(sermon.strapiId, processSermon(sermon));
+    const traits = processSermon(sermon);
+    if (traits === null) {
+      reporter.warn(
+        `Skipping sermon (strapiId ${sermon.strapiId}) due to unexpected null data (e.g. unpublished Sermon Series).`
+      );
+      skippedCount++;
+      return;
+    }
+
+    sermonCollection.addSermon(sermon.strapiId, traits);
 
     createPage({
       path: getSermonPageUrl(sermon.strapiId),
@@ -217,7 +230,7 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   });
 
   sermonCollection.createPages(createPage);
-  reporter.info(`Found ${sermons.length} sermons to create pages for.`);
+  reporter.info(`Found ${sermons.length - skippedCount} sermons to create pages for (${skippedCount} skipped).`);
   reporter.info(
     `Found ${sermonCollection.sermonGroups.size} sermon sorting groups to create pages for.`
   );
