@@ -70,14 +70,14 @@ const SermonTraitMetadata = new Map([
 ]);
 
 function normalizeTrait(trait) {
-  // TODO escape characters
   return trait
     .toLowerCase()
-    .replace(/[.'"&]./g, "")
+    .replace(/[.'"&<>|*]/g, "")
     .replace(/\s+/g, "-")
     .replace(/#/g, "hash")
     .replace(/%/g, "percent")
-    .replace(/\?/g, "question");
+    .replace(/\?/g, "question")
+    .replace(/:/g, "colon");
 }
 
 function getUrlFromNormalizedSermonTraits(traits) {
