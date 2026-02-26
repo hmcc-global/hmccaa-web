@@ -20,10 +20,12 @@ const getSermonVideoPlayer = (videoLink, strapiId) => {
       src: `https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`,
       js: <script src="https://player.vimeo.com/api/player.js"></script>,
     };
-  } else if (videoLink?.includes("youtube")) {
+  } else if (videoLink?.includes("youtube") || videoLink?.includes("youtu.be")) {
     try {
       const url = new URL(videoLink);
-      const v = url.searchParams.get("v");
+      const v = url.hostname.endsWith("youtu.be")
+        ? url.pathname.split("/")[1]
+        : url.searchParams.get("v");
       return {
         src: `https://www.youtube-nocookie.com/embed/${v}`,
         js: "",
