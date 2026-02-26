@@ -5,10 +5,11 @@ on:
     types: [strapi_updated]
 
 jobs:
-  deploy-dev-site:
-    uses: ./.github/workflows/component-deploy-dev.yml
-    secrets: inherit
-
   deploy-prod-site:
     uses: ./.github/workflows/component-deploy-prod.yml
+    secrets: inherit
+
+  deploy-dev-site:
+    needs: deploy-prod-site
+    uses: ./.github/workflows/component-deploy-dev.yml
     secrets: inherit
