@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Modal from "react-modal";
 import { MailIcon, CloseIcon } from "../../svgs";
 import Link from "../../Link";
+import RichText from "../../shared/richText";
 
 Modal.setAppElement("#___gatsby");
 const modalStyles = {
@@ -17,7 +19,13 @@ const modalStyles = {
 };
 
 const TeamCardImage = ({ info }) =>
-  info?.img ? (
+  info?.gatsbyImageData ? (
+    <GatsbyImage
+      image={info.gatsbyImageData}
+      alt={info.name || ""}
+      className="w-full mb-0"
+    />
+  ) : info?.img ? (
     <img src={info.img} alt={info.name} className="w-full mb-0" />
   ) : (
     <div className="w-full pb-[101.5%] bg-[#5E5E5E]">&nbsp;</div>
@@ -115,7 +123,15 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
             <div className="flex flex-col lg:flex-row gap-5 pl-[1.125rem] pr-4 pb-[3.375rem] lg:px-[3.125rem] lg:pb-[6.1875rem]">
               <div className="sm:min-w-[280px] flex justify-center">
                 <div>
-                  <img src={member?.img} alt={member?.name} className="mb-0" />
+                  {member?.gatsbyImageData ? (
+                    <GatsbyImage
+                      image={member.gatsbyImageData}
+                      alt={member?.name || ""}
+                      className="mb-0"
+                    />
+                  ) : (
+                    <img src={member?.img} alt={member?.name} className="mb-0" />
+                  )}
                 </div>
               </div>
               <div>
@@ -127,9 +143,13 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
                       </h3>
                       <span>({member?.role})</span>
                     </div>
-                    {member?.description.map((text, index) => (
-                      <p key={`paragraph-${index}`}>{text}</p>
-                    ))}
+                    {member?.background ? (
+                      <RichText data={member.background} />
+                    ) : member?.description ? (
+                      member.description.map((text, index) => (
+                        <p key={`paragraph-${index}`}>{text}</p>
+                      ))
+                    ) : null}
                     <span>{member?.responsibility}</span>
                   </div>
                   {member?.email && (

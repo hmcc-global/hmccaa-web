@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_team_pages",
+  "info": {
+    "singularName": "our-team-page",
+    "pluralName": "our-team-pages",
+    "displayName": "Our Team Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Elders": {
+      "type": "component",
+      "repeatable": true,
+      "component": "team.elder"
+    },
+    "deacons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-member.team-member"
+    }
+  }
+}
