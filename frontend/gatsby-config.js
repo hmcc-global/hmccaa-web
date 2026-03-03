@@ -52,7 +52,7 @@ module.exports = {
           "missions-trip",
           "supported-missionary",
         ],
-        singleTypes: ["notification-bar"],
+        singleTypes: ["notification-bar", "life-groups-page"],
       },
     },
     {
