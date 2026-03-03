@@ -135,19 +135,15 @@ const Header = () => {
             {browseList.map(({ title, route }) => {
               if (route === "/new") {
                 return (
-                  <div
+                  <Link
                     key={`browseLink-${title}`}
-                    className={`hover:bg-Accent-500 ${borderStyle}`}
+                    to={route}
+                    className={`hover:bg-Accent-500 ${borderStyle} min-w-max ${textStyle} ${
+                      route + "/" === path ? "font-extrabold" : ""
+                    } font-bold hover:font-extrabold tracking-[0.96px]`}
                   >
-                    <Link
-                      to={route}
-                      className={`min-w-max ${textStyle} ${
-                        route + "/" === path ? "font-extrabold" : ""
-                      } font-bold hover:font-extrabold tracking-[0.96px]`}
-                    >
-                      I&apos;m New
-                    </Link>
-                  </div>
+                    I&apos;m New
+                  </Link>
                 );
               } else {
                 return (
