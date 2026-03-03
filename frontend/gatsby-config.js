@@ -29,7 +29,6 @@ module.exports = {
     title: `HMCC Ann Arbor`,
     description: `Welcome to Ann Arbor! We are a church on the University of Michigan campus that is open to people of all life stages and backgrounds. Come visit us on Sundays at 10 am!`,
     author: `HMCC Ann Arbor Web Team`,
-    siteUrl: `https://annarbor.hmcc.net`,
   },
   plugins: [
     "gatsby-plugin-postcss",
