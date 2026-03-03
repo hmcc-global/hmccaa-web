@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_members",
+  "info": {
+    "singularName": "team-member",
+    "pluralName": "team-members",
+    "displayName": "Team Member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DisplayName": {
+      "type": "string",
+      "required": true
+    },
+    "Headshot": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "focus_areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-focus-area.team-focus-area",
+      "mappedBy": "team_member"
+    },
+    "Email": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
