@@ -16,9 +16,9 @@
       "required": true,
       "unique": true
     },
-    "team_member": {
+    "team_members": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::team-member.team-member",
       "inversedBy": "focus_areas"
     }

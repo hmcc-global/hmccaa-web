@@ -26,9 +26,9 @@
     },
     "focus_areas": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::team-focus-area.team-focus-area",
-      "mappedBy": "team_member"
+      "mappedBy": "team_members"
     },
     "Email": {
       "type": "string",
