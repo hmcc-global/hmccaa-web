@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "./Link";
 
 const DomainBanner = () => {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -6,7 +7,7 @@ const DomainBanner = () => {
   React.useEffect(() => {
     const hostname = window.location.hostname;
     // Condition mapping only the targeted domain.
-    if (hostname === "annarbor.hmcc.net") {
+    if (hostname.includes("annarbor") || hostname === "localhost") {
       setIsVisible(true);
     }
   }, []);
@@ -33,8 +34,12 @@ const DomainBanner = () => {
           />
         </svg>
         <p className="m-0 leading-tight text-white">
-          Please use hmcc.net to access HMCC&apos;s webpage. Note that
-          annarbor.hmcc.net will no longer be active starting March 13, 2026.
+          Please use{" "}
+          <Link href="https://hmcc.net" className="underline">
+            hmcc.net
+          </Link>{" "}
+          to access HMCC&apos;s webpage. Note that annarbor.hmcc.net will no
+          longer be active starting March 15, 2026.
         </p>
       </div>
     </div>
