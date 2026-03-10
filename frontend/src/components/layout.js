@@ -9,6 +9,7 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
+import DomainBanner from "./domainBanner";
 import "./layout.css";
 import Footer from "./footer";
 
@@ -31,6 +32,7 @@ const Layout = ({
   return (
     <div className={`bg-Neutral-100 font-raleway ${className}`}>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <DomainBanner />
       <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
         {children}
       </main>
