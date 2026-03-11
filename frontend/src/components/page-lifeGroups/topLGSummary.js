@@ -4,7 +4,7 @@ import { SecondaryButtonLink } from "../Button";
 import { mediaWrapper } from "../../css/media.module.css";
 import OEmbedVideo from "../shared/oembed";
 
-const TopLGSummary = ({ oembed })=> {
+const TopLGSummary = ({ oembed }) => {
   return (
     <div>
       <h1 className="lg:text-center text-[2.5rem] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-0">

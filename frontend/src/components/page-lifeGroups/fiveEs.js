@@ -90,7 +90,8 @@ const FiveEs = ({ links }) => {
             href={link.Hyperlink}
             hasArrow={true}
           >
-            LG SIGN UP: <span className="font-normal">{link.Text.toUpperCase()}</span>
+            LG SIGN UP:{" "}
+            <span className="font-normal">{link.Text.toUpperCase()}</span>
           </PrimaryButtonLink>
         ))}
       </div>
