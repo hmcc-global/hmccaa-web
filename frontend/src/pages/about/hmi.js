@@ -140,8 +140,9 @@ const HmiPage = ({
                       </p>
                       <p className="mb-0">
                         Harvest Mission International (HMI) is our outreach
-                        ministry, committed to sending short-term mission teams
-                        and partnering with missionaries locally and abroad.
+                        ministry, committed to planting churches, sending
+                        short-term mission teams, and partnering with
+                        missionaries locally and abroad.
                       </p>
                     </div>
                   </div>

@@ -12,7 +12,7 @@ export const PageDescriptions = {
   about:
     "HMCC's mission is to transform lost people into Christ's disciples who will then transform the world. We do this by gathering, growing, and going. Learn more about us!",
   "about-hmi":
-    "HMI is our outreach ministry, committed to sending workers and partnering with missionaries.",
+    "HMI is our outreach ministry, committed to planting churches, sending workers, and partnering with missionaries.",
   "about-our-team":
     "Get to know a bit more about our elders and deacons at HMCC! Feel free to reach out for any questions you may have.",
   connect:
