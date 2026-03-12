@@ -1,40 +1,18 @@
 import * as React from "react";
-import imgPeteDahlem from "../../../images/about-elders-pete-dahlem.png";
-import imgJoshYang from "../../../images/about-elders-josh-yang.png";
-import imgDaveYon from "../../../images/about-elders-dave-yon.png";
-import imgSeongPark from "../../../images/about-elders-seong-park.png";
 import { SecondaryButtonLink } from "../../Button";
 import TeamCard from "../shared/teamCard";
 import Team from "../shared/team";
 
-const LeadershipSection = () => {
-  const elderInfo = [
-    {
-      img: imgPeteDahlem,
-      name: "Rev. Pete Dahlem",
-      role: "Lead Pastor",
-    },
-    {
-      img: imgJoshYang,
-      name: "Josh Yang",
-      role: "Associate Pastor",
-    },
-    {
-      img: imgDaveYon,
-      name: "Dave Yon",
-      role: "Elder",
-    },
-    {
-      img: imgSeongPark,
-      name: "Seong Park",
-      role: "Elder",
-    },
-  ];
-
-  const elderCards = elderInfo.map((info, index) => (
+const LeadershipSection = ({ elders = [] }) => {
+  const elderCards = elders.map((elder, index) => (
     <TeamCard
       key={`elder-${index + 1}`}
-      info={info}
+      info={{
+        gatsbyImageData:
+          elder.TeamMember?.Headshot?.file?.childImageSharp?.gatsbyImageData,
+        name: elder.TeamMember?.DisplayName,
+        role: elder.Role,
+      }}
       customClassName={{ container: "gap-y-2", h3: "text-2xl leading-tighter" }}
     />
   ));
