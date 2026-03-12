@@ -1,4 +1,5 @@
 import * as React from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../../components/layout";
 import Seo, { PageDescriptions } from "../../components/seo";
@@ -17,25 +18,48 @@ export const Head = () => (
   <Seo title="About" description={PageDescriptions.about} />
 );
 
-const AboutPage = () => (
-  <Layout spacingColor="bg-Neutral-200">
-    <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
-    <div className="content-padding-full">
-      <OurStory />
-    </div>
-    <Mission />
-    <div className="content-padding-full">
-      <Values />
-      <LeadershipSection />
-      <Belief />
-    </div>
-    <Vision />
-    <div className="content-padding-full">
-      <Strategy />
-      <Partners />
-    </div>
-    <Feedback />
-  </Layout>
-);
+const AboutPage = ({ data: { strapiOurTeamPage } }) => {
+  const { Elders } = strapiOurTeamPage;
+  return (
+    <Layout spacingColor="bg-Neutral-200">
+      <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
+      <div className="content-padding-full">
+        <OurStory />
+      </div>
+      <Mission />
+      <div className="content-padding-full">
+        <Values />
+        <LeadershipSection elders={Elders} />
+        <Belief />
+      </div>
+      <Vision />
+      <div className="content-padding-full">
+        <Strategy />
+        <Partners />
+      </div>
+      <Feedback />
+    </Layout>
+  );
+};
 
 export default AboutPage;
+
+export const pageQuery = graphql`
+  query AboutPageQuery {
+    strapiOurTeamPage {
+      Elders {
+        Role
+        TeamMember {
+          DisplayName
+          Headshot {
+            file {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
