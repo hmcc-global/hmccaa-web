@@ -26,7 +26,7 @@ const Partners = () => (
       <HighlightedParagraph>
         <p>
           As Christ has called us to{" "}
-          <span>‘make disciples of all nations’</span> (Matthew 28:19), we value
+          <span>’make disciples of all nations’</span> (Matthew 28:19), we value
           the importance of the local church making an impact in its surrounding
           community for the Gospel of Jesus Christ. Similar to the early church
           seen in the Book of Acts, we believe in doing{" "}
@@ -44,9 +44,7 @@ const Partners = () => (
         </p>
         <p>
           Currently HMI is involved in short-term projects both locally and
-          internationally. Starting in <span>Ann Arbor</span>, HMI now has
-          church plants in <span>Austin, Jakarta, Tangerang, Hong Kong,</span>{" "}
-          and <span>Detroit</span>.
+          internationally.
         </p>
       </HighlightedParagraph>
       <div className={buttonContainer}>

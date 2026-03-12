@@ -142,9 +142,7 @@ const HmiPage = ({
                         Harvest Mission International (HMI) is our outreach
                         ministry, committed to planting churches, sending
                         short-term mission teams, and partnering with
-                        missionaries locally and abroad. We currently have
-                        church plants in Austin, Jakarta, Tangerang, Hong Kong,
-                        and Detroit.
+                        missionaries locally and abroad.
                       </p>
                     </div>
                   </div>
