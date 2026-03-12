@@ -4,13 +4,15 @@ import Team from "../shared/team";
 import TeamCard from "../shared/teamCard";
 
 const DeaconsSection = ({ deacons = [] }) => {
-  const deaconInfo = deacons.map(deacon => ({
-    gatsbyImageData:
-      deacon.Headshot?.file?.childImageSharp?.gatsbyImageData,
-    name: deacon.DisplayName,
-    email: deacon.Email,
-    ministries: deacon.focus_areas?.map(fa => fa.FocusArea) || [],
-  }));
+  const deaconInfo = deacons
+    .map(deacon => ({
+      gatsbyImageData:
+        deacon.Headshot?.file?.childImageSharp?.gatsbyImageData,
+      name: deacon.DisplayName,
+      email: deacon.Email,
+      ministries: deacon.focus_areas?.map(fa => fa.FocusArea) || [],
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="flex flex-col items-center gap-y-5 lg:gap-y-[3.75rem] pt-[1.625rem] pb-[0.125rem] lg:py-0">
