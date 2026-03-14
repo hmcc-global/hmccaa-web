@@ -16,12 +16,12 @@ async function validateRelationsPublished(data, existingId) {
 
     // If the relation is being set via connect/disconnect syntax, extract the id
     if (relationId && typeof relationId === "object") {
-      if (relationId.disconnect && relationId.disconnect.length > 0) {
-        // Relation is being removed
-        relationId = null;
-      } else if (relationId.connect && relationId.connect.length > 0) {
-        // Relation is being set to a new value
+      if (relationId.connect && relationId.connect.length > 0) {
+        // Relation is being set (or swapped) to a new value
         relationId = relationId.connect[0].id;
+      } else if (relationId.disconnect && relationId.disconnect.length > 0) {
+        // Relation is being removed with no replacement
+        relationId = null;
       } else if (relationId.id) {
         relationId = relationId.id;
       } else {

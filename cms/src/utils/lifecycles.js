@@ -39,8 +39,32 @@ function createSermonDependencyGuard({ filterField, label }) {
     return sermons.length;
   }
 
+  async function checkDisconnectingPublishedSermons(event) {
+    const sermons = event.params.data?.Sermons;
+    if (!sermons?.disconnect || sermons.disconnect.length === 0) return;
+
+    const disconnectedIds = sermons.disconnect.map(s => s.id);
+    const published = await strapi.entityService.findMany(
+      "api::sermon.sermon",
+      {
+        filters: {
+          id: { $in: disconnectedIds },
+          publishedAt: { $notNull: true },
+        },
+      }
+    );
+
+    if (published.length > 0) {
+      throw new ApplicationError(
+        `Cannot remove ${published.length} published sermon(s) from this ${label}. Unpublish them first.`
+      );
+    }
+  }
+
   return {
     async beforeUpdate(event) {
+      await checkDisconnectingPublishedSermons(event);
+
       if (!isUnpublishing(event)) return;
 
       const id = event.params.where?.id;
