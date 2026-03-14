@@ -11,7 +11,7 @@ const UpcomingEvents = () => (
       />
     </div>
     <div className="w-full text-left content-container">
-      <div className="subheading">upcoming events</div>
+      <div className="subheading">upcoming events in Ann Arbor</div>
       <h2>
         Here<span>&#39;</span>s what<span>&#39;</span>s happening next.
       </h2>
