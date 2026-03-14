@@ -204,17 +204,14 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   let sermonCollection = new AllSermons();
 
   sermons.forEach(sermon => {
-    let traits;
     try {
-      traits = processSermon(sermon);
+      sermonCollection.addSermon(sermon.strapiId, processSermon(sermon));
     } catch (e) {
       reporter.warn(
         `Skipping sermon (strapiId ${sermon.strapiId}) because of error: ${e}.`
       );
       return;
     }
-
-    sermonCollection.addSermon(sermon.strapiId, traits);
 
     createPage({
       path: getSermonPageUrl(sermon.strapiId),
