@@ -46,6 +46,11 @@ async function validateRelationsPublished(data, existingId) {
   }
 }
 
+function isUnpublishing(event) {
+  const { data } = event.params;
+  return data.publishedAt === null;
+}
+
 function isPublishing(event) {
   const { data } = event.params;
   return data.publishedAt !== undefined && data.publishedAt !== null;
@@ -69,6 +74,7 @@ module.exports = {
   },
 
   async beforeUpdate(event) {
+    if (isUnpublishing(event)) return;
     if (isPublishing(event) || (await isAlreadyPublished(event))) {
       await validateRelationsPublished(
         event.params.data,
