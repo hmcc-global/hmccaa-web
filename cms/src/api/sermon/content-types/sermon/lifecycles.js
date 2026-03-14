@@ -1,5 +1,9 @@
-const { errors } = require("@strapi/utils");
-const { ApplicationError } = errors;
+const {
+  ApplicationError,
+  isUnpublishing,
+  isPublishing,
+  isAlreadyPublished,
+} = require("../../../../utils/lifecycles");
 
 const RELATIONS_TO_VALIDATE = [
   { field: "Series", uid: "api::sermon-series.sermon-series", label: "Sermon Series" },
@@ -12,12 +16,17 @@ async function validateRelationsPublished(data, existingId) {
 
     // If the relation is being set via connect/disconnect syntax, extract the id
     if (relationId && typeof relationId === "object") {
-      if (relationId.connect && relationId.connect.length > 0) {
+      if (relationId.disconnect && relationId.disconnect.length > 0) {
+        // Relation is being removed
+        relationId = null;
+      } else if (relationId.connect && relationId.connect.length > 0) {
+        // Relation is being set to a new value
         relationId = relationId.connect[0].id;
       } else if (relationId.id) {
         relationId = relationId.id;
       } else {
-        relationId = null;
+        // Relation not being changed (e.g. { connect: [], disconnect: [] })
+        relationId = undefined;
       }
     }
 
@@ -46,26 +55,6 @@ async function validateRelationsPublished(data, existingId) {
   }
 }
 
-function isUnpublishing(event) {
-  const { data } = event.params;
-  return data.publishedAt === null;
-}
-
-function isPublishing(event) {
-  const { data } = event.params;
-  return data.publishedAt !== undefined && data.publishedAt !== null;
-}
-
-async function isAlreadyPublished(event) {
-  const existingId = event.params.where?.id;
-  if (!existingId) return false;
-  const existing = await strapi.entityService.findOne(
-    "api::sermon.sermon",
-    existingId
-  );
-  return existing?.publishedAt != null;
-}
-
 module.exports = {
   async beforeCreate(event) {
     if (isPublishing(event)) {
@@ -75,7 +64,7 @@ module.exports = {
 
   async beforeUpdate(event) {
     if (isUnpublishing(event)) return;
-    if (isPublishing(event) || (await isAlreadyPublished(event))) {
+    if (isPublishing(event) || (await isAlreadyPublished("api::sermon.sermon", event))) {
       await validateRelationsPublished(
         event.params.data,
         event.params.where?.id
