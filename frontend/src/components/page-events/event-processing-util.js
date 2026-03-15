@@ -59,6 +59,7 @@ const MONTHS = [
 ];
 
 const suffix = num => {
+  if (num >= 11 && num <= 13) return "th";
   if (num % 10 === 1) return "st";
   if (num % 10 === 2) return "nd";
   if (num % 10 === 3) return "rd";

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_team_elders",
+  "info": {
+    "displayName": "Elder"
+  },
+  "options": {},
+  "attributes": {
+    "TeamMember": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team-member.team-member"
+    },
+    "Role": {
+      "type": "string",
+      "default": "Elder",
+      "required": true
+    },
+    "Background": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}
