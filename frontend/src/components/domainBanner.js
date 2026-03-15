@@ -3,12 +3,14 @@ import Link from "./Link";
 
 const DomainBanner = () => {
   const [isVisible, setIsVisible] = React.useState(false);
+  const [targetUrl, setTargetUrl] = React.useState("https://hmcc.net");
 
   React.useEffect(() => {
     const hostname = window.location.hostname;
     // Condition mapping only the targeted domain.
     if (hostname.includes("annarbor") || hostname === "localhost") {
       setIsVisible(true);
+      setTargetUrl("https://hmcc.net" + window.location.pathname);
     }
   }, []);
 
@@ -35,7 +37,10 @@ const DomainBanner = () => {
         </svg>
         <p className="m-0 leading-tight text-white">
           Please use{" "}
-          <Link href="https://hmcc.net" className="underline">
+          <Link
+            href={targetUrl}
+            className="underline text-Accent-1000 hover:text-white"
+          >
             hmcc.net
           </Link>{" "}
           to access HMCC&apos;s webpage. Note that annarbor.hmcc.net will no
