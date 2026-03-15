@@ -39,7 +39,7 @@ const DomainBanner = () => {
           Please use{" "}
           <Link
             href={targetUrl}
-            className="underline text-yellow-200 hover:text-white"
+            className="underline text-Accent-1000 hover:text-white"
           >
             hmcc.net
           </Link>{" "}
