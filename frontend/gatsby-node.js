@@ -46,3 +46,20 @@ exports.onPostBuild = ({ getNodes }) => {
   memoryLog("onPostBuild");
   console.log(`[DEBUG][build] Done. Final node count: ${getNodes().length}`);
 };
+
+// Suppress "Conflicting order" warnings from mini-css-extract-plugin.
+// These fire when different pages import the same CSS modules in different
+// orders, which is harmless with Tailwind/CSS Modules but produces a lot
+// of noise in the build logs.
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+  if (stage === "build-javascript") {
+    const config = getConfig();
+    const miniCssPlugin = config.plugins.find(
+      plugin => plugin.constructor.name === "MiniCssExtractPlugin"
+    );
+    if (miniCssPlugin) {
+      miniCssPlugin.options.ignoreOrder = true;
+    }
+    actions.replaceWebpackConfig(config);
+  }
+};
