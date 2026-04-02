@@ -50,6 +50,7 @@ jobs:
       - name: Validate Strapi
         run: | 
           cd ${{ github.workspace }}/cms
+          echo "Installing dependencies..."
           npm install --loglevel=error
           npm run build
           npm run strapi policies:list
