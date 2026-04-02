@@ -21,7 +21,7 @@ runs:
         echo 'STRAPI_TOKEN=${{ inputs.strapi_token }}' > ./.env.production
         echo 'STRAPI_API_URL=${{ inputs.strapi_server }}' >> ./.env.production
 
-        echo "Installing dependencies..."
+        echo "Running npm install..."
         npm install --loglevel=error
         NODE_ENV=production HOST_ORIGIN=${{ inputs.host_server }} npm run build
 
