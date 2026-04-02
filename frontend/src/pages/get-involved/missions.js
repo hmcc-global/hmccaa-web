@@ -71,8 +71,6 @@ const MissionsPage = ({
     links: obj.Links,
     description: obj.Description,
   }));
-  console.log("data", missions);
-
   return (
     <Layout>
       <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[2.25rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen">

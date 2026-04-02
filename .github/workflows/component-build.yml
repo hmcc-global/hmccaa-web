@@ -49,7 +49,7 @@ jobs:
           echo 'STRAPI_TOKEN=${{ secrets.strapi_token }}' > ./.env.${{ inputs.build_type }}
           echo 'STRAPI_API_URL=${{ secrets.strapi_api_url }}' >> ./.env.${{ inputs.build_type }}
 
-          npm install
+          npm install --loglevel=error
           NODE_ENV=${{ inputs.build_type }} HOST_ORIGIN=${{ secrets.host_server }} npm run build
       - name: Add anti-webscraping
         if: ${{ inputs.add_robots_txt }}

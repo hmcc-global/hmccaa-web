@@ -56,7 +56,6 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
         answer[answer.length - 1].text.length - END.length
       );
       answer[0].text = answer[0].text.slice(midIndexIndex + MID.length);
-      console.log("[RichText] Found Collapsible:", question, answer);
       return (
         <div className="pb-[1.3125rem] lg:pb-3">
           <Collapsible
@@ -67,11 +66,6 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
             }}
           />
         </div>
-      );
-    } else {
-      console.log(
-        "[RichText] Found collapsible but encountered error; formatting as text. Text:",
-        children
       );
     }
   }

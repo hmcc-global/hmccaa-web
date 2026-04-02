@@ -29,15 +29,11 @@ const getSermonVideoPlayer = (videoLink, strapiId) => {
         js: "",
       };
     } catch (e) {
-      console.log(
-        `Could not parse sermon video link (strapiId ${strapiId}): \`${videoLink}\` because of error: ${e}.`
-      );
+      console.warn(`[DEBUG][sermon] Could not parse video link (strapiId ${strapiId}): "${videoLink}" — ${e}`);
       return null;
     }
   }
-  console.log(
-    `Could not parse sermon video link (strapiId ${strapiId}): \`${videoLink}\``
-  );
+  console.warn(`[DEBUG][sermon] Unrecognized video link format (strapiId ${strapiId}): "${videoLink}"`);
   return null;
 };
 
