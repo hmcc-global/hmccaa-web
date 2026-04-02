@@ -13,7 +13,6 @@ const CustomPage = ({ data }) => {
   const bgImageUrl = url ? `${process.env.HOST_ORIGIN}${url}` : null;
   const buttonText = pageData?.BottomButton?.Text;
   const buttonLink = pageData?.BottomButton?.Hyperlink;
-  console.log("[CustomPage] Generated banner url:", bgImageUrl || bgImage);
   return (
     <Layout hasSpacing={false} className="custom-page">
       <Banner bgImage={`bg-[center_60%] ${bgImage}`} bgImageUrl={bgImageUrl}>
