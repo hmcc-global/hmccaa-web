@@ -21,22 +21,21 @@ function memoryLog(label) {
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
+  const startTime = Date.now();
 
   let pages = new Pages(createPage, reporter);
   let createPageFn = page => pages.addPage(page);
-  let createPageAndPrintFn = page => {
-    reporter.info(`Creating page: ${page.path}`);
-    createPageFn(page);
-  };
 
-  await CreateEventPages(graphql, createPageAndPrintFn, reporter);
+  await CreateEventPages(graphql, createPageFn, reporter);
 
   await CreateSermonPages(graphql, createPageFn, reporter);
 
-  await CreateCustomPages(graphql, createPageAndPrintFn, reporter);
+  await CreateCustomPages(graphql, createPageFn, reporter);
 
   pages.createPages();
   memoryLog("createPages");
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+  console.log(`[DEBUG][build] Page creation finished in ${elapsed}s`);
 };
 
 exports.onPostBootstrap = ({ getNodes }) => {

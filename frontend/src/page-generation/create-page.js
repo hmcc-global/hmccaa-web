@@ -14,7 +14,7 @@ class Pages {
   }
 
   createPages() {
-    this.reporter.info(`${this.pages.length} pages to create...`);
+    this.reporter.info(`[DEBUG][createPages] ${this.pages.length} pages to create...`);
     const timer = this.reporter.activityTimer("Create All Pages");
     timer.start();
 
