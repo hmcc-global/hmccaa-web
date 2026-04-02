@@ -38,6 +38,7 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         token: process.env.STRAPI_TOKEN,
+        download: ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'avif', 'ico'],
         collectionTypes: [
           "custom-page",
           "preacher",
