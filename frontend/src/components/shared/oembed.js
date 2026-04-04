@@ -1,18 +1,5 @@
 import React from "react";
-
-function getYouTubeEmbedUrl(url) {
-  // Handle youtu.be/VIDEO_ID format
-  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
-  if (shortMatch) {
-    return `https://www.youtube-nocookie.com/embed/${shortMatch[1]}`;
-  }
-  // Handle youtube.com/watch?v=VIDEO_ID format
-  const longMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
-  if (longMatch) {
-    return `https://www.youtube-nocookie.com/embed/${longMatch[1]}`;
-  }
-  return null;
-}
+import { getYouTubeEmbedUrl } from "./videoUrl";
 
 function OEmbedVideo({ oembedString, className = "", fallbackUrl }) {
   let embedUrl = null;
