@@ -224,9 +224,9 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   });
 
   sermonCollection.createPages(createPage);
-  reporter.info(`Found ${sermons.length} sermons to create pages for.`);
+  reporter.info(`[DEBUG][createPages] Found ${sermons.length} sermons to create pages for.`);
   reporter.info(
-    `Found ${sermonCollection.sermonGroups.size} sermon sorting groups to create pages for.`
+    `[DEBUG][createPages] Found ${sermonCollection.sermonGroups.size} sermon sorting groups to create pages for.`
   );
 }
 

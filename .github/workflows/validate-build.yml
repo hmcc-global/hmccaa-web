@@ -52,7 +52,8 @@ jobs:
       - name: Verify Strapi
         run: | 
           cd ${{ github.workspace }}/cms
-          npm install
+          echo "Running npm install..."
+          npm install --loglevel=error
           npm run build
           npm run strapi policies:list
           npm run strapi middlewares:list

@@ -17,16 +17,15 @@ async function CreateCustomPages(graphql, createPage, reporter) {
     return;
   }
 
-  result.data.allStrapiCustomPage?.nodes
-    ?.map(({ URL }) => URL)
-    .forEach(url => {
-      reporter.info(`Found custom page to create: ${url}`);
-      createPage({
-        path: url,
-        component: path.resolve("./src/templates/customPage.js"),
-        context: { url },
-      });
+  const urls = result.data.allStrapiCustomPage?.nodes?.map(({ URL }) => URL) || [];
+  reporter.info(`[DEBUG][createPages] Found ${urls.length} custom pages to create${urls.length ? ":\n" + urls.map(u => `  ${u}`).join("\n") : "."}`);
+  urls.forEach(url => {
+    createPage({
+      path: url,
+      component: path.resolve("./src/templates/customPage.js"),
+      context: { url },
     });
+  });
 }
 
 module.exports.CreateCustomPages = CreateCustomPages;

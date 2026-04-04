@@ -21,8 +21,6 @@ const EventPage = ({ pageContext }) => {
     breadcrumb: { crumbs },
   } = pageContext;
 
-  console.log(event);
-
   const { date: formattedDate, time: formattedTime } =
     formatEventTimeAsObject(time);
   return (
