@@ -227,13 +227,6 @@ module.exports = {
         // keep your 404 mapping
         ErrorDocument: "ErrorDocument 404 /404.html",
         custom: `
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule .+ /404.html [L]
-</IfModule>
-
 <IfModule mod_headers.c>
   <FilesMatch "\\.(png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf|mp4|webm|mp3|wav)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
