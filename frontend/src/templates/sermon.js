@@ -12,32 +12,28 @@ import Seo from "../components/seo";
 import { graphql } from "gatsby";
 import { mediaWrapper } from "../css/media.module.css";
 import { getSermonPageUrl } from "../page-generation/sermon-pages";
+import { getYouTubeEmbedUrl, getVimeoEmbedUrl } from "../components/shared/videoUrl";
 
 const getSermonVideoPlayer = (videoLink, strapiId) => {
-  if (videoLink?.includes("vimeo")) {
-    const videoID = videoLink.match(/\d+/).shift();
+  if (!videoLink) {
+    console.warn(`[DEBUG][sermon] Missing video link (strapiId ${strapiId})`);
+    return null;
+  }
+
+  const vimeoSrc = getVimeoEmbedUrl(videoLink);
+  if (videoLink.includes("vimeo") && vimeoSrc) {
     return {
-      src: `https://player.vimeo.com/video/${videoID}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`,
+      src: vimeoSrc,
       js: <script src="https://player.vimeo.com/api/player.js"></script>,
     };
-  } else if (videoLink?.includes("youtube")) {
-    try {
-      const url = new URL(videoLink);
-      const v = url.searchParams.get("v");
-      return {
-        src: `https://www.youtube-nocookie.com/embed/${v}`,
-        js: "",
-      };
-    } catch (e) {
-      console.log(
-        `Could not parse sermon video link (strapiId ${strapiId}): \`${videoLink}\` because of error: ${e}.`
-      );
-      return null;
-    }
   }
-  console.log(
-    `Could not parse sermon video link (strapiId ${strapiId}): \`${videoLink}\``
-  );
+
+  const youtubeSrc = getYouTubeEmbedUrl(videoLink);
+  if (youtubeSrc) {
+    return { src: youtubeSrc, js: "" };
+  }
+
+  console.warn(`[DEBUG][sermon] Unrecognized video link format (strapiId ${strapiId}): "${videoLink}"`);
   return null;
 };
 
