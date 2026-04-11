@@ -204,7 +204,14 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   let sermonCollection = new AllSermons();
 
   sermons.forEach(sermon => {
-    sermonCollection.addSermon(sermon.strapiId, processSermon(sermon));
+    try {
+      sermonCollection.addSermon(sermon.strapiId, processSermon(sermon));
+    } catch (e) {
+      reporter.warn(
+        `Skipping sermon (strapiId ${sermon.strapiId}) because of error: ${e}.`
+      );
+      return;
+    }
 
     createPage({
       path: getSermonPageUrl(sermon.strapiId),
@@ -217,9 +224,9 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   });
 
   sermonCollection.createPages(createPage);
-  reporter.info(`Found ${sermons.length} sermons to create pages for.`);
+  reporter.info(`[DEBUG][createPages] Found ${sermons.length} sermons to create pages for.`);
   reporter.info(
-    `Found ${sermonCollection.sermonGroups.size} sermon sorting groups to create pages for.`
+    `[DEBUG][createPages] Found ${sermonCollection.sermonGroups.size} sermon sorting groups to create pages for.`
   );
 }
 
