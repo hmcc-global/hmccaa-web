@@ -62,4 +62,5 @@ jobs:
         with:
           name: ${{ inputs.artifact_name }}
           path: ./frontend/public/
+          include-hidden-files: true
           retention-days: 1
