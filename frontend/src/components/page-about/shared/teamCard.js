@@ -130,7 +130,11 @@ const TeamCard = ({ info, customClassName, showModal = false }) => {
                       className="mb-0"
                     />
                   ) : (
-                    <img src={member?.img} alt={member?.name} className="mb-0" />
+                    <img
+                      src={member?.img}
+                      alt={member?.name}
+                      className="mb-0"
+                    />
                   )}
                 </div>
               </div>

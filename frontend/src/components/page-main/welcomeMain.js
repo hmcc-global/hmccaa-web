@@ -16,8 +16,9 @@ const WelcomeMain = () => (
       <h2>JESUS IS OUR CENTER.</h2>
       <HighlightedParagraph>
         <p className="pt-5">
-          At Harvest Mission Community Church (HMCC), we believe Jesus is the most important person in the universe
-          and <span>knowing Him changes everything.</span>
+          At Harvest Mission Community Church (HMCC), we believe Jesus is the
+          most important person in the universe and{" "}
+          <span>knowing Him changes everything.</span>
         </p>
         <p>
           Here you will find <span>a place where you can encounter God</span>{" "}

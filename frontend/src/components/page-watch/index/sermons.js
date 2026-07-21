@@ -149,7 +149,9 @@ const Sermons = ({
         <img src={`${process.env.STRAPI_API_URL}${url}`} alt={SeriesName} />
       );
     }
-    console.warn(`[DEBUG][sermon-series] Missing background image for series "${SeriesName}"`);
+    console.warn(
+      `[DEBUG][sermon-series] Missing background image for series "${SeriesName}"`
+    );
     return <div className="py-5 w-full"></div>;
   };
 
