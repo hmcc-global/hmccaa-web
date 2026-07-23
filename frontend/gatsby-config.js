@@ -38,7 +38,7 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         token: process.env.STRAPI_TOKEN,
-        download: ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'avif', 'ico'],
+        download: ["png", "jpg", "jpeg", "gif", "svg", "webp", "avif", "ico"],
         collectionTypes: [
           "custom-page",
           "preacher",
@@ -54,11 +54,7 @@ module.exports = {
           "team-member",
           "team-focus-area",
         ],
-        singleTypes: [
-          "life-groups-page",
-          "notification-bar",
-          "our-team-page",
-        ],
+        singleTypes: ["life-groups-page", "notification-bar", "our-team-page"],
       },
     },
     {

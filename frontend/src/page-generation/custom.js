@@ -17,8 +17,13 @@ async function CreateCustomPages(graphql, createPage, reporter) {
     return;
   }
 
-  const urls = result.data.allStrapiCustomPage?.nodes?.map(({ URL }) => URL) || [];
-  reporter.info(`[DEBUG][createPages] Found ${urls.length} custom pages to create${urls.length ? ":\n" + urls.map(u => `  ${u}`).join("\n") : "."}`);
+  const urls =
+    result.data.allStrapiCustomPage?.nodes?.map(({ URL }) => URL) || [];
+  reporter.info(
+    `[DEBUG][createPages] Found ${urls.length} custom pages to create${
+      urls.length ? ":\n" + urls.map(u => `  ${u}`).join("\n") : "."
+    }`
+  );
   urls.forEach(url => {
     createPage({
       path: url,

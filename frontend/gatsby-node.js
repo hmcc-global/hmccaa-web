@@ -16,7 +16,9 @@ const { Pages } = require("./src/page-generation/create-page");
 function memoryLog(label) {
   const m = process.memoryUsage();
   const mb = v => (v / 1024 / 1024).toFixed(0);
-  console.log(`[DEBUG][build:${label}] RSS: ${mb(m.rss)}MB, Heap: ${mb(m.heapUsed)}MB`);
+  console.log(
+    `[DEBUG][build:${label}] RSS: ${mb(m.rss)}MB, Heap: ${mb(m.heapUsed)}MB`
+  );
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {

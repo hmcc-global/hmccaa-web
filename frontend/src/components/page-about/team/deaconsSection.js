@@ -6,8 +6,7 @@ import TeamCard from "../shared/teamCard";
 const DeaconsSection = ({ deacons = [] }) => {
   const deaconInfo = deacons
     .map(deacon => ({
-      gatsbyImageData:
-        deacon.Headshot?.file?.childImageSharp?.gatsbyImageData,
+      gatsbyImageData: deacon.Headshot?.file?.childImageSharp?.gatsbyImageData,
       name: deacon.DisplayName,
       email: deacon.Email,
       ministries: deacon.focus_areas?.map(fa => fa.FocusArea) || [],

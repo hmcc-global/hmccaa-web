@@ -101,7 +101,9 @@ async function CreateEventPages(graphql, createPage, reporter) {
     processEvents(eventResult.data.allStrapiEvent.nodes)
   );
 
-  reporter.info(`[DEBUG][createPages] Found ${parsedEvents.length} events to create pages for.`);
+  reporter.info(
+    `[DEBUG][createPages] Found ${parsedEvents.length} events to create pages for.`
+  );
 
   parsedEvents.forEach(event => {
     if (!event.id || !event.times) {

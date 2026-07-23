@@ -12,7 +12,10 @@ import Seo from "../components/seo";
 import { graphql } from "gatsby";
 import { mediaWrapper } from "../css/media.module.css";
 import { getSermonPageUrl } from "../page-generation/sermon-pages";
-import { getYouTubeEmbedUrl, getVimeoEmbedUrl } from "../components/shared/videoUrl";
+import {
+  getYouTubeEmbedUrl,
+  getVimeoEmbedUrl,
+} from "../components/shared/videoUrl";
 
 const getSermonVideoPlayer = (videoLink, strapiId) => {
   if (!videoLink) {
@@ -33,7 +36,9 @@ const getSermonVideoPlayer = (videoLink, strapiId) => {
     return { src: youtubeSrc, js: "" };
   }
 
-  console.warn(`[DEBUG][sermon] Unrecognized video link format (strapiId ${strapiId}): "${videoLink}"`);
+  console.warn(
+    `[DEBUG][sermon] Unrecognized video link format (strapiId ${strapiId}): "${videoLink}"`
+  );
   return null;
 };
 
