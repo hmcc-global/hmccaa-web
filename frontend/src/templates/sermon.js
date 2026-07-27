@@ -16,6 +16,7 @@ import {
   getYouTubeEmbedUrl,
   getVimeoEmbedUrl,
 } from "../components/shared/videoUrl";
+import { getBookName } from "../page-generation/strapi-bible";
 
 const getSermonVideoPlayer = (videoLink, strapiId) => {
   if (!videoLink) {
@@ -61,7 +62,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
   } = strapiSermon;
   const speaker = `${Prefix || ""} ${Name}`;
   const passeges = BiblePassage.map(
-    ({ Book, ChapterVerse }) => `${Book} ${ChapterVerse}`
+    ({ Book, ChapterVerse }) => `${getBookName(Book)} ${ChapterVerse}`
   );
   const audioURL = `${baseURL}${Audio?.url}`;
   const video = getSermonVideoPlayer(VideoLink, id);
