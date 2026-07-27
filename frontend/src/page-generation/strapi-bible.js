@@ -20,7 +20,7 @@ const BOOKS = new Map([
   ["Psalms", "Psalms"],
   ["Proverbs", "Proverbs"],
   ["Ecclesiastes", "Ecclesiastes"],
-  ["Song of Solomon", "Song of Solomon"],
+  ["Song_of_Solomon", "Song of Solomon"],
   ["Isaiah", "Isaiah"],
   ["Jeremiah", "Jeremiah"],
   ["Lamentations", "Lamentations"],

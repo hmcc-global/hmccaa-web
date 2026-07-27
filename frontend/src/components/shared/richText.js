@@ -69,7 +69,9 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
       );
     } else {
       const preview = children[0]?.text?.slice(0, 80) || "(empty)";
-      console.warn(`[DEBUG][richText] Found collapsible tags but missing <collapsible-answer> marker; rendering as plain text. Preview: "${preview}"`);
+      console.warn(
+        `[DEBUG][richText] Found collapsible tags but missing <collapsible-answer> marker; rendering as plain text. Preview: "${preview}"`
+      );
     }
   }
 
