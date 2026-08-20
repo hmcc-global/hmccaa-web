@@ -48,7 +48,7 @@ const Footer = () => {
                 to="https://amichurches.com/"
                 className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-left no-underline hover:opacity-75"
               >
-                HMCC is a member of Acts Ministry International
+                HMCC is a member of Acts Ministries International
               </Link>
             </div>
             <hr className="bg-Shades-0 w-full md:w-0 md:h-0 m-0 order-3 md:order-none " />
