@@ -44,7 +44,7 @@ const Footer = () => {
                   HARVEST MISSION COMMUNITY CHURCH
                 </h2>
               </div>
-              <div>
+              <div className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-left no-underline">
                 HMCC is a member of 
                 <Link
                   to="https://amichurches.com/"
