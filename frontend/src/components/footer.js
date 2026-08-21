@@ -44,12 +44,15 @@ const Footer = () => {
                   HARVEST MISSION COMMUNITY CHURCH
                 </h2>
               </div>
-              <Link
-                to="https://amichurches.com/"
-                className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-left no-underline hover:opacity-75"
-              >
-                HMCC is a member of Acts Ministry International
-              </Link>
+              <div className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-left no-underline">
+                HMCC is a member of{" "}
+                <Link
+                  to="https://amichurches.com/"
+                  className="font-medium text-sm leading-[18px] text-Shades-0 mt-[22px] mb-0 text-left no-underline hover:opacity-75"
+                >
+                  Acts Ministries International
+                </Link>
+              </div>
             </div>
             <hr className="bg-Shades-0 w-full md:w-0 md:h-0 m-0 order-3 md:order-none " />
             <div className="flex flex-row justify-between md:gap-0 md:justify-evenly w-full sm:max-w-[313px] lg:justify-between md:py-0 order-3 md:order-none px-[12.805%] sm:px-0">
