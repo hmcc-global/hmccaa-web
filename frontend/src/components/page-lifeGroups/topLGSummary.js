@@ -20,13 +20,13 @@ const TopLGSummary = ({ oembed }) => {
           <HighlightedParagraph className="text-lg">
             <p>
               In the Bible, Jesus talks about living an abundant life. The
-              vision of Life group is:{" "}
+              vision of Life Group is:{" "}
               <span>
                 {" "}
                 to experience the fullness of life in a Biblical community where
                 the Gospel is radically lived out.{" "}
               </span>
-              Life groups seek to accomplish this by sharing our lives with one
+              Life Groups seek to accomplish this by sharing our lives with one
               another within various life stages.
             </p>
             <p>
@@ -40,7 +40,7 @@ const TopLGSummary = ({ oembed }) => {
             <p>
               If you are new to our church, there is no better way to get a
               taste of who we are and what we believe in than to check out one
-              of our Life groups. Don&apos;t miss out this opportunity to
+              of our Life Groups. Don&apos;t miss out this opportunity to
               experience the life-changing power of Biblical community.
             </p>
           </HighlightedParagraph>
