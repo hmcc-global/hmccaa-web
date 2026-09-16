@@ -4,9 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../../components/layout";
 import Seo, { PageDescriptions } from "../../components/seo";
 import Partners from "../../components/page-about/index/partners";
-import Strategy from "../../components/page-about/index/strategy";
 import Mission from "../../components/page-about/index/mission";
-import Values from "../../components/page-about/index/values";
 import Belief from "../../components/page-about/index/belief";
 import Vision from "../../components/page-about/index/vision";
 import LeadershipSection from "../../components/page-about/index/leadership";
@@ -18,8 +16,8 @@ export const Head = () => (
   <Seo title="About" description={PageDescriptions.about} />
 );
 
-const AboutPage = ({ data: { strapiOurTeamPage } }) => {
-  const { Elders } = strapiOurTeamPage;
+const AboutPage = ({ data: { strapiOurTeamPage } = {} }) => {
+  const { Elders } = strapiOurTeamPage || {};
   return (
     <Layout spacingColor="bg-Neutral-200">
       <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
@@ -28,13 +26,11 @@ const AboutPage = ({ data: { strapiOurTeamPage } }) => {
       </div>
       <Mission />
       <div className="content-padding-full">
-        <Values />
         <LeadershipSection elders={Elders} />
         <Belief />
       </div>
       <Vision />
       <div className="content-padding-full">
-        <Strategy />
         <Partners />
       </div>
       <Feedback />

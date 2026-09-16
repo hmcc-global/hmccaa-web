@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply pt-5 lg:pt-0 lg:grid lg:pb-20.5 text-left max-w-container w-full lg:grid-cols-59;
+  @apply pt-10 lg:pt-20 lg:grid lg:pb-20.5 text-left max-w-container w-full lg:grid-cols-59;
 }
 
 .global-mission-img-container {

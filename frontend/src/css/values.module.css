@@ -1,5 +1,0 @@
-@config "../config/tailwind.config.js";
-
-.title span {
-  @apply text-Accent-700;
-}
