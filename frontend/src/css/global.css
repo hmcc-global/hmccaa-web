@@ -142,11 +142,11 @@ span.ellipsis {
 }
 
 .notification-text-container > div {
-  @apply inline pr-4 lg:px-0 pl-4 sm:pl-0 pb-0;
+  @apply inline pb-0;
 }
 
 .notification-text-container p {
-  @apply mb-0 inline px-4 lg:px-0 sm:pl-0;
+  @apply mb-0 inline;
 }
 
 .custom-page .collapsible h3 {
