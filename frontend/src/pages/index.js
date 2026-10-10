@@ -13,23 +13,24 @@ const IndexPage = () => (
   <Layout>
     <div className="w-full">
       <NotificationBar />
-      <div className="relative text-center text-Shades-0 bg-Primary-700">
+      <div className="relative text-center 1.5xl:text-left text-Shades-0 bg-Primary-700">
         <div className="mx-auto">
           <div className="w-full mx-auto relative overflow-hidden">
-            <div className=" pb-[38rem] sm:pb-[64.723%] 1.5xl:pb-[58.25rem [&>.gatsby-image-wrapper]:absolute">
+            <div className=" pb-[25rem] md:pb-[60%] 1.5xl:pb-[52%] 2.5xl:pb-[35%] [&>.gatsby-image-wrapper]:absolute home-image-wrapper">
               <StaticImage
                 className="w-full mb-0 inset-0"
                 layout="fullWidth"
                 alt="Sunday Celebration"
-                src="../images/main-cover.jpg"
+                src="../images/home-landing.jpg"
+                imgStyle={{
+                  objectFit: undefined,
+                }}
               />
             </div>
           </div>
-          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[3.75rem]  line-clamp-2 md:text-6xl text-3xl w-full font-semibold leading-tight tracking-[0.04em] px-2">
-            <span className="inline-block">Transform lives,</span>
-            <span className="inline-block pl-[0.4rem]">
-              Transform the world.
-            </span>
+          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[4.6875rem]  line-clamp-2 md:text-6xl text-3xl w-full font-semibold leading-tight tracking-[0.04em] 1.5xl:pl-20">
+            <span className="block">Transform lives,</span>
+            <span className="block">Transform the world.</span>
           </h1>
         </div>
         <div className="w-full bg-Primary-700/[0.8] flex justify-center px-4 absolute bottom-0">

@@ -200,3 +200,7 @@ span.ellipsis {
 .custom-content p.small {
   @apply text-base sm:text-sm;
 }
+
+.home-image-wrapper img {
+  @apply object-cover object-[80%_50%] md:object-right;
+}
