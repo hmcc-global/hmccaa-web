@@ -12,7 +12,11 @@ import NotificationBar from "../components/shared/notificationBar";
 const IndexPage = () => (
   <Layout>
     <div className="w-full">
-      <NotificationBar />
+      <NotificationBar
+        forceShow={true}
+        linkTo="/announcement"
+        linkText="Link to page"
+      />
       <div className="relative text-center 1.5xl:text-left text-Shades-0 bg-Primary-700">
         <div className="mx-auto">
           <div className="w-full mx-auto relative overflow-hidden">
