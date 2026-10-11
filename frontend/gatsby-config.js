@@ -65,7 +65,13 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Applies to every StaticImage and gatsbyImageData; sharp's default of 50 visibly blurs photos
+        defaults: { quality: 80 },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

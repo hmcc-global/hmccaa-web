@@ -217,5 +217,5 @@ span.ellipsis {
 }
 
 .home-image-wrapper img {
-  @apply object-cover object-[80%_50%] md:object-right xl:object-scale-down;
+  @apply object-cover object-[80%_50%] md:object-right 2.5xl:object-[right_15%];
 }
