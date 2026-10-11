@@ -21,16 +21,17 @@ const GetConnectedText = () => (
   </div>
 );
 
+// Sources are ~250px for a 240px box, so keep their full resolution (no width) and use a
+// high quality; downscaling and q80 both visibly soften these small photos
 const lgsArray = [
   {
     title: "COVENANT",
     desc: "MARRIED COUPLES",
     color: "Accent-900", // #a842a8
-    // width=240 is the largest it renders (15.5rem box minus 4px border each side)
     img: (
       <StaticImage
         src="../../images/home-get-connected/covenant-raw.png"
-        width={240}
+        quality={95}
         alt="Covenant Life group"
         objectFit="fill"
         className="w-full h-full"
@@ -43,11 +44,10 @@ const lgsArray = [
     title: "FOCUS",
     desc: "SINGLE ADULTS",
     color: "Accent-700", // #f0508b
-    // width=240 is the largest it renders (15.5rem box minus 4px border each side)
     img: (
       <StaticImage
         src="../../images/home-get-connected/focus-raw.png"
-        width={240}
+        quality={95}
         alt="Focus Life group"
         objectFit="fill"
         className="w-full h-full"
@@ -60,11 +60,12 @@ const lgsArray = [
     title: "IMPACT",
     desc: "GRADUATE STUDENTS",
     color: "Accent-300", // #ffbd57
-    // width=240 is the largest it renders (15.5rem box minus 4px border each side)
     img: (
       <StaticImage
         src="../../images/home-get-connected/impact-raw.png"
-        width={240}
+        // The only large source (681px); 480 covers the 240px box on 2x screens
+        width={480}
+        quality={95}
         alt="Impact Life group"
         objectFit="fill"
         className="w-full h-full"
@@ -77,11 +78,10 @@ const lgsArray = [
     title: "ACCESS",
     desc: "UNDERGRADUATES",
     color: "Error-300", // #f39ea2
-    // width=240 is the largest it renders (15.5rem box minus 4px border each side)
     img: (
       <StaticImage
         src="../../images/home-get-connected/access-raw.png"
-        width={240}
+        quality={95}
         alt="Access Life group"
         objectFit="fill"
         className="w-full h-full"
@@ -94,11 +94,10 @@ const lgsArray = [
     title: "GLOBAL ACCESS",
     desc: "INTERNATIONAL STUDENTS",
     color: "Success-500", // #10b981
-    // width=240 is the largest it renders (15.5rem box minus 4px border each side)
     img: (
       <StaticImage
         src="../../images/home-get-connected/ga-raw.png"
-        width={240}
+        quality={95}
         alt="GA Life group"
         objectFit="fill"
         className="w-full h-full"
@@ -111,11 +110,10 @@ const lgsArray = [
     title: "LATITUDE/VELOCITY",
     desc: "YOUTH",
     color: "Accent-500", // #ff8069
-    // width=240 is the largest it renders (15.5rem box minus 4px border each side)
     img: (
       <StaticImage
         src="../../images/home-get-connected/latvel-raw.png"
-        width={240}
+        quality={95}
         alt="LatVel Life group"
         objectFit="fill"
         className="w-full h-full"
@@ -128,11 +126,10 @@ const lgsArray = [
     title: "BUILDING BLOCKS",
     desc: "KIDS",
     color: "Accent-1000", // #f0df5c
-    // width=240 is the largest it renders (15.5rem box minus 4px border each side)
     img: (
       <StaticImage
         src="../../images/home-get-connected/bb-raw.png"
-        width={240}
+        quality={95}
         alt="BB Life group"
         objectFit="fill"
         className="w-full h-full"
