@@ -18,7 +18,7 @@ const CustomPage = ({ data }) => {
       <Banner
         bgImage={`bg-[center_60%] ${bgImage}`}
         bgImageUrl={bgImageUrl}
-        headingClassName="text-center lg:text-left"
+        headingClassName="text-center"
       >
         {pageData?.Title}
       </Banner>
