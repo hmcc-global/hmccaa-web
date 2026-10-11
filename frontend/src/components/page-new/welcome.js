@@ -1,5 +1,5 @@
 import * as React from "react";
-import newWelcome from "../../images/new-welcome.png";
+import { StaticImage } from "gatsby-plugin-image";
 import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 
@@ -7,7 +7,11 @@ const WelcomeSection = () => (
   <div className="flex flex-col lg:flex-row items-center lg:items-start pt-3 pb-20.5 content-image">
     <div className="lg:order-1 image-container">
       <div>
-        <img src={newWelcome} alt="Welcome" />
+        <StaticImage
+          src="../../images/new-welcome.png"
+          width={540}
+          alt="Welcome"
+        />
       </div>
     </div>
     <div className="text-left content-container">

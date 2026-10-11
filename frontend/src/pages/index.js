@@ -21,8 +21,12 @@ const IndexPage = () => (
                 className="w-full mb-0 inset-0"
                 layout="fullWidth"
                 alt="Sunday Celebration"
-                formats={["auto"]}
                 src="../images/home-landing.jpg"
+                breakpoints={[750, 1080, 1366, 1920, 2560, 3840]}
+                // object-cover draws the 2.5:1 image at max(viewport width, wrapper height * 2.5);
+                // keep in sync with the pb-[...] above
+                sizes="(min-width: 1280px) 100vw, (min-width: 768px) 150vw, 1000px"
+                loading="eager"
                 imgStyle={{
                   objectFit: undefined,
                 }}

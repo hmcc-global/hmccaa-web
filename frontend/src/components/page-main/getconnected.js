@@ -1,14 +1,8 @@
 import * as React from "react";
 import { useMediaQuery } from "react-responsive";
 import { textContainer } from "../../css/ministryTeams.module.css";
+import { StaticImage } from "gatsby-plugin-image";
 import { SecondaryButtonLink } from "../Button";
-import imgAccess from "../../images/home-get-connected/access-raw.png";
-import imgBB from "../../images/home-get-connected/bb-raw.png";
-import imgCovenant from "../../images/home-get-connected/covenant-raw.png";
-import imgFocus from "../../images/home-get-connected/focus-raw.png";
-import imgGA from "../../images/home-get-connected/ga-raw.png";
-import imgImpact from "../../images/home-get-connected/impact-raw.png";
-import imgLatVel from "../../images/home-get-connected/latvel-raw.png";
 
 const GetConnectedText = () => (
   <div className="w-full flex-col xl:py-5">
@@ -27,61 +21,121 @@ const GetConnectedText = () => (
   </div>
 );
 
+// Sources are ~250px for a 240px box, so keep their full resolution (no width) and use a
+// high quality; downscaling and q80 both visibly soften these small photos
 const lgsArray = [
   {
     title: "COVENANT",
     desc: "MARRIED COUPLES",
     color: "Accent-900", // #a842a8
-    img: imgCovenant,
-    alt: "Covenant Life group",
+    img: (
+      <StaticImage
+        src="../../images/home-get-connected/covenant-raw.png"
+        quality={95}
+        alt="Covenant Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[6rem] xl:right-[16rem]`,
   },
   {
     title: "FOCUS",
     desc: "SINGLE ADULTS",
     color: "Accent-700", // #f0508b
-    img: imgFocus,
-    alt: "Focus Life group",
+    img: (
+      <StaticImage
+        src="../../images/home-get-connected/focus-raw.png"
+        quality={95}
+        alt="Focus Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `bottom-[5rem] right-[18rem]`,
   },
   {
     title: "IMPACT",
     desc: "GRADUATE STUDENTS",
     color: "Accent-300", // #ffbd57
-    img: imgImpact,
-    alt: "Impact Life group",
+    img: (
+      <StaticImage
+        src="../../images/home-get-connected/impact-raw.png"
+        // The only large source (681px); 480 covers the 240px box on 2x screens
+        width={480}
+        quality={95}
+        alt="Impact Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:bottom-[18rem] xl:right-[-5rem]`,
   },
   {
     title: "ACCESS",
     desc: "UNDERGRADUATES",
     color: "Error-300", // #f39ea2
-    img: imgAccess,
-    alt: "Access Life group",
+    img: (
+      <StaticImage
+        src="../../images/home-get-connected/access-raw.png"
+        quality={95}
+        alt="Access Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:bottom-[12rem] xl:left-[12rem]`,
   },
   {
     title: "GLOBAL ACCESS",
     desc: "INTERNATIONAL STUDENTS",
     color: "Success-500", // #10b981
-    img: imgGA,
-    alt: "GA Life group",
+    img: (
+      <StaticImage
+        src="../../images/home-get-connected/ga-raw.png"
+        quality={95}
+        alt="GA Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[-9rem] xl:left-[20rem]`,
   },
   {
     title: "LATITUDE/VELOCITY",
     desc: "YOUTH",
     color: "Accent-500", // #ff8069
-    img: imgLatVel,
-    alt: "LatVel Life group",
+    img: (
+      <StaticImage
+        src="../../images/home-get-connected/latvel-raw.png"
+        quality={95}
+        alt="LatVel Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[12rem] xl:left-[12rem]`,
   },
   {
     title: "BUILDING BLOCKS",
     desc: "KIDS",
     color: "Accent-1000", // #f0df5c
-    img: imgBB,
-    alt: "BB Life group",
+    img: (
+      <StaticImage
+        src="../../images/home-get-connected/bb-raw.png"
+        quality={95}
+        alt="BB Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[20rem] xl:right-[-6rem]`,
   },
 ];
@@ -138,7 +192,7 @@ const DoubleGridDesktop = ({ title, desc, color, img, alt }) => (
     <div
       className={`w-[15.5rem] h-[15.5rem] left-0 top-0 absolute border-4 border-${color}`}
     >
-      <img src={img} alt={alt} className="mb-0 w-full h-full" />
+      {img}
     </div>
   </div>
 );
@@ -163,7 +217,7 @@ const DoubleGridMobile = ({ title, desc, color, img, alt }) => {
         <div
           className={`w-[9.5rem] h-[9.5rem] left-0 top-0 absolute border-4 border-${color}`}
         >
-          <img src={img} alt={alt} className="mb-0 w-full h-full" />
+          {img}
         </div>
       </div>
     </div>

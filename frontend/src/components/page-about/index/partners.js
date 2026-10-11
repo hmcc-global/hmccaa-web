@@ -17,7 +17,11 @@ const Partners = () => (
   <div className={container}>
     <div className={globalMissionImgContainer}>
       <div>
-        <StaticImage src="../../../images/image264.png" alt="HMI Project" />
+        <StaticImage
+          src="../../../images/image264.png"
+          alt="HMI Project"
+          width={480}
+        />
       </div>
     </div>
     <div className={statementContainer}>
