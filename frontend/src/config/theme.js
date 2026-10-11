@@ -351,7 +351,7 @@ const theme = {
     screens: {
       xs: "375px",
       "1.5xl": "1440px",
-      "2.5xl": "2100px",
+      "2.5xl": "1800px",
     },
   },
 };
