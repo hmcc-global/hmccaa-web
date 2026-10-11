@@ -16,11 +16,12 @@ const IndexPage = () => (
       <div className="relative text-center 1.5xl:text-left text-Shades-0 bg-Primary-700">
         <div className="mx-auto">
           <div className="w-full mx-auto relative overflow-hidden">
-            <div className=" pb-[25rem] md:pb-[60%] 1.5xl:pb-[52%] 2.5xl:pb-[35%] [&>.gatsby-image-wrapper]:absolute home-image-wrapper">
+            <div className="pb-[25rem] md:pb-[60%] xl:pb-[40%] 2.5xl:pb-[45rem] [&>.gatsby-image-wrapper]:absolute home-image-wrapper">
               <StaticImage
                 className="w-full mb-0 inset-0"
                 layout="fullWidth"
                 alt="Sunday Celebration"
+                formats={["auto"]}
                 src="../images/home-landing.jpg"
                 imgStyle={{
                   objectFit: undefined,

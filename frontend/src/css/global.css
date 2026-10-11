@@ -202,5 +202,5 @@ span.ellipsis {
 }
 
 .home-image-wrapper img {
-  @apply object-cover object-[80%_50%] md:object-right;
+  @apply object-cover object-[80%_50%] md:object-right xl:object-scale-down;
 }
