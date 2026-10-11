@@ -142,11 +142,26 @@ span.ellipsis {
 }
 
 .notification-text-container > div {
-  @apply inline pr-4 lg:px-0 pl-4 sm:pl-0 pb-0;
+  @apply block pb-0;
+  /* RichText wraps paragraphs in a text-left div; follow the container's alignment instead */
+  text-align: inherit;
 }
 
 .notification-text-container p {
-  @apply mb-0 inline px-4 lg:px-0 sm:pl-0;
+  @apply mb-0 inline;
+}
+
+/* Let links wrap (and break long URLs) in the notification bar and custom pages */
+.notification-text-container a,
+.custom-content a {
+  @apply whitespace-normal inline break-words;
+  overflow-wrap: anywhere;
+}
+
+/* Hanging indent so wrapped list lines align with the first line of text */
+.custom-content ul,
+.custom-content ol {
+  @apply list-outside pl-6;
 }
 
 .custom-page .collapsible h3 {
