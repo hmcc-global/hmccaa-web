@@ -105,7 +105,7 @@ const LifeStages = () => {
                 {description}
               </div>
             </div>
-            <div className="lg:max-w-[11.75rem]">
+            <div className="lg:w-[11.75rem] lg:shrink-0">
               <div
                 className={`${index % 2 === 0 ? bgRight : bgLeft} mb-[7px] ${
                   index % 2 === 0 ? "mr-[7px]" : "ml-[7px]"
