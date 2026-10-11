@@ -40,6 +40,10 @@ const MapDetails = () => {
           <StaticImage
             src="../../images/connect-updated-map-parking.png"
             alt=""
+            // Flat graphic with text: WebP rings around edges at any quality, while a
+            // palette PNG is effectively lossless and smaller
+            formats={["auto"]}
+            quality={100}
             className="w-full h-full object-cover"
           />
         </div>

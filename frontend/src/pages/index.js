@@ -23,6 +23,11 @@ const IndexPage = () => (
                 alt="Sunday Celebration"
                 formats={["auto"]}
                 src="../images/home-landing.jpg"
+                breakpoints={[750, 1080, 1366, 1920, 2560, 3840]}
+                // object-cover renders the 2.5:1 image wider than the viewport,
+                // at (wrapper height * 2.5); keep in sync with the pb-[...] above
+                sizes="(min-width: 2100px) 100vw, (min-width: 1440px) 130vw, (min-width: 768px) 150vw, 1000px"
+                loading="eager"
                 imgStyle={{
                   objectFit: undefined,
                 }}

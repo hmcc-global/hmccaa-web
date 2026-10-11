@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { bgLeft, bgRight } from "../../css/lifeStagesNew.module.css";
 import { SecondaryButtonLink } from "../Button";
 
+// width={232} is the largest these render (sm–lg); without it the full ~1.5k-wide sources get served
 const lifeStages = [
   {
     heading: "A Place for Families",
@@ -11,6 +12,7 @@ const lifeStages = [
     lifeStageImage: (
       <StaticImage
         src="../../images/families-life-stage.png"
+        width={232}
         alt="Families Life Stage"
       />
     ),
@@ -22,6 +24,7 @@ const lifeStages = [
     lifeStageImage: (
       <StaticImage
         src="../../images/single-adults-life-stage.png"
+        width={232}
         alt="Single Adults Life Stage"
       />
     ),
@@ -33,6 +36,7 @@ const lifeStages = [
     lifeStageImage: (
       <StaticImage
         src="../../images/grad-students-life-stage.png"
+        width={232}
         alt="Grad Students Life Stage"
       />
     ),
@@ -44,6 +48,7 @@ const lifeStages = [
     lifeStageImage: (
       <StaticImage
         src="../../images/international-students-life-stage.png"
+        width={232}
         alt="International Students Life Stage"
       />
     ),
@@ -55,6 +60,7 @@ const lifeStages = [
     lifeStageImage: (
       <StaticImage
         src="../../images/undergrads-life-stage.png"
+        width={232}
         alt="Undergrads Life Stage"
       />
     ),
