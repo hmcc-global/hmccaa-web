@@ -50,7 +50,11 @@ export const pageQuery = graphql`
             url
             file {
               childImageSharp {
-                gatsbyImageData
+                # Real card width (grid: 2 cols, 3 cols from lg, 380px max); without it the browser assumes
+                # the image is as wide as the upload and fetches the largest file
+                gatsbyImageData(
+                  sizes: "(min-width: 1180px) 380px, (min-width: 1024px) 33vw, 50vw"
+                )
               }
             }
           }
