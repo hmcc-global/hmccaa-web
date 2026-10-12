@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useMediaQuery } from "react-responsive";
 import { textContainer } from "../../css/ministryTeams.module.css";
 import { StaticImage } from "gatsby-plugin-image";
 import { SecondaryButtonLink } from "../Button";
@@ -306,19 +305,21 @@ const GetConnectedCircleMobile = () => (
   </div>
 );
 
-const GetConnectedCircle = () => {
-  // TODO: DoubleGrids aren't responsive
-  // Desktop larger than 1280
-  // but Mobile looks small above 780
-  const isMobile = useMediaQuery({ maxWidth: 1279 });
-  // Define switch cases based on screen size
-  const switchElement = isMobile ? (
-    <GetConnectedCircleMobile />
-  ) : (
-    <GetConnectedCircleDesktop />
-  );
-
-  return switchElement;
-};
+// TODO: DoubleGrids aren't responsive
+// Desktop larger than 1280
+// but Mobile looks small above 780
+// Switch with CSS, not JS: the prebuilt HTML can't know the screen width, so a JS switch
+// shows the desktop layout (absolutely positioned over the hero) until hydration on small screens.
+// display: contents keeps each layout's own box; lazy images in the hidden one aren't fetched.
+const GetConnectedCircle = () => (
+  <>
+    <div className="contents xl:hidden">
+      <GetConnectedCircleMobile />
+    </div>
+    <div className="hidden xl:contents">
+      <GetConnectedCircleDesktop />
+    </div>
+  </>
+);
 
 export default GetConnectedCircle;
