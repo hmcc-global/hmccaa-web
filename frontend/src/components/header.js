@@ -31,6 +31,9 @@ const MobileNav = ({ path, onClose }) => {
   const listRef = React.useRef(null);
   const pressedRef = React.useRef(null);
   const activePointer = React.useRef(null);
+  const selectTimer = React.useRef(null);
+
+  React.useEffect(() => () => clearTimeout(selectTimer.current), []);
 
   const setPressedRoute = route => {
     pressedRef.current = route;
@@ -105,7 +108,9 @@ const MobileNav = ({ path, onClose }) => {
     activePointer.current = null;
     const route = routeAt(e.clientX, e.clientY);
     setPressedRoute(null);
-    if (route) select(route);
+    // defer so any follow-up click is dispatched while the overlay is still
+    // mounted (and swallowed by onClickCapture), not on the page behind it
+    if (route) selectTimer.current = setTimeout(() => select(route), 0);
   };
 
   const onPointerCancel = e => {
@@ -114,14 +119,22 @@ const MobileNav = ({ path, onClose }) => {
     setPressedRoute(null);
   };
 
-  // Pointer events already handled mouse/touch selection; this click is either
-  // the synthesized one (ignore it, avoiding a double navigation) or a
-  // keyboard activation (detail === 0), which still needs to close the menu.
-  const onClick = e => {
-    if (e.detail === 0) {
-      onClose();
-    } else {
+  // suppress the synthesized mouse events + click after a touch selection
+  const onTouchEnd = e => {
+    // (pointerup has already cleared activePointer by the time touchend fires)
+    if (e.cancelable && e.target.closest("[data-nav-route]"))
       e.preventDefault();
+  };
+
+  // Pointer events already handled mouse/touch selection, so swallow pointer
+  // clicks before GatsbyLink sees them (avoids double navigation). Keyboard
+  // activation (detail === 0) still navigates via the link and closes the menu.
+  const onClickCapture = e => {
+    if (e.detail !== 0) {
+      e.preventDefault();
+      e.stopPropagation();
+    } else {
+      onClose();
     }
   };
 
@@ -153,7 +166,8 @@ const MobileNav = ({ path, onClose }) => {
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
             onPointerCancel={onPointerCancel}
-            onClick={onClick}
+            onTouchEnd={onTouchEnd}
+            onClickCapture={onClickCapture}
             className={`w-full flex flex-col items-start ${
               dragEnabled ? "touch-none" : ""
             }`}
