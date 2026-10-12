@@ -188,7 +188,7 @@ const MobileNav = ({ path, onClose }) => {
                     <div
                       className={`w-[90vw] py-2 px-9 shadow-md rounded-lg tracking-[0.96px] border-2 ${
                         isPressed
-                          ? "bg-Accent-900 border-Accent-900"
+                          ? "bg-Accent-500/40 border-Accent-500"
                           : `border-Accent-500 ${
                               isCurrent ? "bg-Accent-500" : ""
                             }`
@@ -206,7 +206,7 @@ const MobileNav = ({ path, onClose }) => {
                   data-nav-route={route}
                   className={`${itemBase} py-2 px-4 w-full text-left flex items-center pl-[56px] text-xl h-[75px] border-b-[0.5px] last:border-none ${
                     isPressed
-                      ? "font-extrabold bg-Accent-900"
+                      ? "font-extrabold bg-Primary-50"
                       : isCurrent
                       ? "font-extrabold bg-Primary-300"
                       : "font-medium"
