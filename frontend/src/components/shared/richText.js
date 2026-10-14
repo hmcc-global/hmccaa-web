@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "../Link";
 import { Collapsible } from "../collapsible";
+import OEmbedVideo from "./oembed";
+import { mediaWrapper } from "../../css/media.module.css";
+import { getYouTubeEmbedUrl } from "./videoUrl";
 
 const formatText = (
   { text, code, bold, italic, underline, strikethrough },
@@ -39,6 +42,9 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
   const MID = "</collapsible-question><collapsible-answer>";
   const END = "</collapsible-answer>";
 
+  const EMBED_START = "<embed>";
+  const EMBED_END = "</embed>";
+
   if (
     children.length > 0 &&
     children[0].text?.startsWith(BEG) &&
@@ -73,6 +79,23 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
         `[DEBUG][richText] Found collapsible tags but missing <collapsible-answer> marker; rendering as plain text. Preview: "${preview}"`
       );
     }
+  } else if (
+    children.length > 0 &&
+    children[0].text?.startsWith(EMBED_START) &&
+    children[children.length - 1].text?.endsWith(EMBED_END)
+  ) {
+    const videoURL = children[0].text?.substring(
+      EMBED_START.length,
+      children[children.length - 1].text?.indexOf(EMBED_END)
+    );
+
+    return (
+      <OEmbedVideo
+        oembedString={""}
+        className={`${mediaWrapper} text-center image-container mb-8`}
+        fallbackUrl={getYouTubeEmbedUrl(videoURL)}
+      />
+    );
   }
 
   return (
