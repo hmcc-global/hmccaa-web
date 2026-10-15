@@ -79,31 +79,36 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
         `[DEBUG][richText] Found collapsible tags but missing <collapsible-answer> marker; rendering as plain text. Preview: "${preview}"`
       );
     }
-  }
-
-  // The editor may split "<embed>URL</embed>" across several nodes (e.g. the
-  // pasted URL becomes a link node) and may leave stray whitespace around it,
-  // and invisible zero-width characters (common when copy-pasting), so match
-  // against the paragraph's combined, cleaned-up plain text.
-  const plainText = getPlainText(children)
-    .replace(/[​-‍⁠]/g, "")
-    .trim();
-  if (plainText.startsWith(EMBED_START) && plainText.endsWith(EMBED_END)) {
-    const videoURL = plainText
-      .slice(EMBED_START.length, -EMBED_END.length)
+  } else if (
+    children.length > 0 &&
+    children[0].text?.includes(EMBED_START) &&
+    children[children.length - 1].text?.includes(EMBED_END)
+  ) {
+    // Cheap check above uses includes() rather than startsWith()/endsWith() so
+    // stray whitespace or invisible characters (common when copy-pasting)
+    // around the tags don't prevent a match. The URL may also be split across
+    // several nodes (e.g. it became a link node when pasted), so extract it
+    // from the paragraph's combined plain text.
+    const plainText = getPlainText(children)
+      .replace(/[\u200B-\u200D\u2060]/g, "")
       .trim();
-    const embedUrl = getYouTubeEmbedUrl(videoURL);
-    if (embedUrl) {
-      return (
-        <OEmbedVideo
-          oembedString={""}
-          className={`${mediaWrapper} text-center image-container mb-8`}
-          fallbackUrl={embedUrl}
-        />
-      );
+    if (plainText.startsWith(EMBED_START) && plainText.endsWith(EMBED_END)) {
+      const videoURL = plainText
+        .slice(EMBED_START.length, -EMBED_END.length)
+        .trim();
+      const embedUrl = getYouTubeEmbedUrl(videoURL);
+      if (embedUrl) {
+        return (
+          <OEmbedVideo
+            oembedString={""}
+            className={`${mediaWrapper} text-center image-container mb-8`}
+            fallbackUrl={embedUrl}
+          />
+        );
+      }
     }
     console.warn(
-      `[DEBUG][richText] Found embed tags but could not parse a YouTube URL; rendering as plain text. URL: "${videoURL}"`
+      `[DEBUG][richText] Found embed tags but could not parse a YouTube URL; rendering as plain text. Text: "${plainText}"`
     );
   }
 
