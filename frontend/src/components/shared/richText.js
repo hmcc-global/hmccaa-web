@@ -79,22 +79,31 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
         `[DEBUG][richText] Found collapsible tags but missing <collapsible-answer> marker; rendering as plain text. Preview: "${preview}"`
       );
     }
-  } else if (
-    children.length > 0 &&
-    children[0].text?.startsWith(EMBED_START) &&
-    children[children.length - 1].text?.endsWith(EMBED_END)
-  ) {
-    const videoURL = children[0].text?.substring(
-      EMBED_START.length,
-      children[children.length - 1].text?.indexOf(EMBED_END)
-    );
+  }
 
-    return (
-      <OEmbedVideo
-        oembedString={""}
-        className={`${mediaWrapper} text-center image-container mb-8`}
-        fallbackUrl={getYouTubeEmbedUrl(videoURL)}
-      />
+  // The editor may split "<embed>URL</embed>" across several nodes (e.g. the
+  // pasted URL becomes a link node) and may leave stray whitespace around it,
+  // and invisible zero-width characters (common when copy-pasting), so match
+  // against the paragraph's combined, cleaned-up plain text.
+  const plainText = getPlainText(children)
+    .replace(/[​-‍⁠]/g, "")
+    .trim();
+  if (plainText.startsWith(EMBED_START) && plainText.endsWith(EMBED_END)) {
+    const videoURL = plainText
+      .slice(EMBED_START.length, -EMBED_END.length)
+      .trim();
+    const embedUrl = getYouTubeEmbedUrl(videoURL);
+    if (embedUrl) {
+      return (
+        <OEmbedVideo
+          oembedString={""}
+          className={`${mediaWrapper} text-center image-container mb-8`}
+          fallbackUrl={embedUrl}
+        />
+      );
+    }
+    console.warn(
+      `[DEBUG][richText] Found embed tags but could not parse a YouTube URL; rendering as plain text. URL: "${videoURL}"`
     );
   }
 
@@ -108,6 +117,11 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
     </div>
   );
 };
+
+const getPlainText = children =>
+  children
+    .map(child => child.text ?? getPlainText(child.children ?? []))
+    .join("");
 
 const formatParagraphHelper = children => {
   return children.map((child, idx) => {
