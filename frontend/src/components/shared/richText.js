@@ -86,7 +86,10 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
   ) {
     // The URL may be split across several nodes (e.g. it became a link node
     // when pasted), so extract it from the paragraph's combined plain text.
-    const plainText = getPlainText(children).trim();
+    const plainText = children
+      .map(child => child.text ?? child.children?.map(c => c.text).join(""))
+      .join("")
+      .trim();
     const videoURL = plainText
       .slice(EMBED_START.length, -EMBED_END.length)
       .trim();
@@ -115,11 +118,6 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
     </div>
   );
 };
-
-const getPlainText = children =>
-  children
-    .map(child => child.text ?? getPlainText(child.children ?? []))
-    .join("");
 
 const formatParagraphHelper = children => {
   return children.map((child, idx) => {
