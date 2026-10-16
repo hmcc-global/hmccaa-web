@@ -14,7 +14,9 @@ export function getYouTubeEmbedUrl(url) {
     return `https://www.youtube-nocookie.com/embed/${shortMatch[1]}`;
   }
   // Handle youtube.com/watch?v=VIDEO_ID format
-  const longMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+  const longMatch = url.match(
+    /youtube\.com\/watch\?(?:.*&)?v=([a-zA-Z0-9_-]+)/
+  );
   if (longMatch) {
     return `https://www.youtube-nocookie.com/embed/${longMatch[1]}`;
   }

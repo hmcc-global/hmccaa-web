@@ -81,20 +81,30 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
     }
   } else if (
     children.length > 0 &&
-    children[0].text?.startsWith(EMBED_START) &&
-    children[children.length - 1].text?.endsWith(EMBED_END)
+    children[0].text?.trimStart().startsWith(EMBED_START) &&
+    children[children.length - 1].text?.trimEnd().endsWith(EMBED_END)
   ) {
-    const videoURL = children[0].text?.substring(
-      EMBED_START.length,
-      children[children.length - 1].text?.indexOf(EMBED_END)
-    );
-
-    return (
-      <OEmbedVideo
-        oembedString={""}
-        className={`${mediaWrapper} text-center image-container mb-8`}
-        fallbackUrl={getYouTubeEmbedUrl(videoURL)}
-      />
+    // The URL may be split across several nodes (e.g. it became a link node
+    // when pasted), so extract it from the paragraph's combined plain text.
+    const plainText = children
+      .map(child => child.text ?? child.children?.map(c => c.text).join(""))
+      .join("")
+      .trim();
+    const videoURL = plainText
+      .slice(EMBED_START.length, -EMBED_END.length)
+      .trim();
+    const embedUrl = getYouTubeEmbedUrl(videoURL);
+    if (embedUrl) {
+      return (
+        <OEmbedVideo
+          oembedString={""}
+          className={`${mediaWrapper} text-center image-container mb-8`}
+          fallbackUrl={embedUrl}
+        />
+      );
+    }
+    console.warn(
+      `[DEBUG][richText] Found embed tags but could not parse a YouTube URL; rendering as plain text. URL: "${videoURL}"`
     );
   }
 
