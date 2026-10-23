@@ -1,4 +1,10 @@
-import { useMemo, useSyncExternalStore } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import {
   ITEMS_PER_PAGE,
@@ -20,6 +26,37 @@ const useIsClientRender = () =>
     () => true,
     () => false
   );
+
+// The listing URL currently shown. Filter and page changes go through `navigate`, which updates the URL with
+// history.pushState instead of a Gatsby navigation: listing URLs belong to six different Gatsby pages (see
+// page-generation/sermons.js), and changing Gatsby page remounts the whole page, reloading the RightNow Media
+// video embed.
+function useListingPath(location) {
+  const [path, setPath] = useState(location.pathname);
+
+  // Gatsby navigations, including a link to the current URL, which only gives location a new key
+  useEffect(
+    () => setPath(location.pathname),
+    [location.key, location.pathname]
+  );
+
+  // Back/forward. Gatsby handles these too, but doesn't re-render when it lands on the entry it last rendered.
+  useEffect(() => {
+    const onPopState = () => setPath(window.location.pathname);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  const navigate = useCallback((url, hash) => {
+    const target = url.endsWith("/") ? url : `${url}/`;
+    // A key per entry, as Gatsby's own navigations add, keeps its scroll restoration from mixing entries up
+    window.history.pushState({ key: `${Date.now()}` }, "", target + hash);
+    setPath(target);
+    document.getElementById(hash.slice(1))?.scrollIntoView();
+  }, []);
+
+  return [path, navigate];
+}
 
 function getListing(sermons, pathname) {
   const parsed = parseSermonListingUrl(pathname);
@@ -59,8 +96,9 @@ function getListing(sermons, pathname) {
 }
 
 // The sermon list for the current URL: filtered by the /watch/<label>/<value> segments and paginated by the
-// trailing /N. Returns null if the URL matches no sermons (show a 404), or undefined while a client-only
-// route is hydrating, since its server-rendered HTML can't know the filter.
+// trailing /N. The listing is null if the URL matches no sermons (show a 404), or undefined while a client-only
+// route is hydrating, since its server-rendered HTML can't know the filter. Also returns `navigate(url, hash)`
+// for moving to another listing URL.
 export function useSermonListing(location, clientOnly) {
   const { allStrapiSermon, allStrapiSermonSeries } = useStaticQuery(graphql`
     query SermonListingQuery {
@@ -131,11 +169,13 @@ export function useSermonListing(location, clientOnly) {
     });
   }, [allStrapiSermon, allStrapiSermonSeries]);
 
+  const [path, navigate] = useListingPath(location);
   const isClientRender = useIsClientRender();
-  const pathname = isClientRender || !clientOnly ? location.pathname : null;
+  const pathname = isClientRender || !clientOnly ? path : null;
 
-  return useMemo(
+  const listing = useMemo(
     () => (pathname === null ? undefined : getListing(sermons, pathname)),
     [sermons, pathname]
   );
+  return [listing, navigate];
 }

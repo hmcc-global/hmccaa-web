@@ -10,7 +10,7 @@ import LiveStream from "../components/page-watch/liveStream";
 import NotFoundPage from "../pages/404";
 import { SermonTraitMetadata } from "../page-generation/sermon-pages";
 
-// Dropdown changes navigate to /watch or one of the per-label filter pages (see page-generation/sermons.js)
+// The Gatsby pages that listing URLs belong to (see page-generation/sermons.js)
 const filterPages = [
   "/watch/",
   ...[...SermonTraitMetadata.values()].map(
@@ -18,9 +18,9 @@ const filterPages = [
   ),
 ];
 
-// Gatsby fetches app-data.json and page-data.json before navigating to a page it hasn't fully loaded, a network
-// round trip per dropdown change. Loading these pages once the browser is idle, as <Link> does on hover, lets
-// those navigations render straight away.
+// Back/forward between listing URLs can switch Gatsby page, and Gatsby fetches app-data.json and page-data.json
+// before rendering a page it hasn't fully loaded. Loading these pages once the browser is idle, as <Link> does
+// on hover, saves that network round trip.
 function preloadFilterPages() {
   const preload = () =>
     filterPages.forEach(path => window.___loader?.hovering(path));
@@ -33,7 +33,10 @@ function preloadFilterPages() {
 }
 
 const WatchPage = ({ location, pageContext }) => {
-  const listing = useSermonListing(location, pageContext.clientOnly);
+  const [listing, navigateListing] = useSermonListing(
+    location,
+    pageContext.clientOnly
+  );
   useEffect(preloadFilterPages, []);
   if (listing === null) {
     return <NotFoundPage />;
@@ -44,7 +47,7 @@ const WatchPage = ({ location, pageContext }) => {
       <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
       <LiveStream />
       <div id="sermonsList" className="px-4 lg:px-8">
-        <Sermons listing={listing} />
+        <Sermons listing={listing} navigateListing={navigateListing} />
       </div>
       <RightNowMedia />
     </Layout>

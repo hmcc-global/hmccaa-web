@@ -1,23 +1,7 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
 import { Loader } from "./index";
 
-// Updates that render within this long don't flash the spinner
-const SHOW_LOADER_DELAY_MS = 150;
-
-// Shows the spinner unless the update has replaced #loader (LoadContainer is keyed by filter) by then
-const showLoader = () => {
-  const loaderNode = document.getElementById("loader");
-  setTimeout(() => {
-    if (loaderNode?.isConnected) {
-      loaderNode.classList.remove("invisible");
-      const root = createRoot(loaderNode);
-      root.render(<Loader className="w-[5.75rem] h-[5.75rem]" />);
-    }
-  }, SHOW_LOADER_DELAY_MS);
-};
-
-// `loading` shows the loader from the start instead of waiting for showLoader()
+// `loading` shows the spinner, eg. while a client-only sermon listing hydrates
 const LoadContainer = ({ loading = false }) => (
   <div
     id="loader"
@@ -29,4 +13,4 @@ const LoadContainer = ({ loading = false }) => (
   </div>
 );
 
-export { Loader, showLoader, LoadContainer };
+export { Loader, LoadContainer };
