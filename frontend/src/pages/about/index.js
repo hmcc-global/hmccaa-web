@@ -19,7 +19,7 @@ export const Head = () => (
 const AboutPage = ({ data: { strapiOurTeamPage } = {} }) => {
   const { Elders } = strapiOurTeamPage || {};
   return (
-    <Layout spacingColor="bg-Neutral-200">
+    <Layout>
       <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
       <div className="content-padding-full">
         <OurStory />

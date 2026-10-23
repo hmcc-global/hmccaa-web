@@ -4,7 +4,7 @@ import { PrimaryButtonLink, SecondaryButtonLink } from "../Button";
 
 const HowToGiveSection = () => (
   <div>
-    <div className="flex flex-col pt-5 lg:pt-0">
+    <div className="flex flex-col">
       <div className="subheading">Ways To Give</div>
       <h2 className="mb-5">Two Simple Ways to Give</h2>
       <p className="mb-0">
@@ -12,8 +12,8 @@ const HowToGiveSection = () => (
         email address consistently
       </p>
     </div>
-    <div className="flex pt-[19px] pb-[41px] lg:py-20 flex-col items-center m-auto max-w-[640px] text-center gap-5 lg:gap-[60px]">
-      <div className="flex flex-col lg:flex-row lg:justify-center gap-y-10  pt-5 lg:pt-0">
+    <div className="flex pt-10 lg:pt-15 flex-col items-center m-auto max-w-[640px] text-center gap-5 lg:gap-[60px]">
+      <div className="flex flex-col lg:flex-row lg:justify-center gap-y-10">
         <div className="flex flex-col items-center max-w-[280px] lg:p-2.5 gap-2 lg:gap-5">
           <div className="lg:m-2.5 flex items-center">
             <LaptopIcon className="w-[5rem] h-[5rem] lg:w-25 lg:h-25" />

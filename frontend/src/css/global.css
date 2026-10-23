@@ -4,6 +4,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Vertical space between page sections, and above the footer (the `section` spacing token).
+   <main> and .content-padding-full stack their sections with gap-y-section, so a section
+   never pads its own top or bottom. */
+:root {
+  --section-gap: 3rem;
+}
+
+@screen lg {
+  :root {
+    --section-gap: 5rem;
+  }
+}
+
+@layer components {
+  /* Full-width colored band. A band right after another band, or one that ends the page,
+     sits flush against it (or the footer) instead of leaving a white section gap. */
+  .section-band {
+    @apply w-full;
+  }
+
+  .section-band + .section-band {
+    @apply -mt-section;
+  }
+
+  main > .section-band:last-child {
+    @apply -mb-section;
+  }
+}
+
 body {
   @apply bg-Primary-700;
 }
@@ -102,11 +131,11 @@ span.ellipsis {
   @apply text-ellipsis;
 }
 .content-image {
-  @apply max-w-container w-full lg:py-15 gap-x-15;
+  @apply max-w-container w-full gap-x-15;
 }
 
 .content-padding-full {
-  @apply px-4 md:px-14 w-full flex flex-col items-center;
+  @apply px-4 md:px-14 w-full flex flex-col items-center gap-y-section;
 }
 
 .image-container {

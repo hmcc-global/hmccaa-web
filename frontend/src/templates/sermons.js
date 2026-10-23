@@ -9,7 +9,7 @@ import LiveStream from "../components/page-watch/liveStream";
 
 const WatchPage = ({ data, pageContext }) => {
   return (
-    <Layout hasSpacing={false}>
+    <Layout>
       <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
       <LiveStream />
       <div id="sermonsList" className="px-4 lg:px-8">
