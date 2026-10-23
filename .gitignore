@@ -4,3 +4,5 @@
 # Dependency directories
 node_modules/
 package-lock.json
+# CI installs the frontend with `npm ci`, which needs a committed lockfile
+!/frontend/package-lock.json

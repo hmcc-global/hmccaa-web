@@ -12,6 +12,12 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Set up Node
+      uses: actions/setup-node@v6
+      with:
+        node-version: 24
+        cache: npm
+        cache-dependency-path: frontend/package-lock.json
     - name: Build Gatsby
       shell: bash
       run: |
@@ -21,8 +27,8 @@ runs:
         echo 'STRAPI_TOKEN=${{ inputs.strapi_token }}' > ./.env.production
         echo 'STRAPI_API_URL=${{ inputs.strapi_server }}' >> ./.env.production
 
-        echo "Running npm install..."
-        npm install --loglevel=error
+        echo "Running npm ci..."
+        npm ci --no-audit --no-fund
         NODE_ENV=production HOST_ORIGIN=${{ inputs.host_server }} npm run build
 
         echo "Finished build with error code $?"
