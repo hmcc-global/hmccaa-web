@@ -5,8 +5,8 @@ class Pages {
     this.reporter = reporter;
   }
 
-  addPage({ path, component, context }) {
-    this.pages.push({ path, component, context });
+  addPage({ path, matchPath, component, context }) {
+    this.pages.push({ path, matchPath, component, context });
   }
 
   createPage(page) {
