@@ -64,7 +64,7 @@ async function CreateSermonPages(graphql, createPage, reporter) {
   });
 
   // The sermon list is filtered and paginated in the browser. Its unfiltered pages (/watch, /watch/2, ...)
-  // are still pre-rendered so every sermon page stays reachable through plain links.
+  // are pre-rendered so every sermon page is reachable through plain links.
   const numPages = Math.max(1, Math.ceil(listedSermons / ITEMS_PER_PAGE));
   Array.from({ length: numPages }).forEach((_, index) => {
     createPage({

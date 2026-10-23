@@ -19,7 +19,7 @@ const WatchPage = ({ location, pageContext }) => {
       <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
       <LiveStream />
       <div id="sermonsList" className="px-4 lg:px-8">
-        {/* Remount when the filter changes so the dropdowns and loader start fresh, as when each filter was its own page */}
+        {/* Remount when the filter changes so the dropdowns and loader reset for each filter */}
         <Sermons key={listing?.url ?? ""} listing={listing} />
       </div>
       <RightNowMedia />
