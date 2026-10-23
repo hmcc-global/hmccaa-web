@@ -50,6 +50,21 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: frontend/package-lock.json
+      - name: Restore Gatsby cache
+        # Reusing .cache and public lets Gatsby skip image processing and pages
+        # whose data didn't change. Keys are per environment, so dev's robots.txt
+        # can't reach prod; bump v1 to force a clean build. Pull requests (even from
+        # forks) can read these caches, so only use them for checkouts that keep
+        # the Strapi token out of .cache.
+        if: hashFiles('frontend/plugins/strapi-source/gatsby-node.js') != ''
+        uses: actions/cache@v5
+        with:
+          path: |
+            frontend/.cache
+            frontend/public
+          key: gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-
       - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend
@@ -77,5 +92,7 @@ jobs:
       - name: Sync files to server
         # --delay-updates stages changed files and only moves them into place
         # once everything has transferred, so a run cancelled mid-sync by a
-        # newer build leaves the live site as it was.
-        run: rsync -avzr --delete-after --delay-updates ./frontend/public/ ${{ secrets.ssh_user }}@${{ secrets.ssh_host }}:/home/${{ secrets.ssh_user }}/annarbor-${{ inputs.publish_location }}
+        # newer build leaves the live site as it was. --checksum compares file
+        # contents rather than timestamps: Gatsby rewrites every page's HTML on
+        # each build (stitching slices) even when the bytes don't change.
+        run: rsync -avzr --checksum --delete-after --delay-updates ./frontend/public/ ${{ secrets.ssh_user }}@${{ secrets.ssh_host }}:/home/${{ secrets.ssh_user }}/annarbor-${{ inputs.publish_location }}

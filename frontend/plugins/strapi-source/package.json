@@ -1,0 +1,5 @@
+{
+  "name": "gatsby-source-strapi-graphql",
+  "private": true,
+  "description": "Runs the gatsby-source-strapi-graphql package with the Strapi token kept out of its plugin options"
+}
