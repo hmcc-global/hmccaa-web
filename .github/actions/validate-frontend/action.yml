@@ -18,6 +18,17 @@ runs:
         node-version: 24
         cache: npm
         cache-dependency-path: frontend/package-lock.json
+    - name: Restore Gatsby cache from the dev site's build
+      # Restore only: a saved cache per pull request would push the prod and
+      # dev caches out of the repository's 10 GB cache quota.
+      uses: actions/cache/restore@v5
+      with:
+        path: |
+          frontend/.cache
+          frontend/public
+        key: gatsby-v1-dev-${{ hashFiles('frontend/package-lock.json') }}-
+        restore-keys: |
+          gatsby-v1-dev-${{ hashFiles('frontend/package-lock.json') }}-
     - name: Build Gatsby
       shell: bash
       run: |
