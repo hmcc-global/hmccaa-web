@@ -11,11 +11,16 @@ const showLoader = () => {
   }
 };
 
-const LoadContainer = () => (
+// `loading` shows the loader from the start instead of waiting for showLoader()
+const LoadContainer = ({ loading = false }) => (
   <div
     id="loader"
-    className="fixed top-1/2 mx-auto w-full max-w-[5.75rem] max-h-[5.75rem] invisible -translate-x-[2.875rem]"
-  ></div>
+    className={`fixed top-1/2 mx-auto w-full max-w-[5.75rem] max-h-[5.75rem] ${
+      loading ? "" : "invisible"
+    } -translate-x-[2.875rem]`}
+  >
+    {loading && <Loader className="w-[5.75rem] h-[5.75rem]" />}
+  </div>
 );
 
 export { Loader, showLoader, LoadContainer };

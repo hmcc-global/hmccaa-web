@@ -1,19 +1,26 @@
 import * as React from "react";
-import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import RightNowMedia from "../components/page-watch/rightNowMedia";
 import Banner from "../components/shared/banner";
 import Sermons from "../components/page-watch/index/sermons";
+import { useSermonListing } from "../components/page-watch/index/sermonListing";
 import LiveStream from "../components/page-watch/liveStream";
+import NotFoundPage from "../pages/404";
 
-const WatchPage = ({ data, pageContext }) => {
+const WatchPage = ({ location, pageContext }) => {
+  const listing = useSermonListing(location, pageContext.clientOnly);
+  if (listing === null) {
+    return <NotFoundPage />;
+  }
+
   return (
     <Layout hasSpacing={false}>
       <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
       <LiveStream />
       <div id="sermonsList" className="px-4 lg:px-8">
-        <Sermons sermons={data?.allStrapiSermon} pageContext={pageContext} />
+        {/* Remount when the filter changes so the dropdowns and loader start fresh, as when each filter was its own page */}
+        <Sermons key={listing?.url ?? ""} listing={listing} />
       </div>
       <RightNowMedia />
     </Layout>
@@ -26,46 +33,5 @@ export const Head = () => (
     description="Please join us in person on Sundays at the T-center. But if you cannot, come worship with us through our live stream! You can find our past sermons here too."
   />
 );
-// Page Query for Sermons with filtering based upon Drop Down Selection
-export const pageQuery = graphql`
-  query sermonsPageQuery($skip: Int!, $limit: Int!, $sermonIds: [Int]) {
-    allStrapiSermon(
-      sort: { DatePreached: DESC }
-      limit: $limit
-      skip: $skip
-      filter: { strapiId: { in: $sermonIds } }
-    ) {
-      nodes {
-        strapiId
-        Title
-        DatePreached
-        BiblePassage {
-          Book
-          ChapterVerse
-        }
-        Series {
-          Name
-          id
-          Background {
-            url
-            file {
-              childImageSharp {
-                # Real card width (grid: 2 cols, 3 cols from lg, 380px max); without it the browser assumes
-                # the image is as wide as the upload and fetches the largest file
-                gatsbyImageData(
-                  sizes: "(min-width: 1180px) 380px, (min-width: 1024px) 33vw, 50vw"
-                )
-              }
-            }
-          }
-        }
-        Preacher {
-          Name
-          Prefix
-        }
-      }
-    }
-  }
-`;
 
 export default WatchPage;

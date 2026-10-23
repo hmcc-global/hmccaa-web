@@ -6,8 +6,8 @@ import ComboBox from "../../shared/comboBox";
 import {
   getSermonPageUrl,
   normalizeTrait,
-  getNormalizedSermonTraitsFromUrl,
   getUrlFromNormalizedSermonTraits,
+  SermonTraits,
   SermonTraitMetadata,
 } from "../../../page-generation/sermon-pages";
 import { LoadContainer, showLoader } from "../../../components/svgs/loader";
@@ -108,12 +108,26 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
   );
 };
 
+// Placeholder while a client-only route hydrates: keeps the layout, shows the loader
+const pendingListing = {
+  traits: Object.values(SermonTraits).map(field => ({ field, traits: [] })),
+  normalizedTraits: [],
+  nodes: [],
+  currentPage: 1,
+  numPages: 1,
+};
+
 // Building the Sermons List
-const Sermons = ({
-  sermons: { nodes },
-  pageContext: { url, currentPage, numPages, traits },
-}) => {
-  const currentlySelectedTraits = getNormalizedSermonTraitsFromUrl(url);
+const Sermons = ({ listing }) => {
+  const isPending = listing === undefined;
+  const {
+    url,
+    currentPage,
+    numPages,
+    traits,
+    nodes,
+    normalizedTraits: currentlySelectedTraits,
+  } = listing ?? pendingListing;
   let refs = useRef([]);
 
   refs.current = useMemo(() => {
@@ -157,14 +171,16 @@ const Sermons = ({
 
   return (
     <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10 relative">
-      <LoadContainer />
+      <LoadContainer loading={isPending} />
       <div className="flex flex-col items-center">
         <div className="subheading">Previous Sermons</div>
         <h2>Watch Again</h2>
       </div>
       <div
         id="sermons-filter"
-        className="grid grid-cols-2 gap-y-3  lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  "
+        className={`grid grid-cols-2 gap-y-3  lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  ${
+          isPending ? "invisible" : ""
+        }`}
       >
         {traits.map((traitInfo, idx) => (
           <ComboBox
@@ -187,19 +203,16 @@ const Sermons = ({
         className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5"
       >
         {nodes.map(
-          (
-            {
-              Title,
-              DatePreached,
-              Series: { Name: SeriesName, Background },
-              Preacher: { Prefix, Name: PreacherName },
-              BiblePassage,
-              strapiId,
-            },
-            i
-          ) => (
+          ({
+            Title,
+            DatePreached,
+            Series: { Name: SeriesName, Background },
+            Preacher: { Prefix, Name: PreacherName },
+            BiblePassage,
+            strapiId,
+          }) => (
             <SermonCard
-              key={i}
+              key={strapiId}
               title={Title}
               date={DatePreached}
               img={getBackgroundImg(Background, SeriesName)}
