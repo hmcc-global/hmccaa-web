@@ -39,10 +39,16 @@ module.exports = {
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
     {
-      resolve: "gatsby-source-strapi-graphql",
+      // gatsby-source-strapi-graphql, wrapped so that STRAPI_TOKEN isn't stored
+      // in .cache (see plugins/strapi-source/gatsby-node.js)
+      resolve: "strapi-source",
       options: {
         apiURL: process.env.STRAPI_API_URL,
-        token: process.env.STRAPI_TOKEN,
+        // Re-fetch every entry on each build. In its incremental mode the plugin
+        // only re-fetches entries whose own updatedAt changed, so editing a
+        // related entry (e.g. a preacher's name) would leave sermons stale once
+        // CI reuses .cache between builds.
+        cache: false,
         download: ["png", "jpg", "jpeg", "gif", "svg", "webp", "avif", "ico"],
         collectionTypes: [
           "custom-page",
