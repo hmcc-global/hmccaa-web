@@ -1,13 +1,13 @@
-name: Component - Build Frontend
+name: Component - Build and Sync Frontend
 on:
   workflow_call:
     inputs:
       build_type:
         required: true
         type: string
-      # publish_location is not used for the build itself, but is needed
-      # to set the concurrency group so that concurrent builds for the
-      # same environment (dev/prod) cancel each other.
+      # publish_location picks the directory on the server, and sets the
+      # concurrency group so that concurrent builds for the same
+      # environment (dev/prod) cancel each other.
       publish_location:
         required: true
         type: string
@@ -19,9 +19,6 @@ on:
         required: false
         type: boolean
         default: false
-      artifact_name:
-        required: true
-        type: string
     secrets:
       strapi_token:
         required: true
@@ -29,9 +26,15 @@ on:
         required: true
       host_server:
         required: true
+      ssh_key:
+        required: true
+      ssh_host:
+        required: true
+      ssh_user:
+        required: true
 
 jobs:
-  build-site:
+  build-and-sync-site:
     runs-on: ubuntu-latest
     concurrency:
       group: build-${{ inputs.publish_location }}
@@ -63,10 +66,16 @@ jobs:
         run: |
           echo 'User-agent: *' > ./frontend/public/robots.txt
           echo 'Disallow: /' >> ./frontend/public/robots.txt
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
         with:
-          name: ${{ inputs.artifact_name }}
-          path: ./frontend/public/
-          include-hidden-files: true
-          retention-days: 1
+          key: ${{ secrets.ssh_key }}
+          known_hosts: "placeholder"
+          name: id_rsa
+      - name: Define known_hosts
+        run: ssh-keyscan -H ${{ secrets.ssh_host }} >> ~/.ssh/known_hosts
+      - name: Sync files to server
+        # --delay-updates stages changed files and only moves them into place
+        # once everything has transferred, so a run cancelled mid-sync by a
+        # newer build leaves the live site as it was.
+        run: rsync -avzr --delete-after --delay-updates ./frontend/public/ ${{ secrets.ssh_user }}@${{ secrets.ssh_host }}:/home/${{ secrets.ssh_user }}/annarbor-${{ inputs.publish_location }}
