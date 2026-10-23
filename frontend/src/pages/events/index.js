@@ -26,8 +26,10 @@ const EventsPage = ({ data }) => {
 
   return (
     <Layout>
-      <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
-      <SundayCelebBarEvents />
+      <div className="section-band">
+        <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
+        <SundayCelebBarEvents />
+      </div>
       <div className="px-4 w-full flex flex-col items-center gap-y-9 md:gap-y-10">
         {events.length === 0 ? (
           <div className="sm:text-center py-25 sm:py-50 flex flex-col gap-y-2">
@@ -99,8 +101,10 @@ const EventsPage = ({ data }) => {
           <EventsNotes />
         </div>
       </div>
-      <PrayerGatheringEvents />
-      <Instagram />
+      <div className="section-band">
+        <PrayerGatheringEvents />
+        <Instagram />
+      </div>
     </Layout>
   );
 };

@@ -2,7 +2,7 @@ import * as React from "react";
 
 const SundayCelebBarEvents = () => {
   return (
-    <div className="section-band bg-Neutral-200 flex justify-center items-center py-[17px] lg:py-[30px] px-4 lg:px-[32px] xl:px-[65px] 2xl:px-[130px] border-t-[3px] lg:border-t-0 border-Shades-0">
+    <div className="section-band bg-Neutral-200 flex justify-center items-center py-[17px] lg:py-[30px] px-4 lg:px-[32px] xl:px-[65px] 2xl:px-[130px] lg:mt-0 mt-[3px]">
       <div className="flex flex-col bg-Shades-0 items-center h-full border-solid border-2 lg:max-w-container rounded-xl py-4 lg:py-9 px-3 lg:px-14 2xl:px-24 border-Neutral-700 space-x-28 w-[328px] lg:w-auto">
         <div className="flex flex-col lg:flex-row gap-x-3 place-items-center w-full justify-around">
           <h2 className="text-2xl font-semibold">SUNDAY CELEBRATION</h2>

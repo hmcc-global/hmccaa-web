@@ -18,18 +18,15 @@
 }
 
 @layer components {
-  /* Full-width colored band. A band right after another band, or one that ends the page,
-     sits flush against it (or the footer) instead of leaving a white section gap. */
+  /* Full-width colored band. Bands that touch share one .section-band wrapper, so the
+     section gap falls around the group and not between them. */
   .section-band {
     @apply w-full;
   }
 
-  .section-band + .section-band {
-    @apply -mt-section;
-  }
-
-  main > .section-band:last-child {
-    @apply -mb-section;
+  /* A band that ends the page meets the footer */
+  main:has(> .section-band:last-child) {
+    @apply pb-0;
   }
 }
 
