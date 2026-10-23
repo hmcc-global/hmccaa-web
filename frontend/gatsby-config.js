@@ -44,10 +44,12 @@ module.exports = {
       resolve: "strapi-source",
       options: {
         apiURL: process.env.STRAPI_API_URL,
-        // Re-fetch every entry on each build. In its incremental mode the plugin
-        // only re-fetches entries whose own updatedAt changed, so editing a
-        // related entry (e.g. a preacher's name) would leave sermons stale once
-        // CI reuses .cache between builds.
+        // Re-fetch every entry on each build. The plugin's incremental mode only
+        // re-fetches entries whose own updatedAt changed, so with .cache reused
+        // between builds an edit to a related entry (e.g. a preacher's name)
+        // would leave the sermons that embed it stale. Strapi also rejects that
+        // mode's sync query for sermon topics, and the plugin then silently
+        // drops every topic.
         cache: false,
         download: ["png", "jpg", "jpeg", "gif", "svg", "webp", "avif", "ico"],
         collectionTypes: [

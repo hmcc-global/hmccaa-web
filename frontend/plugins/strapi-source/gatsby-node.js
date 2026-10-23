@@ -1,6 +1,7 @@
 /**
- * Runs the gatsby-source-strapi-graphql package with the Strapi token read from
- * the environment instead of from the plugin options.
+ * Runs the gatsby-source-strapi-graphql package, adding the Strapi token from the
+ * environment when Gatsby calls it, so the token never appears in the plugin
+ * options.
  *
  * Gatsby copies every plugin's options into a SitePlugin node that it stores in
  * .cache, and CI keeps .cache in the GitHub Actions cache, which any pull
