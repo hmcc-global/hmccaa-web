@@ -171,12 +171,15 @@ const Sermons = ({ listing }) => {
 
   return (
     <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10 relative">
-      <LoadContainer loading={isPending} />
+      {/* Keyed by filter so a loader shown for the previous filter goes away with it */}
+      <LoadContainer key={`loader:${url}`} loading={isPending} />
       <div className="flex flex-col items-center">
         <div className="subheading">Previous Sermons</div>
         <h2>Watch Again</h2>
       </div>
+      {/* Keyed by filter: each ComboBox keeps its selection and option list in its own state */}
       <div
+        key={`filters:${url}`}
         id="sermons-filter"
         className={`grid grid-cols-2 gap-y-3  lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  ${
           isPending ? "invisible" : ""

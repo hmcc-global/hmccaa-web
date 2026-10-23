@@ -2,13 +2,19 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Loader } from "./index";
 
+// Updates that render within this long don't flash the spinner
+const SHOW_LOADER_DELAY_MS = 150;
+
+// Shows the spinner unless the update has replaced #loader (LoadContainer is keyed by filter) by then
 const showLoader = () => {
   const loaderNode = document.getElementById("loader");
-  if (loaderNode !== null) {
-    loaderNode.classList.remove("invisible");
-    const root = createRoot(loaderNode);
-    root.render(<Loader className="w-[5.75rem] h-[5.75rem]" />);
-  }
+  setTimeout(() => {
+    if (loaderNode?.isConnected) {
+      loaderNode.classList.remove("invisible");
+      const root = createRoot(loaderNode);
+      root.render(<Loader className="w-[5.75rem] h-[5.75rem]" />);
+    }
+  }, SHOW_LOADER_DELAY_MS);
 };
 
 // `loading` shows the loader from the start instead of waiting for showLoader()
