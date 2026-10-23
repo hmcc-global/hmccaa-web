@@ -1,7 +1,8 @@
 @config "../config/tailwind.config.js";
 
+/* Bottom padding only makes room for the team logos that hang below the circle */
 .wrapper {
-  @apply max-w-[90rem] mx-auto w-full pt-[0.9375rem] pb-[2.3125rem] xl:pt-14 xl:pb-[7.5rem];
+  @apply max-w-[90rem] mx-auto w-full xl:pb-3;
 }
 
 .container {

@@ -6,12 +6,12 @@ import OEmbedVideo from "../shared/oembed";
 
 const TopLGSummary = ({ oembed }) => {
   return (
-    <div>
-      <h1 className="lg:text-center text-[2.5rem] pt-[2.1875rem] lg:pt-20 font-bold mb-[2.25rem] lg:mb-0">
+    <div className="flex flex-col gap-y-9 lg:gap-y-15">
+      <h1 className="lg:text-center text-[2.5rem] font-bold mb-0">
         LIFE GROUPS
       </h1>
 
-      <div className="flex flex-col lg:flex-row gap-y-5 lg:pb-25 pb-15 content-image">
+      <div className="flex flex-col lg:flex-row gap-y-5 content-image">
         <OEmbedVideo
           oembedString={oembed}
           className={`${mediaWrapper} lg:order-1 text-center image-container`}

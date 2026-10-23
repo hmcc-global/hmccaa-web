@@ -9,7 +9,7 @@ import TopLGSummary from "../../components/page-lifeGroups/topLGSummary";
 import FiveEs from "../../components/page-lifeGroups/fiveEs";
 
 const Images = ({ images }) => (
-  <div className="flex lg:flex-row lg:flex-nowrap flex-wrap gap-6 pb-25 justify-center">
+  <div className="flex lg:flex-row lg:flex-nowrap flex-wrap gap-6 justify-center">
     {images.map(({ strapiId, alternativeText, file }, index) => (
       <div key={strapiId} className="max-w-[300px] self-center">
         {file?.childImageSharp?.gatsbyImageData && (
@@ -39,9 +39,11 @@ const LifeGroupsPage = ({
     <Layout>
       <div className="px-1 [@media(min-width:375px)]:px-4 pt-[1.375rem] lg:pt-10 w-full ">
         <div className="w-full md:px-4 flex flex-col items-center">
-          <div className="max-w-container w-full">
-            <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-            <TopLGSummary oembed={videoOembed} />
+          <div className="max-w-container w-full flex flex-col gap-y-section">
+            <div className="flex flex-col gap-y-9 lg:gap-y-15">
+              <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
+              <TopLGSummary oembed={videoOembed} />
+            </div>
             <Images images={images} />
             <FiveEs links={links} />
           </div>

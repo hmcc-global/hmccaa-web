@@ -156,7 +156,7 @@ const Sermons = ({
   };
 
   return (
-    <div className="max-w-container items-center w-full pt-[0.9375rem] pb-[3.125rem] lg:pt-[5.3125rem] lg:pb-[9.75rem] flex flex-col gap-y-8 lg:gap-y-10 relative">
+    <div className="max-w-container items-center w-full flex flex-col gap-y-8 lg:gap-y-10 relative">
       <LoadContainer />
       <div className="flex flex-col items-center">
         <div className="subheading">Previous Sermons</div>
@@ -184,7 +184,7 @@ const Sermons = ({
       </div>
       <div
         id="sermons-list-paged"
-        className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5 lg:gap-y-8  py-[2px] lg:py-5"
+        className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5 lg:gap-y-8 py-[2px] lg:pt-5"
       >
         {nodes.map(
           (

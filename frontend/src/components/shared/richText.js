@@ -179,7 +179,7 @@ const formatNode = (
   switch (type) {
     case "image":
       return (
-        <div className="flex justify-center items-center content-image ">
+        <div className="flex justify-center items-center content-image lg:py-15">
           <img
             src={image.url}
             alt={image.alternativeText}
@@ -217,14 +217,26 @@ const formatNode = (
   }
 };
 
+const isEmptyParagraph = node =>
+  node.type === "paragraph" &&
+  (node.children || []).every(
+    child => child.type === "text" && !child.text?.trim()
+  );
+
 const RichText = ({ data, addPaddingBelowParagraph = true }) => {
   if (!Array.isArray(data)) {
     return "";
   }
 
+  // Blank lines left at the end in the editor would only add space before whatever follows
+  let end = data.length;
+  while (end > 0 && isEmptyParagraph(data[end - 1])) {
+    end--;
+  }
+
   return (
     <>
-      {data.map((node, idx) => (
+      {data.slice(0, end).map((node, idx) => (
         <React.Fragment key={idx}>
           {formatNode(node, addPaddingBelowParagraph)}
         </React.Fragment>

@@ -140,7 +140,8 @@ const lgsArray = [
 ];
 
 const GetConnectedCircleDesktop = () => (
-  <div className="2 w-full pt-[12rem] pb-[8rem]">
+  // Padding only makes room for the photos that hang past the top and bottom of the circle
+  <div className="w-full pt-[6.25rem] pb-[8rem]">
     <div>
       <div
         className={
@@ -238,7 +239,7 @@ const LifeStagesBoxMobile = () => (
 // title on top, black text
 // desc on bottom, white text, centered
 const GetConnectedCircleMobile = () => (
-  <div className="flex-col mx-3 py-10 w-full inline-flex">
+  <div className="flex-col mx-3 w-full inline-flex">
     <div>
       <GetConnectedText />
     </div>

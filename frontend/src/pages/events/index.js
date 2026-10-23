@@ -25,10 +25,12 @@ const EventsPage = ({ data }) => {
   let events = filterEventTimes(processEvents(data?.allStrapiEvent?.nodes));
 
   return (
-    <Layout hasSpacing={false}>
-      <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
-      <SundayCelebBarEvents />
-      <div className="px-4 w-full flex flex-col items-center">
+    <Layout>
+      <div className="section-band">
+        <Banner bgImage="bg-center bg-events">Upcoming Events</Banner>
+        <SundayCelebBarEvents />
+      </div>
+      <div className="px-4 w-full flex flex-col items-center gap-y-9 md:gap-y-10">
         {events.length === 0 ? (
           <div className="sm:text-center py-25 sm:py-50 flex flex-col gap-y-2">
             <p className="flex flex-col sm:flex-row text-2xl sm:text-3xl font-semibold gap-x-4 mb-0">
@@ -55,7 +57,7 @@ const EventsPage = ({ data }) => {
           </div>
         ) : (
           <div className="flex flex-col w-full max-w-container">
-            <div className="flex-grow grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15 pt-8 pb-9 md:py-10">
+            <div className="flex-grow grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15">
               {events
                 .map(event => event.times.map(time => ({ event, time })))
                 .flat()
@@ -99,8 +101,10 @@ const EventsPage = ({ data }) => {
           <EventsNotes />
         </div>
       </div>
-      <PrayerGatheringEvents />
-      <Instagram />
+      <div className="section-band">
+        <PrayerGatheringEvents />
+        <Instagram />
+      </div>
     </Layout>
   );
 };
