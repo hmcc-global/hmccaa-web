@@ -45,67 +45,71 @@ const fiveEInfo = [
 
 const FiveEs = ({ links }) => {
   return (
-    <div>
-      <h3 className="text-left lg:text-center text-[1.5rem] font-semibold mb-10 leading-tighter">
-        HMCC has defined the five values of biblical community found in Acts
-        2:42-47 as follows:
-      </h3>
-      <div className="flex flex-col lg:flex-row gap-x-[2.75rem] lg:mx-[2px] pl-8 pr-4 lg:px-0">
-        {fiveEInfo.map((item, index) => (
-          <span
-            key={`fiveEInfo-${index}`}
-            className="flex flex-col items-center lg:text-center"
-          >
-            <div className="relative flex justify-center">
-              <Circle color={item.color} />
-              <div className="absolute inset-0 text-Shades-0 text-center flex items-center justify-center">
-                <div className="text-[3.75em] lg:text-[2.75rem] font-bold leading-none">
-                  E
+    <div className="flex flex-col gap-y-section">
+      <div>
+        <h3 className="text-left lg:text-center text-[1.5rem] font-semibold mb-10 leading-tighter">
+          HMCC has defined the five values of biblical community found in Acts
+          2:42-47 as follows:
+        </h3>
+        <div className="flex flex-col lg:flex-row gap-x-[2.75rem] gap-y-[2.375rem] lg:mx-[2px] pl-8 pr-4 lg:px-0">
+          {fiveEInfo.map((item, index) => (
+            <span
+              key={`fiveEInfo-${index}`}
+              className="flex flex-col items-center lg:text-center"
+            >
+              <div className="relative flex justify-center">
+                <Circle color={item.color} />
+                <div className="absolute inset-0 text-Shades-0 text-center flex items-center justify-center">
+                  <div className="text-[3.75em] lg:text-[2.75rem] font-bold leading-none">
+                    E
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter text-center">
-              {item.word}
-            </div>
-            <div className="flex flex-col">
-              <div
-                className={`text-base tracking-medium-wide font-medium ${textContainer}`}
-              >
-                {parse(item.text)}
+              <div className="pt-5 pb-3 text-2xl font-bold lg:font-semibold leading-tighter text-center">
+                {item.word}
               </div>
-              <div className="text-base lg:text-xs font-medium tracking-medium-wide lg:tracking-normal">
-                <p className="mb-[2.375rem] lg:mb-0">{parse(item.verse)}</p>
+              <div className="flex flex-col">
+                <div
+                  className={`text-base tracking-medium-wide font-medium ${textContainer}`}
+                >
+                  {parse(item.text)}
+                </div>
+                <div className="text-base lg:text-xs font-medium tracking-medium-wide lg:tracking-normal">
+                  <p className="mb-0">{parse(item.verse)}</p>
+                </div>
               </div>
-            </div>
-          </span>
-        ))}
+            </span>
+          ))}
+        </div>
       </div>
-      <div
-        className="flex flex-col justify-center items-stretch lg:items-center gap-5 pt-[5.25rem] lg:pt-[6.25rem] pb-5 lg:pb-12"
-        id="lg-signups-anchor"
-      >
-        {links?.map((link, index) => (
-          <PrimaryButtonLink
-            key={link.strapiId || index}
-            href={link.Hyperlink}
-            hasArrow={true}
-          >
-            LG SIGN UP:{" "}
-            <span className="font-normal">{link.Text.toUpperCase()}</span>
-          </PrimaryButtonLink>
-        ))}
-      </div>
-      <div className="lg:text-center lg:pb-50 max-w-[51.25rem] mx-auto font-medium lg:pt-0 lg:px-0 pt-7 pb-25 pr-2">
-        <p className="mb-6 lg:mb-[1.3125rem]">
-          Most of our Life groups for students and young adults happen on{" "}
-          <b className="font-montserrat tracking-medium-wide">Tuesdays</b> and{" "}
-          <b className="font-montserrat tracking-medium-wide">Wednesdays</b>.
-        </p>
-        <p className="mb-0">
-          For married couples, we typically have groups on Wednesdays, Fridays,
-          or Sundays but may vary frequently each year. Please sign up to get
-          more up-to-date information!
-        </p>
+      <div className="flex flex-col gap-y-12">
+        <div
+          className="flex flex-col justify-center items-stretch lg:items-center gap-5"
+          id="lg-signups-anchor"
+        >
+          {links?.map((link, index) => (
+            <PrimaryButtonLink
+              key={link.strapiId || index}
+              href={link.Hyperlink}
+              hasArrow={true}
+            >
+              LG SIGN UP:{" "}
+              <span className="font-normal">{link.Text.toUpperCase()}</span>
+            </PrimaryButtonLink>
+          ))}
+        </div>
+        <div className="lg:text-center max-w-[51.25rem] mx-auto font-medium lg:px-0 pr-2">
+          <p className="mb-6 lg:mb-[1.3125rem]">
+            Most of our Life groups for students and young adults happen on{" "}
+            <b className="font-montserrat tracking-medium-wide">Tuesdays</b> and{" "}
+            <b className="font-montserrat tracking-medium-wide">Wednesdays</b>.
+          </p>
+          <p className="mb-0">
+            For married couples, we typically have groups on Wednesdays,
+            Fridays, or Sundays but may vary frequently each year. Please sign
+            up to get more up-to-date information!
+          </p>
+        </div>
       </div>
     </div>
   );

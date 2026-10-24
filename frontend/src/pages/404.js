@@ -8,8 +8,8 @@ import ErrorImage from "../images/404placeholder.png";
 const NotFoundPage = () => (
   <Layout>
     <div className={container}>
-      <div className="justify-center flex pb-4 sm:pb-20 mb-80 sm:flex-row flex-col">
-        <div className="basis-1/3 pt-10 pb-0 sm:pb-10 order-1 sm:mr-20">
+      <div className="justify-center flex sm:flex-row flex-col">
+        <div className="basis-1/3 pt-10 order-1 sm:mr-20">
           <h1 className="relative text-left px-8">404: Error</h1>
           <img
             className="object-contain w-full sm:px-8 px-24 sm:pt-4"

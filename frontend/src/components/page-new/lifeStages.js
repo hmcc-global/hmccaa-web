@@ -70,7 +70,7 @@ const lifeStages = [
 const desktopViewRightSideItems = [0, 2, 3];
 const LifeStages = () => {
   return (
-    <div className="px-4 pt-[1.1875rem] pb-[4.1875rem] lg:py-[9.5625rem] flex flex-col gap-y-10 lg:gap-y-[3.75rem] max-w-[33.125rem] lg:max-w-[66.3125rem]">
+    <div className="px-4 flex flex-col gap-y-10 lg:gap-y-[3.75rem] max-w-[33.125rem] lg:max-w-[66.3125rem]">
       <div className="text-left">
         <div className="subheading">Life Stages</div>
         <h2>There&apos;s a Place For Everyone</h2>
@@ -126,7 +126,7 @@ const LifeStages = () => {
         >
           Let Us Know You&apos;re Interested
         </SecondaryButtonLink>
-        <p>*We will have a servant leader contact you.</p>
+        <p className="mb-0">*We will have a servant leader contact you.</p>
       </div>
     </div>
   );
