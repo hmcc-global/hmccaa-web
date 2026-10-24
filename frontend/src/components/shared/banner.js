@@ -2,7 +2,7 @@ import * as React from "react";
 
 const Banner = ({ children, bgImage, bgImageUrl, headingClassName = "" }) => (
   <div
-    className={`w-full bg-cover ${bgImage}`}
+    className={`section-band bg-cover ${bgImage}`}
     style={bgImageUrl ? { backgroundImage: `url(${bgImageUrl})` } : {}}
   >
     <div className="flex flex-col items-center justify-center min-h-[6.25rem] lg:min-h-[17.5rem] w-full bg-[rgba(6,_20,_51,_0.8)]">

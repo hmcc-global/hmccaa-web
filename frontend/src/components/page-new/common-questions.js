@@ -36,7 +36,7 @@ const commonQuestions = [
 ];
 const CommonQuestions = () => {
   return (
-    <div className="flex flex-col items-center md:items-start md:grid md:grid-cols-49 gap-y-10 max-w-[61.25rem] w-full py-5 md:py-15">
+    <div className="flex flex-col items-center md:items-start md:grid md:grid-cols-49 gap-y-10 max-w-[61.25rem] w-full">
       <div className="max-w-[33.75rem] md:max-w-none md:col-start-1 md:col-span-22">
         <StaticImage
           src="../../images/transformation-center-building.png"

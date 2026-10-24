@@ -303,6 +303,8 @@ const theme = {
       1.5: "1.5px",
     },
     spacing: {
+      // Gap between page sections; responsive, set in global.css
+      section: "var(--section-gap)",
       2.25: "0.5625rem",
       4.5: "1.125rem",
       25: "6.25rem",

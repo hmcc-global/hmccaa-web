@@ -43,9 +43,11 @@ const WatchPage = ({ location, pageContext }) => {
   }
 
   return (
-    <Layout hasSpacing={false}>
-      <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
-      <LiveStream />
+    <Layout>
+      <div className="section-band">
+        <Banner bgImage="bg-[center_60%] bg-watch">Watch Online</Banner>
+        <LiveStream />
+      </div>
       <div id="sermonsList" className="px-4 lg:px-8">
         <Sermons listing={listing} navigateListing={navigateListing} />
       </div>

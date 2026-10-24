@@ -13,12 +13,7 @@ import DomainBanner from "./domainBanner";
 import "./layout.css";
 import Footer from "./footer";
 
-const Layout = ({
-  children,
-  hasSpacing = true,
-  spacingColor = "bg-Shades-0",
-  className = "",
-}) => {
+const Layout = ({ children, className = "" }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -30,13 +25,15 @@ const Layout = ({
   `);
 
   return (
-    <div className={`bg-Neutral-100 font-raleway ${className}`}>
+    <div
+      className={`bg-Neutral-100 font-raleway min-h-screen flex flex-col ${className}`}
+    >
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <DomainBanner />
-      <main className="flex flex-col items-center bg-Shades-0 overflow-x-hidden">
+      {/* Grows so the footer stays at the bottom of short pages */}
+      <main className="flex-grow flex flex-col items-center gap-y-section pb-section bg-Shades-0 overflow-x-hidden">
         {children}
       </main>
-      {hasSpacing && <div className={`py-10 lg:py-20 ${spacingColor}`}></div>}
       <Footer />
     </div>
   );

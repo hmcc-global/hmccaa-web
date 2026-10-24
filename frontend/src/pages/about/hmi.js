@@ -111,14 +111,14 @@ const HmiPage = ({
 
   return (
     <Layout>
-      <div className="px-2 flex flex-col w-full items-center pt-[1.375rem] pb-[7.3125rem] md:pt-10">
+      <div className="px-2 flex flex-col w-full items-center pt-[1.375rem] md:pt-10">
         <div className="w-full flex flex-col items-center">
           <div className="w-full flex flex-col gap-y-[2.1875rem] md:gap-y-[3.75rem]">
             <div className="px-2 md:px-6 flex flex-col items-center">
               <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
             </div>
-            <div className="flex flex-col gap-y-8 md:gap-y-15 w-full items-center">
-              <div className="px-2 md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
+            <div className="flex flex-col gap-y-section w-full items-center">
+              <div className="px-2 md:px-6 flex flex-col gap-y-section items-center w-full">
                 <div className="flex flex-col gap-y-9 md:gap-y-15 max-w-container w-full">
                   <h1 className="uppercase lg:text-center text-2xl md:text-4xl font-bold leading-tighter mb-0">
                     Harvest Mission International (HMI)
@@ -189,7 +189,7 @@ const HmiPage = ({
                   </div>
                 </div>
               </div>
-              <div className="md:px-6 flex flex-col gap-y-8 md:gap-y-15 items-center w-full">
+              <div className="md:px-6 flex flex-col items-center w-full">
                 <div className="flex flex-col gap-y-5 md:gap-y-10 items-center lg:items-start max-w-container w-full">
                   <div className="flex flex-col gap-y-5 md:gap-y-3 max-w-[55rem] text-left">
                     <h2 className="uppercase text-xl md:text-3xl leading-tighter">
