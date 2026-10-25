@@ -7,7 +7,7 @@ import {
 import { mediaWrapper } from "../../css/media.module.css";
 import { SecondaryButtonLink } from "../Button";
 const RightNowMedia = () => (
-  <div className={wrapper}>
+  <div className={`section-band ${wrapper}`}>
     <div className={container}>
       <div
         className={`${mediaWrapper} max-w-[30rem] lg:max-w-none item-container size-container`}

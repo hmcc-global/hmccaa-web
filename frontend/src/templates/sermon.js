@@ -70,7 +70,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
   return (
     <Layout>
       <div className="px-4 w-full flex items-center flex-col">
-        <div className="max-w-container w-full flex flex-col py-[1.375rem] lg:pt-10 lg:pb-[22.8125rem] gap-y-[2.1875rem] lg:gap-y-[3.75rem] items-center">
+        <div className="max-w-container w-full flex flex-col pt-[1.375rem] lg:pt-10 gap-y-9 lg:gap-y-15 items-center">
           <div className="w-full pl-[2px] lg:pl-0">
             <Breadcrumb
               crumbs={crumbs.map(({ pathname, crumbLabel }) => {
@@ -91,7 +91,7 @@ const SermonPage = ({ data: { strapiSermon }, pageContext }) => {
               crumbSeparator=" > "
             />
           </div>
-          <div className="flex flex-col gap-y-[0.75rem] lg:gap-y-[3.75rem] items-start lg:items-center max-w-[61.25rem] w-full pb-[3.98625rem] lg:pb-0">
+          <div className="flex flex-col gap-y-[0.75rem] lg:gap-y-[3.75rem] items-start lg:items-center max-w-[61.25rem] w-full">
             <h1 className="text-2xl lg:text-4xl leading-tighter font-semibold lg:font-bold mb-0 text-left lg:text-center w-full">
               {title}
             </h1>

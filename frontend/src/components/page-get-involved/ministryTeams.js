@@ -208,7 +208,7 @@ const translatesY = {
 };
 
 const MinistryTeams = () => (
-  <div>
+  <div className="flex flex-col gap-y-section">
     <div className={wrapper}>
       <div className="xl:relative">
         <div className={container}>
@@ -270,7 +270,7 @@ const MinistryTeams = () => (
         </div>
       </div>
     </div>
-    <div className="pt-10 lg:pt-0">
+    <div>
       <StaticImage
         src="../../images/ug-retreat.png"
         alt="Ministry Teams Hero"

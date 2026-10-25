@@ -4,7 +4,7 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { SecondaryButtonLink } from "../Button";
 
 const WelcomeSection = () => (
-  <div className="flex flex-col lg:flex-row items-center lg:items-start pt-3 pb-20.5 content-image">
+  <div className="flex flex-col lg:flex-row items-center lg:items-start content-image">
     <div className="lg:order-1 image-container">
       <div>
         <StaticImage

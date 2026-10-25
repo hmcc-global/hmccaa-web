@@ -2,7 +2,7 @@ import * as React from "react";
 import { SecondaryButtonLink } from "../Button";
 
 const Baptism = () => (
-  <div className="max-w-container w-full py-5 md:py-15 flex justify-center items-center">
+  <div className="max-w-container w-full flex justify-center items-center">
     <div className="w-full border-2 border-solid border-Neutral-600 py-20 md:py-[4.5rem] flex text-center px-6 md:px-8 rounded-2xl justify-center">
       <div className="max-w-[42.5rem] flex flex-col gap-y-5 w-full">
         <div>

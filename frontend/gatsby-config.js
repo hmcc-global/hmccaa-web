@@ -20,6 +20,11 @@ const gatsbyRequiredRules = path.join(
   "eslint-rules"
 );
 
+const { SermonTraitMetadata } = require("./src/page-generation/sermon-pages");
+const sermonFilterLabels = [...SermonTraitMetadata.values()]
+  .map(({ restLabel }) => restLabel)
+  .join("|");
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -34,10 +39,18 @@ module.exports = {
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
     {
-      resolve: "gatsby-source-strapi-graphql",
+      // gatsby-source-strapi-graphql, wrapped so that STRAPI_TOKEN isn't stored
+      // in .cache (see plugins/strapi-source/gatsby-node.js)
+      resolve: "strapi-source",
       options: {
         apiURL: process.env.STRAPI_API_URL,
-        token: process.env.STRAPI_TOKEN,
+        // Re-fetch every entry on each build. The plugin's incremental mode only
+        // re-fetches entries whose own updatedAt changed, so with .cache reused
+        // between builds an edit to a related entry (e.g. a preacher's name)
+        // would leave the sermons that embed it stale. Strapi also rejects that
+        // mode's sync query for sermon topics, and the plugin then silently
+        // drops every topic.
+        cache: false,
         download: ["png", "jpg", "jpeg", "gif", "svg", "webp", "avif", "ico"],
         collectionTypes: [
           "custom-page",
@@ -228,6 +241,13 @@ module.exports = {
       options: {
         // keep your 404 mapping
         ErrorDocument: "ErrorDocument 404 /404.html",
+        redirect: [
+          // Filtered sermon lists (/watch/speaker/x/series/y/2) have no HTML of their own. Serve the
+          // client-only page for their first label, which reads the rest of the URL in the browser.
+          `RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^watch/(${sermonFilterLabels})/. /watch/$1/index.html [L]`,
+        ],
         custom: `
 <IfModule mod_headers.c>
   <FilesMatch "\\.(png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf|mp4|webm|mp3|wav)$">

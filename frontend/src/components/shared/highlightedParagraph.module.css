@@ -1,6 +1,11 @@
 .highlighted-paragraph {
   @apply text-Shades-100 lg:max-w-xl-md pb-5 text-base lg:text-lg font-medium lg:font-normal tracking-medium-wide lg:tracking-normal;
 }
+/* The bottom padding only separates the text from a button below it */
+.highlighted-paragraph:last-child {
+  @apply pb-0;
+}
+
 .highlighted-paragraph p {
   @apply mb-[0.6875rem] lg:mb-[1.3125rem];
 }

@@ -3,7 +3,7 @@ import { InstaIcon } from "./svgs";
 import Link from "./Link";
 
 const Instagram = () => (
-  <div className="bg-Shades-100 py-5 w-full">
+  <div className="section-band bg-Shades-100 py-5">
     <Link
       href="https://www.instagram.com/hmcc_aa/"
       className="flex place-content-center gap-x-3 no-underline"

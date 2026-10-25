@@ -1,13 +1,13 @@
-name: Component - Build Frontend
+name: Component - Build and Sync Frontend
 on:
   workflow_call:
     inputs:
       build_type:
         required: true
         type: string
-      # publish_location is not used for the build itself, but is needed
-      # to set the concurrency group so that concurrent builds for the
-      # same environment (dev/prod) cancel each other.
+      # publish_location picks the directory on the server, and sets the
+      # concurrency group so that concurrent builds for the same
+      # environment (dev/prod) cancel each other.
       publish_location:
         required: true
         type: string
@@ -19,9 +19,6 @@ on:
         required: false
         type: boolean
         default: false
-      artifact_name:
-        required: true
-        type: string
     secrets:
       strapi_token:
         required: true
@@ -29,18 +26,45 @@ on:
         required: true
       host_server:
         required: true
+      ssh_key:
+        required: true
+      ssh_host:
+        required: true
+      ssh_user:
+        required: true
 
 jobs:
-  build-site:
+  build-and-sync-site:
     runs-on: ubuntu-latest
     concurrency:
       group: build-${{ inputs.publish_location }}
       cancel-in-progress: true
     steps:
       - name: git checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ inputs.git_ref }}
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Restore Gatsby cache
+        # Reusing .cache and public lets Gatsby skip image processing and pages
+        # whose data didn't change. Keys are per environment, so dev's robots.txt
+        # can't reach prod; bump v1 to force a clean build. Pull requests (even from
+        # forks) can read these caches, so only use them for checkouts that keep
+        # the Strapi token out of .cache.
+        if: hashFiles('frontend/plugins/strapi-source/gatsby-node.js') != ''
+        uses: actions/cache@v5
+        with:
+          path: |
+            frontend/.cache
+            frontend/public
+          key: gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-
       - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend
@@ -49,18 +73,26 @@ jobs:
           echo 'STRAPI_TOKEN=${{ secrets.strapi_token }}' > ./.env.${{ inputs.build_type }}
           echo 'STRAPI_API_URL=${{ secrets.strapi_api_url }}' >> ./.env.${{ inputs.build_type }}
 
-          echo "Running npm install..."
-          npm install --loglevel=error
+          echo "Running npm ci..."
+          npm ci --no-audit --no-fund
           NODE_ENV=${{ inputs.build_type }} HOST_ORIGIN=${{ secrets.host_server }} npm run build
       - name: Add anti-webscraping
         if: ${{ inputs.add_robots_txt }}
         run: |
           echo 'User-agent: *' > ./frontend/public/robots.txt
           echo 'Disallow: /' >> ./frontend/public/robots.txt
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
         with:
-          name: ${{ inputs.artifact_name }}
-          path: ./frontend/public/
-          include-hidden-files: true
-          retention-days: 1
+          key: ${{ secrets.ssh_key }}
+          known_hosts: "placeholder"
+          name: id_rsa
+      - name: Define known_hosts
+        run: ssh-keyscan -H ${{ secrets.ssh_host }} >> ~/.ssh/known_hosts
+      - name: Sync files to server
+        # --delay-updates stages changed files and only moves them into place
+        # once everything has transferred, so a run cancelled mid-sync by a
+        # newer build leaves the live site as it was. --checksum compares file
+        # contents rather than timestamps: Gatsby rewrites every page's HTML on
+        # each build (stitching slices) even when the bytes don't change.
+        run: rsync -avzr --checksum --delete-after --delay-updates ./frontend/public/ ${{ secrets.ssh_user }}@${{ secrets.ssh_host }}:/home/${{ secrets.ssh_user }}/annarbor-${{ inputs.publish_location }}

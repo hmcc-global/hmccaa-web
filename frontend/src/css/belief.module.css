@@ -1,7 +1,7 @@
 @config "../config/tailwind.config.js";
 
 .container {
-  @apply py-10 lg:py-20 max-w-container w-full;
+  @apply max-w-container w-full;
 }
 
 .title-container {

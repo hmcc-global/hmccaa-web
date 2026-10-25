@@ -18,13 +18,13 @@ const OurTeamPage = ({
   const { Elders, deacons } = strapiOurTeamPage;
   return (
     <Layout>
-      <div className="px-4 flex flex-col w-full items-center pt-[1.375rem] lg:pt-10 gap-y-[2.1875rem] lg:gap-y-[3.75rem]">
-        <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col items-center gap-y-[3.75rem] lg:gap-y-[6.25rem]">
+      <div className="px-4 flex flex-col w-full items-center pt-[1.375rem] lg:pt-10 gap-y-section">
+        <div className="max-w-container w-full flex flex-col items-center gap-y-9 lg:gap-y-15">
+          <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
           <Heading />
-          <EldersSection elders={Elders} />
-          <DeaconsSection deacons={deacons} />
         </div>
+        <EldersSection elders={Elders} />
+        <DeaconsSection deacons={deacons} />
         <Questions />
       </div>
     </Layout>
