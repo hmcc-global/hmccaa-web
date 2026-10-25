@@ -9,7 +9,6 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
-import DomainBanner from "./domainBanner";
 import "./layout.css";
 import Footer from "./footer";
 
@@ -29,7 +28,6 @@ const Layout = ({ children, className = "" }) => {
       className={`bg-Neutral-100 font-raleway min-h-screen flex flex-col ${className}`}
     >
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <DomainBanner />
       {/* Grows so the footer stays at the bottom of short pages */}
       <main className="flex-grow flex flex-col items-center gap-y-section pb-section bg-Shades-0 overflow-x-hidden">
         {children}
