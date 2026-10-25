@@ -20,6 +20,11 @@ const gatsbyRequiredRules = path.join(
   "eslint-rules"
 );
 
+const { SermonTraitMetadata } = require("./src/page-generation/sermon-pages");
+const sermonFilterLabels = [...SermonTraitMetadata.values()]
+  .map(({ restLabel }) => restLabel)
+  .join("|");
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -228,6 +233,13 @@ module.exports = {
       options: {
         // keep your 404 mapping
         ErrorDocument: "ErrorDocument 404 /404.html",
+        redirect: [
+          // Filtered sermon lists (/watch/speaker/x/series/y/2) have no HTML of their own. Serve the
+          // client-only page for their first label, which reads the rest of the URL in the browser.
+          `RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^watch/(${sermonFilterLabels})/. /watch/$1/index.html [L]`,
+        ],
         custom: `
 <IfModule mod_headers.c>
   <FilesMatch "\\.(png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf|mp4|webm|mp3|wav)$">

@@ -1,16 +1,15 @@
 import React, { useMemo, useRef } from "react";
-import { Link, navigate } from "gatsby";
 import SermonCard from "./sermonCard";
 import { GatsbyImage } from "gatsby-plugin-image";
 import ComboBox from "../../shared/comboBox";
 import {
   getSermonPageUrl,
   normalizeTrait,
-  getNormalizedSermonTraitsFromUrl,
   getUrlFromNormalizedSermonTraits,
+  SermonTraits,
   SermonTraitMetadata,
 } from "../../../page-generation/sermon-pages";
-import { LoadContainer, showLoader } from "../../../components/svgs/loader";
+import { LoadContainer } from "../../../components/svgs/loader";
 
 // Returns an array signifying the page numbers to display, eg.
 //    (10, 50) would return [1, ..., 8, 9, 10, 11, 12, ..., 50]
@@ -44,8 +43,33 @@ function getPageNumbers(currentPage, totalPages) {
   return pages.map(page => (page !== null ? page.toString() : page));
 }
 
+const getPageUrl = (url, page) => `${url}${page === 1 ? "" : `/${page}`}/`;
+
+// A plain left click updates the list in place; other clicks (new tab, modifier keys) and crawlers follow href
+const ListingLink = ({ to, navigateListing, children, ...props }) => (
+  <a
+    href={`${to}#sermons-list-paged`}
+    onClick={event => {
+      if (
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+      event.preventDefault();
+      navigateListing(to, "#sermons-list-paged");
+    }}
+    {...props}
+  >
+    {children}
+  </a>
+);
+
 // Number line for page navigation on sermons page
-const NumberLine = ({ page, currentPage, url }) => {
+const NumberLine = ({ page, currentPage, url, navigateListing }) => {
   if (page === null) {
     return (
       <span className="text-Accent-500 font-normal tracking-tight">· · ·</span>
@@ -54,21 +78,20 @@ const NumberLine = ({ page, currentPage, url }) => {
     return <span className="font-bold text-Primary-700">{page}</span>;
   } else {
     return (
-      <Link
+      <ListingLink
         className="text-Accent-500 text-xl font-normal no-underline"
-        to={`${url}${page === "1" ? "" : `/${page}`}#sermons-list-paged`}
+        to={getPageUrl(url, parseInt(page, 10))}
+        navigateListing={navigateListing}
       >
         {page}
-      </Link>
+      </ListingLink>
     );
   }
 };
 
-const NumberPaging = ({ currentPage, numPages, url }) => {
+const NumberPaging = ({ currentPage, numPages, url, navigateListing }) => {
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const previousPage = url + (currentPage === 2 ? "" : `/${currentPage - 1}`);
-  const nextPage = `${url}/${currentPage + 1}`;
 
   const pages = getPageNumbers(currentPage, numPages);
 
@@ -76,13 +99,14 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
     <div className="bg-green-500 flex flex-col items-center pt-[0.875rem] lg:pt-5 w-full justify-center">
       <div className="flex text-xl text-Shades-100 font-normal justify-between gap-x-4 lg:gap-x-8">
         {!isFirst && (
-          <Link
-            to={`${previousPage}#sermons-list-paged`}
+          <ListingLink
+            to={getPageUrl(url, currentPage - 1)}
+            navigateListing={navigateListing}
             rel="prev"
             className="font-roboto text-Accent-500 no-underline"
           >
             &lt;
-          </Link>
+          </ListingLink>
         )}
         {pages.map((page, index) => (
           <NumberLine
@@ -90,16 +114,18 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
             page={page}
             currentPage={currentPage}
             url={url}
+            navigateListing={navigateListing}
           />
         ))}
         {!isLast && (
-          <Link
-            to={`${nextPage}#sermons-list-paged`}
+          <ListingLink
+            to={getPageUrl(url, currentPage + 1)}
+            navigateListing={navigateListing}
             rel="next"
             className="font-roboto text-Accent-500 no-underline"
           >
             &gt;
-          </Link>
+          </ListingLink>
         )}
       </div>
     </div>
@@ -108,12 +134,26 @@ const NumberPaging = ({ currentPage, numPages, url }) => {
   );
 };
 
+// Placeholder while a client-only route hydrates: keeps the layout, shows the loader
+const pendingListing = {
+  traits: Object.values(SermonTraits).map(field => ({ field, traits: [] })),
+  normalizedTraits: [],
+  nodes: [],
+  currentPage: 1,
+  numPages: 1,
+};
+
 // Building the Sermons List
-const Sermons = ({
-  sermons: { nodes },
-  pageContext: { url, currentPage, numPages, traits },
-}) => {
-  const currentlySelectedTraits = getNormalizedSermonTraitsFromUrl(url);
+const Sermons = ({ listing, navigateListing }) => {
+  const isPending = listing === undefined;
+  const {
+    url,
+    currentPage,
+    numPages,
+    traits,
+    nodes,
+    normalizedTraits: currentlySelectedTraits,
+  } = listing ?? pendingListing;
   let refs = useRef([]);
 
   refs.current = useMemo(() => {
@@ -124,7 +164,7 @@ const Sermons = ({
     return list;
   }, [traits]);
 
-  // Navigate to new page based upon Drop Down Selection
+  // Show the listing for the new Drop Down Selection
   const handleChange = () => {
     const selections = refs?.current
       .filter(element => element.current)
@@ -133,9 +173,7 @@ const Sermons = ({
     const traits = Array.from(selections)
       .map(element => element.dataset.url)
       .map(element => (element === "" ? null : element));
-    const url = getUrlFromNormalizedSermonTraits(traits);
-    showLoader();
-    navigate(`${url}#sermonsList`);
+    navigateListing(getUrlFromNormalizedSermonTraits(traits), "#sermonsList");
   };
 
   let getBackgroundImg = (Background, SeriesName) => {
@@ -157,14 +195,18 @@ const Sermons = ({
 
   return (
     <div className="max-w-container items-center w-full flex flex-col gap-y-8 lg:gap-y-10 relative">
-      <LoadContainer />
+      <LoadContainer loading={isPending} />
       <div className="flex flex-col items-center">
         <div className="subheading">Previous Sermons</div>
         <h2>Watch Again</h2>
       </div>
+      {/* Keyed by filter: each ComboBox keeps its selection and option list in its own state */}
       <div
+        key={`filters:${url}`}
         id="sermons-filter"
-        className="grid grid-cols-2 gap-y-3  lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  "
+        className={`grid grid-cols-2 gap-y-3  lg:max-w-none xs:max-w-[23.5rem] lg:flex w-full justify-center gap-x-4 lg:gap-x-5  ${
+          isPending ? "invisible" : ""
+        }`}
       >
         {traits.map((traitInfo, idx) => (
           <ComboBox
@@ -187,19 +229,16 @@ const Sermons = ({
         className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-5 lg:gap-y-8 py-[2px] lg:pt-5"
       >
         {nodes.map(
-          (
-            {
-              Title,
-              DatePreached,
-              Series: { Name: SeriesName, Background },
-              Preacher: { Prefix, Name: PreacherName },
-              BiblePassage,
-              strapiId,
-            },
-            i
-          ) => (
+          ({
+            Title,
+            DatePreached,
+            Series: { Name: SeriesName, Background },
+            Preacher: { Prefix, Name: PreacherName },
+            BiblePassage,
+            strapiId,
+          }) => (
             <SermonCard
-              key={i}
+              key={strapiId}
               title={Title}
               date={DatePreached}
               img={getBackgroundImg(Background, SeriesName)}
@@ -211,7 +250,12 @@ const Sermons = ({
           )
         )}
       </div>
-      <NumberPaging currentPage={currentPage} numPages={numPages} url={url} />
+      <NumberPaging
+        currentPage={currentPage}
+        numPages={numPages}
+        url={url}
+        navigateListing={navigateListing}
+      />
     </div>
   );
 };
