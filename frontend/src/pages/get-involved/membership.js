@@ -25,7 +25,8 @@ const MembershipPage = ({ pageContext }) => {
             <div className="image-container lg:order-1">
               <StaticImage
                 alt="New Members"
-                src="../../images/new-members.png"
+                src="../../images/new-members.jpg"
+                width={580}
               />
             </div>
             <div className="content-container flex flex-col gap-y-5 lg:gap-y-10">

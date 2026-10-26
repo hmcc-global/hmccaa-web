@@ -39,7 +39,8 @@ const CommonQuestions = () => {
     <div className="flex flex-col items-center md:items-start md:grid md:grid-cols-49 gap-y-10 max-w-[61.25rem] w-full">
       <div className="max-w-[33.75rem] md:max-w-none md:col-start-1 md:col-span-22">
         <StaticImage
-          src="../../images/transformation-center-building.png"
+          src="../../images/transformation-center-building.jpg"
+          width={440}
           alt="Transformation Center"
         />
       </div>

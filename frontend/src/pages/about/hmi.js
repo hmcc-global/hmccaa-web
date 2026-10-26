@@ -126,8 +126,8 @@ const HmiPage = ({
                   <div className="flex flex-col md:flex-row gap-y-[1.25rem]  gap-x-15">
                     <div className="md:order-1 image-container">
                       <StaticImage
-                        src="../../images/hmi-hands-all-in.jpeg"
-                        alt="Hands All In"
+                        src="../../images/hmi-children.jpg"
+                        alt="Children gathered on an HMI mission trip"
                       />
                     </div>
                     <div className="content-container">

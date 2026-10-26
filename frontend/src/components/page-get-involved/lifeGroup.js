@@ -7,7 +7,8 @@ const LifeGroup = () => (
   <div className="flex flex-col lg:flex-row gap-y-5 justify-center items-center content-image">
     <div className="lg:order-1 text-center image-container">
       <StaticImage
-        src="../../images/LifeGroupImg.png"
+        src="../../images/LifeGroupImg.jpg"
+        width={724}
         alt="Life Group Next Step"
       />
     </div>

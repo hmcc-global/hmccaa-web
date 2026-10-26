@@ -7,7 +7,8 @@ const MissionsNextStep = () => (
   <div className="flex flex-col lg:flex-row gap-5 content-image items-center lg:items-start">
     <div className="lg:order-1 text-center image-container">
       <StaticImage
-        src="../../images/missionsNextStepImg.png"
+        src="../../images/missionsNextStepImg.jpg"
+        width={540}
         alt="Missions Next Step"
       />
     </div>

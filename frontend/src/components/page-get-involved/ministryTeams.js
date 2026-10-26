@@ -272,7 +272,8 @@ const MinistryTeams = () => (
     </div>
     <div>
       <StaticImage
-        src="../../images/ug-retreat.png"
+        src="../../images/ministry-teams-wide.jpg"
+        width={1180}
         alt="Ministry Teams Hero"
       />
     </div>
