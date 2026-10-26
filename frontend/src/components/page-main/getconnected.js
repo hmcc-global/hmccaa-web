@@ -20,8 +20,8 @@ const GetConnectedText = () => (
   </div>
 );
 
-// Sources are ~250px for a 240px box, so keep their full resolution (no width) and use a
-// high quality; downscaling and q80 both visibly soften these small photos
+// width matches the 240px photo box so Gatsby adds a 2x variant from the 600px sources;
+// q95 because these small photos visibly soften at the q80 default
 const lgsArray = [
   {
     title: "COVENANT",
@@ -29,7 +29,8 @@ const lgsArray = [
     color: "Accent-900", // #a842a8
     img: (
       <StaticImage
-        src="../../images/home-get-connected/covenant-raw.png"
+        src="../../images/life-stages/covenant.jpg"
+        width={240}
         quality={95}
         alt="Covenant Life group"
         objectFit="fill"
@@ -45,7 +46,8 @@ const lgsArray = [
     color: "Accent-700", // #f0508b
     img: (
       <StaticImage
-        src="../../images/home-get-connected/focus-raw.png"
+        src="../../images/life-stages/focus.jpg"
+        width={240}
         quality={95}
         alt="Focus Life group"
         objectFit="fill"
@@ -61,9 +63,8 @@ const lgsArray = [
     color: "Accent-300", // #ffbd57
     img: (
       <StaticImage
-        src="../../images/home-get-connected/impact-raw.png"
-        // The only large source (681px); 480 covers the 240px box on 2x screens
-        width={480}
+        src="../../images/life-stages/impact.jpg"
+        width={240}
         quality={95}
         alt="Impact Life group"
         objectFit="fill"
@@ -79,7 +80,8 @@ const lgsArray = [
     color: "Error-300", // #f39ea2
     img: (
       <StaticImage
-        src="../../images/home-get-connected/access-raw.png"
+        src="../../images/life-stages/access.jpg"
+        width={240}
         quality={95}
         alt="Access Life group"
         objectFit="fill"
@@ -95,7 +97,8 @@ const lgsArray = [
     color: "Success-500", // #10b981
     img: (
       <StaticImage
-        src="../../images/home-get-connected/ga-raw.png"
+        src="../../images/life-stages/global-access.jpg"
+        width={240}
         quality={95}
         alt="GA Life group"
         objectFit="fill"
@@ -111,7 +114,8 @@ const lgsArray = [
     color: "Accent-500", // #ff8069
     img: (
       <StaticImage
-        src="../../images/home-get-connected/latvel-raw.png"
+        src="../../images/life-stages/latitude-velocity.jpg"
+        width={240}
         quality={95}
         alt="LatVel Life group"
         objectFit="fill"
@@ -127,7 +131,8 @@ const lgsArray = [
     color: "Accent-1000", // #f0df5c
     img: (
       <StaticImage
-        src="../../images/home-get-connected/bb-raw.png"
+        src="../../images/life-stages/building-blocks.jpg"
+        width={240}
         quality={95}
         alt="BB Life group"
         objectFit="fill"

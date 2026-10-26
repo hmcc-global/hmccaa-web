@@ -8,7 +8,7 @@ const WelcomeSection = () => (
     <div className="lg:order-1 image-container">
       <div>
         <StaticImage
-          src="../../images/new-welcome.png"
+          src="../../images/new-welcome.jpg"
           width={540}
           alt="Welcome"
         />

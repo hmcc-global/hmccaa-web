@@ -7,7 +7,8 @@ const WhyWeGiveSection = () => (
     <div className="lg:order-1 image-container">
       <div>
         <StaticImage
-          src="../../images/give-why-we-give.png"
+          src="../../images/give-why-we-give.jpg"
+          width={540}
           alt="Why we give"
         />
       </div>

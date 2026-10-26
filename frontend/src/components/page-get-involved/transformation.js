@@ -6,7 +6,7 @@ const Transformation = () => (
   <div className="max-w-container w-full flex flex-col md:flex-row content-image gap-y-5 lg:items-center">
     <div className="max-w-[26.25rem] md:max-w-none image-container">
       <StaticImage
-        src="../../images/transformation-classes.png"
+        src="../../images/transformation-classes.jpg"
         alt="Transformation Class"
       />
     </div>
