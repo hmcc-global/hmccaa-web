@@ -5,7 +5,7 @@
 }
 
 .global-mission-img-container {
-  @apply mx-auto lg:mx-0 px-4 lg:px-0 lg:row-start-1 lg:col-start-33 lg:col-span-27 pb-5;
+  @apply lg:row-start-1 lg:col-start-33 lg:col-span-27 pb-5;
 }
 
 .global-mission-container {
