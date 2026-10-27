@@ -20,7 +20,7 @@ const Partners = () => (
         <StaticImage
           src="../../../images/about-hmi.jpg"
           alt="HMI Project"
-          width={480}
+          width={540}
         />
       </div>
     </div>
