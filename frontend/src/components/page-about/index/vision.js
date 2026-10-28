@@ -7,7 +7,7 @@ import {
 } from "../../../css/missionVision.module.css";
 
 const Vision = () => (
-  <div className={container}>
+  <div className={`section-band ${container}`}>
     <div className={bottomBox}>
       <div className={bottomTrapezoid}>
         <div className={text}>

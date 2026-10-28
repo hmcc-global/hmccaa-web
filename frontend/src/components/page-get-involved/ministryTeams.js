@@ -208,7 +208,7 @@ const translatesY = {
 };
 
 const MinistryTeams = () => (
-  <div className="flex flex-col gap-y-section">
+  <div id="ministry-teams" className="flex flex-col gap-y-section">
     <div className={wrapper}>
       <div className="xl:relative">
         <div className={container}>
