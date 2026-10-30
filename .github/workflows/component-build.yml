@@ -50,10 +50,15 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: frontend/package-lock.json
+      - name: Hash the frontend source
+        # Not github.sha, which is main's head on Strapi-triggered builds of release
+        id: frontend
+        run: echo "tree=$(git rev-parse HEAD:frontend)" >> "$GITHUB_OUTPUT"
       - name: Restore Gatsby cache
         # Reusing .cache and public lets Gatsby skip image processing and pages
         # whose data didn't change. Keys are per environment, so dev's robots.txt
-        # can't reach prod; bump v1 to force a clean build. Pull requests (even from
+        # can't reach prod, and per frontend source, so skipped pages can't keep
+        # old styles; bump v1 to force a clean build. Pull requests (even from
         # forks) can read these caches, so only use them for checkouts that keep
         # the Strapi token out of .cache.
         if: hashFiles('frontend/plugins/strapi-source/gatsby-node.js') != ''
@@ -62,9 +67,9 @@ jobs:
           path: |
             frontend/.cache
             frontend/public
-          key: gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ steps.frontend.outputs.tree }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-
+            gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ steps.frontend.outputs.tree }}-
       - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend
