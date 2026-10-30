@@ -50,21 +50,31 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: frontend/package-lock.json
+      - name: Hash the frontend source
+        # Git's stored id for frontend/ in the checked-out commit, which changes
+        # whenever any committed file under it does. github.sha can't stand in:
+        # Strapi-triggered runs set it to main's head while prod builds release.
+        id: frontend
+        run: echo "tree=$(git rev-parse HEAD:frontend)" >> "$GITHUB_OUTPUT"
       - name: Restore Gatsby cache
         # Reusing .cache and public lets Gatsby skip image processing and pages
-        # whose data didn't change. Keys are per environment, so dev's robots.txt
-        # can't reach prod; bump v1 to force a clean build. Pull requests (even from
-        # forks) can read these caches, so only use them for checkouts that keep
-        # the Strapi token out of .cache.
+        # whose data didn't change. Gatsby only re-renders pages whose own code or
+        # data changed, so other pages would keep shared styles from older code;
+        # a cache is therefore only reused for the same frontend source. Each run
+        # saves its own entry and restores the newest one for that source. Keys
+        # are per environment, so dev's robots.txt can't reach prod; bump v1 to
+        # force a clean build, e.g. after changing how this workflow builds. Pull
+        # requests (even from forks) can read these caches, so only use them for
+        # checkouts that keep the Strapi token out of .cache.
         if: hashFiles('frontend/plugins/strapi-source/gatsby-node.js') != ''
         uses: actions/cache@v5
         with:
           path: |
             frontend/.cache
             frontend/public
-          key: gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ steps.frontend.outputs.tree }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-
+            gatsby-v1-${{ inputs.publish_location }}-${{ hashFiles('frontend/package-lock.json') }}-${{ steps.frontend.outputs.tree }}-
       - name: Build Gatsby
         run: |
           cd ${{ github.workspace }}/frontend
