@@ -4,10 +4,11 @@ import { SecondaryButtonLink } from "../Button";
 import { StaticImage } from "gatsby-plugin-image";
 
 const WelcomeMain = () => (
-  <div className="flex flex-col lg:flex-row gap-y-5 pt-6 pb-[1.5625rem] items-center lg:items-start content-image">
+  <div className="flex flex-col lg:flex-row gap-y-5 items-center lg:items-start content-image">
     <div className="lg:order-1 image-container">
       <StaticImage
-        src="../../images/welcomeMainImg.png"
+        src="../../images/welcomeMainImg.jpg"
+        width={540}
         alt="welcome page image"
       />
     </div>

@@ -4,6 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Vertical space between page sections, and above the footer (the `section` spacing token).
+   <main> and .content-padding-full stack their sections with gap-y-section, so a section
+   never pads its own top or bottom. */
+:root {
+  --section-gap: 3rem;
+}
+
+@screen lg {
+  :root {
+    --section-gap: 5rem;
+  }
+}
+
+@layer components {
+  /* Full-width colored band. Bands that touch share one .section-band wrapper, so the
+     section gap falls around the group and not between them. */
+  .section-band {
+    @apply w-full;
+  }
+
+  /* A band that ends the page meets the footer */
+  main:has(> .section-band:last-child) {
+    @apply pb-0;
+  }
+}
+
 body {
   @apply bg-Primary-700;
 }
@@ -102,11 +128,11 @@ span.ellipsis {
   @apply text-ellipsis;
 }
 .content-image {
-  @apply max-w-container w-full lg:py-15 gap-x-15;
+  @apply max-w-container w-full gap-x-15;
 }
 
 .content-padding-full {
-  @apply px-4 md:px-14 w-full flex flex-col items-center;
+  @apply px-4 md:px-14 w-full flex flex-col items-center gap-y-section;
 }
 
 .image-container {
@@ -142,11 +168,26 @@ span.ellipsis {
 }
 
 .notification-text-container > div {
-  @apply inline pr-4 lg:px-0 pl-4 sm:pl-0 pb-0;
+  @apply block pb-0;
+  /* RichText wraps paragraphs in a text-left div; follow the container's alignment instead */
+  text-align: inherit;
 }
 
 .notification-text-container p {
-  @apply mb-0 inline px-4 lg:px-0 sm:pl-0;
+  @apply mb-0 inline;
+}
+
+/* Let links wrap (and break long URLs) in the notification bar and custom pages */
+.notification-text-container a,
+.custom-content a {
+  @apply whitespace-normal inline break-words;
+  overflow-wrap: anywhere;
+}
+
+/* Hanging indent so wrapped list lines align with the first line of text */
+.custom-content ul,
+.custom-content ol {
+  @apply list-outside pl-6;
 }
 
 .custom-page .collapsible h3 {
@@ -199,4 +240,8 @@ span.ellipsis {
 
 .custom-content p.small {
   @apply text-base sm:text-sm;
+}
+
+.home-image-wrapper img {
+  @apply object-cover object-[80%_50%] md:object-right 2.5xl:object-[right_15%];
 }

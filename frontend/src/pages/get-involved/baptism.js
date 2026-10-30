@@ -13,15 +13,19 @@ const BaptismPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen">
-        <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-12 lg:gap-y-15 items-center">
+      <div className="content-padding-full pt-[1.375rem] lg:pt-10">
+        <div className="max-w-container w-full flex flex-col gap-y-9 lg:gap-y-15 items-center">
+          <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
           <h1 className="text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
             Baptism
           </h1>
           <div className="gap-y-5 gap-x-15 flex flex-col lg:flex-row items-center lg:items-start">
             <div className="image-container lg:order-1">
-              <StaticImage alt="Baptism" src="../../images/baptism.png" />
+              <StaticImage
+                alt="Baptism"
+                src="../../images/baptism.jpg"
+                width={580}
+              />
             </div>
             <div className="content-container flex flex-col gap-y-5 lg:gap-y-10">
               <div className="text-base lg:text-lg">

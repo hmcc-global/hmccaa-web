@@ -16,9 +16,9 @@ const EldersSection = ({ elders = [] }) => {
   }));
 
   return (
-    <div className="flex flex-col lg:items-center gap-y-[3.75rem] pt-[1.6875rem] pb-[1.125rem] lg:py-0">
+    <div className="max-w-container w-full flex flex-col lg:items-center gap-y-[3.75rem]">
       <TeamHeading title="Meet Our Elders" />
-      <Team className="gap-x-4 lg:gap-x-5 lg:pb-[3.75rem]">
+      <Team className="gap-x-4 lg:gap-x-5">
         {elderInfo.map((item, index) => (
           <TeamCard
             info={item}

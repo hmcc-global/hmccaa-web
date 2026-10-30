@@ -14,15 +14,21 @@ const CustomPage = ({ data }) => {
   const buttonText = pageData?.BottomButton?.Text;
   const buttonLink = pageData?.BottomButton?.Hyperlink;
   return (
-    <Layout hasSpacing={false} className="custom-page">
-      <Banner bgImage={`bg-[center_60%] ${bgImage}`} bgImageUrl={bgImageUrl}>
+    <Layout className="custom-page">
+      <Banner
+        bgImage={`bg-[center_60%] ${bgImage}`}
+        bgImageUrl={bgImageUrl}
+        headingClassName="text-center"
+      >
         {pageData?.Title}
       </Banner>
-      <div className="content-padding-full w-3 py-[1.5375rem] px-2 [@media(min-width:425px)]:px-8 [@media(min-width:550px)]:px-24 sm:px-16 lg:px-4 flex [&>*]:w-full custom-content">
-        <RichText data={pageData?.Content} />
+      <div className="content-padding-full w-3 px-2 [@media(min-width:425px)]:px-8 [@media(min-width:550px)]:px-24 sm:px-16 lg:px-4 flex [&>*]:w-full custom-content">
+        <div className="max-w-container">
+          <RichText data={pageData?.Content} />
+        </div>
       </div>
       {buttonText && buttonLink && (
-        <div className="sm:flex sm:justify-center xl:relative z-10 pb-8">
+        <div className="sm:flex sm:justify-center">
           <PrimaryButtonLink hasArrow={true} href={buttonLink}>
             {buttonText}
           </PrimaryButtonLink>

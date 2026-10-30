@@ -124,9 +124,9 @@ const MinistryTeamsPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] md:pt-10 pb-[4.8125rem] md:pb-[8.1875rem] content-padding-full gap-y-9 md:gap-y-15 min-h-screen">
-        <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-12 md:gap-y-15 items-left lg:items-center">
+      <div className="content-padding-full pt-[1.375rem] lg:pt-10">
+        <div className="max-w-container w-full flex flex-col gap-y-9 md:gap-y-15 items-left lg:items-center">
+          <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
           <h1 className="font-semibold text-2xl md:font-bold md:text-4xl leading-tighter mb-0 uppercase">
             Ministry Teams
           </h1>
@@ -134,7 +134,7 @@ const MinistryTeamsPage = ({ pageContext }) => {
             <div className="image-container md:order-1">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-main.png"
+                src="../../images/ministry-teams-main.jpg"
               />
             </div>
             <div className="content-container flex flex-col gap-y-5 md:gap-y-10">
@@ -169,25 +169,25 @@ const MinistryTeamsPage = ({ pageContext }) => {
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-1.png"
+                src="../../images/ministry-teams-1.jpg"
               />
             </div>
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-2.png"
+                src="../../images/ministry-teams-2.jpg"
               />
             </div>
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-3.png"
+                src="../../images/ministry-teams-3.jpg"
               />
             </div>
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-4.png"
+                src="../../images/ministry-teams-4.jpg"
               />
             </div>
           </div>

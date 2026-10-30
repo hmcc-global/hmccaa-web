@@ -1,14 +1,7 @@
 import * as React from "react";
-import { useMediaQuery } from "react-responsive";
 import { textContainer } from "../../css/ministryTeams.module.css";
+import { StaticImage } from "gatsby-plugin-image";
 import { SecondaryButtonLink } from "../Button";
-import imgAccess from "../../images/home-get-connected/access-raw.png";
-import imgBB from "../../images/home-get-connected/bb-raw.png";
-import imgCovenant from "../../images/home-get-connected/covenant-raw.png";
-import imgFocus from "../../images/home-get-connected/focus-raw.png";
-import imgGA from "../../images/home-get-connected/ga-raw.png";
-import imgImpact from "../../images/home-get-connected/impact-raw.png";
-import imgLatVel from "../../images/home-get-connected/latvel-raw.png";
 
 const GetConnectedText = () => (
   <div className="w-full flex-col xl:py-5">
@@ -27,67 +20,133 @@ const GetConnectedText = () => (
   </div>
 );
 
+// width matches the 240px photo box so Gatsby adds a 2x variant from the 600px sources;
+// q95 because these small photos visibly soften at the q80 default
 const lgsArray = [
   {
     title: "COVENANT",
     desc: "MARRIED COUPLES",
     color: "Accent-900", // #a842a8
-    img: imgCovenant,
-    alt: "Covenant Life group",
+    img: (
+      <StaticImage
+        src="../../images/life-stages/covenant.jpg"
+        width={240}
+        quality={95}
+        alt="Covenant Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[6rem] xl:right-[16rem]`,
   },
   {
     title: "FOCUS",
     desc: "SINGLE ADULTS",
     color: "Accent-700", // #f0508b
-    img: imgFocus,
-    alt: "Focus Life group",
+    img: (
+      <StaticImage
+        src="../../images/life-stages/focus.jpg"
+        width={240}
+        quality={95}
+        alt="Focus Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `bottom-[5rem] right-[18rem]`,
   },
   {
     title: "IMPACT",
     desc: "GRADUATE STUDENTS",
     color: "Accent-300", // #ffbd57
-    img: imgImpact,
-    alt: "Impact Life group",
+    img: (
+      <StaticImage
+        src="../../images/life-stages/impact.jpg"
+        width={240}
+        quality={95}
+        alt="Impact Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:bottom-[18rem] xl:right-[-5rem]`,
   },
   {
     title: "ACCESS",
     desc: "UNDERGRADUATES",
     color: "Error-300", // #f39ea2
-    img: imgAccess,
-    alt: "Access Life group",
+    img: (
+      <StaticImage
+        src="../../images/life-stages/access.jpg"
+        width={240}
+        quality={95}
+        alt="Access Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:bottom-[12rem] xl:left-[12rem]`,
   },
   {
     title: "GLOBAL ACCESS",
     desc: "INTERNATIONAL STUDENTS",
     color: "Success-500", // #10b981
-    img: imgGA,
-    alt: "GA Life group",
+    img: (
+      <StaticImage
+        src="../../images/life-stages/global-access.jpg"
+        width={240}
+        quality={95}
+        alt="GA Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[-9rem] xl:left-[20rem]`,
   },
   {
     title: "LATITUDE/VELOCITY",
     desc: "YOUTH",
     color: "Accent-500", // #ff8069
-    img: imgLatVel,
-    alt: "LatVel Life group",
+    img: (
+      <StaticImage
+        src="../../images/life-stages/latitude-velocity.jpg"
+        width={240}
+        quality={95}
+        alt="LatVel Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[12rem] xl:left-[12rem]`,
   },
   {
     title: "BUILDING BLOCKS",
     desc: "KIDS",
     color: "Accent-1000", // #f0df5c
-    img: imgBB,
-    alt: "BB Life group",
+    img: (
+      <StaticImage
+        src="../../images/life-stages/building-blocks.jpg"
+        width={240}
+        quality={95}
+        alt="BB Life group"
+        objectFit="fill"
+        className="w-full h-full"
+        imgClassName="mb-0"
+      />
+    ),
     css: `xl:top-[20rem] xl:right-[-6rem]`,
   },
 ];
 
 const GetConnectedCircleDesktop = () => (
-  <div className="2 w-full pt-[12rem] pb-[8rem]">
+  // Padding only makes room for the photos that hang past the top and bottom of the circle
+  <div className="w-full pt-[6.25rem] pb-[8rem]">
     <div>
       <div
         className={
@@ -138,7 +197,7 @@ const DoubleGridDesktop = ({ title, desc, color, img, alt }) => (
     <div
       className={`w-[15.5rem] h-[15.5rem] left-0 top-0 absolute border-4 border-${color}`}
     >
-      <img src={img} alt={alt} className="mb-0 w-full h-full" />
+      {img}
     </div>
   </div>
 );
@@ -163,7 +222,7 @@ const DoubleGridMobile = ({ title, desc, color, img, alt }) => {
         <div
           className={`w-[9.5rem] h-[9.5rem] left-0 top-0 absolute border-4 border-${color}`}
         >
-          <img src={img} alt={alt} className="mb-0 w-full h-full" />
+          {img}
         </div>
       </div>
     </div>
@@ -185,7 +244,7 @@ const LifeStagesBoxMobile = () => (
 // title on top, black text
 // desc on bottom, white text, centered
 const GetConnectedCircleMobile = () => (
-  <div className="flex-col mx-3 py-10 w-full inline-flex">
+  <div className="flex-col mx-3 w-full inline-flex">
     <div>
       <GetConnectedText />
     </div>
@@ -252,19 +311,21 @@ const GetConnectedCircleMobile = () => (
   </div>
 );
 
-const GetConnectedCircle = () => {
-  // TODO: DoubleGrids aren't responsive
-  // Desktop larger than 1280
-  // but Mobile looks small above 780
-  const isMobile = useMediaQuery({ maxWidth: 1279 });
-  // Define switch cases based on screen size
-  const switchElement = isMobile ? (
-    <GetConnectedCircleMobile />
-  ) : (
-    <GetConnectedCircleDesktop />
-  );
-
-  return switchElement;
-};
+// TODO: DoubleGrids aren't responsive
+// Desktop larger than 1280
+// but Mobile looks small above 780
+// Switch with CSS, not JS: the prebuilt HTML can't know the screen width, so a JS switch
+// shows the desktop layout (absolutely positioned over the hero) until hydration on small screens.
+// display: contents keeps each layout's own box; lazy images in the hidden one aren't fetched.
+const GetConnectedCircle = () => (
+  <>
+    <div className="contents xl:hidden">
+      <GetConnectedCircleMobile />
+    </div>
+    <div className="hidden xl:contents">
+      <GetConnectedCircleDesktop />
+    </div>
+  </>
+);
 
 export default GetConnectedCircle;

@@ -2,8 +2,8 @@ import * as React from "react";
 
 const PrayerGatheringEvents = () => {
   return (
-    <div className="bg-Neutral-200 w-full justify-center flex flex-col items-center px-6 sm:px-2 py-18">
-      <div className="w-full xl:max-w-container sm:px-[3.625rem] mb-4 bg-Shades-0 bg-opacity-80 rounded-xl border-2 border-cyan-700 justify-center gap-1 sm:gap-2">
+    <div className="section-band bg-Neutral-200 justify-center flex flex-col items-center px-6 sm:px-2 py-section">
+      <div className="w-full xl:max-w-container sm:px-[3.625rem] bg-Shades-0 bg-opacity-80 rounded-xl border-2 border-cyan-700 justify-center gap-1 sm:gap-2">
         <div className="flex-col justify-start items-center gap-y-2 flex py-20">
           <div className="subheading">PRAYER GATHERINGS</div>
 

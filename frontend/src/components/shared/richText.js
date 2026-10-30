@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "../Link";
 import { Collapsible } from "../collapsible";
+import OEmbedVideo from "./oembed";
+import { mediaWrapper } from "../../css/media.module.css";
+import { getYouTubeEmbedUrl } from "./videoUrl";
 
 const formatText = (
   { text, code, bold, italic, underline, strikethrough },
@@ -39,6 +42,9 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
   const MID = "</collapsible-question><collapsible-answer>";
   const END = "</collapsible-answer>";
 
+  const EMBED_START = "<embed>";
+  const EMBED_END = "</embed>";
+
   if (
     children.length > 0 &&
     children[0].text?.startsWith(BEG) &&
@@ -73,6 +79,33 @@ const formatParagraph = (children, addPaddingBelowParagraph = true) => {
         `[DEBUG][richText] Found collapsible tags but missing <collapsible-answer> marker; rendering as plain text. Preview: "${preview}"`
       );
     }
+  } else if (
+    children.length > 0 &&
+    children[0].text?.trimStart().startsWith(EMBED_START) &&
+    children[children.length - 1].text?.trimEnd().endsWith(EMBED_END)
+  ) {
+    // The URL may be split across several nodes (e.g. it became a link node
+    // when pasted), so extract it from the paragraph's combined plain text.
+    const plainText = children
+      .map(child => child.text ?? child.children?.map(c => c.text).join(""))
+      .join("")
+      .trim();
+    const videoURL = plainText
+      .slice(EMBED_START.length, -EMBED_END.length)
+      .trim();
+    const embedUrl = getYouTubeEmbedUrl(videoURL);
+    if (embedUrl) {
+      return (
+        <OEmbedVideo
+          oembedString={""}
+          className={`${mediaWrapper} text-center image-container mb-8`}
+          fallbackUrl={embedUrl}
+        />
+      );
+    }
+    console.warn(
+      `[DEBUG][richText] Found embed tags but could not parse a YouTube URL; rendering as plain text. URL: "${videoURL}"`
+    );
   }
 
   return (
@@ -146,7 +179,7 @@ const formatNode = (
   switch (type) {
     case "image":
       return (
-        <div className="flex justify-center items-center content-image ">
+        <div className="flex justify-center items-center content-image lg:py-15">
           <img
             src={image.url}
             alt={image.alternativeText}
@@ -184,14 +217,26 @@ const formatNode = (
   }
 };
 
+const isEmptyParagraph = node =>
+  node.type === "paragraph" &&
+  (node.children || []).every(
+    child => child.type === "text" && !child.text?.trim()
+  );
+
 const RichText = ({ data, addPaddingBelowParagraph = true }) => {
   if (!Array.isArray(data)) {
     return "";
   }
 
+  // Blank lines left at the end in the editor would only add space before whatever follows
+  let end = data.length;
+  while (end > 0 && isEmptyParagraph(data[end - 1])) {
+    end--;
+  }
+
   return (
     <>
-      {data.map((node, idx) => (
+      {data.slice(0, end).map((node, idx) => (
         <React.Fragment key={idx}>
           {formatNode(node, addPaddingBelowParagraph)}
         </React.Fragment>

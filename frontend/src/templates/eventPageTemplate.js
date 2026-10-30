@@ -25,18 +25,18 @@ const EventPage = ({ pageContext }) => {
     formatEventTimeAsObject(time);
   return (
     <Layout>
-      <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-5 lg:gap-y-15 min-h-screen extend-breadcrumbs">
-        <Breadcrumb
-          crumbs={crumbs}
-          crumbSeparator=" > "
-          crumbLabel={event.title}
-        />
-        <div className="max-w-extend-container w-full flex flex-col gap-y-3 lg:gap-y-15 items-center justify-start gap-x-32">
+      <div className="content-padding-full pt-[1.375rem] lg:pt-10 extend-breadcrumbs">
+        <div className="max-w-extend-container w-full flex flex-col gap-y-9 lg:gap-y-15 items-center justify-start gap-x-32">
+          <Breadcrumb
+            crumbs={crumbs}
+            crumbSeparator=" > "
+            crumbLabel={event.title}
+          />
           <h1 className="text-left text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
             {event.title}
           </h1>
 
-          <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-5 lg:gap-8 pt-[0.9375rem] lg:pt-0">
+          <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-5 lg:gap-8">
             <div className="flex flex-col gap-y-5 lg:gap-y-15">
               <div className="flex flex-col items-start lg:gap-9 text-black text-base lg:text-xl font-medium leading-normal">
                 <div className="flex items-center gap-1 lg:gap-2 py-[0.3125rem] lg:py-0">
@@ -85,7 +85,7 @@ const EventPage = ({ pageContext }) => {
             </div>
           </div>
 
-          <div className="flex flex-col w-full gap-y-10 pt-2 lg:pt-0">
+          <div className="flex flex-col w-full gap-y-10">
             <div className="flex flex-col gap-y-6">
               <h3 className="text-black text-xl lg:text-2xl font-semibold leading-tighter">
                 Details

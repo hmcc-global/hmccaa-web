@@ -15,9 +15,9 @@ const MembershipPage = ({ pageContext }) => {
   } = pageContext;
   return (
     <Layout>
-      <div className="pt-[1.375rem] lg:pt-10 pb-[4.8125rem] lg:pb-[8.1875rem] content-padding-full gap-y-9 lg:gap-y-15 min-h-screen">
-        <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
-        <div className="max-w-container w-full flex flex-col gap-y-12 lg:gap-y-15 lg:items-center">
+      <div className="content-padding-full pt-[1.375rem] lg:pt-10">
+        <div className="max-w-container w-full flex flex-col gap-y-9 lg:gap-y-15 lg:items-center">
+          <Breadcrumb crumbs={crumbs} crumbSeparator=" > " />
           <h1 className="text-2xl lg:text-4xl font-semibold lg:font-bold leading-tighter mb-0 uppercase">
             Membership
           </h1>
@@ -25,7 +25,8 @@ const MembershipPage = ({ pageContext }) => {
             <div className="image-container lg:order-1">
               <StaticImage
                 alt="New Members"
-                src="../../images/new-members.png"
+                src="../../images/new-members.jpg"
+                width={580}
               />
             </div>
             <div className="content-container flex flex-col gap-y-5 lg:gap-y-10">

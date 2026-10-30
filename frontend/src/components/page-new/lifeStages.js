@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { bgLeft, bgRight } from "../../css/lifeStagesNew.module.css";
 import { SecondaryButtonLink } from "../Button";
 
+// width={232} is the largest these render (sm–lg); the 464px sources cover 2x screens
 const lifeStages = [
   {
     heading: "A Place for Families",
@@ -10,7 +11,8 @@ const lifeStages = [
       "Newly married? Have newborns? Kids? We have families from different life stages you can connect with in our Covenant ministry!",
     lifeStageImage: (
       <StaticImage
-        src="../../images/families-life-stage.png"
+        src="../../images/families-life-stage.jpg"
+        width={232}
         alt="Families Life Stage"
       />
     ),
@@ -21,7 +23,8 @@ const lifeStages = [
       "New to the area? Just graduated? Our FOCUS ministry is for anyone out of school and not yet married.",
     lifeStageImage: (
       <StaticImage
-        src="../../images/single-adults-life-stage.png"
+        src="../../images/single-adults-life-stage.jpg"
+        width={232}
         alt="Single Adults Life Stage"
       />
     ),
@@ -32,7 +35,8 @@ const lifeStages = [
       "In grad school? Taking extra courses? This is a place you can connect with those pursuing higher education in our Impact ministry.",
     lifeStageImage: (
       <StaticImage
-        src="../../images/grad-students-life-stage.png"
+        src="../../images/grad-students-life-stage.jpg"
+        width={232}
         alt="Grad Students Life Stage"
       />
     ),
@@ -43,7 +47,8 @@ const lifeStages = [
       "Flew in from overseas to attend school in the US? In our Global Access ministry we have students from China, HK, Indonesia, Malaysia, Japan, and many more!",
     lifeStageImage: (
       <StaticImage
-        src="../../images/international-students-life-stage.png"
+        src="../../images/international-students-life-stage.jpg"
+        width={232}
         alt="International Students Life Stage"
       />
     ),
@@ -54,7 +59,8 @@ const lifeStages = [
       "A student at U of M? Eastern? Other schools for undergrad studies? Our undergrad ministry is what sparked the start of HMCC. We would love to connect more with you!",
     lifeStageImage: (
       <StaticImage
-        src="../../images/undergrads-life-stage.png"
+        src="../../images/undergrads-life-stage.jpg"
+        width={232}
         alt="Undergrads Life Stage"
       />
     ),
@@ -64,7 +70,7 @@ const lifeStages = [
 const desktopViewRightSideItems = [0, 2, 3];
 const LifeStages = () => {
   return (
-    <div className="px-4 pt-[1.1875rem] pb-[4.1875rem] lg:py-[9.5625rem] flex flex-col gap-y-10 lg:gap-y-[3.75rem] max-w-[33.125rem] lg:max-w-[66.3125rem]">
+    <div className="px-4 flex flex-col gap-y-10 lg:gap-y-[3.75rem] max-w-[33.125rem] lg:max-w-[66.3125rem]">
       <div className="text-left">
         <div className="subheading">Life Stages</div>
         <h2>There&apos;s a Place For Everyone</h2>
@@ -99,7 +105,7 @@ const LifeStages = () => {
                 {description}
               </div>
             </div>
-            <div className="lg:max-w-[11.75rem]">
+            <div className="lg:w-[11.75rem] lg:shrink-0">
               <div
                 className={`${index % 2 === 0 ? bgRight : bgLeft} mb-[7px] ${
                   index % 2 === 0 ? "mr-[7px]" : "ml-[7px]"
@@ -120,7 +126,7 @@ const LifeStages = () => {
         >
           Let Us Know You&apos;re Interested
         </SecondaryButtonLink>
-        <p>*We will have a servant leader contact you.</p>
+        <p className="mb-0">*We will have a servant leader contact you.</p>
       </div>
     </div>
   );

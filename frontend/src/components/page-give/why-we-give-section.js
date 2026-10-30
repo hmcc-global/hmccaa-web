@@ -3,11 +3,12 @@ import { HighlightedParagraph } from "../shared/highlightedParagraph";
 import { StaticImage } from "gatsby-plugin-image";
 
 const WhyWeGiveSection = () => (
-  <div className="flex flex-col lg:flex-row pt-[15px] pb-[68px] gap-y-5 content-image">
+  <div className="flex flex-col lg:flex-row gap-y-5 content-image">
     <div className="lg:order-1 image-container">
       <div>
         <StaticImage
-          src="../../images/give-why-we-give.png"
+          src="../../images/give-why-we-give.jpg"
+          width={540}
           alt="Why we give"
         />
       </div>

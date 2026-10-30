@@ -7,6 +7,7 @@ import Partners from "../../components/page-about/index/partners";
 import Mission from "../../components/page-about/index/mission";
 import Belief from "../../components/page-about/index/belief";
 import Vision from "../../components/page-about/index/vision";
+import BelongBelieveBecome from "../../components/page-about/index/belong-believe-become";
 import LeadershipSection from "../../components/page-about/index/leadership";
 import Feedback from "../../components/page-about/index/feedback";
 import OurStory from "../../components/page-about/index/our-story";
@@ -19,18 +20,20 @@ export const Head = () => (
 const AboutPage = ({ data: { strapiOurTeamPage } = {} }) => {
   const { Elders } = strapiOurTeamPage || {};
   return (
-    <Layout spacingColor="bg-Neutral-200">
+    <Layout>
       <Banner bgImage="bg-about bg-[center_top] ">About Us</Banner>
       <div className="content-padding-full">
         <OurStory />
       </div>
-      <Mission />
+      {/* Mission, Belong/Believe/Become and Vision meet with no gap between them */}
+      <div className="section-band">
+        <Mission />
+        <BelongBelieveBecome />
+        <Vision />
+      </div>
       <div className="content-padding-full">
         <LeadershipSection elders={Elders} />
         <Belief />
-      </div>
-      <Vision />
-      <div className="content-padding-full">
         <Partners />
       </div>
       <Feedback />
