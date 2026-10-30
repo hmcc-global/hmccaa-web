@@ -17,10 +17,12 @@ const Partners = () => (
   <div className={container}>
     <div className={globalMissionImgContainer}>
       <div>
+        {/* Fills its column like the banner below it: 540px from lg, the page's content width below */}
         <StaticImage
           src="../../../images/about-hmi.jpg"
           alt="HMI Project"
-          width={480}
+          layout="fullWidth"
+          sizes="(min-width: 1024px) 540px, (min-width: 768px) calc(100vw - 112px), calc(100vw - 32px)"
         />
       </div>
     </div>
