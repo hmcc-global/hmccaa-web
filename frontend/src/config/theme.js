@@ -320,13 +320,13 @@ const theme = {
       10: ".10",
     },
     backgroundImage: {
-      about: "url('../images/background/about.png')",
+      about: "url('../images/background/about.jpg')",
       connect: "url('../images/background/connect.jpeg')",
       "get-involved": "url('../images/background/get-involved.jpg')",
-      events: "url('../images/background/events.jpeg')",
-      watch: "url('../images/background/watch.jpeg')",
-      give: "url('../images/background/give.jpeg')",
-      new: "url('../images/background/new.jpeg')",
+      events: "url('../images/background/events.jpg')",
+      watch: "url('../images/background/watch.jpg')",
+      give: "url('../images/background/give.jpg')",
+      new: "url('../images/background/new.jpg')",
     },
 
     gridTemplateColumns: {
