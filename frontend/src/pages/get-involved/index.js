@@ -12,7 +12,7 @@ import Baptism from "../../components/page-get-involved/baptism";
 
 const NextStepsPage = () => (
   <Layout>
-    <Banner bgImage="bg-get-involved bg-center">Next Steps</Banner>
+    <Banner bgImage="bg-get-involved bg-center">Get Involved</Banner>
     <div className="content-padding-full">
       <LifeGroup />
       <Membership />
@@ -25,7 +25,7 @@ const NextStepsPage = () => (
 );
 
 export const Head = () => (
-  <Seo title="Next Steps" description={PageDescriptions["get-involved"]} />
+  <Seo title="Get Involved" description={PageDescriptions["get-involved"]} />
 );
 
 export default NextStepsPage;
