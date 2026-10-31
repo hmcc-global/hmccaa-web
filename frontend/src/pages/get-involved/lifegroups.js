@@ -11,11 +11,13 @@ import FiveEs from "../../components/page-lifeGroups/fiveEs";
 const Images = ({ images }) => (
   <div className="flex lg:flex-row lg:flex-nowrap flex-wrap gap-6 justify-center">
     {images.map(({ strapiId, alternativeText, file }, index) => (
-      <div key={strapiId} className="max-w-[300px] self-center">
+      <div key={strapiId} className="w-[300px] max-w-full">
         {file?.childImageSharp?.gatsbyImageData && (
           <GatsbyImage
             image={file.childImageSharp.gatsbyImageData}
             alt={alternativeText || `Life Group Image ${index + 1}`}
+            className="w-full aspect-[4/3]"
+            objectFit="cover"
           />
         )}
       </div>
@@ -62,7 +64,7 @@ export const pageQuery = graphql`
         alternativeText
         file {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
