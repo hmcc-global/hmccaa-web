@@ -21,7 +21,11 @@ const BaptismPage = ({ pageContext }) => {
           </h1>
           <div className="gap-y-5 gap-x-15 flex flex-col lg:flex-row items-center lg:items-start">
             <div className="image-container lg:order-1">
-              <StaticImage alt="Baptism" src="../../images/baptism.png" />
+              <StaticImage
+                alt="Baptism"
+                src="../../images/baptism.jpg"
+                width={580}
+              />
             </div>
             <div className="content-container flex flex-col gap-y-5 lg:gap-y-10">
               <div className="text-base lg:text-lg">

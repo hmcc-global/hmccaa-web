@@ -134,7 +134,7 @@ const MinistryTeamsPage = ({ pageContext }) => {
             <div className="image-container md:order-1">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-main.png"
+                src="../../images/ministry-teams-main.jpg"
               />
             </div>
             <div className="content-container flex flex-col gap-y-5 md:gap-y-10">
@@ -169,25 +169,25 @@ const MinistryTeamsPage = ({ pageContext }) => {
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-1.png"
+                src="../../images/ministry-teams-1.jpg"
               />
             </div>
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-2.png"
+                src="../../images/ministry-teams-2.jpg"
               />
             </div>
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-3.png"
+                src="../../images/ministry-teams-3.jpg"
               />
             </div>
             <div className="">
               <StaticImage
                 alt="Ministry Teams"
-                src="../../images/ministry-teams-4.png"
+                src="../../images/ministry-teams-4.jpg"
               />
             </div>
           </div>

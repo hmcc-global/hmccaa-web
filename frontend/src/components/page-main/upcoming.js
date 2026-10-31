@@ -6,7 +6,8 @@ const UpcomingEvents = () => (
   <div className="flex flex-col lg:flex-row gap-y-5 items-center lg:items-start content-image">
     <div className="image-container">
       <StaticImage
-        src="../../images/upcomingEventsImg.png"
+        src="../../images/upcomingEventsImg.jpg"
+        width={540}
         alt="UpcomingEventsImg"
       />
     </div>

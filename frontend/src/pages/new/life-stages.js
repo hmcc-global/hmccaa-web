@@ -14,7 +14,8 @@ const lifeStages = [
   {
     image: (
       <StaticImage
-        src="../../images/covenant-life-stage.png"
+        src="../../images/life-stages/covenant.jpg"
+        width={297}
         alt="Covenant - Married Couples Life Stage"
         className={`border-Accent-900 ${imageClassName}`}
       />
@@ -49,7 +50,8 @@ const lifeStages = [
   {
     image: (
       <StaticImage
-        src="../../images/focus-life-stage.png"
+        src="../../images/life-stages/focus.jpg"
+        width={297}
         alt="Focus - Single Adults Life Stage"
         className={`border-Accent-700 ${imageClassName}`}
       />
@@ -83,7 +85,8 @@ const lifeStages = [
   {
     image: (
       <StaticImage
-        src="../../images/impact-life-stage.png"
+        src="../../images/life-stages/impact.jpg"
+        width={297}
         alt="Impact - Grad Students Life Stage"
         className={`border-Accent-300 ${imageClassName}`}
       />
@@ -113,7 +116,8 @@ const lifeStages = [
   {
     image: (
       <StaticImage
-        src="../../images/access-life-stage.png"
+        src="../../images/life-stages/access.jpg"
+        width={297}
         alt="Access - Undergraduate Students Life Stage"
         className={`border-Error-300 ${imageClassName}`}
       />
@@ -151,7 +155,8 @@ const lifeStages = [
   {
     image: (
       <StaticImage
-        src="../../images/global-access-life-stage.png"
+        src="../../images/life-stages/global-access.jpg"
+        width={297}
         alt="Global Access Life Stage"
         className={`border-Success-500 ${imageClassName}`}
       />
@@ -194,7 +199,8 @@ const lifeStages = [
   {
     image: (
       <StaticImage
-        src="../../images/latitude-velocity-life-stage.png"
+        src="../../images/life-stages/latitude-velocity.jpg"
+        width={297}
         alt="Latitude & Velocity - Youth Life Stage"
         className={`border-Accent-500 ${imageClassName}`}
       />
@@ -229,7 +235,8 @@ const lifeStages = [
   {
     image: (
       <StaticImage
-        src="../../images/building-blocks-life-stage.png"
+        src="../../images/life-stages/building-blocks.jpg"
+        width={297}
         alt="Building Blocks - Children Life Stage"
         className={`border-Accent-1000 ${imageClassName}`}
       />

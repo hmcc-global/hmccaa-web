@@ -12,7 +12,7 @@ const transformationList = [
     image: (
       <StaticImage
         alt="Alive Disciplehip Class"
-        src="../../images/alive-discipleship.png"
+        src="../../images/alive-discipleship.jpg"
       />
     ),
     title: "ALIVE Discipleship",
@@ -25,7 +25,7 @@ const transformationList = [
     id: 2,
     title: "Apologetics: Love Has Reasons",
     image: (
-      <StaticImage alt="Apologetics Class" src="../../images/apologetics.png" />
+      <StaticImage alt="Apologetics Class" src="../../images/apologetics.jpg" />
     ),
     description: [
       "Is Christianity the real deal? In this course we’ll interact with and address the uncertainties shared by others and ourselves. So often we can’t find God—not because he is too high or far away, but because he is so low, and so close.",
@@ -35,7 +35,7 @@ const transformationList = [
     id: 3,
     title: "Freedom Classes",
     image: (
-      <StaticImage alt="Freedom Class" src="../../images/freedom-class.png" />
+      <StaticImage alt="Freedom Class" src="../../images/freedom-class.jpg" />
     ),
     description: [
       "We all have areas in our lives that affect our spiritual growth and hinder us from fully surrendering our lives to God.",
@@ -49,7 +49,7 @@ const transformationList = [
     image: (
       <StaticImage
         alt="Great Commission Class"
-        src="../../images/great-commission.png"
+        src="../../images/great-commission.jpg"
       />
     ),
     description: [
