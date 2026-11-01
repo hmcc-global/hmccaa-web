@@ -5,9 +5,9 @@ import { Loader } from "./index";
 const LoadContainer = ({ loading = false }) => (
   <div
     id="loader"
-    className={`fixed top-1/2 mx-auto w-full max-w-[5.75rem] max-h-[5.75rem] ${
+    className={`fixed top-1/2 left-1/2 w-[5.75rem] h-[5.75rem] -translate-x-1/2 -translate-y-1/2 ${
       loading ? "" : "invisible"
-    } -translate-x-[2.875rem]`}
+    }`}
   >
     {loading && <Loader className="w-[5.75rem] h-[5.75rem]" />}
   </div>
