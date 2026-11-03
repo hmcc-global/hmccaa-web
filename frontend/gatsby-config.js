@@ -132,6 +132,14 @@ module.exports = {
             name: "Bebas Neue",
             file: "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap",
           },
+          {
+            name: "Merriweather",
+            file: "https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Rubik+Storm&display=swap",
+          },
+          {
+            name: "Nunito Sans",
+            file: "https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap",
+          },
         ],
       },
     },

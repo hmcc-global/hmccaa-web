@@ -47,7 +47,7 @@ body {
 }
 
 .subheading {
-  @apply font-bold text-lg lg:text-xl uppercase text-Primary-300 pb-3;
+  @apply font-nunito-sans font-bold text-mid-lg lg:text-[1.375rem] uppercase text-Primary-300 pb-3;
 }
 
 h2 {
@@ -231,7 +231,7 @@ span.ellipsis {
 }
 
 .custom-content .subheading {
-  @apply font-semibold text-lg sm:font-bold sm:text-lg;
+  @apply font-semibold text-[1.125rem] sm:font-bold sm:text-[1.375rem];
 }
 
 .custom-content p.medium {

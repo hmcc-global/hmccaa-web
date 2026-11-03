@@ -33,14 +33,14 @@ const IndexPage = () => (
               />
             </div>
           </div>
-          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[4.6875rem]  line-clamp-2 md:text-6xl text-3xl w-full font-semibold leading-tight tracking-[0.04em] 1.5xl:pl-20">
+          <h1 className="uppercase absolute mb-0 top-1/2 -translate-y-[4.6875rem]  line-clamp-2 w-full font-semibold leading-tight 1.5xl:pl-20">
             <span className="block">Transform lives,</span>
             <span className="block">Transform the world.</span>
           </h1>
         </div>
         <div className="w-full bg-Primary-700/[0.8] flex justify-center px-4 absolute bottom-0">
           <div className="flex md:flex-row flex-col md:py-12 py-6  md:gap-10 gap-4">
-            <h2 className="flex-1 mb-0 lg:pr-4 md:text-3xl text-2xl md:text-left text-center font-semibold leading-tight -tracking-[0.02em] text-Shades-0 md:whitespace-nowrap ">
+            <h2 className="flex-1 mb-0 lg:pr-4 md:text-left text-center font-semibold leading-tight text-Shades-0 md:whitespace-nowrap ">
               JOIN US THIS SUNDAY @ 10 AM
             </h2>
             <div className="lg:flex lg:justify-center">

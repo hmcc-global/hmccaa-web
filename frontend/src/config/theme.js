@@ -228,6 +228,8 @@ const theme = {
     roboto: "Roboto",
     ubuntu: "Ubuntu",
     bebas: '"Bebas Neue"',
+    merriweather: "Merriweather, serif",
+    "nunito-sans": '"Nunito Sans", sans-serif',
   },
   borderRadius: {
     none: "0",
