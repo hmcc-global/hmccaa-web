@@ -52,19 +52,19 @@ const MapDetails = () => {
           </div>
         </div>
       </div>
-      <p className="mb-0 px-4 lg:px-0 text-left text-[0.8125rem] leading-relaxed text-Neutral-800">
-        A lot of the street parking fills up quickly, so if you show up around
-        10am on Sunday Morning it is probably best to go straight to the Dental
-        School Parking Structure. Also, if you are a U of M student or employee
-        you can follow this{" "}
+      <p className="mb-0 px-4 lg:px-0 text-left text-lg leading-relaxed text-Neutral-800">
+        Street parking tends to fill up quickly, especially on Sunday mornings.
+        If you arrive around 10:00 a.m., we recommend heading directly to the
+        Dental School Parking Structure. U-M students and employees can also use
+        this{" "}
         <Link
           href="https://umich.aimsparking.com/"
           className="font-medium text-Primary-500 underline"
         >
           link
         </Link>{" "}
-        (go to purchase permit) to get a free permit to park in some U of M lots
-        Friday-Sunday.
+        and select “Purchase Permit” to obtain a free parking permit for
+        designated U-M parking lots on Fridays through Sundays.
       </p>
     </div>
   );
