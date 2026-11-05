@@ -53,8 +53,8 @@ const MapDetails = () => {
         </div>
       </div>
       <p className="mb-0 px-4 lg:px-0 text-left text-lg leading-relaxed text-Neutral-800">
-        Street parking tends to fill up quickly, especially on Sunday mornings.
-        If you arrive around 10:00 a.m., we recommend heading directly to the
+        ***Street parking tends to fill up quickly, especially on Sunday
+        mornings. If you arrive around 10:00 a.m., we recommend heading directly to the
         Dental School Parking Structure. U-M students and employees can also use
         this{" "}
         <Link
