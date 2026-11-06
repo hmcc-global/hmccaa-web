@@ -2,7 +2,7 @@ import * as React from "react";
 import Seo from "../components/seo";
 import Layout from "../components/layout";
 import { PrimaryButtonLink } from "../components/Button";
-import { formatEventTimeAsObject } from "../components/page-events/event-processing-util";
+import { formatEventDateAsObject } from "../components/page-events/event-processing-util";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Breadcrumb } from "gatsby-plugin-breadcrumb";
 import { CalendarIcon, ClockIcon, PinIcon } from "../components/svgs";
@@ -22,7 +22,7 @@ const EventPage = ({ pageContext }) => {
   } = pageContext;
 
   const { date: formattedDate, time: formattedTime } =
-    formatEventTimeAsObject(time);
+    formatEventDateAsObject(time);
   return (
     <Layout>
       <div className="content-padding-full pt-[1.375rem] lg:pt-10 extend-breadcrumbs">

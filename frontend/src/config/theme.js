@@ -279,6 +279,7 @@ const theme = {
     },
     boxShadow: {
       button: "0 2px 8px 0 rgba(0, 0, 0, 0.12)",
+      "md-lg": "4px 4px 12px 2px rgba(0, 0, 0, 0.2)",
     },
     letterSpacing: {
       "small-tight": "-0.02em",
