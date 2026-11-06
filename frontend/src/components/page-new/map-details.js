@@ -19,7 +19,9 @@ const MapDetails = () => {
               Join us on <br /> Sunday
             </h1>
           </div>
-          <h3 className="font-bold text-2xl text-Secondary-700 lg:mb-8">10 AM</h3>
+          <h3 className="font-bold text-2xl text-Secondary-700 lg:mb-8">
+            10 AM
+          </h3>
           <div className="flex flex-col gap-1 lg:gap-2 lg:mb-4">
             <h5 className="font-medium text-lg text-Neutral-50">
               Transformation Center
