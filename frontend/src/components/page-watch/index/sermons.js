@@ -179,7 +179,7 @@ const Sermons = ({ listing, navigateListing }) => {
   let getBackgroundImg = (Background, SeriesName) => {
     let data = Background?.file?.childImageSharp?.gatsbyImageData;
     if (data) {
-      return <GatsbyImage image={data} alt={SeriesName} />;
+      return <GatsbyImage image={data} alt={SeriesName} className="h-full" />;
     }
     let url = Background?.url;
     if (url) {
@@ -190,7 +190,7 @@ const Sermons = ({ listing, navigateListing }) => {
     console.warn(
       `[DEBUG][sermon-series] Missing background image for series "${SeriesName}"`
     );
-    return <div className="py-5 w-full"></div>;
+    return <div className="h-full w-full"></div>;
   };
 
   return (

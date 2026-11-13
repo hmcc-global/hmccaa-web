@@ -14,7 +14,6 @@ import {
   filterEventTimes,
 } from "../../components/page-events/event-processing";
 import {
-  formatEventTimeAsString,
   getFullEventId,
   sortTimes,
 } from "../../components/page-events/event-processing-util";
@@ -57,7 +56,7 @@ const EventsPage = ({ data }) => {
           </div>
         ) : (
           <div className="flex flex-col w-full max-w-container">
-            <div className="flex-grow grid grid-cols-2 md:grid-cols-3 md:auto-rows-[30rem] gap-x-5 gap-y-[2.0625rem] md:gap-y-15">
+            <div className="flex-grow grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-[2.0625rem] md:gap-y-15">
               {events
                 .map(event => event.times.map(time => ({ event, time })))
                 .flat()
@@ -69,25 +68,19 @@ const EventsPage = ({ data }) => {
                       key={key}
                       eventID={key}
                       title={event.title}
-                      time={formatEventTimeAsString(time)}
+                      time={time}
                       img={
-                        <div className="relative pb-[63.493%] w-full">
-                          <div className="absolute inset-0">
-                            {event.img?.file?.childImageSharp
-                              ?.gatsbyImageData ? (
-                              <GatsbyImage
-                                image={
-                                  event.img?.file?.childImageSharp
-                                    ?.gatsbyImageData
-                                }
-                                alt={event.imgAlt}
-                                className="h-full"
-                              />
-                            ) : (
-                              <div className="h-full w-full"></div>
-                            )}
-                          </div>
-                        </div>
+                        event.img?.file?.childImageSharp?.gatsbyImageData ? (
+                          <GatsbyImage
+                            image={
+                              event.img?.file?.childImageSharp?.gatsbyImageData
+                            }
+                            alt={event.imgAlt}
+                            className="h-full"
+                          />
+                        ) : (
+                          <div className="h-full w-full"></div>
+                        )
                       }
                       location={event.location}
                       description={event.description[0]}
