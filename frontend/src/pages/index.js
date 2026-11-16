@@ -13,7 +13,7 @@ const IndexPage = () => (
   <Layout>
     <div className="w-full">
       <NotificationBar />
-      <div className="relative text-center 1.5xl:text-left text-Shades-0 bg-Primary-700">
+      <div className="relative text-center lg:text-left text-Shades-0 bg-Primary-700">
         <div className="mx-auto">
           <div className="w-full mx-auto relative overflow-hidden">
             <div className="pb-[25rem] md:pb-[60%] xl:pb-[40%] 2.5xl:pb-[45rem] [&>.gatsby-image-wrapper]:absolute home-image-wrapper">
@@ -33,7 +33,7 @@ const IndexPage = () => (
               />
             </div>
           </div>
-          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[4.6875rem]  line-clamp-2 md:text-6xl text-3xl w-full font-semibold leading-tight tracking-[0.04em] 1.5xl:pl-20">
+          <h1 className="uppercase font-bebas absolute mb-0 top-1/2 -translate-y-[4.6875rem]  line-clamp-2 md:text-6xl text-3xl w-full font-semibold leading-tight tracking-[0.04em] lg:pl-12 1.5xl:pl-20">
             <span className="block">Transform lives,</span>
             <span className="block">Transform the world.</span>
           </h1>
