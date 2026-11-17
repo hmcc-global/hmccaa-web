@@ -13,6 +13,7 @@ const EventCard = ({ eventID, title, time, location, img, description }) => {
   const { date: dates, time: times } = formatEventDateAsObject(
     time,
     true,
+    false,
     false
   );
   const attributes = (
