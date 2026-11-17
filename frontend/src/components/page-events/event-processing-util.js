@@ -68,13 +68,17 @@ function formatOrdinal(day) {
   return `${day}${suffixes[rule]}`;
 }
 
-function formatDateAndTime(isoDateString, showDayOfWeek = false) {
+function formatDateAndTime(
+  isoDateString,
+  showDayOfWeek = false,
+  showPluralRules = true
+) {
   const date = new Date(isoDateString);
 
   const dateString = dateFormatter
     .format(date)
     .replace(/\d+,/, match => {
-      return `${formatOrdinal(match.slice(0, -1))},`;
+      return showPluralRules ? `${formatOrdinal(match.slice(0, -1))},` : match;
     })
     .replace(/^\w+,/, match => {
       return !showDayOfWeek ? "" : match;
@@ -140,18 +144,24 @@ function formatEventTime(timeObject) {
 function formatEventDateAsObject(
   dateObject,
   showDayOfWeek = false,
-  showTimes = true
+  showTimes = true,
+  showPluralRules = true
 ) {
   const { start, end } = dateObject;
   if (!end) {
-    return formatDateAndTime(start, showDayOfWeek);
+    return formatDateAndTime(start, showDayOfWeek, showPluralRules);
   }
 
   let { date: startDate, time: startTime } = formatDateAndTime(
     start,
-    showDayOfWeek
+    showDayOfWeek,
+    showPluralRules
   );
-  let { date: endDate, time: endTime } = formatDateAndTime(end, showDayOfWeek);
+  let { date: endDate, time: endTime } = formatDateAndTime(
+    end,
+    showDayOfWeek,
+    showPluralRules
+  );
   if (startDate === endDate) {
     // If start and end date are the same then we want to specify real times for midnight
     return {
@@ -182,9 +192,15 @@ function formatEventDateAsObject(
 function formatEventDateAsString(
   date,
   showDayOfWeek = false,
-  showTimes = true
+  showTimes = true,
+  showPluralRules = true
 ) {
-  const dateObject = formatEventDateAsObject(date, showDayOfWeek, showTimes);
+  const dateObject = formatEventDateAsObject(
+    date,
+    showDayOfWeek,
+    showTimes,
+    showPluralRules
+  );
   return dateToString(dateObject, showTimes);
 }
 

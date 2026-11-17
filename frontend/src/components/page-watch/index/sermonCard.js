@@ -32,6 +32,7 @@ const SermonCard = ({ img, date, title, speaker, passage, series, href }) => {
       graphQLDate={formatEventDateAsString(
         { start: new Date(year, parseInt(month, 10) - 1, day) },
         false,
+        false,
         false
       )}
       title={title}
