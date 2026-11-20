@@ -8,7 +8,7 @@ const steps = [
     image: <ConnectSvg />,
     text: "Connect With Us",
     details: "Unsure where to begin? Fill out this short questionnaire!",
-    href: "https://fs23.formsite.com/whitemn/dtuolqqeba/index.html",
+    href: "https://forms.gle/iyWherd9YBMySJCx8",
     action: "Connect",
     external: true,
   },
