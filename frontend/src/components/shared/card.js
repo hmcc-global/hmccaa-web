@@ -13,14 +13,16 @@ const Card = ({
   return (
     <Link to={href} className="no-underline text-Shades-100 font-normal">
       <div
-        className={`flex flex-col items-center gap-2 pb-5 mx-auto rounded-xl border border-solid border-b-Neutral-900 shadow-md overflow-hidden ${containerCss} h-full`}
+        className={`flex flex-col items-center mx-auto rounded-sm shadow-md-lg overflow-hidden ${containerCss} h-full`}
       >
-        {img}
-        <div className="flex flex-col gap-1 items-start md:gap-3 px-2 w-full md:px-[1.8125rem]">
-          <p className="mb-0 text-[0.625rem] leading-[0.9375rem] text-black font-medium tracking-[0.0375rem] md:text-base md:leading-[1.3125rem] md:tracking-[0.0525rem]">
+        <div className="relative pb-[63.16%] w-full">
+          <div className="absolute inset-0">{img}</div>
+        </div>
+        <div className="flex flex-col gap-2 items-start px-2 w-full md:px-10 pt-8 pb-5">
+          <p className="mb-0 text-[0.625rem] leading-[0.9375rem] text-Primary-500 font-bold tracking-[0.0375rem] md:text-base md:leading-[1.3125rem] md:tracking-[0.0525rem]">
             {graphQLDate || date}
           </p>
-          <h3 className="text-lg leading-[1.25rem] font-semibold text-black md:leading-[1.8rem] md:text-2xl">
+          <h3 className="text-lg leading-[1.25] font-normal text-black md:leading-[1.2] md:text-3xl">
             {title}
           </h3>
           {children}

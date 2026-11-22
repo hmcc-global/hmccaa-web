@@ -19,7 +19,9 @@ const MapDetails = () => {
               Join us on <br /> Sunday
             </h1>
           </div>
-          <h3 className="font-bold text-2xl text-Secondary-700 lg:mb-8">10 AM</h3>
+          <h3 className="font-bold text-2xl text-Secondary-700 lg:mb-8">
+            10 AM
+          </h3>
           <div className="flex flex-col gap-1 lg:gap-2 lg:mb-4">
             <h5 className="font-medium text-lg text-Neutral-50">
               Transformation Center
@@ -54,9 +56,9 @@ const MapDetails = () => {
       </div>
       <p className="mb-0 px-4 lg:px-0 text-left text-lg leading-relaxed text-Neutral-800">
         ***Street parking tends to fill up quickly, especially on Sunday
-        mornings. If you arrive around 10:00 a.m., we recommend heading directly to the
-        Dental School Parking Structure. U-M students and employees can also use
-        this{" "}
+        mornings. If you arrive around 10:00 a.m., we recommend heading directly
+        to the Dental School Parking Structure. U-M students and employees can
+        also use this{" "}
         <Link
           href="https://umich.aimsparking.com/"
           className="font-medium text-Primary-500 underline"

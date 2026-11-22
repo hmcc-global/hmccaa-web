@@ -6,7 +6,7 @@ import Seo, { PageDescriptions } from "../../components/seo";
 import { CalendarIcon, PinIcon } from "../../components/svgs";
 import { PrimaryButtonLink } from "../../components/Button";
 import { graphql } from "gatsby";
-import { formatEventTimeAsString } from "../../components/page-events/event-processing-util";
+import { formatEventDateAsString } from "../../components/page-events/event-processing-util";
 import RichText from "../../components/shared/richText";
 import Link from "../../components/Link";
 
@@ -62,8 +62,9 @@ const MissionsPage = ({
   const missions = data.allStrapiMissionsTrip.nodes.map(obj => ({
     strapiId: obj.strapiId,
     name: obj.Name,
-    dates: formatEventTimeAsString(
+    dates: formatEventDateAsString(
       { start: obj.StartDate, end: obj.EndDate },
+      false,
       false
     ),
     location: showLocation(obj.Location),
